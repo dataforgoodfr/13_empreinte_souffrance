@@ -65,4 +65,36 @@ Mettre à jour les dépendances:
 
 ## Utiliser Tox pour tester votre code
 
+Aller dans le dossier `backend`, puis:
+
     tox -vv
+
+## Utiliser pytest pour tester votre code
+
+Aller dans le dossier `backend`, puis:
+
+    python -m pytest -vv
+
+## Installer task
+
+Suivre la documentation officielle: https://taskfile.dev/installation/
+
+## Lancer le serveur
+
+Aller dans le dossier `backend`, puis:
+
+    task run-server
+
+## Générer ou updater les traductions
+
+Aller dans le dossier `backend`, puis:
+
+Dans l'ordre :
+
+    task translations-extract
+    task translations-update
+    task translations-compile
+
+Ou, pour tout faire d'un coup :
+    
+    task translations-all
