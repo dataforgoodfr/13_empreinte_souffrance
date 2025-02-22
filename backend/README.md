@@ -37,25 +37,25 @@ Par exemple pour Ubuntu 23.04+:
 L'installation avec l'installateur officiel nécessitant quelques étapes supplémentaires,
 se référer à la [documentation officielle](https://python-poetry.org/docs/#installing-with-the-official-installer).
 
-## Utiliser un venv python
+## (Optionnel) Installer pyenv
 
-    python3 -m venv .venv
+Pyenv est un outil permettant de gerer plusieurs versions de python facilement. 
+Pour plus d'information, voir [pyenv](https://pyenv.run/)
 
-    source .venv/bin/activate
+Vous pourrez ensuite choisir la version de python que vous voulez utiliser en utilisant la commande suivante:
+
+    pyenv install 3.13
+    pyenv local 3.13
 
 ## Utiliser Poetry
 
 Installer les dépendances:
 
-    poetry install
+    poetry install --with dev
 
-Ajouter une dépendance:
+Ne pas tenir compte du message suivant:
 
-    poetry add pandas
-
-Mettre à jour les dépendances:
-
-    poetry update
+`Warning: The current project could not be installed: No file/folder found for package suffering-footprint`
 
 ## Lancer les precommit-hook localement
 
@@ -63,27 +63,9 @@ Mettre à jour les dépendances:
 
     pre-commit run --all-files
 
-## Utiliser Tox pour tester votre code
-
-Aller dans le dossier `backend`, puis:
-
-    tox -vv
-
-## Utiliser pytest pour tester votre code
-
-Aller dans le dossier `backend`, puis:
-
-    python -m pytest -vv
-
-## Installer task
+## Installer task pour gérer les tâches
 
 Suivre la documentation officielle: https://taskfile.dev/installation/
-
-## Lancer le serveur
-
-Aller dans le dossier `backend`, puis:
-
-    task run-server
 
 ## Générer ou updater les traductions
 
@@ -98,3 +80,25 @@ Dans l'ordre :
 Ou, pour tout faire d'un coup :
     
     task translations-all
+
+## Utiliser Tox pour tester votre code
+
+Aller dans le dossier `backend`, puis (ne fonctionne pas actuellement, voir méthode alternative ci-dessous):
+
+    tox -vv
+
+## Utiliser pytest pour tester votre code
+
+Aller dans le dossier `backend`, puis:
+
+    python -m pytest -vv
+
+## Lancer le serveur
+
+Aller dans le dossier `backend`, puis:
+
+    task run-server
+
+## Accéder à l'api
+
+Exemple: http://127.0.0.1:8000/off/v1/knowledge-panel/1?lang=fr
