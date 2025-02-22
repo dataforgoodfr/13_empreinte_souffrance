@@ -70,16 +70,12 @@ Suivre la documentation officielle: https://taskfile.dev/installation/
 ## Générer ou updater les traductions
 
 Aller dans le dossier `backend`, puis:
-
-Dans l'ordre :
-
-    task translations-extract
-    task translations-update
+    
     task translations-compile
 
-Ou, pour tout faire d'un coup :
-    
-    task translations-all
+Si vous ajoutez de nouvelles strings à traduire au projet, vous devrez utiliser `task translations-all` pour générer et mettre à jour les traductions.
+
+Si vous êtes sous windows, il vous faudra lancer ces commande dans un [git bash](https://gitforwindows.org/)
 
 ## Utiliser Tox pour tester votre code
 
