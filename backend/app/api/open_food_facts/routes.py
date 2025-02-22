@@ -24,9 +24,6 @@ async def knowledge_panel(
 
     _ = request.state.translator
 
-    # TODO: fix this. Fake translation with utf8 encoding to force utf8 encoding in the generated translations files
-    _("ignøre this but keep it in the file")
-
     try:
         folksonomy_properties = get_properties_from_folksonomy(product_id)
     except ProductNotFoundException as e:
