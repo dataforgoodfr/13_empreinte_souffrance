@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-02-19 16:54+0100\n"
+"POT-Creation-Date: 2025-02-22 15:12+0100\n"
 "PO-Revision-Date: 2025-02-17 20:32+0100\n"
 "Last-Translator: Mathis Dupuy <1292785+Akiat@users.noreply.github.com>\n"
 "Language-Team: French <traduc@traduc.org>\n"
@@ -17,19 +17,15 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
-#: app/api/open_food_facts/routes.py:28
-msgid "ignøre this but keep it in the file"
-msgstr ""
-
-#: app/api/open_food_facts/routes.py:33
+#: app/api/open_food_facts/routes.py:30
 msgid "Product not found"
 msgstr "Produit non trouvé"
 
-#: app/api/open_food_facts/routes.py:36
+#: app/api/open_food_facts/routes.py:33
 msgid "Suffering Footprint"
 msgstr "Empreinte Souffrance"
 
-#: app/api/open_food_facts/routes.py:37
+#: app/api/open_food_facts/routes.py:34
 #, python-format
 msgid "The suffering footprint for this product is %s."
 msgstr "L'empreinte souffrance pour ce produit est %s."

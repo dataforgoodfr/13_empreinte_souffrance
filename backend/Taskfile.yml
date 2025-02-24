@@ -15,7 +15,9 @@ tasks:
     desc: "Extract translatable strings from Python files into a .pot template"
     cmds:
       - find {{ .TRANSLATION_SOURCE_DIRS | join " " }} -name '*.py' | xargs xgettext --package-name="Suffering Footprint" --package-version="0.1.0" --from-code=UTF-8 -o {{ .LOCALES_DIR }}/messages.pot -L Python
-    silent: false
+      - python {{ .LOCALES_DIR }}/fix_pot_charset.py {{ .LOCALES_DIR }}/messages.pot
+      - echo "✅ All strings extracted !"
+    silent: true
 
   translations-update:
     desc: "Update .po files for all languages"
@@ -29,7 +31,8 @@ tasks:
             msginit -l $lang -o {{ .LOCALES_DIR }}/$lang/LC_MESSAGES/messages.po -i {{ .LOCALES_DIR }}/messages.pot --no-translator
           fi
         done
-    silent: false
+      - echo "✅ All .po files updated !"
+    silent: true
 
   translations-compile:
     desc: "Compile .po files into .mo files"
@@ -38,7 +41,8 @@ tasks:
         for lang in {{ .TRANSLATION_LANGUAGES | join " " }}; do
           msgfmt -o {{ .LOCALES_DIR }}/$lang/LC_MESSAGES/messages.mo {{ .LOCALES_DIR }}/$lang/LC_MESSAGES/messages.po
         done
-    silent: false
+      - echo "✅ All .mo files compiled !"
+    silent: true
 
   translations-all:
     desc: "Run all tasks: extract, update, and compile"
