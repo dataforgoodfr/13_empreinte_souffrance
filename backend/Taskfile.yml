@@ -9,7 +9,12 @@ tasks:
   run-server:
     desc: "Run the uvicorn server"
     cmds:
-      - uvicorn app.main:app --reload
+      - uv run uvicorn app.main:app --reload
+
+  tests:
+    desc: "Run the tests"
+    cmds:
+      - uv run tox -vv
 
   translations-extract:
     desc: "Extract translatable strings from Python files into a .pot template"
