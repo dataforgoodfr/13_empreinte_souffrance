@@ -161,3 +161,12 @@ cython_debug/
 
 # Precommit hooks: ruff cache
 .ruff_cache
+
+# MacOS
+.DS_Store
+
+# Log folder
+backend/logs
+
+# Tilde files
+*~
