@@ -10,7 +10,44 @@ Placez-vous dans le répertoire backend et exécutez :
 
     uv sync --all-groups
 
-Si vous devez exécuter une commande qui nécessite les dépendances de pyproject.toml, utilisez :
+Cela créera un environnement virtuel `.venv` dans le dossier backend.
+
+## Utiliser l'environnement virtuel sur votre IDE
+
+Pour que votre IDE utilise l'environnement virtuel automatiquement, et trouve les dépendances du projet, vous devez le configurer.
+
+### Si vous utilisez VSCode
+
+Ouvrez la palette de commande (Ctrl/Cmd + Shift + P), puis recherchez `Python: Select Interpreter` et choisissez `Enter interpreter path` et tapez :
+
+Pour windows :
+    
+    backend/.venv/Scripts/Python.exe
+
+Pour macos et linux :
+    
+    backend/.venv/bin/python
+
+### Si vous utilisez Pycharm
+
+Allez dans settings, python interpreter, add interpreter, puis sélectionnez existing venv et `uv`, puis renseignez le chemin de l'exécutable python du .venv:
+
+Pour windows :
+    
+    backend/.venv/Scripts/Python.exe
+
+Pour macos et linux :
+    
+    backend/.venv/bin/python
+
+## Utiliser l'environnement virtuel avec uv
+
+Si vous avez configuré votre IDE, votre shell devrait automatiquement utiliser l'environnement virtuel, et vous pourrez lancer les commandes qui en dépendent comme ceci :
+
+    pytest
+    pre-commit run --all-files
+
+Si ce n'est pas le cas, ou que vous avez un problème, vous pouvez utiliser `uv run` pour exécuter une commande (si vous êtes dans le dossier backend).
 
     uv run votre_commande
 
@@ -19,7 +56,7 @@ Quelques exemples utilisés dans ce projet :
     uv run pytest
     uv run pre-commit run --all-files
 
-## (mais fortement recommandé) Installer pyenv
+## (optionnel mais fortement recommandé) Installer pyenv
 
 Pyenv est un outil permettant de gerer plusieurs versions de python facilement. 
 Pour plus d'information, voir [pyenv](https://github.com/pyenv/pyenv-installer).

@@ -12,11 +12,48 @@ Navigate to the `backend` directory and run:
 
     uv sync --all-groups
 
-If you have to run a command that requires the pyproject.toml dependencies, you can run it with:
+This will create a `.venv` virtual environment in the backend folder.
+
+## Using the virtual environment in your IDE
+
+To ensure your IDE automatically uses the virtual environment and finds the project dependencies, you need to configure it.
+
+### If you are using VSCode
+
+Open the command palette (Ctrl/Cmd + Shift + P), search for `Python: Select Interpreter`, then choose `Enter interpreter path` and type:
+
+For Windows:
+    
+    backend/.venv/Scripts/Python.exe
+
+For macOS and Linux:
+    
+    backend/.venv/bin/python
+
+### If you are using PyCharm
+
+Go to Settings, then Python Interpreter, click on Add Interpreter, select Existing venv, and choose `uv`, then specify the path to the Python executable in `.venv`:
+
+For Windows:
+    
+    backend/.venv/Scripts/Python.exe
+
+For macOS and Linux:
+    
+    backend/.venv/bin/python
+
+## Using the virtual environment with uv
+
+If you have configured your IDE, your shell should automatically use the virtual environment, allowing you to run commands that depend on it like this:
+
+    pytest
+    pre-commit run --all-files
+
+If this is not the case, or if you encounter an issue, you can use `uv run` to execute a command (if you are in the backend directory).
 
     uv run your_command
 
-Some example used by this project:
+Some examples used in this project:
 
     uv run pytest
     uv run pre-commit run --all-files
