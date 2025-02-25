@@ -2,40 +2,63 @@
 
 The French version of this README is available here: [README_FR.md](README_FR.md).
 
-## Installing Poetry
+## Installing uv
 
-Several [installation methods](https://python-poetry.org/docs/#installation) are described in Poetry's documentation, including:
+Follow one of the several [installation methods](https://docs.astral.sh/uv/getting-started/installation/) that are described in uv's documentation.
 
-- Using pipx
-- Using the official installer
+## Installing dependencies
 
-Each method has its pros and cons. For example, the pipx method requires installing pipx beforehand, while the official installer uses `curl` to download a script that must then be executed and includes specific instructions for enabling Poetry command completion depending on the shell used (bash, zsh, etc.).
+Navigate to the `backend` directory and run:
 
-The advantage of pipx is that its installation is well-documented for Linux, Windows, and macOS. Additionally, tools installed with pipx benefit from an isolated execution environment, ensuring reliability. Finally, installing Poetry (and other tools) is relatively simple with pipx.
+    uv sync --all-groups
 
-### Installing Poetry with pipx
+This will create a `.venv` virtual environment in the backend folder.
 
-Follow the instructions to [install pipx](https://pipx.pypa.io/stable/#install-pipx) according to your platform (Linux, Windows, etc.).
+## Using the virtual environment in your IDE
 
-For example, on Ubuntu 23.04+:
+To ensure your IDE automatically uses the virtual environment and finds the project dependencies, you need to configure it.
 
-```
-sudo apt update
-sudo apt install pipx
-pipx ensurepath
-```
+### If you are using VSCode
 
-[Install Poetry using pipx](https://python-poetry.org/docs/#installing-with-pipx):
+Open the command palette (Ctrl/Cmd + Shift + P), search for `Python: Select Interpreter`, then choose `Enter interpreter path` and type:
 
-```
-pipx install poetry
-```
+For Windows:
+    
+    backend/.venv/Scripts/Python.exe
 
-### Installing Poetry with the official installer
+For macOS and Linux:
+    
+    backend/.venv/bin/python
 
-Since this method requires additional steps, refer to the [official documentation](https://python-poetry.org/docs/#installing-with-the-official-installer).
+### If you are using PyCharm
 
-## (Optional) Installing pyenv
+Go to Settings, then Python Interpreter, click on Add Interpreter, select Existing venv, and choose `uv`, then specify the path to the Python executable in `.venv`:
+
+For Windows:
+    
+    backend/.venv/Scripts/Python.exe
+
+For macOS and Linux:
+    
+    backend/.venv/bin/python
+
+## Using the virtual environment with uv
+
+If you have configured your IDE, your shell should automatically use the virtual environment, allowing you to run commands that depend on it like this:
+
+    pytest
+    pre-commit run --all-files
+
+If this is not the case, or if you encounter an issue, you can use `uv run` to execute a command (if you are in the backend directory).
+
+    uv run your_command
+
+Some examples used in this project:
+
+    uv run pytest
+    uv run pre-commit run --all-files
+
+## (Optional but highly recommended) Installing pyenv
 
 Pyenv is a tool that allows you to manage multiple Python versions easily.\
 For more information, visit [pyenv](https://github.com/pyenv/pyenv-installer).
@@ -44,21 +67,7 @@ You can then select the Python version you want to use with the following comman
 
 ```
 pyenv install 3.13
-pyenv local 3.13
-```
-
-## Using Poetry
-
-To install dependencies:
-
-```
-poetry install --with dev
-```
-
-Ignore the following message:
-
-```
-Warning: The current project could not be installed: No file/folder found for package suffering-footprint
+pyenv global 3.13
 ```
 
 ## Running pre-commit hooks locally
@@ -66,7 +75,7 @@ Warning: The current project could not be installed: No file/folder found for pa
 [Install pre-commit](https://pre-commit.com/)
 
 ```
-pre-commit run --all-files
+uv run pre-commit run --all-files
 ```
 
 ## Installing Task for task management
@@ -91,20 +100,20 @@ to generate and update translations.
 
 If you're on Windows, you must run these commands in a [Git Bash](https://gitforwindows.org/).
 
-## Using Tox to test your code
-
-Navigate to the `backend` directory and run (currently not working, see alternative below):
-
-```
-tox -vv
-```
-
-## Using pytest to test your code
+## Run the tests
 
 Navigate to the `backend` directory and run:
 
 ```
-python -m pytest -vv
+task tests
+```
+
+## Alternative: Using pytest to test your code
+
+Navigate to the `backend` directory and run:
+
+```
+uv run pytest
 ```
 
 ## Running the server
@@ -156,9 +165,9 @@ Test files should start with `test_`, and test function names should also start 
 
 The `scripts/` directory contains various utility scripts for the project.
 
-## Poetry and Dependency Management
+## uv and Dependency Management
 
-This project uses Poetry to manage dependencies (`pyproject.toml` and `poetry.lock`).
+This project uses uv to manage dependencies (`pyproject.toml` and `uv.lock`).
 
 ## Automation
 

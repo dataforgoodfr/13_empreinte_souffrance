@@ -1,28 +1,32 @@
 [build-system]
-requires = ["poetry-core"]
-build-backend = "poetry.core.masonry.api"
+requires = ["hatchling"]
+build-backend = "hatchling.build"
 
-[tool.poetry]
+[tool.hatch.build.targets.wheel]
+packages = ["app"]
+
+[project]
 name = "suffering-footprint"
 version = "0.1.0"
-description = "Suffuring footprint API"
-authors = ["DataForGood"]
-license = " MIT"
+description = "Suffering Footprint API"
+authors = [{ name = "DataForGood" }]
+requires-python = "~=3.13"
 readme = "README.md"
+license = "MIT"
+dependencies = [
+    "uvicorn>=0.34.0,<0.35",
+    "requests>=2.32.3,<3",
+    "fastapi>=0.115.8,<0.116",
+]
 
-[tool.poetry.dependencies]
-python = "^3.13"
-contextvars = "^2.4"
-uvicorn = "^0.34.0"
-requests = "^2.32.3"
-fastapi = "^0.115.8"
-
-[tool.poetry.group.dev.dependencies]
-pytest = "^8.3.4"
-tox = "^4.24.1"
-pre-commit = "^4.1.0"
-httpx = "^0.28.1"
-pytest-asyncio = "^0.25.3"
+[dependency-groups]
+dev = [
+    "pytest>=8.3.4,<9",
+    "tox>=4.24.1,<5",
+    "pre-commit>=4.1.0,<5",
+    "httpx>=0.28.1,<0.29",
+    "pytest-asyncio>=0.25.3,<0.26",
+]
 
 [tool.ruff]
 line-length = 96  # Same as Black.

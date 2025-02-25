@@ -1,36 +1,62 @@
 # Contribuer au projet Empreinte Souffrance
 
-## Installer Poetry
+## Installer uv
 
-Plusieurs [méthodes d'installation](https://python-poetry.org/docs/#installation) sont décrites dans la documentation de poetry dont:
+Suivez l'une des différentes méthodes d'installation décrites dans la [documentation de uv](https://docs.astral.sh/uv/getting-started/installation/).
 
-- avec pipx
-- avec l'installateur officiel
+## Installation des dépendances
 
-Chaque méthode a ses avantages et inconvénients. Par exemple, la méthode pipx nécessite d'installer pipx au préable, l'installateur officiel utilise curl pour télécharger un script qui doit ensuite être exécuté et comporte des instructions spécifiques pour la completion des commandes poetry selon le shell utilisé (bash, zsh, etc...).
+Placez-vous dans le répertoire backend et exécutez :
 
-L'avantage de pipx est que l'installation de pipx est documentée pour linux, windows et macos. D'autre part, les outils installées avec pipx bénéficient d'un environment d'exécution isolé, ce qui est permet de fiabiliser leur fonctionnement. Finalement, l'installation de poetry, voire d'autres outils est relativement simple avec pipx.
+    uv sync --all-groups
 
-### Installation de Poetry avec pipx
+Cela créera un environnement virtuel `.venv` dans le dossier backend.
 
-Suivre les instructions pour [installer pipx](https://pipx.pypa.io/stable/#install-pipx) selon ta plateforme (linux, windows, etc...)
+## Utiliser l'environnement virtuel sur votre IDE
 
-Par exemple pour Ubuntu 23.04+:
+Pour que votre IDE utilise l'environnement virtuel automatiquement, et trouve les dépendances du projet, vous devez le configurer.
 
-    sudo apt update
-    sudo apt install pipx
-    pipx ensurepath
+### Si vous utilisez VSCode
 
-[Installer Poetry avec pipx](https://python-poetry.org/docs/#installing-with-pipx):
+Ouvrez la palette de commande (Ctrl/Cmd + Shift + P), puis recherchez `Python: Select Interpreter` et choisissez `Enter interpreter path` et tapez :
 
-    pipx install poetry
+Pour windows :
+    
+    backend/.venv/Scripts/Python.exe
 
-### Installation de Poetry avec l'installateur officiel
+Pour macos et linux :
+    
+    backend/.venv/bin/python
 
-L'installation avec l'installateur officiel nécessitant quelques étapes supplémentaires,
-se référer à la [documentation officielle](https://python-poetry.org/docs/#installing-with-the-official-installer).
+### Si vous utilisez Pycharm
 
-## (Optionnel) Installer pyenv
+Allez dans settings, python interpreter, add interpreter, puis sélectionnez existing venv et `uv`, puis renseignez le chemin de l'exécutable python du .venv:
+
+Pour windows :
+    
+    backend/.venv/Scripts/Python.exe
+
+Pour macos et linux :
+    
+    backend/.venv/bin/python
+
+## Utiliser l'environnement virtuel avec uv
+
+Si vous avez configuré votre IDE, votre shell devrait automatiquement utiliser l'environnement virtuel, et vous pourrez lancer les commandes qui en dépendent comme ceci :
+
+    pytest
+    pre-commit run --all-files
+
+Si ce n'est pas le cas, ou que vous avez un problème, vous pouvez utiliser `uv run` pour exécuter une commande (si vous êtes dans le dossier backend).
+
+    uv run votre_commande
+
+Quelques exemples utilisés dans ce projet :
+
+    uv run pytest
+    uv run pre-commit run --all-files
+
+## (optionnel mais fortement recommandé) Installer pyenv
 
 Pyenv est un outil permettant de gerer plusieurs versions de python facilement. 
 Pour plus d'information, voir [pyenv](https://github.com/pyenv/pyenv-installer).
@@ -38,23 +64,13 @@ Pour plus d'information, voir [pyenv](https://github.com/pyenv/pyenv-installer).
 Vous pourrez ensuite choisir la version de python que vous voulez utiliser en utilisant la commande suivante:
 
     pyenv install 3.13
-    pyenv local 3.13
-
-## Utiliser Poetry
-
-Installer les dépendances:
-
-    poetry install --with dev
-
-Ne pas tenir compte du message suivant:
-
-    Warning: The current project could not be installed: No file/folder found for package suffering-footprint
+    pyenv global 3.13
 
 ## Lancer les precommit-hook localement
 
 [Installer les precommit](https://pre-commit.com/)
 
-    pre-commit run --all-files
+    uv run pre-commit run --all-files
 
 ## Installer task pour gérer les tâches
 
@@ -70,17 +86,17 @@ Si vous ajoutez de nouvelles strings à traduire au projet, vous devrez utiliser
 
 Si vous êtes sous windows, il vous faudra lancer ces commandes dans un [git bash](https://gitforwindows.org/)
 
-## Utiliser Tox pour tester votre code
-
-Aller dans le dossier `backend`, puis (ne fonctionne pas actuellement, voir méthode alternative ci-dessous) :
-
-    tox -vv
-
-## Utiliser pytest pour tester votre code
+## Lancer les tests
 
 Aller dans le dossier `backend`, puis :
 
-    python -m pytest -vv
+    task tests
+
+## (Alternative) Utiliser pytest pour tester votre code
+
+Aller dans le dossier `backend`, puis :
+
+    uv run pytest
 
 ## Lancer le serveur
 
