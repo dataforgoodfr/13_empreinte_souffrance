@@ -19,9 +19,7 @@ class I18N:
             if locale_dir.is_dir():
                 locale = locale_dir.name
                 translations = gettext.translation(
-                    'messages',
-                    localedir=str(self.locales_dir),
-                    languages=[locale]
+                    "messages", localedir=str(self.locales_dir), languages=[locale]
                 )
                 self.translations[locale] = translations
 

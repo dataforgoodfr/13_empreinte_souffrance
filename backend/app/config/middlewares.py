@@ -1,37 +1,12 @@
-import logging
-import uuid
-from contextvars import ContextVar
 from urllib.parse import parse_qs
 
 from fastapi import Request
+from fastapi.responses import JSONResponse
+from loguru import logger
+from starlette.middleware.base import BaseHTTPMiddleware
 
+from app.config.exceptions import BaseAppException
 from app.config.i18n import get_i18n
-
-request_id_ctx = ContextVar("request_id", default=None)
-
-
-class RequestIdFilter(logging.Filter):
-    def filter(self, record):
-        record.request_id = request_id_ctx.get()
-        return True
-
-
-async def request_id_middleware(request: Request, call_next):
-    """
-    Middleware that generates and tracks a unique identifier (UUID) for each HTTP request.
-    This allows for request tracing and debugging across the application.
-
-    - Generates a unique UUID for each incoming request
-    - Adds the ID to response headers as 'X-Request-ID'
-    - Makes the ID available to the logging system via RequestIdFilter
-    """
-    request_id = str(uuid.uuid4())
-    request_id_ctx.set(request_id)
-
-    response = await call_next(request)
-    response.headers["X-Request-ID"] = request_id
-
-    return response
 
 
 async def add_locale_translator(request: Request, call_next):
@@ -49,8 +24,14 @@ async def add_locale_translator(request: Request, call_next):
     else:
         # If not, use the Accept-Language header
         accept_language = request.headers.get("Accept-Language", "")
-        languages = [lang.split(";")[0].split("-")[0].lower() for lang in accept_language.split(",")]
-        locale = next((locale for locale in languages if i18n.is_supported_locale(locale)), i18n.default_locale)
+        languages = [
+            lang.split(";")[0].split("-")[0].lower()
+            for lang in accept_language.split(",")
+        ]
+        locale = next(
+            (locale for locale in languages if i18n.is_supported_locale(locale)),
+            i18n.default_locale,
+        )
 
     # Add the translator to the request state
     request.state.translator = i18n.get_translator(locale)
@@ -58,3 +39,43 @@ async def add_locale_translator(request: Request, call_next):
 
     response = await call_next(request)
     return response
+
+
+class GlobalExceptionMiddleware(BaseHTTPMiddleware):
+    """
+    Middleware to catch and properly handle all unhandled exceptions.
+    This ensures consistent error responses across the application.
+    """
+
+    async def dispatch(self, request: Request, call_next):
+        try:
+            return await call_next(request)
+        except Exception as e:
+            # Log the exception with path context
+            if isinstance(e, BaseAppException):
+                # If it's a known exception, just log the message
+                logger.warning(f"{str(e)} (path: {request.url.path})")
+            else:
+                # If it's not a known exception, log the full traceback
+                logger.exception(f"Unknown exception: {e} (path: {request.url.path})")
+
+            # Determine status code
+            status_code = getattr(e, "status_code", 500)
+
+            # Get error message
+            detail = getattr(e, "detail", None) or str(e)
+
+            # Hide internal server errors with a generic message
+            if 500 <= status_code < 600:
+                detail = "An unexpected server error occurred"
+            
+            # Create JSON response with error details
+            return JSONResponse(
+                status_code=status_code,
+                content={
+                    "error": {
+                        "status": status_code,
+                        "message": detail,
+                    }
+                },
+            )

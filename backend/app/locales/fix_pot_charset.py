@@ -17,6 +17,7 @@ def fix_charset_in_pot(file_path):
     with open(file_path, "w", encoding="utf-8") as f:
         f.writelines(lines)
 
+
 if __name__ == "__main__":
     if len(sys.argv) != 2:
         print("Usage: python fix_pot_charset.py <file.pot>")

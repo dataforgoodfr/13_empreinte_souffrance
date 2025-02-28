@@ -15,8 +15,7 @@ async def async_client() -> AsyncGenerator[AsyncClient, None]:
     Use with async FastAPI routes.
     """
     async with AsyncClient(
-        base_url="http://test",
-        transport=ASGITransport(app=app)
+        base_url="http://test", transport=ASGITransport(app=app)
     ) as client:
         yield client
 

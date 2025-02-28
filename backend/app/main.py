@@ -1,23 +1,39 @@
-
 import uvicorn
 from fastapi import FastAPI
+from fastapi.middleware.cors import CORSMiddleware
 
 from app.api.open_food_facts.routes import router as off_router
 from app.config.logging import setup_logging
-from app.config.middlewares import RequestIdFilter, add_locale_translator, request_id_middleware
+from app.config.middlewares import (
+    GlobalExceptionMiddleware,
+    add_locale_translator,
+)
 
 # Setup logging
-logger = setup_logging()
-logger.addFilter(RequestIdFilter())
+setup_logging()
 
 # Create FastAPI app
-app = FastAPI(title="Suffering Footprint API")
+app = FastAPI(
+    title="Suffering Footprint API",
+    description="API for calculating and displaying the suffering footprint of food products",
+    version="0.1.0",
+)
 
-# Add request ID middleware
-app.middleware("http")(request_id_middleware)
 
 # Add locale translator middleware
 app.middleware("http")(add_locale_translator)
+
+# Add global exception middleware
+app.add_middleware(GlobalExceptionMiddleware)
+
+# Add CORS middleware
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_credentials=True,
+    allow_methods=["GET", "POST", "PATCH"],
+    allow_headers=["*"],
+)
 
 # Include API routes
 app.include_router(off_router, prefix="/off/v1", tags=["Open Food Facts"])
