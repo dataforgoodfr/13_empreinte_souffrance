@@ -48,7 +48,7 @@ def setup_logging(log_level="INFO"):
     console_format = (
         "<green>{time:YYYY-MM-DD HH:mm:ss}</green> | "
         "<level>{level: <8}</level> | "
-        "<cyan>{name}</cyan> - <level>{message}</level> {extra}"
+        "<cyan>{name}</cyan> - <level>{message}</level>"
     )
     
     # Add console handler
@@ -62,7 +62,7 @@ def setup_logging(log_level="INFO"):
     # Add file handler
     logger.add(
         log_dir / "app.log",
-        format="{time:YYYY-MM-DD HH:mm:ss} | {level} | {name} - {message} {extra}",
+        format="{time:YYYY-MM-DD HH:mm:ss} | {level} | {name} - {message}",
         level=log_level,
         rotation="10 MB", 
         retention="1 week",
@@ -82,9 +82,10 @@ def setup_logging(log_level="INFO"):
     ]
     
     # Intercept logs from other libraries
+    handler = InterceptHandler()
     for logger_name in loggers:
         _logger = logging.getLogger(logger_name)
-        _logger.handlers = [InterceptHandler()]
+        _logger.handlers = [handler]
         _logger.propagate = False
         # Ensure the log level is low enough to capture all messages
         _logger.setLevel(logging.DEBUG)

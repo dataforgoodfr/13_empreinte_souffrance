@@ -1,4 +1,4 @@
-from app.api.open_food_facts.schemas import PAIN_REPORT_EXAMPLE, PainReport
+from app.api.open_food_facts.schemas import PAIN_REPORT_EXAMPLE
 from app.business.open_food_facts.knowledge_panel import get_properties_from_folksonomy
 
 

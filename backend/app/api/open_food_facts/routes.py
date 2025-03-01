@@ -24,7 +24,7 @@ async def knowledge_panel(request: Request, barcode: str):
     Returns:
         KnowledgePanelResponse: The knowledge panel response.
     """
-    logger.info("Getting knowledge panel for product %s", barcode)
+    logger.info(f"Getting knowledge panel for product {barcode}")
 
     try:
         pain_report = get_properties_from_folksonomy(barcode=barcode)

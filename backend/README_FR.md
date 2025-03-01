@@ -1,5 +1,25 @@
 # Contribuer au projet Empreinte Souffrance
 
+## Installer pre-commit 
+
+Suivez la [documentation officiell](https://pre-commit.com/), ou simplement :
+
+    pip install pre-commit
+
+Puis, dans le dossier racine du projet (`13_empreinte_souffrance`), installez les pre-commit hooks :
+
+    pre-commit install
+
+## (optionnel mais fortement recommandé) Installer pyenv
+
+Pyenv est un outil permettant de gerer plusieurs versions de python facilement. 
+Pour plus d'information, voir [pyenv](https://github.com/pyenv/pyenv-installer).
+
+Vous pourrez ensuite choisir la version de python que vous voulez utiliser en utilisant la commande suivante:
+
+    pyenv install 3.13
+    pyenv global 3.13
+
 ## Installer uv
 
 Suivez l'une des différentes méthodes d'installation décrites dans la [documentation de uv](https://docs.astral.sh/uv/getting-started/installation/).
@@ -56,19 +76,7 @@ Quelques exemples utilisés dans ce projet :
     uv run pytest
     uv run pre-commit run --all-files
 
-## (optionnel mais fortement recommandé) Installer pyenv
-
-Pyenv est un outil permettant de gerer plusieurs versions de python facilement. 
-Pour plus d'information, voir [pyenv](https://github.com/pyenv/pyenv-installer).
-
-Vous pourrez ensuite choisir la version de python que vous voulez utiliser en utilisant la commande suivante:
-
-    pyenv install 3.13
-    pyenv global 3.13
-
 ## Lancer les precommit-hook localement
-
-[Installer les precommit](https://pre-commit.com/)
 
     uv run pre-commit run --all-files
 
