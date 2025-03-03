@@ -17,6 +17,8 @@ dependencies = [
     "uvicorn>=0.34.0,<0.35",
     "requests>=2.32.3,<3",
     "fastapi>=0.115.8,<0.116",
+    "pydantic>=2.10.6",
+    "loguru>=0.7.2,<0.8",
 ]
 
 [dependency-groups]
@@ -29,8 +31,8 @@ dev = [
 ]
 
 [tool.ruff]
-line-length = 96  # Same as Black.
-target-version = "py310"
+line-length = 120
+target-version = "py313"
 
 [tool.ruff.format]
 # Like Black, use double quotes for strings.

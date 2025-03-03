@@ -2,6 +2,26 @@
 
 The French version of this README is available here: [README_FR.md](README_FR.md).
 
+## Install pre-commit
+
+Follow the [official documentation](https://pre-commit.com/), or simply run:
+
+    pip install pre-commit
+
+Then, in the project's root directory (`13_empreinte_souffrance`), install the pre-commit hooks:
+
+    pre-commit install
+
+## (Optional but highly recommended) Installing pyenv
+
+Pyenv is a tool that allows you to manage multiple Python versions easily.\
+For more information, visit [pyenv](https://github.com/pyenv/pyenv-installer).
+
+You can then select the Python version you want to use with the following commands:
+
+    pyenv install 3.13
+    pyenv global 3.13
+
 ## Installing uv
 
 Follow one of the several [installation methods](https://docs.astral.sh/uv/getting-started/installation/) that are described in uv's documentation.
@@ -58,25 +78,9 @@ Some examples used in this project:
     uv run pytest
     uv run pre-commit run --all-files
 
-## (Optional but highly recommended) Installing pyenv
-
-Pyenv is a tool that allows you to manage multiple Python versions easily.\
-For more information, visit [pyenv](https://github.com/pyenv/pyenv-installer).
-
-You can then select the Python version you want to use with the following commands:
-
-```
-pyenv install 3.13
-pyenv global 3.13
-```
-
 ## Running pre-commit hooks locally
 
-[Install pre-commit](https://pre-commit.com/)
-
-```
-uv run pre-commit run --all-files
-```
+    uv run pre-commit run --all-files
 
 ## Installing Task for task management
 
@@ -86,15 +90,11 @@ Follow the official documentation [here](https://taskfile.dev/installation/).
 
 Navigate to the `backend` directory and run:
 
-```
-task translations-compile
-```
+    task translations-compile
 
 If you add new translatable strings to the project, use:
 
-```
-task translations-all
-```
+    task translations-all
 
 to generate and update translations.
 
@@ -104,25 +104,19 @@ If you're on Windows, you must run these commands in a [Git Bash](https://gitfor
 
 Navigate to the `backend` directory and run:
 
-```
-task tests
-```
+    task tests
 
 ## Alternative: Using pytest to test your code
 
 Navigate to the `backend` directory and run:
 
-```
-uv run pytest
-```
+    uv run pytest
 
 ## Running the server
 
 Navigate to the `backend` directory and run:
 
-```
-task run-server
-```
+    task run-server
 
 ## Accessing the API
 
@@ -155,9 +149,7 @@ The `tests/` directory contains unit tests to ensure project stability.
 
 The directory structure mirrors that of the backend. Example: If you're testing a route from `backend/app/api/open_food_facts/routes.py`, your test should be placed in:
 
-```
-tests/app/api/open_food_facts/test_routes.py
-```
+    tests/app/api/open_food_facts/test_routes.py
 
 Test files should start with `test_`, and test function names should also start with `test_` to be detected by pytest.
 
