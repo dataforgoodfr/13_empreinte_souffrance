@@ -1,9 +1,13 @@
-name: Tests
+name: Backend tests
 
 on:
   pull_request:
+    paths:
+      - 'backend/**'
   push:
     branches: [main]
+    paths:
+      - 'backend/**'
 
 jobs:
   test:

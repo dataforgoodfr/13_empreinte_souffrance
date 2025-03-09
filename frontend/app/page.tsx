@@ -1,8 +1,3 @@
-
 export default function Home() {
-  return (
-    <div>
-        EMPREINTE SOUFFRANCE HOME PAGE
-    </div>
-  );
+  return <div>EMPREINTE SOUFFRANCE HOME PAGE</div>;
 }

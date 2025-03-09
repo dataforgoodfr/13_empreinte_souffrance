@@ -1,9 +1,13 @@
-name: pre-commit
+name: Backend pre-commit
 
 on:
   pull_request:
+    paths:
+      - 'backend/**'
   push:
     branches: [main]
+    paths:
+      - 'backend/**'
 
 jobs:
   pre-commit:
