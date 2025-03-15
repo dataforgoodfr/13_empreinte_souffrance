@@ -1,7 +1,7 @@
 import logging
-from http.client import HTTPException
 
 import httpx
+from httpx import RequestError
 from pydantic import ValidationError
 
 from app.config.exceptions import ResourceNotFoundException
@@ -24,11 +24,21 @@ from app.schemas.open_food_facts.internal import (
 logger = logging.getLogger("app")
 
 
+def have_breading_type(breading_type: AnimalBreedingType) -> bool:
+    return bool(breading_type.laying_hen_breeding_type or breading_type.broiler_chicken_breeding_type)
+
+
+def have_weight(weight: AnimalProductWeight) -> bool:
+    return bool(weight.egg_weight or weight.chicken_weight)
+
+
 async def get_data_from_off(barcode: str) -> ProductData:
     """
     Retrieve useful product data from OFF to compute the breeding type and the weight of animal product
 
     We actually use the OFF Search-a-licious API.
+
+    If an error occurs, we raise a ResourceNotFoundException to return a clean response to OFF
 
     :param barcode: The product barcode
     :return: A ProductResponse containing the product data
@@ -40,7 +50,7 @@ async def get_data_from_off(barcode: str) -> ProductData:
     async with httpx.AsyncClient() as client:
         try:
             response = await client.get(url, params=params)
-        except HTTPException as e:
+        except RequestError as e:
             logger.warning(f"Product not found: {barcode}")
             raise ResourceNotFoundException(f"Product not found: {barcode}") from e
 
@@ -48,7 +58,6 @@ async def get_data_from_off(barcode: str) -> ProductData:
         product_response = ProductResponse.model_validate(response.json())
     except ValidationError as e:
         logger.error(f"Failed to validate product data: {e}")
-        # We want to return a clean response to OFF
         raise ResourceNotFoundException(f"Product not found: {barcode}") from e
 
     if not product_response.hits:
@@ -56,7 +65,6 @@ async def get_data_from_off(barcode: str) -> ProductData:
         raise ResourceNotFoundException(f"Product not found: {barcode}")
 
     product_data = product_response.hits[0]
-    logger.warning(f"Product data: {product_data}")
     return product_data
 
 
@@ -74,14 +82,6 @@ async def compute_weight(product_data: ProductData) -> AnimalProductWeight:
     return AnimalProductWeight(
         egg_weight=200,
     )
-
-
-def have_breading_type(breading_type: AnimalBreedingType) -> bool:
-    return breading_type.laying_hen_breeding_type or breading_type.broiler_chicken_breeding_type
-
-
-def have_weight(weight: AnimalProductWeight) -> bool:
-    return weight.egg_weight or weight.chicken_weight
 
 
 def get_pain_report_from_breading_type_and_weight(

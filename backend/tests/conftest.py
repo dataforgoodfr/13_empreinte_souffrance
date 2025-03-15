@@ -6,6 +6,7 @@ from httpx import ASGITransport, AsyncClient
 from starlette.testclient import TestClient
 
 from app.main import app
+from app.schemas.open_food_facts.external import ProductData
 
 
 @pytest_asyncio.fixture
@@ -26,3 +27,11 @@ def client() -> TestClient:
     Fixture that provides a sync HTTP client for testing.
     """
     return TestClient(app)
+
+
+@pytest.fixture
+def product_data() -> ProductData:
+    return ProductData(
+        categories_tags=["cat1", "en:cage-chicken-eggs"],
+        labels_tags=["label1", "label2"]
+    )
