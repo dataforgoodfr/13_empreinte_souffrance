@@ -13,6 +13,7 @@ async def test_get_off_knowledge_panel(async_client: AsyncClient):
 
     mock_response = AsyncMock()
     mock_response.json = MagicMock(return_value=mock_response_data)
+    mock_response.raise_for_status = AsyncMock(return_value=None)
 
     with patch("app.business.open_food_facts.knowledge_panel.httpx.AsyncClient") as mock_http_client:
         # Get the instance returned by the async context
@@ -22,25 +23,24 @@ async def test_get_off_knowledge_panel(async_client: AsyncClient):
 
     assert response.status_code == 200
     assert response.json() == {
-        "global_score": 8.0,
-        "pain_report": {
-            "pain_categories": [
-                {
-                    "pain_type": "excruciating",
-                    "animals": [{"animal_type": "laying_hen", "seconds_in_pain": 20000}],
-                },
-                {
-                    "pain_type": "disabling",
-                    "animals": [{"animal_type": "laying_hen", "seconds_in_pain": 400000}],
-                },
-                {
-                    "pain_type": "hurtful",
-                    "animals": [{"animal_type": "laying_hen", "seconds_in_pain": 600000}],
-                },
-                {
-                    "pain_type": "annoying",
-                    "animals": [{"animal_type": "laying_hen", "seconds_in_pain": 800000}],
-                },
-            ]
-        },
-    }
+    "pain_report": {
+        "pain_categories": [
+            {
+                "animals": [{"animal_type": "laying_hen", "seconds_in_pain": 200}],
+                "pain_type": "excruciating",
+            },
+            {
+                "animals": [{"animal_type": "laying_hen", "seconds_in_pain": 4000}],
+                "pain_type": "disabling",
+            },
+            {
+                "animals": [{"animal_type": "laying_hen", "seconds_in_pain": 6000}],
+                "pain_type": "hurtful",
+            },
+            {
+                "animals": [{"animal_type": "laying_hen", "seconds_in_pain": 8000}],
+                "pain_type": "annoying",
+            },
+        ]
+    },
+}

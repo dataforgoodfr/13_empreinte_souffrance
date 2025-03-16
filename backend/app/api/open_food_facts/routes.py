@@ -30,8 +30,6 @@ async def knowledge_panel(request: Request, barcode: str):
         # Will be handled by the middleware, no need for additional processing here
         raise
 
-    logger.warning(f"Computed pain report: {pain_report}")
     return KnowledgePanelResponse(
-        global_score=8,
         pain_report=pain_report,
     )

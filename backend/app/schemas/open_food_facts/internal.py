@@ -6,11 +6,17 @@ from app.enums.open_food_facts.enums import AnimalType, BroilerChickenBreedingTy
 
 
 class AnimalBreedingType(BaseModel):
+    # TODO: change this to:
+    # animal_type: AnimalType
+    # breeding_type: LayingHenBreedingType | BroilerChickenBreedingType
     laying_hen_breeding_type: LayingHenBreedingType | None = None
     broiler_chicken_breeding_type: BroilerChickenBreedingType | None = None
 
 
 class AnimalProductWeight(BaseModel):
+    # TODO: change this to:
+    # animal_type: AnimalType
+    # weight: int
     egg_weight: int | None = None
     chicken_weight: int | None = None
 
@@ -33,6 +39,4 @@ class KnowledgePanelResponse(BaseModel):
     """
     Response model for knowledge panel endpoint.
     """
-
-    global_score: float
     pain_report: PainReport

@@ -3,7 +3,7 @@ from unittest.mock import AsyncMock, MagicMock, patch
 import httpx
 import pytest
 
-from app.business.open_food_facts.knowledge_panel import compute_breeding_type, compute_weight, get_data_from_off
+from app.business.open_food_facts.knowledge_panel import PainReportCalculator, get_data_from_off
 from app.config.exceptions import ResourceNotFoundException
 from app.enums.open_food_facts.enums import LayingHenBreedingType
 from app.schemas.open_food_facts.external import ProductData
@@ -67,12 +67,16 @@ async def test_get_data_from_off_http_exception():
 
 @pytest.mark.asyncio
 async def test_compute_weight(product_data: ProductData):
-    result = await compute_weight(product_data)
+    calculator = PainReportCalculator(product_data)
+
+    result = calculator.compute_weights()
     assert result == AnimalProductWeight(egg_weight=200)
 
 
 @pytest.mark.asyncio
 async def test_compute_breading_type(product_data: ProductData):
     # product_data fixture contains the `en:cage-chicken-eggs` tag
-    result = await compute_breeding_type(product_data)
+    calculator = PainReportCalculator(product_data)
+
+    result = calculator.compute_breeding_types()
     assert result == AnimalBreedingType(laying_hen_breeding_type=LayingHenBreedingType.FURNISHED_CAGE)
