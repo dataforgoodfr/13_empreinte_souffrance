@@ -5,20 +5,10 @@ from pydantic import BaseModel
 from app.enums.open_food_facts.enums import AnimalType, BroilerChickenBreedingType, LayingHenBreedingType, PainType
 
 
-class AnimalBreedingType(BaseModel):
-    # TODO: change this to:
-    # animal_type: AnimalType
-    # breeding_type: LayingHenBreedingType | BroilerChickenBreedingType
-    laying_hen_breeding_type: LayingHenBreedingType | None = None
-    broiler_chicken_breeding_type: BroilerChickenBreedingType | None = None
-
-
-class AnimalProductWeight(BaseModel):
-    # TODO: change this to:
-    # animal_type: AnimalType
-    # weight: int
-    egg_weight: int | None = None
-    chicken_weight: int | None = None
+class BreedingTypeAndWeight(BaseModel):
+    animal_type: AnimalType
+    breeding_type: LayingHenBreedingType | BroilerChickenBreedingType
+    animal_product_weight: int = 0  # in grams
 
 
 class AnimalPainDuration(BaseModel):
@@ -33,6 +23,7 @@ class PainCategory(BaseModel):
 
 class PainReport(BaseModel):
     pain_categories: List[PainCategory]
+    breeding_types_with_weights: List[BreedingTypeAndWeight]
 
 
 class KnowledgePanelResponse(BaseModel):

@@ -1,21 +1,20 @@
 import logging
+from random import randint
+from typing import List
 
 import httpx
-from httpx import RequestError
 from pydantic import ValidationError
 
 from app.config.exceptions import ResourceNotFoundException
 from app.enums.open_food_facts.enums import (
     TAGS_BY_ANIMAL_TYPE_AND_BREEDING_TYPE,
     TIME_IN_PAIN_FOR_100G_IN_SECONDS,
-    AnimalType,
     PainType,
 )
 from app.schemas.open_food_facts.external import ProductData, ProductResponse
 from app.schemas.open_food_facts.internal import (
-    AnimalBreedingType,
     AnimalPainDuration,
-    AnimalProductWeight,
+    BreedingTypeAndWeight,
     PainCategory,
     PainReport,
 )
@@ -44,19 +43,19 @@ async def get_data_from_off(barcode: str) -> ProductData:
         async with httpx.AsyncClient() as client:
             response = await client.get(url, params=params)
             response.raise_for_status()  # Raise exception for 4XX/5XX responses
-    except RequestError as e:
-        logger.warning(f"Product not found: {barcode}")
-        raise ResourceNotFoundException(f"Product not found: {barcode}") from e
+    except Exception as e:
+        logger.warning(f"Can't get product data from OFF API: {barcode}")
+        raise ResourceNotFoundException(f"Can't get product data from OFF API: {barcode}") from e
 
     try:
         product_response = ProductResponse.model_validate(response.json())
     except ValidationError as e:
         logger.error(f"Failed to validate product data: {e}")
-        raise ResourceNotFoundException(f"Product not found: {barcode}") from e
+        raise ResourceNotFoundException(f"Failed to validate product data retrieved from OFF: {barcode}") from e
 
     if not product_response.hits:
         logger.warning(f"No hits found for params: {params}")
-        raise ResourceNotFoundException(f"Product not found: {barcode}")
+        raise ResourceNotFoundException(f"No hits returned by OFF API: {barcode}")
 
     product_data = product_response.hits[0]
     return product_data
@@ -75,79 +74,68 @@ class PainReportCalculator:
             product_data: ProductData instance containing categories_tags and labels_tags.
         """
         self.product_data = product_data
-        self.breeding_types = self.compute_breeding_types()
-        self.weights = self.compute_weights()
+        self.breeding_types_with_weights = self._compute_breeding_types_with_weights()
 
-    def compute_breeding_types(self) -> AnimalBreedingType:
+    def _compute_breeding_types_with_weights(self) -> List[BreedingTypeAndWeight]:
+        """
+        Compute the breeding types and weights from product data.
+
+        Returns:
+            A list of BreedingTypeAndWeight objects (one by type of animal) with detected breeding types and weights
+        """
+
+        # Get the breeding types
+        breeding_types = self._get_breeding_types()
+
+        # Fill the weight for each breeding type and remove breeding types with weight <= 0
+        breeding_types_with_weights = self._get_breeding_types_with_weights(breeding_types)
+
+        return breeding_types_with_weights
+
+    def _get_breeding_types(self) -> List[BreedingTypeAndWeight]:
         """
         Compute the breeding types from product data.
 
         Returns:
-            AnimalBreedingType object with detected breeding types
+            A list of BreedingTypeAndWeight objects (one by type of animal) with detected breeding types
         """
-        breeding_types = AnimalBreedingType()
+        breeding_types = []
 
-        # Laying hens
-        laying_hen_tags = TAGS_BY_ANIMAL_TYPE_AND_BREEDING_TYPE[AnimalType.LAYING_HEN]
-        for breeding_type, tags in laying_hen_tags.items():
-            if any(tag in self.product_data.categories_tags for tag in tags):
-                # set the breeding type if any of the tags is present
-                breeding_types.laying_hen_breeding_type = breeding_type
-                break
+        # TODO test qui check que tous les type de breeding présents dans TAGS_BY_ANIMAL_TYPE_AND_BREEDING_TYPE
+        #  sont autorisés dans AnimalBreedingType.breeding_type
+        for animal_type, tags_by_breeding_type in TAGS_BY_ANIMAL_TYPE_AND_BREEDING_TYPE.items():
+            # Example of what we get from the for loop:
+            # animal_type: AnimalType.LAYING_HEN
+            # tags_by_breeding_type: LayingHenBreedingType.FURNISHED_CAGE: ["en:cage-chicken-eggs"]
 
-        # Broiler chickens
-        broiler_chicken_tags = TAGS_BY_ANIMAL_TYPE_AND_BREEDING_TYPE[AnimalType.BROILER_CHICKEN]
-        for breeding_type, tags in broiler_chicken_tags.items():
-            if any(tag in self.product_data.categories_tags for tag in tags):
-                # set the breeding type if any of the tags is present
-                breeding_types.broiler_chicken_breeding_type = breeding_type
-                break
+            for breeding_type, tags in tags_by_breeding_type.items():
+                if any(tag in self.product_data.categories_tags for tag in tags):
+                    # set the breeding type if any of the tags is present
+                    breeding_types.append(BreedingTypeAndWeight(animal_type=animal_type, breeding_type=breeding_type))
+                    break
 
         return breeding_types
 
-    def compute_weights(self) -> AnimalProductWeight:
+    def _get_breeding_types_with_weights(self, breeding_types: List[BreedingTypeAndWeight]) -> List[BreedingTypeAndWeight]:
         """
-        Compute the weight of animal products in the product.
+        Compute the weight of animal product and fill the weight for each BreedingTypeAndWeight objects.
+        If the computed weight is <= 0, the BreedingTypeAndWeight object will not be returned.
 
         Returns:
-            AnimalProductWeight object with detected weights
+            A list of BreedingTypeAndWeight objects (one by type of animal) with detected weights, if the weight is > 0
         """
-        # TODO: Implement actual weight calculation based on product data
-        # This is currently a placeholder
-        return AnimalProductWeight(
-            egg_weight=200,
-            chicken_weight=None,
-        )
+        breeding_types_and_weights = []
+        for breeding_type in breeding_types:
+            # TODO: Implement actual weight calculation based on product data
+            #  This is currently a placeholder
+            weight = randint(0, 1000)
 
-    @property
-    def have_data_to_be_computed(self) -> bool:
-        """
-        Check if we have enough data to generate a report.
+            # We only return breeding types (and their weights) if the weight of the animal-based product is > 0
+            if weight > 0:
+                breeding_type.animal_product_weight = weight
+                breeding_types_and_weights.append(breeding_type)
 
-        Returns:
-            True if at least one breeding type and product weight is set, False otherwise
-        """
-        return bool(self.has_breeding_type and self.has_weight)
-
-    @property
-    def has_breeding_type(self) -> bool:
-        """
-        Check if any breeding type is set.
-
-        Returns:
-            True if any breeding type is set, False otherwise
-        """
-        return bool(self.breeding_types.laying_hen_breeding_type or self.breeding_types.broiler_chicken_breeding_type)
-
-    @property
-    def has_weight(self) -> bool:
-        """
-        Check if any weight is set.
-
-        Returns:
-            True if any weight is set, False otherwise
-        """
-        return bool(self.weights.egg_weight or self.weights.chicken_weight)
+        return breeding_types_and_weights
 
     def get_pain_report(self) -> PainReport:
         """
@@ -156,69 +144,47 @@ class PainReportCalculator:
         Returns:
             A complete pain report
         """
-        if not self.have_data_to_be_computed:
-            raise ResourceNotFoundException("Product not found")
-
-        animal_breeding_pairs = []
-
-        # For laying hens
-        if self.breeding_types.laying_hen_breeding_type:
-            animal_breeding_pairs.append((
-                AnimalType.LAYING_HEN,
-                self.breeding_types.laying_hen_breeding_type,
-                self.weights.egg_weight or 0
-            ))
-
-        # For broiler chickens
-        if self.breeding_types.broiler_chicken_breeding_type:
-            animal_breeding_pairs.append((
-                AnimalType.BROILER_CHICKEN,
-                self.breeding_types.broiler_chicken_breeding_type,
-                self.weights.chicken_weight or 0
-            ))
+        if not self.breeding_types_with_weights:
+            raise ResourceNotFoundException("Can't find valid breeding type or animal product weight for this product")
 
         return PainReport(
+            breeding_types_with_weights=self.breeding_types_with_weights,
             pain_categories=[
                 PainCategory(
                     pain_type=pain_type,
                     animals=[
                         AnimalPainDuration(
-                            animal_type=animal_type,
-                            seconds_in_pain=self._calculate_time_in_pain(
-                                animal_type, breeding_type_value, pain_type, animal_weight
-                            )
+                            animal_type=breeding_type_with_weight.animal_type,
+                            seconds_in_pain=self._calculate_time_in_pain(breeding_type_with_weight, pain_type)
                         )
-                        for animal_type, breeding_type_value, animal_weight in animal_breeding_pairs
-                        if animal_weight > 0
+                        for breeding_type_with_weight in self.breeding_types_with_weights
                     ]
                 )
                 for pain_type in PainType
             ],
         )
 
-    def _calculate_time_in_pain(self, animal_type, breeding_type_value, pain_type, weight_value):
+    def _calculate_time_in_pain(self, breeding_type_with_weight: BreedingTypeAndWeight, pain_type) -> int:
         """
         Calculates time in pain for a given combination.
 
         Args:
-            animal_type: Type of animal (from AnimalType enum)
-            breeding_type_value: Type of breeding for this animal
+            breeding_type_with_weight: A BreedingTypeAndWeight object
             pain_type: Type of pain (from PainType enum)
-            weight_value: Weight of the animal product in grams
 
         Returns:
             Duration of pain in seconds
         """
-        if weight_value <= 0:
+        if breeding_type_with_weight.animal_product_weight <= 0:
             return 0
 
         time_in_pain = (
-            TIME_IN_PAIN_FOR_100G_IN_SECONDS.get(animal_type, {})
-            .get(breeding_type_value, {})
+            TIME_IN_PAIN_FOR_100G_IN_SECONDS.get(breeding_type_with_weight.animal_type, {})
+            .get(breeding_type_with_weight.breeding_type, {})
             .get(pain_type, 0)
         )
 
-        return time_in_pain * weight_value / 100
+        return int(time_in_pain * breeding_type_with_weight.animal_product_weight / 100)
 
 
 async def compute_suffering_footprint(barcode: str) -> PainReport | None:
@@ -236,10 +202,6 @@ async def compute_suffering_footprint(barcode: str) -> PainReport | None:
 
     # Create calculator with the retrieved data
     calculator = PainReportCalculator(product_data)
-
-    # Check if we have enough data to generate a report
-    if not calculator.have_data_to_be_computed:
-        raise ResourceNotFoundException(f"Product not found: {barcode}")
 
     # Generate and return the pain report
     return calculator.get_pain_report()

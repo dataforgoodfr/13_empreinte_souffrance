@@ -52,7 +52,15 @@ TIME_IN_PAIN_FOR_100G_IN_SECONDS = {
             PainType.ANNOYING: 33333
         },
     },
-    # Here will be broiler chicken etc...
+    AnimalType.BROILER_CHICKEN: {
+        BroilerChickenBreedingType.FREE_RANGE: {
+            PainType.EXCRUCIATING: 120,
+            PainType.DISABLING: 4500,
+            PainType.HURTFUL: 8000,
+            PainType.ANNOYING: 35000
+        },
+    }
+    # Here will come data for other animals...
 }
 
 
