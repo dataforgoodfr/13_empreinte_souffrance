@@ -12,11 +12,11 @@ from app.config.middlewares import (
 # Setup logging
 setup_logging()
 
+
 # Create FastAPI app
 app = FastAPI(
     title="Suffering Footprint API",
     description="API for calculating and displaying the suffering footprint of food products",
-    version="0.1.0",
 )
 
 
