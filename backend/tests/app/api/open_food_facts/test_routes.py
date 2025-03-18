@@ -28,19 +28,19 @@ async def test_get_off_knowledge_panel(async_client: AsyncClient):
         "pain_categories": [
             {
                 "animals": [{"animal_type": "laying_hen", "seconds_in_pain": 200}],
-                "pain_type": "excruciating",
+                "pain_intensity": "excruciating",
             },
             {
                 "animals": [{"animal_type": "laying_hen", "seconds_in_pain": 4000}],
-                "pain_type": "disabling",
+                "pain_intensity": "disabling",
             },
             {
                 "animals": [{"animal_type": "laying_hen", "seconds_in_pain": 6000}],
-                "pain_type": "hurtful",
+                "pain_intensity": "hurtful",
             },
             {
                 "animals": [{"animal_type": "laying_hen", "seconds_in_pain": 8000}],
-                "pain_type": "annoying",
+                "pain_intensity": "annoying",
             },
         ],
         "breeding_types_with_weights": [

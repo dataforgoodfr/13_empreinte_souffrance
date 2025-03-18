@@ -3,7 +3,8 @@ from unittest.mock import AsyncMock, MagicMock, patch
 import httpx
 import pytest
 
-from app.business.open_food_facts.knowledge_panel import PainReportCalculator, get_data_from_off
+from app.business.open_food_facts.knowledge_panel import get_data_from_off
+from app.business.open_food_facts.pain_report_calculator import PainReportCalculator
 from app.config.exceptions import ResourceNotFoundException
 from app.enums.open_food_facts.enums import AnimalType, LayingHenBreedingType
 from app.schemas.open_food_facts.external import ProductData
