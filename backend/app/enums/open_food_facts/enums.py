@@ -1,9 +1,9 @@
-from enum import StrEnum
+from enum import StrEnum, auto
 
 
 class AnimalType(StrEnum):
-    LAYING_HEN = "laying_hen"
-    BROILER_CHICKEN = "broiler_chicken"
+    LAYING_HEN = auto()
+    BROILER_CHICKEN = auto()
     
     @property
     def display_name(self) -> str:
@@ -16,10 +16,10 @@ class AnimalType(StrEnum):
 
 
 class LayingHenBreedingType(StrEnum):
-    CONVENTIONAL_CAGE = "conventional_cage"
-    FURNISHED_CAGE = "furnished_cage"
-    BARN = "barn"
-    FREE_RANGE = "free_range"
+    CONVENTIONAL_CAGE = auto()
+    FURNISHED_CAGE = auto()
+    BARN = auto()
+    FREE_RANGE = auto()
     
     @property
     def display_name(self) -> str:
@@ -34,7 +34,7 @@ class LayingHenBreedingType(StrEnum):
 
 
 class BroilerChickenBreedingType(StrEnum):
-    FREE_RANGE = "free_range"
+    FREE_RANGE = auto()
     
     @property
     def display_name(self) -> str:
@@ -46,10 +46,10 @@ class BroilerChickenBreedingType(StrEnum):
 
 
 class PainIntensity(StrEnum):
-    EXCRUCIATING = "excruciating"
-    DISABLING = "disabling"
-    HURTFUL = "hurtful"
-    ANNOYING = "annoying"
+    EXCRUCIATING = auto()
+    DISABLING = auto()
+    HURTFUL = auto()
+    ANNOYING = auto()
     
     @property
     def display_name(self) -> str:
@@ -69,8 +69,8 @@ class PainIntensity(StrEnum):
 
 
 class PainType(StrEnum):
-    PHYSICAL = "physical"
-    PSYCHOLOGICAL = "psychological"
+    PHYSICAL = auto()
+    PSYCHOLOGICAL = auto()
     
     @property
     def display_name(self) -> str:
@@ -135,7 +135,7 @@ TIME_IN_PAIN_FOR_100G_IN_SECONDS = {
                 PainIntensity.ANNOYING: 16000
             },
             PainType.PSYCHOLOGICAL: {
-                PainIntensity.EXCRUCIATING: 0,
+                PainIntensity.EXCRUCIATING: 1,
                 PainIntensity.DISABLING: 51,
                 PainIntensity.HURTFUL: 1222,
                 PainIntensity.ANNOYING: 17333
