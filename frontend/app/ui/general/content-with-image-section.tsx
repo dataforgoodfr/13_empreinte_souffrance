@@ -19,7 +19,7 @@ export default function ContentWithImageSection({
   return (
     <section
       className={clsx(
-        "bg-gradient-to-r from-blue-600 via-blue-500 to-indigo-500 h-screen md:flex items-center justify-between px-8 sm:px-16",
+        "bg-gradient-to-r from-blue-600 via-blue-500 to-indigo-500 h-screen md:flex items-center justify-center gap-8 px-8 sm:px-16",
         { "md:flex-row-reverse": image_position === "right" },
       )}
     >
@@ -31,7 +31,7 @@ export default function ContentWithImageSection({
           alt={image_description}
         />
       </div>
-      <div className="space-y-6 text-center w-full">
+      <div className="text-center w-fit mx-6">
         <p className="text-white text-center text-base sm:text-lg font-light">
           {text_content}
         </p>
