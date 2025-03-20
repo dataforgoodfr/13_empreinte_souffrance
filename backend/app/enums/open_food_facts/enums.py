@@ -4,6 +4,15 @@ from enum import StrEnum, auto
 class AnimalType(StrEnum):
     LAYING_HEN = auto()
     BROILER_CHICKEN = auto()
+    
+    @property
+    def display_name(self) -> str:
+        """Return the human-readable name for this animal type"""
+        mappings = {
+            "laying_hen": "Poule pondeuse",
+            "broiler_chicken": "Poulet de chair"
+        }
+        return mappings.get(self.value, self.value)
 
 
 class LayingHenBreedingType(StrEnum):
@@ -11,53 +20,142 @@ class LayingHenBreedingType(StrEnum):
     FURNISHED_CAGE = auto()
     BARN = auto()
     FREE_RANGE = auto()
+    
+    @property
+    def display_name(self) -> str:
+        """Return the human-readable name for this breeding type"""
+        mappings = {
+            "conventional_cage": "Cage conventionnelle",
+            "furnished_cage": "Cage améliorée",
+            "barn": "Au sol",
+            "free_range": "En plein air"
+        }
+        return mappings.get(self.value, self.value)
 
 
 class BroilerChickenBreedingType(StrEnum):
     FREE_RANGE = auto()
+    
+    @property
+    def display_name(self) -> str:
+        """Return the human-readable name for this breeding type"""
+        mappings = {
+            "free_range": "En plein air"
+        }
+        return mappings.get(self.value, self.value)
 
 
-class PainType(StrEnum):
+class PainIntensity(StrEnum):
     EXCRUCIATING = auto()
     DISABLING = auto()
     HURTFUL = auto()
     ANNOYING = auto()
+    
+    @property
+    def display_name(self) -> str:
+        """Return the human-readable name for this pain intensity"""
+        mappings = {
+            "excruciating": "Agonie",
+            "disabling": "Souffrance",
+            "hurtful": "Douleur",
+            "annoying": "Inconfort"
+        }
+        return mappings.get(self.value, self.value)
+    
+    @classmethod
+    def get_intensity_order(cls) -> list["PainIntensity"]:
+        """Return the order of pain intensities from most to least severe."""
+        return [cls.EXCRUCIATING, cls.DISABLING, cls.HURTFUL, cls.ANNOYING]
 
 
-# Time in pain by animal type, per 100g, in seconds
+class PainType(StrEnum):
+    PHYSICAL = auto()
+    PSYCHOLOGICAL = auto()
+    
+    @property
+    def display_name(self) -> str:
+        """Return the human-readable name for this pain type"""
+        mappings = {
+            "physical": "Physique",
+            "psychological": "Psychologique"
+        }
+        return mappings.get(self.value, self.value)
+
+
+# Time in pain by animal type, per 100g, in seconds, separated by pain type
 TIME_IN_PAIN_FOR_100G_IN_SECONDS = {
     AnimalType.LAYING_HEN: {
         LayingHenBreedingType.CONVENTIONAL_CAGE: {
-            PainType.EXCRUCIATING: 100,
-            PainType.DISABLING: 2000,
-            PainType.HURTFUL: 3000,
-            PainType.ANNOYING: 4000
+            PainType.PHYSICAL: {
+                PainIntensity.EXCRUCIATING: 70,
+                PainIntensity.DISABLING: 1200,
+                PainIntensity.HURTFUL: 1800,
+                PainIntensity.ANNOYING: 2400
+            },
+            PainType.PSYCHOLOGICAL: {
+                PainIntensity.EXCRUCIATING: 30,
+                PainIntensity.DISABLING: 800,
+                PainIntensity.HURTFUL: 1200,
+                PainIntensity.ANNOYING: 1600
+            }
         },
         LayingHenBreedingType.FURNISHED_CAGE: {
-            PainType.EXCRUCIATING: 100,
-            PainType.DISABLING: 2000,
-            PainType.HURTFUL: 3000,
-            PainType.ANNOYING: 4000
+            PainType.PHYSICAL: {
+                PainIntensity.EXCRUCIATING: 0,
+                PainIntensity.DISABLING: 1100,
+                PainIntensity.HURTFUL: 1700,
+                PainIntensity.ANNOYING: 2300
+            },
+            PainType.PSYCHOLOGICAL: {
+                PainIntensity.EXCRUCIATING: 40,
+                PainIntensity.DISABLING: 900,
+                PainIntensity.HURTFUL: 1300,
+                PainIntensity.ANNOYING: 1700
+            }
         },
         LayingHenBreedingType.BARN: {
-            PainType.EXCRUCIATING: 100,
-            PainType.DISABLING: 2000,
-            PainType.HURTFUL: 3000,
-            PainType.ANNOYING: 4000
+            PainType.PHYSICAL: {
+                PainIntensity.EXCRUCIATING: 50,
+                PainIntensity.DISABLING: 1000,
+                PainIntensity.HURTFUL: 1500,
+                PainIntensity.ANNOYING: 2000
+            },
+            PainType.PSYCHOLOGICAL: {
+                PainIntensity.EXCRUCIATING: 50,
+                PainIntensity.DISABLING: 1000,
+                PainIntensity.HURTFUL: 1500,
+                PainIntensity.ANNOYING: 2000
+            }
         },
         LayingHenBreedingType.FREE_RANGE: {
-            PainType.EXCRUCIATING: 0,
-            PainType.DISABLING: 111,
-            PainType.HURTFUL: 2222,
-            PainType.ANNOYING: 33333
+            PainType.PHYSICAL: {
+                PainIntensity.EXCRUCIATING: 0,
+                PainIntensity.DISABLING: 60,
+                PainIntensity.HURTFUL: 1000,
+                PainIntensity.ANNOYING: 16000
+            },
+            PainType.PSYCHOLOGICAL: {
+                PainIntensity.EXCRUCIATING: 1,
+                PainIntensity.DISABLING: 51,
+                PainIntensity.HURTFUL: 1222,
+                PainIntensity.ANNOYING: 17333
+            }
         },
     },
     AnimalType.BROILER_CHICKEN: {
         BroilerChickenBreedingType.FREE_RANGE: {
-            PainType.EXCRUCIATING: 120,
-            PainType.DISABLING: 4500,
-            PainType.HURTFUL: 8000,
-            PainType.ANNOYING: 35000
+            PainType.PHYSICAL: {
+                PainIntensity.EXCRUCIATING: 70,
+                PainIntensity.DISABLING: 2500,
+                PainIntensity.HURTFUL: 4000,
+                PainIntensity.ANNOYING: 18000
+            },
+            PainType.PSYCHOLOGICAL: {
+                PainIntensity.EXCRUCIATING: 50,
+                PainIntensity.DISABLING: 2000,
+                PainIntensity.HURTFUL: 4000,
+                PainIntensity.ANNOYING: 17000
+            }
         },
     }
     # Here will come data for other animals...
@@ -71,5 +169,8 @@ TAGS_BY_ANIMAL_TYPE_AND_BREEDING_TYPE = {
         LayingHenBreedingType.BARN: ["en:barn-chicken-eggs"],
         LayingHenBreedingType.FREE_RANGE: ["en:free-range-chicken-eggs", "en:organic-eggs"],
     },
-    AnimalType.BROILER_CHICKEN: {},
+    AnimalType.BROILER_CHICKEN: {
+        # Can be tested with this barcode: 3256229237063
+        # BroilerChickenBreedingType.FREE_RANGE: ["en:cooked-chicken-breast-slices"]
+    },
 }

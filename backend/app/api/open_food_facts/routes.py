@@ -1,7 +1,7 @@
 from fastapi import APIRouter
 from starlette.requests import Request
 
-from app.business.open_food_facts.knowledge_panel import compute_suffering_footprint
+from app.business.open_food_facts.knowledge_panel import compute_suffering_footprint, get_knowledge_panel_response
 from app.config.exceptions import ExternalServiceException, ResourceNotFoundException
 from app.config.logging import setup_logging
 from app.schemas.open_food_facts.internal import KnowledgePanelResponse
@@ -30,6 +30,4 @@ async def knowledge_panel(request: Request, barcode: str):
         # Will be handled by the middleware, no need for additional processing here
         raise
 
-    return KnowledgePanelResponse(
-        pain_report=pain_report,
-    )
+    return get_knowledge_panel_response(pain_report=pain_report)
