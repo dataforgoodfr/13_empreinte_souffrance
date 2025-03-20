@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-03-19 18:50+0100\n"
+"POT-Creation-Date: 2025-03-20 20:42+0100\n"
 "PO-Revision-Date: 2025-02-17 20:32+0100\n"
 "Last-Translator: Mathis Dupuy <1292785+Akiat@users.noreply.github.com>\n"
 "Language: fr\n"
@@ -27,12 +27,13 @@ msgstr ""
 "est calculée sur la base des recherches du <a "
 "href='https://welfarefootprint.org/'>Welfare Footprint Institute</a>."
 
+#, fuzzy
 msgid ""
 "The score and details shown below are based on the following data "
-"(provided by the Open Food Facts community"
+"(provided by the Open Food Facts community)"
 msgstr ""
 "Le score et les détails affichés ci-dessous sont basés sur les données "
-"suivantes (fournies par la communauté Open Food Facts"
+"suivantes (fournies par la communauté Open Food Facts)"
 
 msgid "What is the suffering footprint?"
 msgstr "Qu'est-ce que l'empreinte souffrance ?"
@@ -164,4 +165,40 @@ msgstr "{} minutes"
 #, python-brace-format
 msgid "{} seconds"
 msgstr "{} secondes"
+
+msgid "Laying hen"
+msgstr "Poule pondeuse"
+
+msgid "Broiler chicken"
+msgstr "Poulet de chair"
+
+msgid "Conventional cage"
+msgstr "Cage conventionnelle"
+
+msgid "Furnished cage"
+msgstr "Cage aménagée"
+
+msgid "Barn"
+msgstr "Au sol"
+
+msgid "Free range"
+msgstr "En plein air"
+
+msgid "Excruciating"
+msgstr "Agonie"
+
+msgid "Disabling"
+msgstr "Souffrance"
+
+msgid "Hurtful"
+msgstr "Douleur"
+
+msgid "Annoying"
+msgstr "Inconfort"
+
+msgid "Physical"
+msgstr "Douleur physique"
+
+msgid "Psychological"
+msgstr "Douleur psychologique"
 

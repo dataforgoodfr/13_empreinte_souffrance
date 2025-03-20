@@ -3,7 +3,7 @@ version: '3'
 vars:
   LOCALES_DIR: "app/locales"
   TRANSLATION_LANGUAGES: ["en", "fr"]
-  TRANSLATION_SOURCE_DIRS: ["app/api", "app/business"]
+  TRANSLATION_SOURCE_DIRS: ["app/"]
 
 tasks:
   run-server:

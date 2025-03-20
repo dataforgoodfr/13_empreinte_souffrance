@@ -147,7 +147,7 @@ class KnowledgePanelGenerator:
             )),
             self._get_text_element(self._(
                 "The score and details shown below are based on the following data "
-                "(provided by the Open Food Facts community"
+                "(provided by the Open Food Facts community)"
             ))]
 
         for animal in self.pain_report.animals:
@@ -362,8 +362,8 @@ class KnowledgePanelGenerator:
             "<li>Quantity of egg in the product: <b>{weight}g</b></li></ul>"
         )
         return html_template.format(
-            animal_name=animal_type.display_name,
-            breeding_type=breeding_type_with_weight.breeding_type.display_name,
+            animal_name=animal_type.name(self._),
+            breeding_type=breeding_type_with_weight.breeding_type.name(self._),
             weight=breeding_type_with_weight.animal_product_weight
         )
 
@@ -418,12 +418,12 @@ class KnowledgePanelGenerator:
         # Start with animal name and breeding type
         animal_type = animal_pain_report.animal_type
         breeding_type = animal_pain_report.breeding_type_with_weight.breeding_type
-        html_parts = [f"<b>{animal_type.display_name} - {breeding_type.display_name}</b>"]
+        html_parts = [f"<b>{animal_type.name(self._)} - {breeding_type.name(self._)}</b>"]
 
         # Add pain levels in standardized order
         html_parts.append("<ul>")
         for pain_level_data in pain_levels:
-            intensity_label = pain_level_data.pain_intensity.display_name
+            intensity_label = pain_level_data.pain_intensity.name(self._)
             duration = self._format_duration(pain_level_data.seconds_in_pain)
 
             html_parts.append(f"<li><b>{intensity_label}</b> : {duration}</li>")

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-03-19 18:50+0100\n"
+"POT-Creation-Date: 2025-03-20 20:42+0100\n"
 "PO-Revision-Date: 2025-02-17 20:34+0100\n"
 "Last-Translator: Mathis Dupuy <mathis@macbook-air-de-mathis.local>\n"
 "Language: en\n"
@@ -26,7 +26,7 @@ msgstr ""
 
 msgid ""
 "The score and details shown below are based on the following data "
-"(provided by the Open Food Facts community"
+"(provided by the Open Food Facts community)"
 msgstr ""
 
 msgid "What is the suffering footprint?"
@@ -126,15 +126,39 @@ msgstr ""
 msgid "{} seconds"
 msgstr ""
 
-#~ msgid ""
-#~ "This is a standard multiline string "
-#~ "that should be properly extracted by "
-#~ "Babel."
-#~ msgstr ""
+msgid "Laying hen"
+msgstr ""
 
-#~ msgid "This is a single line string."
-#~ msgstr ""
+msgid "Broiler chicken"
+msgstr ""
 
-#~ msgid "{} items found."
-#~ msgstr ""
+msgid "Conventional cage"
+msgstr ""
+
+msgid "Furnished cage"
+msgstr ""
+
+msgid "Barn"
+msgstr ""
+
+msgid "Free range"
+msgstr ""
+
+msgid "Excruciating"
+msgstr ""
+
+msgid "Disabling"
+msgstr ""
+
+msgid "Hurtful"
+msgstr ""
+
+msgid "Annoying"
+msgstr ""
+
+msgid "Physical"
+msgstr ""
+
+msgid "Psychological"
+msgstr ""
 
