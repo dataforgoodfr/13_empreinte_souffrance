@@ -1,0 +1,1592 @@
+=== Final Egg Analysis ===
+Total matches: 369
+
+Top 20 files:
+food/categories.txt: 150 matches
+food/ingredients.txt: 123 matches
+product/unspsc.txt: 63 matches
+labels.txt: 17 matches
+additives.txt: 7 matches
+food_groups.txt: 6 matches
+allergens.txt: 2 matches
+packaging_shapes.txt: 1 matches
+
+Term Frequency Counts:
+egg: 365
+eggs: 251
+œufs: 132
+oeufs: 122
+oeuf: 92
+yolk: 47
+œuf: 47
+lecithin: 40
+omelette: 40
+jaune d'oeuf: 20
+lécithine: 16
+omelettes: 16
+lecithine: 13
+jaune d'œuf: 12
+lysozyme: 12
+jaunes d'oeufs: 7
+jaunes d'œufs: 6
+jaune d'œufs: 5
+albumin: 4
+jaune d'oeufs: 4
+jaune d’œuf: 4
+omelett: 4
+albumen: 3
+globulin: 3
+lecithins: 3
+lécithines: 3
+yolks: 2
+jaune d’oeuf: 1
+jaunes d'oeuf: 1
+jaunes d'œuf: 1
+lecithines: 1
+
+All Matches:
+allergens.txt:92
+    en: eggs, egg, barn egg, egg whites, egg white, egg yolks, egg yolk, whole eggs, whole egg
+
+allergens.txt:235
+    en: soybeans, soya, soja, soia, soy, soya bean, soy flour, soya flour, soy lecithin, soy lecithins, soya lecithin, soya lecithins, soy lecithines, soy protein isolate, soya products
+
+labels.txt:229
+    en: British Lion Quality, Lion Quality, British Lion Eggs, Lion Eggs, The Lion Mark, Lion Mark
+
+labels.txt:232
+    nl: Beter Leven
+    description:en: The Better Life label scheme uses a star rating to indicate the animal-friendliness of the systems used to rear livestock for the production of meat, eggs and dairy produce. The higher the number of stars, the more attention is paid to animal welfare. Our website shows the exact criteria per animal species that are applicable for livestock farmers and producers.
+
+labels.txt:240
+    < nl:Beter Leven
+    nl: Beter Leven 1 ster
+    description:en: The Better Life label scheme uses a star rating to indicate the animal-friendliness of the systems used to rear livestock for the production of meat, eggs and dairy produce. The higher the number of stars, the more attention is paid to animal welfare. Our website shows the exact criteria per animal species that are applicable for livestock farmers and producers.
+
+labels.txt:249
+    < nl:Beter Leven
+    nl: Beter Leven 2 ster, Beter Leven 2 sterren
+    description:en: The Better Life label scheme uses a star rating to indicate the animal-friendliness of the systems used to rear livestock for the production of meat, eggs and dairy produce. The higher the number of stars, the more attention is paid to animal welfare. Our website shows the exact criteria per animal species that are applicable for livestock farmers and producers.
+
+labels.txt:258
+    < nl:Beter Leven
+    nl: Beter Leven 3 ster, Beter Leven 3 sterren
+    description:en: The Better Life label scheme uses a star rating to indicate the animal-friendliness of the systems used to rear livestock for the production of meat, eggs and dairy produce. The higher the number of stars, the more attention is paid to animal welfare. Our website shows the exact criteria per animal species that are applicable for livestock farmers and producers.
+
+labels.txt:287
+    en: French eggs, Eggs from France, Oeufs de France
+
+labels.txt:301
+    fr: Oeufs origine France
+
+labels.txt:303
+    < en:Free range
+    en: Free range eggs
+
+labels.txt:319
+    < en:Free range eggs
+    en: Made with free range eggs, Baked with free range eggs
+
+labels.txt:329
+    en: May contain eggshell, may contain egg shell
+
+labels.txt:1205
+    < en:Fed without GMOs
+    en: Eggs from animals fed without GMOs
+
+labels.txt:3791
+    en: Egg laid in France
+
+labels.txt:4431
+    en: No eggs, egg free
+
+labels.txt:4756
+    en: No lecithine, lecithine-free
+
+labels.txt:4770
+    < en:No lecithine
+    en: No soja lecithine, Without soja lecithine
+
+labels.txt:19570
+    < en:Vegan
+    en: certified plant based, plant based certified
+    description:en: The Certified Plant Based certification and label - delivered by the National Science Foundation, USA - make it easy for consumers to choose sustainable alternatives to meat, egg and dairy products by providing assurance that the food contains no animal-derived ingredients.
+
+labels.txt:19905
+    < fr:Bleu Blanc Cœur
+    fr: Bleu Blanc Cœur Œuf, Oeuf BBC, BBC Oeuf, Oeufs BBC, BBC Oeufs
+
+packaging_shapes.txt:183
+    < en:Box
+    nl: Eierdoos
+    en: egg carton, egg box
+
+food_groups.txt:170
+    en: Fish\, Meat\, Eggs
+
+food_groups.txt:172
+    < en:Fish\, Meat\, Eggs
+    en: Offals
+
+food_groups.txt:176
+    < en:Fish\, Meat\, Eggs
+    en: Processed meat
+
+food_groups.txt:180
+    < en:Fish\, Meat\, Eggs
+    en: Eggs
+
+food_groups.txt:185
+    < en:Fish\, Meat\, Eggs
+    en: Fish and seafood
+
+food_groups.txt:200
+    < en:Fish\, Meat\, Eggs
+    en: Meat
+
+additives.txt:993
+    en: E131, Patent blue v, Food Blue 5, Sulphan Blue, Acid Blue 3, L-Blau 3, C-Blau 20, Patentblau V, Sky Blue, C.I. 42051
+    description:en: PATENT BLUE V is a dark bluish synthetic triphenylmethane dye used as a food coloring. It is not widely used, but in Europe it can be found in Scotch eggs, certain jelly sweets, blue Curaçao, certain jello varieties (though not in actual Jell-O brand products), among others.
+
+additives.txt:7673
+    en: E322, Lecithins, Phosphatides
+
+additives.txt:7712
+    < en:E322
+    en: E322(i), Lecithin
+
+additives.txt:7766
+    < en:E322
+    en: E322(ii), Partially hydrolyzed lecithin
+
+additives.txt:7795
+    en: E322a, Oat lecithin
+
+additives.txt:9469
+    en: E344, Lecithin citrate
+
+additives.txt:23290
+    en: E1105, Lysozyme, Lysozyme hydrochloride, E 1105, E-1105
+
+food/categories.txt:6047
+    < en:Liqueurs
+    en: Advocaat
+    fr: Liqueur aux œufs, Liqueur aux oeufs
+
+food/categories.txt:28178
+    < en:Wines from Italy
+    en: Marsala with eggs
+
+food/categories.txt:33321
+    en: Meal kits, Kits for meals
+    gpc_category_description:en: Definition: Includes any products that can be described/observed as a vegetable based not ready to eat, prepared/processed product, such as Potato, Cabbage, Eggplant or any other vegetable with other ingredients, such as meat, poultry, fish, and/or seasoning. An optional seasoning/flavour packet may be present. These ingredients form a valuable part of the product, such as minced beef in a Shepherd's Pie or Duck with Vegetables. These products may have a main component which is considered a meal without any additional components. These products must not include any Dough Based, Grain Based, Dairy/Egg Based products. They may or may not contain a sauce. These products require cooking prior to consumption. These products have been specially treated or packaged to extend their consumable life. Includes not ready to eat self stable Ready-Made Meals where a Vegetable Based Product is the primary ingredient. Definition Excludes: Excludes Ready-Made Combination Meals. Specifically excludes all prepared and processed and unprepared and unprocessed vegetables to which no recipe has been applied.Excludes products such as Frozen and Perishable Not Ready to Eat and all Ready to Eat Vegetable-Based Prepared/Processed Products and all Prepared and Processed Vegetables.
+
+food/categories.txt:33341
+    < en:Meal kits
+    en: Grain based meal kits
+    gpc_category_description:en: Definition: Includes any products that can be described/observed as a savoury grain-based not ready to eat, prepared/processed product, such as Rice, Polenta or Couscous with other ingredients, such as meat, eggs, fish, vegetables, and/or seasoning. An optional seasoning/flavour packet may be present. These ingredients form a valuable part of the product, such as Chicken Tandoori with Pilau Rice or Rice with Beef. These products may have a main component which is considered a meal without any additional components. These products must not include any Dough-Based products. They may or may not contain a sauce. These products require cooking prior to consumption. These products have been treated or packaged in such a way as to extend their consumable life. Includes not ready to eat shelf stable Ready-Made Meals where a Grain Based Product is the primary ingredient. Definition Excludes: Excludes Ready-Made Combination Meals. Specifically excludes all unprepared dried rice.Excludes products such as Frozen and Perishable Not Ready to Eat and all Ready to Eat Grain Based Prepared/Processed Products, Unprepared Grains.
+
+food/categories.txt:33347
+    < en:Meal kits
+    en: Refrigerated grain based meal kits
+    gpc_category_description:en: Definition: Includes any products that can be described/observed as a savoury grain-based not ready to eat, prepared/processed product, such as Rice, Polenta or Couscous with other ingredients, such as meat, eggs, dairy, fish, vegetables, and/or seasoning. An optional seasoning/flavour packet may be present. These ingredients form a valuable part of the product, such as Chicken Tandoori with Pilau Rice or Rosemary Chicken over Wild Rice Pilaf. These products may have a main component which is considered a meal without any additional components. These products must not include any Dough-Based products. They may or may not contain a sauce. These products require cooking prior to consumption. These products must be refrigerated to extend their consumable life. Includes not ready to eat perishable Ready-Made Meals where a Grain Based Product is the primary ingredient. Definition Excludes: Excludes Ready-Made Combination Meals. Specifically excludes all unprepared dried rice.Excludes products such as Shelf Stable and Frozen Not Ready-to-Eat and all Ready-to-Eat Grain-Based Prepared/Processed Products, Unprepared Grains.
+
+food/categories.txt:33353
+    < en:Meal kits
+    en: Frozen grain based meal kits
+    gpc_category_description:en: Definition: Includes any products that can be described/observed as a savoury grain-based not ready to eat, prepared/processed product, such as Rice, Polenta or Couscous with other ingredients, such as meat, eggs, fish, vegetables, and/or seasoning. An optional seasoning/flavour packet may be present. These ingredients form a valuable part of the product, such as Chicken Tandoori with Pilau Rice or Rosemary Chicken over Wild Rice Pilaf. These products may have a main component which is considered a meal without any additional components. These products must not include any Dough-Based products. They may or may not contain a sauce. These products require cooking prior to consumption. These products must be frozen to extend their consumable life.   Includes frozen Ready-Made Meals where a Grain Based Product is the primary ingredient. Definition Excludes: Excludes Ready-Made Combination Meals. Specifically excludes all unprepared dried rice.Excludes products such as Shelf Stable and Perishable Not Ready to Eat and all Ready to Eat Grain-Based Prepared/Processed Products, Unprepared Grains.
+
+food/categories.txt:34127
+    < en:Dry biscuits
+    en: Sponge fingers biscuit, Lady fingers biscuit
+    fr: Boudoirs, Boudoir, biscuits à la cuiller, biscuit à la cuiller, biscuits à la cuillère, biscuit à la cuillère, Biscuit sec aux œufs à la cuillère, Biscuit sec aux œufs à la cuiller
+
+food/categories.txt:34614
+    < en:Breads
+    en: Packaged breads
+    gpc_category_description:en: Definition: Includes any products that can be described/observed as a leavened or unleavened, dough-based baked product. These products do not typically contain eggs and tend to have lower fat content than other dough products such as pastry. These products have been treated or packaged in such a way as to extend their consumable life. Includes such products as naan, chapatti, loaves, rolls, bagels, focaccia, ciabatta, baguette. Also includes rye bread, bread made from rice flour and part baked bread products. Definition Excludes: Excludes products such as Frozen and Perishable Bread Products, Dried Breads, Shelf-Stable Baking Mixes and Baking Supplies, and Pies and Pastries.
+
+food/categories.txt:34621
+    < en:Breads
+    < en:Frozen foods
+    en: Frozen breads
+    gpc_category_description:en: Definition: Includes any products that can be described/observed as a leavened or unleavened, dough-based baked product. These products do not typically contain eggs and tend to have lower fat content than other dough products such as pastry. These products can be refrigerated to extend their consumable life. Includes such products as naan, chapatti, loaves, rolls, bagels, focaccia, ciabatta, baguette. Also includes rye bread, bread made from rice flour and part baked bread products. Definition Excludes: Excludes products such as Shelf-Stable and Frozen Bread Products, Dried Breads, Perishable Baking Mixes and Baking Supplies, and Pies and Pastries.
+
+food/categories.txt:35913
+    < en:Toasts
+    en: Sliced rusk with eggs
+
+food/categories.txt:36183
+    < en:Rusks
+    en: Rusk with eggs
+
+food/categories.txt:36587
+    < en:Biscuits and cakes
+    en: Cakes
+    description:en: Cake is a form of sweet food that is usually baked. The most commonly used cake ingredients include flour, sugar, eggs, butter or oil or margarine, a liquid, and leavening agents, such as baking soda or baking powder. Common additional ingredients and flavourings include dried, candied, or fresh fruit, nuts, cocoa, and extracts such as vanilla, with numerous substitutions for the primary ingredients. Cakes can also be filled with fruit preserves, nuts or dessert sauces (like pastry cream), iced with buttercream or other icings, and decorated with marzipan, piped borders, or candied fruit.
+
+food/categories.txt:36700
+    < en:Cakes
+    en: Fresh cakes, Refrigerated cakes
+    gpc_category_description:en: Definition: Includes any products that can be described/observed as a sweet prepared food, usually made from flour, sugar, shortening/fat and eggs mixed with other ingredients and baked or fried. These products can be/must be refrigerated to extend their consumable life. Definition Excludes: Excludes products such as Frozen and Shelf Stable Cakes, Cake Mixes, all Bread Products.
+
+food/categories.txt:36790
+    < en:Baking Mixes
+    en: Shelf-stable baking mixes
+    gpc_category_description:en: Definition: Includes any products that can be described/observed as a quantity of shelf-stable, pre-mixed dough, batter or powder that is specifically intended to produce bread, cakes, biscuits, desserts, or other products. Products may be ready to use (where no additional ingredients need to be added to the mix prior to use) or require the addition of wet ingredients such as water, milk, oil, fat or egg. These products have been treated or packaged in such a way as to extend their consumable life. Definition Excludes: Excludes products such as Soups, Frozen or Perishable Baking Mixes, all Part Baked and Baked Products.
+
+food/categories.txt:36796
+    < en:Baking Mixes
+    en: Refrigerated baking mixes
+    gpc_category_description:en: Definition: Includes any products that can be described/observed as a quantity of perishable, pre-mixed dough, batter or powder or other ingredients that is specifically intended to produce bread, cakes, biscuits, desserts, or other products. Products may be ready to use (where no additional ingredients need to be added to the mix prior to use) or require the addition of wet ingredients such as water, milk, oil, fat or egg. These products must be refrigerated to extend their consumable life. Definition Excludes: Excludes products such as Soups, Frozen or Shelf-Stable Baking Mixes, all Part Baked and Baked Products.
+
+food/categories.txt:36802
+    < en:Baking Mixes
+    en: Frozen baking mixes
+    gpc_category_description:en: Definition: Includes any products that can be described/observed as a quantity of frozen, pre-mixed dough, batter or powder that is specifically intended to produce bread, cakes, biscuits, desserts, or other products. Products may be ready to use (where no additional ingredients need to be added to the mix prior to use) or require the addition of wet ingredients such as water, milk, oil, fat or egg. These products must be frozen to extend their consumable life. Definition Excludes: Excludes products such as Soups, Perishable or Shelf-Stable Baking Mixes, all Part Baked and Baked Products.
+
+food/categories.txt:38257
+    < en:Cocoa and its products
+    en: Chocolate eggs
+
+food/categories.txt:39838
+    < en:Gummi candies
+    en: Gummy eggs
+
+food/categories.txt:40069
+    < en:Confectioneries
+    en: nougats, nougat
+    description:en: Nougat is a family of confections made with sugar or honey, roasted nuts (almonds, walnuts, pistachios, hazelnuts, and macadamia nuts are common), whipped egg whites, and sometimes chopped candied fruit.
+
+food/categories.txt:40306
+    < en:Chocolate eggs
+    < en:Easter food
+    en: Easter eggs, Easter chocolate eggs
+
+food/categories.txt:40321
+    < en:Bonbons
+    < en:Chocolate eggs
+    en: Filled chocolate eggs
+
+food/categories.txt:40330
+    < en:Chocolate eggs
+    < en:Chocolate molds
+    en: Hollow chocolate eggs
+
+food/categories.txt:40706
+    < en:Christmas sweets
+    en: Egg yolk pastries, Pasteles de yema, Pastelitos de yema
+
+food/categories.txt:40856
+    < en:Turrón
+    en: Toasted egg yolk turrón
+
+food/categories.txt:40994
+    < en:Fish and meat and eggs
+    en: Fish eggs, Roes
+
+food/categories.txt:41008
+    < en:Fish eggs
+    en: Bottarga
+
+food/categories.txt:41024
+    < en:Fish eggs
+    < en:Semi-preserved foods
+    en: Salmon roe, Semi-preserved salmon roe
+
+food/categories.txt:41035
+    < en:Fish eggs
+    < en:Semi-preserved foods
+    en: Smoked cod roe, Semi-preserved smoked cod roe
+
+food/categories.txt:41046
+    < en:Semi-preserved foods
+    < en:fish eggs
+    en: Semi-preserved lump roe
+
+food/categories.txt:41057
+    < en:Semi-preserved lump roe
+    fr: oeufs de lompes rouges
+
+food/categories.txt:41060
+    < en:Semi-preserved lump roe
+    fr: oeufs de lompes noirs
+
+food/categories.txt:41063
+    < en:Semi-preserved foods
+    < en:fish eggs
+    en: Trout roe, Trout eggs, Semi-preserved trout roe
+
+food/categories.txt:41176
+    < en:Meals
+    < en:Refrigerated foods
+    en: Refrigerated meals, Refrigerated prepared meals, Refrigerated prepared dishes
+    gpc_category_description:en: Definition: Includes any products that can be described/observed as a vegetable based ready to eat, prepared/ processed product, such as Potato, Cabbage, Eggplant or any other vegetable with other ingredients, such as meat, poultry, fish,  and/or seasoning. An optional seasoning/flavour packet may be present. These ingredients form a valuable part of the product such as Tuna in a Tuna Salad or Ham with Potatoes. These products may have a main component which is considered a meal without any additional components. These products must not include any Dough Based, Grain Based, Dairy/Egg Based products. They may or may not contain a sauce. Products include ready to eat salads where the main ingredient is any type of vegetable. These products do not require cooking prior to consumption, but some products can be eaten hot after reheating. These products have been treated or packaged in such a way as to extend their consumable life. Includes ready to eat shelf stable Ready-Made Meals where a Vegetable Based Product is the primary ingredient. Definition Excludes: Excludes Ready-Made Combination Meals. Specifically excludes all prepared and processed and unprepared and unprocessed vegetables to which no recipe has been applied.Excludes products such as Perishable Ready to Eat and all Not Ready to Eat Vegetable Based Prepared/Processed Products and all Prepared and Processed Vegetables.
+
+food/categories.txt:41236
+    < en:Meals
+    en: Spanish omelettes, Spanish-style tortilla with onions, Omelette with potatoes and onions
+
+food/categories.txt:41254
+    < en:Spanish omelettes
+    en: Egg-free spanish omelettes
+
+food/categories.txt:41262
+    < en:Meals
+    en: Omelettes
+
+food/categories.txt:41271
+    < en:Omelettes
+    fr: Omelette avec garniture
+
+food/categories.txt:41278
+    < fr:Omelette avec garniture
+    en: Omelette with meat
+
+food/categories.txt:41288
+    < fr:Omelette avec garniture
+    en: Omelettes with cheese
+
+food/categories.txt:41298
+    < fr:Omelette avec garniture
+    en: Omelette with vegetables
+
+food/categories.txt:41308
+    < fr:Omelettes
+    en: Herb omelette
+
+food/categories.txt:41319
+    < fr:Omelettes
+    en: Omelette with lardoons
+
+food/categories.txt:41328
+    < fr:Omelettes
+    en: Omelette with mushrooms, Mushroom Omelette
+
+food/categories.txt:41442
+    < en:Meals
+    en: Crepe filled with egg ham and cheese, buckwheat crepe filled with egg ham and cheese
+
+food/categories.txt:41521
+    < en:Fish eggs
+    en: Caviars
+
+food/categories.txt:44115
+    < en:Dairies
+    en: Dairy by-products
+    gpc_category_description:en: Definition: Includes any products that can be described/observed as a by-product made from Milk which is typically used as an ingredient or constituent in other products and not necessarily as a consumable on its own. Definition Excludes: Excludes products such as Milk, Butter, Cream, Yogurt, Cheese, Egg or Substitute products.
+
+food/categories.txt:44121
+    < en:Dairies
+    < en:Variety packs
+    en: Dairy variety packs
+    gpc_category_description:en: Definition: Includes any products that can be described/observed as two or more distinct Milk, Butter, Cream, Yogurt, Cheese, Egg or Substitute products sold together which exist within the schema but belong to different classes, that is two or more products contained within the same pack which cross classes within the Milk, Butter, Cream, Yogurts, Cheese, Eggs and Substitutes Family. Includes products such as Yogurts with Cream variety packs. Items that are received free with purchases should be removed from the classification decision-making process. Definition Excludes: Excludes products such as Strawberries and Cream variety packs
+
+food/categories.txt:50363
+    < en:Plant-based foods
+    en: Egg substitutes
+
+food/categories.txt:54547
+    < en:Refrigerated chocolate creamy puddings
+    fr: Crèmes dessert chocolat noir, Crème dessert chocolat noir, Crèmes dessert au chocolat noir, Crème dessert au chocolat noir
+    ciqual_food_name:en: Custard cream with eggs (a small jar of chocolate or vanilla cream or other flavour), refrigerated
+
+food/categories.txt:54694
+    < en:Dairy desserts
+    en: Custard puddings
+    fr: Crèmes aux œufs, crèmes aux oeufs, crèmes renversées, crème renversée
+
+food/categories.txt:54701
+    < en:Custard puddings
+    en: Vanilla custard puddings
+    fr: Crèmes vanille aux œufs, crème renversée vanille
+
+food/categories.txt:54705
+    < en:Custard puddings
+    en: Chocolate custard puddings
+    fr: Crèmes chocolat aux œufs, crème renversée au chocolat
+
+food/categories.txt:54709
+    < en:Custard puddings
+    en: Custard puddings with caramel sauce, Custard creams with caramel sauce
+    fr: Crèmes caramel aux œufs, Crèmes caramel
+
+food/categories.txt:54831
+    < en:Dairy desserts
+    fr: Desserts lactés aux œufs, Dessert lacté aux œufs
+
+food/categories.txt:55051
+    < en:Flans
+    en: Refrigerated flan with eggs
+
+food/categories.txt:57968
+    < en:Farming products
+    en: Eggs, Bird eggs
+
+food/categories.txt:58001
+    < en:Eggs
+    en: Fresh eggs
+
+food/categories.txt:58021
+    < en:Eggs
+    en: Boiled eggs
+
+food/categories.txt:58038
+    < en:Eggs
+    de: Eier aus ökologischer Erzeugung
+
+food/categories.txt:58041
+    < en:Chicken eggs
+    en: Free-range chicken eggs, free-range eggs
+
+food/categories.txt:58055
+    < en:Chicken eggs
+    en: Barn chicken eggs, barn eggs
+
+food/categories.txt:58066
+    < en:Chicken eggs
+    en: Cage chicken eggs, cage eggs
+
+food/categories.txt:58078
+    < en:Eggs
+    en: Quail eggs, Quail egg
+
+food/categories.txt:58105
+    < en:Eggs
+    en: Duck eggs
+
+food/categories.txt:58123
+    < en:Eggs
+    en: Goose eggs
+
+food/categories.txt:58138
+    < en:Eggs
+    en: Chicken eggs, Hens' eggs
+
+food/categories.txt:58162
+    < en:Chicken eggs
+    fr: Œufs de Loué
+
+food/categories.txt:58169
+    < en:Chicken eggs
+    en: Frozen chicken eggs
+
+food/categories.txt:58173
+    < en:Eggs
+    en: Ostrich eggs
+
+food/categories.txt:58181
+    < en:Eggs
+    en: Gull eggs
+
+food/categories.txt:58185
+    < en:Eggs
+    en: Guineafowl eggs
+
+food/categories.txt:58189
+    < en:Eggs
+    en: Pheasant eggs
+
+food/categories.txt:58195
+    < en:Eggs
+    en: Emu eggs
+
+food/categories.txt:58200
+    < en:Eggs
+    en: Turkey eggs
+
+food/categories.txt:58208
+    < en:Eggs
+    en: Hard-boiled egg
+
+food/categories.txt:58218
+    < en:Eggs
+    en: Scotch eggs
+
+food/categories.txt:58226
+    < en:Eggs
+    en: Egg white
+
+food/categories.txt:58239
+    < en:Eggs
+    en: Egg yolk
+
+food/categories.txt:64646
+    < en:Food additives
+    en: Lecithin
+
+food/categories.txt:64651
+    < en:Lecithin
+    en: Soy lecithin
+
+food/categories.txt:64666
+    < en:Lecithin
+    en: Sunflower lecithin
+
+food/categories.txt:64805
+    < en:Food colorings
+    fr: Colorants pour oeufs, colorant pour oeufs
+
+food/categories.txt:65197
+    < en:Frozen desserts
+    en: Baked Alaska
+    fr: Omelettes Norvégiennes glacées, Omelette norvégienne
+
+food/categories.txt:66382
+    < en:Frozen ready-made meals
+    en: Vegetable based frozen ready-made meals
+    gpc_category_description:en: Definition: Includes any products that can be described/observed as a vegetable based not ready to eat, prepared/processed product, such as Potato, Cabbage, Eggplant or any other vegetable with other ingredients, such as meat, poultry, fish, and/or seasoning. An optional seasoning/flavour packet may be present. These ingredients form a valuable part of the product, such as Steamed Vegetables with Chicken Breast. These products may have a main component which is considered a meal without any additional components. These products must not include any Dough Based, Grain Based, Dairy/Egg Based products. They may or may not contain a sauce. These products require cooking prior to consumption. These products must be frozen to extend their consumable life. Includes frozen Ready-Made Meals where a Vegetable Based Product is the primary ingredient. Definition Excludes: Excludes Ready-Made Combination Meals. Specifically excludes all prepared and processed and unprepared and unprocessed vegetables to which no recipe has been applied.Excludes products such as Shelf Stable and Perishable Not Ready to Eat and all Ready to Eat Vegetable-Based Prepared/Processed Products and all Prepared and Processed Vegetables.
+
+food/categories.txt:72398
+    < en:Aromatic herbs
+    en: tarragon
+    description:en: Tarragon (Artemisia dracunculus), is a species of perennial herb in the sunflower family. Tarragon is one of the four fines herbes of French cooking, and is particularly suitable for chicken, fish, and egg dishes.
+
+food/categories.txt:74618
+    < en:Vegan sauces
+    en: Egg-free mayonnaises
+
+food/categories.txt:75116
+    < en:Salad dressings
+    en: Salad creams
+    description:en: Salad cream is a creamy, pale yellow condiment based on an emulsion of about 25–50 percent oil in water, emulsified by egg yolk and acidulated by spirit
+
+food/categories.txt:78406
+    < en:Meals
+    en: Non-frozen dough based meals (to prepare)
+    gpc_category_description:en: Definition: Includes any products that can be described/observed as a savoury dough-based not ready to eat, prepared/processed product, such as Pasta, Gnocchi, Noodles or Batter with other ingredients, such as meat, dairy, eggs, fish, vegetables and/or seasoning. An optional seasoning/flavour packet may be present.  These ingredients form a valuable part of the product, such as the meat/tomato sauce in Spaghetti Bolognaise or cheese sauce in Macaroni and Cheese. They may or may not contain a sauce. These products may have a main component which is considered a meal without any additional components. These products are not ready to eat and require cooking prior to consumption.   These products have been specially treated or packaged to extend their consumable life. Includes not ready to eat shelf stable Ready-Made Meals where a Dough Based Product is the primary ingredient. Definition Excludes: Excludes Ready-Made Combination Meals. Specifically excludes pizza, savoury pies, quiches, pastries and bread products.Excludes products such as Frozen and Perishable Not Ready to Eat and Ready to Eat Dough-Based Prepared/Processed Products, Unprepared Pasta and Noodles.
+
+food/categories.txt:78412
+    < en:Meals
+    en: Frozen dough based meals (to prepare)
+    gpc_category_description:en: Definition: Includes any products that can be described/observed as a savoury dough-based not ready to eat, prepared/processed product, such as Pasta, Gnocchi, Noodles or Batter with other ingredients, such as meat, dairy, eggs, fish, vegetables and/or seasoning. An optional seasoning/flavour packet may be present. These ingredients form a valuable part of the product, such as the meat/tomato sauce in Spaghetti Bolognaise, or cheese sauce in Macaroni and Cheese. They may or may not contain a sauce. These products may have a main component which is considered a meal without any additional components. These products are not ready to eat and require cooking prior to consumption. These products must be refrigerated to extend their consumable life. Includes not ready to eat perishable Ready-Made Meals where a Dough Based Product is the primary ingredient. Definition Excludes: Excludes Ready-Made Combination Meals. Specifically excludes pizza, savoury pies, quiches, pastries and bread products.Excludes products such as Shelf Stable and Frozen Not Ready to Eat and Ready to Eat Dough-Based Prepared/Processed Products, Pasta and Noodles Unprepared.
+
+food/categories.txt:78418
+    < en:Meals
+    en: Refrigerated dough based meals (ready)
+    gpc_category_description:en: Definition: Includes any products that can be described/observed as a savoury dough-based ready to eat, prepared/processed product, such as Pasta, Gnocchi or Noodles with other ingredients, such as meat, dairy, eggs, fish, vegetables and/or seasoning. An optional seasoning/flavour packet may be present. These ingredients form a valuable part of the product, such as Pasta with a Roasted Vegetable Salad. They may or may not contain a sauce. These products may have a main component which is considered a meal without any additional components. These products do not require cooking prior to consumption, but some products can be eaten hot after reheating. These products must be refrigerated to extend their consumable life. Includes ready to eat perishable Ready-Made Meals where a Dough Based Product is the primary ingredient. Definition Excludes: Excludes Ready-Made Combination Meals. Specifically excludes pizza, savoury pies, quiches, pastries and bread products.Excludes products such as Shelf Stable Ready to Eat and Not Ready to Eat Dough-Based Prepared/Processed Product, Unprepared Pasta and Noodles.
+
+food/categories.txt:78424
+    < en:Meals
+    en: Dough based meals (ready)
+    gpc_category_description:en: Definition: Includes any products that can be described/observed as a savoury dough-based ready to eat, prepared/processed product, such as Pasta, Gnocchi or Noodles, with other ingredients, such as meat, dairy, eggs, fish, vegetables and/or seasoning. An optional seasoning/flavour packet may be present. These ingredients form a valuable part of the product, such as tuna and salad in a Tuna Pasta Salad. They may or may not contain a sauce. These products may have a main component which is considered a meal without any additional components. These products do not require cooking prior to consumption, but some products can be eaten hot after reheating. These products have been treated or packaged in such a way as to extend their consumable life. Includes ready to eat shelf stable Ready-Made Meals where a Dough Based Product is the primary ingredient. Definition Excludes: Excludes Ready-Made Combination Meals. Specifically excludes pizza, savoury pies, pastries, quiches and bread products.Excludes products such as Perishable Ready to Eat and Not Ready to Eat Dough Based Prepared/Processed Products, Unprepared Pasta and Noodles, Dried Pasta and Noodles.
+
+food/categories.txt:78456
+    < en:Meals
+    en: Grain based meals
+    gpc_category_description:en: Definition: Includes any products that can be described/observed as a savoury grain-based ready to eat, prepared/processed product, such as Rice, Polenta or Couscous with other ingredients, such as meat, eggs, fish, vegetables, and/or seasoning. An optional seasoning/flavour packet may be present. These ingredients form a valuable part of the product, such as Couscous with Vegetables. These products may have a main component which is considered a meal without any additional components. These products must not include any dough-based products. They may or may not contain a sauce. These products do not require cooking prior to consumption, but some products can be eaten hot after reheating. These products have been treated or packaged in such a way as to extend their consumable life. Includes  ready to eat shelf stable Ready-Made Meals where a Grain Based Product is the primary ingredient. Definition Excludes: Excludes Ready-Made Combination Meals.   Specifically excludes all unprepared dried rice.Excludes products such as Perishable Ready to Eat and all Not Ready to Eat Grain Based Prepared/Processed Products and Unprepared Grains.
+
+food/categories.txt:78462
+    < en:Meals
+    en: Frozen grain based meals
+    gpc_category_description:en: Definition: Includes any products that can be described/observed as a savoury grain-based ready to eat, prepared/processed product, such as Rice, Polenta or Couscous with other ingredients, such as meat, eggs, fish, vegetables, and/or seasoning. An optional seasoning/flavour packet may be present. These ingredients form a valuable part of the product, such as Couscous with Fish Salad. These products may have a main component which is considered a meal without any additional components. These products must not include any Dough-Based products. They may or may not contain a sauce. These products do not require cooking prior to consumption, but some products can be eaten hot after reheating. These products must be refrigerated to extend their consumable life. Includes  ready to eat perishable Ready-Made Meals where a Grain Based Product is the primary ingredient. Definition Excludes: Excludes Ready-Made Combination Meals. Specifically excludes all unprepared dried rice.Excludes products such as Shelf Stable Ready to Eat and all Not Ready to Eat Grain-Based Prepared Products/Processed, Unprepared Grains.
+
+food/categories.txt:78534
+    < en:Meal replacements
+    en: Egg powder
+
+food/categories.txt:78545
+    < en:Meal replacements
+    en: Egg white powder
+
+food/categories.txt:78555
+    < en:Meal replacements
+    en: Egg yolk powder
+
+food/categories.txt:78713
+    < en:Meals
+    en: Nems, Egg roll, Nem
+
+food/categories.txt:78736
+    < en:Nems
+    < en:Pork meals
+    en: Pork nems, Egg roll with cooked pork, Nem with cooked pork
+
+food/categories.txt:78749
+    < en:Meals with chicken
+    < en:Nems
+    en: Chicken nems, Egg roll with cooked chicken, Nem with cooked chicken
+
+food/categories.txt:78762
+    < en:Nems
+    < en:Shrimps
+    en: Egg roll with cooked shrimp, Nem with cooked shrimp
+
+food/categories.txt:78771
+    < en:Crab
+    < en:Nems
+    en: Egg roll with cooked crab, Nem with cooked crab
+
+food/categories.txt:78894
+    < en:Fresh foods
+    < en:Meals
+    en: Fresh meals, Fresh prepared meals, Fresh prepared dishes
+    gpc_category_description:en: Definition: Includes any products that can be described/observed as a vegetable based ready to eat, prepared/processed product, such as Potato, Cabbage, Eggplant or any other vegetable with other ingredients, such as meat, poultry, fish, and/or seasoning. An optional seasoning/flavour packet may be present. These ingredients form a valuable part of the product, such as Potato Salad or Tuna in a Tuna Salad. These products may have a main component which is considered a meal without any additional components. These products must not include any Dough Based, Grain Based, Dairy/Egg Based products. They may or may not contain a sauce. These products do not require cooking prior to consumption, but some products can be eaten hot after reheating. These products must be refrigerated to extend their consumable life. Includes ready to eat perishable Ready-Made Meals where a Vegetable Based Product is the primary ingredient. Definition Excludes: Excludes Ready-Made Combination Meals. Specifically excludes all prepared and processed and unprepared and unprocessed vegetables to which no recipe has been applied.Excludes products such as Shelf Stable Ready to Eat and all Not Ready to Eat Vegetable-Based Prepared/Processed Products and all Prepared and Processed Vegetables.
+
+food/categories.txt:78942
+    < en:Meals
+    en: Scrambled egg, Egg scrambled with added fat, Scrambled eggs with added fat
+
+food/categories.txt:78953
+    < en:Meals
+    en: Egg white cooked, cooked egg white
+
+food/categories.txt:78962
+    < en:Meals
+    en: Poached eggs, Egg poached
+
+food/categories.txt:78973
+    < en:Meals
+    en: Soft-boiled eggs, Egg soft-boiled
+
+food/categories.txt:78984
+    < en:Meals
+    en: Cooked egg yolk
+
+food/categories.txt:78993
+    < en:Meals
+    en: Fried egg, Egg fried without added fat
+
+food/categories.txt:82690
+    < en:Meals
+    en: Pizzas pies and quiches, Pizza pies and quiches
+    gpc_category_description:en: Definition: Includes any products that can be described/observed as a pastry, biscuit or crumble based product filled or topped with a mixture of shredded/sliced savoury ingredients, commonly including meat, vegetables, eggs or other additive. Products must be frozen to extend their consumable life. Definition Excludes: Excludes products such as Perishable and Shelf Stable Savoury Pies, Pastries, Pizzas and Quiches, Sweet Pies/Tarts, and Potato Topped Meat Pies.
+
+food/categories.txt:82709
+    < en:Pizzas pies and quiches
+    en: Fresh pizzas pies and quiches
+    gpc_category_description:en: Definition: Includes any products that can be described/observed as a pastry, biscuit or crumble based product filled or topped with a mixture of shredded/sliced savoury ingredients, commonly including meat, vegetables, eggs or other additives. Products must be refrigerated to extend their consumable life. Definition Excludes: Excludes products such as Frozen and Shelf Stable Savoury Pies, Pastries, Pizzas and Quiches, Sweet Pies/Tarts, and Potato Topped Meat Pies.
+
+food/categories.txt:82715
+    < en:Pizzas pies and quiches
+    en: Pizzas
+    gpc_category_description:en: Definition: Includes any products that can be described/observed as a pastry, biscuit or crumble based product filled or topped with a mixture of shredded/sliced savoury ingredients, commonly including meat, vegetables, eggs or other additives. These products have been treated or packaged in such a way as to extend their consumable life. Definition Excludes: Excludes products such as Perishable and Frozen Savoury Pies, Pastries, Pizzas and Quiches, Sweet Pies/Tarts, and Potato Topped Meat Pies.
+
+food/categories.txt:83348
+    < en:Quiches
+    en: Lorraine quiche, Quiche Lorraine, Eggs and lardoons quiche
+
+food/categories.txt:83363
+    < en:Frozen pizzas and pies
+    < en:Lorraine quiche
+    en: Frozen Lorraine quiche, Frozen quiche Lorraine, Frozen eggs and lardoons quiche
+
+food/categories.txt:93075
+    < en:Plant-based foods
+    en: Pastas, pasta
+    description:en: Pasta is type of noodle typically made from an unleavened dough of durum wheat flour mixed with water or eggs, and formed into sheets or various shapes, then cooked by boiling or baking. Rice flour, or legumes such as beans or lentils, are sometimes used in place of wheat flour to yield a different taste and texture, or as a gluten-free alternative. Pasta is a staple food of Italian cuisine.
+
+food/categories.txt:93367
+    < en:Fresh pasta
+    < it:Fettuccine
+    fr: Fettucini aux œufs frais
+
+food/categories.txt:93628
+    < en:Pastas
+    en: Egg pastas
+
+food/categories.txt:93649
+    < en:Dry pastas
+    < en:Egg pastas
+    en: Dry egg pastas, dried egg pastas, Dried egg pasta
+
+food/categories.txt:93674
+    < en:Dry egg pastas
+    en: Cooked unsalted dried egg pasta
+
+food/categories.txt:93994
+    < en:Durum wheat pasta
+    en: Durum wheat pasta with egg
+
+food/categories.txt:94230
+    < en:Egg pastas
+    en: Fresh egg pasta
+
+food/categories.txt:94242
+    < en:Fresh egg pasta
+    en: Fresh cooked unsalted egg pasta
+
+food/categories.txt:94730
+    < en:Fresh pasta
+    < en:Tagliatelle
+    fr: Tagliatelles fraîches, Tagliatelles aux oeufs fraîches
+
+food/categories.txt:94989
+    < en:Egg pastas
+    < en:Noodles
+    en: Egg noodles
+
+food/categories.txt:95003
+    < en:Egg noodles
+    en: Egg tagliatelle
+
+food/categories.txt:95013
+    < en:Egg noodles
+    en: Egg spaghetti
+
+food/categories.txt:95108
+    < en:Chinese noodles
+    en: Chinese egg noodles
+
+food/categories.txt:95807
+    < en:Pastries
+    en: Open pies, Open pie, Flan tart with eggs
+
+food/categories.txt:95979
+    < en:Sweet pies
+    en: Shelf-stable sweet pies
+    gpc_category_description:en: Definition: Includes any products that can be described/observed as a pastry based sweet product consisting of a butter, flour and egg dough. Products may use shortcrust, puff, filo or flaky pastry and must contain a filling. Generally, these products have a high fat content. These products have been treated or packaged in such a way as to extend their consumable life. Products include pies and tarts, croissants, Danish and other breakfast pastries. Definition Excludes: Excludes products such as Perishable and Frozen Pies and Pastries, Savoury Pies and Pastries.
+
+food/categories.txt:95985
+    < en:Sweet pies
+    en: Frozen sweet pies
+    gpc_category_description:en: Definition: Includes any products that can be described/observed as a pastry based sweet product consisting of a butter, flour and egg dough. Products may use shortcrust, puff, filo or flaky pastry and must contain a filling. Generally, these products have a high fat content. Products must be frozen to extend their consumable life. Products include pies and tarts, Danish and other breakfast pastries. Definition Excludes: Excludes products such as Perishable and Shelf Stable Pies and Pastries, Savoury Pies, Pastries and Tarts, and Bread.
+
+food/categories.txt:96256
+    < en:Sweet pies
+    en: Norman-style pies, Pies from Normandy, Apple pie with custard and flour and eggs and cream and sugar and apple and alcohol
+
+food/categories.txt:96700
+    < en:Sandwiches
+    en: Toasted ham sandwich topped with grated cheese and a fried egg
+
+food/categories.txt:96893
+    < en:French bread sandwiches
+    en: Baguette sandwiches with hard-boiled egg and vegetables and butter
+
+food/categories.txt:96901
+    < en:Sandwiches
+    en: Sandwich with egg and vegetables and mayonnaise
+
+food/categories.txt:96910
+    < en:French bread sandwiches
+    < en:Sandwich with egg and vegetables and mayonnaise
+    en: Baguette sandwiches with egg and vegetables and mayonnaise
+
+food/categories.txt:97188
+    < en:Sandwiches filled with cold cuts
+    en: Sausage bacon and egg sandwiches
+
+food/categories.txt:97517
+    < en:Sandwiches
+    en: Egg sandwiches
+
+food/categories.txt:99572
+    < en:Capelin
+    en: Capelin roe
+    fr: Œufs de capelan, Masago, Œufs Masago
+
+food/categories.txt:101497
+    < en:Fish and meat and eggs
+    en: Fish livers
+
+food/categories.txt:102159
+    < en:Plant-based spreads
+    < en:Salted spreads
+    en: Egg salads substitutes, Egg spreads substitutes
+
+food/categories.txt:103617
+    < en:Salted spreads
+    en: Egg salads, Egg spreads
+
+food/categories.txt:105468
+    < en:Canned vegetables
+    < en:Plant-based pickles
+    en: Pickled vegetables, Vegetable pickles
+    gpc_category_description:en: Definition: Includes any products that can be described/observed as chopped or whole vegetables, preserved in vinegar, oil or brine, with added ingredients such as herbs, spices and mustard, commonly used as a condiment for meats, cheese and bread. Products include pickled tomatoes, gherkins, onions and capers. These products have been treated or packaged in such a way as to extend their consumable life. Definition Excludes: Excludes products such as Canned Vegetables and Vegetable Spreads, Chutneys, Relishes and Olives and Pickled Eggs.
+
+food/categories.txt:113992
+    < en:Pan-fried dishes
+    en: Kedgeree
+    description:en: Kedgeree is a dish consisting of cooked, flaked fish, boiled rice, parsley, hard-boiled eggs, curry powder, butter or cream, and occasionally sultanas. The dish can be eaten hot or cold. Other fish can be used instead of haddock such as tuna or salmon, though these are not traditional.
+
+food/categories.txt:115175
+    < en:Sweet pastries and pies
+    en: Fresh sweet pastries and pies
+    gpc_category_description:en: Definition: Includes any products that can be described/observed as a pastry based sweet product consisting of a butter, flour and egg dough. Products may use shortcrust, puff, filo or flaky pastry and must contain a filling. Generally, these products have a high fat content. Products can be refrigerated to extend their consumable life. Products include pies and tarts, Danish and other breakfast pastries. Definition Excludes: Excludes products such as Frozen and Shelf Stable Pies and Pastries, Savoury Pies and Pastries.
+
+food/categories.txt:115455
+    < en:Viennoiseries
+    en: Brioches, Brioche
+    description:en: Brioche is a bread of French origin that is similar to a highly enriched pastry, and whose high egg and butter content (400 grams for each kilogram of flour) give it a rich and tender crumb.
+
+food/categories.txt:115868
+    en: Fish and meat and eggs, Fish meat eggs
+
+food/categories.txt:115885
+    < en:Fish and meat and eggs
+    en: Offals
+
+food/categories.txt:115991
+    < en:Fish and meat and eggs
+    en: Foies gras
+
+food/categories.txt:116146
+    < en:Meat alternatives
+    en: Meat analogues, Meat substitutes, Mock meats
+    gpc_category_description:en: Definition: Includes all products which can be described/observed as a healthy food alternative to meat vegetable and egg proteins. These products are non animal based and an imitation of meat products, meant to simulate the taste and mouthfeel of real meat but are normally made from a combination of non animal based ingredients. Includes products such as soya, fungus, beans, lentils, peas and chickpeas based products. These products must be refrigerated to extend their consumable life. Definition Excludes: Excludes all meat-based products and any other protein rich products such as eggs and pulses that constitute the main recipe ingredients. Also excludes Meat Substitutes - Non Animal based frozen and shelf stable products and Meat Substitutes - Animal based frozen, perishable and shelf stable products.
+
+food/categories.txt:117727
+    < en:Filled fritters
+    en: Fritter filled with eggs, Filo pastry filled with eggs
+
+food/categories.txt:118784
+    < en:Dairy desserts
+    fr: Oeufs au lait
+
+food/ingredients.txt:493
+    < en:E322i
+    en: soya lecithin, soy lecithin, soybean lecithin
+
+food/ingredients.txt:533
+    < en:soya lecithin
+    en: GMO-free soy lecithin, non-gmo soy lecithin
+
+food/ingredients.txt:545
+    < en:E322(i)
+    en: sunflower lecithin
+
+food/ingredients.txt:576
+    < en:sunflower lecithin
+    en: non-gmo sunflower lecithin
+
+food/ingredients.txt:581
+    < en:soya lecithin
+    < en:sunflower lecithin
+    en: soya and sunflower lecithin
+
+food/ingredients.txt:597
+    < en:E322(i)
+    en: rapeseed lecithin
+
+food/ingredients.txt:948
+    < en:E1105
+    en: lysozyme from eggs, egg lysozyme
+
+food/ingredients.txt:11181
+    < en:animal
+    en: quenelle, quenelles
+    description:en: A quenelle is a mixture of creamed fish or meat, sometimes combined with breadcrumbs, with a light egg binding, formed into an egg-like shape, and then cooked.
+
+food/ingredients.txt:75327
+    < en:fish
+    en: roe, hard roe
+    fr: Oeufs de poisson
+
+food/ingredients.txt:75955
+    < en:fish
+    en: capelin, caplin
+    description:en: The capelin or caplin (Mallotus villosus) is a small forage fish of the smelt family found in the North Atlantic, North Pacific, and Arctic oceans. Commercialement, le capelan est utilisé comme produit alimentaire, et dans l'industrie des huiles de poisson. Sa chair a un goût agréable, ressemblant à celle du hareng. Les œufs de capelan ("masago") sont des produits alimentaires coûteux.
+
+food/ingredients.txt:76110
+    < en:cod
+    en: smoked cod roe
+    fr: oeufs de cabillaud fumés
+
+food/ingredients.txt:76118
+    < en:smoked cod roe
+    fr: oeufs de cabillaud salés et fumés, œufs de cabillaud fumés et salés, oeufs de cabillaud fumés et salés
+
+food/ingredients.txt:76202
+    < en:roe
+    en: cod roe
+    fr: œufs de cabillaud, oeufs de cabillaud, œufs de morue
+
+food/ingredients.txt:79862
+    fr: œufs de lompe, oeufs de lompe
+
+food/ingredients.txt:79871
+    < fr:œufs de lompe
+    fr: oeufs de lompe noirs
+
+food/ingredients.txt:79876
+    < fr:œufs de lompe
+    fr: oeufs de lompe rouges
+
+food/ingredients.txt:84657
+    en: poultry
+    description:en: Poultry are domesticated birds kept by humans for their eggs, their meat or their feathers.
+
+food/ingredients.txt:85461
+    < en:chicken egg white
+    < en:chicken protein
+    en: chick egg white or protein
+
+food/ingredients.txt:85975
+    en: egg, eggs
+
+food/ingredients.txt:86100
+    < en:flavouring
+    en: egg flavour
+
+food/ingredients.txt:86107
+    < en:eggs
+    en: large eggs
+
+food/ingredients.txt:86118
+    < en:egg
+    en: free range eggs, free range whole egg
+
+food/ingredients.txt:86131
+    < en:egg
+    en: category A eggs
+
+food/ingredients.txt:86142
+    < en:category A eggs
+    en: fresh category A eggs
+
+food/ingredients.txt:86151
+    < en:egg
+    en: eggs from Switzerland
+
+food/ingredients.txt:86164
+    < en:egg
+    en: boiled egg
+
+food/ingredients.txt:86201
+    < en:boiled egg
+    nl: gekookt ei kwarten
+
+food/ingredients.txt:86204
+    < en:boiled egg
+    en: soft-boiled egg
+
+food/ingredients.txt:86216
+    < en:boiled egg
+    en: hard-boiled egg
+
+food/ingredients.txt:86227
+    < en:hard-boiled egg
+    fr: quartiers d'œufs durs
+
+food/ingredients.txt:86239
+    < en:egg
+    en: poached egg
+
+food/ingredients.txt:86248
+    < en:egg
+    en: chicken egg
+
+food/ingredients.txt:86264
+    < en:chicken egg
+    en: organic chicken egg
+
+food/ingredients.txt:86272
+    < en:chicken egg
+    fr: œufs frais de poule
+
+food/ingredients.txt:86276
+    < en:chicken egg
+    en: eggs from caged hens
+
+food/ingredients.txt:86284
+    < en:category A eggs
+    < en:eggs from caged hens
+    fr: oeufs de poules élevées en cage de categorie a
+
+food/ingredients.txt:86288
+    < en:eggs from caged hens
+    fr: oeufs frais de poules élevées en cage
+
+food/ingredients.txt:86292
+    < en:eggs from caged hens
+    fr: Oeufs frais datés du jour de ponte de poules élevées en cage
+
+food/ingredients.txt:86297
+    < en:eggs from caged hens
+    fi: virikehäkkikanan muna, virikehäkkikanojen munia
+
+food/ingredients.txt:86300
+    < en:chicken egg
+    < en:free range eggs
+    en: free range chicken eggs
+
+food/ingredients.txt:86313
+    < en:free range chicken eggs
+    fr: œufs de poules élevées en plein air calibre moyen
+
+food/ingredients.txt:86316
+    < en:free range chicken eggs
+    < en:organic chicken egg
+    en: organic free range chicken eggs
+
+food/ingredients.txt:86321
+    < en:category A egg
+    < en:free range chicken eggs
+    fr: Œufs de catégorie A de poules élevées en plein air, Oeufs de catégorie A de poules élevées en plein air, 9 Œufs de catégorie A de poules élevées en plein air, Œufs frais de poules élevées en plein air de catégorie A
+
+food/ingredients.txt:86326
+    < en:free range chicken eggs
+    fr: Oeufs frais de poule élevées en plein air, 12 Oeufs frais de poule élevées en plein air
+
+food/ingredients.txt:86329
+    < en:free range chicken eggs
+    fr: Gros Œufs de Poules Élevées en Plein Air
+
+food/ingredients.txt:86333
+    < en:free range chicken eggs
+    fr: œuf moyen de poule élevé en plein air sans antibiotiques
+
+food/ingredients.txt:86336
+    < en:free range chicken eggs
+    en: free range pasteurised egg, free range pasteurised whole egg
+
+food/ingredients.txt:86343
+    < en:egg
+    en: barn eggs
+
+food/ingredients.txt:86357
+    < en:barn eggs
+    nl: scharrel ei poeder
+
+food/ingredients.txt:86370
+    < en:egg
+    en: egg powder, powdered egg
+
+food/ingredients.txt:86399
+    < en:egg
+    en: whole egg, whole eggs
+
+food/ingredients.txt:86417
+    < en:whole egg
+    bg: пастьоризирани цели яйца
+
+food/ingredients.txt:86424
+    < en:whole egg
+    en: whole powdered egg
+
+food/ingredients.txt:86436
+    < en:whole powdered egg
+    en: whole powdered chicken egg
+
+food/ingredients.txt:86446
+    < en:whole egg
+    en: liquid whole egg
+
+food/ingredients.txt:86457
+    < en:free range eggs
+    < en:liquid whole egg
+    en: liquid whole free range egg
+
+food/ingredients.txt:86461
+    < en:liquid whole egg
+    fr: oeuf entier liquide pasteurisé salé
+
+food/ingredients.txt:86464
+    < en:whole egg
+    en: whole fresh eggs
+
+food/ingredients.txt:86478
+    < en:whole fresh eggs
+    fr: œufs entiers extra-frais, oeufs entiers extra-frais
+
+food/ingredients.txt:86483
+    < en:whole egg
+    fr: œuf entier d'élevage au sol, oeuf entier d'élevage au sol
+
+food/ingredients.txt:86489
+    < en:whole egg
+    fr: oeuf entier issu de poules elevées en plein air
+
+food/ingredients.txt:86492
+    < en:whole egg
+    en: whole liquid pasteurised egg
+
+food/ingredients.txt:86504
+    < en:whole egg
+    fr: oeufs entiers reconstitués
+
+food/ingredients.txt:86507
+    < en:whole egg
+    en: concentrated whole egg
+
+food/ingredients.txt:86515
+    < en:egg
+    en: fresh egg, fresh eggs
+
+food/ingredients.txt:86535
+    < en:fresh egg
+    fr: œufs extra-frais, oeufs extra-frais
+
+food/ingredients.txt:86540
+    < en:fresh egg
+    en: pasteurized fresh egg
+
+food/ingredients.txt:86551
+    < en:fresh egg
+    fr: œufs frais de poules élevées en plein air, oeufs frais de poules élevées en plein air
+
+food/ingredients.txt:86556
+    < en:fresh egg
+    hr: svježa pasterizirana jaja iz podnog uzgoja, svježa pasterizirana jaja podnog uzgoja
+
+food/ingredients.txt:86559
+    < en:egg
+    en: liquid egg
+
+food/ingredients.txt:86569
+    < en:egg
+    en: egg white, egg albumen, egg albumin
+
+food/ingredients.txt:86625
+    < en:egg white
+    en: cooked egg white
+
+food/ingredients.txt:86632
+    < en:egg white
+    en: chicken egg white
+
+food/ingredients.txt:86642
+    < en:egg white
+    en: powdered egg white, dehydrated egg white, egg white powder
+
+food/ingredients.txt:86665
+    < en:egg white
+    en: free range egg white
+
+food/ingredients.txt:86671
+    < en:egg white
+    en: dehydrated egg white
+
+food/ingredients.txt:86680
+    < en:chicken egg white
+    nl: scharrelkipeiwit, vrije uitloop kippenei-eiwit, kippenei-eiwit van scharreleieren
+
+food/ingredients.txt:86683
+    < en:powdered egg white
+    nl: vrije-uitloopei-eiwitpoeder, vrije uitloopeiwitpoeder
+
+food/ingredients.txt:86686
+    < en:powdered egg white
+    de: Hühnerei-Trockeneiweiß, Hühnereiklarpulver, Hühnereieiweißpulver, Hühnereiweißpulver, Hühnereiweisspulver, Hühnereiweiss-pulver, Hühnertrockeneieiweiß, Hühnertrockeneieiweiss, Hühnerei-Eiweisspulver, Hühnerei-Eiweißpulver, Hühnertrockeneiweiß, Hühnertrockeneiweiss, Hühnereitrockeneiweiß
+
+food/ingredients.txt:86694
+    < en:egg white powder
+    en: rehydrated egg white
+
+food/ingredients.txt:86708
+    < en:egg white powder
+    en: pasteurised egg white powder
+
+food/ingredients.txt:86717
+    < en:egg white powder
+    < en:powdered egg white
+    nl: scharrelei-eiwitpoeder, scharreleiwitpoeder
+
+food/ingredients.txt:86722
+    < en:egg white powder
+    nl: vrije uitloopeiwitpoeder, vrije-uitloopei-eiwitpoeder, vrije uitloopeiwitpoeder
+
+food/ingredients.txt:86726
+    < en:egg white powder
+    fr: blanc d'oeuf en poudre de poules élevées au sol
+
+food/ingredients.txt:86729
+    < en:egg white
+    fr: blancs d'œufs pasteurisés, blancs d'oeufs pasteurisés
+
+food/ingredients.txt:86734
+    < en:egg white
+    fr: blanc d'œuf frais, blancs d'œufs frais, blanc d'œufs frais, blanc d'oeuf frais, blancs d'oeufs frais, blanc d'oeufs frais
+
+food/ingredients.txt:86740
+    < en:egg white
+    en: liquid egg white
+
+food/ingredients.txt:86752
+    < en:liquid egg white
+    fr: blanc d'œuf liquide pasteurisé, blanc d'oeuf liquide pasteurisé
+
+food/ingredients.txt:86758
+    < en:egg white
+    en: egg protein
+
+food/ingredients.txt:86774
+    < en:egg white
+    en: meringue
+
+food/ingredients.txt:86837
+    < en:egg
+    en: egg yolk, eggs yolk
+
+food/ingredients.txt:86915
+    < en:egg yolk
+    fr: jaune d'oeuf de poules élevées au sol
+
+food/ingredients.txt:86918
+    < en:egg yolk
+    en: Cooked egg yolk
+
+food/ingredients.txt:86925
+    < en:egg yolk
+    en: free range egg yolk
+
+food/ingredients.txt:86933
+    < en:egg yolk
+    en: chicken egg yolk
+
+food/ingredients.txt:86944
+    < en:chicken egg yolk
+    en: chicken egg yolk powder, hen's egg yolk powder
+
+food/ingredients.txt:86953
+    < en:free range egg yolk
+    en: free range chicken egg yolk
+
+food/ingredients.txt:86965
+    < en:free range egg yolk
+    en: pasteurised Free Range Egg Yolk
+
+food/ingredients.txt:86973
+    < en:egg yolk
+    en: egg yolk powder, eggs yolk powder, powdered egg yolk
+
+food/ingredients.txt:86996
+    < en:egg yolk powder
+    en: eggs yolk powder from free range hens
+
+food/ingredients.txt:87000
+    < en:egg yolk
+    en: pasteurised egg yolk, pasteurized egg yolk
+
+food/ingredients.txt:87012
+    < en:egg yolk
+    en: liquid egg yolk, liquid yolk
+
+food/ingredients.txt:87025
+    < en:liquid egg yolk
+    fr: jaune d'œuf liquide pasteurisé, jaune d'oeuf liquide pasteurisé
+
+food/ingredients.txt:87030
+    < en:egg yolk
+    fr: jaune d'œuf frais, jaunes d'œufs frais, jaune d'oeuf frais, jaunes d'oeufs frais, jaune d'œufs frais, jaune d'oeufs frais
+
+food/ingredients.txt:87035
+    < en:egg yolk
+    en: sugared egg yolk
+
+food/ingredients.txt:87047
+    < en:egg yolk
+    fr: jaune d'œuf salé, jaunes d'œufs salés, jaune d'oeuf salé, jaunes d'oeufs salés
+
+food/ingredients.txt:87068
+    < en:egg
+    en: Quail eggs, Quail egg
+
+food/ingredients.txt:87090
+    < en:egg
+    en: egg derivatives
+
+food/ingredients.txt:87097
+    < en:egg
+    en: duck egg
+
+food/ingredients.txt:87115
+    < en:duck egg
+    en: Raw duck egg
+
+food/ingredients.txt:87123
+    fr: mélange œufs
+
+food/ingredients.txt:87125
+    < en:egg
+    en: tuna egg, tuna eggs
+
+food/ingredients.txt:87129
+    < en:egg
+    en: lumpfish egg, lumpfish eggs, lumpsucker egg, lumpsucker eggs
+
+food/ingredients.txt:87897
+    en: brioche, Brioches
+    description:en: Brioche is a bread of French origin that is similar to a highly enriched pastry, and whose high egg and butter content give it a rich and tender crumb.
+
+food/ingredients.txt:88278
+    < en:pasta
+    fr: pâtes alimentaires aux oeufs cuites
+
+food/ingredients.txt:88724
+    < en:pasta
+    en: egg pasta
+
+food/ingredients.txt:88739
+    < en:egg pasta
+    fr: pâtes aux œufs aux épinards
+
+food/ingredients.txt:88742
+    < en:egg pasta
+    < en:fresh pasta
+    en: fresh egg pasta
+
+food/ingredients.txt:90114
+    en: cake, cakes
+    description:en: CAKE is a form of sweet food that is usually baked. The most commonly used cake ingredients include flour, sugar, eggs, butter or oil or margarine, a liquid, and leavening agents, such as baking soda or baking powder.
+
+food/ingredients.txt:90620
+    en: marzipan
+    description:fr: Le massepain est une pâte confectionnée à base d'amandes mondées et finement moulues, mélangées à du blanc d'œuf et du sucre.
+
+food/ingredients.txt:91456
+    en: omelette, omelet
+
+food/ingredients.txt:92430
+    < en:sauce
+    en: mayonnaise
+    description:en: MAYONNAISE, informally mayo, is a thick cold sauce or dressing usually used in sandwiches and composed salads or on chips. It is a stable emulsion of oil, egg yolk, and acid, either vinegar or lemon juice.
+
+food/ingredients.txt:93335
+    < en:sauce
+    en: béarnaise sauce
+    description:en: BÉARNAISE SAUCE is a sauce made of clarified butter emulsified in egg yolks and white wine vinegar and flavored with herbs.
+
+product/unspsc.txt:1154
+    <en:Food Beverage and Tobacco Products
+    en:Dairy products and eggs
+
+product/unspsc.txt:10190
+    <en:Dairy products and eggs
+    en:Eggs and egg substitutes
+
+product/unspsc.txt:10194
+    <en:Dairy products and eggs
+    en:Milk and butter products
+
+product/unspsc.txt:10198
+    <en:Dairy products and eggs
+    en:Cheese
+
+product/unspsc.txt:21654
+    <en:Food and beverage industries
+    en:Dairy and eggs processing
+
+product/unspsc.txt:54616
+    <en:Other animal products
+    en:Fish eggs
+
+product/unspsc.txt:54640
+    <en:Other animal products
+    en:Non-edible bird and poultry eggs
+
+product/unspsc.txt:61840
+    <en:Poultry and livestock equipment
+    en:Egg inspection or collecting equipment
+
+product/unspsc.txt:66576
+    <en:Packaging boxes and bags and pouches
+    en:Egg trays
+
+product/unspsc.txt:124952
+    <en:Eggs and egg substitutes
+    en:Prepared eggs
+
+product/unspsc.txt:124956
+    <en:Eggs and egg substitutes
+    en:In shell table egg from chickens
+
+product/unspsc.txt:124960
+    <en:Eggs and egg substitutes
+    en:In shell table egg from ducks
+
+product/unspsc.txt:124964
+    <en:Eggs and egg substitutes
+    en:In shell table egg from emus
+
+product/unspsc.txt:124968
+    <en:Eggs and egg substitutes
+    en:In shell table egg from geese
+
+product/unspsc.txt:124972
+    <en:Eggs and egg substitutes
+    en:In shell table egg from guineafowls
+
+product/unspsc.txt:124976
+    <en:Eggs and egg substitutes
+    en:In shell table egg from ostriches
+
+product/unspsc.txt:124980
+    <en:Eggs and egg substitutes
+    en:In shell table egg from quails
+
+product/unspsc.txt:124984
+    <en:Eggs and egg substitutes
+    en:In shell table egg from rheas
+
+product/unspsc.txt:124988
+    <en:Eggs and egg substitutes
+    en:In shell table egg from squabs or pigeons
+
+product/unspsc.txt:124992
+    <en:Eggs and egg substitutes
+    en:In shell table egg from turkeys
+
+product/unspsc.txt:124996
+    <en:Eggs and egg substitutes
+    en:In shell table egg from specialty birds
+
+product/unspsc.txt:125000
+    <en:Eggs and egg substitutes
+    en:In shell nest run egg from chickens
+
+product/unspsc.txt:125004
+    <en:Eggs and egg substitutes
+    en:In shell nest run egg from birds other than chickens
+
+product/unspsc.txt:125008
+    <en:Eggs and egg substitutes
+    en:In shell checked and dirty egg industrial from chickens
+
+product/unspsc.txt:125012
+    <en:Eggs and egg substitutes
+    en:In shell checked and dirty egg industrial from birds other than chickens
+
+product/unspsc.txt:125016
+    <en:Eggs and egg substitutes
+    en:Cooked egg from chickens
+
+product/unspsc.txt:125020
+    <en:Eggs and egg substitutes
+    en:Cooked egg from birds other than chickens
+
+product/unspsc.txt:125024
+    <en:Eggs and egg substitutes
+    en:Egg products and substitutes from chickens
+
+product/unspsc.txt:125028
+    <en:Eggs and egg substitutes
+    en:Decharacterized egg products from chickens
+
+product/unspsc.txt:125032
+    <en:Eggs and egg substitutes
+    en:Egg products and substitutes from birds other than chickens
+
+product/unspsc.txt:125036
+    <en:Eggs and egg substitutes
+    en:Decharacterized egg products from birds other than chickens
+
+product/unspsc.txt:125040
+    <en:Eggs and egg substitutes
+    en:Egg extract from chickens
+
+product/unspsc.txt:125044
+    <en:Eggs and egg substitutes
+    en:Egg extract from birds other than chickens
+
+product/unspsc.txt:125048
+    <en:Eggs and egg substitutes
+    en:Egg imitation
+
+product/unspsc.txt:175880
+    <en:Eggplants
+    en:Easter egg eggplants
+
+product/unspsc.txt:179224
+    <en:Organic eggplants
+    en:Organic easter egg eggplants
+
+product/unspsc.txt:182992
+    <en:Dried eggplants
+    en:Dried easter egg eggplants
+
+product/unspsc.txt:186492
+    <en:Dried organic eggplants
+    en:Dried organic easter egg eggplants
+
+product/unspsc.txt:189984
+    <en:Frozen eggplants
+    en:Frozen easter egg eggplants
+
+product/unspsc.txt:193492
+    <en:Frozen organic eggplants
+    en:Frozen organic easter egg eggplants
+
+product/unspsc.txt:196984
+    <en:Canned or jarred eggplants
+    en:Canned or jarred easter egg eggplants
+
+product/unspsc.txt:200500
+    <en:Canned or jarred organic eggplants
+    en:Canned or jarred organic easter egg eggplants
+
+product/unspsc.txt:203992
+    <en:Eggplant purees
+    en:Easter egg eggplant purees
+
+product/unspsc.txt:207308
+    <en:Organic eggplant purees
+    en:Organic easter egg eggplant purees
+
+product/unspsc.txt:234892
+    <en:Non GMO eggplants
+    en:Non GMO easter egg eggplants
+
+product/unspsc.txt:238628
+    <en:Dried Non GMO eggplants
+    en:Dried Non GMO easter egg eggplants
+
+product/unspsc.txt:242120
+    <en:Frozen Non GMO eggplants
+    en:Frozen Non GMO easter egg eggplants
+
+product/unspsc.txt:245612
+    <en:Canned or jarred Non GMO eggplants
+    en:Canned or jarred Non GMO easter egg eggplants
+
+product/unspsc.txt:248812
+    <en:Non GMO eggplant purees
+    en:Non GMO easter egg eggplant purees
+
+product/unspsc.txt:254116
+    <en:Coagulants and systemic hemostatic agents
+    en:Antihemophilic factor or globulin
+
+product/unspsc.txt:254228
+    <en:Blood plasma substitutes and extenders and expanders
+    en:Albumin human
+
+product/unspsc.txt:262388
+    <en:Immunosuppressants
+    en:Antilymphocyte or lymphocyte immune globulin
+
+product/unspsc.txt:262860
+    <en:Immunosupressant immunoglobulins
+    en:Anti-thymocyte globulin
+
+product/unspsc.txt:282964
+    <en:Combination contrast media\, imaging agents\, and radiopharmaceuticals
+    en:Albumin/stannous chloride
+
+product/unspsc.txt:283192
+    <en:Iodine-based radiopharmaceuticals\, imaging agents\, media\, and tracers
+    en:Iodinated i-125 human serum albumin or jeanatope
+
+product/unspsc.txt:284956
+    <en:Domestic kitchen appliances
+    en:Domestic egg boiler
+
+product/unspsc.txt:285288
+    <en:Domestic kitchen tools and utensils
+    en:Domestic egg slicer
+
+product/unspsc.txt:285292
+    <en:Domestic kitchen tools and utensils
+    en:Domestic egg separator
+
+product/unspsc.txt:285332
+    <en:Domestic kitchen tools and utensils
+    en:Domestic egg beater
+
+product/unspsc.txt:299420
+    <en:Dairy and eggs processing
+    en:Milk processing services
+
+product/unspsc.txt:299424
+    <en:Dairy and eggs processing
+    en:Egg processing services
+
+product/unspsc.txt:299428
+    <en:Dairy and eggs processing
+    en:Cheese processing services
+
+product/unspsc.txt:299432
+    <en:Dairy and eggs processing
+    en:Butter or cream processing services
+
