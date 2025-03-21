@@ -19,6 +19,7 @@ dependencies = [
     "fastapi>=0.115.8,<0.116",
     "pydantic>=2.10.6",
     "loguru>=0.7.2,<0.8",
+    "babel>=2.17.0",
 ]
 
 [dependency-groups]

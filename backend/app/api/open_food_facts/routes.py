@@ -30,4 +30,4 @@ async def knowledge_panel(request: Request, barcode: str):
         # Will be handled by the middleware, no need for additional processing here
         raise
 
-    return get_knowledge_panel_response(pain_report=pain_report)
+    return get_knowledge_panel_response(pain_report=pain_report, translator=request.state.translator)

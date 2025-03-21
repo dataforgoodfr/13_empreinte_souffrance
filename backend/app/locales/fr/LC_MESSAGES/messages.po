@@ -7,25 +7,198 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-02-22 15:12+0100\n"
+"POT-Creation-Date: 2025-03-20 20:42+0100\n"
 "PO-Revision-Date: 2025-02-17 20:32+0100\n"
 "Last-Translator: Mathis Dupuy <1292785+Akiat@users.noreply.github.com>\n"
-"Language-Team: French <traduc@traduc.org>\n"
 "Language: fr\n"
-"MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bit\n"
+"Language-Team: French <traduc@traduc.org>\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.17.0\n"
 
-#: app/api/open_food_facts/routes.py:30
-msgid "Product not found"
-msgstr "Produit non trouvé"
+msgid ""
+"The <a href='https://empreinte-souffrance.org/'>Suffering Footprint</a> "
+"is calculated based on research from the <a "
+"href='https://welfarefootprint.org/'>Welfare Footprint Institute</a>."
+msgstr ""
+"L'<a href='https://empreinte-souffrance.org/'>Empreinte Souffrance</a> "
+"est calculée sur la base des recherches du <a "
+"href='https://welfarefootprint.org/'>Welfare Footprint Institute</a>."
 
-#: app/api/open_food_facts/routes.py:33
-msgid "Suffering Footprint"
+#, fuzzy
+msgid ""
+"The score and details shown below are based on the following data "
+"(provided by the Open Food Facts community)"
+msgstr ""
+"Le score et les détails affichés ci-dessous sont basés sur les données "
+"suivantes (fournies par la communauté Open Food Facts)"
+
+msgid "What is the suffering footprint?"
+msgstr "Qu'est-ce que l'empreinte souffrance ?"
+
+msgid "Suffering footprint"
 msgstr "Empreinte Souffrance"
 
-#: app/api/open_food_facts/routes.py:34
-#, python-format
-msgid "The suffering footprint for this product is %s."
-msgstr "L'empreinte souffrance pour ce produit est %s."
+msgid ""
+"<b>Excruciating</b>: Extreme unbearable pain, even briefly. In humans, "
+"this would mark the threshold of suffering below which many people choose"
+" to end their lives rather than endure it. Triggers involuntary "
+"manifestations (screams, tremors, extreme agitation) and cannot be "
+"relieved."
+msgstr ""
+"<b>Agonie</b> : Douleur extrême insupportable, même brièvement. Chez "
+"l'humain, ce serait le seuil de souffrance en dessous duquel beaucoup "
+"choisissent de mettre fin à leurs jours plutôt que de l'endurer. "
+"Déclenche des manifestations involontaires (cris, tremblements, agitation"
+" extrême) et ne peut être soulagée."
+
+msgid ""
+"<b>Disabling</b>: Constant pain that takes priority over most behaviors. "
+"Prevents positive well-being and drastically alters activity level. "
+"Requires stronger painkillers and causes inattention to the environment."
+msgstr ""
+"<b>Souffrance</b> : Douleur constante qui prend le pas sur la plupart des"
+" comportements. Empêche le bien-être positif et modifie radicalement le "
+"niveau d'activité. Nécessite des analgésiques plus puissants et provoque "
+"une inattention à l'environnement."
+
+msgid ""
+"<b>Hurtful</b>: Persistent pain with the possibility of brief moments of "
+"forgetting during distractions. Reduces the frequency of motivated "
+"behaviors and partially alters functional capabilities, while allowing "
+"essential activities to be carried out."
+msgstr ""
+"<b>Douleur</b> : Douleur persistante avec possibilité de brefs moments "
+"d'oubli lors de distractions. Réduit la fréquence des comportements "
+"motivés et altère partiellement les capacités fonctionnelles, tout en "
+"permettant la réalisation des activités essentielles."
+
+msgid ""
+"<b>Annoying</b>: Noticeable discomfort that can be ignored. Does not "
+"interfere with daily activities or motivated behaviors (exploration, "
+"comfort, maintenance). No visible expressions of pain or physiological "
+"disturbances."
+msgstr ""
+"<b>Inconfort</b> : Gêne perceptible qui peut être ignorée. N'interfère "
+"pas avec les activités quotidiennes ou les comportements motivés "
+"(exploration, confort, entretien). Pas d'expressions visibles de douleur "
+"ni de perturbations physiologiques."
+
+msgid "Better understand suffering intensities"
+msgstr "Mieux comprendre les intensités de souffrance"
+
+msgid "Intensity level definitions"
+msgstr "Définitions des niveaux d'intensité"
+
+msgid ""
+"<b>Physical pain</b> includes all bodily suffering experienced by "
+"animals: fractures, wounds, diseases, breathing difficulties, etc."
+msgstr ""
+"<b>La douleur physique</b> comprend toutes les souffrances corporelles "
+"subies par les animaux : fractures, blessures, maladies, difficultés "
+"respiratoires, etc."
+
+msgid ""
+"The durations below represent the suffering time caused by the production"
+" of animal-derived ingredients in this product:"
+msgstr ""
+"Les durées ci-dessous représentent le temps de souffrance causé par la "
+"production des ingrédients d'origine animale dans ce produit :"
+
+msgid ""
+"You can find more details about the different types of physical suffering"
+" <a href='https://empreinte-souffrance.org/'>on our website</a>."
+msgstr ""
+"Vous pouvez trouver plus de détails sur les différents types de "
+"souffrance physique <a href='https://empreinte-souffrance.org/'>sur notre"
+" site web</a>."
+
+msgid "Physical pain"
+msgstr "Douleur physique"
+
+msgid ""
+"<b>Psychological pain</b> includes mental suffering experienced by "
+"animals: stress, anxiety, inability to express natural behaviors, etc."
+msgstr ""
+"<b>La douleur psychologique</b> comprend les souffrances mentales vécues "
+"par les animaux : stress, anxiété, impossibilité d'exprimer les "
+"comportements naturels, etc."
+
+msgid ""
+"You can find more details about the different types of psychological "
+"suffering <a href='https://empreinte-souffrance.org/'>on our website</a>."
+msgstr ""
+"Vous pouvez trouver plus de détails sur les différents types de "
+"souffrance psychologique <a href='https://empreinte-souffrance.org/'>sur "
+"notre site web</a>."
+
+msgid "Psychological pain"
+msgstr "Douleur psychologique"
+
+#, python-brace-format
+msgid ""
+"<b>{animal_name} :</b><ul><li>Breeding type: "
+"<b>{breeding_type}</b></li><li>Quantity of egg in the product: "
+"<b>{weight}g</b></li></ul>"
+msgstr ""
+"<b>{animal_name} :</b><ul><li>Type d'élevage : "
+"<b>{breeding_type}</b></li><li>Quantité d'œuf dans le produit : "
+"<b>{weight}g</b></li></ul>"
+
+msgid "0 second"
+msgstr "0 seconde"
+
+#, python-brace-format
+msgid "{} days"
+msgstr "{} jours"
+
+#, python-brace-format
+msgid "{} hours"
+msgstr "{} heures"
+
+#, python-brace-format
+msgid "{} minutes"
+msgstr "{} minutes"
+
+#, python-brace-format
+msgid "{} seconds"
+msgstr "{} secondes"
+
+msgid "Laying hen"
+msgstr "Poule pondeuse"
+
+msgid "Broiler chicken"
+msgstr "Poulet de chair"
+
+msgid "Conventional cage"
+msgstr "Cage conventionnelle"
+
+msgid "Furnished cage"
+msgstr "Cage aménagée"
+
+msgid "Barn"
+msgstr "Au sol"
+
+msgid "Free range"
+msgstr "En plein air"
+
+msgid "Excruciating"
+msgstr "Agonie"
+
+msgid "Disabling"
+msgstr "Souffrance"
+
+msgid "Hurtful"
+msgstr "Douleur"
+
+msgid "Annoying"
+msgstr "Inconfort"
+
+msgid "Physical"
+msgstr "Douleur physique"
+
+msgid "Psychological"
+msgstr "Douleur psychologique"
+

@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import "./knowledge_panel.css";
+import Image from "next/image";
 
 type TextElement = {
   html: string;
@@ -43,6 +44,7 @@ export default function KnowledgePanel() {
   const [selectedBarcode, setSelectedBarcode] =
     useState<string>("3450970045360");
   const [customBarcode, setCustomBarcode] = useState<string>("3256229237063"); // Poultry chicken barcode
+  const [language, setLanguage] = useState<"fr" | "en">("fr");
   const [showCustomInput, setShowCustomInput] = useState<boolean>(false);
   const [knowledgePanelData, setKnowledgePanelData] =
     useState<KnowledgePanelData | null>(null);
@@ -59,6 +61,20 @@ export default function KnowledgePanel() {
       fetchKnowledgePanelData(selectedBarcode);
     }
   }, [selectedBarcode]);
+
+  const handleLanguageChange = (lang: "fr" | "en") => {
+    setLanguage(lang);
+
+    const url = new URL(window.location.href);
+    url.searchParams.set("lang", lang);
+    window.history.pushState({}, "", url);
+
+    if (selectedBarcode && selectedBarcode !== "custom") {
+      fetchKnowledgePanelData(selectedBarcode, lang);
+    } else if (customBarcode.trim()) {
+      fetchKnowledgePanelData(customBarcode.trim(), lang);
+    }
+  };
 
   const handleBarcodeChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     const value = e.target.value;
@@ -85,13 +101,18 @@ export default function KnowledgePanel() {
     }
   };
 
-  const fetchKnowledgePanelData = async (barcode: string) => {
+  const fetchKnowledgePanelData = async (
+    barcode: string,
+    lang?: "fr" | "en",
+  ) => {
     setIsLoading(true);
     setError(null);
 
+    const currentLang = lang || language;
+
     try {
       const response = await fetch(
-        `http://127.0.0.1:8000/off/v1/knowledge-panel/${barcode}`,
+        `http://127.0.0.1:8000/off/v1/knowledge-panel/${barcode}?lang=${currentLang}`,
       );
 
       if (response.status === 404) {
@@ -177,9 +198,11 @@ export default function KnowledgePanel() {
         >
           <div className="flex items-center space-x-3">
             {title_element.icon_url && (
-              <img
-                src={title_element.icon_url}
+              <Image // Will use the url image passed from the API
+                src="/tmp_logo.webp"
                 alt={title_element.title}
+                width={48}
+                height={48}
                 className="w-6 h-6"
               />
             )}
@@ -232,6 +255,21 @@ export default function KnowledgePanel() {
             </option>
           ))}
         </select>
+
+        <div className="flex gap-4">
+          <button
+            className={`px-4 py-2 rounded-lg border transition-all duration-200 ${language === "fr" ? "bg-orange-500 text-white border-orange-500" : "bg-white text-gray-700 border-gray-300 hover:bg-gray-200"}`}
+            onClick={() => handleLanguageChange("fr")}
+          >
+            🇫🇷 Français
+          </button>
+          <button
+            className={`px-4 py-2 rounded-lg border transition-all duration-200 ${language === "en" ? "bg-orange-500 text-white border-orange-500" : "bg-white text-gray-700 border-gray-300 hover:bg-gray-200"}`}
+            onClick={() => handleLanguageChange("en")}
+          >
+            🇬🇧 English
+          </button>
+        </div>
 
         {showCustomInput && (
           <form onSubmit={handleCustomBarcodeSubmit} className="mt-3">

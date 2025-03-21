@@ -27,11 +27,11 @@ class PainReportCalculator:
         """
         self.product_data = product_data
         self.breeding_types_with_weights = self._compute_breeding_types_with_weights()
-    
+
     def get_pain_report(self) -> PainReport:
         """
         Generate a pain report based on breeding types and weights.
-        
+
         The report is organized by animal type, with each animal having
         a list of pain levels categorized by pain type (physical/psychological)
         and breeding type information.
@@ -43,12 +43,12 @@ class PainReportCalculator:
             raise ResourceNotFoundException("Can't find valid breeding type or animal product weight for this product")
 
         animal_reports = []
-        
+
         # Process each animal type and its breeding type
         for animal_type, breeding_type in self.breeding_types_with_weights.items():
             # Generate all pain levels for this animal
             pain_levels = self._generate_pain_levels_for_animal(animal_type, breeding_type)
-            
+
             # Add animal report to the list
             animal_reports.append(
                 AnimalPainReport(
@@ -169,7 +169,7 @@ class PainReportCalculator:
         """
         Compute the weight of animal product and fill the weight for each BreedingTypeAndWeight object.
         If the computed weight is <= 0, the animal type will be removed from the dictionary.
-        
+
         Args:
             breeding_types_by_animal: Dictionary mapping animal types to BreedingTypeAndWeight objects
 
@@ -222,4 +222,3 @@ class PainReportCalculator:
 
         # Scale the time in pain based on the weight of animal product
         return int(time_in_pain * breeding_type_with_weight.animal_product_weight / 100)
-    

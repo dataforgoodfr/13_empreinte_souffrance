@@ -7,25 +7,158 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-02-22 15:12+0100\n"
+"POT-Creation-Date: 2025-03-20 20:42+0100\n"
 "PO-Revision-Date: 2025-02-17 20:34+0100\n"
 "Last-Translator: Mathis Dupuy <mathis@macbook-air-de-mathis.local>\n"
-"Language-Team: English\n"
 "Language: en\n"
-"MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bit\n"
+"Language-Team: English\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.17.0\n"
 
-#: app/api/open_food_facts/routes.py:30
-msgid "Product not found"
+msgid ""
+"The <a href='https://empreinte-souffrance.org/'>Suffering Footprint</a> "
+"is calculated based on research from the <a "
+"href='https://welfarefootprint.org/'>Welfare Footprint Institute</a>."
 msgstr ""
 
-#: app/api/open_food_facts/routes.py:33
-msgid "Suffering Footprint"
+msgid ""
+"The score and details shown below are based on the following data "
+"(provided by the Open Food Facts community)"
 msgstr ""
 
-#: app/api/open_food_facts/routes.py:34
-#, python-format
-msgid "The suffering footprint for this product is %s."
+msgid "What is the suffering footprint?"
 msgstr ""
+
+msgid "Suffering footprint"
+msgstr ""
+
+msgid ""
+"<b>Excruciating</b>: Extreme unbearable pain, even briefly. In humans, "
+"this would mark the threshold of suffering below which many people choose"
+" to end their lives rather than endure it. Triggers involuntary "
+"manifestations (screams, tremors, extreme agitation) and cannot be "
+"relieved."
+msgstr ""
+
+msgid ""
+"<b>Disabling</b>: Constant pain that takes priority over most behaviors. "
+"Prevents positive well-being and drastically alters activity level. "
+"Requires stronger painkillers and causes inattention to the environment."
+msgstr ""
+
+msgid ""
+"<b>Hurtful</b>: Persistent pain with the possibility of brief moments of "
+"forgetting during distractions. Reduces the frequency of motivated "
+"behaviors and partially alters functional capabilities, while allowing "
+"essential activities to be carried out."
+msgstr ""
+
+msgid ""
+"<b>Annoying</b>: Noticeable discomfort that can be ignored. Does not "
+"interfere with daily activities or motivated behaviors (exploration, "
+"comfort, maintenance). No visible expressions of pain or physiological "
+"disturbances."
+msgstr ""
+
+msgid "Better understand suffering intensities"
+msgstr ""
+
+msgid "Intensity level definitions"
+msgstr ""
+
+msgid ""
+"<b>Physical pain</b> includes all bodily suffering experienced by "
+"animals: fractures, wounds, diseases, breathing difficulties, etc."
+msgstr ""
+
+msgid ""
+"The durations below represent the suffering time caused by the production"
+" of animal-derived ingredients in this product:"
+msgstr ""
+
+msgid ""
+"You can find more details about the different types of physical suffering"
+" <a href='https://empreinte-souffrance.org/'>on our website</a>."
+msgstr ""
+
+msgid "Physical pain"
+msgstr ""
+
+msgid ""
+"<b>Psychological pain</b> includes mental suffering experienced by "
+"animals: stress, anxiety, inability to express natural behaviors, etc."
+msgstr ""
+
+msgid ""
+"You can find more details about the different types of psychological "
+"suffering <a href='https://empreinte-souffrance.org/'>on our website</a>."
+msgstr ""
+
+msgid "Psychological pain"
+msgstr ""
+
+#, python-brace-format
+msgid ""
+"<b>{animal_name} :</b><ul><li>Breeding type: "
+"<b>{breeding_type}</b></li><li>Quantity of egg in the product: "
+"<b>{weight}g</b></li></ul>"
+msgstr ""
+
+msgid "0 second"
+msgstr ""
+
+#, python-brace-format
+msgid "{} days"
+msgstr ""
+
+#, python-brace-format
+msgid "{} hours"
+msgstr ""
+
+#, python-brace-format
+msgid "{} minutes"
+msgstr ""
+
+#, python-brace-format
+msgid "{} seconds"
+msgstr ""
+
+msgid "Laying hen"
+msgstr ""
+
+msgid "Broiler chicken"
+msgstr ""
+
+msgid "Conventional cage"
+msgstr ""
+
+msgid "Furnished cage"
+msgstr ""
+
+msgid "Barn"
+msgstr ""
+
+msgid "Free range"
+msgstr ""
+
+msgid "Excruciating"
+msgstr ""
+
+msgid "Disabling"
+msgstr ""
+
+msgid "Hurtful"
+msgstr ""
+
+msgid "Annoying"
+msgstr ""
+
+msgid "Physical"
+msgstr ""
+
+msgid "Psychological"
+msgstr ""
+
