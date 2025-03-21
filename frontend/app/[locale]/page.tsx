@@ -1,5 +1,5 @@
 import HeroSection from "@/app/[locale]/ui/general/hero-section";
-import { LocaleSelect } from "./localselect";
+import { LocaleSelect } from "./ui/localselect";
 
 export default function Home() {
 
