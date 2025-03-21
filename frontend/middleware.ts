@@ -1,4 +1,4 @@
-// middleware.ts : Redirect the user to the right locale.
+// middleware.ts : Redirect the user to the right locale. Used for Next Internationalisation.
 import { createI18nMiddleware } from 'next-international/middleware'
 import { NextRequest } from 'next/server'
  
