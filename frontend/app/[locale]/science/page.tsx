@@ -1,4 +1,4 @@
-import ContentWithImageSection from "@/app/ui/general/content-with-image-section";
+import ContentWithImageSection from "@/app/[locale]/ui/general/content-with-image-section";
 
 export default async function Page() {
   return (

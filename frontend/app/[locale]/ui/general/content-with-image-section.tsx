@@ -1,6 +1,7 @@
 import Image from "next/image";
 import clsx from "clsx";
 
+
 type ContentWithImageSectionProps = {
   text_content: string;
   image_url: string;
@@ -15,7 +16,8 @@ export default function ContentWithImageSection({
   image_description,
   image_position = "left",
   hide_image_on_small_screen = false,
-}: ContentWithImageSectionProps) {
+}: ContentWithImageSectionProps) 
+{
   return (
     <section
       className={clsx(
