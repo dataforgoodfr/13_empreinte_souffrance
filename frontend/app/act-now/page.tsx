@@ -4,7 +4,7 @@ export default async function Page() {
   return (
     <>
       <ContentWithImageSection
-        text_content="We are nice people"
+        text_content="YOU CAN DO SOMETHING"
         image_url="tmp_chicken-image.webp"
         image_description="Picture of a chicken"
         image_position="right"
