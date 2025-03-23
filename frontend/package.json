@@ -5,12 +5,14 @@
   "scripts": {
     "dev": "next dev --turbopack",
     "build": "next build",
+    "build:local": "prettier --write . && next build",
     "start": "next start",
     "lint": "next lint",
     "test": "jest",
     "type-check": "tsc --noEmit",
     "format": "prettier --write .",
-    "format:check": "npx prettier --check ."
+    "format:check": "npx prettier --check .",
+    "prepare": "husky || true"
   },
   "dependencies": {
     "clsx": "^2.1.1",
@@ -30,9 +32,13 @@
     "@types/react-dom": "^19",
     "eslint": "^9",
     "eslint-config-next": "15.2.1",
+    "eslint-config-prettier": "^10.1.1",
+    "husky": "^9.1.7",
     "jest": "^29.7.0",
     "jest-environment-jsdom": "^29.7.0",
+    "lint-staged": "^15.5.0",
     "prettier": "^3.5.3",
+    "prettier-plugin-tailwindcss": "^0.6.11",
     "tailwindcss": "^4",
     "ts-node": "^10.9.2",
     "typescript": "^5"

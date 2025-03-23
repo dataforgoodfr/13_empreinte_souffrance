@@ -17,3 +17,80 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+/* Accesibility styles */
+
+/* Keyboard navigation style */
+
+*:focus {
+  /* some exciting focus styles */
+  outline: 0.1em #aa2b2b solid;
+  outline-offset: 0.1rem;
+}
+
+*:focus:not(:focus-visible) {
+  /* undo all the above focus styles */
+  outline: 0;
+  outline-offset: 0.25rem;
+}
+
+*:focus-visible {
+  /* some even *more* exciting button focus styles, just for keyboard navigators */
+  outline: 0.25em #aa2b2b dashed;
+  outline-offset: 0.25rem;
+}
+
+.skip-link {
+  position: absolute;
+  top: 0;
+  right: 100%; /* moves off screen */
+  z-index: 500; /* some number that will make sure it covers other elements */
+}
+
+.skip-link:focus {
+  right: auto;
+  background-color: #000;
+  color: #fff;
+  border: #fff 3px solid;
+  padding: 1em;
+}
+
+/* screen readers styles */
+
+.visually-hidden,
+.sr-only {
+  /* hides content except when viewed by screen readers */
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(1px, 1px, 1px, 1px);
+  white-space: nowrap;
+}
+
+/* Reduced motion styles */
+
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+    /* turns off smooth-scrolling behavior (if turned on) when prefers-reduced-motion is active*/
+    scroll-behavior: auto;
+  }
+
+  *:not(.animates-without-motion),
+  *:not(.animates-without-motion)::before,
+  *:not(.animates-without-motion)::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* use .animates-without-motion with the elements with transitions that should animate even when prefers-reduced-motion is active */
+
+@media (prefers-reduced-motion: reduce) {
+  .animates-without-motion {
+    /* maintain the opacity transition but remove the position-based transition */
+    transition: opacity 500ms ease;
+  }
+}
