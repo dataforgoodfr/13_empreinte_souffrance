@@ -29,13 +29,7 @@ export default async function HeroSection() {
         </Link>
       </div>
       <div className="hidden lg:block">
-        <Image
-          src="/tmp_chicken-image.webp"
-          width={560}
-          height={620}
-          className="block"
-          alt="Picture of a chicken"
-        />
+        <Image src="/tmp_chicken-image.webp" width={560} height={620} className="block" alt="Picture of a chicken" />
       </div>
     </section>
   );

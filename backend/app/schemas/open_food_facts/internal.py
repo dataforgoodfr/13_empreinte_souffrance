@@ -30,9 +30,7 @@ class AnimalPainReport(BaseModel):
 
     def get_pain_levels_by_type(self, pain_type: PainType) -> List[PainLevelData]:
         """Returns the PainLevelData objects for a specific pain type, sorted by intensity"""
-        pain_levels_by_type = [
-            pain_level for pain_level in self.pain_levels if pain_level.pain_type is pain_type
-        ]
+        pain_levels_by_type = [pain_level for pain_level in self.pain_levels if pain_level.pain_type is pain_type]
 
         # Sort by intensity order using the class method
         return sorted(
@@ -55,7 +53,7 @@ class PanelElement(BaseModel):
 
 class Element(BaseModel):
     element_type: str
-    text_element: TextElement | None  = None
+    text_element: TextElement | None = None
     panel_element: PanelElement | None = None
 
 
@@ -79,4 +77,5 @@ class KnowledgePanelResponse(BaseModel):
     """
     Response model for knowledge panel endpoint.
     """
+
     panels: Dict[str, Panel]

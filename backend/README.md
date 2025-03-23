@@ -43,11 +43,11 @@ To ensure your IDE automatically uses the virtual environment and finds the proj
 Open the command palette (Ctrl/Cmd + Shift + P), search for `Python: Select Interpreter`, then choose `Enter interpreter path` and type:
 
 For Windows:
-    
+
     backend/.venv/Scripts/Python.exe
 
 For macOS and Linux:
-    
+
     backend/.venv/bin/python
 
 ### If you are using PyCharm
@@ -55,11 +55,11 @@ For macOS and Linux:
 Go to Settings, then Python Interpreter, click on Add Interpreter, select Existing venv, and choose `uv`, then specify the path to the Python executable in `.venv`:
 
 For Windows:
-    
+
     backend/.venv/Scripts/Python.exe
 
 For macOS and Linux:
-    
+
     backend/.venv/bin/python
 
 ## Using the virtual environment with uv

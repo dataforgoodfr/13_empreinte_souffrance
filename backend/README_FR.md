@@ -1,6 +1,6 @@
 # Contribuer au projet Empreinte Souffrance
 
-## Installer pre-commit 
+## Installer pre-commit
 
 Suivez la [documentation officiell](https://pre-commit.com/), ou simplement :
 
@@ -12,7 +12,7 @@ Puis, dans le dossier racine du projet (`13_empreinte_souffrance`), installez le
 
 ## (optionnel mais fortement recommandé) Installer pyenv
 
-Pyenv est un outil permettant de gerer plusieurs versions de python facilement. 
+Pyenv est un outil permettant de gerer plusieurs versions de python facilement.
 Pour plus d'information, voir [pyenv](https://github.com/pyenv/pyenv-installer).
 
 Vous pourrez ensuite choisir la version de python que vous voulez utiliser en utilisant la commande suivante:
@@ -41,11 +41,11 @@ Pour que votre IDE utilise l'environnement virtuel automatiquement, et trouve le
 Ouvrez la palette de commande (Ctrl/Cmd + Shift + P), puis recherchez `Python: Select Interpreter` et choisissez `Enter interpreter path` et tapez :
 
 Pour windows :
-    
+
     backend/.venv/Scripts/Python.exe
 
 Pour macos et linux :
-    
+
     backend/.venv/bin/python
 
 ### Si vous utilisez Pycharm
@@ -53,11 +53,11 @@ Pour macos et linux :
 Allez dans settings, python interpreter, add interpreter, puis sélectionnez existing venv et `uv`, puis renseignez le chemin de l'exécutable python du .venv:
 
 Pour windows :
-    
+
     backend/.venv/Scripts/Python.exe
 
 Pour macos et linux :
-    
+
     backend/.venv/bin/python
 
 ## Utiliser l'environnement virtuel avec uv
@@ -87,7 +87,7 @@ Suivre la documentation officielle : https://taskfile.dev/installation/
 ## Générer ou updater les traductions
 
 Aller dans le dossier `backend`, puis :
-    
+
     task translations-compile
 
 Si vous ajoutez de nouvelles strings à traduire au projet, vous devrez utiliser `task translations-all` pour générer et mettre à jour les traductions.
@@ -139,7 +139,7 @@ S'il y a de la logique métier commune (par exemple, le calculateur du score), c
 
 ## Tests
 
-Le dossier `tests/` contient les tests unitaires pour assurer la stabilité du projet. 
+Le dossier `tests/` contient les tests unitaires pour assurer la stabilité du projet.
 
 L'arborescence du dossier test suit celle du dossier backend. Exemple : Si vous testez une route du fichier `backend/app/api/open_food_facts/routes.py`, votre test devra se trouver dans `tests/app/api/open_food_facts/test_routes.py`
 

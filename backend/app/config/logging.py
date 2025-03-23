@@ -9,6 +9,7 @@ class InterceptHandler(logging.Handler):
     """
     Intercept standard logging messages and redirect them to loguru.
     """
+
     def emit(self, record):
         # Get corresponding Loguru level if it exists
         try:
@@ -22,24 +23,22 @@ class InterceptHandler(logging.Handler):
             frame = frame.f_back
             depth += 1
 
-        logger.opt(depth=depth, exception=record.exc_info).log(
-            level, record.getMessage()
-        )
+        logger.opt(depth=depth, exception=record.exc_info).log(level, record.getMessage())
 
 
 def setup_logging(log_level="INFO"):
     """
     Configure loguru logger with console and file sinks.
-    
+
     Args:
         log_level: Log level (DEBUG, INFO, WARNING, ERROR, CRITICAL)
-    
+
     Returns:
         loguru.logger instance
     """
     # Remove any existing handlers
     logger.remove()
-    
+
     # Create logs directory if it doesn't exist
     log_dir = Path("logs")
     log_dir.mkdir(exist_ok=True)
@@ -50,7 +49,7 @@ def setup_logging(log_level="INFO"):
         "<level>{level: <8}</level> | "
         "<cyan>{name}</cyan> - <level>{message}</level>"
     )
-    
+
     # Add console handler
     logger.add(
         sys.stdout,
@@ -58,17 +57,17 @@ def setup_logging(log_level="INFO"):
         level=log_level,
         colorize=True,
     )
-    
+
     # Add file handler
     logger.add(
         log_dir / "app.log",
         format="{time:YYYY-MM-DD HH:mm:ss} | {level} | {name} - {message}",
         level=log_level,
-        rotation="10 MB", 
+        rotation="10 MB",
         retention="1 week",
         compression="gz",
     )
-    
+
     # Configure logging to intercept standard library logs
     logging.basicConfig(handlers=[InterceptHandler()], level=0, force=True)
 
@@ -80,7 +79,7 @@ def setup_logging(log_level="INFO"):
         "asyncio",
         "starlette",
     ]
-    
+
     # Intercept logs from other libraries
     handler = InterceptHandler()
     for logger_name in loggers:
@@ -89,5 +88,5 @@ def setup_logging(log_level="INFO"):
         _logger.propagate = False
         # Ensure the log level is low enough to capture all messages
         _logger.setLevel(logging.DEBUG)
-    
+
     return logger

@@ -52,18 +52,14 @@ class PainReportCalculator:
             # Add animal report to the list
             animal_reports.append(
                 AnimalPainReport(
-                    animal_type=animal_type,
-                    pain_levels=pain_levels,
-                    breeding_type_with_weight=breeding_type
+                    animal_type=animal_type, pain_levels=pain_levels, breeding_type_with_weight=breeding_type
                 )
             )
 
         return PainReport(animals=animal_reports)
 
     def _generate_pain_levels_for_animal(
-            self,
-            animal_type: AnimalType,
-            breeding_type: BreedingTypeAndWeight
+        self, animal_type: AnimalType, breeding_type: BreedingTypeAndWeight
     ) -> List[PainLevelData]:
         """
         Generate pain levels for a specific animal type and breeding type.
@@ -79,17 +75,12 @@ class PainReportCalculator:
 
         # Process each pain type
         for pain_type in PainType:
-            pain_levels.extend(self._generate_pain_levels_for_type(
-                animal_type, breeding_type, pain_type
-            ))
+            pain_levels.extend(self._generate_pain_levels_for_type(animal_type, breeding_type, pain_type))
 
         return pain_levels
 
     def _generate_pain_levels_for_type(
-            self,
-            animal_type: AnimalType,
-            breeding_type: BreedingTypeAndWeight,
-            pain_type: PainType
+        self, animal_type: AnimalType, breeding_type: BreedingTypeAndWeight, pain_type: PainType
     ) -> List[PainLevelData]:
         """
         Generate pain levels for a specific animal, breeding type, and pain type.
@@ -108,19 +99,12 @@ class PainReportCalculator:
         for pain_intensity in PainIntensity:
             # Calculate seconds in pain for this animal, pain type, and intensity
             seconds_in_pain = self._calculate_time_in_pain_for_animal_with_type(
-                animal_type,
-                breeding_type,
-                pain_type,
-                pain_intensity
+                animal_type, breeding_type, pain_type, pain_intensity
             )
 
             # Add pain level entry
             pain_levels.append(
-                PainLevelData(
-                    pain_intensity=pain_intensity,
-                    pain_type=pain_type,
-                    seconds_in_pain=seconds_in_pain
-                )
+                PainLevelData(pain_intensity=pain_intensity, pain_type=pain_type, seconds_in_pain=seconds_in_pain)
             )
 
         return pain_levels
@@ -155,7 +139,7 @@ class PainReportCalculator:
             # tags_by_breeding_type: LayingHenBreedingType.FURNISHED_CAGE: ["en:cage-chicken-eggs"]
 
             for breeding_type, tags in tags_by_breeding_type.items():
-                if any(tag in self.product_data.categories_tags for tag in tags):
+                if self.product_data.categories_tags and any(tag in self.product_data.categories_tags for tag in tags):
                     # Set the breeding type if any of the tags is present
                     breeding_types_by_animal[animal_type] = BreedingTypeAndWeight(breeding_type=breeding_type)
                     break
@@ -163,8 +147,7 @@ class PainReportCalculator:
         return breeding_types_by_animal
 
     def _get_breeding_types_with_weights(
-            self,
-            breeding_types_by_animal: Dict[AnimalType, BreedingTypeAndWeight]
+        self, breeding_types_by_animal: Dict[AnimalType, BreedingTypeAndWeight]
     ) -> Dict[AnimalType, BreedingTypeAndWeight]:
         """
         Compute the weight of animal product and fill the weight for each BreedingTypeAndWeight object.
@@ -190,11 +173,11 @@ class PainReportCalculator:
         return breeding_types_with_weights
 
     def _calculate_time_in_pain_for_animal_with_type(
-            self,
-            animal_type: AnimalType,
-            breeding_type_with_weight: BreedingTypeAndWeight,
-            pain_type: PainType,
-            pain_intensity: PainIntensity
+        self,
+        animal_type: AnimalType,
+        breeding_type_with_weight: BreedingTypeAndWeight,
+        pain_type: PainType,
+        pain_intensity: PainIntensity,
     ) -> int:
         """
         Calculates time in pain for a given animal type, breeding type, pain type, and pain intensity.
@@ -215,7 +198,7 @@ class PainReportCalculator:
         # Default to 0 if any level in the hierarchy is missing
         try:
             breeding_type = breeding_type_with_weight.breeding_type
-            time_in_pain = TIME_IN_PAIN_FOR_100G_IN_SECONDS[animal_type][breeding_type][pain_type][pain_intensity]
+            time_in_pain = TIME_IN_PAIN_FOR_100G_IN_SECONDS[animal_type][breeding_type][pain_type][pain_intensity]  # type: ignore[index]
         except (KeyError, TypeError):
             # This combination of animal, breeding type, pain type, and intensity is not defined
             return 0

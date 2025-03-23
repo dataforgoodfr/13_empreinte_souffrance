@@ -33,6 +33,6 @@ jobs:
 
       - name: Run unit tests (Jest)
         run: npm run test
-        
+
       - name: Build app
         run: npm run build

@@ -23,9 +23,7 @@ from app.schemas.open_food_facts.internal import (
 async def test_get_data_from_off_success():
     """Test when the OFF API returns valid data"""
     barcode = "123456789"
-    mock_response_data = {
-        "hits": [{"categories_tags": ["en:cage-chicken-eggs", "other"], "labels_tags": ["organic"]}]
-    }
+    mock_response_data = {"hits": [{"categories_tags": ["en:cage-chicken-eggs", "other"], "labels_tags": ["organic"]}]}
 
     mock_response = AsyncMock()
     mock_response.json = MagicMock(return_value=mock_response_data)
@@ -64,8 +62,7 @@ async def test_get_data_from_off_validation_error():
 
     with patch("httpx.AsyncClient.get", return_value=mock_response):
         with pytest.raises(
-                ResourceNotFoundException,
-                match=f"Failed to validate product data retrieved from OFF: {barcode}"
+            ResourceNotFoundException, match=f"Failed to validate product data retrieved from OFF: {barcode}"
         ):
             await get_data_from_off(barcode)
 
@@ -109,32 +106,25 @@ def test_generate_pain_levels_for_type():
     """Test generating pain levels for a specific animal, breeding type, and pain type"""
     product_data = ProductData(categories_tags=["en:cage-chicken-eggs"], labels_tags=["organic"])
     calculator = PainReportCalculator(product_data)
-    
-    breeding_type = BreedingTypeAndWeight(
-        breeding_type=LayingHenBreedingType.FURNISHED_CAGE,
-        animal_product_weight=200
-    )
-    
+
+    breeding_type = BreedingTypeAndWeight(breeding_type=LayingHenBreedingType.FURNISHED_CAGE, animal_product_weight=200)
+
     # Test generating physical pain levels
     physical_pain_levels = calculator._generate_pain_levels_for_type(
-        AnimalType.LAYING_HEN, 
-        breeding_type, 
-        PainType.PHYSICAL
+        AnimalType.LAYING_HEN, breeding_type, PainType.PHYSICAL
     )
-    
+
     assert len(physical_pain_levels) == 4  # One for each intensity
     for level in physical_pain_levels:
         assert level.pain_type == PainType.PHYSICAL
         assert isinstance(level.pain_intensity, PainIntensity)
         assert isinstance(level.seconds_in_pain, int)
-        
+
     # Test generating psychological pain levels
     psychological_pain_levels = calculator._generate_pain_levels_for_type(
-        AnimalType.LAYING_HEN, 
-        breeding_type, 
-        PainType.PSYCHOLOGICAL
+        AnimalType.LAYING_HEN, breeding_type, PainType.PSYCHOLOGICAL
     )
-    
+
     assert len(psychological_pain_levels) == 4  # One for each intensity
     for level in psychological_pain_levels:
         assert level.pain_type == PainType.PSYCHOLOGICAL
@@ -148,34 +138,34 @@ def test_knowledge_panel_generator(pain_report):
 
     # Create generator and test individual methods
     generator = KnowledgePanelGenerator(pain_report, translator)
-    
+
     # Test main panel
     main_panel = generator.create_main_panel()
     assert main_panel.level == "info"
     assert main_panel.title_element.title == "Suffering footprint"
     assert len(main_panel.elements) > 3
-    
+
     # Test intensities definitions panel
     intensities_panel = generator.create_intensities_definitions_panel()
     assert intensities_panel.title_element.title == "Intensity level definitions"
     assert len(intensities_panel.elements) == 4  # One for each intensity
-    
+
     # Test physical pain panel
     physical_panel = generator.create_physical_pain_panel()
     assert physical_panel.title_element.title == "Physical pain"
     assert len(physical_panel.elements) > 3  # Intro, description, animal pain data, and footer
-    
+
     # Test psychological pain panel
     psychological_panel = generator.create_psychological_pain_panel()
     assert psychological_panel.title_element.title == "Psychological pain"
     assert len(psychological_panel.elements) > 3  # Intro, description, animal pain data, and footer
-    
+
     # Test animal pain element generation
     animal_element = generator.get_animal_pain_for_panel(AnimalType.LAYING_HEN, PainType.PHYSICAL)
     assert animal_element is not None
     assert animal_element.element_type == "text"
     assert "Laying hen" in animal_element.text_element.html
-    
+
     # Test complete response
     response = generator.get_response()
     assert isinstance(response, KnowledgePanelResponse)
@@ -188,13 +178,13 @@ def test_get_knowledge_panel_response(pain_report):
 
     # Generate knowledge panel response using the function
     response = get_knowledge_panel_response(pain_report, translator)
-    
+
     # Verify response structure
     assert "main" in response.panels
     assert "physical_pain" in response.panels
     assert "psychological_pain" in response.panels
     assert "intensities_definitions" in response.panels
-    
+
     # Verify each panel has the required fields
     for panel in response.panels.values():
         assert hasattr(panel, "elements")

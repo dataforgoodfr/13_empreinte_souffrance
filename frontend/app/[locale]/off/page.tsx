@@ -1,8 +1,8 @@
-"use client";
+'use client';
 
-import { useState, useEffect } from "react";
-import "./knowledge_panel.css";
-import Image from "next/image";
+import { useState, useEffect } from 'react';
+import './knowledge_panel.css';
+import Image from 'next/image';
 
 type TextElement = {
   html: string;
@@ -13,7 +13,7 @@ type PanelElement = {
 };
 
 type Element = {
-  element_type: "text" | "panel";
+  element_type: 'text' | 'panel';
   text_element: TextElement | null;
   panel_element: PanelElement | null;
 };
@@ -41,35 +41,31 @@ type KnowledgePanelData = {
 };
 
 export default function KnowledgePanel() {
-  const [selectedBarcode, setSelectedBarcode] =
-    useState<string>("3450970045360");
-  const [customBarcode, setCustomBarcode] = useState<string>("3256229237063"); // Poultry chicken barcode
-  const [language, setLanguage] = useState<"fr" | "en">("fr");
+  const [selectedBarcode, setSelectedBarcode] = useState<string>('3450970045360');
+  const [customBarcode, setCustomBarcode] = useState<string>('3256229237063'); // Poultry chicken barcode
+  const [language, setLanguage] = useState<'fr' | 'en'>('fr');
   const [showCustomInput, setShowCustomInput] = useState<boolean>(false);
-  const [knowledgePanelData, setKnowledgePanelData] =
-    useState<KnowledgePanelData | null>(null);
-  const [expandedPanels, setExpandedPanels] = useState<Record<string, boolean>>(
-    {},
-  );
+  const [knowledgePanelData, setKnowledgePanelData] = useState<KnowledgePanelData | null>(null);
+  const [expandedPanels, setExpandedPanels] = useState<Record<string, boolean>>({});
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [error, setError] = useState<string | null>(null);
 
-  const barcodes = ["3450970045360", "3270190205685", "custom"];
+  const barcodes = ['3450970045360', '3270190205685', 'custom'];
 
   useEffect(() => {
-    if (selectedBarcode && selectedBarcode !== "custom") {
+    if (selectedBarcode && selectedBarcode !== 'custom') {
       fetchKnowledgePanelData(selectedBarcode);
     }
   }, [selectedBarcode]);
 
-  const handleLanguageChange = (lang: "fr" | "en") => {
+  const handleLanguageChange = (lang: 'fr' | 'en') => {
     setLanguage(lang);
 
     const url = new URL(window.location.href);
-    url.searchParams.set("lang", lang);
-    window.history.pushState({}, "", url);
+    url.searchParams.set('lang', lang);
+    window.history.pushState({}, '', url);
 
-    if (selectedBarcode && selectedBarcode !== "custom") {
+    if (selectedBarcode && selectedBarcode !== 'custom') {
       fetchKnowledgePanelData(selectedBarcode, lang);
     } else if (customBarcode.trim()) {
       fetchKnowledgePanelData(customBarcode.trim(), lang);
@@ -80,17 +76,15 @@ export default function KnowledgePanel() {
     const value = e.target.value;
     setSelectedBarcode(value);
 
-    if (value === "custom") {
+    if (value === 'custom') {
       setShowCustomInput(true);
     } else {
       setShowCustomInput(false);
-      setCustomBarcode("");
+      setCustomBarcode('');
     }
   };
 
-  const handleCustomBarcodeChange = (
-    e: React.ChangeEvent<HTMLInputElement>,
-  ) => {
+  const handleCustomBarcodeChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setCustomBarcode(e.target.value);
   };
 
@@ -101,19 +95,14 @@ export default function KnowledgePanel() {
     }
   };
 
-  const fetchKnowledgePanelData = async (
-    barcode: string,
-    lang?: "fr" | "en",
-  ) => {
+  const fetchKnowledgePanelData = async (barcode: string, lang?: 'fr' | 'en') => {
     setIsLoading(true);
     setError(null);
 
     const currentLang = lang || language;
 
     try {
-      const response = await fetch(
-        `http://127.0.0.1:8000/off/v1/knowledge-panel/${barcode}?lang=${currentLang}`,
-      );
+      const response = await fetch(`http://127.0.0.1:8000/off/v1/knowledge-panel/${barcode}?lang=${currentLang}`);
 
       if (response.status === 404) {
         setError("This product doesn't contains supported animal products");
@@ -133,9 +122,7 @@ export default function KnowledgePanel() {
       });
       setExpandedPanels(initialExpandedState);
     } catch (err) {
-      setError(
-        `Error fetching knowledge panel: ${err instanceof Error ? err.message : String(err)}`,
-      );
+      setError(`Error fetching knowledge panel: ${err instanceof Error ? err.message : String(err)}`);
       setKnowledgePanelData(null);
     } finally {
       setIsLoading(false);
@@ -149,29 +136,16 @@ export default function KnowledgePanel() {
     }));
   };
 
-  const renderElement = (
-    element: Element,
-    panelsData: { [key: string]: Panel },
-    isSubPanel: boolean = false,
-  ) => {
-    if (element.element_type === "text" && element.text_element) {
-      return (
-        <div
-          className="my-2 panel-content"
-          dangerouslySetInnerHTML={{ __html: element.text_element.html }}
-        />
-      );
-    } else if (element.element_type === "panel" && element.panel_element) {
+  const renderElement = (element: Element, panelsData: { [key: string]: Panel }, isSubPanel: boolean = false) => {
+    if (element.element_type === 'text' && element.text_element) {
+      return <div className="my-2 panel-content" dangerouslySetInnerHTML={{ __html: element.text_element.html }} />;
+    } else if (element.element_type === 'panel' && element.panel_element) {
       const subPanelId = element.panel_element.panel_id;
       const subPanel = panelsData[subPanelId];
 
       if (subPanel) {
         // Add margin-top if this is a sub-panel
-        return (
-          <div className={isSubPanel ? "mt-6" : ""}>
-            {renderPanel(subPanelId, subPanel, panelsData, true)}
-          </div>
-        );
+        return <div className={isSubPanel ? 'mt-6' : ''}>{renderPanel(subPanelId, subPanel, panelsData, true)}</div>;
       }
     }
 
@@ -182,16 +156,13 @@ export default function KnowledgePanel() {
     panelId: string,
     panel: Panel,
     panelsData: { [key: string]: Panel },
-    isSubPanel: boolean = false,
+    isSubPanel: boolean = false
   ) => {
     const { title_element, elements } = panel;
     const isExpanded = expandedPanels[panelId];
 
     return (
-      <div
-        key={panelId}
-        className={`border rounded-lg mb-4 overflow-hidden shadow-sm ${isSubPanel ? "mt-4" : ""}`}
-      >
+      <div key={panelId} className={`border rounded-lg mb-4 overflow-hidden shadow-sm ${isSubPanel ? 'mt-4' : ''}`}>
         <div
           className="flex items-center justify-between p-4 bg-orange-100 cursor-pointer"
           onClick={() => togglePanel(panelId)}
@@ -208,26 +179,16 @@ export default function KnowledgePanel() {
             )}
             <div>
               <h3 className="font-semibold text-lg">{title_element.title}</h3>
-              {title_element.subtitle && (
-                <p className="text-sm text-gray-600">
-                  {title_element.subtitle}
-                </p>
-              )}
+              {title_element.subtitle && <p className="text-sm text-gray-600">{title_element.subtitle}</p>}
             </div>
           </div>
-          {isExpanded ? (
-            <span className="text-lg">▲</span>
-          ) : (
-            <span className="text-lg">▼</span>
-          )}
+          {isExpanded ? <span className="text-lg">▲</span> : <span className="text-lg">▼</span>}
         </div>
 
         {isExpanded && (
           <div className="p-4 bg-white panel-content">
             {elements.map((element, index) => (
-              <div key={index}>
-                {renderElement(element, panelsData, isSubPanel)}
-              </div>
+              <div key={index}>{renderElement(element, panelsData, isSubPanel)}</div>
             ))}
           </div>
         )}
@@ -240,9 +201,7 @@ export default function KnowledgePanel() {
       <h1 className="text-2xl font-bold mb-6">Knowledge Panel</h1>
 
       <div className="mb-8 p-4 bg-gray-50 rounded-lg">
-        <h2 className="text-lg font-semibold mb-3">
-          Sélectionner un code-barres
-        </h2>
+        <h2 className="text-lg font-semibold mb-3">Sélectionner un code-barres</h2>
 
         <select
           value={selectedBarcode}
@@ -251,21 +210,21 @@ export default function KnowledgePanel() {
         >
           {barcodes.map((barcode) => (
             <option key={barcode} value={barcode}>
-              {barcode === "custom" ? "Autre code-barres..." : barcode}
+              {barcode === 'custom' ? 'Autre code-barres...' : barcode}
             </option>
           ))}
         </select>
 
         <div className="flex gap-4">
           <button
-            className={`px-4 py-2 rounded-lg border transition-all duration-200 ${language === "fr" ? "bg-orange-500 text-white border-orange-500" : "bg-white text-gray-700 border-gray-300 hover:bg-gray-200"}`}
-            onClick={() => handleLanguageChange("fr")}
+            className={`px-4 py-2 rounded-lg border transition-all duration-200 ${language === 'fr' ? 'bg-orange-500 text-white border-orange-500' : 'bg-white text-gray-700 border-gray-300 hover:bg-gray-200'}`}
+            onClick={() => handleLanguageChange('fr')}
           >
             🇫🇷 Français
           </button>
           <button
-            className={`px-4 py-2 rounded-lg border transition-all duration-200 ${language === "en" ? "bg-orange-500 text-white border-orange-500" : "bg-white text-gray-700 border-gray-300 hover:bg-gray-200"}`}
-            onClick={() => handleLanguageChange("en")}
+            className={`px-4 py-2 rounded-lg border transition-all duration-200 ${language === 'en' ? 'bg-orange-500 text-white border-orange-500' : 'bg-white text-gray-700 border-gray-300 hover:bg-gray-200'}`}
+            onClick={() => handleLanguageChange('en')}
           >
             🇬🇧 English
           </button>
@@ -301,18 +260,12 @@ export default function KnowledgePanel() {
         </div>
       )}
 
-      {error && (
-        <div className="bg-red-100 text-red-700 p-4 rounded mb-4">{error}</div>
-      )}
+      {error && <div className="bg-red-100 text-red-700 p-4 rounded mb-4">{error}</div>}
 
       {knowledgePanelData && !isLoading && (
         <div className="space-y-4">
           {knowledgePanelData.panels.main &&
-            renderPanel(
-              "main",
-              knowledgePanelData.panels.main,
-              knowledgePanelData.panels,
-            )}
+            renderPanel('main', knowledgePanelData.panels.main, knowledgePanelData.panels)}
         </div>
       )}
     </div>
