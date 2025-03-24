@@ -15,7 +15,7 @@ export default function Navbar() {
         <div className="flex gap-1 grow justify-start w-full ml-3">
           <NavLinks />
         </div>
-        <LocaleSelect/>
+        <LocaleSelect />
       </div>
     </>
   );

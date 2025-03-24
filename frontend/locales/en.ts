@@ -7,7 +7,7 @@ export default {
     explained: "explained",
     paragraph:
       "Discover everything you need to know about what a chicken experiences in livestock farming and make educated choices.",
-    link:"Understand the method"
-    },
+    link: "Understand the method",
+  },
   science: {},
 } as const;

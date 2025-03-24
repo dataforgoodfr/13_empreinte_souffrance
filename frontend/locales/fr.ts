@@ -7,7 +7,7 @@ export default {
     explained: "expliqué",
     paragraph:
       "Découvrez tout ce que vous devez savoir sur ce qu’un poulet vit en élevage et faites des choix éclairés.",
-    link: "Comprendre la méthode"
+    link: "Comprendre la méthode",
   },
   science: {},
 } as const;
