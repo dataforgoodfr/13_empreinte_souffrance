@@ -25,11 +25,13 @@ jobs:
       - name: Install dependencies with UV
         run: uv sync --all-groups
 
+      # Install translation tools
       - name: Install gettext and babel
         run: |
           sudo apt-get install -y gettext
-          pip install babel
+          uv pip install babel
 
+      # Compile translations before running tests
       - name: Compile translations
         run: |
           # Compile using pybabel (more reliable path handling)
@@ -38,5 +40,6 @@ jobs:
           # Ensure output exists for better debugging
           find app/locales -name "*.mo" | sort
 
+      # Run tests with translation files available
       - name: Run tests
         run: uv run pytest tests/
