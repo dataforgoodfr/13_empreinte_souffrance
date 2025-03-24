@@ -1,3 +1,4 @@
+from collections.abc import Callable
 from enum import StrEnum, auto
 
 
@@ -5,12 +6,11 @@ class AnimalType(StrEnum):
     LAYING_HEN = auto()
     BROILER_CHICKEN = auto()
     
-    @property
-    def display_name(self) -> str:
+    def name(self, _: Callable) -> str:
         """Return the human-readable name for this animal type"""
         mappings = {
-            "laying_hen": "Poule pondeuse",
-            "broiler_chicken": "Poulet de chair"
+            "laying_hen": _("Laying hen"),
+            "broiler_chicken": _("Broiler chicken")
         }
         return mappings.get(self.value, self.value)
 
@@ -21,14 +21,13 @@ class LayingHenBreedingType(StrEnum):
     BARN = auto()
     FREE_RANGE = auto()
     
-    @property
-    def display_name(self) -> str:
+    def name(self, _: Callable) -> str:
         """Return the human-readable name for this breeding type"""
         mappings = {
-            "conventional_cage": "Cage conventionnelle",
-            "furnished_cage": "Cage améliorée",
-            "barn": "Au sol",
-            "free_range": "En plein air"
+            "conventional_cage": _("Conventional cage"),
+            "furnished_cage": _("Furnished cage"),
+            "barn": _("Barn"),
+            "free_range": _("Free range")
         }
         return mappings.get(self.value, self.value)
 
@@ -36,11 +35,10 @@ class LayingHenBreedingType(StrEnum):
 class BroilerChickenBreedingType(StrEnum):
     FREE_RANGE = auto()
     
-    @property
-    def display_name(self) -> str:
+    def name(self, _: Callable) -> str:
         """Return the human-readable name for this breeding type"""
         mappings = {
-            "free_range": "En plein air"
+            "free_range": _("Free range")
         }
         return mappings.get(self.value, self.value)
 
@@ -51,14 +49,13 @@ class PainIntensity(StrEnum):
     HURTFUL = auto()
     ANNOYING = auto()
     
-    @property
-    def display_name(self) -> str:
+    def name(self, _: Callable) -> str:
         """Return the human-readable name for this pain intensity"""
         mappings = {
-            "excruciating": "Agonie",
-            "disabling": "Souffrance",
-            "hurtful": "Douleur",
-            "annoying": "Inconfort"
+            "excruciating": _("Excruciating"),
+            "disabling": _("Disabling"),
+            "hurtful": _("Hurtful"),
+            "annoying": _("Annoying")
         }
         return mappings.get(self.value, self.value)
     
@@ -72,12 +69,11 @@ class PainType(StrEnum):
     PHYSICAL = auto()
     PSYCHOLOGICAL = auto()
     
-    @property
-    def display_name(self) -> str:
+    def name(self, _: Callable) -> str:
         """Return the human-readable name for this pain type"""
         mappings = {
-            "physical": "Physique",
-            "psychological": "Psychologique"
+            "physical": _("Physical"),
+            "psychological": _("Psychological")
         }
         return mappings.get(self.value, self.value)
 
@@ -171,6 +167,8 @@ TAGS_BY_ANIMAL_TYPE_AND_BREEDING_TYPE = {
     },
     AnimalType.BROILER_CHICKEN: {
         # Can be tested with this barcode: 3256229237063
+        # If you want to test with 2 animal products in the same product,
+        # you can add the "en:poultry-hams" tag for on LAYING_HEN category
         # BroilerChickenBreedingType.FREE_RANGE: ["en:cooked-chicken-breast-slices"]
     },
 }

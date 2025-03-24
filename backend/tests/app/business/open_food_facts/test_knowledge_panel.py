@@ -10,6 +10,7 @@ from app.business.open_food_facts.knowledge_panel import (
 )
 from app.business.open_food_facts.pain_report_calculator import PainReportCalculator
 from app.config.exceptions import ResourceNotFoundException
+from app.config.i18n import I18N
 from app.enums.open_food_facts.enums import AnimalType, LayingHenBreedingType, PainIntensity, PainType
 from app.schemas.open_food_facts.external import ProductData
 from app.schemas.open_food_facts.internal import (
@@ -143,35 +144,37 @@ def test_generate_pain_levels_for_type():
 
 def test_knowledge_panel_generator(pain_report):
     """Test the KnowledgePanelGenerator class"""
+    translator = I18N().get_translator(locale="en")
+
     # Create generator and test individual methods
-    generator = KnowledgePanelGenerator(pain_report)
+    generator = KnowledgePanelGenerator(pain_report, translator)
     
     # Test main panel
     main_panel = generator.create_main_panel()
     assert main_panel.level == "info"
-    assert main_panel.title_element.title == "Empreinte souffrance"
+    assert main_panel.title_element.title == "Suffering footprint"
     assert len(main_panel.elements) > 3
     
     # Test intensities definitions panel
     intensities_panel = generator.create_intensities_definitions_panel()
-    assert intensities_panel.title_element.title == "Définitions des niveaux d'intensité"
+    assert intensities_panel.title_element.title == "Intensity level definitions"
     assert len(intensities_panel.elements) == 4  # One for each intensity
     
     # Test physical pain panel
     physical_panel = generator.create_physical_pain_panel()
-    assert physical_panel.title_element.title == "Douleur physique"
+    assert physical_panel.title_element.title == "Physical pain"
     assert len(physical_panel.elements) > 3  # Intro, description, animal pain data, and footer
     
     # Test psychological pain panel
     psychological_panel = generator.create_psychological_pain_panel()
-    assert psychological_panel.title_element.title == "Douleur psychologique"
+    assert psychological_panel.title_element.title == "Psychological pain"
     assert len(psychological_panel.elements) > 3  # Intro, description, animal pain data, and footer
     
     # Test animal pain element generation
     animal_element = generator.get_animal_pain_for_panel(AnimalType.LAYING_HEN, PainType.PHYSICAL)
     assert animal_element is not None
     assert animal_element.element_type == "text"
-    assert "Poule pondeuse" in animal_element.text_element.html
+    assert "Laying hen" in animal_element.text_element.html
     
     # Test complete response
     response = generator.get_response()
@@ -181,8 +184,10 @@ def test_knowledge_panel_generator(pain_report):
 
 def test_get_knowledge_panel_response(pain_report):
     """Test the get_knowledge_panel_response function"""
+    translator = I18N().get_translator(locale="en")
+
     # Generate knowledge panel response using the function
-    response = get_knowledge_panel_response(pain_report)
+    response = get_knowledge_panel_response(pain_report, translator)
     
     # Verify response structure
     assert "main" in response.panels
