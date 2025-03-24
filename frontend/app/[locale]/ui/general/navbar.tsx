@@ -1,6 +1,6 @@
-import Link from "next/link";
-import NavLinks from "@/app/[locale]/ui/general/nav-links";
-import { LocaleSelect } from "../localselect";
+import Link from 'next/link';
+import NavLinks from '@/app/[locale]/ui/general/nav-links';
+import { LocaleSelect } from '../localselect';
 
 export default function Navbar() {
   return (
