@@ -1,5 +1,6 @@
 import Link from "next/link";
-import NavLinks from "@/app/ui/general/nav-links";
+import NavLinks from "@/app/[locale]/ui/general/nav-links";
+import { LocaleSelect } from "../localselect";
 
 export default function Navbar() {
   return (
@@ -14,6 +15,7 @@ export default function Navbar() {
         <div className="flex gap-1 grow justify-start w-full ml-3">
           <NavLinks />
         </div>
+        <LocaleSelect />
       </div>
     </>
   );

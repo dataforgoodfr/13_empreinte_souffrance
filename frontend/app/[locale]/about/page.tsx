@@ -1,10 +1,10 @@
-import ContentWithImageSection from "@/app/ui/general/content-with-image-section";
+import ContentWithImageSection from "@/app/[locale]/ui/general/content-with-image-section";
 
 export default async function Page() {
   return (
     <>
       <ContentWithImageSection
-        text_content="YOU CAN DO SOMETHING"
+        text_content="We are nice people"
         image_url="tmp_chicken-image.webp"
         image_description="Picture of a chicken"
         image_position="right"
