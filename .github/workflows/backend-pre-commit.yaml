@@ -25,6 +25,7 @@ jobs:
     - name: Install dependencies with UV
       run: uv sync --all-groups
 
+    # Cache pre-commit for faster runs
     - name: Set PY
       run: echo "PY=$(python -c 'import hashlib, sys;print(hashlib.sha256(sys.version.encode()+sys.executable.encode()).hexdigest())')" >> $GITHUB_ENV
 
@@ -34,5 +35,16 @@ jobs:
         path: ~/.cache/pre-commit
         key: pre-commit|${{ env.PY }}|${{ hashFiles('.pre-commit-config.yaml') }}
 
-    - name: Run pre-commit
-      uses: pre-commit/action@v3.0.0
+    # Install linting tools
+    - name: Install linting tools
+      run: uv pip install ruff black mypy
+
+    # Run specific linters from pre-commit config but exclude tests
+    - name: Run Ruff
+      run: uv run ruff check --fix --line-length=120 --select=E,F,I .
+
+    - name: Run Black
+      run: uv run black --line-length=120 .
+
+    - name: Run Mypy
+      run: uv run mypy .

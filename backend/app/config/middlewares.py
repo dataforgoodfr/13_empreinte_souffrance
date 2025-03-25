@@ -24,10 +24,7 @@ async def add_locale_translator(request: Request, call_next):
     else:
         # If not, use the Accept-Language header
         accept_language = request.headers.get("Accept-Language", "")
-        languages = [
-            lang.split(";")[0].split("-")[0].lower()
-            for lang in accept_language.split(",")
-        ]
+        languages = [lang.split(";")[0].split("-")[0].lower() for lang in accept_language.split(",")]
         locale = next(
             (locale for locale in languages if i18n.is_supported_locale(locale)),
             i18n.default_locale,
@@ -68,7 +65,7 @@ class GlobalExceptionMiddleware(BaseHTTPMiddleware):
             # Hide internal server errors with a generic message
             if 500 <= status_code < 600:
                 detail = "An unexpected server error occurred"
-            
+
             # Create JSON response with error details
             return JSONResponse(
                 status_code=status_code,

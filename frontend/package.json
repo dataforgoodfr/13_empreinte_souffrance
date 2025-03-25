@@ -9,7 +9,7 @@
     "lint": "next lint",
     "test": "jest",
     "type-check": "tsc --noEmit",
-    "format": "prettier --write .",
+    "format": "npx prettier --write .",
     "format:check": "npx prettier --check ."
   },
   "dependencies": {

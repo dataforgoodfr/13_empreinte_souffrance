@@ -18,9 +18,7 @@ class I18N:
         for locale_dir in self.locales_dir.iterdir():
             if locale_dir.is_dir():
                 locale = locale_dir.name
-                translations = gettext.translation(
-                    "messages", localedir=str(self.locales_dir), languages=[locale]
-                )
+                translations = gettext.translation("messages", localedir=str(self.locales_dir), languages=[locale])
                 self.translations[locale] = translations
 
     def get_translator(self, locale: str) -> Callable:

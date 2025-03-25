@@ -4,6 +4,10 @@ on:
   pull_request:
     paths:
       - 'frontend/**'
+  push:
+    branches: [main]
+    paths:
+      - 'frontend/**'
 
 jobs:
   pre-commit:
@@ -24,8 +28,9 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
+      # Run linters from pre-commit config
       - name: Run ESLint
         run: npm run lint
-        
+
       - name: Run Prettier
-        run: npx prettier --check .
+        run: npm run format -- --check

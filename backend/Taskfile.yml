@@ -20,11 +20,11 @@ tasks:
     desc: "Extract translatable strings from Python files into a .pot template"
     cmds:
       - >
-        pybabel extract -F babel.cfg 
-        -o {{ .LOCALES_DIR }}/messages.pot 
+        pybabel extract -F babel.cfg
+        -o {{ .LOCALES_DIR }}/messages.pot
         --no-location
         --project="Suffering Footprint"
-        --version="0.1.0" 
+        --version="0.1.0"
         {{ .TRANSLATION_SOURCE_DIRS | join " " }}
       - echo "✅ All strings extracted with Babel!"
     silent: true

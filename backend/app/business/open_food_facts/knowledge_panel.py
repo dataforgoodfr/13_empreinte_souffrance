@@ -126,7 +126,7 @@ class KnowledgePanelGenerator:
                 "main": self.create_main_panel(),
                 "intensities_definitions": self.create_intensities_definitions_panel(),
                 "physical_pain": self.create_physical_pain_panel(),
-                "psychological_pain": self.create_psychological_pain_panel()
+                "psychological_pain": self.create_psychological_pain_panel(),
             }
         )
 
@@ -141,14 +141,19 @@ class KnowledgePanelGenerator:
             A panel with general information and links to detailed panels
         """
         elements = [
-            self._get_text_element(self._(
-                "The <a href='https://empreinte-souffrance.org/'>Suffering Footprint</a> is calculated based "
-                "on research from the <a href='https://welfarefootprint.org/'>Welfare Footprint Institute</a>."
-            )),
-            self._get_text_element(self._(
-                "The score and details shown below are based on the following data "
-                "(provided by the Open Food Facts community)"
-            ))]
+            self._get_text_element(
+                self._(
+                    "The <a href='https://empreinte-souffrance.org/'>Suffering Footprint</a> is calculated based "
+                    "on research from the <a href='https://welfarefootprint.org/'>Welfare Footprint Institute</a>."
+                )
+            ),
+            self._get_text_element(
+                self._(
+                    "The score and details shown below are based on the following data "
+                    "(provided by the Open Food Facts community)"
+                )
+            ),
+        ]
 
         for animal in self.pain_report.animals:
             elements.append(
@@ -157,11 +162,13 @@ class KnowledgePanelGenerator:
                 )
             )
 
-        elements.extend([
-            Element(element_type="panel", panel_element=PanelElement(panel_id="intensities_definitions")),
-            Element(element_type="panel", panel_element=PanelElement(panel_id="physical_pain")),
-            Element(element_type="panel", panel_element=PanelElement(panel_id="psychological_pain")),
-        ])
+        elements.extend(
+            [
+                Element(element_type="panel", panel_element=PanelElement(panel_id="intensities_definitions")),
+                Element(element_type="panel", panel_element=PanelElement(panel_id="physical_pain")),
+                Element(element_type="panel", panel_element=PanelElement(panel_id="psychological_pain")),
+            ]
+        )
 
         return Panel(
             elements=elements,
@@ -172,9 +179,9 @@ class KnowledgePanelGenerator:
                 name="suffering-footprint",
                 subtitle=self._("What is the suffering footprint?"),
                 title=self._("Suffering footprint"),
-                type="grade"
+                type="grade",
             ),
-            topics=["suffering-footprint"]
+            topics=["suffering-footprint"],
         )
 
     def create_intensities_definitions_panel(self) -> Panel:
@@ -190,35 +197,44 @@ class KnowledgePanelGenerator:
         """
         return Panel(
             elements=[
-                self._get_text_element(self._(
-                    "<b>Excruciating</b>: Extreme unbearable pain, even briefly. In humans, this would mark the "
-                    "threshold of suffering below which many people choose to end their lives rather than endure it. "
-                    "Triggers involuntary manifestations (screams, tremors, extreme agitation) and cannot be relieved."
-                )),
-                self._get_text_element(self._(
-                    "<b>Disabling</b>: Constant pain that takes priority over most behaviors. "
-                    "Prevents positive well-being and drastically alters activity level. "
-                    "Requires stronger painkillers and causes inattention to the environment."
-                )),
-                self._get_text_element(self._(
-                    "<b>Hurtful</b>: Persistent pain with the possibility of brief moments of forgetting during "
-                    "distractions. Reduces the frequency of motivated behaviors and partially alters functional "
-                    "capabilities, while allowing essential activities to be carried out."
-                )),
-                self._get_text_element(self._(
-                    "<b>Annoying</b>: Noticeable discomfort that can be ignored. Does not interfere with daily "
-                    "activities or motivated behaviors (exploration, comfort, maintenance). "
-                    "No visible expressions of pain or physiological disturbances."
-                )),
+                self._get_text_element(
+                    self._(
+                        "<b>Excruciating</b>: Extreme unbearable pain, even briefly. "
+                        "In humans, this would mark the threshold of suffering below which many people "
+                        "choose to end their lives rather than endure it. Triggers involuntary manifestations "
+                        "(screams, tremors, extreme agitation) and cannot be relieved."
+                    )
+                ),
+                self._get_text_element(
+                    self._(
+                        "<b>Disabling</b>: Constant pain that takes priority over most behaviors. "
+                        "Prevents positive well-being and drastically alters activity level. "
+                        "Requires stronger painkillers and causes inattention to the environment."
+                    )
+                ),
+                self._get_text_element(
+                    self._(
+                        "<b>Hurtful</b>: Persistent pain with the possibility of brief moments of forgetting during "
+                        "distractions. Reduces the frequency of motivated behaviors and partially alters functional "
+                        "capabilities, while allowing essential activities to be carried out."
+                    )
+                ),
+                self._get_text_element(
+                    self._(
+                        "<b>Annoying</b>: Noticeable discomfort that can be ignored. Does not interfere with daily "
+                        "activities or motivated behaviors (exploration, comfort, maintenance). "
+                        "No visible expressions of pain or physiological disturbances."
+                    )
+                ),
             ],
             level="info",
             title_element=TitleElement(
                 grade="c",
                 subtitle=self._("Better understand suffering intensities"),
                 title=self._("Intensity level definitions"),
-                type="grade"
+                type="grade",
             ),
-            topics=["suffering-footprint"]
+            topics=["suffering-footprint"],
         )
 
     def get_animal_pain_for_panel(self, animal_type: AnimalType, pain_type: PainType) -> Element | None:
@@ -252,14 +268,18 @@ class KnowledgePanelGenerator:
             A panel with physical pain information organized by animal
         """
         elements = [
-            self._get_text_element(self._(
-                "<b>Physical pain</b> includes all bodily suffering experienced by animals: "
-                "fractures, wounds, diseases, breathing difficulties, etc."
-            )),
-            self._get_text_element(self._(
-                "The durations below represent the suffering time caused "
-                "by the production of animal-derived ingredients in this product:"
-            ))
+            self._get_text_element(
+                self._(
+                    "<b>Physical pain</b> includes all bodily suffering experienced by animals: "
+                    "fractures, wounds, diseases, breathing difficulties, etc."
+                )
+            ),
+            self._get_text_element(
+                self._(
+                    "The durations below represent the suffering time caused "
+                    "by the production of animal-derived ingredients in this product:"
+                )
+            ),
         ]
 
         # Add each animal from the pain report
@@ -269,21 +289,20 @@ class KnowledgePanelGenerator:
                 elements.append(animal_element)
 
         # Add footer
-        elements.append(self._get_text_element(self._(
-            "You can find more details about the different types of physical suffering "
-            "<a href='https://empreinte-souffrance.org/'>on our website</a>."
-        )))
+        elements.append(
+            self._get_text_element(
+                self._(
+                    "You can find more details about the different types of physical suffering "
+                    "<a href='https://empreinte-souffrance.org/'>on our website</a>."
+                )
+            )
+        )
 
         return Panel(
             elements=elements,
             level="info",
-            title_element=TitleElement(
-                grade="c",
-                name="physical-pain",
-                title=self._("Physical pain"),
-                type="grade"
-            ),
-            topics=["suffering-footprint"]
+            title_element=TitleElement(grade="c", name="physical-pain", title=self._("Physical pain"), type="grade"),
+            topics=["suffering-footprint"],
         )
 
     def create_psychological_pain_panel(self) -> Panel:
@@ -294,14 +313,18 @@ class KnowledgePanelGenerator:
             A panel with psychological pain information organized by animal
         """
         elements = [
-            self._get_text_element(self._(
-                "<b>Psychological pain</b> includes mental suffering experienced by animals: "
-                "stress, anxiety, inability to express natural behaviors, etc."
-            )),
-            self._get_text_element(self._(
-                "The durations below represent the suffering time caused "
-                "by the production of animal-derived ingredients in this product:"
-            ))
+            self._get_text_element(
+                self._(
+                    "<b>Psychological pain</b> includes mental suffering experienced by animals: "
+                    "stress, anxiety, inability to express natural behaviors, etc."
+                )
+            ),
+            self._get_text_element(
+                self._(
+                    "The durations below represent the suffering time caused "
+                    "by the production of animal-derived ingredients in this product:"
+                )
+            ),
         ]
 
         # Add each animal from the pain report
@@ -311,21 +334,22 @@ class KnowledgePanelGenerator:
                 elements.append(animal_element)
 
         # Add footer
-        elements.append(self._get_text_element(self._(
-            "You can find more details about the different types of psychological suffering "
-            "<a href='https://empreinte-souffrance.org/'>on our website</a>."
-        )))
+        elements.append(
+            self._get_text_element(
+                self._(
+                    "You can find more details about the different types of psychological suffering "
+                    "<a href='https://empreinte-souffrance.org/'>on our website</a>."
+                )
+            )
+        )
 
         return Panel(
             elements=elements,
             level="info",
             title_element=TitleElement(
-                grade="c",
-                name="psychological-pain",
-                title=self._("Psychological pain"),
-                type="grade"
+                grade="c", name="psychological-pain", title=self._("Psychological pain"), type="grade"
             ),
-            topics=["suffering-footprint"]
+            topics=["suffering-footprint"],
         )
 
     def _get_text_element(self, text: str) -> Element:
@@ -340,8 +364,9 @@ class KnowledgePanelGenerator:
         """
         return Element(element_type="text", text_element=TextElement(html=text))
 
-    def _get_breeding_type_and_weight_html(self, animal_type: AnimalType,
-                                           breeding_type_with_weight: BreedingTypeAndWeight) -> str:
+    def _get_breeding_type_and_weight_html(
+        self, animal_type: AnimalType, breeding_type_with_weight: BreedingTypeAndWeight
+    ) -> str:
         """
         Format animal type, breeding type and product weight information as HTML.
 
@@ -362,9 +387,9 @@ class KnowledgePanelGenerator:
             "<li>Quantity of egg in the product: <b>{weight}g</b></li></ul>"
         )
         return html_template.format(
-            animal_name=animal_type.name(self._),
-            breeding_type=breeding_type_with_weight.breeding_type.name(self._),
-            weight=breeding_type_with_weight.animal_product_weight
+            animal_name=animal_type.translated_name(self._),
+            breeding_type=breeding_type_with_weight.breeding_type.translated_name(self._),
+            weight=breeding_type_with_weight.animal_product_weight,
         )
 
     def _format_duration(self, seconds: int) -> str:
@@ -418,34 +443,15 @@ class KnowledgePanelGenerator:
         # Start with animal name and breeding type
         animal_type = animal_pain_report.animal_type
         breeding_type = animal_pain_report.breeding_type_with_weight.breeding_type
-        html_parts = [f"<b>{animal_type.name(self._)} - {breeding_type.name(self._)}</b>"]
+        html_parts = [f"<b>{animal_type.translated_name(self._)} - {breeding_type.translated_name(self._)}</b>"]
 
         # Add pain levels in standardized order
         html_parts.append("<ul>")
         for pain_level_data in pain_levels:
-            intensity_label = pain_level_data.pain_intensity.name(self._)
+            intensity_label = pain_level_data.pain_intensity.translated_name(self._)
             duration = self._format_duration(pain_level_data.seconds_in_pain)
 
             html_parts.append(f"<li><b>{intensity_label}</b> : {duration}</li>")
         html_parts.append("</ul>")
-
-        return "".join(html_parts)
-
-    def _generate_html_items_for_pain_report(self, pain_type: PainType = None) -> str:
-        """
-        Generate HTML items showing pain durations for all animals with the specified pain type.
-
-        Args:
-            pain_type: Filter for pain type (physical or psychological)
-
-        Returns:
-            HTML string organized by animal and pain intensity
-        """
-        # Generate HTML for each animal
-        html_parts = []
-        for animal in self.pain_report.animals:
-            animal_html = self._generate_animal_pain_html(animal_pain_report=animal, pain_type=pain_type)
-            if animal_html:
-                html_parts.append(animal_html)
 
         return "".join(html_parts)

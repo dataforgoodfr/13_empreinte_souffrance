@@ -14,11 +14,10 @@ class BaseAppException(Exception):
     status_code = 500
     default_message = "An unexpected error occurred"
 
-
     def __init__(self, message=None, status_code=None):
         """
         Initialize the exception with a message and status code.
-        
+
         Args:
             message: The error message
             status_code: HTTP status code

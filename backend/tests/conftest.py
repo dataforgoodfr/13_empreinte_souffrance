@@ -17,9 +17,7 @@ async def async_client() -> AsyncGenerator[AsyncClient, None]:
     Fixture that provides an async HTTP client configured for testing.
     Use with async FastAPI routes.
     """
-    async with AsyncClient(
-        base_url="http://test", transport=ASGITransport(app=app)
-    ) as client:
+    async with AsyncClient(base_url="http://test", transport=ASGITransport(app=app)) as client:
         yield client
 
 
@@ -37,10 +35,7 @@ def product_data() -> ProductData:
     Fixture that provides sample product data for testing.
     Contains cage chicken eggs category.
     """
-    return ProductData(
-        categories_tags=["cat1", "en:cage-chicken-eggs"],
-        labels_tags=["label1", "label2"]
-    )
+    return ProductData(categories_tags=["cat1", "en:cage-chicken-eggs"], labels_tags=["label1", "label2"])
 
 
 @pytest.fixture
@@ -48,10 +43,7 @@ def laying_hen_breeding_type() -> BreedingTypeAndWeight:
     """
     Fixture that provides a sample BreedingTypeAndWeight for laying hens.
     """
-    return BreedingTypeAndWeight(
-        breeding_type=LayingHenBreedingType.FURNISHED_CAGE,
-        animal_product_weight=200
-    )
+    return BreedingTypeAndWeight(breeding_type=LayingHenBreedingType.FURNISHED_CAGE, animal_product_weight=200)
 
 
 @pytest.fixture
@@ -60,23 +52,17 @@ def pain_levels() -> List[PainLevelData]:
     Fixture that provides a list of PainLevelData objects for all pain types and intensities.
     """
     pain_levels = []
-    
+
     # Add physical pain levels
     for intensity in PainIntensity:
-        pain_levels.append(PainLevelData(
-            pain_intensity=intensity,
-            pain_type=PainType.PHYSICAL,
-            seconds_in_pain=100
-        ))
-    
+        pain_levels.append(PainLevelData(pain_intensity=intensity, pain_type=PainType.PHYSICAL, seconds_in_pain=100))
+
     # Add psychological pain levels
     for intensity in PainIntensity:
-        pain_levels.append(PainLevelData(
-            pain_intensity=intensity,
-            pain_type=PainType.PSYCHOLOGICAL,
-            seconds_in_pain=200
-        ))
-        
+        pain_levels.append(
+            PainLevelData(pain_intensity=intensity, pain_type=PainType.PSYCHOLOGICAL, seconds_in_pain=200)
+        )
+
     return pain_levels
 
 
@@ -86,9 +72,7 @@ def animal_pain_report(laying_hen_breeding_type, pain_levels) -> AnimalPainRepor
     Fixture that provides a sample AnimalPainReport for a laying hen.
     """
     return AnimalPainReport(
-        animal_type=AnimalType.LAYING_HEN,
-        pain_levels=pain_levels,
-        breeding_type_with_weight=laying_hen_breeding_type
+        animal_type=AnimalType.LAYING_HEN, pain_levels=pain_levels, breeding_type_with_weight=laying_hen_breeding_type
     )
 
 
