@@ -12,6 +12,9 @@ class I18N:
         self.translations = {}
         self.load_translations()
 
+    def get_supported_locales(self):
+        return self.supported_locales
+
     def load_translations(self):
         """Load (or reload) translations for all supported locales"""
         self.translations.clear()

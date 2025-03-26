@@ -1,8 +1,8 @@
 default_stages: ['pre-commit']
-fail_fast: true
+fail_fast: false
 
 repos:
-  # Hooks généraux pour tous les types de fichiers
+  # General hooks
   - repo: https://github.com/pre-commit/pre-commit-hooks
     rev: v5.0.0
     hooks:
@@ -17,24 +17,19 @@ repos:
       - id: mixed-line-ending
         args: ['--fix=lf']
 
-  # Hooks Python pour le backend
-  # Option 1 : Utiliser Ruff pour tout (formatage et tri des imports)
+  # Backend hooks
+  # Ruff (as linter, formatter and import organizer)
   - repo: https://github.com/charliermarsh/ruff-pre-commit
     rev: v0.11.2
     hooks:
+      - id: ruff-format
+        args: ["--line-length=120"]
+        files: ^backend/.*\.py$
       - id: ruff
         args: ["--fix", "--line-length=120", "--select=E,F,I"]
         files: ^backend/.*\.py$
 
-  # Formatage avec Black après Ruff
-  - repo: https://github.com/psf/black
-    rev: 25.1.0
-    hooks:
-      - id: black
-        args: ["--line-length=120"]
-        files: ^backend/.*\.py$
-
-  # Vérification de types avec mypy
+  # Type checking with mypy
   - repo: https://github.com/pre-commit/mirrors-mypy
     rev: v1.15.0
     hooks:
@@ -60,7 +55,9 @@ repos:
           - '@typescript-eslint/eslint-plugin@6.4.0'
           - '@typescript-eslint/parser@6.4.0'
         args:
-          - --fix
+        - --fix
+        - --config
+        - frontend/.eslintrc.js
 
   - repo: local
     hooks:
@@ -81,7 +78,7 @@ repos:
         language: system
         pass_filenames: false
         files: ^backend/.*\.py$
-        stages: ['pre-commit']
+        stages: ['pre-push']
 
       - id: frontend-tests
         name: Frontend tests
@@ -89,4 +86,4 @@ repos:
         language: system
         pass_filenames: false
         files: ^frontend/.*\.(js|jsx|ts|tsx)$
-        stages: ['pre-commit']
+        stages: ['pre-push']

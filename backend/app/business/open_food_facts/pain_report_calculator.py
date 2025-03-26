@@ -56,7 +56,11 @@ class PainReportCalculator:
                 )
             )
 
-        return PainReport(animals=animal_reports)
+        return PainReport(
+            animals=animal_reports,
+            product_name=self.product_data.product_name,
+            product_image_url=self.product_data.image_url,
+        )
 
     def _generate_pain_levels_for_animal(
         self, animal_type: AnimalType, breeding_type: BreedingTypeAndWeight

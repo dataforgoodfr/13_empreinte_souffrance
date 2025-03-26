@@ -38,11 +38,17 @@ type KnowledgePanelData = {
   panels: {
     [key: string]: Panel;
   };
+  product?: {
+    name: string;
+    image_url: string;
+  };
 };
 
 export default function KnowledgePanel() {
   const [selectedBarcode, setSelectedBarcode] = useState<string>('3450970045360');
   const [customBarcode, setCustomBarcode] = useState<string>('3256229237063'); // Poultry chicken barcode
+  const [productName, setProductName] = useState<string | null>(null);
+  const [productImageUrl, setProductImageUrl] = useState<string | null>(null);
   const [language, setLanguage] = useState<'fr' | 'en'>('fr');
   const [showCustomInput, setShowCustomInput] = useState<boolean>(false);
   const [knowledgePanelData, setKnowledgePanelData] = useState<KnowledgePanelData | null>(null);
@@ -98,6 +104,8 @@ export default function KnowledgePanel() {
   const fetchKnowledgePanelData = async (barcode: string, lang?: 'fr' | 'en') => {
     setIsLoading(true);
     setError(null);
+    setProductName(null);
+    setProductImageUrl(null);
 
     const currentLang = lang || language;
 
@@ -114,6 +122,11 @@ export default function KnowledgePanel() {
 
       const data = await response.json();
       setKnowledgePanelData(data);
+
+      if (data.product) {
+        setProductName(data.product.name);
+        setProductImageUrl(data.product.image_url);
+      }
 
       // Init panels as expanded by default
       const initialExpandedState: Record<string, boolean> = {};
@@ -253,6 +266,28 @@ export default function KnowledgePanel() {
           </form>
         )}
       </div>
+
+      {/* Product info */}
+      {!isLoading && productName && (
+        <div className="mb-8 p-4 bg-white rounded-lg border shadow-sm">
+          <div className="flex flex-col md:flex-row items-start md:items-center gap-6">
+            {productImageUrl && (
+              <div className="flex-shrink-0">
+                <Image
+                  src={productImageUrl}
+                  alt={productName || 'Product image'}
+                  width={400}
+                  height={300}
+                  className="product-image"
+                />
+              </div>
+            )}
+            <div className="flex-grow">
+              <h2 className="text-xl font-bold">{productName}</h2>
+            </div>
+          </div>
+        </div>
+      )}
 
       {isLoading && (
         <div className="text-center py-8">
