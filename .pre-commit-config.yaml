@@ -42,12 +42,12 @@ repos:
 
   # Frontend hooks
   - repo: https://github.com/pre-commit/mirrors-eslint
-    rev: v8.47.0
+    rev: v9.23.0
     hooks:
       - id: eslint
         files: ^frontend/.*\.(js|jsx|ts|tsx)$
         additional_dependencies:
-          - eslint@8.47.0
+          - eslint@9.23.0
           - eslint-plugin-react@7.33.2
           - eslint-plugin-react-hooks@4.6.0
           - eslint-config-next@13.4.19
@@ -55,9 +55,9 @@ repos:
           - '@typescript-eslint/eslint-plugin@6.4.0'
           - '@typescript-eslint/parser@6.4.0'
         args:
-        - --fix
-        - --config
-        - frontend/.eslintrc.js
+          - --fix
+          - --config
+          - frontend/eslint.config.mjs
 
   - repo: local
     hooks:

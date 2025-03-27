@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, ChangeEvent, FormEvent } from 'react';
 import './knowledge_panel.css';
 import Image from 'next/image';
 import { useI18n, useCurrentLocale } from '../../../locales/client';
@@ -64,9 +64,10 @@ export default function KnowledgePanel() {
     if (selectedBarcode && selectedBarcode !== 'custom') {
       fetchKnowledgePanelData(selectedBarcode);
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [selectedBarcode, locale]);
 
-  const handleBarcodeChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+  const handleBarcodeChange = (e: ChangeEvent<HTMLSelectElement>) => {
     const value = e.target.value;
     setSelectedBarcode(value);
 
@@ -78,11 +79,11 @@ export default function KnowledgePanel() {
     }
   };
 
-  const handleCustomBarcodeChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleCustomBarcodeChange = (e: ChangeEvent<HTMLInputElement>) => {
     setCustomBarcode(e.target.value);
   };
 
-  const handleCustomBarcodeSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleCustomBarcodeSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (customBarcode.trim()) {
       fetchKnowledgePanelData(customBarcode.trim());
