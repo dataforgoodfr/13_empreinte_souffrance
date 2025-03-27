@@ -1,6 +1,6 @@
 from typing import List
 
-from pydantic import BaseModel
+from pydantic import BaseModel, HttpUrl
 
 
 class ProductData(BaseModel):
@@ -10,6 +10,8 @@ class ProductData(BaseModel):
 
     categories_tags: List[str] | None = None
     labels_tags: List[str] | None = None
+    image_url: HttpUrl | None = None
+    product_name: str
 
 
 class ProductResponse(BaseModel):

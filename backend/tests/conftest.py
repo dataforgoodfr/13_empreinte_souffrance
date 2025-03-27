@@ -3,6 +3,7 @@ from typing import AsyncGenerator, List
 import pytest
 import pytest_asyncio
 from httpx import ASGITransport, AsyncClient
+from pydantic import HttpUrl
 from starlette.testclient import TestClient
 
 from app.enums.open_food_facts.enums import AnimalType, LayingHenBreedingType, PainIntensity, PainType
@@ -35,7 +36,12 @@ def product_data() -> ProductData:
     Fixture that provides sample product data for testing.
     Contains cage chicken eggs category.
     """
-    return ProductData(categories_tags=["cat1", "en:cage-chicken-eggs"], labels_tags=["label1", "label2"])
+    return ProductData(
+        categories_tags=["cat1", "en:cage-chicken-eggs"],
+        labels_tags=["label1", "label2"],
+        product_name="Fake product name",
+        image_url=HttpUrl("https://example.com/image.jpg"),
+    )
 
 
 @pytest.fixture
@@ -81,4 +87,8 @@ def pain_report(animal_pain_report) -> PainReport:
     """
     Fixture that provides a sample PainReport containing one animal.
     """
-    return PainReport(animals=[animal_pain_report])
+    return PainReport(
+        animals=[animal_pain_report],
+        product_name="Fake product name",
+        product_image_url=HttpUrl("https://example.com/image.jpg"),
+    )

@@ -37,14 +37,14 @@ jobs:
 
     # Install linting tools
     - name: Install linting tools
-      run: uv pip install ruff black mypy
+      run: uv pip install ruff mypy
 
     # Run specific linters from pre-commit config but exclude tests
     - name: Run Ruff
       run: uv run ruff check --fix --line-length=120 --select=E,F,I .
 
-    - name: Run Black
-      run: uv run black --line-length=120 .
+    - name: Run Ruff Format
+      run: uv run ruff format --line-length=120 .
 
     - name: Run Mypy
       run: uv run mypy .
