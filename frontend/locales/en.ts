@@ -1,5 +1,6 @@
 // locales/en.ts
 export default {
+  suffering_footprint: 'Suffering footprint',
   Home: {
     badge: 'Embracing free-range for every chicken in Europe!',
     animal_welfare: 'Animal Welfare',
@@ -18,6 +19,11 @@ export default {
     search: 'Search',
     loading: 'Loading data...',
     productNotFound: "This product doesn't contain supported animal products",
+  },
+  footer: {
+    legal_terms: 'Legal terms',
+    privacy_policy: 'Privacy policy',
+    contact_us: 'Contact us',
   },
   science: {},
 } as const;

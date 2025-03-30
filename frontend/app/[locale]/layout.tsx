@@ -1,8 +1,13 @@
 import type { Metadata } from 'next';
 import './globals.css';
-import { I18nProviderClient } from '../../locales/client';
+import '@fortawesome/fontawesome-svg-core/styles.css';
+import { config } from '@fortawesome/fontawesome-svg-core';
+import { I18nProviderClient } from '@/locales/client';
 import { ReactElement } from 'react';
 import Navbar from './ui/general/navbar';
+import Footer from '@/app/[locale]/ui/general/footer';
+
+config.autoAddCss = false;
 
 export const metadata: Metadata = {
   title: 'Create Next App',
@@ -27,6 +32,9 @@ export default async function RootLayout({
           </div>
         </header>
         <I18nProviderClient locale={locale}>{children}</I18nProviderClient>
+        <footer>
+          <Footer />
+        </footer>
       </body>
     </html>
   );
