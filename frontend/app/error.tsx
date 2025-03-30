@@ -1,14 +1,9 @@
 'use client';
 
 import './globals.css';
-import { useEffect } from 'react';
 import Link from 'next/link';
 
 export default function Error({ error, reset }: { error: Error & { digest?: string }; reset: () => void }) {
-  useEffect(() => {
-    console.error(error);
-  }, [error]);
-
   return (
     <section className="w-full bg-gradient-to-r from-blue-600 via-blue-500 to-indigo-500 h-screen flex items-center justify-around px-8 sm:px-16">
       <div className="max-w-xl space-y-6 flex flex-col">
