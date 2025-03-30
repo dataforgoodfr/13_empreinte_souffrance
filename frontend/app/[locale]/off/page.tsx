@@ -1,8 +1,9 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, ChangeEvent, FormEvent } from 'react';
 import './knowledge_panel.css';
 import Image from 'next/image';
+import { useI18n, useCurrentLocale } from '../../../locales/client';
 
 type TextElement = {
   html: string;
@@ -38,17 +39,24 @@ type KnowledgePanelData = {
   panels: {
     [key: string]: Panel;
   };
+  product?: {
+    name: string;
+    image_url: string;
+  };
 };
 
 export default function KnowledgePanel() {
   const [selectedBarcode, setSelectedBarcode] = useState<string>('3450970045360');
   const [customBarcode, setCustomBarcode] = useState<string>('3256229237063'); // Poultry chicken barcode
-  const [language, setLanguage] = useState<'fr' | 'en'>('fr');
+  const [productName, setProductName] = useState<string | null>(null);
+  const [productImageUrl, setProductImageUrl] = useState<string | null>(null);
   const [showCustomInput, setShowCustomInput] = useState<boolean>(false);
   const [knowledgePanelData, setKnowledgePanelData] = useState<KnowledgePanelData | null>(null);
   const [expandedPanels, setExpandedPanels] = useState<Record<string, boolean>>({});
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [error, setError] = useState<string | null>(null);
+  const locale = useCurrentLocale() as 'fr' | 'en';
+  const t = useI18n();
 
   const barcodes = ['3450970045360', '3270190205685', 'custom'];
 
@@ -56,23 +64,10 @@ export default function KnowledgePanel() {
     if (selectedBarcode && selectedBarcode !== 'custom') {
       fetchKnowledgePanelData(selectedBarcode);
     }
-  }, [selectedBarcode]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [selectedBarcode, locale]);
 
-  const handleLanguageChange = (lang: 'fr' | 'en') => {
-    setLanguage(lang);
-
-    const url = new URL(window.location.href);
-    url.searchParams.set('lang', lang);
-    window.history.pushState({}, '', url);
-
-    if (selectedBarcode && selectedBarcode !== 'custom') {
-      fetchKnowledgePanelData(selectedBarcode, lang);
-    } else if (customBarcode.trim()) {
-      fetchKnowledgePanelData(customBarcode.trim(), lang);
-    }
-  };
-
-  const handleBarcodeChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+  const handleBarcodeChange = (e: ChangeEvent<HTMLSelectElement>) => {
     const value = e.target.value;
     setSelectedBarcode(value);
 
@@ -84,28 +79,28 @@ export default function KnowledgePanel() {
     }
   };
 
-  const handleCustomBarcodeChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleCustomBarcodeChange = (e: ChangeEvent<HTMLInputElement>) => {
     setCustomBarcode(e.target.value);
   };
 
-  const handleCustomBarcodeSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleCustomBarcodeSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (customBarcode.trim()) {
       fetchKnowledgePanelData(customBarcode.trim());
     }
   };
 
-  const fetchKnowledgePanelData = async (barcode: string, lang?: 'fr' | 'en') => {
+  const fetchKnowledgePanelData = async (barcode: string) => {
     setIsLoading(true);
     setError(null);
-
-    const currentLang = lang || language;
+    setProductName(null);
+    setProductImageUrl(null);
 
     try {
-      const response = await fetch(`http://127.0.0.1:8000/off/v1/knowledge-panel/${barcode}?lang=${currentLang}`);
+      const response = await fetch(`http://127.0.0.1:8000/off/v1/knowledge-panel/${barcode}?lang=${locale}`);
 
       if (response.status === 404) {
-        setError("This product doesn't contains supported animal products");
+        setError(t('KnowledgePanel.productNotFound'));
         setKnowledgePanelData(null);
         return;
       } else if (!response.ok) {
@@ -114,6 +109,11 @@ export default function KnowledgePanel() {
 
       const data = await response.json();
       setKnowledgePanelData(data);
+
+      if (data.product) {
+        setProductName(data.product.name);
+        setProductImageUrl(data.product.image_url);
+      }
 
       // Init panels as expanded by default
       const initialExpandedState: Record<string, boolean> = {};
@@ -198,10 +198,10 @@ export default function KnowledgePanel() {
 
   return (
     <div className="container mx-auto p-4 max-w-4xl">
-      <h1 className="text-2xl font-bold mb-6">Knowledge Panel</h1>
+      <h1 className="text-2xl font-bold mb-6">{t('KnowledgePanel.title')}</h1>
 
       <div className="mb-8 p-4 bg-gray-50 rounded-lg">
-        <h2 className="text-lg font-semibold mb-3">Sélectionner un code-barres</h2>
+        <h2 className="text-lg font-semibold mb-3">{t('KnowledgePanel.selectBarcode')}</h2>
 
         <select
           value={selectedBarcode}
@@ -210,25 +210,10 @@ export default function KnowledgePanel() {
         >
           {barcodes.map((barcode) => (
             <option key={barcode} value={barcode}>
-              {barcode === 'custom' ? 'Autre code-barres...' : barcode}
+              {barcode === 'custom' ? t('KnowledgePanel.otherBarcode') : barcode}
             </option>
           ))}
         </select>
-
-        <div className="flex gap-4">
-          <button
-            className={`px-4 py-2 rounded-lg border transition-all duration-200 ${language === 'fr' ? 'bg-orange-500 text-white border-orange-500' : 'bg-white text-gray-700 border-gray-300 hover:bg-gray-200'}`}
-            onClick={() => handleLanguageChange('fr')}
-          >
-            🇫🇷 Français
-          </button>
-          <button
-            className={`px-4 py-2 rounded-lg border transition-all duration-200 ${language === 'en' ? 'bg-orange-500 text-white border-orange-500' : 'bg-white text-gray-700 border-gray-300 hover:bg-gray-200'}`}
-            onClick={() => handleLanguageChange('en')}
-          >
-            🇬🇧 English
-          </button>
-        </div>
 
         {showCustomInput && (
           <form onSubmit={handleCustomBarcodeSubmit} className="mt-3">
@@ -237,26 +222,48 @@ export default function KnowledgePanel() {
                 type="text"
                 value={customBarcode}
                 onChange={handleCustomBarcodeChange}
-                placeholder="Entrez un code-barres"
+                placeholder={t('KnowledgePanel.enterBarcode')}
                 className="flex-1 p-2 border rounded focus:outline-none focus:ring-2 focus:ring-orange-200"
                 pattern="[0-9]+"
-                title="Veuillez saisir un code-barres numérique"
+                title={t('KnowledgePanel.numericBarcodeError')}
               />
               <button
                 type="submit"
                 className="bg-orange-500 hover:bg-orange-600 text-white px-4 py-2 rounded"
                 disabled={!customBarcode.trim()}
               >
-                Rechercher
+                {t('KnowledgePanel.search')}
               </button>
             </div>
           </form>
         )}
       </div>
 
+      {/* Product info */}
+      {!isLoading && productName && (
+        <div className="mb-8 p-4 bg-white rounded-lg border shadow-sm">
+          <div className="flex flex-col md:flex-row items-start md:items-center gap-6">
+            {productImageUrl && (
+              <div className="flex-shrink-0">
+                <Image
+                  src={productImageUrl}
+                  alt={productName || 'Product image'}
+                  width={400}
+                  height={300}
+                  className="product-image"
+                />
+              </div>
+            )}
+            <div className="flex-grow">
+              <h2 className="text-xl font-bold">{productName}</h2>
+            </div>
+          </div>
+        </div>
+      )}
+
       {isLoading && (
         <div className="text-center py-8">
-          <p className="text-gray-600">Chargement des données...</p>
+          <p className="text-gray-600">{t('KnowledgePanel.loading')}</p>
         </div>
       )}
 

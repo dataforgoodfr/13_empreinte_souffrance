@@ -10,6 +10,16 @@ export default {
     link: 'Understand the method',
     returnHome: 'Return Home',
   },
+  KnowledgePanel: {
+    title: 'Knowledge Panel',
+    selectBarcode: 'Select a barcode',
+    otherBarcode: 'Other barcode...',
+    enterBarcode: 'Enter a barcode',
+    numericBarcodeError: 'Please enter a numeric barcode',
+    search: 'Search',
+    loading: 'Loading data...',
+    productNotFound: "This product doesn't contain supported animal products",
+  },
   science: {},
   NotFoundPage: {
     notFound: 'Not Found',
