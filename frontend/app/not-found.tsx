@@ -6,10 +6,7 @@ export default async function NotFound() {
   const t = await getI18n();
 
   return (
-    <section
-      className="w-full bg-gradient-to-r from-blue-600 via-blue-500 to-indigo-500 h-screen flex items-center justify-around px-8 sm:px-16"
-      style={{ backgroundColor: 'red' }}
-    >
+    <section className="w-full bg-gradient-to-r from-blue-600 via-blue-500 to-indigo-500 h-screen flex items-center justify-around px-8 sm:px-16">
       <div className="max-w-xl space-y-6">
         <div className="inline-block bg-indigo-800 text-white py-2 px-4 rounded-lg text-sm font-semibold tracking-wide">
           🐣🐥🐤🐔
