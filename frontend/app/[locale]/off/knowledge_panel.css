@@ -16,3 +16,11 @@
 .panel-content li {
   margin-bottom: 0.25rem;
 }
+
+.product-image {
+  width: auto;
+  height: auto;
+  max-width: 400px;
+  max-height: 300px;
+  object-fit: contain;
+}

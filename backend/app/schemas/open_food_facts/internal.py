@@ -40,6 +40,8 @@ class AnimalPainReport(BaseModel):
 
 class PainReport(BaseModel):
     animals: List[AnimalPainReport]
+    product_name: str
+    product_image_url: HttpUrl | None = None
 
 
 # Knowledge panel response models
@@ -73,9 +75,15 @@ class Panel(BaseModel):
     topics: List[str]
 
 
+class ProductInfo(BaseModel):
+    image_url: HttpUrl | None
+    name: str
+
+
 class KnowledgePanelResponse(BaseModel):
     """
     Response model for knowledge panel endpoint.
     """
 
     panels: Dict[str, Panel]
+    product: ProductInfo
