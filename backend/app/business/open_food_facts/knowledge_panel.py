@@ -16,6 +16,7 @@ from app.schemas.open_food_facts.internal import (
     PainReport,
     Panel,
     PanelElement,
+    ProductInfo,
     TextElement,
     TitleElement,
 )
@@ -23,7 +24,7 @@ from app.schemas.open_food_facts.internal import (
 logger = logging.getLogger("app")
 
 
-async def get_data_from_off(barcode: str) -> ProductData:
+async def get_data_from_off(barcode: str, locale: str) -> ProductData:
     """
     Retrieve useful product data from OFF to compute the breeding type and the weight of animal product
     We actually use the OFF Search-a-licious API.
@@ -31,25 +32,32 @@ async def get_data_from_off(barcode: str) -> ProductData:
 
     Args:
         barcode: The product barcode
+        locale: alpha2 locale (fr, en...)
     Returns:
-        A ProductData containing the categories and labels tags
+        A ProductData containing the name, image_url, categories and labels tags
     Raises:
         ResourceNotFoundException: If the product cannot be found or data validation fails
     """
     url = "https://search.openfoodfacts.org/search"
-    tags = ["categories_tags", "labels_tags"]
+    product_name_with_locale = f"product_name_{locale}"
+    tags = ["categories_tags", "labels_tags", "image_url", "product_name", product_name_with_locale]
     params = {"q": f"code:{barcode}", "fields": ",".join(tags)}
 
     try:
         async with httpx.AsyncClient() as client:
             response = await client.get(url, params=params)
             response.raise_for_status()  # Raise exception for 4XX/5XX responses
+            json_response = response.json()
     except Exception as e:
         logger.warning(f"Can't get product data from OFF API: {barcode}")
         raise ResourceNotFoundException(f"Can't get product data from OFF API: {barcode}") from e
 
+    hits = json_response.get("hits")
+    if hits and isinstance(hits, list) and product_name_with_locale in hits[0]:
+        hits[0]["product_name"] = hits[0][product_name_with_locale]
+
     try:
-        product_response = ProductResponse.model_validate(response.json())
+        product_response = ProductResponse.model_validate(json_response)
     except ValidationError as e:
         logger.error(f"Failed to validate product data: {e}")
         raise ResourceNotFoundException(f"Failed to validate product data retrieved from OFF: {barcode}") from e
@@ -62,18 +70,19 @@ async def get_data_from_off(barcode: str) -> ProductData:
     return product_data
 
 
-async def compute_suffering_footprint(barcode: str) -> PainReport:
+async def get_pain_report(barcode: str, locale: str) -> PainReport:
     """
-    Compute the suffering footprint for a product based on its barcode.
+    Compute the pain report for a product based on its barcode.
 
     Args:
         barcode: The product barcode
+        locale: alpha2 locale (fr, en...)
 
     Returns:
-        PainReport if applicable, None otherwise
+        The PainReport
     """
     # Get the product data
-    product_data = await get_data_from_off(barcode)
+    product_data = await get_data_from_off(barcode, locale)
 
     # Create calculator with the retrieved data
     calculator = PainReportCalculator(product_data)
@@ -127,7 +136,11 @@ class KnowledgePanelGenerator:
                 "intensities_definitions": self.create_intensities_definitions_panel(),
                 "physical_pain": self.create_physical_pain_panel(),
                 "psychological_pain": self.create_psychological_pain_panel(),
-            }
+            },
+            product=ProductInfo(
+                image_url=self.pain_report.product_image_url,
+                name=self.pain_report.product_name,
+            ),
         )
 
     def create_main_panel(self) -> Panel:

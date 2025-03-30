@@ -7,7 +7,16 @@ from httpx import AsyncClient
 @pytest.mark.asyncio
 async def test_get_off_knowledge_panel(async_client: AsyncClient):
     """Test our knowledge panel endpoint"""
-    mock_response_data = {"hits": [{"categories_tags": ["en:cage-chicken-eggs", "other"], "labels_tags": ["organic"]}]}
+    mock_response_data = {
+        "hits": [
+            {
+                "categories_tags": ["en:cage-chicken-eggs", "other"],
+                "labels_tags": ["organic"],
+                "product_name": "Fake product name",
+                "image_url": "https://example.com/image.jpg",
+            }
+        ]
+    }
 
     mock_response = AsyncMock()
     mock_response.json = MagicMock(return_value=mock_response_data)
