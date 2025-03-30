@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import './globals.css';
 import { ReactElement } from 'react';
+import { setStaticParamsLocale } from 'next-international/server';
 
 export const metadata: Metadata = {
   title: 'Empreinte Souffrance',
@@ -15,6 +16,7 @@ export default async function RootLayout({
   children: ReactElement;
 }) {
   const { locale } = await params;
+  setStaticParamsLocale(locale);
 
   return (
     <html lang={locale}>
