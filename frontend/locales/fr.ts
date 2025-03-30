@@ -9,6 +9,7 @@ export default {
     paragraph:
       'Découvrez tout ce que vous devez savoir sur ce qu’un poulet vit en élevage et faites des choix éclairés.',
     link: 'Comprendre la méthode',
+    returnHome: "Retournez à l'accueil",
   },
   KnowledgePanel: {
     title: 'Knowledge Panel',
@@ -26,4 +27,8 @@ export default {
     contact_us: 'Contactez-nous',
   },
   science: {},
+  NotFoundPage: {
+    notFound: 'Page non trouvée',
+    resourceNotFoundText: "La ressource demandée n'a pas été trouvée",
+  },
 } as const;
