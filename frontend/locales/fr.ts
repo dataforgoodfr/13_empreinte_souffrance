@@ -9,6 +9,7 @@ export default {
     paragraph:
       'Découvrez tout ce que vous devez savoir sur ce qu’un poulet vit en élevage et faites des choix éclairés.',
     link: 'Comprendre la méthode',
+    returnHome: "Retournez à l'accueil",
   },
   KnowledgePanel: {
     title: 'Knowledge Panel',
