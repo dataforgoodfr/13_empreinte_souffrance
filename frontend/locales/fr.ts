@@ -27,8 +27,4 @@ export default {
     contact_us: 'Contactez-nous',
   },
   science: {},
-  NotFoundPage: {
-    notFound: 'Page non trouvée',
-    resourceNotFoundText: "La ressource demandée n'a pas été trouvée",
-  },
 } as const;
