@@ -9,9 +9,9 @@ export default async function NotFound() {
           🐣🐥🐤🐔
         </div>
         <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold text-white">Not Found</h1>
-        <p>Could not find requested resource</p>
+        <p className="text-xl sm:text-2xl font-bold text-white">Could not find requested resource</p>
 
-        <Link href="/" className="bg-indigo-800 rounded-lg p-2">
+        <Link href="/" className="bg-indigo-800 rounded-lg p-2 text-white">
           Return Home
         </Link>
       </div>
