@@ -2,7 +2,6 @@ from unittest.mock import AsyncMock, MagicMock, patch
 
 import httpx
 import pytest
-from pydantic import HttpUrl
 
 from app.business.open_food_facts.knowledge_panel import (
     KnowledgePanelGenerator,
@@ -18,6 +17,7 @@ from app.schemas.open_food_facts.internal import (
     BreedingTypeAndWeight,
     KnowledgePanelResponse,
 )
+from tests.app.business.open_food_facts.mocks import product_data
 
 
 @pytest.mark.asyncio
@@ -89,19 +89,6 @@ async def test_get_data_from_off_http_call_exception():
 
 def test_compute_breeding_types_with_weights():
     """Test computing breeding types with weights"""
-    product_data = ProductData(
-        categories_tags=["en:cage-chicken-eggs"],
-        labels_tags=["organic"],
-        product_name="Fake product name",
-        image_url=HttpUrl("https://example.com/image.jpg"),
-        product_quantity=200.0,
-        product_quantity_unit="g",
-        allergen_tags=[],
-        ingredients_tags=[],
-        ingredients=[],
-        country="fr",
-        countries_tags=["en:france"],
-    )
     calculator = PainReportCalculator(product_data)
 
     breeding_types = calculator._get_breeding_types()
@@ -116,19 +103,6 @@ def test_compute_breeding_types_with_weights():
 
 def test_get_breeding_types():
     """Test getting breeding types from product data"""
-    product_data = ProductData(
-        categories_tags=["en:cage-chicken-eggs"],
-        labels_tags=["organic"],
-        product_name="Fake product name",
-        image_url=HttpUrl("https://example.com/image.jpg"),
-        product_quantity=200.0,
-        product_quantity_unit="g",
-        allergen_tags=[],
-        ingredients_tags=[],
-        ingredients=[],
-        country="fr",
-        countries_tags=["en:france"],
-    )
     calculator = PainReportCalculator(product_data)
 
     result = calculator._get_breeding_types()
@@ -138,19 +112,7 @@ def test_get_breeding_types():
 
 def test_generate_pain_levels_for_type():
     """Test generating pain levels for a specific animal, breeding type, and pain type"""
-    product_data = ProductData(
-        categories_tags=["en:cage-chicken-eggs"],
-        labels_tags=["organic"],
-        product_name="Fake product name",
-        image_url=HttpUrl("https://example.com/image.jpg"),
-        product_quantity=200.0,
-        product_quantity_unit="g",
-        allergen_tags=[],
-        ingredients_tags=[],
-        ingredients=[],
-        country="fr",
-        countries_tags=["en:france"],
-    )
+
     calculator = PainReportCalculator(product_data)
 
     breeding_type = BreedingTypeAndWeight(breeding_type=LayingHenBreedingType.FURNISHED_CAGE, animal_product_weight=200)
