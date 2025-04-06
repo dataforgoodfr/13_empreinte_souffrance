@@ -94,6 +94,13 @@ def test_compute_breeding_types_with_weights():
         labels_tags=["organic"],
         product_name="Fake product name",
         image_url=HttpUrl("https://example.com/image.jpg"),
+        product_quantity=200.0,
+        product_quantity_unit="g",
+        allergen_tags=[],
+        ingredients_tags=[],
+        ingredients=[],
+        country="fr",
+        countries_tags=["en:france"],
     )
     calculator = PainReportCalculator(product_data)
 
@@ -114,6 +121,13 @@ def test_get_breeding_types():
         labels_tags=["organic"],
         product_name="Fake product name",
         image_url=HttpUrl("https://example.com/image.jpg"),
+        product_quantity=200.0,
+        product_quantity_unit="g",
+        allergen_tags=[],
+        ingredients_tags=[],
+        ingredients=[],
+        country="fr",
+        countries_tags=["en:france"],
     )
     calculator = PainReportCalculator(product_data)
 
@@ -129,6 +143,13 @@ def test_generate_pain_levels_for_type():
         labels_tags=["organic"],
         product_name="Fake product name",
         image_url=HttpUrl("https://example.com/image.jpg"),
+        product_quantity=200.0,
+        product_quantity_unit="g",
+        allergen_tags=[],
+        ingredients_tags=[],
+        ingredients=[],
+        country="fr",
+        countries_tags=["en:france"],
     )
     calculator = PainReportCalculator(product_data)
 

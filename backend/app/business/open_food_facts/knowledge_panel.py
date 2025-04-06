@@ -40,7 +40,20 @@ async def get_data_from_off(barcode: str, locale: str) -> ProductData:
     """
     url = "https://search.openfoodfacts.org/search"
     product_name_with_locale = f"product_name_{locale}"
-    tags = ["categories_tags", "labels_tags", "image_url", "product_name", product_name_with_locale]
+    tags = [
+        "categories_tags",
+        "labels_tags",
+        "image_url",
+        "product_name",
+        product_name_with_locale,
+        "product_quantity_unit",
+        "product_quantity",
+        "allergens_tags",
+        "ingredients_tags",
+        "ingredients",
+        "countries",
+        "countries_tags",
+    ]
     params = {"q": f"code:{barcode}", "fields": ",".join(tags)}
 
     try:
@@ -67,6 +80,7 @@ async def get_data_from_off(barcode: str, locale: str) -> ProductData:
         raise ResourceNotFoundException(f"No hits returned by OFF API: {barcode}")
 
     product_data = product_response.hits[0]
+
     return product_data
 
 
@@ -83,6 +97,8 @@ async def get_pain_report(barcode: str, locale: str) -> PainReport:
     """
     # Get the product data
     product_data = await get_data_from_off(barcode, locale)
+
+    print(product_data)
 
     # Create calculator with the retrieved data
     calculator = PainReportCalculator(product_data)

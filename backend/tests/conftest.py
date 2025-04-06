@@ -41,6 +41,13 @@ def product_data() -> ProductData:
         labels_tags=["label1", "label2"],
         product_name="Fake product name",
         image_url=HttpUrl("https://example.com/image.jpg"),
+        product_quantity=200.0,
+        product_quantity_unit="g",
+        allergen_tags=[],
+        ingredients_tags=[],
+        ingredients=[],
+        country="fr",
+        countries_tags=["en:france"],
     )
 
 
