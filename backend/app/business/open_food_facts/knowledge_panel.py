@@ -98,8 +98,6 @@ async def get_pain_report(barcode: str, locale: str) -> PainReport:
     # Get the product data
     product_data = await get_data_from_off(barcode, locale)
 
-    print(product_data)
-
     # Create calculator with the retrieved data
     calculator = PainReportCalculator(product_data)
 
