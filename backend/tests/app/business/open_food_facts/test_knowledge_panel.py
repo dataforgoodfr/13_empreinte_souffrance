@@ -24,16 +24,7 @@ from tests.app.business.open_food_facts.mocks import product_data
 async def test_get_data_from_off_success():
     """Test when the OFF API returns valid data"""
     barcode = "123456789"
-    mock_response_data = {
-        "hits": [
-            {
-                "categories_tags": ["en:cage-chicken-eggs", "other"],
-                "labels_tags": ["organic"],
-                "product_name": "Fake product name",
-                "image_url": "https://example.com/image.jpg",
-            }
-        ]
-    }
+    mock_response_data = {"hits": [product_data]}
 
     mock_response = AsyncMock()
     mock_response.json = MagicMock(return_value=mock_response_data)
