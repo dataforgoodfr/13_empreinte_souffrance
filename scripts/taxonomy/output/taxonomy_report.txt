@@ -1,15 +1,14 @@
 === Final Egg Analysis ===
-Total matches: 369
+Total matches: 247
 
 Top 20 files:
-food/categories.txt: 150 matches
-food/ingredients.txt: 123 matches
-product/unspsc.txt: 63 matches
-labels.txt: 17 matches
-additives.txt: 7 matches
-food_groups.txt: 6 matches
-allergens.txt: 2 matches
-packaging_shapes.txt: 1 matches
+food/categories.txt: 108 matches
+food/ingredients.txt: 103 matches
+product/unspsc.txt: 15 matches
+labels.txt: 13 matches
+additives.txt: 5 matches
+food_groups.txt: 2 matches
+allergens.txt: 1 matches
 
 Term Frequency Counts:
 egg: 365
@@ -47,9 +46,6 @@ lecithines: 1
 All Matches:
 allergens.txt:92
     en: eggs, egg, barn egg, egg whites, egg white, egg yolks, egg yolk, whole eggs, whole egg
-
-allergens.txt:235
-    en: soybeans, soya, soja, soia, soy, soya bean, soy flour, soya flour, soy lecithin, soy lecithins, soya lecithin, soya lecithins, soy lecithines, soy protein isolate, soya products
 
 labels.txt:229
     en: British Lion Quality, Lion Quality, British Lion Eggs, Lion Eggs, The Lion Mark, Lion Mark
@@ -97,56 +93,16 @@ labels.txt:1205
 labels.txt:3791
     en: Egg laid in France
 
-labels.txt:4431
-    en: No eggs, egg free
-
-labels.txt:4756
-    en: No lecithine, lecithine-free
-
-labels.txt:4770
-    < en:No lecithine
-    en: No soja lecithine, Without soja lecithine
-
-labels.txt:19570
-    < en:Vegan
-    en: certified plant based, plant based certified
-    description:en: The Certified Plant Based certification and label - delivered by the National Science Foundation, USA - make it easy for consumers to choose sustainable alternatives to meat, egg and dairy products by providing assurance that the food contains no animal-derived ingredients.
-
 labels.txt:19905
     < fr:Bleu Blanc Cœur
     fr: Bleu Blanc Cœur Œuf, Oeuf BBC, BBC Oeuf, Oeufs BBC, BBC Oeufs
 
-packaging_shapes.txt:183
-    < en:Box
-    nl: Eierdoos
-    en: egg carton, egg box
-
 food_groups.txt:170
     en: Fish\, Meat\, Eggs
-
-food_groups.txt:172
-    < en:Fish\, Meat\, Eggs
-    en: Offals
-
-food_groups.txt:176
-    < en:Fish\, Meat\, Eggs
-    en: Processed meat
 
 food_groups.txt:180
     < en:Fish\, Meat\, Eggs
     en: Eggs
-
-food_groups.txt:185
-    < en:Fish\, Meat\, Eggs
-    en: Fish and seafood
-
-food_groups.txt:200
-    < en:Fish\, Meat\, Eggs
-    en: Meat
-
-additives.txt:993
-    en: E131, Patent blue v, Food Blue 5, Sulphan Blue, Acid Blue 3, L-Blau 3, C-Blau 20, Patentblau V, Sky Blue, C.I. 42051
-    description:en: PATENT BLUE V is a dark bluish synthetic triphenylmethane dye used as a food coloring. It is not widely used, but in Europe it can be found in Scotch eggs, certain jelly sweets, blue Curaçao, certain jello varieties (though not in actual Jell-O brand products), among others.
 
 additives.txt:7673
     en: E322, Lecithins, Phosphatides
@@ -158,9 +114,6 @@ additives.txt:7712
 additives.txt:7766
     < en:E322
     en: E322(ii), Partially hydrolyzed lecithin
-
-additives.txt:7795
-    en: E322a, Oat lecithin
 
 additives.txt:9469
     en: E344, Lecithin citrate
@@ -201,17 +154,6 @@ food/categories.txt:34127
     en: Sponge fingers biscuit, Lady fingers biscuit
     fr: Boudoirs, Boudoir, biscuits à la cuiller, biscuit à la cuiller, biscuits à la cuillère, biscuit à la cuillère, Biscuit sec aux œufs à la cuillère, Biscuit sec aux œufs à la cuiller
 
-food/categories.txt:34614
-    < en:Breads
-    en: Packaged breads
-    gpc_category_description:en: Definition: Includes any products that can be described/observed as a leavened or unleavened, dough-based baked product. These products do not typically contain eggs and tend to have lower fat content than other dough products such as pastry. These products have been treated or packaged in such a way as to extend their consumable life. Includes such products as naan, chapatti, loaves, rolls, bagels, focaccia, ciabatta, baguette. Also includes rye bread, bread made from rice flour and part baked bread products. Definition Excludes: Excludes products such as Frozen and Perishable Bread Products, Dried Breads, Shelf-Stable Baking Mixes and Baking Supplies, and Pies and Pastries.
-
-food/categories.txt:34621
-    < en:Breads
-    < en:Frozen foods
-    en: Frozen breads
-    gpc_category_description:en: Definition: Includes any products that can be described/observed as a leavened or unleavened, dough-based baked product. These products do not typically contain eggs and tend to have lower fat content than other dough products such as pastry. These products can be refrigerated to extend their consumable life. Includes such products as naan, chapatti, loaves, rolls, bagels, focaccia, ciabatta, baguette. Also includes rye bread, bread made from rice flour and part baked bread products. Definition Excludes: Excludes products such as Shelf-Stable and Frozen Bread Products, Dried Breads, Perishable Baking Mixes and Baking Supplies, and Pies and Pastries.
-
 food/categories.txt:35913
     < en:Toasts
     en: Sliced rusk with eggs
@@ -245,33 +187,10 @@ food/categories.txt:36802
     en: Frozen baking mixes
     gpc_category_description:en: Definition: Includes any products that can be described/observed as a quantity of frozen, pre-mixed dough, batter or powder that is specifically intended to produce bread, cakes, biscuits, desserts, or other products. Products may be ready to use (where no additional ingredients need to be added to the mix prior to use) or require the addition of wet ingredients such as water, milk, oil, fat or egg. These products must be frozen to extend their consumable life. Definition Excludes: Excludes products such as Soups, Perishable or Shelf-Stable Baking Mixes, all Part Baked and Baked Products.
 
-food/categories.txt:38257
-    < en:Cocoa and its products
-    en: Chocolate eggs
-
-food/categories.txt:39838
-    < en:Gummi candies
-    en: Gummy eggs
-
 food/categories.txt:40069
     < en:Confectioneries
     en: nougats, nougat
     description:en: Nougat is a family of confections made with sugar or honey, roasted nuts (almonds, walnuts, pistachios, hazelnuts, and macadamia nuts are common), whipped egg whites, and sometimes chopped candied fruit.
-
-food/categories.txt:40306
-    < en:Chocolate eggs
-    < en:Easter food
-    en: Easter eggs, Easter chocolate eggs
-
-food/categories.txt:40321
-    < en:Bonbons
-    < en:Chocolate eggs
-    en: Filled chocolate eggs
-
-food/categories.txt:40330
-    < en:Chocolate eggs
-    < en:Chocolate molds
-    en: Hollow chocolate eggs
 
 food/categories.txt:40706
     < en:Christmas sweets
@@ -281,55 +200,9 @@ food/categories.txt:40856
     < en:Turrón
     en: Toasted egg yolk turrón
 
-food/categories.txt:40994
-    < en:Fish and meat and eggs
-    en: Fish eggs, Roes
-
-food/categories.txt:41008
-    < en:Fish eggs
-    en: Bottarga
-
-food/categories.txt:41024
-    < en:Fish eggs
-    < en:Semi-preserved foods
-    en: Salmon roe, Semi-preserved salmon roe
-
-food/categories.txt:41035
-    < en:Fish eggs
-    < en:Semi-preserved foods
-    en: Smoked cod roe, Semi-preserved smoked cod roe
-
-food/categories.txt:41046
-    < en:Semi-preserved foods
-    < en:fish eggs
-    en: Semi-preserved lump roe
-
-food/categories.txt:41057
-    < en:Semi-preserved lump roe
-    fr: oeufs de lompes rouges
-
-food/categories.txt:41060
-    < en:Semi-preserved lump roe
-    fr: oeufs de lompes noirs
-
-food/categories.txt:41063
-    < en:Semi-preserved foods
-    < en:fish eggs
-    en: Trout roe, Trout eggs, Semi-preserved trout roe
-
-food/categories.txt:41176
-    < en:Meals
-    < en:Refrigerated foods
-    en: Refrigerated meals, Refrigerated prepared meals, Refrigerated prepared dishes
-    gpc_category_description:en: Definition: Includes any products that can be described/observed as a vegetable based ready to eat, prepared/ processed product, such as Potato, Cabbage, Eggplant or any other vegetable with other ingredients, such as meat, poultry, fish,  and/or seasoning. An optional seasoning/flavour packet may be present. These ingredients form a valuable part of the product such as Tuna in a Tuna Salad or Ham with Potatoes. These products may have a main component which is considered a meal without any additional components. These products must not include any Dough Based, Grain Based, Dairy/Egg Based products. They may or may not contain a sauce. Products include ready to eat salads where the main ingredient is any type of vegetable. These products do not require cooking prior to consumption, but some products can be eaten hot after reheating. These products have been treated or packaged in such a way as to extend their consumable life. Includes ready to eat shelf stable Ready-Made Meals where a Vegetable Based Product is the primary ingredient. Definition Excludes: Excludes Ready-Made Combination Meals. Specifically excludes all prepared and processed and unprepared and unprocessed vegetables to which no recipe has been applied.Excludes products such as Perishable Ready to Eat and all Not Ready to Eat Vegetable Based Prepared/Processed Products and all Prepared and Processed Vegetables.
-
 food/categories.txt:41236
     < en:Meals
     en: Spanish omelettes, Spanish-style tortilla with onions, Omelette with potatoes and onions
-
-food/categories.txt:41254
-    < en:Spanish omelettes
-    en: Egg-free spanish omelettes
 
 food/categories.txt:41262
     < en:Meals
@@ -367,24 +240,11 @@ food/categories.txt:41442
     < en:Meals
     en: Crepe filled with egg ham and cheese, buckwheat crepe filled with egg ham and cheese
 
-food/categories.txt:41521
-    < en:Fish eggs
-    en: Caviars
-
-food/categories.txt:44115
-    < en:Dairies
-    en: Dairy by-products
-    gpc_category_description:en: Definition: Includes any products that can be described/observed as a by-product made from Milk which is typically used as an ingredient or constituent in other products and not necessarily as a consumable on its own. Definition Excludes: Excludes products such as Milk, Butter, Cream, Yogurt, Cheese, Egg or Substitute products.
-
 food/categories.txt:44121
     < en:Dairies
     < en:Variety packs
     en: Dairy variety packs
     gpc_category_description:en: Definition: Includes any products that can be described/observed as two or more distinct Milk, Butter, Cream, Yogurt, Cheese, Egg or Substitute products sold together which exist within the schema but belong to different classes, that is two or more products contained within the same pack which cross classes within the Milk, Butter, Cream, Yogurts, Cheese, Eggs and Substitutes Family. Includes products such as Yogurts with Cream variety packs. Items that are received free with purchases should be removed from the classification decision-making process. Definition Excludes: Excludes products such as Strawberries and Cream variety packs
-
-food/categories.txt:50363
-    < en:Plant-based foods
-    en: Egg substitutes
 
 food/categories.txt:54547
     < en:Refrigerated chocolate creamy puddings
@@ -447,18 +307,6 @@ food/categories.txt:58066
     < en:Chicken eggs
     en: Cage chicken eggs, cage eggs
 
-food/categories.txt:58078
-    < en:Eggs
-    en: Quail eggs, Quail egg
-
-food/categories.txt:58105
-    < en:Eggs
-    en: Duck eggs
-
-food/categories.txt:58123
-    < en:Eggs
-    en: Goose eggs
-
 food/categories.txt:58138
     < en:Eggs
     en: Chicken eggs, Hens' eggs
@@ -470,30 +318,6 @@ food/categories.txt:58162
 food/categories.txt:58169
     < en:Chicken eggs
     en: Frozen chicken eggs
-
-food/categories.txt:58173
-    < en:Eggs
-    en: Ostrich eggs
-
-food/categories.txt:58181
-    < en:Eggs
-    en: Gull eggs
-
-food/categories.txt:58185
-    < en:Eggs
-    en: Guineafowl eggs
-
-food/categories.txt:58189
-    < en:Eggs
-    en: Pheasant eggs
-
-food/categories.txt:58195
-    < en:Eggs
-    en: Emu eggs
-
-food/categories.txt:58200
-    < en:Eggs
-    en: Turkey eggs
 
 food/categories.txt:58208
     < en:Eggs
@@ -515,36 +339,10 @@ food/categories.txt:64646
     < en:Food additives
     en: Lecithin
 
-food/categories.txt:64651
-    < en:Lecithin
-    en: Soy lecithin
-
-food/categories.txt:64666
-    < en:Lecithin
-    en: Sunflower lecithin
-
-food/categories.txt:64805
-    < en:Food colorings
-    fr: Colorants pour oeufs, colorant pour oeufs
-
 food/categories.txt:65197
     < en:Frozen desserts
     en: Baked Alaska
     fr: Omelettes Norvégiennes glacées, Omelette norvégienne
-
-food/categories.txt:66382
-    < en:Frozen ready-made meals
-    en: Vegetable based frozen ready-made meals
-    gpc_category_description:en: Definition: Includes any products that can be described/observed as a vegetable based not ready to eat, prepared/processed product, such as Potato, Cabbage, Eggplant or any other vegetable with other ingredients, such as meat, poultry, fish, and/or seasoning. An optional seasoning/flavour packet may be present. These ingredients form a valuable part of the product, such as Steamed Vegetables with Chicken Breast. These products may have a main component which is considered a meal without any additional components. These products must not include any Dough Based, Grain Based, Dairy/Egg Based products. They may or may not contain a sauce. These products require cooking prior to consumption. These products must be frozen to extend their consumable life. Includes frozen Ready-Made Meals where a Vegetable Based Product is the primary ingredient. Definition Excludes: Excludes Ready-Made Combination Meals. Specifically excludes all prepared and processed and unprepared and unprocessed vegetables to which no recipe has been applied.Excludes products such as Shelf Stable and Perishable Not Ready to Eat and all Ready to Eat Vegetable-Based Prepared/Processed Products and all Prepared and Processed Vegetables.
-
-food/categories.txt:72398
-    < en:Aromatic herbs
-    en: tarragon
-    description:en: Tarragon (Artemisia dracunculus), is a species of perennial herb in the sunflower family. Tarragon is one of the four fines herbes of French cooking, and is particularly suitable for chicken, fish, and egg dishes.
-
-food/categories.txt:74618
-    < en:Vegan sauces
-    en: Egg-free mayonnaises
 
 food/categories.txt:75116
     < en:Salad dressings
@@ -616,12 +414,6 @@ food/categories.txt:78771
     < en:Crab
     < en:Nems
     en: Egg roll with cooked crab, Nem with cooked crab
-
-food/categories.txt:78894
-    < en:Fresh foods
-    < en:Meals
-    en: Fresh meals, Fresh prepared meals, Fresh prepared dishes
-    gpc_category_description:en: Definition: Includes any products that can be described/observed as a vegetable based ready to eat, prepared/processed product, such as Potato, Cabbage, Eggplant or any other vegetable with other ingredients, such as meat, poultry, fish, and/or seasoning. An optional seasoning/flavour packet may be present. These ingredients form a valuable part of the product, such as Potato Salad or Tuna in a Tuna Salad. These products may have a main component which is considered a meal without any additional components. These products must not include any Dough Based, Grain Based, Dairy/Egg Based products. They may or may not contain a sauce. These products do not require cooking prior to consumption, but some products can be eaten hot after reheating. These products must be refrigerated to extend their consumable life. Includes ready to eat perishable Ready-Made Meals where a Vegetable Based Product is the primary ingredient. Definition Excludes: Excludes Ready-Made Combination Meals. Specifically excludes all prepared and processed and unprepared and unprocessed vegetables to which no recipe has been applied.Excludes products such as Shelf Stable Ready to Eat and all Not Ready to Eat Vegetable-Based Prepared/Processed Products and all Prepared and Processed Vegetables.
 
 food/categories.txt:78942
     < en:Meals
@@ -771,29 +563,9 @@ food/categories.txt:97517
     < en:Sandwiches
     en: Egg sandwiches
 
-food/categories.txt:99572
-    < en:Capelin
-    en: Capelin roe
-    fr: Œufs de capelan, Masago, Œufs Masago
-
-food/categories.txt:101497
-    < en:Fish and meat and eggs
-    en: Fish livers
-
-food/categories.txt:102159
-    < en:Plant-based spreads
-    < en:Salted spreads
-    en: Egg salads substitutes, Egg spreads substitutes
-
 food/categories.txt:103617
     < en:Salted spreads
     en: Egg salads, Egg spreads
-
-food/categories.txt:105468
-    < en:Canned vegetables
-    < en:Plant-based pickles
-    en: Pickled vegetables, Vegetable pickles
-    gpc_category_description:en: Definition: Includes any products that can be described/observed as chopped or whole vegetables, preserved in vinegar, oil or brine, with added ingredients such as herbs, spices and mustard, commonly used as a condiment for meats, cheese and bread. Products include pickled tomatoes, gherkins, onions and capers. These products have been treated or packaged in such a way as to extend their consumable life. Definition Excludes: Excludes products such as Canned Vegetables and Vegetable Spreads, Chutneys, Relishes and Olives and Pickled Eggs.
 
 food/categories.txt:113992
     < en:Pan-fried dishes
@@ -813,14 +585,6 @@ food/categories.txt:115455
 food/categories.txt:115868
     en: Fish and meat and eggs, Fish meat eggs
 
-food/categories.txt:115885
-    < en:Fish and meat and eggs
-    en: Offals
-
-food/categories.txt:115991
-    < en:Fish and meat and eggs
-    en: Foies gras
-
 food/categories.txt:116146
     < en:Meat alternatives
     en: Meat analogues, Meat substitutes, Mock meats
@@ -834,31 +598,6 @@ food/categories.txt:118784
     < en:Dairy desserts
     fr: Oeufs au lait
 
-food/ingredients.txt:493
-    < en:E322i
-    en: soya lecithin, soy lecithin, soybean lecithin
-
-food/ingredients.txt:533
-    < en:soya lecithin
-    en: GMO-free soy lecithin, non-gmo soy lecithin
-
-food/ingredients.txt:545
-    < en:E322(i)
-    en: sunflower lecithin
-
-food/ingredients.txt:576
-    < en:sunflower lecithin
-    en: non-gmo sunflower lecithin
-
-food/ingredients.txt:581
-    < en:soya lecithin
-    < en:sunflower lecithin
-    en: soya and sunflower lecithin
-
-food/ingredients.txt:597
-    < en:E322(i)
-    en: rapeseed lecithin
-
 food/ingredients.txt:948
     < en:E1105
     en: lysozyme from eggs, egg lysozyme
@@ -867,45 +606,6 @@ food/ingredients.txt:11181
     < en:animal
     en: quenelle, quenelles
     description:en: A quenelle is a mixture of creamed fish or meat, sometimes combined with breadcrumbs, with a light egg binding, formed into an egg-like shape, and then cooked.
-
-food/ingredients.txt:75327
-    < en:fish
-    en: roe, hard roe
-    fr: Oeufs de poisson
-
-food/ingredients.txt:75955
-    < en:fish
-    en: capelin, caplin
-    description:en: The capelin or caplin (Mallotus villosus) is a small forage fish of the smelt family found in the North Atlantic, North Pacific, and Arctic oceans. Commercialement, le capelan est utilisé comme produit alimentaire, et dans l'industrie des huiles de poisson. Sa chair a un goût agréable, ressemblant à celle du hareng. Les œufs de capelan ("masago") sont des produits alimentaires coûteux.
-
-food/ingredients.txt:76110
-    < en:cod
-    en: smoked cod roe
-    fr: oeufs de cabillaud fumés
-
-food/ingredients.txt:76118
-    < en:smoked cod roe
-    fr: oeufs de cabillaud salés et fumés, œufs de cabillaud fumés et salés, oeufs de cabillaud fumés et salés
-
-food/ingredients.txt:76202
-    < en:roe
-    en: cod roe
-    fr: œufs de cabillaud, oeufs de cabillaud, œufs de morue
-
-food/ingredients.txt:79862
-    fr: œufs de lompe, oeufs de lompe
-
-food/ingredients.txt:79871
-    < fr:œufs de lompe
-    fr: oeufs de lompe noirs
-
-food/ingredients.txt:79876
-    < fr:œufs de lompe
-    fr: oeufs de lompe rouges
-
-food/ingredients.txt:84657
-    en: poultry
-    description:en: Poultry are domesticated birds kept by humans for their eggs, their meat or their feathers.
 
 food/ingredients.txt:85461
     < en:chicken egg white
@@ -1269,32 +969,12 @@ food/ingredients.txt:87047
     < en:egg yolk
     fr: jaune d'œuf salé, jaunes d'œufs salés, jaune d'oeuf salé, jaunes d'oeufs salés
 
-food/ingredients.txt:87068
-    < en:egg
-    en: Quail eggs, Quail egg
-
 food/ingredients.txt:87090
     < en:egg
     en: egg derivatives
 
-food/ingredients.txt:87097
-    < en:egg
-    en: duck egg
-
-food/ingredients.txt:87115
-    < en:duck egg
-    en: Raw duck egg
-
 food/ingredients.txt:87123
     fr: mélange œufs
-
-food/ingredients.txt:87125
-    < en:egg
-    en: tuna egg, tuna eggs
-
-food/ingredients.txt:87129
-    < en:egg
-    en: lumpfish egg, lumpfish eggs, lumpsucker egg, lumpsucker eggs
 
 food/ingredients.txt:87897
     en: brioche, Brioches
@@ -1346,33 +1026,9 @@ product/unspsc.txt:10190
     <en:Dairy products and eggs
     en:Eggs and egg substitutes
 
-product/unspsc.txt:10194
-    <en:Dairy products and eggs
-    en:Milk and butter products
-
-product/unspsc.txt:10198
-    <en:Dairy products and eggs
-    en:Cheese
-
-product/unspsc.txt:21654
-    <en:Food and beverage industries
-    en:Dairy and eggs processing
-
-product/unspsc.txt:54616
-    <en:Other animal products
-    en:Fish eggs
-
 product/unspsc.txt:54640
     <en:Other animal products
     en:Non-edible bird and poultry eggs
-
-product/unspsc.txt:61840
-    <en:Poultry and livestock equipment
-    en:Egg inspection or collecting equipment
-
-product/unspsc.txt:66576
-    <en:Packaging boxes and bags and pouches
-    en:Egg trays
 
 product/unspsc.txt:124952
     <en:Eggs and egg substitutes
@@ -1382,69 +1038,17 @@ product/unspsc.txt:124956
     <en:Eggs and egg substitutes
     en:In shell table egg from chickens
 
-product/unspsc.txt:124960
-    <en:Eggs and egg substitutes
-    en:In shell table egg from ducks
-
-product/unspsc.txt:124964
-    <en:Eggs and egg substitutes
-    en:In shell table egg from emus
-
-product/unspsc.txt:124968
-    <en:Eggs and egg substitutes
-    en:In shell table egg from geese
-
-product/unspsc.txt:124972
-    <en:Eggs and egg substitutes
-    en:In shell table egg from guineafowls
-
-product/unspsc.txt:124976
-    <en:Eggs and egg substitutes
-    en:In shell table egg from ostriches
-
-product/unspsc.txt:124980
-    <en:Eggs and egg substitutes
-    en:In shell table egg from quails
-
-product/unspsc.txt:124984
-    <en:Eggs and egg substitutes
-    en:In shell table egg from rheas
-
-product/unspsc.txt:124988
-    <en:Eggs and egg substitutes
-    en:In shell table egg from squabs or pigeons
-
-product/unspsc.txt:124992
-    <en:Eggs and egg substitutes
-    en:In shell table egg from turkeys
-
-product/unspsc.txt:124996
-    <en:Eggs and egg substitutes
-    en:In shell table egg from specialty birds
-
 product/unspsc.txt:125000
     <en:Eggs and egg substitutes
     en:In shell nest run egg from chickens
-
-product/unspsc.txt:125004
-    <en:Eggs and egg substitutes
-    en:In shell nest run egg from birds other than chickens
 
 product/unspsc.txt:125008
     <en:Eggs and egg substitutes
     en:In shell checked and dirty egg industrial from chickens
 
-product/unspsc.txt:125012
-    <en:Eggs and egg substitutes
-    en:In shell checked and dirty egg industrial from birds other than chickens
-
 product/unspsc.txt:125016
     <en:Eggs and egg substitutes
     en:Cooked egg from chickens
-
-product/unspsc.txt:125020
-    <en:Eggs and egg substitutes
-    en:Cooked egg from birds other than chickens
 
 product/unspsc.txt:125024
     <en:Eggs and egg substitutes
@@ -1454,93 +1058,13 @@ product/unspsc.txt:125028
     <en:Eggs and egg substitutes
     en:Decharacterized egg products from chickens
 
-product/unspsc.txt:125032
-    <en:Eggs and egg substitutes
-    en:Egg products and substitutes from birds other than chickens
-
-product/unspsc.txt:125036
-    <en:Eggs and egg substitutes
-    en:Decharacterized egg products from birds other than chickens
-
 product/unspsc.txt:125040
     <en:Eggs and egg substitutes
     en:Egg extract from chickens
 
-product/unspsc.txt:125044
-    <en:Eggs and egg substitutes
-    en:Egg extract from birds other than chickens
-
-product/unspsc.txt:125048
-    <en:Eggs and egg substitutes
-    en:Egg imitation
-
-product/unspsc.txt:175880
-    <en:Eggplants
-    en:Easter egg eggplants
-
-product/unspsc.txt:179224
-    <en:Organic eggplants
-    en:Organic easter egg eggplants
-
-product/unspsc.txt:182992
-    <en:Dried eggplants
-    en:Dried easter egg eggplants
-
-product/unspsc.txt:186492
-    <en:Dried organic eggplants
-    en:Dried organic easter egg eggplants
-
-product/unspsc.txt:189984
-    <en:Frozen eggplants
-    en:Frozen easter egg eggplants
-
-product/unspsc.txt:193492
-    <en:Frozen organic eggplants
-    en:Frozen organic easter egg eggplants
-
-product/unspsc.txt:196984
-    <en:Canned or jarred eggplants
-    en:Canned or jarred easter egg eggplants
-
-product/unspsc.txt:200500
-    <en:Canned or jarred organic eggplants
-    en:Canned or jarred organic easter egg eggplants
-
-product/unspsc.txt:203992
-    <en:Eggplant purees
-    en:Easter egg eggplant purees
-
-product/unspsc.txt:207308
-    <en:Organic eggplant purees
-    en:Organic easter egg eggplant purees
-
-product/unspsc.txt:234892
-    <en:Non GMO eggplants
-    en:Non GMO easter egg eggplants
-
-product/unspsc.txt:238628
-    <en:Dried Non GMO eggplants
-    en:Dried Non GMO easter egg eggplants
-
-product/unspsc.txt:242120
-    <en:Frozen Non GMO eggplants
-    en:Frozen Non GMO easter egg eggplants
-
-product/unspsc.txt:245612
-    <en:Canned or jarred Non GMO eggplants
-    en:Canned or jarred Non GMO easter egg eggplants
-
-product/unspsc.txt:248812
-    <en:Non GMO eggplant purees
-    en:Non GMO easter egg eggplant purees
-
 product/unspsc.txt:254116
     <en:Coagulants and systemic hemostatic agents
     en:Antihemophilic factor or globulin
-
-product/unspsc.txt:254228
-    <en:Blood plasma substitutes and extenders and expanders
-    en:Albumin human
 
 product/unspsc.txt:262388
     <en:Immunosuppressants
@@ -1553,40 +1077,4 @@ product/unspsc.txt:262860
 product/unspsc.txt:282964
     <en:Combination contrast media\, imaging agents\, and radiopharmaceuticals
     en:Albumin/stannous chloride
-
-product/unspsc.txt:283192
-    <en:Iodine-based radiopharmaceuticals\, imaging agents\, media\, and tracers
-    en:Iodinated i-125 human serum albumin or jeanatope
-
-product/unspsc.txt:284956
-    <en:Domestic kitchen appliances
-    en:Domestic egg boiler
-
-product/unspsc.txt:285288
-    <en:Domestic kitchen tools and utensils
-    en:Domestic egg slicer
-
-product/unspsc.txt:285292
-    <en:Domestic kitchen tools and utensils
-    en:Domestic egg separator
-
-product/unspsc.txt:285332
-    <en:Domestic kitchen tools and utensils
-    en:Domestic egg beater
-
-product/unspsc.txt:299420
-    <en:Dairy and eggs processing
-    en:Milk processing services
-
-product/unspsc.txt:299424
-    <en:Dairy and eggs processing
-    en:Egg processing services
-
-product/unspsc.txt:299428
-    <en:Dairy and eggs processing
-    en:Cheese processing services
-
-product/unspsc.txt:299432
-    <en:Dairy and eggs processing
-    en:Butter or cream processing services
 

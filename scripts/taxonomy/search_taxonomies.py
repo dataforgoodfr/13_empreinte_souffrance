@@ -80,13 +80,15 @@ OUTPUT_DIR = SCRIPT_DIR / "output"
 TAXONOMY_DIR = SCRIPT_DIR / "openfoodfacts-taxonomies"
 REPORT_PATH = OUTPUT_DIR / "taxonomy_report.txt"
 SEARCH_TERMS_PATH = OUTPUT_DIR / "search_terms.json"
+EXCLUDED_TERMS_PATH = SCRIPT_DIR / "excluded_terms.txt"
 
-def process_search_file(file_path: Path) -> Tuple[List[Dict[str, object]], DefaultDict[str, int]]:
+def process_search_file(file_path: Path, excluded_lines: Set[str]) -> Tuple[List[Dict[str, object]], DefaultDict[str, int]]:
     """
     Analyze a taxonomy file for egg-related terms and generate matches.
     
     Args:
         file_path: Path object pointing to the taxonomy file to process
+        excluded_lines: Set of exact lines to exclude from matching
         
     Returns:
         Tuple containing:
@@ -110,7 +112,7 @@ def process_search_file(file_path: Path) -> Tuple[List[Dict[str, object]], Defau
                 
             if not clean_line:
                 if current_block:
-                    block_matches, block_counts = process_search_block(current_block, block_start_line, file_path)
+                    block_matches, block_counts = process_search_block(current_block, block_start_line, file_path, excluded_lines)
                     matches.extend(block_matches)
                     for term, count in block_counts.items():
                         term_counts[term] += count
@@ -123,7 +125,7 @@ def process_search_file(file_path: Path) -> Tuple[List[Dict[str, object]], Defau
             current_block.append((line_num, clean_line))
     
     if current_block:
-        block_matches, block_counts = process_search_block(current_block, block_start_line, file_path)
+        block_matches, block_counts = process_search_block(current_block, block_start_line, file_path, excluded_lines)
         matches.extend(block_matches)
         for term, count in block_counts.items():
             term_counts[term] += count
@@ -133,7 +135,8 @@ def process_search_file(file_path: Path) -> Tuple[List[Dict[str, object]], Defau
 def process_search_block(
     block: List[Tuple[int, str]],
     start_line: int,
-    file_path: Path
+    file_path: Path,
+    excluded_lines: Set[str]
 ) -> Tuple[List[Dict[str, object]], DefaultDict[str, int]]:
     """
     Process a block of taxonomy entries to identify relevant matches.
@@ -142,6 +145,7 @@ def process_search_block(
         block: List of (line_number, line_content) tuples
         start_line: Starting line number of the block in the source file
         file_path: Full path to the source taxonomy file
+        excluded_lines: Set of exact lines to exclude from matching
         
     Returns:
         Tuple containing:
@@ -158,6 +162,7 @@ def process_search_block(
     categories = []
     non_categories = []
     has_match = False
+    original_lines_content = [line_content for _, line_content in block]
 
     for line_num, line in block:
         if line.startswith('<'):
@@ -171,6 +176,12 @@ def process_search_block(
             has_match = True
 
     if not has_match:
+        return [], term_counts
+    
+    # Check if any line in the original block content matches the exclusion list
+    if any(line in excluded_lines for line in original_lines_content):
+        # If any line is excluded, skip this entire block 
+        # We still return its term counts as they were counted before this check
         return [], term_counts
     
     entry_content = []
@@ -380,6 +391,15 @@ def main() -> None:
     """
     OUTPUT_DIR.mkdir(exist_ok=True)
     
+    # Read excluded terms
+    excluded_lines: Set[str] = set()
+    try:
+        with open(EXCLUDED_TERMS_PATH, 'r', encoding='utf-8') as f:
+            excluded_lines = {line.strip() for line in f if line.strip()}
+        print(f"Loaded {len(excluded_lines)} lines from {EXCLUDED_TERMS_PATH.name}")
+    except FileNotFoundError:
+        print(f"Warning: Excluded terms file not found at {EXCLUDED_TERMS_PATH}. No lines will be excluded.")
+        
     # Phase 1: Taxonomy analysis
     print("Scanning taxonomy files...")
     all_matches = []
@@ -389,7 +409,7 @@ def main() -> None:
         if any(p in txt_file.parts for p in ('unused', 'old', 'beauty', 'petfood', 'additives.properties.txt')):
             continue
             
-        file_matches, file_counts = process_search_file(txt_file)
+        file_matches, file_counts = process_search_file(txt_file, excluded_lines)
         all_matches.extend(file_matches)
         for term, count in file_counts.items():
             global_term_counts[term] += count
