@@ -31,7 +31,7 @@ def client() -> TestClient:
 
 
 @pytest.fixture
-def product_data() -> ProductData:
+def sample_product_data() -> ProductData:
     """
     Fixture that provides sample product data for testing.
     Contains cage chicken eggs category...

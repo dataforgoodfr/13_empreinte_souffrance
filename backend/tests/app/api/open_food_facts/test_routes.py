@@ -3,13 +3,13 @@ from unittest.mock import AsyncMock, MagicMock, patch
 import pytest
 from httpx import AsyncClient
 
-from tests.app.business.open_food_facts.mocks import product_data
+from app.schemas.open_food_facts.external import ProductData
 
 
 @pytest.mark.asyncio
-async def test_get_off_knowledge_panel(async_client: AsyncClient):
+async def test_get_off_knowledge_panel(async_client: AsyncClient, sample_product_data: ProductData):
     """Test our knowledge panel endpoint"""
-    mock_response_data = {"hits": [product_data]}
+    mock_response_data = {"hits": [sample_product_data]}
 
     mock_response = AsyncMock()
     mock_response.json = MagicMock(return_value=mock_response_data)

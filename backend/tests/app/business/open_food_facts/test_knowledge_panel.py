@@ -17,14 +17,13 @@ from app.schemas.open_food_facts.internal import (
     BreedingTypeAndWeight,
     KnowledgePanelResponse,
 )
-from tests.app.business.open_food_facts.mocks import product_data
 
 
 @pytest.mark.asyncio
-async def test_get_data_from_off_success():
+async def test_get_data_from_off_success(sample_product_data: ProductData):
     """Test when the OFF API returns valid data"""
     barcode = "123456789"
-    mock_response_data = {"hits": [product_data]}
+    mock_response_data = {"hits": [sample_product_data]}
 
     mock_response = AsyncMock()
     mock_response.json = MagicMock(return_value=mock_response_data)
@@ -33,7 +32,7 @@ async def test_get_data_from_off_success():
     with patch("httpx.AsyncClient.get", return_value=mock_response):
         result = await get_data_from_off(barcode, locale="en")
 
-    assert result == ProductData.model_validate(mock_response_data["hits"][0])
+    assert result == sample_product_data
 
 
 @pytest.mark.asyncio
@@ -78,9 +77,9 @@ async def test_get_data_from_off_http_call_exception():
             await get_data_from_off(barcode, locale="en")
 
 
-def test_compute_breeding_types_with_weights():
+def test_compute_breeding_types_with_weights(sample_product_data: ProductData):
     """Test computing breeding types with weights"""
-    calculator = PainReportCalculator(product_data)
+    calculator = PainReportCalculator(sample_product_data)
 
     breeding_types = calculator._get_breeding_types()
     with patch("app.business.open_food_facts.pain_report_calculator.randint", return_value=200):
@@ -92,19 +91,19 @@ def test_compute_breeding_types_with_weights():
     assert result[AnimalType.LAYING_HEN].animal_product_weight == 200
 
 
-def test_get_breeding_types():
+def test_get_breeding_types(sample_product_data: ProductData):
     """Test getting breeding types from product data"""
-    calculator = PainReportCalculator(product_data)
+    calculator = PainReportCalculator(sample_product_data)
 
     result = calculator._get_breeding_types()
     assert AnimalType.LAYING_HEN in result
     assert result[AnimalType.LAYING_HEN].breeding_type == LayingHenBreedingType.FURNISHED_CAGE
 
 
-def test_generate_pain_levels_for_type():
+def test_generate_pain_levels_for_type(sample_product_data: ProductData):
     """Test generating pain levels for a specific animal, breeding type, and pain type"""
 
-    calculator = PainReportCalculator(product_data)
+    calculator = PainReportCalculator(sample_product_data)
 
     breeding_type = BreedingTypeAndWeight(breeding_type=LayingHenBreedingType.FURNISHED_CAGE, animal_product_weight=200)
 
