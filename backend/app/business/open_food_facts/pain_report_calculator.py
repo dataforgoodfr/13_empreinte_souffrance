@@ -1,4 +1,3 @@
-from random import randint
 from typing import Dict, List
 
 from app.config.exceptions import ResourceNotFoundException
@@ -11,6 +10,7 @@ from app.enums.open_food_facts.enums import (
 )
 from app.schemas.open_food_facts.external import ProductData
 from app.schemas.open_food_facts.internal import AnimalPainReport, BreedingTypeAndWeight, PainLevelData, PainReport
+from app.scripts.weight_calculator import calculate_egg_weight
 
 
 class PainReportCalculator:
@@ -164,10 +164,11 @@ class PainReportCalculator:
             A dictionary mapping animal types to BreedingTypeAndWeight objects with their weights, if the weight is > 0
         """
         breeding_types_with_weights = {}
+
         for animal_type, breeding_type in breeding_types_by_animal.items():
-            # TODO: Implement actual weight calculation based on product data
-            #  This is currently a placeholder
-            weight = randint(0, 1000)
+            weight_dict = calculate_egg_weight(breeding_types_by_animal, self.product_data)
+
+            weight = weight_dict[AnimalType.LAYING_HEN].animal_product_weight
 
             # We only return breeding types (and their weights) if the weight of the animal-based product is > 0
             if weight > 0:

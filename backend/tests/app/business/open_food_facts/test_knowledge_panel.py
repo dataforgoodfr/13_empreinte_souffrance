@@ -5,7 +5,7 @@ import pytest
 
 from app.business.open_food_facts.knowledge_panel import (
     KnowledgePanelGenerator,
-    get_data_from_off,
+    get_data_from_off_v3,
     get_knowledge_panel_response,
 )
 from app.business.open_food_facts.pain_report_calculator import PainReportCalculator
@@ -23,14 +23,14 @@ from app.schemas.open_food_facts.internal import (
 async def test_get_data_from_off_success(sample_product_data: ProductData):
     """Test when the OFF API returns valid data"""
     barcode = "123456789"
-    mock_response_data = {"hits": [sample_product_data]}
+    mock_response_data = {"product": sample_product_data}
 
     mock_response = AsyncMock()
     mock_response.json = MagicMock(return_value=mock_response_data)
     mock_response.raise_for_status = AsyncMock(return_value=None)
 
     with patch("httpx.AsyncClient.get", return_value=mock_response):
-        result = await get_data_from_off(barcode, locale="en")
+        result = await get_data_from_off_v3(barcode, locale="en")
 
     assert result == sample_product_data
 
@@ -39,7 +39,7 @@ async def test_get_data_from_off_success(sample_product_data: ProductData):
 async def test_get_data_from_off_no_hits():
     """Test when the OFF API returns no hits"""
     barcode = "000000000"
-    mock_response_data = {"hits": []}
+    mock_response_data = {"product": {}}
 
     mock_response = AsyncMock()
     mock_response.json = MagicMock(return_value=mock_response_data)
@@ -47,7 +47,7 @@ async def test_get_data_from_off_no_hits():
 
     with patch("httpx.AsyncClient.get", return_value=mock_response):
         with pytest.raises(ResourceNotFoundException, match=f"No hits returned by OFF API: {barcode}"):
-            await get_data_from_off(barcode, locale="en")
+            await get_data_from_off_v3(barcode, locale="en")
 
 
 @pytest.mark.asyncio
@@ -61,10 +61,8 @@ async def test_get_data_from_off_validation_error():
     mock_response.raise_for_status = AsyncMock(return_value=None)
 
     with patch("httpx.AsyncClient.get", return_value=mock_response):
-        with pytest.raises(
-            ResourceNotFoundException, match=f"Failed to validate product data retrieved from OFF: {barcode}"
-        ):
-            await get_data_from_off(barcode, locale="en")
+        with pytest.raises(ResourceNotFoundException, match=f"Can't get product data from OFF API: {barcode}"):
+            await get_data_from_off_v3(barcode, locale="en")
 
 
 @pytest.mark.asyncio
@@ -74,7 +72,7 @@ async def test_get_data_from_off_http_call_exception():
 
     with patch("httpx.AsyncClient.__aenter__", side_effect=httpx.ReadTimeout("Network error")):
         with pytest.raises(ResourceNotFoundException, match=f"Can't get product data from OFF API: {barcode}"):
-            await get_data_from_off(barcode, locale="en")
+            await get_data_from_off_v3(barcode, locale="en")
 
 
 def test_compute_breeding_types_with_weights(sample_product_data: ProductData):
@@ -82,8 +80,7 @@ def test_compute_breeding_types_with_weights(sample_product_data: ProductData):
     calculator = PainReportCalculator(sample_product_data)
 
     breeding_types = calculator._get_breeding_types()
-    with patch("app.business.open_food_facts.pain_report_calculator.randint", return_value=200):
-        result = calculator._get_breeding_types_with_weights(breeding_types)
+    result = calculator._get_breeding_types_with_weights(breeding_types)
 
     # product_data fixture contains the `en:cage-chicken-eggs` tag
     assert AnimalType.LAYING_HEN in result
