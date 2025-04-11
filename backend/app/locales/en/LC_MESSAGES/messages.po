@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-03-27 18:10+0100\n"
+"POT-Creation-Date: 2025-04-11 17:55+0200\n"
 "PO-Revision-Date: 2025-02-17 20:34+0100\n"
 "Last-Translator: Mathis Dupuy <mathis@macbook-air-de-mathis.local>\n"
 "Language: en\n"
@@ -19,34 +19,34 @@ msgstr ""
 "Generated-By: Babel 2.17.0\n"
 
 msgid ""
-"The <a href='https://empreinte-souffrance.org/'>Suffering Footprint</a> "
-"is calculated based on research from the <a "
-"href='https://welfarefootprint.org/'>Welfare Footprint Institute</a>."
+"The <a href='https://empreinte-souffrance.org/'>Welfare Footprint</a> is "
+"calculated based on research from the <a "
+"href='https://welfarefootprint.org/'>Welfare Footprint Institute</a> "
+"which developed a scientifically rigorous methodology for assessing and "
+"quantifying animal welfare in food production systems."
 msgstr ""
 
 msgid ""
-"The score and details shown below are based on the following data "
+"It is unique in providing a comprehensive, biologically meaningful "
+"measure of the time animals spend in pain of varying intensities."
+msgstr ""
+
+msgid ""
+"The time in pain and details shown below are based on the following data "
 "(provided by the Open Food Facts community)"
 msgstr ""
 
-msgid "What is the suffering footprint?"
+msgid "What is the welfare footprint?"
 msgstr ""
 
-msgid "Suffering footprint"
-msgstr ""
-
-msgid ""
-"<b>Excruciating</b>: Extreme unbearable pain, even briefly. In humans, "
-"this would mark the threshold of suffering below which many people choose"
-" to end their lives rather than endure it. Triggers involuntary "
-"manifestations (screams, tremors, extreme agitation) and cannot be "
-"relieved."
+msgid "Welfare footprint"
 msgstr ""
 
 msgid ""
-"<b>Disabling</b>: Constant pain that takes priority over most behaviors. "
-"Prevents positive well-being and drastically alters activity level. "
-"Requires stronger painkillers and causes inattention to the environment."
+"<b>Annoying</b>: Noticeable discomfort that can be ignored. Does not "
+"interfere with daily activities or motivated behaviors (exploration, "
+"comfort, maintenance). No visible expressions of pain or physiological "
+"disturbances."
 msgstr ""
 
 msgid ""
@@ -57,16 +57,20 @@ msgid ""
 msgstr ""
 
 msgid ""
-"<b>Annoying</b>: Noticeable discomfort that can be ignored. Does not "
-"interfere with daily activities or motivated behaviors (exploration, "
-"comfort, maintenance). No visible expressions of pain or physiological "
-"disturbances."
+"<b>Disabling</b>: Constant pain that takes priority over most behaviors. "
+"Prevents positive well-being and drastically alters activity level. "
+"Requires stronger painkillers and causes inattention to the environment."
 msgstr ""
 
-msgid "Better understand suffering intensities"
+msgid ""
+"<b>Excruciating</b>: Extreme unbearable pain, even briefly. In humans, "
+"this would mark the threshold of suffering below which many people choose"
+" to end their lives rather than endure it. Triggers involuntary "
+"manifestations (screams, tremors, extreme agitation) and cannot be "
+"relieved."
 msgstr ""
 
-msgid "Intensity level definitions"
+msgid "Intensity categories definitions"
 msgstr ""
 
 msgid ""
@@ -102,7 +106,7 @@ msgstr ""
 
 #, python-brace-format
 msgid ""
-"<b>{animal_name} :</b><ul><li>Breeding type: "
+"<b>{animal_name} :</b><ul><li>Production system: "
 "<b>{breeding_type}</b></li><li>Quantity of egg in the product: "
 "<b>{weight}g</b></li></ul>"
 msgstr ""
@@ -111,7 +115,15 @@ msgid "0 second"
 msgstr ""
 
 #, python-brace-format
+msgid "{} day"
+msgstr ""
+
+#, python-brace-format
 msgid "{} days"
+msgstr ""
+
+#, python-brace-format
+msgid "{} hour"
 msgstr ""
 
 #, python-brace-format
@@ -119,7 +131,15 @@ msgid "{} hours"
 msgstr ""
 
 #, python-brace-format
+msgid "{} minute"
+msgstr ""
+
+#, python-brace-format
 msgid "{} minutes"
+msgstr ""
+
+#, python-brace-format
+msgid "{} second"
 msgstr ""
 
 #, python-brace-format

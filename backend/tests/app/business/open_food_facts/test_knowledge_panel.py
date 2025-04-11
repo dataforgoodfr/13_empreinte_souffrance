@@ -167,12 +167,12 @@ def test_knowledge_panel_generator(pain_report):
     # Test main panel
     main_panel = generator.create_main_panel()
     assert main_panel.level == "info"
-    assert main_panel.title_element.title == "Suffering footprint"
+    assert main_panel.title_element.title == "Welfare footprint"
     assert len(main_panel.elements) > 3
 
     # Test intensities definitions panel
     intensities_panel = generator.create_intensities_definitions_panel()
-    assert intensities_panel.title_element.title == "Intensity level definitions"
+    assert intensities_panel.title_element.title == "Intensity categories definitions"
     assert len(intensities_panel.elements) == 4  # One for each intensity
 
     # Test physical pain panel

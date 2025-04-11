@@ -156,13 +156,21 @@ class KnowledgePanelGenerator:
         elements = [
             self._get_text_element(
                 self._(
-                    "The <a href='https://empreinte-souffrance.org/'>Suffering Footprint</a> is calculated based "
-                    "on research from the <a href='https://welfarefootprint.org/'>Welfare Footprint Institute</a>."
+                    "The <a href='https://empreinte-souffrance.org/'>Welfare Footprint</a> is calculated based "
+                    "on research from the <a href='https://welfarefootprint.org/'>Welfare Footprint Institute</a> "
+                    "which developed a scientifically rigorous methodology for assessing "
+                    "and quantifying animal welfare in food production systems."
                 )
             ),
             self._get_text_element(
                 self._(
-                    "The score and details shown below are based on the following data "
+                    "It is unique in providing a comprehensive, biologically meaningful measure of "
+                    "the time animals spend in pain of varying intensities."
+                )
+            ),
+            self._get_text_element(
+                self._(
+                    "The time in pain and details shown below are based on the following data "
                     "(provided by the Open Food Facts community)"
                 )
             ),
@@ -190,8 +198,8 @@ class KnowledgePanelGenerator:
                 grade="c",
                 icon_url=HttpUrl("https://iili.io/3o05WOX.png"),
                 name="suffering-footprint",
-                subtitle=self._("What is the suffering footprint?"),
-                title=self._("Suffering footprint"),
+                subtitle=self._("What is the welfare footprint?"),
+                title=self._("Welfare footprint"),
                 type="grade",
             ),
             topics=["suffering-footprint"],
@@ -212,17 +220,9 @@ class KnowledgePanelGenerator:
             elements=[
                 self._get_text_element(
                     self._(
-                        "<b>Excruciating</b>: Extreme unbearable pain, even briefly. "
-                        "In humans, this would mark the threshold of suffering below which many people "
-                        "choose to end their lives rather than endure it. Triggers involuntary manifestations "
-                        "(screams, tremors, extreme agitation) and cannot be relieved."
-                    )
-                ),
-                self._get_text_element(
-                    self._(
-                        "<b>Disabling</b>: Constant pain that takes priority over most behaviors. "
-                        "Prevents positive well-being and drastically alters activity level. "
-                        "Requires stronger painkillers and causes inattention to the environment."
+                        "<b>Annoying</b>: Noticeable discomfort that can be ignored. Does not interfere with daily "
+                        "activities or motivated behaviors (exploration, comfort, maintenance). "
+                        "No visible expressions of pain or physiological disturbances."
                     )
                 ),
                 self._get_text_element(
@@ -234,17 +234,24 @@ class KnowledgePanelGenerator:
                 ),
                 self._get_text_element(
                     self._(
-                        "<b>Annoying</b>: Noticeable discomfort that can be ignored. Does not interfere with daily "
-                        "activities or motivated behaviors (exploration, comfort, maintenance). "
-                        "No visible expressions of pain or physiological disturbances."
+                        "<b>Disabling</b>: Constant pain that takes priority over most behaviors. "
+                        "Prevents positive well-being and drastically alters activity level. "
+                        "Requires stronger painkillers and causes inattention to the environment."
+                    )
+                ),
+                self._get_text_element(
+                    self._(
+                        "<b>Excruciating</b>: Extreme unbearable pain, even briefly. "
+                        "In humans, this would mark the threshold of suffering below which many people "
+                        "choose to end their lives rather than endure it. Triggers involuntary manifestations "
+                        "(screams, tremors, extreme agitation) and cannot be relieved."
                     )
                 ),
             ],
             level="info",
             title_element=TitleElement(
                 grade="c",
-                subtitle=self._("Better understand suffering intensities"),
-                title=self._("Intensity level definitions"),
+                title=self._("Intensity categories definitions"),
                 type="grade",
             ),
             topics=["suffering-footprint"],
@@ -396,7 +403,7 @@ class KnowledgePanelGenerator:
         """
         html_template = self._(
             "<b>{animal_name} :</b><ul>"
-            "<li>Breeding type: <b>{breeding_type}</b></li>"
+            "<li>Production system: <b>{breeding_type}</b></li>"
             "<li>Quantity of egg in the product: <b>{weight}g</b></li></ul>"
         )
         return html_template.format(
@@ -426,13 +433,13 @@ class KnowledgePanelGenerator:
         days, hours = divmod(hours, 24)
         parts = []
         if days:
-            parts.append(self._("{} days").format(days))
+            parts.append(self._("{} day".format(days)) if days == 1 else self._("{} days".format(days)))
         if hours:
-            parts.append(self._("{} hours").format(hours))
+            parts.append(self._("{} hour".format(hours)) if hours == 1 else self._("{} hours".format(hours)))
         if minutes:
-            parts.append(self._("{} minutes").format(minutes))
+            parts.append(self._("{} minute".format(minutes)) if minutes == 1 else self._("{} minutes".format(minutes)))
         if sec:
-            parts.append(self._("{} seconds").format(sec))
+            parts.append(self._("{} second".format(sec)) if sec == 1 else self._("{} seconds".format(sec)))
         return " ".join(parts) if parts else self._("0 second")
 
     def _generate_animal_pain_html(self, animal_pain_report: AnimalPainReport, pain_type: PainType) -> str:
