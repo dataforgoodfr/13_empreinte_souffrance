@@ -2,11 +2,10 @@ from unittest.mock import AsyncMock, MagicMock, patch
 
 import httpx
 import pytest
-from pydantic import HttpUrl
 
 from app.business.open_food_facts.knowledge_panel import (
     KnowledgePanelGenerator,
-    get_data_from_off,
+    get_data_from_off_v3,
     get_knowledge_panel_response,
 )
 from app.business.open_food_facts.pain_report_calculator import PainReportCalculator
@@ -21,35 +20,26 @@ from app.schemas.open_food_facts.internal import (
 
 
 @pytest.mark.asyncio
-async def test_get_data_from_off_success():
+async def test_get_data_from_off_success(sample_product_data: ProductData):
     """Test when the OFF API returns valid data"""
     barcode = "123456789"
-    mock_response_data = {
-        "hits": [
-            {
-                "categories_tags": ["en:cage-chicken-eggs", "other"],
-                "labels_tags": ["organic"],
-                "product_name": "Fake product name",
-                "image_url": "https://example.com/image.jpg",
-            }
-        ]
-    }
+    mock_response_data = {"product": sample_product_data}
 
     mock_response = AsyncMock()
     mock_response.json = MagicMock(return_value=mock_response_data)
     mock_response.raise_for_status = AsyncMock(return_value=None)
 
     with patch("httpx.AsyncClient.get", return_value=mock_response):
-        result = await get_data_from_off(barcode, locale="en")
+        result = await get_data_from_off_v3(barcode, locale="en")
 
-    assert result == ProductData.model_validate(mock_response_data["hits"][0])
+    assert result == sample_product_data
 
 
 @pytest.mark.asyncio
 async def test_get_data_from_off_no_hits():
     """Test when the OFF API returns no hits"""
     barcode = "000000000"
-    mock_response_data = {"hits": []}
+    mock_response_data = {"product": {}}
 
     mock_response = AsyncMock()
     mock_response.json = MagicMock(return_value=mock_response_data)
@@ -57,7 +47,7 @@ async def test_get_data_from_off_no_hits():
 
     with patch("httpx.AsyncClient.get", return_value=mock_response):
         with pytest.raises(ResourceNotFoundException, match=f"No hits returned by OFF API: {barcode}"):
-            await get_data_from_off(barcode, locale="en")
+            await get_data_from_off_v3(barcode, locale="en")
 
 
 @pytest.mark.asyncio
@@ -71,10 +61,8 @@ async def test_get_data_from_off_validation_error():
     mock_response.raise_for_status = AsyncMock(return_value=None)
 
     with patch("httpx.AsyncClient.get", return_value=mock_response):
-        with pytest.raises(
-            ResourceNotFoundException, match=f"Failed to validate product data retrieved from OFF: {barcode}"
-        ):
-            await get_data_from_off(barcode, locale="en")
+        with pytest.raises(ResourceNotFoundException, match=f"Can't get product data from OFF API: {barcode}"):
+            await get_data_from_off_v3(barcode, locale="en")
 
 
 @pytest.mark.asyncio
@@ -84,22 +72,16 @@ async def test_get_data_from_off_http_call_exception():
 
     with patch("httpx.AsyncClient.__aenter__", side_effect=httpx.ReadTimeout("Network error")):
         with pytest.raises(ResourceNotFoundException, match=f"Can't get product data from OFF API: {barcode}"):
-            await get_data_from_off(barcode, locale="en")
+            await get_data_from_off_v3(barcode, locale="en")
 
 
-def test_compute_breeding_types_with_weights():
+def test_compute_breeding_types_with_weights(sample_product_data: ProductData):
     """Test computing breeding types with weights"""
-    product_data = ProductData(
-        categories_tags=["en:cage-chicken-eggs"],
-        labels_tags=["organic"],
-        product_name="Fake product name",
-        image_url=HttpUrl("https://example.com/image.jpg"),
-    )
-    calculator = PainReportCalculator(product_data)
+    calculator = PainReportCalculator(sample_product_data)
 
     breeding_types = calculator._get_breeding_types()
-    with patch("app.business.open_food_facts.pain_report_calculator.randint", return_value=200):
-        result = calculator._get_breeding_types_with_weights(breeding_types)
+    # with patch("app.business.open_food_facts.pain_report_calculator.randint", return_value=200):
+    result = calculator._get_breeding_types_with_weights(breeding_types)
 
     # product_data fixture contains the `en:cage-chicken-eggs` tag
     assert AnimalType.LAYING_HEN in result
@@ -107,30 +89,19 @@ def test_compute_breeding_types_with_weights():
     assert result[AnimalType.LAYING_HEN].animal_product_weight == 200
 
 
-def test_get_breeding_types():
+def test_get_breeding_types(sample_product_data: ProductData):
     """Test getting breeding types from product data"""
-    product_data = ProductData(
-        categories_tags=["en:cage-chicken-eggs"],
-        labels_tags=["organic"],
-        product_name="Fake product name",
-        image_url=HttpUrl("https://example.com/image.jpg"),
-    )
-    calculator = PainReportCalculator(product_data)
+    calculator = PainReportCalculator(sample_product_data)
 
     result = calculator._get_breeding_types()
     assert AnimalType.LAYING_HEN in result
     assert result[AnimalType.LAYING_HEN].breeding_type == LayingHenBreedingType.FURNISHED_CAGE
 
 
-def test_generate_pain_levels_for_type():
+def test_generate_pain_levels_for_type(sample_product_data: ProductData):
     """Test generating pain levels for a specific animal, breeding type, and pain type"""
-    product_data = ProductData(
-        categories_tags=["en:cage-chicken-eggs"],
-        labels_tags=["organic"],
-        product_name="Fake product name",
-        image_url=HttpUrl("https://example.com/image.jpg"),
-    )
-    calculator = PainReportCalculator(product_data)
+
+    calculator = PainReportCalculator(sample_product_data)
 
     breeding_type = BreedingTypeAndWeight(breeding_type=LayingHenBreedingType.FURNISHED_CAGE, animal_product_weight=200)
 

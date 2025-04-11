@@ -14,7 +14,7 @@ from app.enums.open_food_facts.enums import (
 # Pain report models, used for calculation
 class BreedingTypeAndWeight(BaseModel):
     breeding_type: LayingHenBreedingType | BroilerChickenBreedingType
-    animal_product_weight: int = 0  # in grams
+    animal_product_weight: float = 0  # in grams
 
 
 class PainLevelData(BaseModel):
