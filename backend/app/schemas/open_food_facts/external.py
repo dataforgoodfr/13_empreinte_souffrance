@@ -26,4 +26,13 @@ class ProductResponse(BaseModel):
     Response model for search-a-licious request.
     """
 
+    product: ProductData
+
+
+# BaseModel when using v1 API
+class ProductResponseV1(BaseModel):
+    """
+    Response model for search-a-licious request.
+    """
+
     hits: List[ProductData]

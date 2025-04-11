@@ -9,7 +9,7 @@ from app.schemas.open_food_facts.external import ProductData
 @pytest.mark.asyncio
 async def test_get_off_knowledge_panel(async_client: AsyncClient, sample_product_data: ProductData):
     """Test our knowledge panel endpoint"""
-    mock_response_data = {"hits": [sample_product_data]}
+    mock_response_data = {"product": sample_product_data}
 
     mock_response = AsyncMock()
     mock_response.json = MagicMock(return_value=mock_response_data)
