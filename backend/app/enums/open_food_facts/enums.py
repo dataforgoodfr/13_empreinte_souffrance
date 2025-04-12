@@ -57,7 +57,7 @@ class PainIntensity(StrEnum):
     @classmethod
     def get_intensity_order(cls) -> list["PainIntensity"]:
         """Return the order of pain intensities from most to least severe."""
-        return [cls.EXCRUCIATING, cls.DISABLING, cls.HURTFUL, cls.ANNOYING]
+        return [cls.ANNOYING, cls.HURTFUL, cls.DISABLING, cls.EXCRUCIATING]
 
 
 class PainType(StrEnum):
