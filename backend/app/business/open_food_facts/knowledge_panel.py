@@ -7,7 +7,7 @@ from pydantic import HttpUrl, ValidationError
 from app.business.open_food_facts.pain_report_calculator import PainReportCalculator
 from app.config.exceptions import ResourceNotFoundException
 from app.enums.open_food_facts.enums import AnimalType, PainType
-from app.schemas.open_food_facts.external import ProductData, ProductResponseV1
+from app.schemas.open_food_facts.external import ProductData, ProductResponse, ProductResponseSearchALicious
 from app.schemas.open_food_facts.internal import (
     AnimalPainReport,
     BreedingTypeAndWeight,
@@ -26,8 +26,8 @@ logger = logging.getLogger("app")
 
 async def get_data_from_off_v3(barcode: str, locale: str) -> ProductData:
     """
-    Retrieve useful product data from OFF using v3 to compute the breeding type and the weight of animal product
-    We actually use the OFF Search-a-licious API.
+    Retrieve useful product data from OFF API v3 to compute the breeding type and the weight of animal product
+
     If an error occurs, we raise a ResourceNotFoundException to return a clean response to OFF
 
     Args:
@@ -45,30 +45,31 @@ async def get_data_from_off_v3(barcode: str, locale: str) -> ProductData:
         async with httpx.AsyncClient() as client:
             response = await client.get(url)
             response.raise_for_status()  # Raise exception for 4XX/5XX responses
-            product_raw = response.json()["product"]
+            json_response = response.json()
     except Exception as e:
         logger.warning(f"Can't get product data from OFF API: {barcode}")
         raise ResourceNotFoundException(f"Can't get product data from OFF API: {barcode}") from e
 
-    if not product_raw:
+    if product := json_response.get("product"):
+        if product_name_with_locale in product:
+            product["product_name"] = product[product_name_with_locale]
+    else:
         raise ResourceNotFoundException(f"No hits returned by OFF API: {barcode}")
 
-    if product_name_with_locale in product_raw:
-        product_raw["product_name"] = product_raw[product_name_with_locale]
-
     try:
-        product_data = ProductData.model_validate(product_raw)
+        product_response = ProductResponse.model_validate(json_response)
     except Exception as e:
         logger.error(f"Failed to validate product data: {e}")
         raise ResourceNotFoundException(f"Failed to validate product data retrieved from OFF: {barcode}") from e
 
-    return product_data
+    return product_response.product
 
 
-async def get_data_from_off(barcode: str, locale: str) -> ProductData:
+async def get_data_from_off_search_a_licious(barcode: str, locale: str) -> ProductData:
     """
-    Retrieve useful product data from OFF to compute the breeding type and the weight of animal product
-    We actually use the OFF Search-a-licious API.
+    Retrieve useful product data from OFF search-a-licious API
+    to compute the breeding type and the weight of animal product
+
     If an error occurs, we raise a ResourceNotFoundException to return a clean response to OFF
 
     Args:
@@ -111,7 +112,7 @@ async def get_data_from_off(barcode: str, locale: str) -> ProductData:
         hits[0]["product_name"] = hits[0][product_name_with_locale]
 
     try:
-        product_response = ProductResponseV1.model_validate(json_response)
+        product_response = ProductResponseSearchALicious.model_validate(json_response)
     except ValidationError as e:
         logger.error(f"Failed to validate product data: {e}")
         raise ResourceNotFoundException(f"Failed to validate product data retrieved from OFF: {barcode}") from e
@@ -121,7 +122,6 @@ async def get_data_from_off(barcode: str, locale: str) -> ProductData:
         raise ResourceNotFoundException(f"No hits returned by OFF API: {barcode}")
 
     product_data = product_response.hits[0]
-
     return product_data
 
 
