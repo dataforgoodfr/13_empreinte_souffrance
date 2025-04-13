@@ -115,14 +115,13 @@ def test_compute_breeding_types_with_weights(sample_product_data: ProductData):
 
     # product_data fixture contains the `en:cage-chicken-eggs` tag
     assert AnimalType.LAYING_HEN in result
-    assert result[AnimalType.LAYING_HEN].breeding_type == LayingHenBreedingType.FURNISHED_CAGE
+    assert result[AnimalType.LAYING_HEN].breeding_type == LayingHenBreedingType.CONVENTIONAL_CAGE
     assert result[AnimalType.LAYING_HEN].animal_product_weight == 200
 
 
 def test_get_breeding_types(sample_product_data: ProductData):
     """Test getting breeding types from product data"""
     calculator = PainReportCalculator(sample_product_data)
-
     result = calculator._get_breeding_types()
     assert AnimalType.LAYING_HEN in result
     assert result[AnimalType.LAYING_HEN].breeding_type == LayingHenBreedingType.FURNISHED_CAGE

@@ -122,6 +122,7 @@ async def get_data_from_off_search_a_licious(barcode: str, locale: str) -> Produ
         raise ResourceNotFoundException(f"No hits returned by OFF API: {barcode}")
 
     product_data = product_response.hits[0]
+
     return product_data
 
 
