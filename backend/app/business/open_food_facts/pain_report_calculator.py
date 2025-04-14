@@ -151,9 +151,7 @@ class PainReportCalculator:
 
             # Check if only one breeding_type matched
             if len(matched_breeding_types) == 1:
-                breeding_type = LayingHenBreedingType(
-                    matched_breeding_types[0]
-                ).get_more_specific_breeding_from_country(countries_tags)
+                breeding_type = matched_breeding_types[0].get_more_specific_breeding_from_country(countries_tags)
                 breeding_types_by_animal[animal_type] = BreedingTypeAndWeight(breeding_type=breeding_type)
         return breeding_types_by_animal
 
