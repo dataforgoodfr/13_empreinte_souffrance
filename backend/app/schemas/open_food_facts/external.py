@@ -13,7 +13,7 @@ class ProductData(BaseModel):
     image_url: HttpUrl | None = None
     product_name: str
     product_quantity_unit: str | None = None
-    product_quantity: int | None = None
+    product_quantity: float | None = None
     allergens_tags: List[str] | None = None
     ingredients_tags: List[str] | None = None
     ingredients: List[dict] | None = None

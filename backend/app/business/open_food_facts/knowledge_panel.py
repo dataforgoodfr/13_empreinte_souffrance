@@ -457,7 +457,7 @@ class KnowledgePanelGenerator:
         return html_template.format(
             animal_name=animal_type.translated_name(self._),
             breeding_type=breeding_type_with_weight.breeding_type.translated_name(self._),
-            weight=breeding_type_with_weight.animal_product_weight,
+            weight=int(breeding_type_with_weight.animal_product_weight),
         )
 
     def _format_duration(self, seconds: int) -> str:

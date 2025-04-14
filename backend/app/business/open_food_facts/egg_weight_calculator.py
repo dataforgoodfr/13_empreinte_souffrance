@@ -7,19 +7,18 @@ AVERAGE_EGG_WEIGHT = 50
 
 
 UNIT_CONVERSIONS = {
-    "pcs": lambda q: int(q) * AVERAGE_EGG_WEIGHT,
-    "sans": lambda q: int(q) * AVERAGE_EGG_WEIGHT,
-    "unite": lambda q: int(q) * AVERAGE_EGG_WEIGHT,
-    "g": lambda q: int(q),
-    "gr": lambda q: int(q),
-    "gramm": lambda q: int(q),
-    "oz": lambda q: int(float(q) * 28.35),
-    "lbs": lambda q: int(float(q) * 453.59),
-    "ml": lambda q: int(float(q) * 1.03),
-    "l": lambda q: int(float(q) * 1030),
-    "litres": lambda q: int(float(q) * 1030),
+    "pcs": lambda q: float(q) * AVERAGE_EGG_WEIGHT,
+    "sans": lambda q: float(q) * AVERAGE_EGG_WEIGHT,
+    "unite": lambda q: float(q) * AVERAGE_EGG_WEIGHT,
+    "g": lambda q: float(q),
+    "gr": lambda q: float(q),
+    "gramm": lambda q: float(q),
+    "oz": lambda q: float(q) * 28.35,
+    "lbs": lambda q: float(q) * 453.59,
+    "ml": lambda q: float(q) * 1.03,
+    "l": lambda q: float(q) * 1030,
+    "litres": lambda q: float(q) * 1030,
 }
-
 
 EGG_WEIGHTS_BY_TAG = {
     60: {"large-eggs", "gros-oeufs"},
@@ -50,7 +49,7 @@ def get_number_of_eggs(categories_tags: List[str]) -> int:
     return 0
 
 
-def get_total_egg_weight_from_tags(categories_tags: List[str]) -> int:
+def get_total_egg_weight_from_tags(categories_tags: List[str]) -> float:
     """
     Calculates total egg weight based on standard weights and pack size.
     """
@@ -59,7 +58,7 @@ def get_total_egg_weight_from_tags(categories_tags: List[str]) -> int:
     return weight_per_egg * num_eggs
 
 
-def get_egg_weight_from_quantity(quantity: int, unit: str) -> int:
+def get_egg_weight_from_quantity(quantity: float, unit: str) -> float:
     """
     Converts product quantity and unit into weight in grams.
     """
@@ -73,7 +72,7 @@ def get_egg_weight_from_quantity(quantity: int, unit: str) -> int:
     return 0
 
 
-def calculate_egg_weight(product_data: ProductData) -> int:
+def calculate_egg_weight(product_data: ProductData) -> float:
     """
     Calculates the weight of eggs based on the product data.
 
