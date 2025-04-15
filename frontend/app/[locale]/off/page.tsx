@@ -58,7 +58,24 @@ export default function KnowledgePanel() {
   const locale = useCurrentLocale() as 'fr' | 'en';
   const t = useI18n();
 
-  const barcodes = ['3450970045360', '3270190205685', 'custom'];
+  const barcodes = [
+    '3450970045360', // cage eggs from France
+    '2000000124898', // cage eggs from usa
+    '8003636004529', // no specific category
+    '3560071098278', // both en:free-range-chicken-eggs AND en:cage-chicken-eggs
+    '3270190205685', // free-range chicken eggs from France
+    '0605388714565 ', // no specific category
+    '50326686', // cage chicken eggs from UK
+    '4311501688120', // barn chicken eggs from Germany
+    '4056489292395 ', // free-range eggs from Germany
+    '9413000012057', // free-range eggs from New-Zealand
+    '9414674989591', // cage eggs from New-Zealand
+    '5202930932252', // free-range eggs, no country
+    '9313715907009', // Poultry chicken barcode
+    '5010482558413', // cage, France and UK
+    '3372140000101', // cage, 2 countries
+    'custom',
+  ];
 
   useEffect(() => {
     if (selectedBarcode && selectedBarcode !== 'custom') {

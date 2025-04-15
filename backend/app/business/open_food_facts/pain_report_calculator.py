@@ -6,6 +6,7 @@ from app.enums.open_food_facts.enums import (
     TAGS_BY_ANIMAL_TYPE_AND_BREEDING_TYPE,
     TIME_IN_PAIN_FOR_100G_IN_SECONDS,
     AnimalType,
+    LayingHenBreedingType,
     PainIntensity,
     PainType,
 )
@@ -137,17 +138,21 @@ class PainReportCalculator:
             A dictionary mapping animal types to BreedingTypeAndWeight objects with detected breeding types
         """
         breeding_types_by_animal = {}
+        countries_tags = self.product_data.countries_tags
         for animal_type, tags_by_breeding_type in TAGS_BY_ANIMAL_TYPE_AND_BREEDING_TYPE.items():
             # Example of what we get from the for loop:
             # animal_type: AnimalType.LAYING_HEN
             # tags_by_breeding_type: LayingHenBreedingType.FURNISHED_CAGE: ["en:cage-chicken-eggs"]
+            matched_breeding_types = [
+                breeding_type
+                for breeding_type, tags in tags_by_breeding_type.items()
+                if self.product_data.categories_tags and any(tag in self.product_data.categories_tags for tag in tags)
+            ]
 
-            for breeding_type, tags in tags_by_breeding_type.items():
-                if self.product_data.categories_tags and any(tag in self.product_data.categories_tags for tag in tags):
-                    # Set the breeding type if any of the tags is present
-                    breeding_types_by_animal[animal_type] = BreedingTypeAndWeight(breeding_type=breeding_type)
-                    break
-
+            # Check if only one breeding_type matched
+            if len(matched_breeding_types) == 1:
+                breeding_type = matched_breeding_types[0].get_more_specific_breeding_from_country(countries_tags)
+                breeding_types_by_animal[animal_type] = BreedingTypeAndWeight(breeding_type=breeding_type)
         return breeding_types_by_animal
 
     def _get_breeding_types_with_weights(
