@@ -73,9 +73,7 @@ def main():
         if response.status_code == 200:
             print(f"[{index}/{total}] Tag added for product '{product}'.")
         else:
-            print(
-                f"[{index}/{total}] Error for product '{product}': {response.status_code} - {response.text}"
-            )
+            print(f"[{index}/{total}] Error for product '{product}': {response.status_code} - {response.text}")
 
     print("\nDone.")
 

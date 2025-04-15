@@ -31,16 +31,23 @@ def client() -> TestClient:
 
 
 @pytest.fixture
-def product_data() -> ProductData:
+def sample_product_data() -> ProductData:
     """
     Fixture that provides sample product data for testing.
-    Contains cage chicken eggs category.
+    Contains cage chicken eggs category...
     """
     return ProductData(
         categories_tags=["cat1", "en:cage-chicken-eggs"],
         labels_tags=["label1", "label2"],
         product_name="Fake product name",
         image_url=HttpUrl("https://example.com/image.jpg"),
+        product_quantity=200,
+        product_quantity_unit="g",
+        allergens_tags=[],
+        ingredients_tags=[],
+        ingredients=[],
+        countries="fr",
+        countries_tags=["en:france"],
     )
 
 

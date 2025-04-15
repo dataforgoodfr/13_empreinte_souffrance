@@ -140,9 +140,7 @@ def export_summary_csv(data: List[Dict]) -> None:
                 "siret": entry.get("siret", ""),
                 "Nombre total d'inspections": len(inspections),
                 "Nombre de document d'inspection": docs_inspection,
-                "Nombre de document hors inspection": len(
-                    entry.get("documentsHorsInspection", [])
-                ),
+                "Nombre de document hors inspection": len(entry.get("documentsHorsInspection", [])),
                 "date_maj": entry.get("date_maj", ""),
             }
 
