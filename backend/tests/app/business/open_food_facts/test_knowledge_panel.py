@@ -106,8 +106,20 @@ async def test_get_data_from_off_http_call_exception(get_data_from_off_function:
             await get_data_from_off_function(barcode, locale="en")
 
 
-def test_compute_breeding_types_with_weights(sample_product_data: ProductData):
+@pytest.mark.parametrize(
+    "countries, expected_breeding_types",
+    [
+        (["en:france"], LayingHenBreedingType.FURNISHED_CAGE),
+        (["en:united-states"], LayingHenBreedingType.CONVENTIONAL_CAGE),
+    ],
+)
+def test_compute_breeding_types_with_weights(
+    sample_product_data: ProductData,
+    countries,
+    expected_breeding_types,
+):
     """Test computing breeding types with weights"""
+    sample_product_data.countries_tags = countries
     calculator = PainReportCalculator(sample_product_data)
 
     breeding_types = calculator._get_breeding_types()
@@ -115,7 +127,7 @@ def test_compute_breeding_types_with_weights(sample_product_data: ProductData):
 
     # product_data fixture contains the `en:cage-chicken-eggs` tag
     assert AnimalType.LAYING_HEN in result
-    assert result[AnimalType.LAYING_HEN].breeding_type == LayingHenBreedingType.CONVENTIONAL_CAGE
+    assert result[AnimalType.LAYING_HEN].breeding_type == expected_breeding_types
     assert result[AnimalType.LAYING_HEN].animal_product_weight == 200
 
 
