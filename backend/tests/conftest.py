@@ -47,7 +47,7 @@ def sample_product_data() -> ProductData:
         ingredients_tags=[],
         ingredients=[],
         countries="fr",
-        countries_tags=["en:france", "en:united-states"],
+        countries_tags=["en:france"],
     )
 
 
