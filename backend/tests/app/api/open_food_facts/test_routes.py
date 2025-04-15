@@ -1,4 +1,4 @@
-from unittest.mock import AsyncMock, MagicMock, patch
+from unittest.mock import AsyncMock, MagicMock, Mock, patch
 
 import pytest
 from httpx import AsyncClient
@@ -13,7 +13,7 @@ async def test_get_off_knowledge_panel(async_client: AsyncClient, sample_product
 
     mock_response = AsyncMock()
     mock_response.json = MagicMock(return_value=mock_response_data)
-    mock_response.raise_for_status = AsyncMock(return_value=None)
+    mock_response.raise_for_status = Mock(return_value=None)
 
     with patch("app.business.open_food_facts.knowledge_panel.httpx.AsyncClient") as mock_http_client:
         # Get the instance returned by the async context
