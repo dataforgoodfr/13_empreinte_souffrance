@@ -168,7 +168,7 @@ TIME_IN_PAIN_FOR_100G_IN_SECONDS = {
 
 TAGS_BY_ANIMAL_TYPE_AND_BREEDING_TYPE = {
     AnimalType.LAYING_HEN: {
-        LayingHenBreedingType.FREE_RANGE: ["en:free-range-chicken-eggs"],
+        LayingHenBreedingType.FREE_RANGE: ["en:free-range-chicken-eggs", "en:organic-eggs"],
         LayingHenBreedingType.BARN: ["en:barn-chicken-eggs"],
         LayingHenBreedingType.CAGE: ["en:cage-chicken-eggs"],
     },
