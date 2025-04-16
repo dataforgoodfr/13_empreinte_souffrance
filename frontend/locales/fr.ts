@@ -5,12 +5,15 @@ export default {
     badge: "Adopter l'élevage en plein air pour chaque poulet en Europe !",
     animal_welfare: 'Bien-être animal',
     science: 'La science',
-    explained: 'expliqué',
+    explained: 'expliquée',
     paragraph:
       'Découvrez tout ce que vous devez savoir sur ce qu’un poulet vit en élevage et faites des choix éclairés.',
     link: 'Comprendre la méthode',
+    how_much: 'Combien',
+    does_this_hen_suffer_to_produce_eggs: 'souffre cette poule pour produire des oeufs ?',
     returnHome: "Retournez à l'accueil",
   },
+  welfare_footprint_institute: 'Welfare Footprint Institute',
   KnowledgePanel: {
     title: 'Knowledge Panel',
     selectBarcode: 'Sélectionner un code-barres',

@@ -9,8 +9,11 @@ export default {
     paragraph:
       'Discover everything you need to know about what a chicken experiences in livestock farming and make educated choices.',
     link: 'Understand the method',
+    how_much: 'How much',
+    does_this_hen_suffer_to_produce_eggs: 'does this hen suffer to produce eggs ?',
     returnHome: 'Return Home',
   },
+  welfare_footprint_institute: 'Welfare Footprint Institute',
   KnowledgePanel: {
     title: 'Knowledge Panel',
     selectBarcode: 'Select a barcode',

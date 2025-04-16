@@ -12,11 +12,9 @@ export default async function HeroSection() {
           {scopedT('badge')}
         </div>
         <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold text-white">
-          {scopedT('animal_welfare')}
+          <span className="text-green-300">{scopedT('how_much')}</span>
           <br />
-          <span className="text-green-300">{scopedT('science')}</span>
-          <br />
-          {scopedT('explained')}
+          {scopedT('does_this_hen_suffer_to_produce_eggs')}
         </h1>
         <p className="text-white text-justify text-base sm:text-lg font-light max-w-md">{scopedT('paragraph')}</p>
         <Link
