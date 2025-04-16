@@ -1,11 +1,27 @@
-import HeroSection from '@/app/[locale]/ui/general/hero-section';
+import HeroSection from '@/app/[locale]/ui/general/home-page/hero-section';
 import { LocaleSelect } from './ui/localselect';
+import WFISection from '@/app/[locale]/ui/general/home-page/WFI-section';
+import SufferingCausesSection from '@/app/[locale]/ui/general/home-page/suffering-causes-section';
+import PainEquationSection from '@/app/[locale]/ui/general/home-page/pain-equation-section';
+import ResultsSection from '@/app/[locale]/ui/general/home-page/results-section';
+import HumanFoodSection from '@/app/[locale]/ui/general/home-page/human-food-section';
+import CallToActionSection from '@/app/[locale]/ui/general/home-page/call-to-action-section';
+import BookAnnouncementSection from '@/app/[locale]/ui/general/home-page/book-announcement-section';
+import MethodologySection from '@/app/[locale]/ui/general/home-page/methodology-section';
 
 export default function Home() {
   return (
     <>
       <LocaleSelect />
       <HeroSection />
+      <WFISection />
+      <SufferingCausesSection />
+      <PainEquationSection />
+      <ResultsSection />
+      <HumanFoodSection />
+      <MethodologySection />
+      <CallToActionSection />
+      <BookAnnouncementSection />
     </>
   );
 }
