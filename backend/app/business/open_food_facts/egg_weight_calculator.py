@@ -292,7 +292,6 @@ def get_egg_number(product_data: ProductData) -> Optional[int]:
 
     if product_data.categories_tags is not None and "en:chicken-eggs" in product_data.categories_tags:  # oeuf
         extracted_quantity, extracted_unit = extract_quantity_and_unit(product_data.quantity)
-        extracted_quantity = int(extracted_quantity)
         if extracted_quantity is None:
             return None
         elif extracted_unit is None:
