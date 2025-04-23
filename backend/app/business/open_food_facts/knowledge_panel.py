@@ -90,6 +90,7 @@ async def get_data_from_off_search_a_licious(barcode: str, locale: str) -> Produ
         product_name_with_locale,
         "product_quantity_unit",
         "product_quantity",
+        "quantity",
         "allergens_tags",
         "ingredients_tags",
         "ingredients",
