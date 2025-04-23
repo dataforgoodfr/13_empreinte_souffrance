@@ -6,7 +6,6 @@ from app.enums.open_food_facts.enums import (
     TAGS_BY_ANIMAL_TYPE_AND_BREEDING_TYPE,
     TIME_IN_PAIN_FOR_100G_IN_SECONDS,
     AnimalType,
-    LayingHenBreedingType,
     PainIntensity,
     PainType,
 )
