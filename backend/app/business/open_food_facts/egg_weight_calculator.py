@@ -34,15 +34,20 @@ EGG_WEIGHTS_BY_TAG = {
     50: {"en:medium-eggs-pack-of-10", "en:organic-chicken-eggs-medium-size"},
 }
 
+# "6"
 REGEX_NUMBERS_ONLY = r"\s*\d+(\.\d+)?\s*"
+# "6 eggs"
 REGEX_NUMERIC_UNIT = r"\s*(\d+(?:\.\d+)?)\s*((?:[a-zA-Zа-яА-ЯёЁ\u00C0-\u00FFœŒ]+\s*)+)\.?"
+# "x10"
 REGEX_X_NUM = r"[xX]\s*(\d+(?:\.\d+)?)"
+# "10+2 eggs"
 REGEX_ADDITION = r"(\d+)\s*\+\s*(\d+)"
+# "a big box of 10 eggs"
 REGEX_EXTRACT_DIGITS = r"\b(\d{1,3})\b"
 
 DOZEN_EXPRESSIONS = ["dozen", "dozens", "dzn", "doz"]
-MOYEN_EXPRESSIONS = ["m", "moyen", "M", "Moyens", "moyens"]
-LARGE_EXPRESSIONS = ["gros", "l", "xl", "large", "Large", "L", "XL", "Gros"]
+MOYEN_EXPRESSIONS = ["m", "moyen", "moyens"]
+LARGE_EXPRESSIONS = ["gros", "l", "xl", "large"]
 
 
 def get_egg_weight_by_tag(categories_tags: List[str]) -> int:
@@ -73,15 +78,21 @@ def get_total_egg_weight_from_tags(categories_tags: List[str]) -> float:
     """
     num_eggs = get_number_of_eggs(categories_tags)
     weight_per_egg = get_egg_weight_by_tag(categories_tags)
-    if num_eggs > 0 and weight_per_egg == 0:
-        return num_eggs * AVERAGE_EGG_WEIGHT
-    return weight_per_egg * num_eggs
+
+    if num_eggs == 0:
+        return 0
+    if weight_per_egg > 0:
+        return num_eggs * weight_per_egg
+    return num_eggs * AVERAGE_EGG_WEIGHT
 
 
 def get_egg_weight_from_quantity(quantity: str) -> float:
     """
     Parses quantity into weight in grams.
     """
+    if not quantity:
+        return 0
+
     # Case 1: Only numeric (≤30 eggs)
     parsed = False
     if re.fullmatch(REGEX_NUMBERS_ONLY, quantity):
@@ -97,13 +108,13 @@ def get_egg_weight_from_quantity(quantity: str) -> float:
             number = float(match.group(1))
             unit = match.group(2).lower().split()
             # e.g. '1 dozen'
-            if any([u in DOZEN_EXPRESSIONS for u in unit]):
+            if any([u.lower() in DOZEN_EXPRESSIONS for u in unit]):
                 egg_weight = number * 12 * AVERAGE_EGG_WEIGHT
             # e.g. '12 M'
-            elif any([u in MOYEN_EXPRESSIONS for u in unit]):
+            elif any([u.lower() in MOYEN_EXPRESSIONS for u in unit]):
                 egg_weight = number * AVERAGE_EGG_WEIGHT
             # e.g. '12 large'
-            elif any([u in LARGE_EXPRESSIONS for u in unit]):
+            elif any([u.lower() in LARGE_EXPRESSIONS for u in unit]):
                 egg_weight = number * LARGE_EGG_WEIGHT
             else:
                 # e.g. '12 unities'
@@ -137,6 +148,7 @@ def get_egg_weight_from_quantity(quantity: str) -> float:
                 return num * AVERAGE_EGG_WEIGHT
 
     if not parsed:
+        print(f"Could not parse quantity: {quantity}")
         return 0
 
     return 0
