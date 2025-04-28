@@ -34,7 +34,7 @@ def fetch_all_pages() -> List[Dict]:
     print("Fetching API data...")
     while True:
         print(f"  Processing page {current_page}...")
-        response = requests.get(API_URL, params=params, headers=headers)
+        response = requests.get(API_URL, params=params, headers=headers)  # type: ignore
 
         if response.status_code != 200:
             print(f"Error: API request failed with status {response.status_code}")
@@ -46,7 +46,7 @@ def fetch_all_pages() -> List[Dict]:
         if not page_data.get("next"):
             break
 
-        params["page"] += 1
+        params["page"] += 1  # type: ignore
         current_page += 1
 
     print(f"\nTotal records fetched: {len(data)}")
@@ -159,10 +159,10 @@ def export_to_csv(data: List[Dict]) -> None:
         return
 
     # Collect all field names from the data
-    fieldnames = set()
+    fieldnames = set()  # type: ignore
     for entry in data:
         fieldnames.update(entry.keys())
-    fieldnames = list(fieldnames) + ["volailles_count"]
+    fieldnames = list(fieldnames) + ["volailles_count"]  # type: ignore
 
     # Special handling for nested fields
     nested_fields = ["rubriques", "inspections", "documentsHorsInspection"]
