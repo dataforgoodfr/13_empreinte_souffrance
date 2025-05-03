@@ -19,6 +19,7 @@ class ProductData(BaseModel):
     ingredients: List[dict] | None = None
     countries: str | None = None
     countries_tags: List[str] | None = None
+    generic_name: str | None = None
 
 
 class ProductResponse(BaseModel):
