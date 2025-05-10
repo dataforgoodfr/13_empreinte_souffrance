@@ -6,6 +6,18 @@ class AnimalType(StrEnum):
     LAYING_HEN = auto()
     BROILER_CHICKEN = auto()
 
+    @property
+    def categories_tags(self) -> str:
+        """
+        Returns the categories_tags string associated with the animal type.
+        """
+        if self == AnimalType.LAYING_HEN:
+            return "en:eggs"
+        elif self == AnimalType.BROILER_CHICKEN:
+            return "en:chickens"
+        else:
+            raise ValueError(f"Unknown animal type: {self.value}")
+
     def translated_name(self, _: Callable) -> str:
         """Return the human-readable name for this animal type"""
         mappings = {"laying_hen": _("Laying hen"), "broiler_chicken": _("Broiler chicken")}
