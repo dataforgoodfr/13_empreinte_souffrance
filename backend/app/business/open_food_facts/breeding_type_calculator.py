@@ -94,8 +94,8 @@ class BreedingTypeCalculator:
         breeding_types_by_animal = {}
 
         for animal_type in self.patterns_repository._patterns:
-            # Temporary fix to compute pain only for single-ingredient produts
-            # Skip if the animal type category is not in the product catgories_tags
+            # Temporary fix to compute pain only for single-ingredient products
+            # Skip if the animal type category is not in the product categories_tags
             if (
                 not self.product_data.categories_tags
                 or animal_type.categories_tags not in self.product_data.categories_tags
