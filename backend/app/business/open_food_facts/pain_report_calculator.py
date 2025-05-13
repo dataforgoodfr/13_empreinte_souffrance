@@ -1,15 +1,9 @@
 from typing import Dict, List
 
+from app.business.open_food_facts.breeding_type_calculator import BreedingTypeCalculator
 from app.business.open_food_facts.egg_weight_calculator import calculate_egg_weight
 from app.config.exceptions import ResourceNotFoundException
-from app.enums.open_food_facts.enums import (
-    TAGS_BY_ANIMAL_TYPE_AND_BREEDING_TYPE,
-    TIME_IN_PAIN_FOR_100G_IN_SECONDS,
-    AnimalType,
-    LayingHenBreedingType,
-    PainIntensity,
-    PainType,
-)
+from app.enums.open_food_facts.enums import TIME_IN_PAIN_FOR_100G_IN_SECONDS, AnimalType, PainIntensity, PainType
 from app.schemas.open_food_facts.external import ProductData
 from app.schemas.open_food_facts.internal import AnimalPainReport, BreedingTypeAndWeight, PainLevelData, PainReport
 
@@ -133,26 +127,11 @@ class PainReportCalculator:
     def _get_breeding_types(self) -> Dict[AnimalType, BreedingTypeAndWeight]:
         """
         Compute the breeding types from product data.
-
         Returns:
             A dictionary mapping animal types to BreedingTypeAndWeight objects with detected breeding types
         """
-        breeding_types_by_animal = {}
-        countries_tags = self.product_data.countries_tags
-        for animal_type, tags_by_breeding_type in TAGS_BY_ANIMAL_TYPE_AND_BREEDING_TYPE.items():
-            # Example of what we get from the for loop:
-            # animal_type: AnimalType.LAYING_HEN
-            # tags_by_breeding_type: LayingHenBreedingType.FURNISHED_CAGE: ["en:cage-chicken-eggs"]
-            matched_breeding_types = [
-                breeding_type
-                for breeding_type, tags in tags_by_breeding_type.items()
-                if self.product_data.categories_tags and any(tag in self.product_data.categories_tags for tag in tags)
-            ]
-
-            # Check if only one breeding_type matched
-            if len(matched_breeding_types) == 1:
-                breeding_type = matched_breeding_types[0].get_more_specific_breeding_from_country(countries_tags)
-                breeding_types_by_animal[animal_type] = BreedingTypeAndWeight(breeding_type=breeding_type)
+        btc = BreedingTypeCalculator(self.product_data)
+        breeding_types_by_animal = btc.get_breeding_types_by_animal()
         return breeding_types_by_animal
 
     def _get_breeding_types_with_weights(

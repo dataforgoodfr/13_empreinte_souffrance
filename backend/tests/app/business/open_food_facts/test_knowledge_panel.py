@@ -1,9 +1,16 @@
+import re
 from typing import Callable
 from unittest.mock import AsyncMock, MagicMock, patch
 
 import httpx
 import pytest
 
+from app.business.open_food_facts.breeding_type_calculator import (
+    BreedingTypeCalculator,
+    get_barn_regex,
+    get_cage_regex,
+    get_free_range_regex,
+)
 from app.business.open_food_facts.knowledge_panel import (
     KnowledgePanelGenerator,
     get_data_from_off_search_a_licious,
@@ -226,3 +233,39 @@ def test_get_knowledge_panel_response(pain_report):
     for panel in response.panels.values():
         assert hasattr(panel, "elements")
         assert hasattr(panel, "title_element")
+
+
+@pytest.mark.parametrize(
+    "tag,should_match",
+    [("œufs-plein-air-non-bios", True), ("en:free-range-chicken-eggs", True), ("chicken-eggs-not-free-range", False)],
+)
+def test_free_range_regex(tag, should_match):
+    pattern = get_free_range_regex()
+    assert bool(re.search(pattern, BreedingTypeCalculator._clean(tag))) == should_match
+
+
+@pytest.mark.parametrize(
+    "tag,should_match",
+    [
+        ("œufs élevés AU SOL*", True),
+        ("barn-chicken-eggs-not-organic", True),
+        ("produit bio", False),
+    ],
+)
+def test_barn_regex(tag, should_match):
+    pattern = get_barn_regex()
+    assert bool(re.search(pattern, BreedingTypeCalculator._clean(tag))) == should_match
+
+
+@pytest.mark.parametrize(
+    "tag,should_match",
+    [
+        ("eggs-from-caged-hens", True),
+        ("Produit hors Cage", False),
+        ("cage-free-chicken-eggs", False),
+        ("ces oeufs ne proviennent pas de poules éléveées en CAGE", False),
+    ],
+)
+def test_cage_regex(tag, should_match):
+    pattern = get_cage_regex()
+    assert bool(re.search(pattern, BreedingTypeCalculator._clean(tag))) == should_match
