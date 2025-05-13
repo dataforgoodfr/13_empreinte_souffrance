@@ -43,6 +43,9 @@ class BreedingPatternsRepository:
             return {("exact", "categories_tags"): {}, ("regex", "all"): {}}
         return self._patterns.get(animal_type, {})
 
+    def get_all_patterns(self) -> dict[AnimalType, AnimalPatternMap]:
+        return self._patterns.copy()
+
     @staticmethod
     def _load_patterns() -> dict[AnimalType, AnimalPatternMap]:
         """
@@ -93,7 +96,7 @@ class BreedingTypeCalculator:
         """
         breeding_types_by_animal = {}
 
-        for animal_type in self.patterns_repository._patterns:
+        for animal_type in self.patterns_repository.get_all_patterns():
             # Temporary fix to compute pain only for single-ingredient products
             # Skip if the animal type category is not in the product categories_tags
             if (
