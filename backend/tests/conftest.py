@@ -53,50 +53,6 @@ def sample_product_data() -> ProductData:
 
 
 @pytest.fixture
-def weight_product_quantity_and_unit() -> ProductData:
-    """
-    Fixture that provides sample product data for testing.
-    Contains data from product with code 9338295000049
-    """
-    return ProductData(
-        categories_tags=["en:farming-productsen:eggsen:chicken-eggs", "en:free-range-chicken-eggs"],
-        labels_tags=[],
-        product_name="Eggs",
-        image_url=HttpUrl("https://example.com/image.jpg"),
-        quantity="800 g",
-        product_quantity=800,
-        product_quantity_unit="g",
-        allergens_tags=[],
-        ingredients_tags=[],
-        ingredients=[],
-        countries="au",
-        countries_tags=["en:australia"],
-    )
-
-
-@pytest.fixture
-def weight_quantity_only_digits() -> ProductData:
-    """
-    Fixture that provides sample product data for testing.
-    Contains data from product with code 3770007836007
-    """
-    return ProductData(
-        categories_tags=["en:farming-productsen:eggsen:chicken-eggs", "en:free-range-chicken-eggs"],
-        labels_tags=[],
-        product_name="6 oeufs frais plein air de poules Marans",
-        image_url=HttpUrl("https://example.com/image.jpg"),
-        quantity="6",
-        product_quantity=None,
-        product_quantity_unit=None,
-        allergens_tags=[],
-        ingredients_tags=[],
-        ingredients=[],
-        countries="fr",
-        countries_tags=["en:france"],
-    )
-
-
-@pytest.fixture
 def laying_hen_breeding_type() -> BreedingTypeAndWeight:
     """
     Fixture that provides a sample BreedingTypeAndWeight for laying hens.
@@ -144,3 +100,59 @@ def pain_report(animal_pain_report) -> PainReport:
         product_name="Fake product name",
         product_image_url=HttpUrl("https://example.com/image.jpg"),
     )
+
+
+# Weight testing fixtures
+@pytest.fixture
+def number_only_product():
+    return ProductData(quantity="6")
+
+
+@pytest.fixture
+def numeric_unit_dozen():
+    return ProductData(quantity="1 dozen")
+
+
+@pytest.fixture
+def numeric_unit_moyen():
+    return ProductData(quantity="12 moyens")
+
+
+@pytest.fixture
+def numeric_unit_large():
+    return ProductData(quantity="12 large")
+
+
+@pytest.fixture
+def x_style_product():
+    return ProductData(quantity="x10")
+
+
+@pytest.fixture
+def addition_expression_product():
+    return ProductData(quantity="10 + 2")
+
+
+@pytest.fixture
+def extract_digits_product():
+    return ProductData(quantity="Boîte de 6")
+
+
+@pytest.fixture
+def tagged_large_egg_product():
+    return ProductData(categories_tags=["en:large-eggs", "pack-of-6"])
+
+
+@pytest.fixture
+def product_quantity_with_unit():
+    return ProductData(product_quantity=0.5, product_quantity_unit="lbs")
+
+
+@pytest.fixture
+def unknown_quantity_product():
+    return ProductData(quantity="some weird string")
+
+
+@pytest.fixture
+def no_data_product():
+    return ProductData()

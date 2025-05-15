@@ -11,6 +11,8 @@ from app.business.open_food_facts.breeding_type_calculator import (
     get_cage_regex,
     get_free_range_regex,
 )
+from app.business.open_food_facts.egg_weight_calculator import calculate_egg_weight, AVERAGE_EGG_WEIGHT, \
+    LARGE_EGG_WEIGHT
 from app.business.open_food_facts.knowledge_panel import (
     KnowledgePanelGenerator,
     get_data_from_off_search_a_licious,
@@ -269,3 +271,25 @@ def test_barn_regex(tag, should_match):
 def test_cage_regex(tag, should_match):
     pattern = get_cage_regex()
     assert bool(re.search(pattern, BreedingTypeCalculator._clean(tag))) == should_match
+
+
+# Test weight calculator
+@pytest.mark.parametrize(
+    "product_fixture, expected_weight",
+    [
+        ("number_only_product", 6 * AVERAGE_EGG_WEIGHT),
+        ("numeric_unit_dozen", 12 * AVERAGE_EGG_WEIGHT),
+        ("numeric_unit_moyen", 12 * AVERAGE_EGG_WEIGHT),
+        ("numeric_unit_large", 12 * LARGE_EGG_WEIGHT),
+        ("x_style_product", 10 * AVERAGE_EGG_WEIGHT),
+        ("addition_expression_product", 12 * AVERAGE_EGG_WEIGHT),
+        ("extract_digits_product", 6 * AVERAGE_EGG_WEIGHT),
+        ("tagged_large_egg_product", 6 * LARGE_EGG_WEIGHT),
+        ("product_quantity_with_unit", pytest.approx(0.5 * 453.59, 0.1)),
+        ("unknown_quantity_product", 0),
+        ("no_data_product", 0),
+    ],
+)
+def test_calculate_egg_weight(product_fixture, expected_weight, request):
+    product = request.getfixturevalue(product_fixture)
+    assert calculate_egg_weight(product) == expected_weight
