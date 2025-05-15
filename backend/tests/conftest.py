@@ -41,6 +41,7 @@ def sample_product_data() -> ProductData:
         labels_tags=["label1", "label2"],
         product_name="Fake product name",
         image_url=HttpUrl("https://example.com/image.jpg"),
+        quantity="200",
         product_quantity=200,
         product_quantity_unit="g",
         allergens_tags=[],
@@ -98,4 +99,62 @@ def pain_report(animal_pain_report) -> PainReport:
         animals=[animal_pain_report],
         product_name="Fake product name",
         product_image_url=HttpUrl("https://example.com/image.jpg"),
+    )
+
+
+# Weight testing fixtures
+@pytest.fixture
+def number_only_product():
+    return ProductData(product_name="Fake product name", quantity="6")
+
+
+@pytest.fixture
+def numeric_unit_dozen():
+    return ProductData(product_name="Fake product name", quantity="1 dozen")
+
+
+@pytest.fixture
+def numeric_unit_moyen():
+    return ProductData(product_name="Fake product name", quantity="12 moyens")
+
+
+@pytest.fixture
+def numeric_unit_large():
+    return ProductData(product_name="Fake product name", quantity="12 large")
+
+
+@pytest.fixture
+def x_style_product():
+    return ProductData(product_name="Fake product name", quantity="x10")
+
+
+@pytest.fixture
+def addition_expression_product():
+    return ProductData(product_name="Fake product name", quantity="10 + 2")
+
+
+@pytest.fixture
+def extract_digits_product():
+    return ProductData(product_name="Fake product name", quantity="Boîte de 6")
+
+
+@pytest.fixture
+def tagged_large_egg_product():
+    return ProductData(product_name="Fake product name", categories_tags=["en:large-eggs", "pack-of-6"])
+
+
+@pytest.fixture
+def product_quantity_with_unit():
+    return ProductData(product_name="Fake product name", product_quantity=0.5, product_quantity_unit="lbs")
+
+
+@pytest.fixture
+def unknown_quantity_product():
+    return ProductData(product_name="Fake product name", quantity="some weird string")
+
+
+@pytest.fixture
+def no_data_product():
+    return ProductData(
+        product_name="Fake product name",
     )
