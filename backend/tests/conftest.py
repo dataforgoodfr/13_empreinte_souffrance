@@ -105,54 +105,56 @@ def pain_report(animal_pain_report) -> PainReport:
 # Weight testing fixtures
 @pytest.fixture
 def number_only_product():
-    return ProductData(quantity="6")
+    return ProductData(product_name="Fake product name", quantity="6")
 
 
 @pytest.fixture
 def numeric_unit_dozen():
-    return ProductData(quantity="1 dozen")
+    return ProductData(product_name="Fake product name", quantity="1 dozen")
 
 
 @pytest.fixture
 def numeric_unit_moyen():
-    return ProductData(quantity="12 moyens")
+    return ProductData(product_name="Fake product name", quantity="12 moyens")
 
 
 @pytest.fixture
 def numeric_unit_large():
-    return ProductData(quantity="12 large")
+    return ProductData(product_name="Fake product name", quantity="12 large")
 
 
 @pytest.fixture
 def x_style_product():
-    return ProductData(quantity="x10")
+    return ProductData(product_name="Fake product name", quantity="x10")
 
 
 @pytest.fixture
 def addition_expression_product():
-    return ProductData(quantity="10 + 2")
+    return ProductData(product_name="Fake product name", quantity="10 + 2")
 
 
 @pytest.fixture
 def extract_digits_product():
-    return ProductData(quantity="Boîte de 6")
+    return ProductData(product_name="Fake product name", quantity="Boîte de 6")
 
 
 @pytest.fixture
 def tagged_large_egg_product():
-    return ProductData(categories_tags=["en:large-eggs", "pack-of-6"])
+    return ProductData(product_name="Fake product name", categories_tags=["en:large-eggs", "pack-of-6"])
 
 
 @pytest.fixture
 def product_quantity_with_unit():
-    return ProductData(product_quantity=0.5, product_quantity_unit="lbs")
+    return ProductData(product_name="Fake product name", product_quantity=0.5, product_quantity_unit="lbs")
 
 
 @pytest.fixture
 def unknown_quantity_product():
-    return ProductData(quantity="some weird string")
+    return ProductData(product_name="Fake product name", quantity="some weird string")
 
 
 @pytest.fixture
 def no_data_product():
-    return ProductData()
+    return ProductData(
+        product_name="Fake product name",
+    )

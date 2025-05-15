@@ -11,8 +11,11 @@ from app.business.open_food_facts.breeding_type_calculator import (
     get_cage_regex,
     get_free_range_regex,
 )
-from app.business.open_food_facts.egg_weight_calculator import calculate_egg_weight, AVERAGE_EGG_WEIGHT, \
-    LARGE_EGG_WEIGHT
+from app.business.open_food_facts.egg_weight_calculator import (
+    AVERAGE_EGG_WEIGHT,
+    LARGE_EGG_WEIGHT,
+    calculate_egg_weight,
+)
 from app.business.open_food_facts.knowledge_panel import (
     KnowledgePanelGenerator,
     get_data_from_off_search_a_licious,

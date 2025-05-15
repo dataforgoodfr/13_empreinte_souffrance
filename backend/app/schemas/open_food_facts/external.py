@@ -11,7 +11,7 @@ class ProductData(BaseModel):
     categories_tags: List[str] | None = None
     labels_tags: List[str] | None = None
     image_url: HttpUrl | None = None
-    product_name: str | None = None
+    product_name: str
     quantity: str | None = None
     product_quantity_unit: str | None = None
     product_quantity: float | None = None

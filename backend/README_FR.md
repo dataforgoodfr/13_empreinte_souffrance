@@ -1,4 +1,4 @@
-3# Contribuer au projet Empreinte Souffrance
+# Contribuer au projet Empreinte Souffrance
 
 ## Installer pre-commit
 
