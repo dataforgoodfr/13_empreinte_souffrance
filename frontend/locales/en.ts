@@ -1,6 +1,6 @@
 export default {
   suffering_footprint: 'Suffering footprint',
-  GoFurther:{
+  GoFurther: {
     title: 'Go Further',
     downloadMediaKit: 'Download the media kit',
     share: 'Share the website',

@@ -1,6 +1,6 @@
 export default {
   suffering_footprint: 'Empreinte souffrance',
-  GoFurther:{
+  GoFurther: {
     title: 'Aller plus loin',
     downloadMediaKit: 'Télécharger le kit presse',
     share: 'Partager la page',
