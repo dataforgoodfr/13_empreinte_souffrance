@@ -30,7 +30,7 @@ jobs:
 
       # Check types first
       - name: Check types
-        run: npm run type-check
+        run: npm run type-check -p tsconfig.json
 
       # Run unit tests from pre-commit config
       - name: Run unit tests (Jest)
