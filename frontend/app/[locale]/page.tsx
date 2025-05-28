@@ -8,6 +8,7 @@ import HumanFoodSection from '@/app/[locale]/ui/general/home-page/human-food-sec
 import CallToActionSection from '@/app/[locale]/ui/general/home-page/call-to-action-section';
 import BookAnnouncementSection from '@/app/[locale]/ui/general/home-page/book-announcement-section';
 import MethodologySection from '@/app/[locale]/ui/general/home-page/methodology-section';
+import GoFurtherSection from "@/app/[locale]/ui/general/home-page/go-further-section";
 
 export default function Home() {
   return (
@@ -21,6 +22,7 @@ export default function Home() {
       <HumanFoodSection />
       <MethodologySection />
       <CallToActionSection />
+      <GoFurtherSection />
       <BookAnnouncementSection />
     </>
   );

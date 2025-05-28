@@ -1,6 +1,12 @@
-// locales/en.ts
 export default {
   suffering_footprint: 'Suffering footprint',
+  GoFurther:{
+    title: 'Go Further',
+    downloadMediaKit: 'Download the media kit',
+    share: 'Share the website',
+    methodology: 'Understand the methodology',
+    aboutThisWebsite: 'About this website',
+  },
   Home: {
     badge: 'Embracing free-range for every chicken in Europe!',
     animal_welfare: 'Animal Welfare',

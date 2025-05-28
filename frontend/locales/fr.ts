@@ -1,6 +1,12 @@
-// locales/fr.ts
 export default {
   suffering_footprint: 'Empreinte souffrance',
+  GoFurther:{
+    title: 'Aller plus loin',
+    downloadMediaKit: 'Télécharger le kit presse',
+    share: 'Partager la page',
+    methodology: 'Découvrir la méthodologie',
+    aboutThisWebsite: 'À propos de ce site',
+  },
   Home: {
     badge: "Adopter l'élevage en plein air pour chaque poulet en Europe !",
     animal_welfare: 'Bien-être animal',
