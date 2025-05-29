@@ -1,23 +1,45 @@
 import { getI18n } from '@/locales/server';
-import Image from 'next/image';
+import ContentWithImageSection from '@/app/[locale]/ui/general/content-with-image-section';
+import SectionHeading from '@/app/[locale]/ui/general/home-page/parts/section-heading';
 
 export default async function ResultsSection() {
   const t = await getI18n();
 
   return (
-    <section className="bg-indigo-800 h-screen p-8 sm:px-16">
-      <div className="w-full">
-        <h1 className="w-full text-5xl sm:text-6xl lg:text-7xl font-bold text-white text-center">
-          <span className="text-green-300">{t('Home.science')}</span>
-          &nbsp;{t('Home.explained')}
-        </h1>
-      </div>
-      <div className="w-full flex items-center justify-between">
-        <div className="max-w-xl space-y-6">
-          <p className="text-2xl text-white">{t('welfare_footprint_institute')}</p>
-        </div>
-        <div className="hidden lg:block">
-          <Image src="/tmp_chicken-image.webp" width={560} height={620} className="block" alt="Picture of a chicken" />
+    <section className="min-h-screen p-8 sm:px-16 w-full" aria-labelledby="results-heading">
+      <SectionHeading title={t('Results.title')} heading_number="3" />
+      <div className="flex flex-col justify-center items-center">
+        <div className="border-1 border-[#ff7f7f] w-full md:5/6 lg:w-4/6">
+          <ContentWithImageSection
+            text_heading={t('Results.agony.title')}
+            text_content={t('Results.agony.content')}
+            image_url="agony.png"
+            image_description={t('Results.agony.image_description')}
+            image_position="right"
+            hide_image_on_small_screen={true}
+          />
+          <ContentWithImageSection
+            text_heading={t('Results.discomfort.title')}
+            text_content={t('Results.discomfort.content')}
+            image_url="discomfort.png"
+            image_description={t('Results.discomfort.image_description')}
+            image_position="left"
+          />
+          <ContentWithImageSection
+            text_heading={t('Results.suffering_reduction.title')}
+            text_content={t('Results.suffering_reduction.content')}
+            image_url="suffering_reduction.png"
+            image_description={t('Results.suffering_reduction.image_description')}
+            image_position="right"
+            hide_image_on_small_screen={true}
+          />
+          <ContentWithImageSection
+            text_heading={t('Results.cage_figure.title')}
+            text_content={t('Results.cage_figure.content')}
+            image_url="cage_figure.png"
+            image_description={t('Results.cage_figure.image_description')}
+            image_position="left"
+          />
         </div>
       </div>
     </section>
