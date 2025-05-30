@@ -4,16 +4,20 @@ from pydantic import BaseModel, HttpUrl
 
 from app.enums.open_food_facts.enums import (
     AnimalType,
-    BroilerChickenBreedingType,
-    LayingHenBreedingType,
+    BreedingType,
     PainIntensity,
     PainType,
 )
 
 
+class ProductType(BaseModel):
+    is_mixed: bool
+    animal_types: set[AnimalType]
+
+
 # Pain report models, used for calculation
 class BreedingTypeAndWeight(BaseModel):
-    breeding_type: LayingHenBreedingType | BroilerChickenBreedingType
+    breeding_type: BreedingType
     animal_product_weight: float = 0  # in grams
 
 

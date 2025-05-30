@@ -1,5 +1,43 @@
 from collections.abc import Callable
 from enum import StrEnum, auto
+from typing import TypeAlias
+
+
+class LayingHenBreedingType(StrEnum):
+    CAGE = auto()
+    CONVENTIONAL_CAGE = auto()
+    FURNISHED_CAGE = auto()
+    BARN = auto()
+    FREE_RANGE = auto()
+    UNKNOWN = auto()
+
+    def translated_name(self, _: Callable) -> str:
+        """Return the human-readable name for this breeding type"""
+        mappings = {
+            "cage": _("Cage"),
+            "conventional_cage": _("Conventional cage"),
+            "furnished_cage": _("Furnished cage"),
+            "barn": _("Barn"),
+            "free_range": _("Free range"),
+            "unknown": _("Unknown breeding type"),
+        }
+        return mappings.get(self.value, self.value)
+
+
+class BroilerChickenBreedingType(StrEnum):
+    FREE_RANGE = auto()
+    UNKNOWN = auto()
+
+    def translated_name(self, _: Callable) -> str:
+        """Return the human-readable name for this breeding type"""
+        mappings = {
+            "free_range": _("Free range"),
+            "unknown": _("Unknown breeding type"),
+        }
+        return mappings.get(self.value, self.value)
+
+
+BreedingType: TypeAlias = LayingHenBreedingType | BroilerChickenBreedingType
 
 
 class AnimalType(StrEnum):
@@ -11,44 +49,26 @@ class AnimalType(StrEnum):
         """
         Returns the categories_tags string associated with the animal type.
         """
-        if self == AnimalType.LAYING_HEN:
-            return "en:eggs"
-        elif self == AnimalType.BROILER_CHICKEN:
-            return "en:chickens"
-        else:
-            raise ValueError(f"Unknown animal type: {self.value}")
+        return {AnimalType.LAYING_HEN: "en:chicken-eggs", AnimalType.BROILER_CHICKEN: "en:chickens"}.get(self) or (
+            _ for _ in ()
+        ).throw(ValueError(f"Unknown animal type: {self.value}"))
+
+    @property
+    def unknown_breeding_type(self) -> BreedingType:
+        """
+        Returns the categories_tags string associated with the animal type.
+        """
+        unknown_breeding_types: dict[AnimalType, BreedingType] = {
+            AnimalType.LAYING_HEN: LayingHenBreedingType.UNKNOWN,
+            AnimalType.BROILER_CHICKEN: BroilerChickenBreedingType.UNKNOWN,
+        }
+        return unknown_breeding_types.get(self) or (_ for _ in ()).throw(
+            ValueError(f"Unknown animal type: {self.value}")
+        )
 
     def translated_name(self, _: Callable) -> str:
         """Return the human-readable name for this animal type"""
         mappings = {"laying_hen": _("Laying hen"), "broiler_chicken": _("Broiler chicken")}
-        return mappings.get(self.value, self.value)
-
-
-class LayingHenBreedingType(StrEnum):
-    CAGE = auto()
-    CONVENTIONAL_CAGE = auto()
-    FURNISHED_CAGE = auto()
-    BARN = auto()
-    FREE_RANGE = auto()
-
-    def translated_name(self, _: Callable) -> str:
-        """Return the human-readable name for this breeding type"""
-        mappings = {
-            "cage": _("Cage"),
-            "conventional_cage": _("Conventional cage"),
-            "furnished_cage": _("Furnished cage"),
-            "barn": _("Barn"),
-            "free_range": _("Free range"),
-        }
-        return mappings.get(self.value, self.value)
-
-
-class BroilerChickenBreedingType(StrEnum):
-    FREE_RANGE = auto()
-
-    def translated_name(self, _: Callable) -> str:
-        """Return the human-readable name for this breeding type"""
-        mappings = {"free_range": _("Free range")}
         return mappings.get(self.value, self.value)
 
 
