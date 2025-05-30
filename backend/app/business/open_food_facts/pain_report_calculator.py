@@ -5,7 +5,14 @@ from app.business.open_food_facts.egg_weight_calculator import calculate_egg_wei
 from app.config.exceptions import ResourceNotFoundException
 from app.enums.open_food_facts.enums import TIME_IN_PAIN_FOR_100G_IN_SECONDS, AnimalType, PainIntensity, PainType
 from app.schemas.open_food_facts.external import ProductData
-from app.schemas.open_food_facts.internal import AnimalPainReport, BreedingTypeAndWeight, PainLevelData, PainReport
+from app.schemas.open_food_facts.internal import (
+    AnimalPainReport,
+    BreedingType,
+    BreedingTypeAndWeight,
+    PainLevelData,
+    PainReport,
+    ProductType,
+)
 
 
 class PainReportCalculator:
@@ -21,7 +28,18 @@ class PainReportCalculator:
             product_data: ProductData instance containing categories_tags and labels_tags.
         """
         self.product_data = product_data
-        self.breeding_types_with_weights = self._compute_breeding_types_with_weights()
+        self.product_type = self._get_product_type()
+        self.breeding_types_with_weights = self._get_breeding_types_with_weights()
+
+    def _get_product_type(self) -> ProductType:
+        animal_types = set()
+        for animal_type in AnimalType:
+            if self.product_data.categories_tags and animal_type.categories_tags in self.product_data.categories_tags:
+                animal_types.add(animal_type)
+        if len(animal_types) == 1:
+            return ProductType(is_mixed=False, animal_types=animal_types)
+        else:
+            return ProductType(is_mixed=True, animal_types=animal_types)
 
     def get_pain_report(self) -> PainReport:
         """
@@ -108,57 +126,65 @@ class PainReportCalculator:
 
         return pain_levels
 
-    def _compute_breeding_types_with_weights(self) -> Dict[AnimalType, BreedingTypeAndWeight]:
+    def _get_breeding_types_with_weights(self) -> Dict[AnimalType, BreedingTypeAndWeight]:
         """
-        Compute the breeding types and weights from product data.
+        Gets the breeding types and weights from separate methods.
 
         Returns:
-            A dictionary mapping animal types to BreedingTypeAndWeight objects with detected breeding type and weight
+            A dictionary mapping animal types to BreedingTypeAndWeight
+            objects with detected breeding type and weight
         """
 
         # Get the breeding types
         breeding_types_by_animal = self._get_breeding_types()
+        weight_by_animal = self._get_weights()
 
-        # Fill the weight for each breeding type and remove breeding types with weight <= 0
-        breeding_types_with_weights = self._get_breeding_types_with_weights(breeding_types_by_animal)
+        breeding_types_with_weights = {
+            animal_type: BreedingTypeAndWeight(
+                breeding_type=breeding_types_by_animal[animal_type], animal_product_weight=weight_by_animal[animal_type]
+            )
+            for animal_type in self.product_type.animal_types
+        }
 
         return breeding_types_with_weights
 
-    def _get_breeding_types(self) -> Dict[AnimalType, BreedingTypeAndWeight]:
+    def _get_breeding_types(self) -> Dict[AnimalType, BreedingType]:
         """
         Compute the breeding types from product data.
         Returns:
-            A dictionary mapping animal types to BreedingTypeAndWeight objects with detected breeding types
+            A dictionary mapping animal types to BreedingTypeAndWeight
+              objects with detected breeding types
         """
-        btc = BreedingTypeCalculator(self.product_data)
-        breeding_types_by_animal = btc.get_breeding_types_by_animal()
-        return breeding_types_by_animal
+        if self.product_type.is_mixed:
+            return BreedingTypeCalculator(self.product_data, self.product_type).get_breeding_types_by_animal()
 
-    def _get_breeding_types_with_weights(
-        self, breeding_types_by_animal: Dict[AnimalType, BreedingTypeAndWeight]
-    ) -> Dict[AnimalType, BreedingTypeAndWeight]:
+        else:
+            animal_type = list(self.product_type.animal_types)[0]
+            breeding_type = BreedingTypeCalculator(self.product_data, self.product_type).get_breeding_type(
+                animal_type=animal_type
+            )
+            return {animal_type: breeding_type}
+
+    def _get_weights(self) -> dict[AnimalType, float]:
         """
-        Compute the weight of animal product and fill the weight for each BreedingTypeAndWeight object.
-        If the computed weight is <= 0, the animal type will be removed from the dictionary.
-
-        Args:
-            breeding_types_by_animal: Dictionary mapping animal types to BreedingTypeAndWeight objects
+        Calculates and returns the weights associated with each animal type
+        present in the product.
+        If product mixed or broiler chicken, weight cannot be computed for now
+        For laying hens  uses a dedicated egg weight calculator.
 
         Returns:
-            A dictionary mapping animal types to BreedingTypeAndWeight objects with their weights, if the weight is > 0
+            dict[AnimalType, float]: A dictionary where keys are `AnimalType`
+            instances and values are their associated weights (in grams).
         """
-        breeding_types_with_weights: dict[AnimalType, BreedingTypeAndWeight] = {}
-
-        for animal_type, breeding_type in breeding_types_by_animal.items():
+        if self.product_type.is_mixed:
+            return {animal_type: 0 for animal_type in self.product_type.animal_types}
+        else:
+            animal_type = list(self.product_type.animal_types)[0]
             if animal_type == AnimalType.LAYING_HEN:
                 weight = calculate_egg_weight(self.product_data)
-
-                # We only return breeding types (and their weights) if the weight of the animal-based product is > 0
-                if weight > 0:
-                    breeding_type.animal_product_weight = weight
-                    breeding_types_with_weights[animal_type] = breeding_type
-
-        return breeding_types_with_weights
+                return {animal_type: weight}
+            else:
+                return {animal_type: 0}
 
     def _calculate_time_in_pain_for_animal_with_type(
         self,
