@@ -37,7 +37,7 @@ def sample_product_data() -> ProductData:
     Contains cage chicken eggs category...
     """
     return ProductData(
-        categories_tags=["en:eggs", "cat1", "en:cage-chicken-eggs"],
+        categories_tags=["en:eggs", "en:chicken-eggs", "cat1", "en:cage-chicken-eggs"],
         labels_tags=["label1", "label2"],
         product_name="Fake product name",
         image_url=HttpUrl("https://example.com/image.jpg"),

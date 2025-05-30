@@ -186,4 +186,4 @@ def calculate_egg_weight(product_data: ProductData) -> float:
     else:
         egg_weight = get_total_egg_weight_from_tags(categories_tags)
 
-    return egg_weight
+    return max(egg_weight, 0)

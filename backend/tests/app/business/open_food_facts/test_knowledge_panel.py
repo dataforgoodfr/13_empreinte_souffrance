@@ -134,8 +134,7 @@ def test_compute_breeding_types_with_weights(
     sample_product_data.countries_tags = countries
     calculator = PainReportCalculator(sample_product_data)
 
-    breeding_types = calculator._get_breeding_types()
-    result = calculator._get_breeding_types_with_weights(breeding_types)
+    result = calculator._get_breeding_types_with_weights()
 
     # product_data fixture contains the `en:cage-chicken-eggs` tag
     assert AnimalType.LAYING_HEN in result
@@ -148,7 +147,7 @@ def test_get_breeding_types(sample_product_data: ProductData):
     calculator = PainReportCalculator(sample_product_data)
     result = calculator._get_breeding_types()
     assert AnimalType.LAYING_HEN in result
-    assert result[AnimalType.LAYING_HEN].breeding_type == LayingHenBreedingType.FURNISHED_CAGE
+    assert result[AnimalType.LAYING_HEN] == LayingHenBreedingType.FURNISHED_CAGE
 
 
 def test_generate_pain_levels_for_type(sample_product_data: ProductData):
