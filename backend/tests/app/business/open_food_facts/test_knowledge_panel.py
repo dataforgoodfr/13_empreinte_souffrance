@@ -181,12 +181,24 @@ def test_generate_pain_levels_for_type(sample_product_data: ProductData):
         assert isinstance(level.seconds_in_pain, int)
 
 
-def test_knowledge_panel_generator(pain_report):
+@pytest.mark.parametrize(
+    "product_name_for_test, expected_knowledge_panel_product_name",
+    [
+        ("Some product_name", "Some product_name"),
+        (None, None),
+    ],
+)
+def test_knowledge_panel_generator(
+    pain_report, product_name_for_test: str | None, expected_knowledge_panel_product_name: str | None
+):
     """Test the KnowledgePanelGenerator class"""
     translator = I18N().get_translator(locale="en")
 
+    # Modify the base_pain_report fixture for the current parametrization
+    pain_report_for_test = pain_report.model_copy(update={"product_name": product_name_for_test})
+
     # Create generator and test individual methods
-    generator = KnowledgePanelGenerator(pain_report, translator)
+    generator = KnowledgePanelGenerator(pain_report_for_test, translator)
 
     # Test main panel
     main_panel = generator.create_main_panel()
@@ -212,6 +224,7 @@ def test_knowledge_panel_generator(pain_report):
     # Test animal pain element generation
     animal_element = generator.get_animal_pain_for_panel(AnimalType.LAYING_HEN, PainType.PHYSICAL)
     assert animal_element is not None
+    assert animal_element.text_element is not None
     assert animal_element.element_type == "text"
     assert "Laying hen" in animal_element.text_element.html
 
@@ -219,6 +232,12 @@ def test_knowledge_panel_generator(pain_report):
     response = generator.get_response()
     assert isinstance(response, KnowledgePanelResponse)
     assert len(response.panels) == 4
+
+    # Verify that the product name in the response matches the expected value
+    assert response.product.name == expected_knowledge_panel_product_name, (
+        f"Product name in KnowledgePanelResponse should be \
+            '{expected_knowledge_panel_product_name}' for input '{product_name_for_test}'"
+    )
 
 
 def test_get_knowledge_panel_response(pain_report):

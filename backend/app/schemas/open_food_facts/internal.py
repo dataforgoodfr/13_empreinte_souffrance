@@ -40,7 +40,7 @@ class AnimalPainReport(BaseModel):
 
 class PainReport(BaseModel):
     animals: List[AnimalPainReport]
-    product_name: str
+    product_name: str | None
     product_image_url: HttpUrl | None = None
 
 
@@ -77,7 +77,7 @@ class Panel(BaseModel):
 
 class ProductInfo(BaseModel):
     image_url: HttpUrl | None
-    name: str
+    name: str | None
 
 
 class KnowledgePanelResponse(BaseModel):
