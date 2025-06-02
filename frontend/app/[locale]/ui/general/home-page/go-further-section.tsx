@@ -2,8 +2,8 @@ import { getI18n } from '@/locales/server';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBolt } from '@fortawesome/free-solid-svg-icons';
 import Link from 'next/link';
-import { downloadMediaKit } from '@/app/lib/download-actions';
-import { shareOnTwitter } from '@/app/lib/share-actions';
+import { downloadMediaKit } from '@/app/actions/download-actions';
+import { shareOnTwitter } from '@/app/actions/share-actions';
 
 export default async function GoFurtherSection() {
   const t = await getI18n();
