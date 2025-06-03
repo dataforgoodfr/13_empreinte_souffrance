@@ -117,6 +117,15 @@ export default {
     loading: 'Chargement des données...',
     productNotFound: 'Ce produit ne contient pas de produits animaux pris en charge',
   },
+  BookAnnouncement: {
+    title: "BIENTÔT SUR\nNOTRE SITE",
+    intro: "Le Welfare Footprint Institute publie cet automne",
+    bookTitle: "The Welfare Footprint of the Egg : A Comprehensive Analysis of Animal Welfare Impacts of Egg Production",
+    publisher: "chez Taylor & Francis (CRC Press)",
+    description: "Cet ouvrage pionnier présentera la première quantification de l’impact de la production d’un aliment sur les animaux d’élevage.",
+    imageAlt: "Couverture du livre : Quantifying Pain in Laying Hens, Cynthia Schuck-Paim, Wladimir J. Alonso, 2021",
+    figcaption: "Couverture du livre : Quantifying Pain in Laying Hens, Cynthia Schuck-Paim, Wladimir J. Alonso, 2021"
+  },
   footer: {
     legal_terms: 'Mentions légales',
     privacy_policy: 'Politique de confidentialité',
