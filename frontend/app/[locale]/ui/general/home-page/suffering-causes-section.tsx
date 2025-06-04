@@ -54,16 +54,14 @@ export default function SufferingCausesSection() {
   );
 }
 
-// 🔁 Composant réutilisable pour chaque cause
-function SufferingBox({
-  title,
-  children,
-  className = '',
-}: {
+interface SufferingBoxProps {
   title: string;
   children: React.ReactNode;
   className?: string;
-}) {
+}
+
+// 🔁 Composant réutilisable pour chaque cause
+function SufferingBox({ title, children, className = '' }: SufferingBoxProps) {
   return (
     <div className={`${className} max-w-xs`}>
       <div className="flex items-center gap-2 mb-2">
