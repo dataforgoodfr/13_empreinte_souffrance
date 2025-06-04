@@ -50,13 +50,15 @@ At the root of the repository, use the following commands:
 
 With the latter you'll be able to run python commands just like you would do without Docker.
 
-IMPORTANT: requirements_legacy.txt are for the legacy lewagon model! These are not the actual dependencies.
+IMPORTANT: `requirements_legacy.txt` are for the legacy lewagon model! These are not the actual dependencies.
 
-To run the two other scripts, use poetry install !
+To run the two other scripts, use `poetry install` !
 
-- prediction_statistics.py -> prints statistics about data/dfoeufs_with_predictions_with_ground_truth.jsonl and data/dfoeufs_with_predictions_with_ground_truth_with_groq.jsonl
+- **prediction_statistics.py** -> prints statistics about `data/dfoeufs_with_predictions_with_ground_truth.jsonl` and `data/dfoeufs_with_predictions_with_ground_truth_with_groq.jsonl`
 
-- groq_extract_spans.py -> generates a new file data/dfoeufs_with_predictions_with_ground_truth_with_groq.jsonl where each line has a new key:
+- **groq_extract_spans.py** -> generates a new file `data/dfoeufs_with_predictions_with_ground_truth_with_groq.jsonl` where each line has a new key:
+
+```json
 "groq_spans": {"breeding_type_related": "Poules élevées Liberté...",
 "weight_related": "100g, énergie 584kJ/140kcal, matières grasses 9,8g, glucides 0, protéines 12,7g, sel0,3g"}
 
@@ -65,7 +67,9 @@ To run it you need to have your own Groq API key.
 
 Once you obtained it, at the root of this folder create .env
 and put
-GROQ_API_KEY=YOUR_API_KEY
-GROQ_API_BASE=https://api.groq.com/openai/v1
+
+    ```bash
+    GROQ_API_KEY=YOUR_API_KEY
+    GROQ_API_BASE=https://api.groq.com/openai/v1
 
 Beware of the token limits if you use a free plan!
