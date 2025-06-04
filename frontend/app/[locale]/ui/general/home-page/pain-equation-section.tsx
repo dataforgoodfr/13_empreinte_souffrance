@@ -9,10 +9,11 @@ export default async function PainEquationSection() {
       {/* CONTENEUR GLOBAL UNIFIÉ */}
       <div className="max-w-screen-xl mx-auto px-4">
         {/* ÉQUATION */}
-        <div className="mt-8 grid grid-cols-3 items-center text-center border border-black divide-x divide-black font-extrabold text-xl">
-          <div className="py-2">DURÉE</div>
-          <div className="py-2">X INTENSITÉ</div>
-          <div className="py-2">= FARDEAU DE DOULEUR</div>
+        {/* ÉQUATION */}
+        <div className="mt-8 w-full flex flex-col md:grid md:grid-cols-3 items-center text-center border border-black divide-y md:divide-y-0 md:divide-x divide-black font-extrabold text-xl">
+          <div className="py-2 w-full">DURÉE</div>
+          <div className="py-2 w-full">X INTENSITÉ</div>
+          <div className="py-2 w-full">= FARDEAU DE DOULEUR</div>
         </div>
 
         {/* TEXTE EXPLICATIF */}
