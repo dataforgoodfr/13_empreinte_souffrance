@@ -67,4 +67,3 @@ class Cleaner():
 
     #cleaner = Cleaner()
     #print(cleaner.clean_ocr_text(text="oeuf, viande", spellcheck=None))
-

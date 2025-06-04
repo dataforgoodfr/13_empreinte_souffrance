@@ -153,5 +153,3 @@ to build
 docker build -t lewagon-ocr-model .
 
 docker run -it --rm lewagon-ocr-model bash
-
-

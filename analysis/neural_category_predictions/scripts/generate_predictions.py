@@ -7,7 +7,7 @@ import requests
 from models.lewagon_ocr.OpenFoodFactsCategorizer.data import get_data_from_ocr
 import csv
 import pandas as pd
-from tqdm import tqdm 
+from tqdm import tqdm
 import json
 import time
 import os
@@ -92,7 +92,7 @@ class CategoryPredictor:
                     url = url + f'/{i}.json'
                     ocr_text_per_page = get_data_from_ocr(url)
                     text.append(ocr_text_per_page)
-                time.sleep(0.5) 
+                time.sleep(0.5)
             except Exception as e:
                 print(f"[ERROR] Unable to get OCR text from page number {i}: {e}")
                 continue
@@ -180,6 +180,3 @@ class CategoryPredictor:
 
 predictor = CategoryPredictor()
 print(predictor.make_batch_prediction())
-
-
-

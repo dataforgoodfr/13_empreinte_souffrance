@@ -31,8 +31,8 @@ def safe_parse_json(line):
         except Exception as e:
             print(f"[ERROR] Could not parse line: {e}")
             return None
-        
-        
+
+
 def is_valid_gt(gt):
     return (
         gt
@@ -227,7 +227,7 @@ def ground_truth_free_range_breeding_type_present(input_file):
                 if "bio" in breeding_type.lower():
                     count_bio += 1
                     #print(f"Code: {code} == free_range → Breeding Type: {breeding_type!r}")
-            
+
 
     print(f"\nTotal entries with ground_truth == 'free_range': {count}")
     print(f"\nTotal entries with ground_truth == 'free_range' and bio on packaging: {count_bio}")

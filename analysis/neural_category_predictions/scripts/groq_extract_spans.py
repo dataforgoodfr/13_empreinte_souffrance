@@ -2,7 +2,7 @@ import os
 import json
 import time
 import re
-from tqdm import tqdm 
+from tqdm import tqdm
 import sys
 from dotenv import load_dotenv
 from openai import OpenAI  # assuming you have installed Groq's OpenAI-compatible client
@@ -41,14 +41,14 @@ def extract_spans_from_ocr(client, ocr_text):
     prompt = f"""
 You are a text extraction assistant. Given the following OCR text from packaging, extract two fields:
 
-breeding_type_related: Any text span(s) related to breeding type (e.g. free range, cage, barn, organic hens, etc.)  
+breeding_type_related: Any text span(s) related to breeding type (e.g. free range, cage, barn, organic hens, etc.)
 weight_related: Any text span(s) related to weight, quantity, or number of eggs (e.g. 12 large, 53 g, dozen, weight 200g, etc.)
 
-The information can be in languages other than English, make sure to extract the relevant spans regardless of the language. 
+The information can be in languages other than English, make sure to extract the relevant spans regardless of the language.
 
 Return ONLY a JSON object with keys "breeding_type_related" and "weight_related" and the corresponding text snippets (or empty string if none found).
 
-Don't make any other comments. 
+Don't make any other comments.
 
 OCR text:
 \"\"\"
@@ -125,7 +125,7 @@ def main():
                     if "rate_limit_exceeded" in error_msg or "Error code: 429" in error_msg or "Error code: 503" in error_msg:
                         print(f"\n[!] Rate limit exceeded. Exiting script. Full error:\n{error_msg}")
                         sys.exit(1)
-                    
+
                     print(f"Error processing entry with code {code}: {e}")
                     entry["groq_spans"] = {
                         "breeding_type_related": "",

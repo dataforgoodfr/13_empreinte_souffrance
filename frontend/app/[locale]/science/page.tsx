@@ -1,7 +1,7 @@
 export default async function Page() {
   return (
-      <>
-          <div>SCIENCE PAGE</div>
-      </>
+    <>
+      <div>SCIENCE PAGE</div>
+    </>
   );
 }
