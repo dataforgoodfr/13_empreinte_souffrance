@@ -170,3 +170,6 @@ backend/logs
 
 # Tilde files
 *~
+
+#heavy models
+analysis/neural_category_predictions/models/lewagon_ocr/models/bestridge_compressed.joblib

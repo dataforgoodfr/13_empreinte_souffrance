@@ -1,0 +1,30 @@
+# packaging
+pip
+setuptools
+twine
+wheel
+
+# data science
+numpy
+pandas
+scikit-learn
+pyspellchecker
+
+# tests/linter
+black
+coverage
+flake8
+pytest
+yapf
+
+# API
+s3fs
+
+# utilities
+six
+joblib
+termcolor
+nltk
+# Comment if you don't use spellcheker
+pyspellchecker
+
