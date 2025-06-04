@@ -6,23 +6,18 @@ export default async function PainEquationSection() {
     <section aria-labelledby="pain-equation-title" className="py-16 px-4 md:px-8 bg-white text-gray-900">
       <SectionHeading title={"L'ÉQUATION DE LA DOULEUR"} heading_number="2" />
 
-      {/* CONTENEUR GLOBAL UNIFIÉ */}
       <div className="max-w-screen-xl mx-auto px-4">
-        {/* ÉQUATION */}
-        {/* ÉQUATION */}
         <div className="mt-8 w-full flex flex-col md:grid md:grid-cols-3 items-center text-center border border-black divide-y md:divide-y-0 md:divide-x divide-black font-extrabold text-xl">
           <div className="py-2 w-full">DURÉE</div>
           <div className="py-2 w-full">X INTENSITÉ</div>
           <div className="py-2 w-full">= FARDEAU DE DOULEUR</div>
         </div>
 
-        {/* TEXTE EXPLICATIF */}
         <p className="mt-12 mb-12 max-w-2xl mx-auto text-base text-center sm:text-lg">
           Comment ça marche ? Pour chaque source de douleur (fracture, infection, etc.), les chercheurs estiment combien
           de temps les poules passent dans un état d’inconfort, de douleur, de souffrance et d’agonie.
         </p>
 
-        {/* ÉTAPES DE LA DOULEUR */}
         <section aria-labelledby="pain-stages" className="mb-12">
           <h3 id="pain-stages" className="sr-only">
             Étapes de la douleur
@@ -59,7 +54,6 @@ export default async function PainEquationSection() {
             </article>
           </div>
 
-          {/* BOUTON */}
           <footer className="text-center mt-8">
             <Link
               href="/"
