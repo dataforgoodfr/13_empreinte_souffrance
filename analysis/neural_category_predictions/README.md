@@ -52,7 +52,7 @@ With the latter you'll be able to run python commands just like you would do wit
 
 IMPORTANT: `requirements_legacy.txt` are for the legacy lewagon model! These are not the actual dependencies.
 
-To run the two other scripts, use `poetry install` !
+To run the two other scripts, use `poetry install --no-root` !
 
 - **prediction_statistics.py** -> prints statistics about `data/dfoeufs_with_predictions_with_ground_truth.jsonl` and `data/dfoeufs_with_predictions_with_ground_truth_with_groq.jsonl`
 
