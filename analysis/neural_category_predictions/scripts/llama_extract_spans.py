@@ -20,7 +20,7 @@ OUTPUT_FILE = "data/dfoeufs_with_predictions_with_ground_truth_with_llama.jsonl"
 llm = Llama(model_path=MODEL_PATH,
             n_ctx=2048)
 
-def parse_groq_response(text):
+def parse_llama_response(text):
     # Regex to capture the value after each key
     breeding_pattern = r'"breeding_type_related"\s*:\s*"([^"]*)"'
     weight_pattern = r'"weight_related"\s*:\s*((?:"[^"]*"(?:,\s*)?)+)'
@@ -63,7 +63,7 @@ OCR text:
     text_response = output['choices'][0]['text'].strip()
 
     try:
-        spans = parse_groq_response(text_response)
+        spans = parse_llama_response(text_response)
     except json.JSONDecodeError:
         print("[DEBUG] JSON decode error in response:", text_response)
         spans = {
