@@ -2,6 +2,8 @@
 
 This repository contains models for OCR and machine learning-based category prediction, along with scripts to run them and associated data (recognized texts and classification outputs).
 
+Useful link: https://github.com/openfoodfacts/robotoff-models
+
 ## Scripts
 
 - **`generate_predictions.py`**
@@ -32,6 +34,9 @@ This repository contains models for OCR and machine learning-based category pred
 The approximate time to go through the whole database is around 10 hours due to API use constraints.
 
 ### Running `lewagon_ocr` (Legacy Model)
+
+In `analysis/neural_category_predictions/models/lewagon_ocr`, you need to create a folder model
+In it upload this file: https://github.com/openfoodfacts/robotoff-models/releases/download/category-predictor-ocr-lewagon-1.0/bestridge_compressed.joblib
 
 Because `lewagon_ocr` is a legacy model, it must be run inside a Docker container.
 
