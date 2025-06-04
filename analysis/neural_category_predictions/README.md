@@ -59,8 +59,10 @@ To run the two other scripts, use `poetry install` !
 - **groq_extract_spans.py** -> generates a new file `data/dfoeufs_with_predictions_with_ground_truth_with_groq.jsonl` where each line has a new key:
 
 ```json
-"groq_spans": {"breeding_type_related": "Poules élevées Liberté...",
+{"groq_spans":
+{"breeding_type_related": "Poules élevées Liberté...",
 "weight_related": "100g, énergie 584kJ/140kcal, matières grasses 9,8g, glucides 0, protéines 12,7g, sel0,3g"}
+}
 
 This script extracts relevant fragments from the OCR-generated texts on the packaging with the help of an LLM.
 To run it you need to have your own Groq API key.
