@@ -45,6 +45,37 @@ export default {
       image_description: 'Hens crowded in stacked cages',
     },
   },
+  /////////////////////////////////////////////////////////////////////
+  SufferingCausesSection: {
+    title: "What do caged hens suffer from ?",
+    othersSources: "+ 24 other sources of pain",
+    box1: {
+      title: "Pecking injuries",
+      text: "Stressed hens pull out each other's feathers, causing injuries, infections... and sometimes death through cannibalism."
+    },
+    box2: {
+      title: "Breastbone fracture",
+      text: "The breast bone often fractures due to osteoporosis related to intensive laying: this is their greatest source of pain."
+    },
+    box3: {
+      title: "Restriction of movement",
+      text: "In cages, hens cannot spread their wings or turn around: a constant discomfort, far from any natural behavior."
+    },
+    box4: {
+      title: "Fear and stress",
+      text: "Before the slaughterhouse, the chickens are captured, crammed together without water or food, and subjected to extreme fear."
+    },
+    box5: {
+      title: "Deprivation of natural behaviors",
+      text: "Deprived of nesting and exploration, the hens experience intense frustration, unable to meet their natural needs."
+    },
+    box6: {
+      title: "Egg peritonitis",
+      text: "This inflammation, caused by egg debris in the abdomen, is the most common and fatal disease in laying hens."
+    }
+  },
+  /////////////////////////////////////////////////////////////////////
+
 
   welfare_footprint_institute: 'Welfare Footprint Institute',
   KnowledgePanel: {
