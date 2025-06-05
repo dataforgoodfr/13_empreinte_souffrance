@@ -46,6 +46,38 @@ export default {
     },
   },
 
+  PainEquationSection: {
+    title: "THE PAIN EQUATION",
+    painStagesLabel: "Stages of pain",
+    formula: {
+      duration: "DURATION",
+      intensity: "X INTENSITY",
+      burden: "= PAIN BURDEN"
+    },
+    description:
+      "How does it work? For each source of pain (fracture, infection, etc.), researchers estimate how long hens spend in a state of discomfort, pain, suffering, and agony.",
+    stages: {
+      discomfort: {
+        title: "Discomfort",
+        text: "Mild discomfort, without impact on behavior. Comparable to an itch or slightly rubbing shoes."
+      },
+      pain: {
+        title: "Pain",
+        text: "Persistent pain, altering behavior without completely preventing it. Comparable to a headache or chronic back pain."
+      },
+      suffering: {
+        title: "Suffering",
+        text: "Constant pain, taking priority over everything else. Reduces activity, well-being, and attention. Comparable to a migraine or fracture."
+      },
+      agony: {
+        title: "Agony",
+        text: "Extreme, unbearable pain even for a short time. Causes screaming, trembling. Comparable to unbearable suffering."
+      }
+    },
+    cta: "DISCOVER THE METHODOLOGY IN DETAIL"
+  },
+
+
   welfare_footprint_institute: 'Welfare Footprint Institute',
   KnowledgePanel: {
     title: 'Knowledge Panel',

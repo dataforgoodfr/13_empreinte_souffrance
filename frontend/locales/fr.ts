@@ -45,6 +45,38 @@ export default {
       image_description: 'Poules entassées dans des cages superposées les unes sur les autres',
     },
   },
+
+  PainEquationSection: {
+    title: "L'ÉQUATION DE LA DOULEUR",
+    painStagesLabel: "Étapes de la douleur",
+    formula: {
+      duration: "DURÉE",
+      intensity: "X INTENSITÉ",
+      burden: "= FARDEAU DE DOULEUR"
+    },
+    description:
+      "Comment ça marche ? Pour chaque source de douleur (fracture, infection, etc.), les chercheurs estiment combien de temps les poules passent dans un état d’inconfort, de douleur, de souffrance et d’agonie.",
+    stages: {
+      discomfort: {
+        title: "Inconfort",
+        text: "Inconfort léger, sans impact sur le comportement. Comparable à une démangeaison ou des chaussures qui frottent légèrement."
+      },
+      pain: {
+        title: "Douleur",
+        text: "Douleur persistante, altérant les comportements sans les empêcher. Semblable à un mal de tête ou un mal de dos chronique."
+      },
+      suffering: {
+        title: "Souffrance",
+        text: "Douleur constante, prioritaire sur tout. Réduit l’activité, le bien-être, l’attention. Semblable à une migraine ou une fracture."
+      },
+      agony: {
+        title: "Agonie",
+        text: "Douleur extrême, insupportable même brièvement. Provoque cris, tremblements. Comparable à une souffrance que l’on ne peut endurer."
+      }
+    },
+    cta: "DÉCOUVRIR LA MÉTHODOLOGIE EN DÉTAIL"
+  },
+
   welfare_footprint_institute: 'Welfare Footprint Institute',
   KnowledgePanel: {
     title: 'Knowledge Panel',
