@@ -19,7 +19,7 @@ export default async function Layout({
   return (
     <>
       <header>
-        <div className="w-full flex-none fixed">
+        <div className="w-full flex-none fixed z-1">
           <Navbar />
         </div>
       </header>
