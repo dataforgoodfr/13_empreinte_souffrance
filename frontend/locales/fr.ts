@@ -77,6 +77,35 @@ export default {
     cta: "DÉCOUVRIR LA MÉTHODOLOGIE EN DÉTAIL"
   },
 
+  SufferingCausesSection: {
+    title: "De quoi souffrent les poules en cage ?",
+    othersSources: "+ 24 autres sources de douleur",
+    box1: {
+      title: "Blessures dues au picage",
+      text: "Stressées, les poules s’arrachent les plumes entre elles, causant blessures, infections... et parfois la mort par cannibalisme."
+    },
+    box2: {
+      title: "Fracture du bréchet",
+      text: "L’os de la poitrine se fracture souvent à cause de l’ostéoporose liée à la ponte intensive : c’est leur plus grande source de douleur."
+    },
+    box3: {
+      title: "Restriction de mouvement",
+      text: "En cage, les poules ne peuvent ni étendre leurs ailes, ni se retourner : un inconfort permanent, loin de tout comportement naturel."
+    },
+    box4: {
+      title: "Peur et stress",
+      text: "Avant l’abattoir, les poules sont capturées, entassées sans eau ni nourriture, et soumises à une peur extrême."
+    },
+    box5: {
+      title: "Privation de comportements naturels",
+      text: "Privées de nidification et d’exploration, les poules vivent une frustration intense, incapables de répondre à leurs besoins naturels."
+    },
+    box6: {
+      title: "Péritonite de l’œuf",
+      text: "Cette inflammation, due à des débris d’œuf dans l’abdomen, est la maladie la plus fréquente et mortelle chez les poules pondeuses."
+    }
+  },
+    
   welfare_footprint_institute: 'Welfare Footprint Institute',
   KnowledgePanel: {
     title: 'Knowledge Panel',
