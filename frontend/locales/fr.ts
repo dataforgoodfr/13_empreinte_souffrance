@@ -7,18 +7,25 @@ export default {
     methodology: 'Découvrir la méthodologie',
     aboutThisWebsite: 'À propos de ce site',
   },
-  Home: {
-    badge: "Adopter l'élevage en plein air pour chaque poulet en Europe !",
-    animal_welfare: 'Bien-être animal',
-    science: 'La science',
-    explained: 'expliquée',
-    paragraph:
-      'Découvrez tout ce que vous devez savoir sur ce qu’un poulet vit en élevage et faites des choix éclairés.',
-    link: 'Comprendre la méthode',
-    how_much: 'Combien',
-    does_this_hen_suffer_to_produce_eggs: 'souffre cette poule pour produire des oeufs ?',
-    returnHome: "Retournez à l'accueil",
+
+
+
+  HeroSection: {
+    title: "combien?",
+    title_sentence: {
+      strong1: "SOUFFRE ",
+      part1: "UNE ",
+      strong2: "POULE EN CAGE ",
+      part2: "POUR PRODUIRE DES ",
+      strong3: "ŒUFS"
+    }
+
   },
+
+
+
+
+
   Results: {
     title: 'Les Résultats ?',
     agony: {
@@ -105,7 +112,7 @@ export default {
       text: "Cette inflammation, due à des débris d’œuf dans l’abdomen, est la maladie la plus fréquente et mortelle chez les poules pondeuses."
     }
   },
-    
+
   welfare_footprint_institute: 'Welfare Footprint Institute',
   KnowledgePanel: {
     title: 'Knowledge Panel',

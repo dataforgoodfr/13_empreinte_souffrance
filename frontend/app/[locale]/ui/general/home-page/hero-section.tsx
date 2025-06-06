@@ -1,32 +1,58 @@
 import { getScopedI18n } from '@/locales/server';
-import Image from 'next/image';
-import Link from 'next/link';
 
 export default async function HeroSection() {
-  const scopedT = await getScopedI18n('Home');
+  const scopedT = await getScopedI18n('HeroSection');
+  // const title = scopedT('title');
 
   return (
-    <section className="bg-gradient-to-r from-blue-600 via-blue-500 to-indigo-500 h-screen flex items-center justify-between px-8 sm:px-16">
-      <div className="max-w-xl space-y-6">
-        <div className="inline-block bg-indigo-800 text-white py-2 px-4 rounded-lg text-sm font-semibold tracking-wide">
-          {scopedT('badge')}
-        </div>
-        <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold text-white">
-          <span className="text-green-300">{scopedT('how_much')}</span>
-          <br />
-          {scopedT('does_this_hen_suffer_to_produce_eggs')}
+    <header className="relative h-screen w-full overflow-hidden flex items-center justify-end">
+      {/* Image de fond */}
+      <img
+        src="chicken_header.png"
+        alt=""
+        className="absolute inset-0 object-cover object-right transform scale-[1.3] origin-top-right"
+      />
+
+      {/* Contenu à gauche */}
+      <hgroup className="relative  flex flex-col justify-center items-start text-left p-4 max-w-[40rem]">
+        <h1 className="text-6xl font-bold">
+          <span className="px-2 flex flex-wrap">
+            <ColorText lettre="C" color="#FFE9E9" />
+            <ColorText lettre="o" color="#FFC3C3" />
+            <ColorText lettre="m" color="#FF7B7B" />
+            <ColorText lettre="b" color="#FFC3C3" />
+            <ColorText lettre="i" color="#FFC3C3" />
+            <ColorText lettre="e" color="#FF7B7B" />
+            <ColorText lettre="n" color="#FF7B7B" />
+            <ColorText lettre="?" color="#B5ABFF" />
+          </span>
         </h1>
-        <p className="text-white text-justify text-base sm:text-lg font-light max-w-md">{scopedT('paragraph')}</p>
-        <Link
-          href="/science"
-          className="bg-green-300 text-gray-800 px-6 py-3 text-lg font-medium rounded-lg shadow-lg hover:bg-green-400"
-        >
-          {scopedT('link')}
-        </Link>
-      </div>
-      <div className="hidden lg:block">
-        <Image src="/tmp_chicken-image.webp" width={560} height={620} className="block" alt="Picture of a chicken" />
-      </div>
-    </section>
+        <p className="mt-4  text-[#FFE9E9] uppercase">
+          <span className=" text-4xl font-bold">{scopedT('title_sentence.strong1')}</span>
+          <span className=" text-4xl">{scopedT('title_sentence.part1')}</span>
+          <span className=" text-4xl font-bold">{scopedT('title_sentence.strong2')}</span>
+          <br />
+          <span className=" text-4xl">{scopedT('title_sentence.part2')}</span>
+          <span className=" text-4xl font-bold">{scopedT('title_sentence.strong3')}</span>
+        </p>
+        <img src="/arrow_down.png" alt="Flèche vers le bas" className="mt-10 w-10 h-10 animate-bounce" />
+      </hgroup>
+    </header>
+  );
+}
+
+interface colorText {
+  lettre: string;
+  color: string;
+}
+
+function ColorText({ lettre, color }: colorText) {
+  return (
+    <div
+      style={{ backgroundColor: color }}
+      className="inline-flex items-center justify-center h-28 md:w-14 text-6xl text-[#3C0A0A] rounded-[9999px] mx-[2px] uppercase font-mono font-extralight shadow-[0_10px_0px_rgb(0,0,0)]"
+    >
+      {lettre}
+    </div>
   );
 }

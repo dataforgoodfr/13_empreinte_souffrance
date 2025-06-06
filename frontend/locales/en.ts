@@ -7,18 +7,23 @@ export default {
     methodology: 'Understand the methodology',
     aboutThisWebsite: 'About this website',
   },
-  Home: {
-    badge: 'Embracing free-range for every chicken in Europe!',
-    animal_welfare: 'Animal Welfare',
-    science: 'Science',
-    explained: 'explained',
-    paragraph:
-      'Discover everything you need to know about what a chicken experiences in livestock farming and make educated choices.',
-    link: 'Understand the method',
-    how_much: 'How much',
-    does_this_hen_suffer_to_produce_eggs: 'does this hen suffer to produce eggs ?',
-    returnHome: 'Return Home',
+
+
+
+  HeroSection: {
+    title: "how muych ?",
+    title_sentence: {
+      strong1: "SUFFER ",
+      part1: "A ",
+      strong2: "CAGED HEN ",
+      part2: "TO PRODUCE  ",
+      strong3: "EGGS"
+    }
   },
+
+
+  // How much does a caged hen suffer to produce eggs?
+
   Results: {
     title: 'The Results?',
     agony: {
