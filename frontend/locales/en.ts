@@ -11,7 +11,7 @@ export default {
 
 
   HeroSection: {
-    title: "how muych ?",
+    title: "how much",
     title_sentence: {
       strong1: "SUFFER ",
       part1: "A ",
