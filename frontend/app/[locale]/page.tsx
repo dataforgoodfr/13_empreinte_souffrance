@@ -1,6 +1,6 @@
 import HeroSection from '@/app/[locale]/ui/general/home-page/hero-section';
 import { LocaleSelect } from './ui/localselect';
-import WFISection from '@/app/[locale]/ui/general/home-page/WFI-section';
+import WFISection from '@/app/[locale]/ui/general/home-page/WFI-article-section';
 import SufferingCausesSection from '@/app/[locale]/ui/general/home-page/suffering-causes-section';
 import PainEquationSection from '@/app/[locale]/ui/general/home-page/pain-equation-section';
 import ResultsSection from '@/app/[locale]/ui/general/home-page/results-section';
