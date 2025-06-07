@@ -21,11 +21,11 @@ export default {
   },
   WFIArticle: {
     title: {
-      part1: 'THE',
-      strong1: 'EXPERCIENCES',
-      part2: 'OF FARM ANIMALS,',
-      part3: 'FOR THE FIRST TIME',
-      strong2: 'QUANTIFIED',
+      part1: 'THE ',
+      strong1: 'EXPERCIENCES ',
+      part2: 'OF FARM ANIMALS, ',
+      part3: 'FOR THE FIRST TIME ',
+      strong2: 'QUANTIFIED ',
     },
     description: {
       part0: 'The',
@@ -37,7 +37,7 @@ export default {
     },
     key_number: {
       key1: 'STUDIES ANALYSED ',
-      years:'YEARS',
+      years: 'YEARS',
       key2: 'OF WORK',
       key3: 'RESEARCHERS MOBILISED',
       key4: 'AN INNOVATIVE METHOD',

@@ -8,11 +8,11 @@ export default async function WFIArticleSection() {
     <section className=" min-h-screen p-8 sm:px-16 w-full bg-[#E7E4FF] flex flex-col gap-5">
       <h1 className="w-full text-3xl lg:text-5xl font-bold text-[#3b0a0a] text-left">
         {scopedT('title.part1')}
-        <span className="text-[#ff7f7f]">&nbsp;{scopedT('title.strong1')}</span>
-        &nbsp;{scopedT('title.part2')}
+        <span className="text-[#ff7f7f]">{scopedT('title.strong1')}</span>
+        {scopedT('title.part2')}
         <br />
-        &nbsp;{scopedT('title.part3')}
-        <span className="text-[#ff7f7f]">&nbsp;{scopedT('title.strong2')}</span>.
+        {scopedT('title.part3')}
+        <span className="text-[#ff7f7f]">{scopedT('title.strong2')}</span>.
       </h1>
 
       <figure className="w-full flex items-center justify-between gap-5 flex-col lg:flex-row ">

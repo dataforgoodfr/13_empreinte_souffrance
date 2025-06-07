@@ -21,11 +21,11 @@ export default {
   },
   WFIArticle: {
     title: {
-      part1: 'LE',
-      strong1: 'VÉCU',
-      part2: "DES ANIMAUX D'ÉLEVAGE,",
-      part3: 'POUR LA PREMIÈRE FOIS',
-      strong2: 'CHIFFRÉ',
+      part1: 'LE ',
+      strong1: 'VÉCU ',
+      part2: "DES ANIMAUX D'ÉLEVAGE, ",
+      part3: 'POUR LA PREMIÈRE FOIS ',
+      strong2: 'CHIFFRÉ ',
     },
     description: {
       part0: 'Le',
@@ -37,7 +37,7 @@ export default {
     },
     key_number: {
       key1: 'ÉTUDES DÉCORTIQUÉES',
-      years:'ANS',
+      years: 'ANS',
       key2: 'ANNÉE DE TRAVAIL',
       key3: 'CHERCHEURS MOBILISÉS',
       key4: 'UNE MÉTHODE INÉDITE',
