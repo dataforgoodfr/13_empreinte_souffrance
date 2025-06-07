@@ -8,8 +8,6 @@ export default {
     aboutThisWebsite: 'About this website',
   },
 
-
-
   HeroSection: {
     title: "how much",
     title_sentence: {
@@ -18,11 +16,10 @@ export default {
       strong2: "CAGED HEN ",
       part2: "TO PRODUCE  ",
       strong3: "EGGS"
-    }
+    },
+    altPicture: "Hen kept in a battery cage for egg production",
+
   },
-
-
-  // How much does a caged hen suffer to produce eggs?
 
   Results: {
     title: 'The Results?',
@@ -50,7 +47,7 @@ export default {
       image_description: 'Hens crowded in stacked cages',
     },
   },
-  /////////////////////////////////////////////////////////////////////
+
   SufferingCausesSection: {
     title: "What do caged hens suffer from ?",
     othersSources: "+ 24 other sources of pain",
@@ -79,8 +76,6 @@ export default {
       text: "This inflammation, caused by egg debris in the abdomen, is the most common and fatal disease in laying hens."
     }
   },
-  /////////////////////////////////////////////////////////////////////
-
 
   PainEquationSection: {
     title: "THE PAIN EQUATION",

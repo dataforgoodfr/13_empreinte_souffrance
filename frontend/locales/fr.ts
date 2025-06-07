@@ -8,8 +8,6 @@ export default {
     aboutThisWebsite: 'À propos de ce site',
   },
 
-
-
   HeroSection: {
     title: "combien",
     title_sentence: {
@@ -18,13 +16,9 @@ export default {
       strong2: "POULE EN CAGE ",
       part2: "POUR PRODUIRE DES ",
       strong3: "ŒUFS"
-    }
-
+    },
+    altPicture: "Poule enfermée dans une cage en batterie pour la production d'œufs",
   },
-
-
-
-
 
   Results: {
     title: 'Les Résultats ?',

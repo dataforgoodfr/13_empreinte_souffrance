@@ -8,13 +8,13 @@ export default async function HeroSection() {
     <header className="relative h-screen w-full overflow-hidden flex items-center justify-end">
       <img
         src="chicken_header.png"
-        alt=""
+        alt={scopedT('altPicture')}
         className="absolute inset-0 object-cover object-right transform scale-[1.3] origin-top-right"
       />
 
       <hgroup className="relative  flex flex-col justify-center items-start text-left p-4 max-w-[40rem]">
         <h1 className="text-5xl font-bold">
-          <span className=" ">
+          <span className="{scopedT('title_sentence.strong1')} ">
             {/* translation map to add a colored dot on each of the letters to keep the style of the model */}
             {title.split('').map((lettre: string, index: number) => (
               <ColorText key={index} lettre={lettre} color={lettre === ' ' ? 'transparent' : lettreColor()} />
