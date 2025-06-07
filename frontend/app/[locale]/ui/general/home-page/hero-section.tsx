@@ -6,17 +6,16 @@ export default async function HeroSection() {
 
   return (
     <header className="relative h-screen w-full overflow-hidden flex items-center justify-end">
-      {/* Image de fond */}
       <img
         src="chicken_header.png"
         alt=""
         className="absolute inset-0 object-cover object-right transform scale-[1.3] origin-top-right"
       />
 
-      {/* Contenu à gauche */}
-      <hgroup className="relative z-10 flex flex-col justify-center items-start text-left p-4 max-w-[40rem]">
+      <hgroup className="relative  flex flex-col justify-center items-start text-left p-4 max-w-[40rem]">
         <h1 className="text-5xl font-bold">
           <span className=" ">
+            {/* translation map to add a colored dot on each of the letters to keep the style of the model */}
             {title.split('').map((lettre: string, index: number) => (
               <ColorText key={index} lettre={lettre} color={lettre === ' ' ? 'transparent' : lettreColor()} />
             ))}
@@ -42,7 +41,7 @@ export default async function HeroSection() {
   );
 }
 
-// ✅ Fonction couleur aléatoire
+// This function is used to generate a random color for the color dots of the letters of h1
 const lettreColor = (): string => {
   const colors = ['#FFE9E9', '#FFC3C3', '#FF7B7B'];
   const randomIndex = Math.floor(Math.random() * colors.length);
@@ -54,6 +53,7 @@ interface colorText {
   color: string;
 }
 
+// This function adds the colored dot on the letters
 function ColorText({ lettre, color }: colorText) {
   return (
     <div
