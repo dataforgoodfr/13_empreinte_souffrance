@@ -233,6 +233,60 @@ def ground_truth_free_range_breeding_type_present(input_file):
     print(f"\nTotal entries with ground_truth == 'free_range' and bio on packaging: {count_bio}")
 
 
+def compute_topk_metrics_high_confidence(entries, top_k=2, confidence_threshold=0.45):
+    y_true = []
+    y_pred_top1 = []
+    matched_at_topk = 0
+    wrong_labels = set()
+
+    for e in entries:
+        gt = e.get("ground_truth")
+        preds = e.get("keras_category_classifier_v3_prediction")
+
+        if not preds or not isinstance(preds, list) or not preds[0]:
+            continue
+
+        # Filter by top-1 confidence
+        top_pred_label, top_pred_conf = preds[0]
+        if top_pred_conf <= confidence_threshold:
+            continue
+
+        if not is_valid_gt(gt):
+            continue
+
+        mapped_gt = GT_TO_KERAS_LABELS.get(gt, "wrong")
+        if mapped_gt == "wrong":
+            wrong_labels.add(gt)
+            continue
+
+        top_preds = [p[0] for p in preds[:top_k]]
+
+        y_true.append(mapped_gt)
+        y_pred_top1.append(top_preds[0])
+
+        if mapped_gt in top_preds:
+            matched_at_topk += 1
+
+    if not y_true:
+        print("⚠️ No valid entries with confidence >", confidence_threshold)
+        return
+
+    top1_acc = sum(yt == yp for yt, yp in zip(y_true, y_pred_top1)) / len(y_true)
+    topk_acc = matched_at_topk / len(y_true)
+
+    print(f"\n📈 Evaluation (Only top-1 confidence > {confidence_threshold})")
+    print(f"Evaluated examples: {len(y_true)}")
+    print("Top-1 Accuracy:", round(top1_acc, 4))
+    print("Top-2 Accuracy:", round(topk_acc, 4))
+    print("Precision (macro):", round(precision_score(y_true, y_pred_top1, average='macro', zero_division=0), 4))
+    print("Recall (macro):", round(recall_score(y_true, y_pred_top1, average='macro', zero_division=0), 4))
+    print("F1-score (macro):", round(f1_score(y_true, y_pred_top1, average='macro', zero_division=0), 4))
+    print("\nClassification report (top-1 prediction):\n")
+    print(classification_report(y_true, y_pred_top1, digits=4, zero_division=0))
+    print("\nUnknown/wrong GT labels found:", wrong_labels)
+
+
+
 
 def main():
     jsonl_path = "data/dfoeufs_with_predictions_with_ground_truth.jsonl"
@@ -244,8 +298,9 @@ def main():
     extract_label_sets(entries)
     compute_topk_metrics(entries, top_k=2)
     compute_topk_accuracy_per_class(entries, top_k=2)
-    ground_truth_none_breeding_type_present(jsonl_path_groq)
-    ground_truth_free_range_breeding_type_present(jsonl_path_groq)
+    compute_topk_metrics_high_confidence(entries)
+    #ground_truth_none_breeding_type_present(jsonl_path_groq)
+    #ground_truth_free_range_breeding_type_present(jsonl_path_groq)
 
 
 if __name__ == "__main__":
