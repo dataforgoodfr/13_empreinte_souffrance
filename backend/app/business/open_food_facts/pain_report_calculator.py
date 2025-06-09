@@ -3,7 +3,12 @@ from typing import Dict, List
 from app.business.open_food_facts.breeding_type_calculator import BreedingTypeCalculator
 from app.business.open_food_facts.egg_weight_calculator import calculate_egg_weight
 from app.config.exceptions import ResourceNotFoundException
-from app.enums.open_food_facts.enums import TIME_IN_PAIN_FOR_100G_IN_SECONDS, AnimalType, PainIntensity, PainType
+from app.enums.open_food_facts.enums import (
+    TIME_IN_PAIN_FOR_100G_IN_SECONDS,
+    AnimalType,
+    PainIntensity,
+    PainType,
+)
 from app.schemas.open_food_facts.external import ProductData
 from app.schemas.open_food_facts.internal import AnimalPainReport, BreedingTypeAndWeight, PainLevelData, PainReport
 
