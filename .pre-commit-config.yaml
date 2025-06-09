@@ -65,6 +65,7 @@ repos:
         name: run prettier
         language: system
         files: ^.*$
+        exclude: .*ipynb
         types_or: [javascript, json]
         entry: |
           bash -c 'npm --prefix frontend run format "${@#*/}"' --
