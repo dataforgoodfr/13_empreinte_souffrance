@@ -105,7 +105,7 @@ export default {
       text: "Cette inflammation, due à des débris d’œuf dans l’abdomen, est la maladie la plus fréquente et mortelle chez les poules pondeuses."
     }
   },
-    
+
   welfare_footprint_institute: 'Welfare Footprint Institute',
   KnowledgePanel: {
     title: 'Knowledge Panel',
@@ -121,6 +121,9 @@ export default {
     legal_terms: 'Mentions légales',
     privacy_policy: 'Politique de confidentialité',
     contact_us: 'Contactez-nous',
+    all_rights_reserved: 'Tous droits réservés',
+    graphics: 'Graphisme :',
+    rights: ' © 2024 Empreinte Souffrance et Data for Good',
   },
   science: {},
 } as const;
