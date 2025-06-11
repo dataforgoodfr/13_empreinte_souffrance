@@ -9,12 +9,14 @@ import CallToActionSection from '@/app/[locale]/ui/general/home-page/call-to-act
 import BookAnnouncementSection from '@/app/[locale]/ui/general/home-page/book-announcement-section';
 import MethodologySection from '@/app/[locale]/ui/general/home-page/methodology-section';
 import GoFurtherSection from '@/app/[locale]/ui/general/home-page/go-further-section';
+import LinkSection from '@/app/[locale]/ui/general/home-page/link-section';
 
 export default function Home() {
   return (
     <>
       <LocaleSelect />
       <HeroSection />
+      <LinkSection />
       <WFISection />
       <SufferingCausesSection />
       <PainEquationSection />
