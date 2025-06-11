@@ -19,6 +19,14 @@ export default {
     does_this_hen_suffer_to_produce_eggs: 'does this hen suffer to produce eggs ?',
     returnHome: 'Return Home',
   },
+  LinkSection: {
+    link1: "THE WELFARE FOOTPRINT INSTITUTE",
+    link2: "WHAT DO CHICKENS SUFFER FROM ?",
+    link3: "THE EQUATION OF PAIN",
+    link4: "ITS BURDEN, FINALLY VISIBLE",
+    link5: "THE SUFFERING FOOTPRINT OF EGGS",
+    link6: "GO FURTHER"
+  },
   Results: {
     title: 'The Results?',
     agony: {

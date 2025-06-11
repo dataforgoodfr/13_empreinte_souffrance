@@ -19,6 +19,14 @@ export default {
     does_this_hen_suffer_to_produce_eggs: 'souffre cette poule pour produire des oeufs ?',
     returnHome: "Retournez à l'accueil",
   },
+  LinkSection: {
+    link1: "LE WELFARE FOOTPRINT INSTITUTE",
+    link2: "DE QUOI SOUFFRENT LES POULES ?",
+    link3: "L’ÉQUATION DE LA DOULEUR",
+    link4: "SON FARDEAU, ENFIN VISIBLE",
+    link5: "L’EMPREINTE SOUFFRANCE DES ŒUFS",
+    link6: "ALLER PLUS LOIN",
+  },
   Results: {
     title: 'Les Résultats ?',
     agony: {
@@ -105,7 +113,7 @@ export default {
       text: "Cette inflammation, due à des débris d’œuf dans l’abdomen, est la maladie la plus fréquente et mortelle chez les poules pondeuses."
     }
   },
-    
+
   welfare_footprint_institute: 'Welfare Footprint Institute',
   KnowledgePanel: {
     title: 'Knowledge Panel',

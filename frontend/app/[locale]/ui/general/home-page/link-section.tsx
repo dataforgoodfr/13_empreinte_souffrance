@@ -1,17 +1,19 @@
+import { getI18n } from '@/locales/server';
 import Link from 'next/link';
 
-export default function LinkSection() {
+export default async function LinkSection() {
+  const t = await getI18n();
   //todo replace "#" to reel links
   const firstLine = [
-    ['LE WELFARE FOOTPRINT INSTITUTE', '#'],
-    ['DE QUOI SOUFFRENT LES POULES ?', '#'],
-    ['L’ÉQUATION DE LA DOULEUR', '#'],
+    [t('LinkSection.link1'), '#'],
+    [t('LinkSection.link2'), '#'],
+    [t('LinkSection.link3'), '#'],
   ];
 
   const secondLine = [
-    ['SON FARDEAU, ENFIN VISIBLE', '#'],
-    ['L’EMPREINTE SOUFFRANCE DES ŒUFS', '#'],
-    ['ALLER PLUS LOIN', '#'],
+    [t('LinkSection.link4'), '#'],
+    [t('LinkSection.link5'), '#'],
+    [t('LinkSection.link6'), '#'],
   ];
 
   const linkStyle =
