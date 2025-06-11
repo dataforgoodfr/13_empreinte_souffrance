@@ -1,3 +1,5 @@
+
+
 export default {
   suffering_footprint: 'Empreinte souffrance',
   GoFurther: {
@@ -6,6 +8,14 @@ export default {
     share: 'Partager la page',
     methodology: 'Découvrir la méthodologie',
     aboutThisWebsite: 'À propos de ce site',
+  },
+  btn_imprint_sffering: {
+    imprint: 'empreinte',
+    suffering: 'souffrance',
+  },
+  Navbar: {
+    link1: 'Méthodologie',
+    link2: 'À propos',
   },
   Home: {
     badge: "Adopter l'élevage en plein air pour chaque poulet en Europe !",
@@ -105,7 +115,7 @@ export default {
       text: "Cette inflammation, due à des débris d’œuf dans l’abdomen, est la maladie la plus fréquente et mortelle chez les poules pondeuses."
     }
   },
-    
+
   welfare_footprint_institute: 'Welfare Footprint Institute',
   KnowledgePanel: {
     title: 'Knowledge Panel',

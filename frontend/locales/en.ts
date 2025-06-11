@@ -7,6 +7,14 @@ export default {
     methodology: 'Understand the methodology',
     aboutThisWebsite: 'About this website',
   },
+  btn_imprint_sffering: {
+    imprint: 'imprint',
+    suffering: 'suffering',
+  },
+  Navbar: {
+    link1: 'Methodology',
+    link2: 'About',
+  },
   Home: {
     badge: 'Embracing free-range for every chicken in Europe!',
     animal_welfare: 'Animal Welfare',

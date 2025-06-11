@@ -1,19 +1,30 @@
-import Link from 'next/link';
-import NavLinks from '@/app/[locale]/ui/general/nav-links';
-import { LocaleSelect } from '../localselect';
+import { getI18n } from '@/locales/server';
 
-export default function Navbar() {
+import Link from 'next/link';
+import { LocaleSelect } from '../localselect';
+import BtnImprintSuffering from './home-page/elements/btn-imprint-suffering';
+
+export default async function Navbar() {
+  const t = await getI18n();
+
   return (
     <>
-      <div className="flex h-full w-full px-3 py-4 md:px-2 items-center justify-center bg-indigo-800">
-        <Link className="flex h-4 items-center justify-center rounded-md bg-blue-600 p-4" href="/">
-          <div className="w-38 text-white">ES Logo placeholder</div>
-        </Link>
-        <div className="flex gap-1 grow justify-start w-full ml-3">
-          <NavLinks />
-        </div>
+      <header className="flex justify-between items-center">
+        <nav className="flex justify-between items-center w-full">
+          <BtnImprintSuffering />
+          <div className="flex justify-around items-center px-4 py-2 gap-6">
+            {/* todo add links to the navbar */}
+            <Link href={''} className="hover:bg-gray-200">
+              {t('Navbar.link1')}
+            </Link>
+            {/* todo add links to the navbar */}
+            <Link href={''} className="">
+              {t('Navbar.link2')}
+            </Link>
+          </div>
+        </nav>
         <LocaleSelect />
-      </div>
+      </header>
     </>
   );
 }
