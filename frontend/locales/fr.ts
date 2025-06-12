@@ -15,7 +15,8 @@ export default {
   },
   Navbar: {
     link1: 'Méthodologie',
-    link2: 'À propos',
+    link2: 'Calculateur',
+    link3: 'À propos',
   },
   Home: {
     badge: "Adopter l'élevage en plein air pour chaque poulet en Europe !",

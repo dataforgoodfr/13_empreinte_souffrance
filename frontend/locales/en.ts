@@ -13,7 +13,8 @@ export default {
   },
   Navbar: {
     link1: 'Methodology',
-    link2: 'About',
+    link2: 'Calculator',
+    link3: 'About',
   },
   Home: {
     badge: 'Embracing free-range for every chicken in Europe!',

@@ -9,25 +9,24 @@ export default async function Navbar() {
 
   return (
     <>
-      <header className="flex  w-max-full justify-between items-center  bg-red-50 p-4  ">
-        <nav className="flex justify-between items-center md:w-full md:gap-2 ">
-          <BtnImprintSuffering />
+      <header className="flex flex-col bg-red-50 p-4 w-full">
+        {/* add link to redirect */}
+        <div className="flex flex-row justify-center items-center gap-2 mb-4 font-mono font-black uppercase">
+          <Link href="" className="hover:bg-gray-200 rounded-full px-3 transition tracking-wider">
+            {t('Navbar.link1')}
+          </Link>
+          <Link href="" className="hover:bg-gray-200 rounded-full px-3 transition tracking-wider">
+            {t('Navbar.link2')}
+          </Link>
+          <Link href="" className="hover:bg-gray-200 rounded-full px-3 transition tracking-wider whitespace-nowrap">
+            {t('Navbar.link3')}
+          </Link>
+        </div>
 
-          <div className="flex flex-col sm:flex-row justify-around items-center md:items-end p-2 md:gap-6 font-mono font-black uppercase">
-            {/* todo add links to the navbar */}
-            <Link
-              href={''}
-              className="hover:bg-gray-200 rounded-full px-3 transition-colors duration-150 ease-in-out tracking-wider"
-            >
-              {t('Navbar.link1')}
-            </Link>
-            {/* todo add links to the navbar */}
-            <Link href={''} className="hover:bg-gray-200 rounded-full px-3 transition tracking-wider">
-              {t('Navbar.link2')}
-            </Link>
-          </div>
-        </nav>
-        <LocaleSelect />
+        <div className="flex flex-row justify-between items-center w-full">
+          <BtnImprintSuffering />
+          <LocaleSelect />
+        </div>
       </header>
     </>
   );
