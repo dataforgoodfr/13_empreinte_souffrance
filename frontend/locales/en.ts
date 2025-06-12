@@ -9,7 +9,7 @@ export default {
   },
 
   btn_imprint_sffering: {
-    imprint: 'weldare',
+    imprint: 'welfare',
     suffering: 'footprint',
   },
 

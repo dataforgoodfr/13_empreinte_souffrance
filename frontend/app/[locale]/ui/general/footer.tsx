@@ -2,7 +2,7 @@ import { getI18n } from '@/locales/server';
 import Link from 'next/link';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFacebook, faLinkedin, faXTwitter } from '@fortawesome/free-brands-svg-icons';
-import BtnImprintSuffering from './home-page/elements/btn-imprint-suffering';
+import Logo from './home-page/elements/logo-walfare-footprint';
 
 export default async function Footer() {
   const t = await getI18n();
@@ -11,7 +11,7 @@ export default async function Footer() {
     <footer className="bg-white text-[#3b0a0a] text-sm">
       <div className="grid grid-cols-2 md:grid-cols-3 py-4 md:py-0 px-6  bg-white text-[#3b0a0a] text-sm gap-y-4">
         <div className="grid gap-3">
-          <BtnImprintSuffering />
+          <Logo />
           <div className="grid gap-2 md:px-2">
             <div className="grid grid-cols-[25px_1fr]  gap-2">
               <FontAwesomeIcon icon={faFacebook} className="text-xl" />
