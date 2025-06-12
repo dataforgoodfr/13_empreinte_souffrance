@@ -1,5 +1,5 @@
 import HeroSection from '@/app/[locale]/ui/general/home-page/hero-section';
-import { LocaleSelect } from './ui/localselect';
+// import { LocaleSelect } from './ui/localselect';
 import WFISection from '@/app/[locale]/ui/general/home-page/WFI-section';
 import SufferingCausesSection from '@/app/[locale]/ui/general/home-page/suffering-causes-section';
 import PainEquationSection from '@/app/[locale]/ui/general/home-page/pain-equation-section';
@@ -14,7 +14,6 @@ import LinkSection from '@/app/[locale]/ui/general/home-page/link-section';
 export default function Home() {
   return (
     <>
-      <LocaleSelect />
       <HeroSection />
       <LinkSection />
       <WFISection />
