@@ -27,6 +27,28 @@ export default {
     how_much: 'How much',
     does_this_hen_suffer_to_produce_eggs: 'does this hen suffer to produce eggs ?',
     returnHome: 'Return Home',
+
+
+  HeroSection: {
+    title: "how much",
+    title_sentence: {
+      strong1: "SUFFER ",
+      part1: "A ",
+      strong2: "CAGED HEN ",
+      part2: "TO PRODUCE  ",
+      strong3: "EGGS"
+    },
+    altPicture: "Hen kept in a battery cage for egg production",
+
+  },
+  LinkSection: {
+    link1: "THE WELFARE FOOTPRINT INSTITUTE",
+    link2: "WHAT DO CHICKENS SUFFER FROM ?",
+    link3: "THE EQUATION OF PAIN",
+    link4: "ITS BURDEN, FINALLY VISIBLE",
+    link5: "THE SUFFERING FOOTPRINT OF EGGS",
+    link6: "GO FURTHER"
+
   },
   Results: {
     title: 'The Results?',
@@ -54,7 +76,7 @@ export default {
       image_description: 'Hens crowded in stacked cages',
     },
   },
-  /////////////////////////////////////////////////////////////////////
+
   SufferingCausesSection: {
     title: "What do caged hens suffer from ?",
     othersSources: "+ 24 other sources of pain",
@@ -83,8 +105,6 @@ export default {
       text: "This inflammation, caused by egg debris in the abdomen, is the most common and fatal disease in laying hens."
     }
   },
-  /////////////////////////////////////////////////////////////////////
-
 
   PainEquationSection: {
     title: "THE PAIN EQUATION",
@@ -128,6 +148,15 @@ export default {
     search: 'Search',
     loading: 'Loading data...',
     productNotFound: "This product doesn't contain supported animal products",
+  },
+  BookAnnouncement: {
+    title: "COMING SOON\nON OUR WEBSITE",
+    intro: "This autumn, the Welfare Footprint Institute publishes",
+    bookTitle: "The Welfare Footprint of the Egg: A Comprehensive Analysis of Animal Welfare Impacts of Egg Production",
+    publisher: "with Taylor & Francis (CRC Press)",
+    description: "This pioneering work will present the first quantification of the impact of food production on farm animals.",
+    imageAlt: "Book cover: Quantifying Pain in Laying Hens, Cynthia Schuck-Paim, Wladimir J. Alonso, 2021",
+    figcaption: "Book cover: Quantifying Pain in Laying Hens, Cynthia Schuck-Paim, Wladimir J. Alonso, 2021"
   },
   footer: {
     legal_terms: 'Legal terms',
