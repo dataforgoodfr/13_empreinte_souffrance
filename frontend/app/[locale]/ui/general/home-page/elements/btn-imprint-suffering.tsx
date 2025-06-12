@@ -5,7 +5,7 @@ export default async function BtnImprintSuffering() {
   const t = await getI18n();
 
   return (
-    <div className="gap-2 md:gap-1 flex  md:flex-row items-center flex-wrap md:p-8 sm:px-16 font-mono font-black uppercase">
+    <div className="gap-2 md:gap-1 flex  md:flex-row items-center flex-wrap md:p-2 sm:px-16 font-mono font-black uppercase">
       {/* todo add links to the navbar */}
       <Link
         href={''}
