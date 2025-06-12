@@ -7,7 +7,7 @@ export const LocaleSelect = () => {
 
   return (
     <select
-      className="bg-green-300 text-gray-800 px-6 py-3 text-lg font-medium rounded-lg shadow-lg hover:bg-green-400"
+      className="bg-green-300 text-gray-800 px-2 md:px-6 py-3 text-lg font-medium rounded-lg shadow-lg hover:bg-green-400"
       value={locale}
       onChange={(e) => changeLocale(e.target.value as 'fr' | 'en')}
     >
