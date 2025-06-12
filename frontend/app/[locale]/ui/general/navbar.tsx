@@ -1,19 +1,49 @@
-import Link from 'next/link';
-import NavLinks from '@/app/[locale]/ui/general/nav-links';
-import { LocaleSelect } from '../localselect';
+import { getI18n } from '@/locales/server';
 
-export default function Navbar() {
+import Link from 'next/link';
+import { LocaleSelect } from '../localselect';
+import BtnImprintSuffering from './home-page/elements/btn-imprint-suffering';
+
+export default async function Navbar() {
+  const t = await getI18n();
+
   return (
     <>
-      <div className="flex h-full w-full px-3 py-4 md:px-2 items-center justify-center bg-indigo-800">
-        <Link className="flex h-4 items-center justify-center rounded-md bg-blue-600 p-4" href="/">
-          <div className="w-38 text-white">ES Logo placeholder</div>
-        </Link>
-        <div className="flex gap-1 grow justify-start w-full ml-3">
-          <NavLinks />
+      <header className="bg-red-50 p-4 w-full">
+        <div className="flex flex-col md:flex-row md:items-center md:justify-between w-full gap-4">
+          {/* Ligne du haut : gauche = boutons + langue en mobile / boutons seul en desktop */}
+          <div className="flex justify-between md:justify-start items-center gap-2 w-full md:w-auto">
+            <div className="flex justify-start items-center gap-2">
+              <BtnImprintSuffering />
+            </div>
+            {/* Ce bloc est visible en mobile seulement */}
+            <div className="md:hidden">
+              <LocaleSelect />
+            </div>
+          </div>
+
+          {/* Centre : liens */}
+          <div className="flex justify-center items-center md:justify-end gap-4 font-mono font-black uppercase text-sm flex-grow basis-0 min-w-0">
+            <Link href="" className="hover:bg-gray-200 rounded-full px-3 transition tracking-wider">
+              {t('Navbar.link1')}
+            </Link>
+            <Link href="" className="hover:bg-gray-200 rounded-full px-3 transition tracking-wider">
+              {t('Navbar.link2')}
+            </Link>
+            <Link
+              href="/about"
+              className="hover:bg-gray-200 rounded-full px-3 transition tracking-wider whitespace-nowrap"
+            >
+              {t('Navbar.link3')}
+            </Link>
+          </div>
+
+          {/* Droite : sélecteur de langue visible en desktop seulement */}
+          <div className="hidden md:flex justify-end">
+            <LocaleSelect />
+          </div>
         </div>
-        <LocaleSelect />
-      </div>
+      </header>
     </>
   );
 }

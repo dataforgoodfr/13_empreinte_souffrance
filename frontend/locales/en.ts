@@ -7,6 +7,18 @@ export default {
     methodology: 'Understand the methodology',
     aboutThisWebsite: 'About this website',
   },
+
+  btn_imprint_sffering: {
+    imprint: 'imprint',
+    suffering: 'suffering',
+  },
+
+  Navbar: {
+    link1: 'Methodology',
+    link2: 'Calculator',
+    link3: 'About',
+  },
+
   Home: {
     badge: 'Embracing free-range for every chicken in Europe!',
     animal_welfare: 'Animal Welfare',
@@ -19,6 +31,7 @@ export default {
     does_this_hen_suffer_to_produce_eggs: 'does this hen suffer to produce eggs ?',
     returnHome: 'Return Home',
   },
+  
   WFIArticle: {
     title: {
       part1: 'THE',
@@ -43,6 +56,30 @@ export default {
       key4: 'AN INNOVATIVE METHOD',
     },
   },
+
+
+  HeroSection: {
+    title: "how much",
+    title_sentence: {
+      strong1: "SUFFER ",
+      part1: "A ",
+      strong2: "CAGED HEN ",
+      part2: "TO PRODUCE  ",
+      strong3: "EGGS"
+    },
+    altPicture: "Hen kept in a battery cage for egg production",
+  },
+
+  LinkSection: {
+    link1: "THE WELFARE FOOTPRINT INSTITUTE",
+    link2: "WHAT DO CHICKENS SUFFER FROM ?",
+    link3: "THE EQUATION OF PAIN",
+    link4: "ITS BURDEN, FINALLY VISIBLE",
+    link5: "THE SUFFERING FOOTPRINT OF EGGS",
+    link6: "GO FURTHER"
+  },
+
+
   Results: {
     title: 'The Results?',
     agony: {
@@ -69,7 +106,7 @@ export default {
       image_description: 'Hens crowded in stacked cages',
     },
   },
-  /////////////////////////////////////////////////////////////////////
+
   SufferingCausesSection: {
     title: 'What do caged hens suffer from ?',
     othersSources: '+ 24 other sources of pain',
@@ -98,7 +135,6 @@ export default {
       text: 'This inflammation, caused by egg debris in the abdomen, is the most common and fatal disease in laying hens.',
     },
   },
-  /////////////////////////////////////////////////////////////////////
 
   PainEquationSection: {
     title: 'THE PAIN EQUATION',
@@ -142,10 +178,24 @@ export default {
     loading: 'Loading data...',
     productNotFound: "This product doesn't contain supported animal products",
   },
+
+  BookAnnouncement: {
+    title: "COMING SOON\nON OUR WEBSITE",
+    intro: "This autumn, the Welfare Footprint Institute publishes",
+    bookTitle: "The Welfare Footprint of the Egg: A Comprehensive Analysis of Animal Welfare Impacts of Egg Production",
+    publisher: "with Taylor & Francis (CRC Press)",
+    description: "This pioneering work will present the first quantification of the impact of food production on farm animals.",
+    imageAlt: "Book cover: Quantifying Pain in Laying Hens, Cynthia Schuck-Paim, Wladimir J. Alonso, 2021",
+    figcaption: "Book cover: Quantifying Pain in Laying Hens, Cynthia Schuck-Paim, Wladimir J. Alonso, 2021"
+  },
+
   footer: {
     legal_terms: 'Legal terms',
     privacy_policy: 'Privacy policy',
     contact_us: 'Contact us',
+    all_rights_reserved: 'All rights reserved',
+    graphics: 'Graphics by',
+    rights: '© 2024 Empreinte Souffrance and Data for Good',
   },
-  science: {},
+
 } as const;
