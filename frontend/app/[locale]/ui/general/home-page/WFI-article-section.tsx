@@ -11,7 +11,7 @@ export default async function WFIArticleSection() {
         <span className="text-[#ff7f7f]">&nbsp;{scopedT('title.strong1')}</span>
         &nbsp;{scopedT('title.part2')}
         <br />
-        &nbsp;{scopedT('title.part3')}
+        {scopedT('title.part3')}
         <span className="text-[#ff7f7f]">&nbsp;{scopedT('title.strong2')}</span>.
       </h1>
 
