@@ -11,6 +11,7 @@ export default function Home() {
   return (
     <>
       <HeroSection />
+      <WFISection />
       <LinkSection />
       <SufferingCausesSection />
       <PainEquationSection />
