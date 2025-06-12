@@ -7,17 +7,18 @@ export default {
     methodology: 'Understand the methodology',
     aboutThisWebsite: 'About this website',
   },
-  Home: {
-    badge: 'Embracing free-range for every chicken in Europe!',
-    animal_welfare: 'Animal Welfare',
-    science: 'Science',
-    explained: 'explained',
-    paragraph:
-      'Discover everything you need to know about what a chicken experiences in livestock farming and make educated choices.',
-    link: 'Understand the method',
-    how_much: 'How much',
-    does_this_hen_suffer_to_produce_eggs: 'does this hen suffer to produce eggs ?',
-    returnHome: 'Return Home',
+
+  HeroSection: {
+    title: "how much",
+    title_sentence: {
+      strong1: "SUFFER ",
+      part1: "A ",
+      strong2: "CAGED HEN ",
+      part2: "TO PRODUCE  ",
+      strong3: "EGGS"
+    },
+    altPicture: "Hen kept in a battery cage for egg production",
+
   },
   LinkSection: {
     link1: "THE WELFARE FOOTPRINT INSTITUTE",
@@ -53,7 +54,7 @@ export default {
       image_description: 'Hens crowded in stacked cages',
     },
   },
-  /////////////////////////////////////////////////////////////////////
+
   SufferingCausesSection: {
     title: "What do caged hens suffer from ?",
     othersSources: "+ 24 other sources of pain",
@@ -82,8 +83,6 @@ export default {
       text: "This inflammation, caused by egg debris in the abdomen, is the most common and fatal disease in laying hens."
     }
   },
-  /////////////////////////////////////////////////////////////////////
-
 
   PainEquationSection: {
     title: "THE PAIN EQUATION",
