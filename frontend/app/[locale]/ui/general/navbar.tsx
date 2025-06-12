@@ -18,7 +18,10 @@ export default async function Navbar() {
           <Link href="" className="hover:bg-gray-200 rounded-full px-3 transition tracking-wider">
             {t('Navbar.link2')}
           </Link>
-          <Link href="" className="hover:bg-gray-200 rounded-full px-3 transition tracking-wider whitespace-nowrap">
+          <Link
+            href="/about"
+            className="hover:bg-gray-200 rounded-full px-3 transition tracking-wider whitespace-nowrap"
+          >
             {t('Navbar.link3')}
           </Link>
         </div>
