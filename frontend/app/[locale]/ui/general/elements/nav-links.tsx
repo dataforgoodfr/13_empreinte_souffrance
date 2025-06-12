@@ -4,15 +4,14 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import clsx from 'clsx';
 
+
 const links = [
-  { name: 'The Figures', href: '/figures' },
-  { name: 'Science', href: '/science' },
-  { name: 'Life of a chicken', href: '/chicken-life' },
-  { name: 'Act now', href: '/act-now' },
+  { name: 'Methodology', href: '/methodology' },
+  { name: 'Calculator', href: '/calculator' },
   { name: 'About us', href: '/about' },
 ];
 
-export default function NavLinks() {
+export default function NavLinks({t} : {t : (key: string) => string }) {
   const pathname = usePathname();
 
   return (

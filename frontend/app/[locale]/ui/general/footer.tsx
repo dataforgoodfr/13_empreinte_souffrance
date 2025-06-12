@@ -2,7 +2,7 @@ import { getI18n } from '@/locales/server';
 import Link from 'next/link';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFacebook, faLinkedin, faXTwitter } from '@fortawesome/free-brands-svg-icons';
-import BtnImprintSuffering from './home-page/elements/btn-imprint-suffering';
+import BtnImprintSuffering from './elements/btn-imprint-suffering';
 
 export default async function Footer() {
   const t = await getI18n();

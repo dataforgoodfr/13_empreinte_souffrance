@@ -1,15 +1,19 @@
 import { getI18n } from '@/locales/server';
 
-import Link from 'next/link';
+import NavLinks from "@/app/[locale]/ui/general/elements/nav-links";
 import { LocaleSelect } from '../localselect';
-import BtnImprintSuffering from './home-page/elements/btn-imprint-suffering';
+import BtnImprintSuffering from './elements/btn-imprint-suffering';
+
 
 export default async function Navbar() {
   const t = await getI18n();
 
+
+
+
   return (
     <>
-      <header className="bg-red-50 p-1 w-full flex flex-col md:flex-row md:items-center md:justify-between w-full gap-4">
+      <header className="bg-red-50 p-1 w-full h-full flex flex-col md:flex-row md:items-center md:justify-between w-full gap-4">
           {/* Ligne du haut : gauche = boutons + langue en mobile / boutons seul en desktop */}
           <div className="flex justify-between md:justify-start items-center gap-2 w-full md:w-auto">
               <BtnImprintSuffering />
@@ -21,18 +25,7 @@ export default async function Navbar() {
 
           {/* Centre : liens */}
           <nav className="flex justify-center items-center md:justify-end gap-4 font-mono font-black uppercase text-sm flex-grow basis-0 min-w-0">
-            <Link href="" className="hover:bg-gray-200 rounded-full px-3 transition tracking-wider">
-              {t('Navbar.link1')}
-            </Link>
-            <Link href="" className="hover:bg-gray-200 rounded-full px-3 transition tracking-wider">
-              {t('Navbar.link2')}
-            </Link>
-            <Link
-              href="/about"
-              className="hover:bg-gray-200 rounded-full px-3 transition tracking-wider whitespace-nowrap"
-            >
-              {t('Navbar.link3')}
-            </Link>
+         <NavLinks key={t} />
           </nav>
 
           {/* Droite : sélecteur de langue visible en desktop seulement */}
