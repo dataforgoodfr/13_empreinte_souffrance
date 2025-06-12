@@ -167,6 +167,9 @@ export default {
     legal_terms: 'Legal terms',
     privacy_policy: 'Privacy policy',
     contact_us: 'Contact us',
+    all_rights_reserved: 'All rights reserved',
+    graphics: 'Graphics by',
+    rights: '© 2024 Empreinte Souffrance and Data for Good',
   },
 
 } as const;
