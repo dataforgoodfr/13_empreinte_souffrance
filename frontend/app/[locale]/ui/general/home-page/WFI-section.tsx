@@ -8,8 +8,8 @@ export default async function WFISection() {
     <section className="bg-indigo-800 h-screen p-8 sm:px-16">
       <div className="w-full">
         <h1 className="w-full text-5xl sm:text-6xl lg:text-7xl font-bold text-white text-center">
-          <span className="text-green-300">{t('Home.science')}</span>
-          &nbsp;{t('Home.explained')}
+          <span className="text-green-300">text</span>
+          &nbsp;text
         </h1>
       </div>
       <div className="w-full flex items-center justify-between">

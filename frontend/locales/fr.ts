@@ -7,6 +7,18 @@ export default {
     methodology: 'Découvrir la méthodologie',
     aboutThisWebsite: 'À propos de ce site',
   },
+
+  btn_imprint_sffering: {
+    imprint: 'empreinte',
+    suffering: 'souffrance',
+  },
+
+  Navbar: {
+    link1: 'Méthodologie',
+    link2: 'Calculateur',
+    link3: 'À propos',
+  },
+
   Home: {
     badge: "Adopter l'élevage en plein air pour chaque poulet en Europe !",
     animal_welfare: 'Bien-être animal',
@@ -19,6 +31,28 @@ export default {
     does_this_hen_suffer_to_produce_eggs: 'souffre cette poule pour produire des oeufs ?',
     returnHome: "Retournez à l'accueil",
   },
+
+  HeroSection: {
+    title: "combien",
+    title_sentence: {
+      strong1: "SOUFFRE ",
+      part1: "UNE ",
+      strong2: "POULE EN CAGE ",
+      part2: "POUR PRODUIRE DES ",
+      strong3: "ŒUFS"
+    },
+    altPicture: "Poule enfermée dans une cage en batterie pour la production d'œufs",
+  },
+
+  LinkSection: {
+    link1: "LE WELFARE FOOTPRINT INSTITUTE",
+    link2: "DE QUOI SOUFFRENT LES POULES ?",
+    link3: "L’ÉQUATION DE LA DOULEUR",
+    link4: "SON FARDEAU, ENFIN VISIBLE",
+    link5: "L’EMPREINTE SOUFFRANCE DES ŒUFS",
+    link6: "ALLER PLUS LOIN",
+  },
+
   Results: {
     title: 'Les Résultats ?',
     agony: {
@@ -44,6 +78,35 @@ export default {
       content: 'Encore 12 millions de poules sont élevées en cage en France, soit 1 poule sur 4',
       image_description: 'Poules entassées dans des cages superposées les unes sur les autres',
     },
+  },
+
+  SufferingCausesSection: {
+    title: "De quoi souffrent les poules en cage ?",
+    othersSources: "+ 24 autres sources de douleur",
+    box1: {
+      title: "Blessures dues au picage",
+      text: "Stressées, les poules s’arrachent les plumes entre elles, causant blessures, infections... et parfois la mort par cannibalisme."
+    },
+    box2: {
+      title: "Fracture du bréchet",
+      text: "L’os de la poitrine se fracture souvent à cause de l’ostéoporose liée à la ponte intensive : c’est leur plus grande source de douleur."
+    },
+    box3: {
+      title: "Restriction de mouvement",
+      text: "En cage, les poules ne peuvent ni étendre leurs ailes, ni se retourner : un inconfort permanent, loin de tout comportement naturel."
+    },
+    box4: {
+      title: "Peur et stress",
+      text: "Avant l’abattoir, les poules sont capturées, entassées sans eau ni nourriture, et soumises à une peur extrême."
+    },
+    box5: {
+      title: "Privation de comportements naturels",
+      text: "Privées de nidification et d’exploration, les poules vivent une frustration intense, incapables de répondre à leurs besoins naturels."
+    },
+    box6: {
+      title: "Péritonite de l’œuf",
+      text: "Cette inflammation, due à des débris d’œuf dans l’abdomen, est la maladie la plus fréquente et mortelle chez les poules pondeuses."
+    }
   },
 
   PainEquationSection: {
@@ -77,35 +140,6 @@ export default {
     cta: "DÉCOUVRIR LA MÉTHODOLOGIE EN DÉTAIL"
   },
 
-  SufferingCausesSection: {
-    title: "De quoi souffrent les poules en cage ?",
-    othersSources: "+ 24 autres sources de douleur",
-    box1: {
-      title: "Blessures dues au picage",
-      text: "Stressées, les poules s’arrachent les plumes entre elles, causant blessures, infections... et parfois la mort par cannibalisme."
-    },
-    box2: {
-      title: "Fracture du bréchet",
-      text: "L’os de la poitrine se fracture souvent à cause de l’ostéoporose liée à la ponte intensive : c’est leur plus grande source de douleur."
-    },
-    box3: {
-      title: "Restriction de mouvement",
-      text: "En cage, les poules ne peuvent ni étendre leurs ailes, ni se retourner : un inconfort permanent, loin de tout comportement naturel."
-    },
-    box4: {
-      title: "Peur et stress",
-      text: "Avant l’abattoir, les poules sont capturées, entassées sans eau ni nourriture, et soumises à une peur extrême."
-    },
-    box5: {
-      title: "Privation de comportements naturels",
-      text: "Privées de nidification et d’exploration, les poules vivent une frustration intense, incapables de répondre à leurs besoins naturels."
-    },
-    box6: {
-      title: "Péritonite de l’œuf",
-      text: "Cette inflammation, due à des débris d’œuf dans l’abdomen, est la maladie la plus fréquente et mortelle chez les poules pondeuses."
-    }
-  },
-
   welfare_footprint_institute: 'Welfare Footprint Institute',
   KnowledgePanel: {
     title: 'Knowledge Panel',
@@ -117,6 +151,16 @@ export default {
     loading: 'Chargement des données...',
     productNotFound: 'Ce produit ne contient pas de produits animaux pris en charge',
   },
+
+  BookAnnouncement: {
+    title: "BIENTÔT SUR\nNOTRE SITE",
+    intro: "Le Welfare Footprint Institute publie cet automne",
+    bookTitle: "The Welfare Footprint of the Egg : A Comprehensive Analysis of Animal Welfare Impacts of Egg Production",
+    publisher: "chez Taylor & Francis (CRC Press)",
+    description: "Cet ouvrage pionnier présentera la première quantification de l’impact de la production d’un aliment sur les animaux d’élevage.",
+    imageAlt: "Couverture du livre : Quantifying Pain in Laying Hens, Cynthia Schuck-Paim, Wladimir J. Alonso, 2021",
+    figcaption: "Couverture du livre : Quantifying Pain in Laying Hens, Cynthia Schuck-Paim, Wladimir J. Alonso, 2021"
+  },
   footer: {
     legal_terms: 'Mentions légales',
     privacy_policy: 'Politique de confidentialité',
@@ -125,5 +169,5 @@ export default {
     graphics: 'Graphisme :',
     rights: ' © 2024 Empreinte Souffrance et Data for Good',
   },
-  science: {},
+
 } as const;
