@@ -1,4 +1,5 @@
 import HeroSection from '@/app/[locale]/ui/general/home-page/hero-section';
+import WFISection from '@/app/[locale]/ui/general/home-page/WFI-article-section';
 import SufferingCausesSection from '@/app/[locale]/ui/general/home-page/suffering-causes-section';
 import PainEquationSection from '@/app/[locale]/ui/general/home-page/pain-equation-section';
 import ResultsSection from '@/app/[locale]/ui/general/home-page/results-section';
@@ -10,6 +11,7 @@ export default function Home() {
   return (
     <>
       <HeroSection />
+      <WFISection />
       <LinkSection />
       <SufferingCausesSection />
       <PainEquationSection />
