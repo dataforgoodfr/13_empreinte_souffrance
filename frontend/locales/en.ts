@@ -7,15 +7,18 @@ export default {
     methodology: 'Understand the methodology',
     aboutThisWebsite: 'About this website',
   },
+
   btn_imprint_sffering: {
     imprint: 'imprint',
     suffering: 'suffering',
   },
+
   Navbar: {
     link1: 'Methodology',
     link2: 'Calculator',
     link3: 'About',
   },
+
   Home: {
     badge: 'Embracing free-range for every chicken in Europe!',
     animal_welfare: 'Animal Welfare',
@@ -27,7 +30,7 @@ export default {
     how_much: 'How much',
     does_this_hen_suffer_to_produce_eggs: 'does this hen suffer to produce eggs ?',
     returnHome: 'Return Home',
-
+  },
 
   HeroSection: {
     title: "how much",
@@ -39,8 +42,8 @@ export default {
       strong3: "EGGS"
     },
     altPicture: "Hen kept in a battery cage for egg production",
-
   },
+
   LinkSection: {
     link1: "THE WELFARE FOOTPRINT INSTITUTE",
     link2: "WHAT DO CHICKENS SUFFER FROM ?",
@@ -48,8 +51,8 @@ export default {
     link4: "ITS BURDEN, FINALLY VISIBLE",
     link5: "THE SUFFERING FOOTPRINT OF EGGS",
     link6: "GO FURTHER"
-
   },
+
   Results: {
     title: 'The Results?',
     agony: {
@@ -149,6 +152,7 @@ export default {
     loading: 'Loading data...',
     productNotFound: "This product doesn't contain supported animal products",
   },
+
   BookAnnouncement: {
     title: "COMING SOON\nON OUR WEBSITE",
     intro: "This autumn, the Welfare Footprint Institute publishes",
@@ -158,10 +162,11 @@ export default {
     imageAlt: "Book cover: Quantifying Pain in Laying Hens, Cynthia Schuck-Paim, Wladimir J. Alonso, 2021",
     figcaption: "Book cover: Quantifying Pain in Laying Hens, Cynthia Schuck-Paim, Wladimir J. Alonso, 2021"
   },
+
   footer: {
     legal_terms: 'Legal terms',
     privacy_policy: 'Privacy policy',
     contact_us: 'Contact us',
   },
-  science: {},
+
 } as const;
