@@ -17,34 +17,25 @@ export default function ContentWithImageSection({
   image_url,
   image_description,
   image_position = 'left',
-  hide_image_on_small_screen = false,
 }: ContentWithImageSectionProps) {
   return (
-    <section className="text-[#3b0a0a] grid grid-cols-1 md:grid-cols-2">
-      {image_position === 'left' && (
-        <ImageInContent
-          image_url={image_url}
-          image_description={image_description}
-          hide_image_on_small_screen={hide_image_on_small_screen}
-        />
+    <section
+      className={clsx(
+        'text-[#3b0a0a] flex flex-col w-full',
+        image_position === 'right' ? 'md:flex-row' : 'md:flex-row-reverse'
       )}
-      <div className="h-full w-full border-[#ff7f7f] border-2 flex flex-col justify-between items-start p-3">
-        <h3
-          id="results-heading"
-          className="text-3xl sm:text-4xl font-extrabold tracking-wide text-[#3b0a0a] mb-10 flex justify-start items-center gap-3"
-        >
-          <BoltIcon />
-          {text_heading.toUpperCase()}
-        </h3>
-        <p className="text-base sm:text-lg font-light">{text_content}</p>
+    >
+      {' '}
+      <div className="flex flex-col flex-1 md:basis-1/2">
+        <div className="h-full  w-full  border-[#ff7f7f] border-2 flex flex-col justify-between items-start p-3">
+          <h3 className="text-3xl sm:text-4xl font-extrabold tracking-wide text-[#3b0a0a] mb-10 flex justify-start items-center gap-3">
+            <BoltIcon />
+            {text_heading.toUpperCase()}
+          </h3>
+          <p className="text-base sm:text-lg font-light">{text_content}</p>
+        </div>
       </div>
-      {image_position === 'right' && (
-        <ImageInContent
-          image_url={image_url}
-          image_description={image_description}
-          hide_image_on_small_screen={hide_image_on_small_screen}
-        />
-      )}
+      <ImageInContent image_url={image_url} image_description={image_description} />
     </section>
   );
 }
@@ -52,21 +43,17 @@ export default function ContentWithImageSection({
 type ImageInContentProps = {
   image_url: string;
   image_description: string;
-  hide_image_on_small_screen?: boolean;
 };
 
-function ImageInContent({ image_url, image_description, hide_image_on_small_screen = false }: ImageInContentProps) {
+function ImageInContent({ image_url, image_description }: ImageInContentProps) {
   return (
-    <div
-      className={clsx('border-[#ff7f7f] border-2 flex justify-center items-center', {
-        'hidden md:block': hide_image_on_small_screen,
-      })}
-    >
+    <div className="border-[#ff7f7f] border-2 flex justify-center items-center flex-1 md:basis-1/2">
       <Image
         src={'/' + image_url}
+        alt={image_description}
         width={560}
         height={560}
-        alt={image_description}
+        className="w-full h-auto object-cover"
         {...(image_description ? {} : { role: 'presentation' })}
       />
     </div>
