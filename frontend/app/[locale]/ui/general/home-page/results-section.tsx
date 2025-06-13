@@ -6,7 +6,7 @@ export default async function ResultsSection() {
   const t = await getI18n();
 
   return (
-    <section className="min-h-screen p-8 sm:px-16 w-full" aria-labelledby="results-heading">
+    <section className="min-h-screen py-8 w-full max-w-screen-xl mx-auto px-4" aria-labelledby="results-heading">
       <SectionHeading title={t('Results.title')} heading_number="3" />
       <div className="flex flex-col justify-center items-center">
         <div className="border-1 border-[#ff7f7f] w-full md:5/6 lg:w-4/6">
@@ -16,7 +16,6 @@ export default async function ResultsSection() {
             image_url="agony.png"
             image_description={t('Results.agony.image_description')}
             image_position="right"
-            hide_image_on_small_screen={true}
           />
           <ContentWithImageSection
             text_heading={t('Results.discomfort.title')}
@@ -31,7 +30,6 @@ export default async function ResultsSection() {
             image_url="suffering_reduction.png"
             image_description={t('Results.suffering_reduction.image_description')}
             image_position="right"
-            hide_image_on_small_screen={true}
           />
           <ContentWithImageSection
             text_heading={t('Results.cage_figure.title')}
