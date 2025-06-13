@@ -5,7 +5,10 @@ export default async function WFIArticleSection() {
   const scopedT = await getScopedI18n('WFIArticle');
 
   return (
-    <section className=" min-h-screen p-8 sm:px-16 w-full bg-[#E7E4FF] flex flex-col gap-5">
+    <section
+      id="WFIArticleSection"
+      className="scroll-mt-18 min-h-screen p-8 sm:px-16 w-full bg-[#E7E4FF] flex flex-col gap-5"
+    >
       <h1 className="w-full text-3xl lg:text-5xl font-bold text-[#3b0a0a] text-left">
         {scopedT('title.part1')}
         <span className="text-[#ff7f7f]">&nbsp;{scopedT('title.strong1')}</span>
