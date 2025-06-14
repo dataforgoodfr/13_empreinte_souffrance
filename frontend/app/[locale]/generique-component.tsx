@@ -5,9 +5,10 @@ import React from 'react';
 
 type GenericSectionProps = {
   title: string;
+  page: string;
 };
 
-export default function GenericSection({ title }: GenericSectionProps) {
+export default function GenericSection({ title, page }: GenericSectionProps) {
   return (
     <section className="w-full p-20 px-4 border-b border-gray-200 bg-gradient-to-br from-blue-900 via-blue-600 to-blue-400">
       <div className="max-w-5xl mx-auto p-24">
@@ -20,7 +21,7 @@ export default function GenericSection({ title }: GenericSectionProps) {
           </div>
           <div className="w-full md:w-2/3 text-gray-800">
             <p>
-              Ceci est un bloc pour le composant <strong>{title}</strong> de la page <strong>Méthodologie</strong>.
+              Ceci est un bloc pour le composant <strong>{title}</strong> de la page <strong>{page}</strong>.
               <br />
               <br />
               Le code de ce composant est à remplacer par celui de la maquette.
