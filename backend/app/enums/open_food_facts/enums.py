@@ -49,7 +49,7 @@ class AnimalType(StrEnum):
         """
         Returns the categories_tags string associated with the animal type.
         """
-        return {AnimalType.LAYING_HEN: "en:chicken-eggs", AnimalType.BROILER_CHICKEN: "en:chickens"}.get(self) or (
+        return {AnimalType.LAYING_HEN: "en:eggs", AnimalType.BROILER_CHICKEN: "en:chickens"}.get(self) or (
             _ for _ in ()
         ).throw(ValueError(f"Unknown animal type: {self.value}"))
 
