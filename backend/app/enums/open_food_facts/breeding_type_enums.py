@@ -55,7 +55,8 @@ for breeding in BREEDINGS:
 BREEDING_PATTERNS_ALL_LANGUAGES.update(
     {
         "cage": {
-            "caged?",  # Anglais, Français
+            "cage",  # Anglais, Français
+            "caged",  # Anglais
             "батарейна клетка",  # Bulgare
             "klecovy chov",  # Tchèque
             "burhons",  # Suédois
@@ -68,15 +69,18 @@ BREEDING_PATTERNS_ALL_LANGUAGES.update(
             "trobbija fil gageg",  # Maltais
             "i gcas",  # Irlandais
             "sprostu turesana",  # Letton
-            "en jaulas?",  # Espagnol
+            "en jaula",  # Espagnol
+            "en jaulas",  # Espagnol
             "puurikana",  # Finnois
             "buræg",  # Danois
-            "kafig(haltung)?",  # Allemand
+            "kafig",  # Allemand
+            "kafighaltung",  # Allemand
             "klietkovy chov",  # Slovaque
             "em gaiola",  # Portugais
             "κλωβοστοιχια",  # Grec
             "kooi",  # Néerlandais
-            "gabbia?",  # Italien
+            "gabbia",  # Italien
+            "gabbi",  # Italien
             "ketreces tartas",  # Hongrois
         },
         "barn": {
@@ -88,7 +92,8 @@ BREEDING_PATTERNS_ALL_LANGUAGES.update(
             "frigaende inomhus",  # Suédois
             "podstielkovy chov",  # Slovaque
             "laikymas ant kraiko",  # Lituanien
-            "suelo?",  # Espagnol
+            "suelo",  # Espagnol
+            "suel",  # Espagnol
             "подово отглеждане",  # Bulgare
             "podni uzgoj",  # Croate
             "no solo",  # Espagnol
@@ -105,14 +110,17 @@ BREEDING_PATTERNS_ALL_LANGUAGES.update(
             "orrekanalad",  # Estonien
             "ar an urlar",  # Irlandais
             "terra",  # Portugais / Italien
-            "boden(haltung)?",  # Allemand
+            "bodenhaltung",  # Allemand
+            "boden",  # Allemand
             "free run",  # Canada (Anglais)
         },
         "free-range": {
-            "freiland(eier)?",  # Allemand
+            "freilandeier",  # Allemand
+            "freiland",  # Allemand
             "plein air",  # Français
             "ppa",  # Français (abréviation plein air)
-            "camperas?",  # Espagnol
+            "camperas",  # Espagnol
+            "campera",  # Espagnol
             "aire? libre",  # Français / Espagnol
             "volneho",  # Tchèque
             "laikymas laisveje",  # Lituanien
@@ -140,18 +148,20 @@ BREEDING_PATTERNS_ALL_LANGUAGES.update(
         },
         "organic": {
             "ออร์แกนิค",  # Thaï
-            "ecologic[ao]",  # Espagnol / Italien
+            "ecologica",  # Espagnol / Italien
             "bioeier",  # Allemand
             "bios?",  # Français
-            "biologico?",  # Italien, Anglais
-            "biologiques?",  # Français
-            "biologis?che?s?",  # Allemand
+            "biologic",  # Anglais
+            "biologico"  # Italien
+            "biologique",  # Français
+            "biologiques"  # Français
             "ekologiku",  # Maltais
             "luomu",  # Finnois
             "ecologico",  # Espagnol / Italien
             "ekoloski",  # Croate
             "organic",  # Anglais
-            "ekologiska?",  # Suédois
+            "ekologisk",
+            "ekologiska"  # Suédois
             "ekologiskais",  # Letton
             "ecologic",  # Roumain
             "ekologichen",  # Bulgare
@@ -164,7 +174,12 @@ BREEDING_PATTERNS_ALL_LANGUAGES.update(
             "oekologisk",  # Danois
             "oekoloogiline",  # Estonien
             "ekologicky",  # Tchèque
-            "okologische?n?s?",  # Allemand
+            "okologische",
+            "okologischen",
+            "okologisches",  # Allemand
+            "biologische",
+            "biologischen",
+            "biologisches",  # Allemand
         },
         "cage-free": {
             "libre de jaula",  # Espagnol
@@ -180,7 +195,8 @@ BREEDING_PATTERNS_ALL_LANGUAGES.update(
             "certified humane",  # Anglais
         },
         "pastured": {
-            "pastured?",  # Anglais
+            "pasture",  # Anglais
+            "pastured",  # Anglais
             "pastoreo",  # Espagnol
         },
         "biodynamic": {
