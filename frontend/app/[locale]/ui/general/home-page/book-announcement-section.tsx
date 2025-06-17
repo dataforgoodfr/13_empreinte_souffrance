@@ -6,6 +6,7 @@ export default async function BookAnnouncementSection() {
 
   return (
     <section
+      id="BookAnnouncementSection"
       className="min-h-screen p-8 sm:px-16 flex flex-col lg:flex-row items-center justify-center bg-[#ece6fa]"
       aria-labelledby="book-announcement-heading"
     >
@@ -22,15 +23,11 @@ export default async function BookAnnouncementSection() {
           <p className="text-[#3b0a0a] text-base sm:text-lg mb-4">
             {t('BookAnnouncement.intro')}&nbsp;
             <strong>
-              <em>
-                {t('BookAnnouncement.bookTitle')}
-              </em>
+              <em>{t('BookAnnouncement.bookTitle')}</em>
             </strong>
             &nbsp;{t('BookAnnouncement.publisher')}.
           </p>
-          <p className="text-[#3b0a0a] text-base sm:text-lg">
-            {t('BookAnnouncement.description')}
-          </p>
+          <p className="text-[#3b0a0a] text-base sm:text-lg">{t('BookAnnouncement.description')}</p>
         </main>
       </article>
       <figure className="mt-12 lg:mt-0 flex-shrink-0 relative">
@@ -41,9 +38,7 @@ export default async function BookAnnouncementSection() {
           alt={t('BookAnnouncement.imageAlt')}
           className="block rounded shadow-lg"
         />
-        <figcaption className="sr-only">
-          {t('BookAnnouncement.figcaption')}
-        </figcaption>
+        <figcaption className="sr-only">{t('BookAnnouncement.figcaption')}</figcaption>
         <span
           aria-hidden="true"
           className="absolute left-4 bottom-[-16px] w-[340px] h-[20px] bg-[#b39ddb] rounded blur-[2px] -z-10"

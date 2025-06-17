@@ -6,7 +6,7 @@ export default async function PainEquationSection() {
   const t = await getI18n();
 
   return (
-    <section aria-labelledby="pain-equation-title" className="py-16 px-4 md:px-8 bg-white text-gray-900">
+    <section id="PainEquationSection" aria-labelledby="pain-equation-title" className="py-16 px-4 md:px-8 bg-white text-gray-900 scroll-mt-18">
       <SectionHeading title={t('PainEquationSection.title')} heading_number="2" />
 
       <div className="max-w-screen-xl mx-auto px-4">

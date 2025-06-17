@@ -11,13 +11,13 @@ export default function Home() {
   return (
     <>
       <HeroSection />
-      <WFISection />
       <LinkSection />
+      <WFISection />
       <SufferingCausesSection />
       <PainEquationSection />
       <ResultsSection />
-      <GoFurtherSection />
       <BookAnnouncementSection />
+      <GoFurtherSection />
     </>
   );
 }

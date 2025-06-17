@@ -5,15 +5,15 @@ export default async function LinkSection() {
   const t = await getI18n();
   //todo replace "#" to reel links
   const firstLine = [
-    [t('LinkSection.link1'), '#'],
-    [t('LinkSection.link2'), '#'],
-    [t('LinkSection.link3'), '#'],
+    [t('LinkSection.link1'), '#WFIArticleSection'],
+    [t('LinkSection.link2'), '#SufferingCausesSection'],
+    [t('LinkSection.link3'), '#PainEquationSection'],
   ];
 
   const secondLine = [
-    [t('LinkSection.link4'), '#'],
-    [t('LinkSection.link5'), '#'],
-    [t('LinkSection.link6'), '#'],
+    [t('LinkSection.link4'), '#ResultSection'],
+    [t('LinkSection.link5'), '#BookAnnouncementSection'],
+    [t('LinkSection.link6'), '#GoFurtherSection'],
   ];
 
   const linkStyle =

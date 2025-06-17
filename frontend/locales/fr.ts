@@ -71,10 +71,10 @@ export default {
 
   LinkSection: {
     link1: 'LE WELFARE FOOTPRINT INSTITUTE',
-    link2: 'DE QUOI SOUFFRENT LES POULES ?',
+    link2: 'DE QUOI SOUFFRENT LES POULES EN CAGES ?',
     link3: 'L’ÉQUATION DE LA DOULEUR',
-    link4: 'SON FARDEAU, ENFIN VISIBLE',
-    link5: 'L’EMPREINTE SOUFFRANCE DES ŒUFS',
+    link4: 'LES RÉSULTATS',
+    link5: 'BIBLIOGRAPHY DU WFI',
     link6: 'ALLER PLUS LOIN',
   },
 
@@ -164,7 +164,6 @@ export default {
     },
     cta: 'DÉCOUVRIR LA MÉTHODOLOGIE EN DÉTAIL',
   },
-
 
   welfare_footprint_institute: 'Welfare Footprint Institute',
   KnowledgePanel: {
