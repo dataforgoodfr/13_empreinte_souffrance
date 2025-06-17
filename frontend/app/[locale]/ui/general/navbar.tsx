@@ -1,12 +1,18 @@
 import { getI18n } from '@/locales/server';
 
-import Link from 'next/link';
+import NavLinks from '@/app/[locale]/ui/general/elements/nav-links';
 import { LocaleSelect } from '../localselect';
 import Logo from './home-page/elements/logo-walfare-footprint';
 
 export default async function Navbar() {
   const t = await getI18n();
 
+    const links= [
+    { name: t('NavBarLink.methodology'), href: '/methodology' },
+    { name: t('NavBarLink.calculator'), href: '/calculator' },
+    { name: t('NavBarLink.about'), href: '/about' },
+  ];
+  
   return (
     <>
       <header className="bg-red-50 p-4 w-full">
@@ -20,20 +26,10 @@ export default async function Navbar() {
             </div>
           </div>
 
-          <div className="flex justify-center items-center md:justify-end gap-4 font-mono font-black uppercase text-sm flex-grow basis-0 min-w-0">
-            <Link href="" className="hover:bg-gray-200 rounded-full px-3 transition tracking-wider">
-              {t('Navbar.link1')}
-            </Link>
-            <Link href="" className="hover:bg-gray-200 rounded-full px-3 transition tracking-wider">
-              {t('Navbar.link2')}
-            </Link>
-            <Link
-              href="/about"
-              className="hover:bg-gray-200 rounded-full px-3 transition tracking-wider whitespace-nowrap"
-            >
-              {t('Navbar.link3')}
-            </Link>
-          </div>
+          {/* Centre : liens */}
+          <nav className="flex justify-center items-center md:justify-end gap-4 font-mono font-black uppercase text-sm flex-grow basis-0 min-w-0">
+            <NavLinks links={links}/>
+          </nav>
 
           <div className="hidden md:flex justify-end">
             <LocaleSelect />

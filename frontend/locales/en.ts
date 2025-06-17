@@ -1,5 +1,12 @@
 export default {
   suffering_footprint: 'Suffering footprint',
+
+  NavBarLink: {
+    methodology: 'Methodology',
+    calculator: 'Calculator',
+    about: 'About',
+  },
+
   GoFurther: {
     title: 'Go Further',
     downloadMediaKit: 'Download the media kit',
