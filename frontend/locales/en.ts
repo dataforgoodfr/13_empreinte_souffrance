@@ -57,26 +57,25 @@ export default {
     },
   },
 
-
   HeroSection: {
-    title: "how much",
+    title: 'how much',
     title_sentence: {
-      strong1: "SUFFER ",
-      part1: "A ",
-      strong2: "CAGED HEN ",
-      part2: "TO PRODUCE  ",
-      strong3: "EGGS"
+      strong1: 'SUFFER ',
+      part1: 'A ',
+      strong2: 'CAGED HEN ',
+      part2: 'TO PRODUCE  ',
+      strong3: 'EGGS',
     },
-    altPicture: "Hen kept in a battery cage for egg production",
+    altPicture: 'Hen kept in a battery cage for egg production',
   },
 
   LinkSection: {
-    link1: "THE WELFARE FOOTPRINT INSTITUTE",
-    link2: "WHAT DO CHICKENS SUFFER FROM ?",
-    link3: "THE EQUATION OF PAIN",
-    link4: "ITS BURDEN, FINALLY VISIBLE",
-    link5: "THE SUFFERING FOOTPRINT OF EGGS",
-    link6: "GO FURTHER"
+    link1: 'THE WELFARE FOOTPRINT INSTITUTE',
+    link2: 'WHAT DO CAGED HENS SUFFER FROM ?',
+    link3: 'THE EQUATION OF PAIN',
+    link4: 'THE RESULTS',
+    link5: 'BIBLIOGRAPHY DU WFI',
+    link6: 'GO FURTHER',
   },
 
   Results: {
@@ -179,13 +178,14 @@ export default {
   },
 
   BookAnnouncement: {
-    title: "COMING SOON\nON OUR WEBSITE",
-    intro: "This autumn, the Welfare Footprint Institute publishes",
-    bookTitle: "The Welfare Footprint of the Egg: A Comprehensive Analysis of Animal Welfare Impacts of Egg Production",
-    publisher: "with Taylor & Francis (CRC Press)",
-    description: "This pioneering work will present the first quantification of the impact of food production on farm animals.",
-    imageAlt: "Book cover: Quantifying Pain in Laying Hens, Cynthia Schuck-Paim, Wladimir J. Alonso, 2021",
-    figcaption: "Book cover: Quantifying Pain in Laying Hens, Cynthia Schuck-Paim, Wladimir J. Alonso, 2021"
+    title: 'COMING SOON\nON OUR WEBSITE',
+    intro: 'This autumn, the Welfare Footprint Institute publishes',
+    bookTitle: 'The Welfare Footprint of the Egg: A Comprehensive Analysis of Animal Welfare Impacts of Egg Production',
+    publisher: 'with Taylor & Francis (CRC Press)',
+    description:
+      'This pioneering work will present the first quantification of the impact of food production on farm animals.',
+    imageAlt: 'Book cover: Quantifying Pain in Laying Hens, Cynthia Schuck-Paim, Wladimir J. Alonso, 2021',
+    figcaption: 'Book cover: Quantifying Pain in Laying Hens, Cynthia Schuck-Paim, Wladimir J. Alonso, 2021',
   },
 
   footer: {
@@ -196,5 +196,4 @@ export default {
     graphics: 'Graphics by',
     rights: '© 2024 Empreinte Souffrance and Data for Good',
   },
-
 } as const;
