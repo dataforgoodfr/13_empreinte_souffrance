@@ -2,7 +2,7 @@ import { getI18n } from '@/locales/server';
 
 import NavLinks from "@/app/[locale]/ui/general/elements/nav-links";
 import { LocaleSelect } from '../localselect';
-import BtnImprintSuffering from './elements/btn-imprint-suffering';
+import Logo from './home-page/elements/logo-walfare-footprint';
 
 
 export default async function Navbar() {
@@ -16,7 +16,9 @@ export default async function Navbar() {
       <header className="bg-red-50 p-1 w-full h-full flex flex-col md:flex-row md:items-center md:justify-between w-full gap-4">
           {/* Ligne du haut : gauche = boutons + langue en mobile / boutons seul en desktop */}
           <div className="flex justify-between md:justify-start items-center gap-2 w-full md:w-auto">
-              <BtnImprintSuffering />
+            <div className="flex justify-start items-center gap-2">
+              <Logo />
+            </div>
             {/* Ce bloc est visible en mobile seulement */}
             <div className="md:hidden">
               <LocaleSelect />
