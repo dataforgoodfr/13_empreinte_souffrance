@@ -36,7 +36,13 @@ export default async function HeroSection() {
           <span className="text-4xl">{t('HeroSection.title_sentence.part2')}</span>
           <span className="text-4xl font-bold">{t('HeroSection.title_sentence.strong3')}</span>
         </p>
-        <img src="/arrow_down.png" alt="Flèche vers le bas" className="mt-10 w-10 h-10 animate-bounce" />
+        <a href="#WFIArticleSection" className="scroll-smooth">
+          <img
+            src="/arrow_down.png"
+            alt="Flèche vers le bas"
+            className="mt-10 w-10 h-10 animate-bounce cursor-pointer"
+          />
+        </a>
       </hgroup>
     </header>
   );
