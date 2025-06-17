@@ -9,8 +9,8 @@ export default {
   },
 
   btn_imprint_sffering: {
-    imprint: 'imprint',
-    suffering: 'suffering',
+    imprint: 'welfare',
+    suffering: 'footprint',
   },
 
   Navbar: {
@@ -50,7 +50,7 @@ export default {
     },
     key_number: {
       key1: 'STUDIES ANALYSED ',
-      years:'YEARS',
+      years: 'YEARS',
       key2: 'OF WORK',
       key3: 'RESEARCHERS MOBILISED',
       key4: 'AN INNOVATIVE METHOD',
