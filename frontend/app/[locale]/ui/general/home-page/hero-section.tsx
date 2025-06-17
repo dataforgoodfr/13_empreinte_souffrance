@@ -23,7 +23,7 @@ export default async function HeroSection() {
           </span>
           <span
             style={{ backgroundColor: '#B5ABFF' }}
-            className="inline-flex items-center justify-center h-28 md:w-14 text-6xl text-[#3C0A0A] rounded-[9999px] mx-[2px] uppercase font-mono font-extralight shadow-[0_10px_0px_rgb(0,0,0)]"
+            className="inline-flex items-center justify-center h-28 md:w-14 text-5xl text-[#3C0A0A] rounded-[9999px] mx-[2px] uppercase font-mono font-extralight shadow-[0_10px_0px_rgb(0,0,0)]"
           >
             ?
           </span>
