@@ -7,6 +7,12 @@ import Logo from './home-page/elements/logo-walfare-footprint';
 export default async function Navbar() {
   const t = await getI18n();
 
+    const links= [
+    { name: t('NavBarLink.methodology'), href: '/methodology' },
+    { name: t('NavBarLink.calculator'), href: '/calculator' },
+    { name: t('NavBarLink.about'), href: '/about' },
+  ];
+  
   return (
     <>
       <header className="bg-red-50 p-4 w-full">
@@ -22,7 +28,7 @@ export default async function Navbar() {
 
           {/* Centre : liens */}
           <nav className="flex justify-center items-center md:justify-end gap-4 font-mono font-black uppercase text-sm flex-grow basis-0 min-w-0">
-            <NavLinks key={t} />
+            <NavLinks links={links}/>
           </nav>
 
           <div className="hidden md:flex justify-end">

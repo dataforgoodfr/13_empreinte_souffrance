@@ -1,5 +1,12 @@
 export default {
   suffering_footprint: 'Empreinte souffrance',
+
+  NavBarLink : {
+    methodology : "Méthodologie",
+    calculator : "Calculateur",
+    about : "A Propos",
+  },
+
   GoFurther: {
     title: 'Aller plus loin',
     downloadMediaKit: 'Télécharger le kit presse',
