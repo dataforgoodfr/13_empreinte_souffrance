@@ -194,6 +194,8 @@ export default {
     contact_us: 'Contactez-nous',
     all_rights_reserved: 'Tous droits réservés',
     graphics: 'Graphisme :',
-    rights: ' © 2024 Empreinte Souffrance et Data for Good',
+    rights: ' © 2025 Empreinte Souffrance et Data for Good',
+    by: "par",
+    and: "et",
   },
 } as const;
