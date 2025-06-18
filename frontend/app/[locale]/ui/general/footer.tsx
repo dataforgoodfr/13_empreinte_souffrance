@@ -71,7 +71,7 @@ export default async function Footer() {
           </Link>
         </div>
 
-        <div className="flex justify-center flex-col gap-2 w-fit">
+        <div className="flex flex-col gap-2 items-center justify-center md:items-start md:justify-start col-span-full md:col-span-1 mt-10 md:mt-0">
           <Logo />
           <div className="flex flex-row items-center gap-2 md:px-2">
             <p>{t('footer.by')}</p>
@@ -89,11 +89,12 @@ export default async function Footer() {
           <Link
             target="_blank"
             href="https://animafrance.org/je-donne"
-            className=" bg-[#ff7f7f] hover:bg-[#b5abff] text-[#3b0a0a] font-mono font-bold py-4 px-6 rounded-full shadow-[4px_4px_0_#000] cursor-pointer text-center w-40"
+            className="bg-[#ff7f7f] hover:bg-[#b5abff] text-[#3b0a0a] font-mono font-bold py-4 px-6 rounded-full shadow-[4px_4px_0_#000]  text-center  w-40"
           >
-            Faire un don
+            {t('footer.donate')}
           </Link>
         </div>
+
         <div className="col-span-full mt-6 grid grid-cols-1 md:grid-cols-2 text-sm gap-2 justify-center">
           <div className="text-center md:text-left px-2 grid grid-rows-1">
             {/* Ligne avec les deux éléments */}

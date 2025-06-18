@@ -197,5 +197,6 @@ export default {
     rights: ' © 2025 Empreinte Souffrance et Data for Good',
     by: "par",
     and: "et",
+    donate: "donnation",
   },
 } as const;

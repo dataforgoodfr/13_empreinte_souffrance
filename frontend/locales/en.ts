@@ -197,6 +197,7 @@ export default {
     rights: '© 2025 Empreinte Souffrance and Data for Good',
     by: "by",
     and: "and",
+    donate: 'Donate',
 
   },
 } as const;
