@@ -210,38 +210,38 @@ export default {
   // This section is used in the Calculator page
   calculatorPage: {
     heroBanner: {
-      title: 'Calculateur',
+      title: 'Calculator',
     },
     descriptionSection: {
-      title: 'Combien de souffrance animale contient un oeuf ?',
-      imageAlt: "Boite d'oeufs",
+      title: 'How much animal suffering does an egg contain?',
+      imageAlt: 'egg box',
       figcaption:
-        'Ces recherches permettent de calculer l’empreinte souffrance de l’alimentation, un nouvel indicateur au service de la transparence alimentaire ',
+        'This research makes it possible to calculate the suffering footprint of food, a new indicator for food transparency. ',
     },
     calculSection: {
       selectorSection: {
         selector1: {
-          Option1: 'Une omelette',
-          Option2: 'Une boite de 6 oeufs',
-          Option3: 'Une boite de 12 oeufs',
-          Option4: 'Un oeuf',
+          Option1: 'An omelet',
+          Option2: 'A box of 6 eggs',
+          Option3: 'A box of 12 eggs',
+          Option4: 'An egg',
         },
 
-        texte1: "issu(e)s d'un élevage",
+        texte1: 'from breeding',
         selector2: {
-          Option1: 'en cage',
-          Option2: 'en sol',
-          texte2: 'contient en moyenne',
+          Option1: 'caged',
+          Option2: 'on the ground',
+          texte2: 'contains on average',
         },
       },
       keySection: {
-        key1: "heures (plus de 5 jours) d'inconfort",
-        key2: 'heures (plus de 3 jours) de douleur',
-        key3: 'heures de souffrance intense',
-        key4: "secondes d'agonie",
+        key1: 'hours (more than 5 days) of discomfort',
+        key2: 'hours (more than 3 days) of pain',
+        key3: 'hours of intense suffering',
+        key4: 'seconds of agony',
       },
     },
-    linkSection: "CONSULTEZ L'EMPREINTE SOUFFRANCE DES OEUFS DU COMMERCE",
+    linkSection: 'CHECK OUT THE SUFFERING FOOTPRINT OF COMMERCIAL EGGS',
   },
 
   // This section is used in the Methodology page
