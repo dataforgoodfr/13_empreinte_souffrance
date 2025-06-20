@@ -22,7 +22,7 @@ export default async function SufferingCausesSection() {
           </div>
 
           <div className="hidden md:flex justify-center relative">
-            <img src="suffering_logo.PNG" alt="Silhouette d'une poule" className="w-full " />
+            <img src="suffering_logo.PNG" alt="Silhouette d'une poule" className="w-full h-auto object-contain " />
           </div>
 
           <div className="flex flex-col justify-between gap-6 text-left md:w-1/3">
