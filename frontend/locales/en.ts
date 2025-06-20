@@ -196,4 +196,18 @@ export default {
     graphics: 'Graphics by',
     rights: '© 2024 Empreinte Souffrance and Data for Good',
   },
+
+  // This section is used in the Calculator page
+  calculatorPage: {
+    heroiBanner: {
+      title: 'Calculator',
+    },
+  },
+
+  // This section is used in the Methodology page
+  MethodologyPage: {
+    heroiBanner: {
+      title: 'Methodology',
+    },
+  }
 } as const;
