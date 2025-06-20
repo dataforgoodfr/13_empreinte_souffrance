@@ -209,10 +209,40 @@ export default {
 
 
   // This section is used in the calculator page
-  calculatorPage: {
-    heroiBanner: {
+   calculatorPage: {
+    heroBanner: {
       title: 'Calculateur',
     },
+    descriptionSection: {
+      title: 'Combien de souffrance animale contient un oeuf ?',
+      imageAlt: "Boite d'oeufs",
+      figcaption:
+        'Ces recherches permettent de calculer l’empreinte souffrance de l’alimentation, un nouvel indicateur au service de la transparence alimentaire ',
+    },
+    calculSection: {
+      selectorSection: {
+        selector1: {
+          Option1: 'Une omelette',
+          Option2: 'Une boite de 6 oeufs',
+          Option3: 'Une boite de 12 oeufs',
+          Option4: 'Un oeuf',
+        },
+
+        texte1: "issu(e)s d'un élevage",
+        selector2: {
+          Option1: 'en cage',
+          Option2: 'en sol',
+          texte2: 'contient en moyenne',
+        },
+      },
+      keySection: {
+        key1: "heures (plus de 5 jours) d'inconfort",
+        key2: 'heures (plus de 3 jours) de douleur',
+        key3: 'heures de souffrance intense',
+        key4: "secondes d'agonie",
+      },
+    },
+    linkSection: "CONSULTEZ L'EMPREINTE SOUFFRANCE DES OEUFS DU COMMERCE",
   },
 
   // This section is used in the Methodology page
