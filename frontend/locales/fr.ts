@@ -220,5 +220,18 @@ export default {
     heroiBanner: {
       title: 'Méthodologie',
     },
+    introductionSection: {
+      title:
+        'Un projet scientifique d\'ampleur sans précédent, impliquant la quasi-totalité de la recherche en bien-être des poules pondeuses',
+      paragraph1:
+        'Que vit une poule en cage ? Son expérience diffère-t-elle d\'une poule élevée en plein air ? Quelle est la nature et l’ampleur de ces différences ? S\'il est aujourd\'hui possible de comparer précisément l\'empreinte carbone de différents aliments, le flou demeure sur leur empreinte "souffrance animale". ',
+      paragraph2:
+        'Le Welfare Footprint Institute vise à combler cette lacune en quantifiant pour la toute première fois la souffrance animale derrière un produit alimentaire : l’œuf.',
+      paragraph3: 'Ces résultats sont le fruit d\'un travail de longue haleine entre xxx et xxxx, réunissant des spécialistes de xxxx disciplines qui ont analysé plus de xxx études. De ce travail interdisciplinaire est née une méthodologie pionnière pour quantifier la souffrance animale.',
+      scientist_text1: 'Cynthia est docteure en zoologie (comportement et intelligence animale) de l\'université d\'Oxford. Elle a développé plusieurs projets de recherche pour des institutions de recherche au Royaume-Uni, aux États-Unis et au Brésil, et a écrit plus de 70 publications scientifiques, chapitres de livres et matériel éducatif.',
+      scientist_text2: 'Wladimir est docteur en épidémiologie de l\'université d\'Oxford, avec plus de 20 ans d\'expérience de recherche en évolution, éthologie et santé mondiale. Il a collaboré avec des universités du monde entier et publié plus de 100 études dans des revues à comité de lecture.',
+      list_here: 'liste ici',
+    }
+
   }
 } as const;

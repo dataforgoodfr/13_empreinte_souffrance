@@ -220,5 +220,17 @@ export default {
     heroiBanner: {
       title: 'Methodology',
     },
+    introductionSection: {
+      title:
+        'A scientific project of unprecedented scale, involving almost all research into the welfare of laying hens',
+      paragraph1:
+        'What does a caged hen experience? How does it differ from a free-range hen? What is the nature and extent of these differences? While it is now possible to precisely compare the carbon footprint of different foods, the "animal suffering" footprint remains unclear.',
+      paragraph2: 'The Welfare Footprint Institute aims to fill this gap by quantifying for the very first time the animal suffering behind a food product: the egg.',
+      paragraph3:
+        'These results are the result of extensive work between xxx and xxxx, bringing together specialists from xxxx disciplines who analyzed more than xxx studies. This interdisciplinary work resulted in a pioneering methodology for quantifying animal suffering.',
+      scientist_text1: 'Cynthia holds a PhD in Zoology (Animal Behavior and Intelligence) from the University of Oxford. She has developed several research projects for research institutions in the UK, USA, and Brazil, and has written over 70 scientific publications, book chapters, and educational materials.',
+      scientist_text2: 'Wladimir holds a PhD in epidemiology from the University of Oxford, with over 20 years of research experience in evolution, ethology, and global health. He has collaborated with universities worldwide and published over 100 studies in peer-reviewed journals.',
+      list_here: 'list here',
+    }
   }
 } as const;
