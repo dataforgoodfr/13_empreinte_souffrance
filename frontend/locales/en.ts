@@ -202,17 +202,46 @@ export default {
     all_rights_reserved: 'All rights reserved',
     graphics: 'Graphics by',
     rights: '© 2025 Empreinte Souffrance and Data for Good',
-    by: "by",
-    and: "and",
+    by: 'by',
+    and: 'and',
     donate: 'Donate',
-
   },
 
   // This section is used in the Calculator page
   calculatorPage: {
-    heroiBanner: {
+    heroBanner: {
       title: 'Calculator',
     },
+    descriptionSection: {
+      title: 'How much animal suffering does an egg contain?',
+      imageAlt: 'egg box',
+      figcaption:
+        'This research makes it possible to calculate the suffering footprint of food, a new indicator for food transparency. ',
+    },
+    calculSection: {
+      selectorSection: {
+        selector1: {
+          Option1: 'An omelet',
+          Option2: 'A box of 6 eggs',
+          Option3: 'A box of 12 eggs',
+          Option4: 'An egg',
+        },
+
+        texte1: 'from breeding',
+        selector2: {
+          Option1: 'caged',
+          Option2: 'on the ground',
+          texte2: 'contains on average',
+        },
+      },
+      keySection: {
+        key1: 'hours (more than 5 days) of discomfort',
+        key2: 'hours (more than 3 days) of pain',
+        key3: 'hours of intense suffering',
+        key4: 'seconds of agony',
+      },
+    },
+    linkSection: 'CHECK OUT THE SUFFERING FOOTPRINT OF COMMERCIAL EGGS',
   },
 
   // This section is used in the Methodology page
@@ -220,5 +249,5 @@ export default {
     heroiBanner: {
       title: 'Methodology',
     },
-  }
+  },
 } as const;

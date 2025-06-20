@@ -9,7 +9,7 @@ export default async function Calculator() {
 
   return (
     <>
-      <HeroBanner title={t('calculatorPage.heroiBanner.title')} />
+      <HeroBanner title={t('calculatorPage.heroBanner.title')} />
       <CalculatorHeroSection />
       <MethodDetailsSection />
       <CallToActionSection />
