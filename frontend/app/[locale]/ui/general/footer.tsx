@@ -12,14 +12,14 @@ export default async function Footer() {
       <div className="grid grid-cols-2 md:grid-cols-3 py-4 md:py-0 px-6  bg-white text-[#3b0a0a] text-sm ">
         <div className="flex flex-col gap-3">
           <Link href="https://animafrance.org/" target="_blank" className="w-fit">
-            <img src="anima-logo.webp" alt="" className="w-35 " />
+            <img src="anima-logo.webp" alt="" className="w-35 h-[40px] " />
           </Link>
           <Link
             target="_blank"
             href="https://www.youtube.com/@assoanima"
             className="inline-flex items-center gap-2 mb-0 w-fit"
           >
-            <FontAwesomeIcon icon={faYoutube} className="text-xl w-fit" />
+            <FontAwesomeIcon icon={faYoutube} style={{ width: 20, height: 20 }} />
             Youtube
           </Link>
           <Link
@@ -27,7 +27,7 @@ export default async function Footer() {
             href="https://www.linkedin.com/company/animafrance/"
             className="flex items-center gap-2 mb-0 w-fit"
           >
-            <FontAwesomeIcon icon={faLinkedin} className="text-xl" />
+            <FontAwesomeIcon icon={faLinkedin} style={{ width: 20, height: 20 }} />
             Linkedin
           </Link>
           <Link
@@ -48,7 +48,7 @@ export default async function Footer() {
             href="https://www.facebook.com/dataforgoodfr/"
             className="flex items-center gap-2 mb-0 w-fit"
           >
-            <FontAwesomeIcon icon={faFacebook} className="text-xl" />
+            <FontAwesomeIcon icon={faFacebook} style={{ width: 20, height: 20 }} />
             Facebook
           </Link>
           <Link
@@ -56,14 +56,14 @@ export default async function Footer() {
             href="https://x.com/dataforgood_fr?lang=fr"
             className="flex items-center gap-2 mb-0 w-fit"
           >
-            <FontAwesomeIcon icon={faXTwitter} className="text-xl" />X
+            <FontAwesomeIcon icon={faXTwitter} style={{ width: 20, height: 20 }} />X
           </Link>
           <Link
             target="_blank"
             href="https://www.linkedin.com/company/dataforgood/"
             className="flex items-center gap-2 mb-0 w-fit"
           >
-            <FontAwesomeIcon icon={faLinkedin} className="text-xl" />
+            <FontAwesomeIcon icon={faLinkedin} style={{ width: 20, height: 20 }} />
             Linkedin
           </Link>
           <Link href="mailto:contact@dataforgood.fr" className="leading-none flex items-center gap-2 mb-0 w-fit">
