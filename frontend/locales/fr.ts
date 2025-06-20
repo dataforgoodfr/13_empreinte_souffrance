@@ -203,4 +203,19 @@ export default {
     graphics: 'Graphisme :',
     rights: ' © 2024 Empreinte Souffrance et Data for Good',
   },
+
+
+  // This section is used in the calculator page
+  calculatorPage: {
+    heroiBanner: {
+      title: 'Calculateur',
+    },
+  },
+
+  // This section is used in the Methodology page
+  MethodologyPage: {
+    heroiBanner: {
+      title: 'Méthodologie',
+    },
+  }
 } as const;
