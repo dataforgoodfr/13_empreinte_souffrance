@@ -38,7 +38,7 @@ export default async function SufferingCausesSection() {
           </div>
         </div>
 
-        <div className=" max-w-xl  md:w-1/3 mx-auto">
+        <div className="md:w-1/3 mx-auto">
           <SufferingBox title={t('SufferingCausesSection.box6.title')}>
             {t('SufferingCausesSection.box6.text')}
           </SufferingBox>
