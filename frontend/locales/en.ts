@@ -201,7 +201,11 @@ export default {
     contact_us: 'Contact us',
     all_rights_reserved: 'All rights reserved',
     graphics: 'Graphics by',
-    rights: '© 2024 Empreinte Souffrance and Data for Good',
+    rights: '© 2025 Empreinte Souffrance and Data for Good',
+    by: "by",
+    and: "and",
+    donate: 'Donate',
+
   },
 
   // This section is used in the Calculator page
