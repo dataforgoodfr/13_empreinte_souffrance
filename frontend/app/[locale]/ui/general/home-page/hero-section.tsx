@@ -62,10 +62,15 @@ interface colorText {
 
 // This function adds the colored dot on the letters
 function ColorText({ lettre, color }: colorText) {
+
+  const isSpace = lettre === ' ';
   return (
     <div
-      style={{ backgroundColor: color }}
-      className="inline-flex items-center justify-center h-28 md:w-14 text-5xl text-[#3C0A0A] rounded-[9999px] mx-[2px] uppercase font-mono font-extralight shadow-[0_10px_0px_rgb(0,0,0)]"
+      style={{ backgroundColor: isSpace ? 'transparent' : color }}
+      className={[
+        'inline-flex items-center justify-center h-28 md:w-14 text-5xl text-[#3C0A0A] rounded-[9999px] mx-[2px] uppercase font-mono font-extralight',
+        isSpace ? '' : 'shadow-[0_10px_0px_rgb(0,0,0)]',
+      ].join(' ')}
     >
       {lettre}
     </div>
