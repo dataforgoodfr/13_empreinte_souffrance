@@ -1,10 +1,10 @@
 export default {
   suffering_footprint: 'Empreinte souffrance',
 
-  NavBarLink : {
-    methodology : "Méthodologie",
-    calculator : "Calculateur",
-    about : "A Propos",
+  NavBarLink: {
+    methodology: 'Méthodologie',
+    calculator: 'Calculateur',
+    about: 'A Propos',
   },
 
   GoFurther: {
@@ -202,14 +202,13 @@ export default {
     all_rights_reserved: 'Tous droits réservés',
     graphics: 'Graphisme :',
     rights: ' © 2025 Empreinte Souffrance et Data for Good',
-    by: "par",
-    and: "et",
-    donate: "donnation",
+    by: 'par',
+    and: 'et',
+    donate: 'donnation',
   },
 
-
   // This section is used in the calculator page
-   calculatorPage: {
+  calculatorPage: {
     heroBanner: {
       title: 'Calculateur',
     },
@@ -252,16 +251,119 @@ export default {
     },
     introductionSection: {
       title:
-        'Un projet scientifique d\'ampleur sans précédent, impliquant la quasi-totalité de la recherche en bien-être des poules pondeuses',
+        "Un projet scientifique d'ampleur sans précédent, impliquant la quasi-totalité de la recherche en bien-être des poules pondeuses",
       paragraph1:
-        'Que vit une poule en cage ? Son expérience diffère-t-elle d\'une poule élevée en plein air ? Quelle est la nature et l’ampleur de ces différences ? S\'il est aujourd\'hui possible de comparer précisément l\'empreinte carbone de différents aliments, le flou demeure sur leur empreinte "souffrance animale". ',
+        "Que vit une poule en cage ? Son expérience diffère-t-elle d'une poule élevée en plein air ? Quelle est la nature et l’ampleur de ces différences ? S'il est aujourd'hui possible de comparer précisément l'empreinte carbone de différents aliments, le flou demeure sur leur empreinte \"souffrance animale\". ",
       paragraph2:
         'Le Welfare Footprint Institute vise à combler cette lacune en quantifiant pour la toute première fois la souffrance animale derrière un produit alimentaire : l’œuf.',
-      paragraph3: 'Ces résultats sont le fruit d\'un travail de longue haleine entre xxx et xxxx, réunissant des spécialistes de xxxx disciplines qui ont analysé plus de xxx études. De ce travail interdisciplinaire est née une méthodologie pionnière pour quantifier la souffrance animale.',
-      scientist_text1: 'Cynthia est docteure en zoologie (comportement et intelligence animale) de l\'université d\'Oxford. Elle a développé plusieurs projets de recherche pour des institutions de recherche au Royaume-Uni, aux États-Unis et au Brésil, et a écrit plus de 70 publications scientifiques, chapitres de livres et matériel éducatif.',
-      scientist_text2: 'Wladimir est docteur en épidémiologie de l\'université d\'Oxford, avec plus de 20 ans d\'expérience de recherche en évolution, éthologie et santé mondiale. Il a collaboré avec des universités du monde entier et publié plus de 100 études dans des revues à comité de lecture.',
+      paragraph3:
+        "Ces résultats sont le fruit d'un travail de longue haleine entre xxx et xxxx, réunissant des spécialistes de xxxx disciplines qui ont analysé plus de xxx études. De ce travail interdisciplinaire est née une méthodologie pionnière pour quantifier la souffrance animale.",
+      scientist_text1:
+        "Cynthia est docteure en zoologie (comportement et intelligence animale) de l'université d'Oxford. Elle a développé plusieurs projets de recherche pour des institutions de recherche au Royaume-Uni, aux États-Unis et au Brésil, et a écrit plus de 70 publications scientifiques, chapitres de livres et matériel éducatif.",
+      scientist_text2:
+        "Wladimir est docteur en épidémiologie de l'université d'Oxford, avec plus de 20 ans d'expérience de recherche en évolution, éthologie et santé mondiale. Il a collaboré avec des universités du monde entier et publié plus de 100 études dans des revues à comité de lecture.",
       list_here: 'liste ici',
-    }
+    },
 
-  }
+    sufferingQuantificationSteps: {
+      title: 'Une méthode en 3 étapes pour quantifier la souffrance animale',
+      step1: {
+        title: 'Lister de quoi souffre les poules et à quelle fréquence',
+        text1: 'des poules victimes de fracture du bréchet',
+        text2: 'des poules en cage victomes de restriction de la liberté de mouvement',
+        text3: 'des poules victimes de lésions cutanées',
+        text4: '+ 24 autres sources de douleur',
+      },
+      step2: {
+        title: 'Quantifier la souffrance causée par chaque affliction',
+        bloc1: {
+          text: 'Une fracture du bréchet cause',
+          agony: '2min d’agonie',
+          pain: '45h de douleur',
+          suffering: '5h de souffrance',
+          discomfort: '80h d’inconfort',
+        },
+        bloc2: {
+          text: 'La restriction de la liberté de mouvement cause',
+          agony: '2min d’agonie',
+          pain: '45h de douleur',
+          suffering: '5h de souffrance',
+          discomfort: '80h d’inconfort',
+        },
+        bloc3: {
+          text: 'Une lésion cutanée cause',
+          agony: '2min d’agonie',
+          pain: '45h de douleur',
+          suffering: '5h de souffrance',
+          discomfort: '80h d’inconfort',
+        },
+      },
+      step3: {
+        title:
+          'synthétiser les dux étapes  précédentes pour calculer la souffrance moyenne par poule au courant de sa vie',
+        text1: 'des poules subissant',
+        text2: 'de meme pour les 24 autres afflictions',
+        bloc1: {
+          title: 'Fracture du bréchet',
+          agony: '2min d’agonie',
+          pain: '45h de douleur',
+          suffering: '5h de souffrance',
+          discomfort: '80h d’inconfort',
+        },
+        bloc2: {
+          title: 'Restriction de la liberté de mouvement',
+          agony: '1min d’agonie',
+          pain: '5h de douleur',
+          suffering: '4h de souffrance',
+          discomfort: '30h d’inconfort',
+        },
+        bloc3: {
+          title: 'Lésions cutanées',
+          agony: '1min d’agonie',
+          pain: '5h de douleur',
+          suffering: '4h de souffrance',
+          discomfort: '30h d’inconfort',
+        },
+        bloc5: {
+          title: 'Au cours de sa vie, Une poule en cage subit en moyenne:',
+          agony: '6min d’agonie',
+          pain: '385h de douleur',
+          suffering: '448h de souffrance',
+          discomfort: '3000h d’inconfort',
+        },
+      },
+      title2: 'Échelle de souffrance',
+      text: "Les chercheurs ont défini quatre niveaux de souffrance via des critères comportementaux et fonctionnels : la poule mène-t-elle encore à bien ses activités habituelles (manger, explorer, jouer) ? Arrive-t-elle à se concentrer et à réagir à ce qui l'entoure  ? Des signaux physiologiques associés au mal-être ou au stress sont-ils observables ? Comment montre-t-elle sa souffrance (vocalisations, agitation) ? Des médicaments contre la douleur l'aident-elle ?",
+      criteria: 'Critères',
+      legend: {
+        bloc1: {
+          title: 'Inconfort',
+          description:
+            'Inconfort léger, sans impact sur le comportement. Comparable à une démangeaison ou des chaussures qui frottent légèrement.',
+          criteria_description: "capacité d'attention préservée, absence de signes comportementaux et physiologiques.",
+        },
+        bloc2: {
+          title: 'douleur',
+          description:
+            'Douleur persistante, altérant les comportements sans les empêcher. Semblable à un mal de tête ou un mal de dos chronique.',
+          criteria_description:
+            'diminution des activités plaisantes, altération cognitive légère, efficacité des analgésiques.',
+        },
+        bloc3: {
+          title: 'souffrance',
+          description:
+            'Douleur constante, prioritaire sur tout. Réduit l’activité, le bien-être, l’attention. Semblable à une migraine ou une fracture.',
+          criteria_description:
+            'changement drastique dactivité, non-réactivité environnementale, besoin de médicaments puissants.',
+        },
+        bloc4: {
+          title: 'agonie',
+          description:
+            'Douleur extrême, insupportable même brièvement. Provoque cris, tremblements. Comparable à une souffrance que l’on ne peut endurer',
+          criteria_description:
+            "expressions comportementales intenses, conduites dangereuses pour l'intégrité corporelle, impossibilité de dissimuler.",
+        },
+      },
+    },
+  },
 } as const;

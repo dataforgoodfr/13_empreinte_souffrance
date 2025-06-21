@@ -1,5 +1,5 @@
 import { getI18n } from '@/locales/server';
-import HeroSection from './hero-section';
+import SufferingQuantificationSteps from './sufferingQuantificationSteps';
 import IntroductionSection from './introduction-section';
 import MethodDetailsSection from './method-details-section';
 import KeyResultsSection from './key-results-section';
@@ -11,8 +11,8 @@ export default async function MethodologyPage() {
   return (
     <>
       <HeroBanner title={t('MethodologyPage.heroiBanner.title')} />
-      <HeroSection />
       <IntroductionSection />
+      <SufferingQuantificationSteps />
       <MethodDetailsSection />
       <KeyResultsSection />
     </>
