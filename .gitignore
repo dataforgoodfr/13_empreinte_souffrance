@@ -81,6 +81,9 @@ target/
 # Jupyter Notebook
 .ipynb_checkpoints
 
+# Parquet databases
+.parquet
+
 # IPython
 profile_default/
 ipython_config.py
