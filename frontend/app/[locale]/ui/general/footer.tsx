@@ -12,7 +12,7 @@ export default async function Footer() {
       <div className="grid grid-cols-2 md:grid-cols-3 py-4 md:py-0 px-6  bg-white text-[#3b0a0a] text-sm ">
         <div className="flex flex-col gap-3">
           <Link href="https://animafrance.org/" target="_blank" className="w-fit">
-            <img src="anima-logo.webp" alt="" className="w-35 h-[40px] " />
+            <img src="/anima-logo.webp" alt="" className="w-35 h-[40px] " />
           </Link>
           <Link
             target="_blank"
@@ -76,7 +76,7 @@ export default async function Footer() {
           <div className="flex flex-row items-center gap-2 md:px-2">
             <p>{t('footer.by')}</p>
             <Link href="https://animafrance.org/" target="_blank">
-              <img src="anima-logo.webp" alt="" className="w-25 " />
+              <img src="/anima-logo.webp" alt="" className="w-25 " />
             </Link>
           </div>
           <div className="flex flex-row items-center gap-2 md:px-2">
