@@ -9,7 +9,6 @@ class LayingHenBreedingType(StrEnum):
     FURNISHED_CAGE = auto()
     BARN = auto()
     FREE_RANGE = auto()
-    UNKNOWN = auto()
 
     def translated_name(self, _: Callable) -> str:
         """Return the human-readable name for this breeding type"""
@@ -19,20 +18,17 @@ class LayingHenBreedingType(StrEnum):
             "furnished_cage": _("Furnished cage"),
             "barn": _("Barn"),
             "free_range": _("Free range"),
-            "unknown": _("Unknown breeding type"),
         }
         return mappings.get(self.value, self.value)
 
 
 class BroilerChickenBreedingType(StrEnum):
     FREE_RANGE = auto()
-    UNKNOWN = auto()
 
     def translated_name(self, _: Callable) -> str:
         """Return the human-readable name for this breeding type"""
         mappings = {
             "free_range": _("Free range"),
-            "unknown": _("Unknown breeding type"),
         }
         return mappings.get(self.value, self.value)
 
@@ -46,25 +42,20 @@ class AnimalType(StrEnum):
 
     @property
     def categories_tags(self) -> str:
-        """
-        Returns the categories_tags string associated with the animal type.
-        """
-        return {AnimalType.LAYING_HEN: "en:chicken-eggs", AnimalType.BROILER_CHICKEN: "en:chickens"}.get(self) or (
-            _ for _ in ()
-        ).throw(ValueError(f"Unknown animal type: {self.value}"))
+        return {
+            "laying_hen": "en:chicken-eggs",
+            "broiler_chicken": "en:chickens",
+        }.get(self.value) or (_ for _ in ()).throw(ValueError(f"Unknown animal type: {self.value}"))
 
     @property
-    def unknown_breeding_type(self) -> BreedingType:
-        """
-        Returns the categories_tags string associated with the animal type.
-        """
-        unknown_breeding_types: dict[AnimalType, BreedingType] = {
-            AnimalType.LAYING_HEN: LayingHenBreedingType.UNKNOWN,
-            AnimalType.BROILER_CHICKEN: BroilerChickenBreedingType.UNKNOWN,
-        }
-        return unknown_breeding_types.get(self) or (_ for _ in ()).throw(
-            ValueError(f"Unknown animal type: {self.value}")
-        )
+    def is_computed(self) -> bool:
+        result = {
+            "laying_hen": True,
+            "broiler_chicken": False,
+        }.get(self.value)
+        if result is None:
+            raise ValueError(f"Unknown animal type: {self.value}")
+        return result
 
     def translated_name(self, _: Callable) -> str:
         """Return the human-readable name for this animal type"""

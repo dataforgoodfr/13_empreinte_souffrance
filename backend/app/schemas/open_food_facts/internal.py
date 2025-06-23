@@ -1,3 +1,4 @@
+from enum import StrEnum, auto
 from typing import Dict, List
 
 from pydantic import BaseModel, HttpUrl
@@ -16,9 +17,21 @@ class ProductType(BaseModel):
 
 
 # Pain report models, used for calculation
-class BreedingTypeAndWeight(BaseModel):
+class BreedingTypeAndQuantity(BaseModel):
     breeding_type: BreedingType
-    animal_product_weight: float = 0  # in grams
+    quantity: float  # in grams
+
+
+class ProductError(StrEnum):
+    NO_PRODUCT = auto()
+    NO_HANDLED_ANIMAL = auto()
+    NO_PAIN_LEVELS = auto()
+
+
+class AnimalError(StrEnum):
+    NO_QUANTITY = auto()
+    NO_BREEDING_TYPE = auto()
+    NO_BREEDING_TYPE_AND_NO_QUANTITY = auto()
 
 
 class PainLevelData(BaseModel):
@@ -29,8 +42,12 @@ class PainLevelData(BaseModel):
 
 class AnimalPainReport(BaseModel):
     animal_type: AnimalType
-    pain_levels: List[PainLevelData]
-    breeding_type_with_weight: BreedingTypeAndWeight
+    pain_levels: List[PainLevelData] = []
+    breeding_type_and_quantity: BreedingTypeAndQuantity | None = None
+    # only used if breeding_type_with_quantity is None
+    breeding_type: BreedingType | None = None
+    quantity: float | None = None
+    animal_error: AnimalError | None = None
 
     def get_pain_levels_by_type(self, pain_type: PainType) -> List[PainLevelData]:
         """Returns the PainLevelData objects for a specific pain type, sorted by intensity"""
@@ -43,9 +60,10 @@ class AnimalPainReport(BaseModel):
 
 
 class PainReport(BaseModel):
-    animals: List[AnimalPainReport]
+    animals: List[AnimalPainReport] = []
     product_name: str | None
     product_image_url: HttpUrl | None = None
+    product_error: ProductError | None = None
 
 
 # Knowledge panel response models

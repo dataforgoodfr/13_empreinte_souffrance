@@ -47,6 +47,22 @@ msgstr ""
 "Le temps de souffrance et les détails affichés ci-dessous sont basés sur "
 "les données suivantes (fournies par la communauté Open Food Facts)"
 
+msgid ""
+"The time in pain could not be calculated for this product due to missing data "
+"in the Open Food Facts product description. You can contribute to the Open Food "
+"Facts community and help us calculate time in pain by filling in the missing information."
+msgstr ""
+"Le temps de souffrance n'a pas pu être calculé pour ce produit car des données "
+"sont manquantes dans la fiche produit Open Food Facts. Vous pouvez contribuer "
+"à la communauté Open Food Facts et nous aider à calculer le temps de souffrance "
+"en renseignant les données manquantes."
+
+msgid ""
+"This product does not contain any animal product supported by the Welfare footprint."
+msgstr ""
+"Ce produit ne contient pas de produits animaux gérés par l'Empreinte souffrance"
+
+
 msgid "What is the welfare footprint?"
 msgstr "Qu'est-ce que l'empreinte souffrance ?"
 
@@ -146,50 +162,38 @@ msgstr ""
 msgid "Psychological pain"
 msgstr "Douleur psychologique"
 
+
+
 #, python-brace-format
 msgid ""
 "<b>{animal_name} :</b><ul><li>Production system: "
 "<b>{breeding_type}</b></li><li>Quantity of egg in the product: "
-"<b>{weight}g</b></li></ul>"
+"<b>{quantity}</b></li></ul>"
 msgstr ""
 "<b>{animal_name} :</b><ul><li>Type d'élevage : "
 "<b>{breeding_type}</b></li><li>Quantité d'œuf dans le produit : "
-"<b>{weight}g</b></li></ul>"
-
-msgid "0 second"
-msgstr "0 seconde"
+"<b>{quantity}</b></li></ul>"
 
 #, python-brace-format
 msgid "{} day"
-msgstr "{} jour"
+msgid_plural "{} days"
+msgstr[0] "{} jour"
+msgstr[1] "{} jours"
 
-#, python-brace-format
-msgid "{} days"
-msgstr "{} jours"
-
-#, python-brace-format
 msgid "{} hour"
-msgstr "{} heure"
+msgid_plural "{} hours"
+msgstr[0] "{} heure"
+msgstr[1] "{} heures"
 
-#, python-brace-format
-msgid "{} hours"
-msgstr "{} heures"
-
-#, python-brace-format
 msgid "{} minute"
-msgstr "{} minute"
+msgid_plural "{} minutes"
+msgstr[0] "{} minute"
+msgstr[1] "{} minutes"
 
-#, python-brace-format
-msgid "{} minutes"
-msgstr "{} minutes"
-
-#, python-brace-format
 msgid "{} second"
-msgstr "{} seconde"
-
-#, python-brace-format
-msgid "{} seconds"
-msgstr "{} secondes"
+msgid_plural "{} seconds"
+msgstr[0] "{} seconde"
+msgstr[1] "{} secondes"
 
 msgid "Laying hen"
 msgstr "Poule pondeuse"
@@ -226,3 +230,6 @@ msgstr "Douleur physique"
 
 msgid "Psychological"
 msgstr "Douleur psychologique"
+
+msgid "Not found"
+msgstr "Non trouvé"

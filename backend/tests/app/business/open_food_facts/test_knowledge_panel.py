@@ -28,7 +28,7 @@ from app.config.i18n import I18N
 from app.enums.open_food_facts.enums import AnimalType, LayingHenBreedingType, PainIntensity, PainType
 from app.schemas.open_food_facts.external import ProductData
 from app.schemas.open_food_facts.internal import (
-    BreedingTypeAndWeight,
+    BreedingTypeAndQuantity,
     KnowledgePanelResponse,
 )
 
@@ -125,21 +125,23 @@ async def test_get_data_from_off_http_call_exception(get_data_from_off_function:
         (["en:united-states"], LayingHenBreedingType.CONVENTIONAL_CAGE),
     ],
 )
-def test_compute_breeding_types_with_weights(
+def test_get_breeding_types_and_quantities(
     sample_product_data: ProductData,
     countries,
     expected_breeding_types,
 ):
-    """Test computing breeding types with weights"""
+    """Test computing breeding types with quantities"""
     sample_product_data.countries_tags = countries
     calculator = PainReportCalculator(sample_product_data)
 
-    result = calculator._get_breeding_types_with_weights()
+    result = calculator._get_breeding_types_and_quantities()
 
     # product_data fixture contains the `en:cage-chicken-eggs` tag
     assert AnimalType.LAYING_HEN in result
-    assert result[AnimalType.LAYING_HEN].breeding_type == expected_breeding_types
-    assert result[AnimalType.LAYING_HEN].animal_product_weight == 200
+    item = result[AnimalType.LAYING_HEN]
+    assert isinstance(item, BreedingTypeAndQuantity)
+    assert item.breeding_type == expected_breeding_types
+    assert item.quantity == 200
 
 
 def test_get_breeding_types(sample_product_data: ProductData):
@@ -155,10 +157,10 @@ def test_generate_pain_levels_for_type(sample_product_data: ProductData):
 
     calculator = PainReportCalculator(sample_product_data)
 
-    breeding_type = BreedingTypeAndWeight(breeding_type=LayingHenBreedingType.FURNISHED_CAGE, animal_product_weight=200)
+    breeding_type = BreedingTypeAndQuantity(breeding_type=LayingHenBreedingType.FURNISHED_CAGE, quantity=200)
 
     # Test generating physical pain levels
-    physical_pain_levels = calculator._generate_pain_levels_for_type(
+    physical_pain_levels = calculator._generate_pain_levels_for_pain_type(
         AnimalType.LAYING_HEN, breeding_type, PainType.PHYSICAL
     )
 
@@ -169,7 +171,7 @@ def test_generate_pain_levels_for_type(sample_product_data: ProductData):
         assert isinstance(level.seconds_in_pain, int)
 
     # Test generating psychological pain levels
-    psychological_pain_levels = calculator._generate_pain_levels_for_type(
+    psychological_pain_levels = calculator._generate_pain_levels_for_pain_type(
         AnimalType.LAYING_HEN, breeding_type, PainType.PSYCHOLOGICAL
     )
 
@@ -200,28 +202,28 @@ def test_knowledge_panel_generator(
     generator = KnowledgePanelGenerator(pain_report_for_test, translator)
 
     # Test main panel
-    main_panel = generator.create_main_panel()
+    main_panel = generator._create_main_panel()
     assert main_panel.level == "info"
     assert main_panel.title_element.title == "Welfare footprint"
     assert len(main_panel.elements) > 3
 
     # Test intensities definitions panel
-    intensities_panel = generator.create_intensities_definitions_panel()
+    intensities_panel = generator._create_intensities_definitions_panel()
     assert intensities_panel.title_element.title == "Intensity categories definitions"
     assert len(intensities_panel.elements) == 4  # One for each intensity
 
     # Test physical pain panel
-    physical_panel = generator.create_physical_pain_panel()
+    physical_panel = generator._create_physical_pain_panel()
     assert physical_panel.title_element.title == "Physical pain"
     assert len(physical_panel.elements) > 3  # Intro, description, animal pain data, and footer
 
     # Test psychological pain panel
-    psychological_panel = generator.create_psychological_pain_panel()
+    psychological_panel = generator._create_psychological_pain_panel()
     assert psychological_panel.title_element.title == "Psychological pain"
     assert len(psychological_panel.elements) > 3  # Intro, description, animal pain data, and footer
 
     # Test animal pain element generation
-    animal_element = generator.get_animal_pain_for_panel(AnimalType.LAYING_HEN, PainType.PHYSICAL)
+    animal_element = generator._get_animal_pain_for_panel(AnimalType.LAYING_HEN, PainType.PHYSICAL)
     assert animal_element is not None
     assert animal_element.text_element is not None
     assert animal_element.element_type == "text"
@@ -314,8 +316,8 @@ def test_cage_regex(tag, should_match):
         ("extract_digits_product", 6 * AVERAGE_EGG_WEIGHT),
         ("tagged_large_egg_product", 6 * LARGE_EGG_WEIGHT),
         ("product_quantity_with_unit", pytest.approx(0.5 * 453.59, 0.1)),
-        ("unknown_quantity_product", 0),
-        ("no_data_product", 0),
+        ("unknown_quantity_product", None),
+        ("no_data_product", None),
     ],
 )
 def test_calculate_egg_weight(product_fixture, expected_weight, request):

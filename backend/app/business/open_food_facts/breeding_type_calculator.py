@@ -87,30 +87,31 @@ class BreedingTypeCalculator:
         self.patterns_repository = BreedingPatternsRepository()
         self.product_type = product_type
 
-    def get_breeding_types_by_animal(self) -> dict[AnimalType, BreedingType]:
+    def get_breeding_types_by_animal(self) -> dict[AnimalType, BreedingType | None]:
         """
         Get the breeding types for all animal types known in product_type based on the product data.
         This method processes the product data for each animal type, determines if there is a
         unique match for the breeding type, and returns the result.
         Returns:
-            dict[AnimalType, BreedingType]: A dictionary mapping each animal type to its respective
+            dict[AnimalType, BreedingType | None]: A dictionary mapping each animal type to its respective
             breeding type
         """
-        breeding_types_by_animal: dict[AnimalType, BreedingType] = {}
+        breeding_types_by_animal: dict[AnimalType, BreedingType | None] = {}
 
+        # Method dedicated to mixed products so calculator cannot handle them for now
         for animal_type in self.product_type.animal_types:
-            breeding_types_by_animal[animal_type] = animal_type.unknown_breeding_type
+            breeding_types_by_animal[animal_type] = None
 
         return breeding_types_by_animal
 
-    def get_breeding_type(self, animal_type: AnimalType) -> BreedingType:
+    def get_breeding_type(self, animal_type: AnimalType) -> BreedingType | None:
         """
         Determines the breeding types for a specific animal based on an identification process.
         1st match exact categories_tag - stops if = 1 found  (> 1 => continue process)
         2nd match regex on names - stops if >= 1 found (> 1 =>  stop process - not found)
         3rd match regex on other tags including categories_tags  (> 1 => stop process - not found)
         Args:  animal_type (AnimalType): The type of animal to determine the breeding type for.
-        Returns:  BreedingType : The determined breeding type for the animal, unknown if not found
+        Returns:  BreedingType | None: The determined breeding type for the animal, or None if not found
         or too many matches
         """
         matched = self._match_from_exact_tags(tag="categories_tags", animal_type=animal_type)
@@ -119,15 +120,15 @@ class BreedingTypeCalculator:
             return breeding_type
 
         # Continue if no match or many matches on exact categories_tags
-        # If nothing found or too many return unknown
+        # If nothing found or too many return None
         for step in ["name", "tags"]:
             matched = self._match_from_regex(explored_tags=self._get_tags_to_explore(step), animal_type=animal_type)
             if len(matched) == 1:
                 breeding_type = self._refine_from_country(matched[0])
                 return breeding_type
             elif len(matched) > 1:
-                return animal_type.unknown_breeding_type
-        return animal_type.unknown_breeding_type
+                return None
+        return None
 
     def _match_from_exact_tags(self, tag: str, animal_type: AnimalType) -> list[BreedingType]:
         """

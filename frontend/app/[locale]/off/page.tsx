@@ -50,6 +50,8 @@ export default function KnowledgePanel() {
   const [customBarcode, setCustomBarcode] = useState<string>('3256229237063'); // Poultry chicken barcode
   const [productName, setProductName] = useState<string | null>(null);
   const [productImageUrl, setProductImageUrl] = useState<string | null>(null);
+  const [productUrl, setProductUrl] = useState<string | null>(null);
+  const [APIv2URL, setAPIv2URL] = useState<string | null>(null);
   const [showCustomInput, setShowCustomInput] = useState<boolean>(false);
   const [knowledgePanelData, setKnowledgePanelData] = useState<KnowledgePanelData | null>(null);
   const [expandedPanels, setExpandedPanels] = useState<Record<string, boolean>>({});
@@ -84,7 +86,7 @@ export default function KnowledgePanel() {
   const barcodeNames: { [key: string]: string } = {
     '3450970045360': '10 œufs frais calibre moyen - cage France',
     '2000000124898': 'Cage eggs from USA',
-    '8003636004529': "Sans mode d'élevage",
+    '8003636004529': 'Sans quantité',
     '3560071098278': 'Free-range & cage chicken eggs',
     '3270190205685': 'Free-range chicken eggs from France',
     '0605388714565': "Medium grade A eggs - sans mode d'elevage",
@@ -138,7 +140,6 @@ export default function KnowledgePanel() {
     setError(null);
     setProductName(null);
     setProductImageUrl(null);
-
     try {
       const response = await fetch(`http://127.0.0.1:8000/off/v1/knowledge-panel/${barcode}?lang=${locale}`);
 
@@ -156,6 +157,8 @@ export default function KnowledgePanel() {
       if (data.product) {
         setProductName(data.product.name);
         setProductImageUrl(data.product.image_url);
+        setAPIv2URL(`https://world.openfoodfacts.net/api/v2/product/${selectedBarcode}`);
+        setProductUrl(`https://fr.openfoodfacts.org/produit/${selectedBarcode}`);
       }
 
       // Init panels as expanded by default
@@ -286,32 +289,6 @@ export default function KnowledgePanel() {
             </div>
           </form>
         )}
-
-        {selectedBarcode && selectedBarcode !== 'custom' && (
-          <div className="mt-4 pl-4 text-base text-gray-700">
-            {/* OFF product page and API links*/}
-            <p>
-              <a
-                href={`https://fr.openfoodfacts.org/produit/${selectedBarcode}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-blue-600 hover:underline"
-              >
-                fr.openfoodfacts.org/produit/{selectedBarcode}
-              </a>
-            </p>
-            <p className="mb-2">
-              <a
-                href={`https://world.openfoodfacts.net/api/v2/product/${selectedBarcode}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-blue-600 hover:underline"
-              >
-                world.openfoodfacts.net/api/v2/product/{selectedBarcode}
-              </a>
-            </p>
-          </div>
-        )}
       </div>
 
       {/* Product info */}
@@ -331,6 +308,30 @@ export default function KnowledgePanel() {
             )}
             <div className="flex-grow">
               <h2 className="text-xl font-bold">{productName}</h2>
+              {productUrl && (
+                <p>
+                  <a
+                    href={productUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-blue-600 hover:underline"
+                  >
+                    Fiche produit OpenFoodFacts
+                  </a>
+                </p>
+              )}
+              {APIv2URL && (
+                <p>
+                  <a
+                    href={APIv2URL}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-blue-600 hover:underline"
+                  >
+                    API V2 OpenFoodFacts
+                  </a>
+                </p>
+              )}
             </div>
           </div>
         </div>
