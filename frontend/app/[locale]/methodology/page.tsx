@@ -1,5 +1,5 @@
 import { getI18n } from '@/locales/server';
-import SufferingQuantificationSteps from './sufferingQuantificationSteps';
+import SufferingQuantificationSteps from './suffering-quantification-steps';
 import IntroductionSection from './introduction-section';
 import MethodDetailsSection from './method-details-section';
 import KeyResultsSection from './key-results-section';
