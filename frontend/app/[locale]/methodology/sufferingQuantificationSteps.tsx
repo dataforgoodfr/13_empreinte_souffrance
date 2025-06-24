@@ -98,11 +98,8 @@ type StepProps = { t: ReturnType<typeof getI18n> extends Promise<infer R> ? R : 
 // Colonne 1
 const ChickenAfflictionsList = ({ t }: StepProps) => {
   return (
-    <article className="border border-[#FF7B7B] md:w-1/3 grow">
-      <HeaderColone
-        title={t('MethodologyPage.sufferingQuantificationSteps.step1.title')}
-        number="1"
-      />
+    <article className="border border-[#FF7B7B]  w-full md:basis-1/3 divide-y divide-[#FF7B7B]">
+      <HeaderColone title={t('MethodologyPage.sufferingQuantificationSteps.step1.title')} number="1" />
       <ul className="list-none bg-white font-bold text-xs font-mono divide-y divide-[#FF7B7B] uppercase">
         <li className="flex items-center px-2 py-4 w-full gap-x-6">
           <p className="text-2xl font-bold w-15 flex-shrink-0 text-left">33%</p>
@@ -163,11 +160,8 @@ const SufferingQuantificationTable = ({
 
 const AfflictionSufferingQuantifier = ({ t }: StepProps) => {
   return (
-    <article className="border border-[#FF7B7B] divide-y divide-[#FF7B7B] md:w-1/3">
-      <HeaderColone
-        title={t('MethodologyPage.sufferingQuantificationSteps.step2.title')}
-        number="2"
-      />
+    <article className="border border-[#FF7B7B] divide-y divide-[#FF7B7B] md:basis-1/3  w-full ">
+      <HeaderColone title={t('MethodologyPage.sufferingQuantificationSteps.step2.title')} number="2" />
       <SufferingQuantificationTable
         title={t('MethodologyPage.sufferingQuantificationSteps.step2.bloc1.text')}
         agony={t('MethodologyPage.sufferingQuantificationSteps.step2.bloc1.agony')}
@@ -176,21 +170,23 @@ const AfflictionSufferingQuantifier = ({ t }: StepProps) => {
         discomfort={t('MethodologyPage.sufferingQuantificationSteps.step2.bloc1.discomfort')}
       />
       <SufferingQuantificationTable
-        title={t('MethodologyPage.sufferingQuantificationSteps.step2.bloc1.text')}
+        title={t('MethodologyPage.sufferingQuantificationSteps.step2.bloc2.text')}
         agony={t('MethodologyPage.sufferingQuantificationSteps.step2.bloc1.agony')}
         pain={t('MethodologyPage.sufferingQuantificationSteps.step2.bloc1.pain')}
         suffering={t('MethodologyPage.sufferingQuantificationSteps.step2.bloc1.suffering')}
         discomfort={t('MethodologyPage.sufferingQuantificationSteps.step2.bloc1.discomfort')}
       />
       <SufferingQuantificationTable
-        title={t('MethodologyPage.sufferingQuantificationSteps.step2.bloc1.text')}
+        title={t('MethodologyPage.sufferingQuantificationSteps.step2.bloc3.text')}
         agony={t('MethodologyPage.sufferingQuantificationSteps.step2.bloc1.agony')}
         pain={t('MethodologyPage.sufferingQuantificationSteps.step2.bloc1.pain')}
         suffering={t('MethodologyPage.sufferingQuantificationSteps.step2.bloc1.suffering')}
         discomfort={t('MethodologyPage.sufferingQuantificationSteps.step2.bloc1.discomfort')}
       />
       <div className="flex items-center px-2 py-4 w-full gap-x-6">
-        <p className="flex-1 text-left">{t('MethodologyPage.sufferingQuantificationSteps.step1.text4')}</p>
+        <p className="flex-1 text-left  font-bold text-xs font-mono">
+          {t('MethodologyPage.sufferingQuantificationSteps.step1.text4')}
+        </p>
       </div>
     </article>
   );
@@ -207,15 +203,7 @@ interface SynteseSurfferingProps {
   discomfort: string;
 }
 
-const SynteseSurffering = ({
-  title,
-  percent,
-  text,
-  agony,
-  pain,
-  suffering,
-  discomfort,
-}: SynteseSurfferingProps) => {
+const SynteseSurffering = ({ title, percent, text, agony, pain, suffering, discomfort }: SynteseSurfferingProps) => {
   return (
     <div className="bg-white p-3">
       <div className="flex items-center mb-2">
@@ -224,7 +212,7 @@ const SynteseSurffering = ({
       {/* Bas : contenu partagé gauche/droite */}
       <div className="flex justify-center text-xs ">
         {/* Moitié gauche : % + texte */}
-        <div className="flex justify-center items-center normal-case gap-1">
+        <div className="flex justify-center items-center normal-case gap-1 pr-2">
           <span className="font-bold">{percent}</span>
           <span className="font-bold">{text}</span>
         </div>
@@ -244,11 +232,8 @@ const SynteseSurffering = ({
 
 const AverageSufferingSummary = ({ t }: StepProps) => {
   return (
-    <article className="md:w-1/3 divide-y divide-[#FF7B7B] border border-[#FF7B7B]">
-      <HeaderColone
-        title={t('MethodologyPage.sufferingQuantificationSteps.step3.title')}
-        number="3"
-      />
+    <article className="flex-1 md:basis-1/3 divide-y divide-[#FF7B7B] border border-[#FF7B7B]">
+      <HeaderColone title={t('MethodologyPage.sufferingQuantificationSteps.step3.title')} number="3" />
       <SynteseSurffering
         title={t('MethodologyPage.sufferingQuantificationSteps.step3.bloc1.title')}
         percent="33% "
@@ -279,16 +264,14 @@ const AverageSufferingSummary = ({ t }: StepProps) => {
         discomfort={t('MethodologyPage.sufferingQuantificationSteps.step3.bloc3.discomfort')}
       />
       <div className="bg-[#E7E4FF] text-center text-3xl font-extrabold">+</div>
-      <div className="normal-case p-2 text-xs">
-        {t('MethodologyPage.sufferingQuantificationSteps.step3.text2')}
-      </div>
+      <div className="normal-case p-2 text-xs">{t('MethodologyPage.sufferingQuantificationSteps.step3.text2')}</div>
       <div className="bg-[#E7E4FF] text-center text-3xl font-extrabold">=</div>
       <div className="bg-white p-4">
         <h3 className="text-xs font-extrabold mb-2">
           {t('MethodologyPage.sufferingQuantificationSteps.step3.bloc5.title')}
         </h3>
         <div className="text-[9px] normal-case mx-auto">
-          <div className="grid grid-cols-2 grid-rows-2 w-max text-xs font-normal text-left normal-case mx-auto">
+          <div className="grid grid-cols-2 grid-rows-2 text-xs font-normal text-left normal-case mx-auto">
             <div className="bg-[#3C1212] text-white p-2">
               {t('MethodologyPage.sufferingQuantificationSteps.step3.bloc5.agony')}
             </div>

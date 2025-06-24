@@ -277,21 +277,21 @@ export default {
       step2: {
         title: 'Quantify the suffering caused by each affliction',
         bloc1: {
-          text: 'Durée',
+          text: 'Breastbone fracture',
           agony: '2 minutes of agony',
           pain: '45 hours of pain',
           suffering: '5 hours of suffering',
           discomfort: '80 hours of discomfort',
         },
         bloc2: {
-          text: 'Durée',
+          text: 'Restriction of freedom of movement',
           agony: '2 minutes of agony',
           pain: '45 hours of pain',
           suffering: '5 hours of suffering',
           discomfort: '80 hours of discomfort',
         },
         bloc3: {
-          text: 'Durée',
+          text: 'Skin lesions',
           agony: '2 minutes of agony',
           pain: '45 hours of pain',
           suffering: '5 hours of suffering',
@@ -331,7 +331,7 @@ export default {
           discomfort: '3000 hours of discomfort',
         },
       },
-      title2: 'Échelle de souffrance',
+      title2: 'Suffering Scale',
       text: 'The researchers defined four levels of suffering using behavioral and functional criteria: Is the hen still carrying out its usual activities (eating, exploring, playing)? Is it able to concentrate and react to its surroundings? Are physiological signals associated with discomfort or stress observable? How does it show its suffering (vocalizations, agitation)? Is pain medication helping it ?',
       criteria: 'Criteria',
       legend: {
