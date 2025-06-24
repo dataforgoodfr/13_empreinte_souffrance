@@ -1,7 +1,18 @@
 import { getI18n } from '@/locales/server';
 import SectionHeading from '../ui/general/home-page/elements/section-heading';
 
-// Composant principal (Server Component)
+/**
+ * Quick documentation:
+ * - SectionHeading: displays the section title.
+ * - ChickenAfflictionsList: column 1, list of the hen's afflictions.
+ * - AfflictionSufferingQuantifier: column 2, details and suffering tables.
+ * - SufferingQuantificationTable: small table for each type of affliction.
+ * - AverageSufferingSummary: column 3, visual summary of the total suffering.
+ * - SynteseSurffering: synthesis block with a summary and a table.
+ * - LegendPain: colored legend boxes to explain each methodological criterion.
+ * - HeaderColone: stylized header for each column.
+ */
+
 export default async function SufferingQuantificationSteps() {
   const t = await getI18n();
 
@@ -77,7 +88,7 @@ const LegendPain = ({ titre, description, criteriaDesciption, criteria, color, c
   );
 };
 
-// Composant HeaderColone, réutilisable pour chaque colonne
+
 type HeaderColoneProps = {
   title: string;
   number: number | string;
@@ -92,10 +103,10 @@ const HeaderColone = ({ title, number }: HeaderColoneProps) => {
   );
 };
 
-// Typage des props pour les colonnes
+
 type StepProps = { t: ReturnType<typeof getI18n> extends Promise<infer R> ? R : never };
 
-// Colonne 1
+// column 1
 const ChickenAfflictionsList = ({ t }: StepProps) => {
   return (
     <article className="border border-[#FF7B7B]  w-full md:basis-1/3 divide-y divide-[#FF7B7B]">
@@ -121,7 +132,7 @@ const ChickenAfflictionsList = ({ t }: StepProps) => {
   );
 };
 
-// Colonne 2
+// column 2
 interface SufferingQuantificationTableProps {
   title: string;
   agony: string;
@@ -192,7 +203,7 @@ const AfflictionSufferingQuantifier = ({ t }: StepProps) => {
   );
 };
 
-// Colonne 3
+// column 3
 interface SynteseSurfferingProps {
   title: string;
   percent: string;
