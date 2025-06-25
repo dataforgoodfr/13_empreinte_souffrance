@@ -8,13 +8,13 @@ from app.enums.open_food_facts.breeding_type_enums import (
     get_cage_regex,
     get_free_range_regex,
 )
-from app.enums.open_food_facts.enums import AnimalType, BroilerChickenBreedingType, LayingHenBreedingType
+from app.enums.open_food_facts.enums import AnimalType, BreedingType, LayingHenBreedingType
 from app.schemas.open_food_facts.external import ProductData
-from app.schemas.open_food_facts.internal import BreedingTypeAndWeight
+from app.schemas.open_food_facts.internal import ProductType
 
 # Types
 PatternType = set[str]
-PatternMap = Dict[LayingHenBreedingType | BroilerChickenBreedingType, PatternType]
+PatternMap = Dict[BreedingType, PatternType]
 AnimalPatternMap = Dict[tuple[str, str], PatternMap]
 
 
@@ -77,73 +77,67 @@ class BreedingTypeCalculator:
     all animals types registered in BreedingPatternsRepository
     """
 
-    def __init__(self, product_data: ProductData):
+    def __init__(self, product_data: ProductData, product_type: ProductType):
         """
-        Initializes the calculator with the given product data.
-        Args :  product_data (ProductData)
+        Initializes the calculator with the given product data
+        and product type computed by the pain report calculator
+        Args :  product_data (ProductData), product_type (ProductType)
         """
         self.product_data = product_data
         self.patterns_repository = BreedingPatternsRepository()
+        self.product_type = product_type
 
-    def get_breeding_types_by_animal(self) -> dict[AnimalType, BreedingTypeAndWeight]:
+    def get_breeding_types_by_animal(self) -> dict[AnimalType, BreedingType | None]:
         """
-        Get the breeding types for all animal types based on the product data.
+        Get the breeding types for all animal types known in product_type based on the product data.
         This method processes the product data for each animal type, determines if there is a
         unique match for the breeding type, and returns the result.
         Returns:
-            dict[AnimalType, BreedingTypeAndWeight]: A dictionary mapping each animal type to its respective
-            breeding type and weight = 0.
+            dict[AnimalType, BreedingType | None]: A dictionary mapping each animal type to its respective
+            breeding type
         """
-        breeding_types_by_animal = {}
+        breeding_types_by_animal: dict[AnimalType, BreedingType | None] = {}
 
-        for animal_type in self.patterns_repository.get_all_patterns():
-            # Temporary fix to compute pain only for single-ingredient products
-            # Skip if the animal type category is not in the product categories_tags
-            if (
-                not self.product_data.categories_tags
-                or animal_type.categories_tags not in self.product_data.categories_tags
-            ):
-                break
-            matched_breeding_types = self._get_breeding_types(animal_type)
-
-            if len(matched_breeding_types) == 1:
-                breeding_types_by_animal[animal_type] = BreedingTypeAndWeight(breeding_type=matched_breeding_types[0])
+        # Method dedicated to mixed products so calculator cannot handle them for now
+        for animal_type in self.product_type.animal_types:
+            breeding_types_by_animal[animal_type] = None
 
         return breeding_types_by_animal
 
-    def _get_breeding_types(self, animal_type: AnimalType) -> list[LayingHenBreedingType | BroilerChickenBreedingType]:
+    def get_breeding_type(self, animal_type: AnimalType) -> BreedingType | None:
         """
         Determines the breeding types for a specific animal based on an identification process.
         1st match exact categories_tag - stops if = 1 found  (> 1 => continue process)
         2nd match regex on names - stops if >= 1 found (> 1 =>  stop process - not found)
         3rd match regex on other tags including categories_tags  (> 1 => stop process - not found)
         Args:  animal_type (AnimalType): The type of animal to determine the breeding type for.
-        Returns:  list[LayingHenBreedingType | BroilerChickenBreedingType]: A list of matched breeding types.
+        Returns:  BreedingType | None: The determined breeding type for the animal, or None if not found
+        or too many matches
         """
         matched = self._match_from_exact_tags(tag="categories_tags", animal_type=animal_type)
         if len(matched) == 1:
-            breeding_type = matched[0]
-            breeding_type = self._refine_from_country(breeding_type)
-            return [breeding_type]
+            breeding_type = self._refine_from_country(matched[0])
+            return breeding_type
 
         # Continue if no match or many matches on exact categories_tags
+        # If nothing found or too many return None
         for step in ["name", "tags"]:
             matched = self._match_from_regex(explored_tags=self._get_tags_to_explore(step), animal_type=animal_type)
-            if matched:
-                breeding_types = [self._refine_from_country(bt) for bt in matched]
-                return breeding_types
-        return []
+            if len(matched) == 1:
+                breeding_type = self._refine_from_country(matched[0])
+                return breeding_type
+            elif len(matched) > 1:
+                return None
+        return None
 
-    def _match_from_exact_tags(
-        self, tag: str, animal_type: AnimalType
-    ) -> list[LayingHenBreedingType | BroilerChickenBreedingType]:
+    def _match_from_exact_tags(self, tag: str, animal_type: AnimalType) -> list[BreedingType]:
         """
         Matches breeding types based on one exact tag from product data (only categories_tags possible here).
         Args:
             tag (str): The type of tag to use for matching (e.g., categories_tags).
             animal_type (AnimalType): The animal type to match against.
         Returns:
-            list[LayingHenBreedingType | BroilerChickenBreedingType]: A list of matched breeding types.
+            list[BreedingType]: A list of matched breeding types.
         """
         explored_tags = getattr(self.product_data, tag, None)
         return [
@@ -152,9 +146,7 @@ class BreedingTypeCalculator:
             if explored_tags and any(t in explored_tags for t in tags)
         ]
 
-    def _match_from_regex(
-        self, explored_tags: list[str] | None, animal_type: AnimalType
-    ) -> list[LayingHenBreedingType | BroilerChickenBreedingType]:
+    def _match_from_regex(self, explored_tags: list[str] | None, animal_type: AnimalType) -> list[BreedingType]:
         """
         Matches breeding types using regex patterns applied to given tags
         Args:
@@ -162,7 +154,7 @@ class BreedingTypeCalculator:
             animal_type (AnimalType): The animal type for which to perform regex matching.
         Returns:    list[LayingHenBreedingType | BroilerChickenBreedingType]: A list of matched breeding types.
         """
-        matched: list[LayingHenBreedingType | BroilerChickenBreedingType] = []
+        matched: list[BreedingType] = []
         if not explored_tags:
             return matched
         for breeding_type, pattern_set in self.patterns_repository.get_patterns(animal_type)[("regex", "all")].items():
@@ -191,9 +183,7 @@ class BreedingTypeCalculator:
         else:
             raise ValueError("Invalid step. Use 'name' or 'tags'.")
 
-    def _refine_from_country(
-        self, breeding_type: LayingHenBreedingType | BroilerChickenBreedingType
-    ) -> LayingHenBreedingType | BroilerChickenBreedingType:
+    def _refine_from_country(self, breeding_type: BreedingType) -> BreedingType:
         """
         Refines the breeding type based on country-specific regulations.
         Args:      breeding_type (LayingHenBreedingType | BroilerChickenBreedingType):
