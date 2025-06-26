@@ -238,7 +238,7 @@ export default {
       keySection: {
         key1: "heures d'inconfort",
         key2: 'heures de douleur',
-        key3: 'heures de souffrance intense',
+        key3: 'minutes de souffrance intense',
         key4: "secondes d'agonie",
       },
     },

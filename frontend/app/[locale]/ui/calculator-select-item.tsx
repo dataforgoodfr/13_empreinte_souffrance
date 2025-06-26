@@ -28,8 +28,8 @@ const sufferingData: Record<
     agony: number;
   }
 > = {
-  cage: { discomfort: 2.5, pain: 1.2, intense: 0.7, agony: 30 },
-  ground: { discomfort: 1.5, pain: 0.8, intense: 0.4, agony: 20 },
+  cage: { discomfort: 20.5, pain: 10.5, intense: 30.8, agony: 0.5 },
+  ground: { discomfort: 6.92, pain: 5.8, intense: 31.2, agony: 0.5 },
 };
 
 export default function CalculatorSelect({ quantities, farmings, labels }: Props) {
@@ -79,28 +79,28 @@ export default function CalculatorSelect({ quantities, farmings, labels }: Props
 
         <hgroup>
           <h2 className="bg-[#ff7f7f] text-center text-3xl sm:text-6xl flex justify-start items-center w-fit">
-            {Math.ceil(data.discomfort * factor)}
+            {(data.discomfort * factor).toFixed(1)}
           </h2>
           <h3 className="text-xl sm:text-2xl">{labels.discomfort}</h3>
         </hgroup>
 
         <hgroup>
           <h2 className="bg-[#ff7f7f] text-center text-3xl sm:text-6xl flex justify-start items-center w-fit">
-            {Math.ceil(data.pain * factor)}
+            {(data.pain * factor).toFixed(1)}
           </h2>
           <h3 className="text-xl sm:text-2xl"> {labels.pain}</h3>
         </hgroup>
 
         <hgroup>
           <h2 className="bg-[#ff7f7f] text-center text-3xl sm:text-6xl flex justify-start items-center w-fit">
-            {Math.ceil(data.intense * factor)}
+            {(data.intense * factor).toFixed(1)}
           </h2>
           <h3 className="text-xl sm:text-2xl">{labels.intense}</h3>
         </hgroup>
 
         <hgroup>
           <h2 className="bg-[#ff7f7f] text-center text-3xl sm:text-6xl flex justify-start items-center w-fit">
-            {Math.ceil(data.agony * factor)}
+            {(data.agony * factor).toFixed(1)}
           </h2>
           <h3 className="text-xl sm:text-2xl">{labels.agony}.</h3>
         </hgroup>
