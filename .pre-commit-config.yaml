@@ -13,7 +13,11 @@ repos:
       - id: check-json
       - id: check-added-large-files
         args: ['--maxkb=500']
-        exclude: '.*\.(ipynb|csv|jsonl)$'  # exclure ces extensions
+        exclude: '.*\.(csv|jsonl)$'
+      - id: check-added-large-files
+        name: check-large-csv-jsonl
+        args: ['--maxkb=20480']
+        files: '.*\.(csv|jsonl)$'
       - id: check-merge-conflict
       - id: detect-private-key
       - id: mixed-line-ending
