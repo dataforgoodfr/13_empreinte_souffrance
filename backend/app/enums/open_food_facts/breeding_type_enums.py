@@ -52,138 +52,143 @@ for breeding in BREEDINGS:
     BREEDING_PATTERNS_ALL_LANGUAGES[breeding] = {breeding}
 # Initializes the dictionnary with the basic name of each breeding
 
-BREEDING_PATTERNS_ALL_LANGUAGES["cage"] = {
-    "caged?",  # Anglais, français
-    "батарейна клетка",  # Bulgare
-    "klecovy chov",  # Tchèque
-    "burhons",  # Suédois
-    "hakkikanala",  # Finnois
-    "kavezni uzgoj",  # Croate
-    "chow klatkowy",  # Polonais
-    "in custi",  # Roumain
-    "laikymas narvuose",  # Lituanien
-    "baterijska reja",  # Slovène
-    "trobbija fil gageg",  # Maltais
-    "i gcas",  # Irlandais
-    "sprostu turesana",  # Letton
-    "en jaula",  # Espagnol
-    "puurikana",  # Finnois
-    "buræg",  # Danois
-    "kafighaltung",  # Allemand
-    "klietkovy chov",  # Slovaque
-    "em gaiola",  # Portugais
-    "κλωβοστοιχια",  # Grec
-    "kooi",  # Néerlandais
-    "gabbia",  # Italien
-    "ketreces tartas",  # Hongrois
-}
-BREEDING_PATTERNS_ALL_LANGUAGES["barn"] = {
-    "sprotos",  # Letton
-    "podnog",  # Croate
-    "podestylkoveho",  # Tchèque
-    "barn",  # Anglais
-    "gridas turesana",  # Letton
-    "frigaende inomhus",  # Suédois
-    "podstielkovy chov",  # Slovaque
-    "laikymas ant kraiko",  # Lituanien
-    "en suelo",  # Espagnol
-    "подово отглеждане",  # Bulgare
-    "podni uzgoj",  # Croate
-    "no solo",  # Espagnol
-    "chow sciołkowy",  # Polonais
-    "lattiakanala",  # Finnois
-    "sol",  # Français
-    "alternativ tartas",  # Hongrois
-    "δαπεδο",  # Grec
-    "talna reja",  # Slovène
-    "podestylkovy chov",  # Tchèque
-    "skrabeæg",  # Danois
-    "scharrel",  # Néerlandais
-    "trobbija fl art",  # Maltais
-    "orrekanalad",  # Estonien
-    "ar an urlar",  # Irlandais
-    "a terra",  # Portugais / Italien
-    "boden(haltung)?",  # Allemand
-}
-BREEDING_PATTERNS_ALL_LANGUAGES["free-range"] = {
-    "freilandeier",  # Allemand
-    "plein air",  # Français
-    "ppa",  # Français
-    "pastoreo",  # Espagnol
-    "volneho",  # Tchèque
-    "laikymas laisveje",  # Lituanien
-    "slobodni uzgoj",  # Croate
-    "trobbija ħielsa",  # Maltais
-    "свободно отглеждане",  # Bulgare
-    "aer liber",  # Roumain
-    "free range",  # Anglais
-    "briva turesana",  # Letton
-    "al aire libre",  # Espagnol
-    "vabapidamine",  # Estonien
-    "prosta reja",  # Slovène
-    "ελευθερας βοσκης",  # Grec
-    "szabadtartas",  # Hongrois
-    "frigaende utomhus",  # Suédois
-    "chow wolnowybiegowy",  # Polonais
-    "frilandsæg",  # Danois
-    "freilandhaltung",  # Allemand
-    "ulkokanala",  # Finnois
-    "all aperto",  # Italien
-    "ao ar livre",  # Portugais
-    "vrije uitloop",  # Néerlandais
-    "saorshreabhadh",  # Irlandais
-    "volny vybeh",  # Slovaque
-}
-BREEDING_PATTERNS_ALL_LANGUAGES["organic"] = {
-    "ออร์แกนิค",  # Thaï
-    "ecologic[ao]",  # Espagnol / Italien
-    "bioeier",  # Allemand
-    "bios?",  # Français
-    "biologico?",  # Italien, Anglais
-    "biologiques?",  # Français
-    "biologis?che?s?",  # Allemand
-    "ekologiku",  # Maltais
-    "luomu",  # Finnois
-    "ecologico",  # Espagnol / Italien
-    "ekoloski",  # Croate
-    "organic",  # Anglais
-    "ekologiska?",  # Suédois
-    "ekologiskais",  # Letton
-    "ecologic",  # Roumain
-    "ekologichen",  # Bulgare
-    "okologiai",  # Hongrois
-    "viologiko",  # Grec
-    "ekologiczny",  # Polonais
-    "organach",  # Irlandais
-    "biologi",  # Danois / Norvégien
-    "ekologiskas",  # Lituanien
-    "oekologisk",  # Danois
-    "oekoloogiline",  # Estonien
-    "ekologicky",  # Tchèque
-    "okologische?n?s?",  # Allemand
-}
-
-BREEDING_PATTERNS_ALL_LANGUAGES["cage-free"] = {
-    "libre de jaula",  # Espagnol
-    "cage free",  # Anglais
-    "vapaan",  # Finnois
-    "libertad",  # Espagnol
-    "libre",  # Espagnol / Français
-    "free run",  # Anglais
-}
-BREEDING_PATTERNS_ALL_LANGUAGES["cage-free"] = {
-    "label rouge"  # Français
-}
-BREEDING_PATTERNS_ALL_LANGUAGES["certified-humane"] = {
-    "certified humane"  # Anglais
-}
-BREEDING_PATTERNS_ALL_LANGUAGES["pastured"] = {
-    "pastured?"  # Anglais
-}
-BREEDING_PATTERNS_ALL_LANGUAGES["biodynamic"] = {
-    "biodynamic",  # Anglais
-    "biodynamique",  # Français
-}
+BREEDING_PATTERNS_ALL_LANGUAGES.update(
+    {
+        "cage": {
+            "caged?",  # Anglais, Français
+            "батарейна клетка",  # Bulgare
+            "klecovy chov",  # Tchèque
+            "burhons",  # Suédois
+            "hakkikanala",  # Finnois
+            "kavezni uzgoj",  # Croate
+            "chow klatkowy",  # Polonais
+            "in custi",  # Roumain
+            "laikymas narvuose",  # Lituanien
+            "baterijska reja",  # Slovène
+            "trobbija fil gageg",  # Maltais
+            "i gcas",  # Irlandais
+            "sprostu turesana",  # Letton
+            "en jaulas?",  # Espagnol
+            "puurikana",  # Finnois
+            "buræg",  # Danois
+            "kafig(haltung)?",  # Allemand
+            "klietkovy chov",  # Slovaque
+            "em gaiola",  # Portugais
+            "κλωβοστοιχια",  # Grec
+            "kooi",  # Néerlandais
+            "gabbia?",  # Italien
+            "ketreces tartas",  # Hongrois
+        },
+        "barn": {
+            "sprotos",  # Letton
+            "podnog",  # Croate
+            "podestylkoveho",  # Tchèque
+            "barn",  # Anglais
+            "gridas turesana",  # Letton
+            "frigaende inomhus",  # Suédois
+            "podstielkovy chov",  # Slovaque
+            "laikymas ant kraiko",  # Lituanien
+            "suelo?",  # Espagnol
+            "подово отглеждане",  # Bulgare
+            "podni uzgoj",  # Croate
+            "no solo",  # Espagnol
+            "chow sciołkowy",  # Polonais
+            "lattiakanala",  # Finnois
+            "sol",  # Français
+            "alternativ tartas",  # Hongrois
+            "δαπεδο",  # Grec
+            "talna reja",  # Slovène
+            "podestylkovy chov",  # Tchèque
+            "skrabeæg",  # Danois
+            "scharrel",  # Néerlandais
+            "trobbija fl art",  # Maltais
+            "orrekanalad",  # Estonien
+            "ar an urlar",  # Irlandais
+            "terra",  # Portugais / Italien
+            "boden(haltung)?",  # Allemand
+            "free run",  # Canada (Anglais)
+        },
+        "free-range": {
+            "freiland(eier)?",  # Allemand
+            "plein air",  # Français
+            "ppa",  # Français (abréviation plein air)
+            "camperas?",  # Espagnol
+            "aire? libre",  # Français / Espagnol
+            "volneho",  # Tchèque
+            "laikymas laisveje",  # Lituanien
+            "slobodni uzgoj",  # Croate
+            "trobbija ħielsa",  # Maltais
+            "свободно отглеждане",  # Bulgare
+            "aer liber",  # Roumain
+            "free range",  # Anglais
+            "briva turesana",  # Letton
+            "al aire libre",  # Espagnol
+            "vabapidamine",  # Estonien
+            "prosta reja",  # Slovène
+            "ελευθερας βοσκης",  # Grec
+            "szabadtartas",  # Hongrois
+            "frigaende utomhus",  # Suédois
+            "chow wolnowybiegowy",  # Polonais
+            "frilandsæg",  # Danois
+            "freilandhaltung",  # Allemand
+            "ulkokanala",  # Finnois
+            "all aperto",  # Italien
+            "ar livre",  # Portugais
+            "vrije uitloop",  # Néerlandais
+            "saorshreabhadh",  # Irlandais
+            "volny vybeh",  # Slovaque
+        },
+        "organic": {
+            "ออร์แกนิค",  # Thaï
+            "ecologic[ao]",  # Espagnol / Italien
+            "bioeier",  # Allemand
+            "bios?",  # Français
+            "biologico?",  # Italien, Anglais
+            "biologiques?",  # Français
+            "biologis?che?s?",  # Allemand
+            "ekologiku",  # Maltais
+            "luomu",  # Finnois
+            "ecologico",  # Espagnol / Italien
+            "ekoloski",  # Croate
+            "organic",  # Anglais
+            "ekologiska?",  # Suédois
+            "ekologiskais",  # Letton
+            "ecologic",  # Roumain
+            "ekologichen",  # Bulgare
+            "okologiai",  # Hongrois
+            "viologiko",  # Grec
+            "ekologiczny",  # Polonais
+            "organach",  # Irlandais
+            "biologi",  # Danois / Norvégien
+            "ekologiskas",  # Lituanien
+            "oekologisk",  # Danois
+            "oekoloogiline",  # Estonien
+            "ekologicky",  # Tchèque
+            "okologische?n?s?",  # Allemand
+        },
+        "cage-free": {
+            "libre de jaula",  # Espagnol
+            "cage free",  # Anglais
+            "vapaan",  # Finnois
+            "libertad",  # Espagnol
+            "libre",  # Espagnol / Français
+        },
+        "label-rouge": {
+            "label rouge",  # Français
+        },
+        "certified-humane": {
+            "certified humane",  # Anglais
+        },
+        "pastured": {
+            "pastured?",  # Anglais
+            "pastoreo",  # Espagnol
+        },
+        "biodynamic": {
+            "biodynamic",  # Anglais
+            "biodynamique",  # Français
+        },
+    }
+)
 
 
 EXCLUDED_PATTERNS: dict[str, set] = {}
@@ -194,21 +199,23 @@ for breeding in BREEDINGS:
     EXCLUDED_PATTERNS[breeding] = set()
 # Initializes each breeding with an empty set
 
-EXCLUDED_PATTERNS["cage"] = {
-    r"\b(cage free)\b",  # English
-    r"\b(hors|pas|non|sans)\b.*\b(cage)\b",  # French
-}
-
-EXCLUDED_PATTERNS["free-range"] = {
-    r"\b(no[tn]?)\b.*\b(free range)\b",  # English
-    r"\b(sans|pas|non?)\b.*\b(plein air)\b",  # French
-}
-
-EXCLUDED_PATTERNS["organic"] = {
-    r"\b(no[tn]?)\b.*\b(organic)\b",  # English
-    r"\b(sans|pas|no[tn]?)\b.*\b(bios?)\b",  # English/French
-    r"\b(sans|pas|non?)\b.*\b(biologiques?)\b",  # French
-}
+EXCLUDED_PATTERNS.update(
+    {
+        "cage": {
+            r"\b(cage free)\b",  # English
+            r"\b(hors|pas|non|sans)\b.*\b(cage)\b",  # French
+        },
+        "free-range": {
+            r"\b(no[tn]?|could|can)\b.*\b(free range)\b",  # English
+            r"\b(sans|pas|non?|peuvent)\b.*\b(plein air)\b",  # French
+        },
+        "organic": {
+            r"\b(no[tn]?)\b.*\b(organic)\b",  # English
+            r"\b(sans|pas|no[tn]?)\b.*\b(bios?)\b",  # English/French
+            r"\b(sans|pas|non?)\b.*\b(biologiques?)\b",  # French
+        },
+    }
+)
 
 
 def get_free_range_regex() -> str:
@@ -248,7 +255,7 @@ def get_barn_regex() -> str:
     Returns:
         str: A regex pattern that matches any of the 'barn' breeding types.
     """
-    return r"^.*\b(" + r")|(".join(BREEDING_PATTERNS_ALL_LANGUAGES["barn"]) + r")\b"
+    return r"^.*\b(" + r"|".join(BREEDING_PATTERNS_ALL_LANGUAGES["barn"]) + r")\b"
 
 
 def get_cage_regex() -> str:

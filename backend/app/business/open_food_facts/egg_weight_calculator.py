@@ -167,7 +167,7 @@ def get_egg_weight_from_product_quantity_and_unit(quantity: float, unit: str) ->
     return 0
 
 
-def calculate_egg_weight(product_data: ProductData) -> float:
+def calculate_egg_weight(product_data: ProductData) -> float | None:
     """
     Calculates the weight of eggs based on the product data.
 
@@ -186,4 +186,7 @@ def calculate_egg_weight(product_data: ProductData) -> float:
     else:
         egg_weight = get_total_egg_weight_from_tags(categories_tags)
 
-    return egg_weight
+    if egg_weight > 0:
+        return egg_weight
+    else:
+        return None

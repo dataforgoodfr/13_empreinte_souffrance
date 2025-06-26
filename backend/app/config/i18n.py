@@ -24,11 +24,11 @@ class I18N:
                 translations = gettext.translation("messages", localedir=str(self.locales_dir), languages=[locale])
                 self.translations[locale] = translations
 
-    def get_translator(self, locale: str) -> Callable:
-        """Get the gettext translator for the given locale"""
+    def get_translator(self, locale: str) -> tuple[Callable, Callable]:
+        """Get the gettext translator and ngettext for the given locale"""
         if locale in self.translations:
-            return self.translations[locale].gettext
-        return self.translations[self.default_locale].gettext
+            return self.translations[locale].gettext, self.translations[locale].ngettext
+        return self.translations[self.default_locale].gettext, self.translations[self.default_locale].ngettext
 
     def is_supported_locale(self, locale: str) -> bool:
         """Check if the given locale is supported"""

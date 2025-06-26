@@ -1,27 +1,6 @@
 from collections.abc import Callable
 from enum import StrEnum, auto
-
-
-class AnimalType(StrEnum):
-    LAYING_HEN = auto()
-    BROILER_CHICKEN = auto()
-
-    @property
-    def categories_tags(self) -> str:
-        """
-        Returns the categories_tags string associated with the animal type.
-        """
-        if self == AnimalType.LAYING_HEN:
-            return "en:eggs"
-        elif self == AnimalType.BROILER_CHICKEN:
-            return "en:chickens"
-        else:
-            raise ValueError(f"Unknown animal type: {self.value}")
-
-    def translated_name(self, _: Callable) -> str:
-        """Return the human-readable name for this animal type"""
-        mappings = {"laying_hen": _("Laying hen"), "broiler_chicken": _("Broiler chicken")}
-        return mappings.get(self.value, self.value)
+from typing import TypeAlias
 
 
 class LayingHenBreedingType(StrEnum):
@@ -48,7 +27,39 @@ class BroilerChickenBreedingType(StrEnum):
 
     def translated_name(self, _: Callable) -> str:
         """Return the human-readable name for this breeding type"""
-        mappings = {"free_range": _("Free range")}
+        mappings = {
+            "free_range": _("Free range"),
+        }
+        return mappings.get(self.value, self.value)
+
+
+BreedingType: TypeAlias = LayingHenBreedingType | BroilerChickenBreedingType
+
+
+class AnimalType(StrEnum):
+    LAYING_HEN = auto()
+    BROILER_CHICKEN = auto()
+
+    @property
+    def categories_tags(self) -> str:
+        return {
+            "laying_hen": "en:chicken-eggs",
+            "broiler_chicken": "en:chickens",
+        }.get(self.value) or (_ for _ in ()).throw(ValueError(f"Unknown animal type: {self.value}"))
+
+    @property
+    def is_computed(self) -> bool:
+        result = {
+            "laying_hen": True,
+            "broiler_chicken": False,
+        }.get(self.value)
+        if result is None:
+            raise ValueError(f"Unknown animal type: {self.value}")
+        return result
+
+    def translated_name(self, _: Callable) -> str:
+        """Return the human-readable name for this animal type"""
+        mappings = {"laying_hen": _("Laying hen"), "broiler_chicken": _("Broiler chicken")}
         return mappings.get(self.value, self.value)
 
 

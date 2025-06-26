@@ -181,7 +181,7 @@ export default {
     numericBarcodeError: 'Veuillez saisir un code-barres numérique',
     search: 'Rechercher',
     loading: 'Chargement des données...',
-    productNotFound: 'Ce produit ne contient pas de produits animaux pris en charge',
+    productNotFound: "Ce produit n'a pas pu être trouvé",
   },
 
   BookAnnouncement: {
@@ -264,6 +264,7 @@ export default {
         "Wladimir est docteur en épidémiologie de l'université d'Oxford, avec plus de 20 ans d'expérience de recherche en évolution, éthologie et santé mondiale. Il a collaboré avec des universités du monde entier et publié plus de 100 études dans des revues à comité de lecture.",
       list_here: 'liste ici',
     },
+
 
     sufferingQuantificationSteps: {
       title: 'Une méthode en 3 étapes pour quantifier la souffrance animale',
@@ -365,5 +366,6 @@ export default {
         },
       },
     },
+
   },
 } as const;
