@@ -1,7 +1,7 @@
 import { getScopedI18n } from '@/locales/server';
 import CalculatorSelect from "@/app/[locale]/ui/calculator-select-item";
 
-export default async function CallToActionSection() {
+export default async function SelectorSection() {
   const scopedT = await getScopedI18n("calculatorPage");
 
   const quantities = [
