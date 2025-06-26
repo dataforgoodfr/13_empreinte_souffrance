@@ -63,7 +63,7 @@ export default function CalculatorSelect({ quantities, farmings, labels }: Props
         <select
           value={farmingKey}
           onChange={(e) => setFarmingKey(e.target.value as FarmingKey)}
-          className=" border rounded txt-center"
+          className=" border pr-2 pl-2 rounded txt-center"
         >
           {farmings.map((f) => (
             <option key={f.key} value={f.key}>

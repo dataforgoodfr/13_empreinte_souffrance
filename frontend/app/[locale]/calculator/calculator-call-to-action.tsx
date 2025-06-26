@@ -27,7 +27,7 @@ export default async function CallToActionSection() {
 
   return (
     <section className=" bg-white scroll-mt-18 max-w-screen p-8 sm:px-16 w-full flex flex-col gap-16">
-      <CalculatorSelect quantities={quantities} farmings={farmings} labels={labels} />
+      <CalculatorSelect quantities={[...quantities]} farmings={[...farmings]} labels={labels} />
     </section>
   );
 }
