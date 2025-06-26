@@ -15,7 +15,7 @@ export default async function Navbar() {
   
   return (
     <>
-      <header className="bg-red-50 p-4 w-full">
+      <header className="bg-white p-4 w-full">
         <div className="flex flex-col md:flex-row md:items-center md:justify-between w-full gap-4">
           <div className="flex justify-between md:justify-start items-center gap-2 w-full md:w-auto">
             <div className="flex justify-start items-center gap-2">
