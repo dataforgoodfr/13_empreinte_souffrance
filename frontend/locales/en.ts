@@ -235,9 +235,9 @@ export default {
         },
       },
       keySection: {
-        key1: 'hours (more than 5 days) of discomfort',
-        key2: 'hours (more than 3 days) of pain',
-        key3: 'hours of intense suffering',
+        key1: 'hours of discomfort',
+        key2: 'hours of pain',
+        key3: 'minutes of intense suffering',
         key4: 'seconds of agony',
       },
     },
