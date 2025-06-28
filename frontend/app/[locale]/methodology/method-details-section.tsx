@@ -1,5 +1,5 @@
-import GenericSection from '../generique-component';
+import GlobalSufferingFigure from './global-suffering-figure';
 
 export default function MethodDetailsSection() {
-  return <GenericSection title={'MethodDetailsSection'} page={'Methodology'} />;
+  return <GlobalSufferingFigure />;
 }
