@@ -367,5 +367,34 @@ export default {
       },
     },
 
+    QuantifySufferingByPain: {
+      title: '2.2 Quantifier la souffrance pour chaque source de douleur',
+      question: 'Quelle quantité de souffrance pour une fracture du bréchet ? une lésion cutanée ? l\'impossibilité de nidifier ?',
+      description1:
+        'C\'est le cœur de la méthode : pour chaque source de douleur, il faut déterminer quelle quantité de souffrance en résulte pour la poule.',
+      description2:
+        'Le Pain-Track est \'outil qui permet cette quantification. Les quatre niveaux de souffrance y sont représentés sur l\'axe vertical et les différentes phases temporelles sur l\'axe horizontal.',
+      description3:
+        'Pour chaque phase, les scientifiques s\'appuient sur divers indices (comportementaux, pharmacologiques, physiologiques...) pour déterminer le niveau de souffrance correspondant.',
+      description4:
+        'Au total, ce sont plus de xx spécialistes de xxx disciplines qui ont collaboré pour établir l\'ensemble des pain tracks.',
+      painTrackTableTitle: 'Pain-track d’une lésion cutanée',
+      painTrackTable: {
+        ruptureTissu: 'Rupture du tissu',
+        coagulation: 'Coagulation',
+        inflammation: 'Inflammation',
+        proliferation: 'Prolifération',
+        total: 'Total',
+        intensityOfSuffering: 'Intensité de la souffrance',
+        discomfort: 'Inconfort',
+        pain: 'Douleur',
+        suffering: 'Souffrance',
+        agony: 'Agonie',
+      },
+      conclusionAltImg: 'Scientifique faisant analysant des pain-track',
+      conclusionText: 'Lister les douleurs des animaux en cage permet de mieux comprendre leur souffrance afin d’améliorer leurs conditions de vie et de promouvoir des pratiques d’élevage plus éthiques.',
+      conclusionButton: 'accédez à l’ensemble des pains-tracks',
+
+    },
   },
 } as const;

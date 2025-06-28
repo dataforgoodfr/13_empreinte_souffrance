@@ -363,5 +363,38 @@ export default {
         },
       },
     },
+
+    QuantifySufferingByPain: {
+      title: '2.2 Quantify suffering for each source of pain',
+      question: 'How much pain does a breastbone fracture cause? A skin lesion? The inability to implantation lead to?',
+      description1:
+        'This is the heart of the method: for each source of pain, it is necessary to determine how much suffering results for the hen.',
+      description2:
+        'The Pain-Track is a tool that allows this quantification. The four levels of pain are represented on the vertical axis and the different time phases on the horizontal axis.',
+      description3:
+        'For each phase, scientists rely on various indices (behavioral, pharmacological, physiological, etc.) to determine the corresponding level of suffering.',
+      description4:
+        'In total, more than xx specialists from xxx disciplines collaborated to establish all the pain tracks.',
+      painTrackTableTitle: 'Pain-track of a skin lesion',
+      painTrackTable: {
+        ruptureTissu: 'Tissue rupture',
+        coagulation: 'Coagulation',
+        inflammation: 'Inflammation',
+        proliferation: 'Proliferation',
+        total: 'Total',
+        intensityOfSuffering: 'Intensity of suffering',
+        discomfort: 'Discomfort',
+        pain: 'Pain',
+        suffering: 'Suffering',
+        agony: 'Agony',
+      },
+      conclusionAltImg: 'Scientist analyzes traces of pain',
+
+      conclusionText: 'Listing the pain of caged animals allows us to better understand their suffering in order to improve their living conditions and promote more ethical breeding practices.',
+      conclusionButton: 'access all the pain-tracks',
+
+
+    },
+
   },
 } as const;
