@@ -1,5 +1,4 @@
-import GenericSection from '../generique-component';
-
+import QuantifySufferingByPain from '@/app/[locale]/methodology/quantify-suffering-by-pain';
 export default function MethodDetailsSection() {
-  return <GenericSection title={'MethodDetailsSection'} page={'Methodology'} />;
+  return <QuantifySufferingByPain />;
 }
