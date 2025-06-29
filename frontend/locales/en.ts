@@ -77,12 +77,12 @@ export default {
   },
 
   LinkSection: {
-    link1: 'THE WELFARE FOOTPRINT INSTITUTE',
-    link2: 'WHAT DO CAGED HENS SUFFER FROM ?',
-    link3: 'THE EQUATION OF PAIN',
-    link4: 'THE RESULTS',
-    link5: 'BIBLIOGRAPHY DU WFI',
-    link6: 'GO FURTHER',
+    WFI: 'THE WELFARE FOOTPRINT INSTITUTE',
+    SufferingCauses: 'WHAT DO CAGED HENS SUFFER FROM ?',
+    PainEquation: 'THE PAIN EQUATION',
+    Results: 'THE RESULTS',
+    BookAnnouncement: 'THE BOOK',
+    GoFurther: 'GO FURTHER',
   },
 
   Results: {
