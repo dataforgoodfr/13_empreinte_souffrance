@@ -18,8 +18,8 @@ export default async function Layout({
 
   return (
     <>
-      <header>
-        <div className="w-full flex-none fixed z-1">
+      <header className="sticky top-0 z-5">
+        <div className="w-full">
           <Navbar />
         </div>
       </header>
