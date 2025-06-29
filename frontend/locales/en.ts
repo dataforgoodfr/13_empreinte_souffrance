@@ -79,7 +79,7 @@ export default {
   LinkSection: {
     WFI: 'THE WELFARE FOOTPRINT INSTITUTE',
     SufferingCauses: 'WHAT DO CAGED HENS SUFFER FROM ?',
-    PainEquation: 'THE EQUATION OF PAIN',
+    PainEquation: 'THE PAIN EQUATION',
     Results: 'THE RESULTS',
     BookAnnouncement: 'THE BOOK',
     GoFurther: 'GO FURTHER',
