@@ -393,7 +393,40 @@ export default {
       conclusionAltImg: 'Scientifique faisant analysant des pain-track',
       conclusionText: 'Lister les douleurs des animaux en cage permet de mieux comprendre leur souffrance afin d’améliorer leurs conditions de vie et de promouvoir des pratiques d’élevage plus éthiques.',
       conclusionButton: 'accédez à l’ensemble des pains-tracks',
+    },
 
+    key_results_section: {
+      key_results_h1: 'Les principaux résultats',
+      text_1: 'On peut donc chiffrer la souffrance d’une poule dans différents systèmes d\'élevage.',
+      text_2: 'En appliquant la même méthode aux autres animaux impliqués dans la production d\'œufs (poussins, parentaux...), on peut calculer l\'empreinte souffrance globale pour la production d\'un œuf.',
+      carte_1: {
+        text_carte_1: 'Au cours de sa vie, Une poule en cage subit en moyenne:',
+        agony_carte_1: '6 min d’agonie',
+        pain_carte_1: '385h de douleur',
+        suffering_carte_1: '448h de souffrance',
+        discomfort_carte_1: '3000h d’inconfort',
+      },
+      carte_2: {
+        text_carte_2: 'Au cours de sa vie, Une poule en cage subit en moyenne:',
+        agony_carte_2: '6 min d’agonie',
+        pain_carte_2: '385h de douleur',
+        suffering_carte_2: '448h de souffrance',
+        discomfort_carte_2: '3000h d’inconfort',
+      },
+      carte_3: {
+        text_carte_3: 'Au cours de sa vie, Une poule en cage subit en moyenne:',
+        agony_carte_3: '6 min d’agonie',
+        pain_carte_3: '385h de douleur',
+        suffering_carte_3: '448h de souffrance',
+        discomfort_carte_3: '3000h d’inconfort',
+      },
+      carte_4: {
+        text_carte_4: 'Au cours de sa vie, Une poule en cage subit en moyenne:',
+        agony_carte_4: '6 min d’agonie',
+        pain_carte_4: '385h de douleur',
+        suffering_carte_4: '448h de souffrance',
+        discomfort_carte_4: '3000h d’inconfort',
+      },
     },
   },
 } as const;
