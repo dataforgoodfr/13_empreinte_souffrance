@@ -8,7 +8,7 @@ export default async function KeyResultsSection() {
     <section className="bg-[#FFC3C3] px-6 pb-20 py-2">
       <div className="max-w-screen-xl mx-auto ">
         <SectionHeading title={t('MethodologyPage.key_results_section.key_results_h1')} heading_number="3" />
-        <div className="sm:w-1/2">
+        <div className="md:w-1/2">
           <p>{t('MethodologyPage.key_results_section.text_1')}</p>
           <p className="py-2">{t('MethodologyPage.key_results_section.text_2')}</p>
         </div>
