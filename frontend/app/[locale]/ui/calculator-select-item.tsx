@@ -63,7 +63,7 @@ export default function CalculatorSelect({ quantities, farmings, labels }: Props
         <select
           value={farmingKey}
           onChange={(e) => setFarmingKey(e.target.value as FarmingKey)}
-          className=" border pr-2 pl-2 rounded txt-center"
+          className=" border pr-2 pl-2 rounded text-center"
         >
           {farmings.map((f) => (
             <option key={f.key} value={f.key}>
@@ -75,7 +75,7 @@ export default function CalculatorSelect({ quantities, farmings, labels }: Props
         <h2>{labels.containsAverage} : </h2>
       </div>
 
-      <div className="flex flex-row justify-between text-[#3b0a0a] font-extrabold tracking-wide lg:flex-row flex-wrap w-full">
+      <div className="flex flex-col gap-5 justify-between text-[#3b0a0a] font-extrabold tracking-wide md:flex-col lg:flex-row  w-full">
 
         <hgroup>
           <h2 className="bg-[#ff7f7f] text-center text-3xl sm:text-6xl flex justify-start items-center w-fit">
