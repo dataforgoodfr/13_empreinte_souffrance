@@ -1,5 +1,5 @@
 import { getI18n } from '@/locales/server';
-import { AnimatedCard } from './animated-afflictions';
+import { AnimatedAfflictionsGroup } from './animated-afflictions';
 
 export default async function GlobalSufferingFigure() {
   const t = await getI18n();
@@ -38,8 +38,8 @@ export default async function GlobalSufferingFigure() {
 
   return (
     <section className="max-w-screen-xl mx-auto ">
-      <div className="sm:px-6 pb-20 xl:px-0 p-6 gap-4 flex flex-col sm:flex-row w-full ">
-        <div className="flex flex-col  sm:w-1/2 sm:p-20 lg:p-0  mx-auto ">
+      <div className="sm:px-6 pb-20 xl:px-0 p-6 gap-4 flex flex-col md:flex-row w-full ">
+        <div className="flex flex-col md:w-1/2  sm:p-20 lg:p-6  mx-auto ">
           <h2 className="text-2xl font-extrabold mb-4 uppercase ">
             2.3 Chiffrer la souffrance globale d’une poule d’élevage
           </h2>
@@ -56,12 +56,7 @@ export default async function GlobalSufferingFigure() {
         </div>
 
         <article className="flex-1 md:basis-1/3 divide-y divide-[#FF7B7B] border border-[#FF7B7B] mx-2">
-          <AnimatedCard afflictions={afflictions} startIndex={0} />
-          <div className="bg-[#E7E4FF] text-center text-3xl font-extrabold">+</div>
-          <AnimatedCard afflictions={afflictions} startIndex={1} />
-          <div className="bg-[#E7E4FF] text-center text-3xl font-extrabold">+</div>
-          <AnimatedCard afflictions={afflictions} startIndex={2} />
-
+          <AnimatedAfflictionsGroup afflictions={afflictions} delay={4000} cascade={300} />{' '}
           <div className="normal-case p-2 text-xs">{t('MethodologyPage.sufferingQuantificationSteps.step3.text2')}</div>
           <div className="bg-[#E7E4FF] text-center text-3xl font-extrabold">=</div>
           <div className="bg-white p-4">
