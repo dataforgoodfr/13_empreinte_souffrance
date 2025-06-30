@@ -37,7 +37,7 @@ export default async function MethodDetailsSection() {
     <>
       <div className="w-full max-w-screen-xl mx-auto mt-12 text-[#3C1212]">
         <SectionHeading title={t('MethodologyPage.method_details_section.title_h1')} heading_number="2" />
-        <div className="flex flex-col p-6  sm:p-20 lg:p-0 md:w-2/3  lg:m-auto">
+        <div className="flex flex-col p-6  sm:p-20 lg:p-0 md:w-2/3 m-auto">
           <h2 className="text-2xl font-extrabold mb-4 uppercase ">
             {t('MethodologyPage.method_details_section.title_h2')}
           </h2>
