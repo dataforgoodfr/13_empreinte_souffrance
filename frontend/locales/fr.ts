@@ -77,12 +77,12 @@ export default {
   },
 
   LinkSection: {
-    link1: 'LE WELFARE FOOTPRINT INSTITUTE',
-    link2: 'DE QUOI SOUFFRENT LES POULES EN CAGES ?',
-    link3: 'L’ÉQUATION DE LA DOULEUR',
-    link4: 'LES RÉSULTATS',
-    link5: 'BIBLIOGRAPHY DU WFI',
-    link6: 'ALLER PLUS LOIN',
+    WFI: 'LE WELFARE FOOTPRINT INSTITUTE',
+    SufferingCauses: 'DE QUOI SOUFFRENT LES POULES EN CAGES ?',
+    PainEquation: 'L’ÉQUATION DE LA DOULEUR',
+    Results: 'LES RÉSULTATS',
+    BookAnnouncement: 'LE LIVRE',
+    GoFurther: 'ALLER PLUS LOIN',
   },
 
   Results: {
@@ -264,7 +264,6 @@ export default {
         "Wladimir est docteur en épidémiologie de l'université d'Oxford, avec plus de 20 ans d'expérience de recherche en évolution, éthologie et santé mondiale. Il a collaboré avec des universités du monde entier et publié plus de 100 études dans des revues à comité de lecture.",
       list_here: 'liste ici',
     },
-
 
     sufferingQuantificationSteps: {
       title: 'Une méthode en 3 étapes pour quantifier la souffrance animale',
