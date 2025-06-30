@@ -231,7 +231,7 @@ export default {
         texte1: "issu(e)s d'un élevage",
         selector2: {
           Option1: 'en cage',
-          Option2: 'en sol',
+          Option2: 'au sol',
           texte2: 'contient en moyenne',
         },
       },

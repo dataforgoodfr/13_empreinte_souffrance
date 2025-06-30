@@ -227,10 +227,10 @@ export default {
           Option4: 'An egg',
         },
 
-        texte1: 'from breeding',
+        texte1: 'from',
         selector2: {
-          Option1: 'caged',
-          Option2: 'on the ground',
+          Option1: 'caged hens',
+          Option2: 'barn hens',
           texte2: 'contains on average',
         },
       },
