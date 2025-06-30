@@ -1,11 +1,41 @@
 import QuantifySufferingByPain from '@/app/[locale]/methodology/quantify-suffering-by-pain';
 import SectionHeading from '../ui/general/home-page/elements/section-heading';
 import Link from 'next/link';
+
+
+const listOfPain = [
+  'fracture du bréchet',
+  'péritonite de l’oeuf',
+  'restriction de la possibilité de nidifier',
+  'fracture du bréchet',
+  'péritonite de l’oeuf',
+  'restriction de la possibilité de nidifier',
+  'fracture du bréchet',
+  'péritonite de l’oeuf',
+  'restriction de la possibilité de nidifier',
+  'fracture du bréchet',
+  'péritonite de l’oeuf',
+  'restriction de la possibilité de nidifier',
+  'fracture du bréchet',
+  'péritonite de l’oeuf',
+  'restriction de la possibilité de nidifier',
+  'fracture du bréchet',
+  'péritonite de l’oeuf',
+  'restriction de la possibilité de nidifier',
+  'fracture du bréchet',
+  'péritonite de l’oeuf',
+  'restriction de la possibilité de nidifier',
+  'fracture du bréchet',
+  'péritonite de l’oeuf',
+  'restriction de la possibilité de nidifier',
+  'etc',
+];
+
 export default function MethodDetailsSection() {
   return (
     <>
-      <SectionHeading title="La méthode en détail" heading_number="2" />
       <div className="w-full max-w-screen-xl mx-auto mt-12 text-[#3C1212]">
+        <SectionHeading title="La méthode en détail" heading_number="2" />
         <div className="flex flex-col p-6  sm:p-20 lg:p-0 md:w-2/3  lg:m-auto">
           <h2 className="text-2xl font-extrabold mb-4 uppercase ">
             2.1 Lister toutes les sources de douleur pour les poules{' '}
@@ -66,21 +96,14 @@ export default function MethodDetailsSection() {
             <h3 className="uppercase font-bold ">Liste de toutes les sources de douleur </h3>
             <hr className="border-1  border-[#FF7B7B] my-2" />
             <div className="mt-4 grid grid-cols-2 w-full text-center font-mono uppercase font-bold gap-1 text-xs md:text-sm ">
-              <Link className=" bg-[#FF7B7B] p-2" href="/">
-                fracture du bréchet
-              </Link>
-              <Link className=" bg-[#FF7B7B] p-2" href="/">
-                péritonite de l’oeuf
-              </Link>
-              <Link className=" bg-[#FF7B7B] p-2" href="/">
-                restriction de la possibilité de nidifier
-              </Link>
-              <Link className=" bg-[#FF7B7B] p-2" href="/">
-                etc
-              </Link>
+              {listOfPain.map((pain, index) => (
+                <p key={index} className="bg-[#FF7B7B] p-2 transition-all duration-200">
+                  {pain}
+                </p>
+              ))}{' '}
             </div>
             <Link
-              className="text-sm mt-1 bg-[#FFC3C3] font-mono font-bold py-4 px-6 rounded-full shadow-[4px_4px_0_#000] w-full block cursor-pointer text-center"
+              className="text-sm mt-1 bg-[#FFC3C3] font-mono font-bold py-4 px-6 rounded-full shadow-[4px_4px_0_#000] w-full block cursor-pointer text-center  transition-all duration-200 hover:bg-[#FF7B7B]  "
               href="/methodology"
             >
               Voir toutes les sources
