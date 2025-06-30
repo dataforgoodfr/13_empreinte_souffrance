@@ -1,7 +1,6 @@
 'use client';
 import { useEffect, useRef, useState } from 'react';
 
-// Typage des afflictions
 export type Affliction = {
   title: string;
   percent: string;
@@ -12,51 +11,36 @@ export type Affliction = {
   discomfort: string;
 };
 
-// Props pour le groupe de cartes
 interface AnimatedAfflictionsGroupProps {
   afflictions: Affliction[];
-  delay?: number; // temps entre deux slides (ex: 4000ms)
-  cascade?: number; // décalage entre les lignes (ex: 250ms)
+  delay?: number;
+  cascade?: number;
 }
 
-// Groupe de cartes animées
 export function AnimatedAfflictionsGroup({ afflictions, delay = 4000, cascade = 250 }: AnimatedAfflictionsGroupProps) {
-  // Index courant partagé
   const [index, setIndex] = useState(0);
 
   useEffect(() => {
-    // Défilement automatique des cartes
     const timer = setInterval(() => {
       setIndex((prev) => (prev + 1) % afflictions.length);
     }, delay);
     return () => clearInterval(timer);
   }, [afflictions.length, delay]);
 
-  // Affichage de 3 lignes décalées
-return (
-  <div>
-    {[0, 1, 2].map((offset, idx, arr) => (
-      <div key={offset}>
-        <AnimatedCard
-          afflictions={afflictions}
-          index={index}
-          offset={offset}
-          cascade={cascade}
-        />
-        {/* Affiche le "+" seulement si ce n'est pas la dernière carte */}
-        {idx < arr.length - 1 && (
-          <div className="bg-[#E7E4FF] text-center text-3xl font-extrabold w-full py-1">
-            +
-          </div>
-        )}
-      </div>
-    ))}
-  </div>
-);
-
+  return (
+    <div>
+      {[0, 1, 2].map((offset, idx, arr) => (
+        <div key={offset}>
+          <AnimatedCard afflictions={afflictions} index={index} offset={offset} cascade={cascade} />
+          {idx < arr.length - 0 && (
+            <div className="bg-[#E7E4FF] text-center text-3xl font-extrabold w-full py-1">+</div>
+          )}
+        </div>
+      ))}
+    </div>
+  );
 }
 
-// Carte animée avec animation slide
 interface AnimatedCardProps {
   afflictions: Affliction[];
   index: number;
@@ -65,11 +49,10 @@ interface AnimatedCardProps {
 }
 
 export function AnimatedCard({ afflictions, index, offset, cascade }: AnimatedCardProps) {
-  // Index de la carte affichée et de la prochaine
   const [current, setCurrent] = useState((index + offset) % afflictions.length);
   const [next, setNext] = useState<number | null>(null);
   const [anim, setAnim] = useState(false);
-  const [entering, setEntering] = useState(false); // ← pour animer la carte entrante
+  const [entering, setEntering] = useState(false);
   const timeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   useEffect(() => {
@@ -78,19 +61,17 @@ export function AnimatedCard({ afflictions, index, offset, cascade }: AnimatedCa
       timeoutRef.current = setTimeout(() => {
         setNext(target);
         setAnim(true);
-        setEntering(false); // la carte entrante commence hors écran
+        setEntering(false);
 
-        // On attend un tick pour déclencher l'animation
         setTimeout(() => {
-          setEntering(true); // maintenant la carte entre !
+          setEntering(true);
         }, 10);
 
-        // Après 500ms, on finalise le switch
         setTimeout(() => {
           setCurrent(target);
           setNext(null);
           setAnim(false);
-        }, 510); // légèrement plus long pour laisser l'animation finir
+        }, 510);
       }, offset * cascade);
     }
     return () => {
@@ -100,10 +81,9 @@ export function AnimatedCard({ afflictions, index, offset, cascade }: AnimatedCa
 
   return (
     <div className="relative w-full min-h-[140px] overflow-hidden bg-white">
-      {/* Carte courante qui sort à gauche */}
       {anim && (
         <div
-          className={`absolute left-0 top-0 w-full z-10
+          className={`absolute left-0 top-0 w-full z-1
             transition-transform duration-500
             -translate-x-full
             ${entering ? 'translate-x-full' : 'translate-x-0'}
@@ -114,11 +94,10 @@ export function AnimatedCard({ afflictions, index, offset, cascade }: AnimatedCa
           <SynteseSurffering {...afflictions[current]} />
         </div>
       )}
-      {/* Carte suivante qui entre de la droite, ANIMATION RÉELLE */}
       {anim && next !== null && (
         <div
           className={`
-            absolute left-0 top-0 w-full z-20
+            absolute left-0 top-0 w-full z-2
             transition-transform duration-500
             ${entering ? 'translate-x-0' : 'translate-x-full'}
           `}
@@ -127,9 +106,8 @@ export function AnimatedCard({ afflictions, index, offset, cascade }: AnimatedCa
           <SynteseSurffering {...afflictions[next]} />
         </div>
       )}
-      {/* Affichage statique quand pas d'animation */}
       {!anim && (
-        <div className="absolute left-0 top-0 w-full z-10">
+        <div className="absolute left-0 top-0 w-full z-1">
           <SynteseSurffering {...afflictions[current]} />
         </div>
       )}
@@ -137,7 +115,6 @@ export function AnimatedCard({ afflictions, index, offset, cascade }: AnimatedCa
   );
 }
 
-// Composant de synthèse, affichage du contenu
 function SynteseSurffering(props: Affliction) {
   const { title, percent, text, agony, pain, suffering, discomfort } = props;
   return (
