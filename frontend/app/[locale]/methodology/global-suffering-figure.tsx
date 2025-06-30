@@ -41,17 +41,16 @@ export default async function GlobalSufferingFigure() {
       <div className="sm:px-6 pb-20 xl:px-0 p-6 gap-4 flex flex-col md:flex-row w-full ">
         <div className="flex flex-col md:w-1/2  sm:p-20 lg:p-6  mx-auto ">
           <h2 className="text-2xl font-extrabold mb-4 uppercase ">
-            2.3 Chiffrer la souffrance globale d’une poule d’élevage
+            {t('MethodologyPage.QuantifySufferingByPain.global_suffering_figure_sectinon.title')}
           </h2>
           <p className="text-md mb-6">
-            Comment combiner fractures, infections, stress... pour obtenir une mesure unique de la souffrance ?
+            {t('MethodologyPage.QuantifySufferingByPain.global_suffering_figure_sectinon.question')}
           </p>
           <p className="text-md">
-            Les étapes précédentes ont permis de connaître les sources de douleur pour les poules, leur fréquence et la
-            quantité de souffrance associée à chacune .
+            {t('MethodologyPage.QuantifySufferingByPain.global_suffering_figure_sectinon.description1')}
           </p>
           <p className="text-md mb-2">
-            Il reste à faire la somme de tous ces résultats pour déterminer la souffrance globale subie par une poule.
+            {t('MethodologyPage.QuantifySufferingByPain.global_suffering_figure_sectinon.description2')}{' '}
           </p>
         </div>
 
