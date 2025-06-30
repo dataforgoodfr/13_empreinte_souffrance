@@ -52,16 +52,19 @@ export default async function MethodDetailsSection() {
             <hr className="border-1  border-[#FF7B7B] my-2" />
             <div className="flex flex-col sm:flex-row m-auto gap-3 mt-4 ">
               <div>
+                {/* todo! change img */}
                 <img src="/agony.PNG" alt=" {t('MethodologyPage.method_details_section.section_img_1.img_1.alt')}" />
                 <p> {t('MethodologyPage.method_details_section.section_img_1.img_1.type_of_pain')}</p>
                 <p> {t('MethodologyPage.method_details_section.section_img_1.img_1.description_of_pain')}</p>
               </div>
               <div>
+                {/* todo! change img */}
                 <img src="/agony.PNG" alt=" {t('MethodologyPage.method_details_section.section_img_1.img_2.alt')}" />
                 <p> {t('MethodologyPage.method_details_section.section_img_1.img_2.type_of_pain')}</p>
                 <p> {t('MethodologyPage.method_details_section.section_img_1.img_2.description_of_pain')}</p>
               </div>
               <div>
+                {/* todo! change img */}
                 <img src="/agony.PNG" alt=" {t('MethodologyPage.method_details_section.section_img_1.img_3.alt')}" />
                 <p> {t('MethodologyPage.method_details_section.section_img_1.img_3.type_of_pain')}</p>
                 <p> {t('MethodologyPage.method_details_section.section_img_1.img_3.description_of_pain')}</p>
@@ -75,16 +78,19 @@ export default async function MethodDetailsSection() {
             <hr className="border-1  border-[#FF7B7B] my-2" />
             <div className="flex flex-col sm:flex-row m-auto gap-3 mt-4 ">
               <div className="">
+                {/* todo! change img */}
                 <img src="/agony.PNG" alt=" {t('MethodologyPage.method_details_section.section_img_2.img_1.alt')}" />
                 <p> {t('MethodologyPage.method_details_section.section_img_2.img_1.type_of_pain')}</p>
                 <p> {t('MethodologyPage.method_details_section.section_img_2.img_1.description_of_pain')}</p>
               </div>
               <div>
+                {/* todo! change img */}
                 <img src="/agony.PNG" alt=" {t('MethodologyPage.method_details_section.section_img_2.img_2.alt')}" />
                 <p> {t('MethodologyPage.method_details_section.section_img_2.img_2.type_of_pain')}</p>
                 <p> {t('MethodologyPage.method_details_section.section_img_2.img_2.description_of_pain')}</p>
               </div>
               <div>
+                {/* todo!: change img */}
                 <img src="/agony.PNG" alt=" {t('MethodologyPage.method_details_section.section_img_2.img_3.alt')}" />
                 <p> {t('MethodologyPage.method_details_section.section_img_2.img_3.type_of_pain')}</p>
                 <p> {t('MethodologyPage.method_details_section.section_img_2.img_3.description_of_pain')}</p>
