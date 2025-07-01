@@ -439,7 +439,8 @@ export default {
         pain_24: 'restriction of nesting possibilities',
       },
       list_of_pains_h3: 'List of all sources of pain',
-      see_all_sources_btn: 'See all sources'
+      see_all_sources_btn: 'See all sources',
+      see_less_sources_btn: 'See less sources',
 
     },
 

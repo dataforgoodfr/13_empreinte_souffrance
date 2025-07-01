@@ -1,9 +1,8 @@
-
 import { getI18n } from '@/locales/server';
 import QuantifySufferingByPain from '@/app/[locale]/methodology/quantify-suffering-by-pain';
 import GlobalSufferingFigure from './global-suffering-figure';
 import SectionHeading from '../ui/general/home-page/elements/section-heading';
-import Link from 'next/link';
+import ListOfPAffition from './list-of-affition';
 
 export default async function MethodDetailsSection() {
   const t = await getI18n();
@@ -102,19 +101,11 @@ export default async function MethodDetailsSection() {
           <article className=" p-6">
             <h3 className="uppercase font-bold ">{t('MethodologyPage.method_details_section.list_of_pains_h3')}</h3>
             <hr className="border-1  border-[#FF7B7B] my-2" />
-            <div className="mt-4 grid grid-cols-2 w-full text-center font-mono uppercase font-bold gap-1 text-xs md:text-sm ">
-              {listOfPain.map((pain, index) => (
-                <p key={index} className="bg-[#FF7B7B] p-2 transition-all duration-200">
-                  {pain}
-                </p>
-              ))}{' '}
-            </div>
-            <Link
-              className="text-sm mt-1 bg-[#FFC3C3] font-mono font-bold py-4 px-6 rounded-full shadow-[4px_4px_0_#000] w-full block cursor-pointer text-center transition-all duration-200 hover:bg-[#FF7B7B]  "
-              href="/methodology"
-            >
-              {t('MethodologyPage.method_details_section.see_all_sources_btn')}
-            </Link>
+            <ListOfPAffition
+              listOfPain={listOfPain}
+              seeMore={t('MethodologyPage.method_details_section.see_all_sources_btn')}
+              seeLess={t('MethodologyPage.method_details_section.see_less_sources_btn')}
+            />
           </article>
         </div>
       </div>
@@ -124,5 +115,3 @@ export default async function MethodDetailsSection() {
     </>
   );
 }
-
-

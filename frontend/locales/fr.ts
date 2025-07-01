@@ -441,7 +441,8 @@ export default {
         pain_24: 'restriction de la possibilité de nidifier',
       },
       list_of_pains_h3: 'Liste de toutes les sources de douleur',
-      see_all_sources_btn: 'Voir toutes les sources'
+      see_all_sources_btn: 'Voir toutes les sources',
+      see_less_sources_btn: 'Voir moins de sources',
     },
 
     QuantifySufferingByPain: {
