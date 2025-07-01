@@ -227,17 +227,17 @@ export default {
           Option4: 'An egg',
         },
 
-        texte1: 'from breeding',
+        texte1: 'from',
         selector2: {
-          Option1: 'caged',
-          Option2: 'on the ground',
+          Option1: 'caged hens',
+          Option2: 'barn hens',
           texte2: 'contains on average',
         },
       },
       keySection: {
-        key1: 'hours (more than 5 days) of discomfort',
-        key2: 'hours (more than 3 days) of pain',
-        key3: 'hours of intense suffering',
+        key1: 'hours of discomfort',
+        key2: 'hours of pain',
+        key3: 'minutes of intense suffering',
         key4: 'seconds of agony',
       },
     },

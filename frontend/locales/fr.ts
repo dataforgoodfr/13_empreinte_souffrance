@@ -230,14 +230,14 @@ export default {
         texte1: "issu(e)s d'un élevage",
         selector2: {
           Option1: 'en cage',
-          Option2: 'en sol',
+          Option2: 'au sol',
           texte2: 'contient en moyenne',
         },
       },
       keySection: {
-        key1: "heures (plus de 5 jours) d'inconfort",
-        key2: 'heures (plus de 3 jours) de douleur',
-        key3: 'heures de souffrance intense',
+        key1: "heures d'inconfort",
+        key2: 'heures de douleur',
+        key3: 'minutes de souffrance intense',
         key4: "secondes d'agonie",
       },
     },
