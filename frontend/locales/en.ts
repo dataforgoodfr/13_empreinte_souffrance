@@ -389,7 +389,6 @@ export default {
         agony: 'Agony',
       },
       conclusionAltImg: 'Scientist analyzes traces of pain',
-
       conclusionText: 'Listing the pain of caged animals allows us to better understand their suffering in order to improve their living conditions and promote more ethical breeding practices.',
       conclusionButton: 'access all the pain-tracks', 
       global_suffering_figure_sectinon: {
@@ -402,5 +401,38 @@ export default {
       },
     },
 
+    key_results_section: {
+      key_results_h1: 'The main results',
+      text_1: 'We can therefore quantify the suffering of a hen in different breeding systems.',
+      text_2: 'By applying the same method to other animals involved in egg production (chicks, parents, etc.), we can calculate the overall suffering footprint for the production of an egg.',
+      carte_1: {
+        text_carte_1: 'During its lifetime, a caged hen undergoes on average:',
+        agony_carte_1: '6 minutes of agony',
+        pain_carte_1: '385 hours of pain',
+        suffering_carte_1: '448 hours of suffering',
+        discomfort_carte_1: '3000 hours of discomfort',
+      },
+      carte_2: {
+        text_carte_2: 'During its lifetime, a caged hen undergoes on average:',
+        agony_carte_2: '6 minutes of agony',
+        pain_carte_2: '385 hours of pain',
+        suffering_carte_2: '448 hours of suffering',
+        discomfort_carte_2: '3000 hours of discomfort',
+      },
+      carte_3: {
+        text_carte_3: 'During its lifetime, a caged hen undergoes on average:',
+        agony_carte_3: '6 minutes of agony',
+        pain_carte_3: '385 hours of pain',
+        suffering_carte_3: '448 hours of suffering',
+        discomfort_carte_3: '3000 hours of discomfort',
+      },
+      carte_4: {
+        text_carte_4: 'During its lifetime, a caged hen undergoes on average:',
+        agony_carte_4: '6 minutes of agony',
+        pain_carte_4: '385 hours of pain',
+        suffering_carte_4: '448 hours of suffering',
+        discomfort_carte_4: '3000 hours of discomfort',
+      },
+    },
   },
 } as const;
