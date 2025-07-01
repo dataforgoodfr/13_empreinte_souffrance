@@ -25,13 +25,6 @@ export default async function MethodDetailsSection() {
     t('MethodologyPage.method_details_section.array_of_pain.pain_15'),
     t('MethodologyPage.method_details_section.array_of_pain.pain_16'),
     t('MethodologyPage.method_details_section.array_of_pain.pain_17'),
-    t('MethodologyPage.method_details_section.array_of_pain.pain_18'),
-    t('MethodologyPage.method_details_section.array_of_pain.pain_19'),
-    t('MethodologyPage.method_details_section.array_of_pain.pain_20'),
-    t('MethodologyPage.method_details_section.array_of_pain.pain_21'),
-    t('MethodologyPage.method_details_section.array_of_pain.pain_22'),
-    t('MethodologyPage.method_details_section.array_of_pain.pain_23'),
-    t('MethodologyPage.method_details_section.array_of_pain.pain_24'),
   ];
 
   return (
