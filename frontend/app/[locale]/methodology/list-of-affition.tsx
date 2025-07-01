@@ -23,17 +23,12 @@ export default function ListOfPAffition({ listOfPain, seeMore, seeLess }: ListOf
         ))}
       </div>
 
-      {/* Afficher le bouton seulement s'il y a plus de 4 pains */}
       {listOfPain.length > 4 && (
         <button
           className="text-sm mt-1 bg-[#FFC3C3] font-mono font-bold py-4 px-6 rounded-full shadow-[4px_4px_0_#000] w-full block cursor-pointer text-center transition-all duration-200 hover:bg-[#FF7B7B]"
           onClick={toggleShowAll}
         >
-          {/* Texte du bouton dynamique (traduction fournie par la prop t) */}
-          {showAll
-            ? seeLess // ex. "Voir moins"
-            : seeMore // ex. "Voir tout"
-          }
+          {showAll ? seeLess : seeMore}
         </button>
       )}
     </>
