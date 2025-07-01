@@ -393,7 +393,14 @@ export default {
       conclusionAltImg: 'Scientifique faisant analysant des pain-track',
       conclusionText: 'Lister les douleurs des animaux en cage permet de mieux comprendre leur souffrance afin d’améliorer leurs conditions de vie et de promouvoir des pratiques d’élevage plus éthiques.',
       conclusionButton: 'accédez à l’ensemble des pains-tracks',
-
+      global_suffering_figure_sectinon: {
+        title: '2.3 Chiffrer la souffrance globale d’une poule d’élevage',
+        question: 'Comment combiner fractures, infections, stress... pour obtenir une mesure unique de la souffrance ?',
+        description1:
+          'Les étapes précédentes ont permis de connaître les sources de douleur pour les poules, leur fréquence et la quantité de souffrance associée à chacune.',
+        description2:
+          'Il reste à faire la somme de tous ces résultats pour déterminer la souffrance globale subie par une poule.',
+      },
     },
   },
 } as const;

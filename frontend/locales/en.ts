@@ -391,9 +391,15 @@ export default {
       conclusionAltImg: 'Scientist analyzes traces of pain',
 
       conclusionText: 'Listing the pain of caged animals allows us to better understand their suffering in order to improve their living conditions and promote more ethical breeding practices.',
-      conclusionButton: 'access all the pain-tracks',
-
-
+      conclusionButton: 'access all the pain-tracks', 
+      global_suffering_figure_sectinon: {
+        title: '2.3 Calculating the overall suffering of a farmed hen',
+        question: 'How can we combine fractures, infections, stress... etc., to obtain a single measure of suffering?',
+        description1:
+          'The previous steps have allowed us to understand the sources of pain for the hens, their frequency and the amount of suffering associated with each.',
+        description2:
+          'It remains to add up all these results to determine the overall suffering undergone by a hen.',
+      },
     },
 
   },
