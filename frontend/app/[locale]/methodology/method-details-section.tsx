@@ -1,4 +1,12 @@
-import QuantifySufferingByPain from '@/app/[locale]/methodology/quantify-suffering-by-pain';
+
+import QuantifySufferingByPain from './quantify-suffering-by-pain';
+import GlobalSufferingFigure from './global-suffering-figure';
+
 export default function MethodDetailsSection() {
-  return <QuantifySufferingByPain />;
+  return (
+    <>
+      <GlobalSufferingFigure />
+      <QuantifySufferingByPain />
+    </>
+  )
 }
