@@ -366,6 +366,85 @@ export default {
       },
     },
 
+    method_details_section: {
+      title_h1: 'La méthode en détail',
+      title_h2: "2.1 Lister toutes les sources de douleur pour les poules",
+      question: "De quoi souffrent les poules ?",
+      description: "Une revue approfondie de la littérature scientifique a été menée afin d'identifier les principales sources de douleur chez les poulets en production animale, ainsi que leur fréquence selon le mode d'élevage. Il peut s'agir de douleurs physiques (fractures, lésions cutanées, infections, etc.) ou psychologiques (peur, restriction des besoins comportementaux, etc.). Au total, xx sources de douleur ont été identifiées et étudiées par le Welfare Footprint Institute, à partir d'une étude de yy articles.",
+
+      // todo!: update when we have the elements
+      // update alt images text and description
+      section_img_1: {
+        title_h3: 'Quelques douleurs psychologiques',
+        img_1: {
+          alt: 'alt de l\'image img_1',
+          type_of_pain: 'type de soufrance img_1',
+          description_of_pain: 'description de soufrance img_1',
+        },
+        img_2: {
+          alt: 'alt de l\'image img_2',
+          type_of_pain: 'type de soufrance img_2',
+          description_of_pain: 'description de soufrance img_2',
+        },
+        img_3: {
+          alt: 'alt de l\'image img_3',
+          type_of_pain: 'type de soufrance img_3',
+          description_of_pain: 'description de soufrance img_3',
+        },
+      },
+
+      // update alt images text and description
+      section_img_2: {
+        title_h3: 'Quelques douleurs physiques',
+        img_1: {
+          alt: 'alt de l\'image img_1',
+          type_of_pain: 'type de soufrance img_1',
+          description_of_pain: 'description de soufrance img_1',
+        },
+        img_2: {
+          alt: 'alt de l\'image img_2',
+          type_of_pain: 'type de soufrance img_2',
+          description_of_pain: 'description de soufrance img_2',
+        },
+        img_3: {
+          alt: 'alt de l\'image img_3',
+          type_of_pain: 'type de soufrance img_3',
+          description_of_pain: 'description de soufrance img_3',
+        },
+      },
+
+      // update the pain list
+      array_of_pain: {
+        pain_1: 'fracture du bréchet',
+        pain_2: 'péritonite de l’oeuf',
+        pain_3: 'restriction de la possibilité de nidifier',
+        pain_4: 'fracture du bréchet',
+        pain_5: 'péritonite de l’oeuf',
+        pain_6: 'restriction de la possibilité de nidifier',
+        pain_7: 'fracture du bréchet',
+        pain_8: 'péritonite de l’oeuf',
+        pain_9: 'restriction de la possibilité de nidifier',
+        pain_10: 'fracture du bréchet',
+        pain_11: 'péritonite de l’oeuf',
+        pain_12: 'restriction de la possibilité de nidifier',
+        pain_13: 'fracture du bréchet',
+        pain_14: 'péritonite de l’oeuf',
+        pain_15: 'restriction de la possibilité de nidifier',
+        pain_16: 'fracture du bréchet',
+        pain_17: 'péritonite de l’oeuf',
+        pain_18: 'restriction de la possibilité de nidifier',
+        pain_19: 'fracture du bréchet',
+        pain_20: 'péritonite de l’oeuf',
+        pain_21: 'restriction de la possibilité de nidifier',
+        pain_22: 'fracture du bréchet',
+        pain_23: 'péritonite de l’oeuf',
+        pain_24: 'restriction de la possibilité de nidifier',
+      },
+      list_of_pains_h3: 'Liste de toutes les sources de douleur',
+      see_all_sources_btn: 'Voir toutes les sources',
+      see_less_sources_btn: 'Voir moins de sources',
+    },
+
     QuantifySufferingByPain: {
       title: '2.2 Quantifier la souffrance pour chaque source de douleur',
       question: 'Quelle quantité de souffrance pour une fracture du bréchet ? une lésion cutanée ? l\'impossibilité de nidifier ?',

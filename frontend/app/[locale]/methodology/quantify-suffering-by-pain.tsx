@@ -6,7 +6,7 @@ export default async function QuantifySufferingByPain() {
 
   return (
     <div className="w-full max-w-screen-xl mx-auto mt-12 text-[#3C1212]">
-      <div className="flex flex-col p-6  sm:p-20 lg:p-0 md:w-2/3 md:w_2/4  lg: m-auto">
+      <div className="flex flex-col p-6  sm:p-20 lg:p-0 md:w-2/3 m-auto">
         <h2 className="text-2xl font-extrabold mb-4 uppercase ">
           {t('MethodologyPage.QuantifySufferingByPain.title')}
         </h2>

@@ -364,6 +364,86 @@ export default {
       },
     },
 
+    method_details_section: {
+      title_h1: 'The method in detail',
+      title_h2: '2.1 List all sources of pain for chickens',
+      question: 'What do chickens suffer from?',
+      description: 'An in-depth review of the scientific literature was conducted to identify the main sources of pain for chickens in livestock production, and how frequently they occur depending on the farming method. These can be physical pain (fractures, skin injuries, infections, etc.) or psychological pain (fear, restricted behavioral needs, etc.). In total, xx sources of pain were identified and studied by the Welfare Footprint Institute, based on a study of yy articles.',
+
+      // todo!: update when we have the elements
+      // update alt images text and description
+      section_img_1: {
+        title_h3: 'Some psychological pain',
+        img_1: {
+          alt: 'image alt img_1',
+          type_of_pain: 'type of suffering img_1',
+          description_of_pain: 'description of suffering img_1',
+        },
+        img_2: {
+          alt: 'image alt img_2',
+          type_of_pain: 'type of suffering img_2',
+          description_of_pain: 'description of suffering img_2',
+        },
+        img_3: {
+          alt: 'image alt img_3',
+          type_of_pain: 'type of suffering img_3',
+          description_of_pain: 'description of suffering img_3',
+        },
+      },
+
+      // update alt images text and description
+      section_img_2: {
+        title_h3: 'Some physical pain',
+        img_1: {
+          alt: 'image alt img_1',
+          type_of_pain: 'type of suffering img_1',
+          description_of_pain: 'description of suffering img_1',
+        },
+        img_2: {
+          alt: 'image alt img_2',
+          type_of_pain: 'type of suffering img_2',
+          description_of_pain: 'description of suffering img_2',
+        },
+        img_3: {
+          alt: 'image alt img_3',
+          type_of_pain: 'type of suffering img_3',
+          description_of_pain: 'description of suffering img_3',
+        },
+      },
+
+      // update the pain list
+      array_of_pain: {
+        pain_1: 'breastbone fracture',
+        pain_2: 'egg peritonitis',
+        pain_3: 'restriction of nesting possibilities',
+        pain_4: 'breastbone fracture',
+        pain_5: 'egg peritonitis',
+        pain_6: 'restriction of nesting possibilities',
+        pain_7: 'breastbone fracture',
+        pain_8: 'egg peritonitis',
+        pain_9: 'restriction of nesting possibilities',
+        pain_10: 'breastbone fracture',
+        pain_11: 'egg peritonitis',
+        pain_12: 'restriction of nesting possibilities',
+        pain_13: 'breastbone fracture',
+        pain_14: 'egg peritonitis',
+        pain_15: 'restriction of nesting possibilities',
+        pain_16: 'breastbone fracture',
+        pain_17: 'egg peritonitis',
+        pain_18: 'restriction of nesting possibilities',
+        pain_19: 'breastbone fracture',
+        pain_20: 'egg peritonitis',
+        pain_21: 'restriction of nesting possibilities',
+        pain_22: 'breastbone fracture',
+        pain_23: 'egg peritonitis',
+        pain_24: 'restriction of nesting possibilities',
+      },
+      list_of_pains_h3: 'List of all sources of pain',
+      see_all_sources_btn: 'See all sources',
+      see_less_sources_btn: 'See less sources',
+
+    },
+
     QuantifySufferingByPain: {
       title: '2.2 Quantify suffering for each source of pain',
       question: 'How much pain does a breastbone fracture cause? A skin lesion? The inability to implantation lead to?',
@@ -390,7 +470,7 @@ export default {
       },
       conclusionAltImg: 'Scientist analyzes traces of pain',
       conclusionText: 'Listing the pain of caged animals allows us to better understand their suffering in order to improve their living conditions and promote more ethical breeding practices.',
-      conclusionButton: 'access all the pain-tracks', 
+      conclusionButton: 'access all the pain-tracks',
       global_suffering_figure_sectinon: {
         title: '2.3 Calculating the overall suffering of a farmed hen',
         question: 'How can we combine fractures, infections, stress... etc., to obtain a single measure of suffering?',
