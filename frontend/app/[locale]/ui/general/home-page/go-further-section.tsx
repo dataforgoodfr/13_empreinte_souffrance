@@ -9,11 +9,7 @@ export default async function GoFurtherSection() {
   const t = await getI18n();
 
   return (
-    <section
-      id="GoFurtherSection"
-      className="min-h-screen p-8 sm:px-16 scroll-mt-18"
-      aria-labelledby="go-further-heading"
-    >
+    <section id="GoFurtherSection" className="mb-10 p-8 sm:px-16 scroll-mt-18" aria-labelledby="go-further-heading">
       <div className="flex justify-center mb-6" aria-hidden="true">
         <div className="bg-indigo-300 w-14 h-20 rounded-full flex items-center justify-center shadow-[4px_4px_0_#000]">
           <span className="rotate-[-18deg] text-[40px] text-black">
