@@ -1,5 +1,7 @@
+
 import { getI18n } from '@/locales/server';
 import QuantifySufferingByPain from '@/app/[locale]/methodology/quantify-suffering-by-pain';
+import GlobalSufferingFigure from './global-suffering-figure';
 import SectionHeading from '../ui/general/home-page/elements/section-heading';
 import Link from 'next/link';
 
@@ -118,6 +120,9 @@ export default async function MethodDetailsSection() {
       </div>
 
       <QuantifySufferingByPain />
+      <GlobalSufferingFigure />
     </>
   );
 }
+
+

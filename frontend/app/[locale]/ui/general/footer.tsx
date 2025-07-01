@@ -12,7 +12,7 @@ export default async function Footer() {
       <div className="grid grid-cols-2 md:grid-cols-3 py-4 md:py-0 px-6  bg-white text-[#3b0a0a] text-sm ">
         <div className="flex flex-col gap-3">
           <Link href="https://animafrance.org/" target="_blank" className="w-fit">
-            <img src="/anima-logo.webp" alt="" className="w-35 h-[40px] " />
+            <img src="/anima-logo.png" alt="" className="w-35 h-[35px] " />
           </Link>
           <Link
             target="_blank"
@@ -76,7 +76,7 @@ export default async function Footer() {
           <div className="flex flex-row items-center gap-2 md:px-2">
             <p>{t('footer.by')}</p>
             <Link href="https://animafrance.org/" target="_blank">
-              <img src="/anima-logo.webp" alt="" className="w-25 " />
+              <img src="/anima-logo.png" alt="" className="w-25 " />
             </Link>
           </div>
           <div className="flex flex-row items-center gap-2 md:px-2">
@@ -89,7 +89,7 @@ export default async function Footer() {
           <Link
             target="_blank"
             href="https://animafrance.org/je-donne"
-            className="bg-[#ff7f7f] hover:bg-[#b5abff] text-[#3b0a0a] font-mono font-bold py-4 px-6 rounded-full shadow-[4px_4px_0_#000]  text-center  w-40"
+            className="bg-[#ff7f7f] transition-all duration-200 hover:bg-[#b5abff]  text-[#3b0a0a] font-mono font-bold py-4 px-6 rounded-full shadow-[4px_4px_0_#000] text-center  w-40"
           >
             {t('footer.donate')}
           </Link>

@@ -9,8 +9,7 @@ export default async function GoFurtherSection() {
   const t = await getI18n();
 
   return (
-    <section id="GoFurtherSection" className="min-h-screen p-8 sm:px-16 scroll-mt-18" aria-labelledby="go-further-heading">
-
+    <section id="GoFurtherSection" className="mb-10 p-8 sm:px-16 scroll-mt-18" aria-labelledby="go-further-heading">
       <div className="flex justify-center mb-6" aria-hidden="true">
         <div className="bg-indigo-300 w-14 h-20 rounded-full flex items-center justify-center shadow-[4px_4px_0_#000]">
           <span className="rotate-[-18deg] text-[40px] text-black">
@@ -28,7 +27,7 @@ export default async function GoFurtherSection() {
         <form action={downloadMediaKit}>
           <button
             type="submit"
-            className="w-full bg-[#ff7f7f] text-[#3b0a0a] font-mono font-bold py-4 px-6 rounded-full shadow-[4px_4px_0_#000] cursor-pointer"
+            className="w-full bg-[#ff7f7f] text-[#3b0a0a] font-mono font-bold py-4 px-6 rounded-full shadow-[4px_4px_0_#000] cursor-pointer transition-all duration-200 hover:bg-[#FFC3C3]"
             aria-label={t('GoFurther.downloadMediaKit')}
           >
             {t('GoFurther.downloadMediaKit')}
@@ -37,7 +36,7 @@ export default async function GoFurtherSection() {
         <form action={shareOnTwitter}>
           <button
             type="submit"
-            className="w-full bg-[#ff7f7f] text-[#3b0a0a] font-mono font-bold py-4 px-6 rounded-full shadow-[4px_4px_0_#000] cursor-pointer"
+            className="w-full bg-[#ff7f7f] text-[#3b0a0a] font-mono font-bold py-4 px-6 rounded-full shadow-[4px_4px_0_#000] cursor-pointer transition-all duration-200 hover:bg-[#FFC3C3]"
             aria-label={t('GoFurther.share')}
           >
             {t('GoFurther.share')}
@@ -45,7 +44,7 @@ export default async function GoFurtherSection() {
         </form>
         <Link
           href="/science"
-          className="w-full text-center bg-[#ff7f7f] text-[#3b0a0a] font-mono font-bold py-4 px-6 rounded-full shadow-[4px_4px_0_#000] flex items-center justify-center"
+          className="w-full text-center bg-[#ff7f7f] text-[#3b0a0a] font-mono font-bold py-4 px-6 rounded-full shadow-[4px_4px_0_#000] flex items-center justify-center transition-all duration-200 hover:bg-[#FFC3C3]"
           aria-label={t('GoFurther.methodology')}
         >
           {t('GoFurther.methodology')}
@@ -53,7 +52,7 @@ export default async function GoFurtherSection() {
 
         <Link
           href="/about"
-          className="w-full text-center bg-[#ff7f7f] text-[#3b0a0a] font-mono font-bold py-4 px-6 rounded-full shadow-[4px_4px_0_#000] flex items-center justify-center"
+          className="w-full text-center bg-[#ff7f7f] text-[#3b0a0a] font-mono font-bold py-4 px-6 rounded-full shadow-[4px_4px_0_#000] flex items-center justify-center transition-all duration-200 hover:bg-[#FFC3C3] "
           aria-label={t('GoFurther.aboutThisWebsite')}
         >
           {t('GoFurther.aboutThisWebsite')}
