@@ -77,12 +77,12 @@ export default {
   },
 
   LinkSection: {
-    link1: 'THE WELFARE FOOTPRINT INSTITUTE',
-    link2: 'WHAT DO CAGED HENS SUFFER FROM ?',
-    link3: 'THE EQUATION OF PAIN',
-    link4: 'THE RESULTS',
-    link5: 'BIBLIOGRAPHY DU WFI',
-    link6: 'GO FURTHER',
+    WFI: 'THE WELFARE FOOTPRINT INSTITUTE',
+    SufferingCauses: 'WHAT DO CAGED HENS SUFFER FROM ?',
+    PainEquation: 'THE PAIN EQUATION',
+    Results: 'THE RESULTS',
+    BookAnnouncement: 'THE BOOK',
+    GoFurther: 'GO FURTHER',
   },
 
   Results: {
@@ -227,17 +227,17 @@ export default {
           Option4: 'An egg',
         },
 
-        texte1: 'from breeding',
+        texte1: 'from',
         selector2: {
-          Option1: 'caged',
-          Option2: 'on the ground',
+          Option1: 'caged hens',
+          Option2: 'barn hens',
           texte2: 'contains on average',
         },
       },
       keySection: {
-        key1: 'hours (more than 5 days) of discomfort',
-        key2: 'hours (more than 3 days) of pain',
-        key3: 'hours of intense suffering',
+        key1: 'hours of discomfort',
+        key2: 'hours of pain',
+        key3: 'minutes of intense suffering',
         key4: 'seconds of agony',
       },
     },
@@ -264,5 +264,137 @@ export default {
         'Wladimir holds a PhD in epidemiology from the University of Oxford, with over 20 years of research experience in evolution, ethology, and global health. He has collaborated with universities worldwide and published over 100 studies in peer-reviewed journals.',
       list_here: 'list here',
     },
+
+    sufferingQuantificationSteps: {
+      title: 'A 3-step method for quantifying animal suffering',
+      step1: {
+        title: 'The steps of quantifying suffering',
+        text1: 'chickens suffering from keel fracture',
+        text2: 'caged hens victims of restricted freedom of movement',
+        text3: 'chickens with skin lesions',
+        text4: '+ 24 other sources of pain',
+      },
+      step2: {
+        title: 'Quantify the suffering caused by each affliction',
+        bloc1: {
+          text: 'Breastbone fracture',
+          agony: '2 minutes of agony',
+          pain: '45 hours of pain',
+          suffering: '5 hours of suffering',
+          discomfort: '80 hours of discomfort',
+        },
+        bloc2: {
+          text: 'Restriction of freedom of movement',
+          agony: '2 minutes of agony',
+          pain: '45 hours of pain',
+          suffering: '5 hours of suffering',
+          discomfort: '80 hours of discomfort',
+        },
+        bloc3: {
+          text: 'Skin lesions',
+          agony: '2 minutes of agony',
+          pain: '45 hours of pain',
+          suffering: '5 hours of suffering',
+          discomfort: '80 hours of discomfort',
+        },
+      },
+      step3: {
+        title: 'synthesize the two previous steps to calculate the average suffering per hen over its lifetime',
+        text1: 'hens undergoing',
+        text2: 'the same for the other 24 afflictions',
+        bloc1: {
+          title: 'Breastbone fracture',
+          agony: '2 minutes of agony',
+          pain: '45 hours of pain',
+          suffering: '5 hours of suffering',
+          discomfort: '80 hours of discomfort',
+        },
+        bloc2: {
+          title: 'Restriction of freedom of movement',
+          agony: '1 minute of agony',
+          pain: '5 hours of pain',
+          suffering: '4 hours of suffering',
+          discomfort: '30 hours of discomfort',
+        },
+        bloc3: {
+          title: 'Skin lesions',
+          agony: '1 minute of agony',
+          pain: '5 hours of pain',
+          suffering: '4 hours of suffering',
+          discomfort: '30 hours of discomfort',
+        },
+        bloc5: {
+          title: 'During its lifetime, a caged hen undergoes on average:',
+          agony: '6 minutes of agony',
+          pain: '385 hours of pain',
+          suffering: '448 hours of suffering',
+          discomfort: '3000 hours of discomfort',
+        },
+      },
+      title2: 'Suffering Scale',
+      text: 'The researchers defined four levels of suffering using behavioral and functional criteria: Is the hen still carrying out its usual activities (eating, exploring, playing)? Is it able to concentrate and react to its surroundings? Are physiological signals associated with discomfort or stress observable? How does it show its suffering (vocalizations, agitation)? Is pain medication helping it ?',
+      criteria: 'Criteria',
+      legend: {
+        bloc1: {
+          title: 'Discomfort',
+          description: 'Mild discomfort, with no impact on behavior. Similar to itching or shoes rubbing lightly.',
+          criteria_description: 'preserved attention span, absence of behavioral and physiological signs.',
+        },
+        bloc2: {
+          title: 'pain',
+          description:
+            'Persistent pain that alters but does not prevent behavior. Similar to a headache or chronic back pain.',
+          criteria_description:
+            'decrease in pleasant activities, mild cognitive impairment, effectiveness of analgesics.',
+        },
+        bloc3: {
+          title: 'suffering',
+          description:
+            'Constant pain, taking precedence over everything. Reduces activity, well-being, and attention. Similar to a migraine or a fracture.',
+          criteria_description:
+            'drastic change in activity, environmental unresponsiveness, need for strong medications.',
+        },
+        bloc4: {
+          title: 'agony',
+          description:
+            'Extreme pain, unbearable even briefly. Causes screaming, trembling. Comparable to suffering that cannot be endured.',
+          criteria_description:
+            'intense behavioral expressions, conduct dangerous to bodily integrity, inability to conceal.',
+        },
+      },
+    },
+
+    QuantifySufferingByPain: {
+      title: '2.2 Quantify suffering for each source of pain',
+      question: 'How much pain does a breastbone fracture cause? A skin lesion? The inability to implantation lead to?',
+      description1:
+        'This is the heart of the method: for each source of pain, it is necessary to determine how much suffering results for the hen.',
+      description2:
+        'The Pain-Track is a tool that allows this quantification. The four levels of pain are represented on the vertical axis and the different time phases on the horizontal axis.',
+      description3:
+        'For each phase, scientists rely on various indices (behavioral, pharmacological, physiological, etc.) to determine the corresponding level of suffering.',
+      description4:
+        'In total, more than xx specialists from xxx disciplines collaborated to establish all the pain tracks.',
+      painTrackTableTitle: 'Pain-track of a skin lesion',
+      painTrackTable: {
+        ruptureTissu: 'Tissue rupture',
+        coagulation: 'Coagulation',
+        inflammation: 'Inflammation',
+        proliferation: 'Proliferation',
+        total: 'Total',
+        intensityOfSuffering: 'Intensity of suffering',
+        discomfort: 'Discomfort',
+        pain: 'Pain',
+        suffering: 'Suffering',
+        agony: 'Agony',
+      },
+      conclusionAltImg: 'Scientist analyzes traces of pain',
+
+      conclusionText: 'Listing the pain of caged animals allows us to better understand their suffering in order to improve their living conditions and promote more ethical breeding practices.',
+      conclusionButton: 'access all the pain-tracks',
+
+
+    },
+
   },
 } as const;

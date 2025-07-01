@@ -12,27 +12,24 @@ export default async function Navbar() {
     { name: t('NavBarLink.calculator'), href: '/calculator' },
     { name: t('NavBarLink.about'), href: '/about' },
   ];
-  
+
   return (
     <>
-      <header className="bg-red-50 p-4 w-full">
+      <header className="bg-white p-4 w-full">
         <div className="flex flex-col md:flex-row md:items-center md:justify-between w-full gap-4">
-          <div className="flex justify-between md:justify-start items-center gap-2 w-full md:w-auto">
+          <div className="relative flex justify-between md:justify-start items-center gap-2 w-full">
             <div className="flex justify-start items-center gap-2">
-              <Logo />
+              <Logo/>
             </div>
-            <div className="md:hidden">
-              <LocaleSelect />
+            <div className="grow mr-20 hidden md:block">
+              <NavLinks links={links}/>
+            </div>
+            <div className="absolute right-0">
+              <LocaleSelect/>
             </div>
           </div>
-
-          {/* Centre : liens */}
-          <nav className="flex justify-center items-center md:justify-end gap-4 font-mono font-black uppercase text-sm flex-grow basis-0 min-w-0">
+          <div className="grow block md:hidden">
             <NavLinks links={links}/>
-          </nav>
-
-          <div className="hidden md:flex justify-end">
-            <LocaleSelect />
           </div>
         </div>
       </header>
