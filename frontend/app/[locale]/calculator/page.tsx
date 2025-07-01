@@ -1,6 +1,6 @@
 import { getI18n } from '@/locales/server';
 import CalculatorHeroSection from './calculator-hero-section';
-import MethodDetailsSection from './method-details-section';
+import CalculatorLinkSection from './calculator-link-section';
 import SelectorSection from './calculator-selector-section';
 import HeroBanner from '../ui/general/heroBanner';
 
@@ -12,7 +12,7 @@ export default async function Calculator() {
       <HeroBanner title={t('calculatorPage.heroBanner.title')} />
       <CalculatorHeroSection />
       <SelectorSection />
-      <MethodDetailsSection />
+      <CalculatorLinkSection />
     </>
   );
 }
