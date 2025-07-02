@@ -7,14 +7,16 @@ export default async function Logo() {
   return (
     <Link
       href="/"
-      className="gap-2 md:gap-1 flex  md:flex-row items-center flex-wrap md:p-2 font-mono font-black uppercase"
+      className="gap-2 md:gap-1 flex  md:flex-row items-center flex-wrap md:p-2  font-mono text-xl font-black uppercase"
     >
-      <p className="px-2 bg-red-300 rounded-full  transition-colors shadow-[0_5px_0px_rgb(0,0,0)]">
+      <img src="/logo_WF.png" className="w-[40px] "/>
+        
+      < h1 className="  ">
         {t('btn_imprint_sffering.imprint')}
-      </p>
-      <p className="px-2 bg-[#B5ABFF] rounded-full  transition-colors shadow-[0_5px_0px_rgb(0,0,0)]">
+      </h1 >
+      <h1 className="">
         {t('btn_imprint_sffering.suffering')}
-      </p>
+      </h1>
     </Link>
   );
 }

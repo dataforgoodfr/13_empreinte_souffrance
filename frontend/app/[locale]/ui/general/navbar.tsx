@@ -15,10 +15,10 @@ export default async function Navbar() {
 
   return (
     <>
-      <header className="bg-white p-4 w-full">
+      <header className="bg-white px-4 w-full">
         <div className="flex flex-col md:flex-row md:items-center md:justify-between w-full gap-4">
-          <div className="relative flex justify-between md:justify-start items-center gap-2 w-full">
-            <div className="flex justify-start items-center gap-2">
+          <div className="relative flex justify-between md:justify-start items-center w-full">
+            <div className="flex justify-start items-center">
               <Logo/>
             </div>
             <div className="grow mr-20 hidden md:block">
