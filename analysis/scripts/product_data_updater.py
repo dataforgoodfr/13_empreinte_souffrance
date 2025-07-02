@@ -20,12 +20,16 @@ import sys
 import getpass
 import time
 from typing import Optional, Dict
+import csv
 
 # =============================================================================
 # CONFIGURATION
 # =============================================================================
 
 class Config:
+    """
+    Configuration constants for the OpenFoodFacts updater script.
+    """
     OFF_API_WRITE_URL = "https://world.openfoodfacts.org/cgi/product_jqm2.pl"
     OFF_API_GET_URL = "https://world.openfoodfacts.org/api/v0/product/{}.json"
     DATA_DIR = "../data"
@@ -45,11 +49,34 @@ class Config:
 
 def load_csv_data(file_path: str) -> Optional[pd.DataFrame]:
     """
-    Load CSV with ';' separator.
-    Requires 'barcode' and 'tag' columns.
+    Load CSV file detecting automatically the delimiter (',' or ';').
+
+    Args:
+        file_path (str): Path to the CSV file.
+
+    Returns:
+        Optional[pandas.DataFrame]: DataFrame containing the CSV data if loaded successfully,
+                                   None if file not found or format error.
+
+    Notes:
+        The CSV file must contain at least the columns 'barcode' and 'tag'.
     """
     try:
-        df = pd.read_csv(file_path, sep=";")
+        with open(file_path, newline='', encoding='utf-8') as csvfile:
+            sample = csvfile.read(1024)
+            csvfile.seek(0)
+            dialect = csv.Sniffer().sniff(sample, delimiters=[',', ';'])
+            sep = dialect.delimiter
+
+            df = pd.read_csv(csvfile, sep=sep)
+
+            if 'barcode' not in df.columns or 'tag' not in df.columns:
+                print(f"❌ Error: CSV must contain 'barcode' and 'tag' columns")
+                return None
+
+            print(f"📊 Loaded {len(df)} products from {file_path} using detected separator '{sep}'")
+            return df
+
     except FileNotFoundError:
         print(f"❌ Error: File '{file_path}' not found")
         return None
@@ -57,17 +84,15 @@ def load_csv_data(file_path: str) -> Optional[pd.DataFrame]:
         print(f"❌ Error loading CSV: {e}")
         return None
 
-    if 'barcode' not in df.columns or 'tag' not in df.columns:
-        print(f"❌ Error: CSV must contain 'barcode' and 'tag' columns")
-        return None
-
-    print(f"📊 Loaded {len(df)} products from {file_path}")
-    return df
-
 def check_barcode_exists(barcode: str) -> bool:
     """
-    Check if barcode exists in OFF via GET request.
-    Return True if found, False otherwise.
+    Check if a product with the given barcode exists in OpenFoodFacts.
+
+    Args:
+        barcode (str): The barcode to check.
+
+    Returns:
+        bool: True if the product exists, False otherwise.
     """
     try:
         resp = requests.get(Config.OFF_API_GET_URL.format(barcode), timeout=5)
@@ -86,8 +111,15 @@ def check_barcode_exists(barcode: str) -> bool:
 
 def validate_barcodes_exist(df: pd.DataFrame, delay_seconds: float) -> bool:
     """
-    Verify all barcodes exist on OFF with delay between requests.
-    Returns False if any barcode missing.
+    Verify that all barcodes in the DataFrame exist in OpenFoodFacts,
+    with a delay between requests to avoid rate limits.
+
+    Args:
+        df (pandas.DataFrame): DataFrame containing a 'barcode' column.
+        delay_seconds (float): Delay in seconds between API requests.
+
+    Returns:
+        bool: True if all barcodes exist, False if any barcode does not exist.
     """
     print(f"🔎 Checking existence of {len(df)} barcodes in OpenFoodFacts (delay {delay_seconds}s)...")
     all_found = True
@@ -101,7 +133,13 @@ def validate_barcodes_exist(df: pd.DataFrame, delay_seconds: float) -> bool:
 
 def validate_quantity_tag_format(tag: str) -> bool:
     """
-    Check if tag matches format 'xx pcs' where xx is an integer.
+    Validate that a quantity tag follows the expected format: "<integer> pcs".
+
+    Args:
+        tag (str): The quantity tag string.
+
+    Returns:
+        bool: True if the tag matches the format, False otherwise.
     """
     parts = tag.strip().split()
     if len(parts) != 2:
@@ -115,13 +153,26 @@ def validate_quantity_tag_format(tag: str) -> bool:
 
 def validate_breeding_tag_format(tag: str) -> bool:
     """
-    Check if tag is in the allowed breeding tag list.
+    Validate that a breeding tag is one of the allowed predefined tags.
+
+    Args:
+        tag (str): The breeding tag string.
+
+    Returns:
+        bool: True if the tag is allowed, False otherwise.
     """
     return tag.strip() in Config.BREEDING_TAGS
 
 def validate_tags(df: pd.DataFrame, operation: str) -> bool:
     """
-    Validate all tags in dataframe according to operation.
+    Validate the 'tag' values in the DataFrame according to the operation type.
+
+    Args:
+        df (pandas.DataFrame): DataFrame containing 'tag' column.
+        operation (str): Either "breeding" or "quantities".
+
+    Returns:
+        bool: True if all tags are valid for the operation, False otherwise.
     """
     for idx, tag in enumerate(df['tag']):
         tag_str = str(tag).strip()
@@ -147,7 +198,17 @@ def update_product_fields(
     comment: str
 ) -> bool:
     """
-    POST update product fields to OpenFoodFacts API.
+    Send a POST request to OpenFoodFacts API to update product fields.
+
+    Args:
+        barcode (str): Product barcode to update.
+        fields (Dict[str, str]): Dictionary of fields to update with their values.
+        username (str): OpenFoodFacts username.
+        password (str): OpenFoodFacts password.
+        comment (str): Comment describing the update.
+
+    Returns:
+        bool: True if update was successful, False otherwise.
     """
     try:
         payload = {
@@ -179,7 +240,16 @@ def update_product_fields(
 
 def add_category_to_product(barcode: str, category: str, username: str, password: str) -> bool:
     """
-    Add category tag to product.
+    Add a category tag to a product via the API.
+
+    Args:
+        barcode (str): Product barcode.
+        category (str): Category tag to add.
+        username (str): OpenFoodFacts username.
+        password (str): OpenFoodFacts password.
+
+    Returns:
+        bool: True if the update was successful, False otherwise.
     """
     return update_product_fields(
         barcode,
@@ -191,7 +261,16 @@ def add_category_to_product(barcode: str, category: str, username: str, password
 
 def update_product_quantity(barcode: str, quantity: str, username: str, password: str) -> bool:
     """
-    Update product quantity field.
+    Update the 'quantity' field of a product via the API.
+
+    Args:
+        barcode (str): Product barcode.
+        quantity (str): Quantity value to set (e.g., "12 pcs").
+        username (str): OpenFoodFacts username.
+        password (str): OpenFoodFacts password.
+
+    Returns:
+        bool: True if the update was successful, False otherwise.
     """
     return update_product_fields(
         barcode,
@@ -203,7 +282,16 @@ def update_product_quantity(barcode: str, quantity: str, username: str, password
 
 def batch_process(df: pd.DataFrame, operation: str, username: str, password: str) -> Dict[str, int]:
     """
-    Batch process all rows updating breeding or quantity info.
+    Perform batch updates on a list of products for breeding type or quantity.
+
+    Args:
+        df (pandas.DataFrame): DataFrame with 'barcode' and 'tag' columns.
+        operation (str): Operation to perform: "breeding" or "quantities".
+        username (str): OpenFoodFacts username.
+        password (str): OpenFoodFacts password.
+
+    Returns:
+        Dict[str, int]: Dictionary with counts of successes, failures, and total processed.
     """
     success_count = 0
     failed_count = 0
@@ -242,9 +330,16 @@ def batch_process(df: pd.DataFrame, operation: str, username: str, password: str
 # CLI & MAIN
 # =============================================================================
 
-def get_credentials(args) -> tuple [str, str]:
+def get_credentials(args) -> tuple[str, str]:
     """
-    Retrieve OFF credentials from args or prompt user.
+    Retrieve OpenFoodFacts username and password from CLI arguments,
+    environment variables, or user input prompts.
+
+    Args:
+        args (argparse.Namespace): Parsed command-line arguments.
+
+    Returns:
+        tuple[str, str]: Tuple of (username, password).
     """
     username = args.username or os.getenv('OFF_USERNAME')
     password = args.password or os.getenv('OFF_PASSWORD')
@@ -257,6 +352,12 @@ def get_credentials(args) -> tuple [str, str]:
     return username, password
 
 def parse_args():
+    """
+    Define and parse command-line arguments.
+
+    Returns:
+        argparse.Namespace: Parsed command-line arguments.
+    """
     parser = argparse.ArgumentParser(
         description="Update OpenFoodFacts product data",
         formatter_class=argparse.RawDescriptionHelpFormatter,
@@ -293,6 +394,11 @@ def parse_args():
     return parser.parse_args()
 
 def main():
+    """
+    Main entry point of the script.
+    Handles argument parsing, input validation, credential retrieval,
+    and dispatching batch or test update operations.
+    """
     args = parse_args()
 
     # Batch operation flow
@@ -341,6 +447,11 @@ def main():
     elif args.test_breeding or args.test_quantity:
         if not args.barcode or not args.tag:
             print("❌ Error: --barcode and --tag required for test operations")
+            sys.exit(1)
+
+        # Verify barcode existence for tests
+        if not check_barcode_exists(args.barcode):
+            print(f"❌ Barcode {args.barcode} does not exist in OpenFoodFacts. Aborting.")
             sys.exit(1)
 
         # Validate tag format before credentials
