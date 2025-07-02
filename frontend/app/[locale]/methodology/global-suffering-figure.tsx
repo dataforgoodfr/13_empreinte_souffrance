@@ -4,7 +4,6 @@ import { AnimatedAfflictionsGroup } from './animated-afflictions';
 export default async function GlobalSufferingFigure() {
   const t = await getI18n();
 
-  //todo! add more afflictions
   const afflictions = [
     {
       title: t('MethodologyPage.sufferingQuantificationSteps.step3.bloc1.title'),
@@ -176,7 +175,7 @@ export default async function GlobalSufferingFigure() {
       pain: t('MethodologyPage.sufferingQuantificationSteps.step3.bloc20.pain'),
       suffering: t('MethodologyPage.sufferingQuantificationSteps.step3.bloc20.suffering'),
       discomfort: t('MethodologyPage.sufferingQuantificationSteps.step3.bloc20.discomfort'),
-    }, // ... add more afflictions here !
+    },
   ];
 
   return (
