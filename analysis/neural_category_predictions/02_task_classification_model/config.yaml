@@ -1,0 +1,9 @@
+model:
+  name: minishlab/potion-base-8M
+dataset:
+  path: data/ocr_elevage.csv
+  train_test_split: 0.15
+  y_col: elevage
+  X_col: ocr_text
+evaluation:
+  k_fold: 5
