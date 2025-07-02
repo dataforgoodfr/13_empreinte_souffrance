@@ -331,13 +331,6 @@ export default {
           suffering: '1min de souffrance',
           discomfort: '3h 1min d’inconfort',
         },
-        bloc5: {
-          title: 'Blessure de la peau',
-          agony: '0min d’agonie',
-          pain: '1h 35min de douleur',
-          suffering: '0min de souffrance',
-          discomfort: '4h 41min d’inconfort',
-        },
         bloc6: {
           title: 'Blessure de la peau (infectée)',
           agony: '0min d’agonie',

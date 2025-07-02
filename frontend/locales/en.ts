@@ -330,13 +330,6 @@ export default {
           suffering: '1min of suffering',
           discomfort: '3h 1min of discomfort',
         },
-        bloc5: {
-          title: 'Skin wound',
-          agony: '0min of agony',
-          pain: '1h 35min of pain',
-          suffering: '0min of suffering',
-          discomfort: '4h 41min of discomfort',
-        },
         bloc6: {
           title: 'Skin wound (infected)',
           agony: '0min of agony',

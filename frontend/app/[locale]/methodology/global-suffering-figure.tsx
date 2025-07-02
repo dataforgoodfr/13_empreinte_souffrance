@@ -43,15 +43,6 @@ export default async function GlobalSufferingFigure() {
       discomfort: t('MethodologyPage.sufferingQuantificationSteps.step3.bloc4.discomfort'),
     },
     {
-      title: t('MethodologyPage.sufferingQuantificationSteps.step3.bloc5.title'),
-      percent: '5,5%',
-      text: t('MethodologyPage.sufferingQuantificationSteps.step3.text1'),
-      agony: t('MethodologyPage.sufferingQuantificationSteps.step3.bloc5.agony'),
-      pain: t('MethodologyPage.sufferingQuantificationSteps.step3.bloc5.pain'),
-      suffering: t('MethodologyPage.sufferingQuantificationSteps.step3.bloc5.suffering'),
-      discomfort: t('MethodologyPage.sufferingQuantificationSteps.step3.bloc5.discomfort'),
-    },
-    {
       title: t('MethodologyPage.sufferingQuantificationSteps.step3.bloc6.title'),
       percent: '0,525%',
       text: t('MethodologyPage.sufferingQuantificationSteps.step3.text1'),
