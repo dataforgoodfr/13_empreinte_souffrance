@@ -372,44 +372,41 @@ export default {
       question: "De quoi souffrent les poules ?",
       description: "Une revue approfondie de la littérature scientifique a été menée afin d'identifier les principales sources de douleur chez les poulets en production animale, ainsi que leur fréquence selon le mode d'élevage. Il peut s'agir de douleurs physiques (fractures, lésions cutanées, infections, etc.) ou psychologiques (peur, restriction des besoins comportementaux, etc.). Au total, xx sources de douleur ont été identifiées et étudiées par le Welfare Footprint Institute, à partir d'une étude de yy articles.",
 
-      // todo!: update when we have the elements
-      // update alt images text and description
       section_img_1: {
         title_h3: 'Quelques douleurs psychologiques',
         img_1: {
-          alt: 'alt de l\'image img_1',
-          type_of_pain: 'type de soufrance img_1',
-          description_of_pain: 'description de soufrance img_1',
+          alt: 'Restriction de la liberté de mouvement',
+          type_of_pain: 'Restriction de la liberté de mouvement :',
+          description_of_pain: 'Enfermées en cage, les poules peuvent difficilement se tenir debout, se nettoyer, se tourner ou étendre leurs ailes.',
         },
         img_2: {
-          alt: 'alt de l\'image img_2',
-          type_of_pain: 'type de soufrance img_2',
-          description_of_pain: 'description de soufrance img_2',
+          alt: 'Privation de nid',
+          type_of_pain: 'Privation de nid :',
+          description_of_pain: 'Les cages n\'offrent pas de lieu de nidification adapté, alors que plusieurs études ont montré que les poules cherchent à tout prix un nid avant la ponte.',
         },
         img_3: {
-          alt: 'alt de l\'image img_3',
-          type_of_pain: 'type de soufrance img_3',
-          description_of_pain: 'description de soufrance img_3',
+          alt: 'Privation comportementale',
+          type_of_pain: 'Privation comportementale :',
+          description_of_pain: 'Incapables de picorer le sol à la recherche de nourriture (un besoin fort pour elles), les poules se frustrent et s\'attaquent entre elles. Leurs becs sont coupés pour prévenir ce risque.',
         },
       },
 
-      // update alt images text and description
       section_img_2: {
         title_h3: 'Quelques douleurs physiques',
         img_1: {
-          alt: 'alt de l\'image img_1',
-          type_of_pain: 'type de soufrance img_1',
-          description_of_pain: 'description de soufrance img_1',
+          alt: 'Fracture du bréchet',
+          type_of_pain: 'Fracture du bréchet :',
+          description_of_pain: 'Les fractures osseuses sont très courantes en élevage et sources d\'importantes souffrances pour les poules.',
         },
         img_2: {
-          alt: 'alt de l\'image img_2',
-          type_of_pain: 'type de soufrance img_2',
-          description_of_pain: 'description de soufrance img_2',
+          alt: 'Péritonite',
+          type_of_pain: 'Péritonite :',
+          description_of_pain: 'Maladie survenant lorsque du jaune d\'œuf se répand dans le ventre de la poule et provoque une inflammation douloureuse qui peut s\'infecter et devenir mortelle.',
         },
         img_3: {
-          alt: 'alt de l\'image img_3',
-          type_of_pain: 'type de soufrance img_3',
-          description_of_pain: 'description de soufrance img_3',
+          alt: 'Lésions de tissus et perte de plumes',
+          type_of_pain: 'Lésions de tissus et perte de plumes :',
+          description_of_pain: 'Les attaques entre poules créées par la frustration entraînent l\'arrachage de plumes, et des lésions de la peau et du cloaque.',
         },
       },
 
@@ -441,8 +438,8 @@ export default {
         pain_24: 'restriction de la possibilité de nidifier',
       },
       list_of_pains_h3: 'Liste de toutes les sources de douleur',
-      see_all_sources_btn: 'Voir toutes les sources',
-      see_less_sources_btn: 'Voir moins de sources',
+      see_all_sources_btn: 'Voir toutes les sources de douleur',
+      see_less_sources_btn: 'Voir moins de sources de douleur',
     },
 
     QuantifySufferingByPain: {
