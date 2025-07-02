@@ -370,44 +370,41 @@ export default {
       question: 'What do chickens suffer from?',
       description: 'An in-depth review of the scientific literature was conducted to identify the main sources of pain for chickens in livestock production, and how frequently they occur depending on the farming method. These can be physical pain (fractures, skin injuries, infections, etc.) or psychological pain (fear, restricted behavioral needs, etc.). In total, xx sources of pain were identified and studied by the Welfare Footprint Institute, based on a study of yy articles.',
 
-      // todo!: update when we have the elements
-      // update alt images text and description
       section_img_1: {
         title_h3: 'Some psychological pain',
         img_1: {
-          alt: 'image alt img_1',
-          type_of_pain: 'type of suffering img_1',
-          description_of_pain: 'description of suffering img_1',
+          alt: 'Restriction of freedom of movement',
+          type_of_pain: 'Restriction of freedom of movement :',
+          description_of_pain: 'Locked in cages, chickens can hardly stand, clean themselves, turn around or stretch their wings.',
         },
         img_2: {
-          alt: 'image alt img_2',
-          type_of_pain: 'type of suffering img_2',
-          description_of_pain: 'description of suffering img_2',
+          alt: 'Nest deprivation',
+          type_of_pain: 'Nest deprivation :',
+          description_of_pain: 'Cages do not provide a suitable nesting site, while several studies have shown that hens search for a nest at all costs before laying.',
         },
         img_3: {
-          alt: 'image alt img_3',
-          type_of_pain: 'type of suffering img_3',
-          description_of_pain: 'description of suffering img_3',
+          alt: 'Behavioral deprivation',
+          type_of_pain: 'Behavioral deprivation :',
+          description_of_pain: 'Unable to peck at the ground in search of food (a strong need for them), chickens become frustrated and attack each other. Their beaks are cut to prevent this risk.',
         },
       },
 
-      // update alt images text and description
       section_img_2: {
         title_h3: 'Some physical pain',
         img_1: {
-          alt: 'image alt img_1',
-          type_of_pain: 'type of suffering img_1',
-          description_of_pain: 'description of suffering img_1',
+          alt: 'Breastbone fracture',
+          type_of_pain: 'Breastbone fracture :',
+          description_of_pain: 'Bone fractures are very common in livestock farming and cause significant suffering for chickens.',
         },
         img_2: {
-          alt: 'image alt img_2',
-          type_of_pain: 'type of suffering img_2',
-          description_of_pain: 'description of suffering img_2',
+          alt: 'Peritonitis',
+          type_of_pain: 'Peritonitis :',
+          description_of_pain: 'A disease that occurs when egg yolk leaks into the hen\'s stomach, causing painful inflammation that can become infected and fatal.',
         },
         img_3: {
-          alt: 'image alt img_3',
-          type_of_pain: 'type of suffering img_3',
-          description_of_pain: 'description of suffering img_3',
+          alt: 'Tissue damage and feather loss',
+          type_of_pain: 'Tissue damage and feather loss :',
+          description_of_pain: 'Attacks between hens caused by frustration result in feather plucking, skin damage, and vent damage.',
         },
       },
 
@@ -431,8 +428,8 @@ export default {
         pain_17: 'Heat stress (transport)',
       },
       list_of_pains_h3: 'List of all sources of pain',
-      see_all_sources_btn: 'See all sources',
-      see_less_sources_btn: 'See less sources',
+      see_all_sources_btn: 'See all sources of pain',
+      see_less_sources_btn: 'See less sources of pain',
     },
 
     QuantifySufferingByPain: {

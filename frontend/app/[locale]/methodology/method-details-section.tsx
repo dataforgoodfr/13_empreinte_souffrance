@@ -45,22 +45,40 @@ export default async function MethodDetailsSection() {
             </h3>
             <hr className="border-1  border-[#FF7B7B] my-2" />
             <div className="flex flex-col sm:flex-row m-auto gap-3 mt-4 ">
-              <div>
+              <div className="sm:w-1/3 flex flex-col items-center">
                 {/* todo! change img */}
-                <img src="/agony.PNG" alt=" {t('MethodologyPage.method_details_section.section_img_1.img_1.alt')}" />
-                <p> {t('MethodologyPage.method_details_section.section_img_1.img_1.type_of_pain')}</p>
+                <img
+                  className="w-[350px] h-[350px] object-cover"
+                  src="/restriction_of_freedom_of_movement.png"
+                  alt=" {t('MethodologyPage.method_details_section.section_img_1.img_1.alt')}"
+                />
+                <p className="font-bold mb-2">
+                  {t('MethodologyPage.method_details_section.section_img_1.img_1.type_of_pain')}
+                </p>
                 <p> {t('MethodologyPage.method_details_section.section_img_1.img_1.description_of_pain')}</p>
               </div>
-              <div>
+              <div className="sm:w-1/3 flex flex-col items-center">
                 {/* todo! change img */}
-                <img src="/agony.PNG" alt=" {t('MethodologyPage.method_details_section.section_img_1.img_2.alt')}" />
-                <p> {t('MethodologyPage.method_details_section.section_img_1.img_2.type_of_pain')}</p>
+                <img
+                  className="w-[350px] h-[350px] object-cover"
+                  src="/nid_privation.png"
+                  alt=" {t('MethodologyPage.method_details_section.section_img_1.img_2.alt')}"
+                />
+                <p className="font-bold mb-2">
+                  {t('MethodologyPage.method_details_section.section_img_1.img_2.type_of_pain')}
+                </p>
                 <p> {t('MethodologyPage.method_details_section.section_img_1.img_2.description_of_pain')}</p>
               </div>
-              <div>
+              <div className="sm:w-1/3 flex flex-col items-center">
                 {/* todo! change img */}
-                <img src="/agony.PNG" alt=" {t('MethodologyPage.method_details_section.section_img_1.img_3.alt')}" />
-                <p> {t('MethodologyPage.method_details_section.section_img_1.img_3.type_of_pain')}</p>
+                <img
+                  className="w-[350px] h-[350px] object-cover"
+                  src="/behavioral_deprivation.png"
+                  alt=" {t('MethodologyPage.method_details_section.section_img_1.img_3.alt')}"
+                />
+                <p className="font-bold mb-2">
+                  {t('MethodologyPage.method_details_section.section_img_1.img_3.type_of_pain')}
+                </p>
                 <p> {t('MethodologyPage.method_details_section.section_img_1.img_3.description_of_pain')}</p>
               </div>
             </div>
@@ -71,28 +89,49 @@ export default async function MethodDetailsSection() {
             </h3>
             <hr className="border-1  border-[#FF7B7B] my-2" />
             <div className="flex flex-col sm:flex-row m-auto gap-3 mt-4 ">
-              <div className="">
+              <div className="sm:w-1/3 flex flex-col items-center">
                 {/* todo! change img */}
-                <img src="/agony.PNG" alt=" {t('MethodologyPage.method_details_section.section_img_2.img_1.alt')}" />
-                <p> {t('MethodologyPage.method_details_section.section_img_2.img_1.type_of_pain')}</p>
+                <img
+                  className="w-[350px] h-[350px] object-cover"
+                  src="/breastbone_fracture.png"
+                  alt=" {t('MethodologyPage.method_details_section.section_img_2.img_1.alt')}"
+                />
+                <p className="font-bold mb-2">
+                  {' '}
+                  {t('MethodologyPage.method_details_section.section_img_2.img_1.type_of_pain')}
+                </p>
                 <p> {t('MethodologyPage.method_details_section.section_img_2.img_1.description_of_pain')}</p>
               </div>
-              <div>
+              <div className="sm:w-1/3 flex flex-col items-center">
                 {/* todo! change img */}
-                <img src="/agony.PNG" alt=" {t('MethodologyPage.method_details_section.section_img_2.img_2.alt')}" />
-                <p> {t('MethodologyPage.method_details_section.section_img_2.img_2.type_of_pain')}</p>
+                <img
+                  className="w-[350px] h-[350px] object-cover"
+                  src="/peritonitis.png"
+                  alt=" {t('MethodologyPage.method_details_section.section_img_2.img_2.alt')}"
+                />
+                <p className="font-bold mb-2">
+                  {t('MethodologyPage.method_details_section.section_img_2.img_2.type_of_pain')}
+                </p>
                 <p> {t('MethodologyPage.method_details_section.section_img_2.img_2.description_of_pain')}</p>
               </div>
-              <div>
+              <div className="sm:w-1/3 flex flex-col items-center">
                 {/* todo!: change img */}
-                <img src="/agony.PNG" alt=" {t('MethodologyPage.method_details_section.section_img_2.img_3.alt')}" />
-                <p> {t('MethodologyPage.method_details_section.section_img_2.img_3.type_of_pain')}</p>
+                <img
+                  className="w-[350px] h-[350px] object-cover"
+                  src="/tissue_damage.png"
+                  alt=" {t('MethodologyPage.method_details_section.section_img_2.img_3.alt')}"
+                />
+                <p className="font-bold mb-2">
+                  {t('MethodologyPage.method_details_section.section_img_2.img_3.type_of_pain')}
+                </p>
                 <p> {t('MethodologyPage.method_details_section.section_img_2.img_3.description_of_pain')}</p>
               </div>
             </div>
           </article>
           <article className=" p-6">
-            <h3 className="uppercase font-bold ">{t('MethodologyPage.method_details_section.list_of_pains_h3')}</h3>
+            <h3 id="list_of_pains" className="uppercase font-bold scroll-mt-22 md:scroll-mt-18">
+              {t('MethodologyPage.method_details_section.list_of_pains_h3')}
+            </h3>
             <hr className="border-1  border-[#FF7B7B] my-2" />
             <ListOfPAffition
               listOfPain={listOfPain}
