@@ -8,7 +8,7 @@ export default async function GlobalSufferingFigure() {
   const afflictions = [
     {
       title: t('MethodologyPage.sufferingQuantificationSteps.step3.bloc1.title'),
-      percent: '33%',
+      percent: '40%',
       text: t('MethodologyPage.sufferingQuantificationSteps.step3.text1'),
       agony: t('MethodologyPage.sufferingQuantificationSteps.step3.bloc1.agony'),
       pain: t('MethodologyPage.sufferingQuantificationSteps.step3.bloc1.pain'),
@@ -33,7 +33,159 @@ export default async function GlobalSufferingFigure() {
       suffering: t('MethodologyPage.sufferingQuantificationSteps.step3.bloc3.suffering'),
       discomfort: t('MethodologyPage.sufferingQuantificationSteps.step3.bloc3.discomfort'),
     },
-    // ... add more afflictions here !
+    {
+      title: t('MethodologyPage.sufferingQuantificationSteps.step3.bloc4.title'),
+      percent: '100%',
+      text: t('MethodologyPage.sufferingQuantificationSteps.step3.text1'),
+      agony: t('MethodologyPage.sufferingQuantificationSteps.step3.bloc4.agony'),
+      pain: t('MethodologyPage.sufferingQuantificationSteps.step3.bloc4.pain'),
+      suffering: t('MethodologyPage.sufferingQuantificationSteps.step3.bloc4.suffering'),
+      discomfort: t('MethodologyPage.sufferingQuantificationSteps.step3.bloc4.discomfort'),
+    },
+    {
+      title: t('MethodologyPage.sufferingQuantificationSteps.step3.bloc5.title'),
+      percent: '5,5%',
+      text: t('MethodologyPage.sufferingQuantificationSteps.step3.text1'),
+      agony: t('MethodologyPage.sufferingQuantificationSteps.step3.bloc5.agony'),
+      pain: t('MethodologyPage.sufferingQuantificationSteps.step3.bloc5.pain'),
+      suffering: t('MethodologyPage.sufferingQuantificationSteps.step3.bloc5.suffering'),
+      discomfort: t('MethodologyPage.sufferingQuantificationSteps.step3.bloc5.discomfort'),
+    },
+    {
+      title: t('MethodologyPage.sufferingQuantificationSteps.step3.bloc6.title'),
+      percent: '0,525%',
+      text: t('MethodologyPage.sufferingQuantificationSteps.step3.text1'),
+      agony: t('MethodologyPage.sufferingQuantificationSteps.step3.bloc6.agony'),
+      pain: t('MethodologyPage.sufferingQuantificationSteps.step3.bloc6.pain'),
+      suffering: t('MethodologyPage.sufferingQuantificationSteps.step3.bloc6.suffering'),
+      discomfort: t('MethodologyPage.sufferingQuantificationSteps.step3.bloc6.discomfort'),
+    },
+    {
+      title: t('MethodologyPage.sufferingQuantificationSteps.step3.bloc7.title'),
+      percent: '2,5%',
+      text: t('MethodologyPage.sufferingQuantificationSteps.step3.text1'),
+      agony: t('MethodologyPage.sufferingQuantificationSteps.step3.bloc7.agony'),
+      pain: t('MethodologyPage.sufferingQuantificationSteps.step3.bloc7.pain'),
+      suffering: t('MethodologyPage.sufferingQuantificationSteps.step3.bloc7.suffering'),
+      discomfort: t('MethodologyPage.sufferingQuantificationSteps.step3.bloc7.discomfort'),
+    },
+    {
+      title: t('MethodologyPage.sufferingQuantificationSteps.step3.bloc8.title'),
+      percent: '0,225%',
+      text: t('MethodologyPage.sufferingQuantificationSteps.step3.text1'),
+      agony: t('MethodologyPage.sufferingQuantificationSteps.step3.bloc8.agony'),
+      pain: t('MethodologyPage.sufferingQuantificationSteps.step3.bloc8.pain'),
+      suffering: t('MethodologyPage.sufferingQuantificationSteps.step3.bloc8.suffering'),
+      discomfort: t('MethodologyPage.sufferingQuantificationSteps.step3.bloc8.discomfort'),
+    },
+    {
+      title: t('MethodologyPage.sufferingQuantificationSteps.step3.bloc9.title'),
+      percent: '0,135%',
+      text: t('MethodologyPage.sufferingQuantificationSteps.step3.text1'),
+      agony: t('MethodologyPage.sufferingQuantificationSteps.step3.bloc9.agony'),
+      pain: t('MethodologyPage.sufferingQuantificationSteps.step3.bloc9.pain'),
+      suffering: t('MethodologyPage.sufferingQuantificationSteps.step3.bloc9.suffering'),
+      discomfort: t('MethodologyPage.sufferingQuantificationSteps.step3.bloc9.discomfort'),
+    },
+    {
+      title: t('MethodologyPage.sufferingQuantificationSteps.step3.bloc10.title'),
+      percent: '0,035%',
+      text: t('MethodologyPage.sufferingQuantificationSteps.step3.text1'),
+      agony: t('MethodologyPage.sufferingQuantificationSteps.step3.bloc10.agony'),
+      pain: t('MethodologyPage.sufferingQuantificationSteps.step3.bloc10.pain'),
+      suffering: t('MethodologyPage.sufferingQuantificationSteps.step3.bloc10.suffering'),
+      discomfort: t('MethodologyPage.sufferingQuantificationSteps.step3.bloc10.discomfort'),
+    },
+    {
+      title: t('MethodologyPage.sufferingQuantificationSteps.step3.bloc11.title'),
+      percent: '1,425%',
+      text: t('MethodologyPage.sufferingQuantificationSteps.step3.text1'),
+      agony: t('MethodologyPage.sufferingQuantificationSteps.step3.bloc11.agony'),
+      pain: t('MethodologyPage.sufferingQuantificationSteps.step3.bloc11.pain'),
+      suffering: t('MethodologyPage.sufferingQuantificationSteps.step3.bloc11.suffering'),
+      discomfort: t('MethodologyPage.sufferingQuantificationSteps.step3.bloc11.discomfort'),
+    },
+    {
+      title: t('MethodologyPage.sufferingQuantificationSteps.step3.bloc12.title'),
+      percent: '5%',
+      text: t('MethodologyPage.sufferingQuantificationSteps.step3.text1'),
+      agony: t('MethodologyPage.sufferingQuantificationSteps.step3.bloc12.agony'),
+      pain: t('MethodologyPage.sufferingQuantificationSteps.step3.bloc12.pain'),
+      suffering: t('MethodologyPage.sufferingQuantificationSteps.step3.bloc12.suffering'),
+      discomfort: t('MethodologyPage.sufferingQuantificationSteps.step3.bloc12.discomfort'),
+    },
+    {
+      title: t('MethodologyPage.sufferingQuantificationSteps.step3.bloc13.title'),
+      percent: '12,5%',
+      text: t('MethodologyPage.sufferingQuantificationSteps.step3.text1'),
+      agony: t('MethodologyPage.sufferingQuantificationSteps.step3.bloc13.agony'),
+      pain: t('MethodologyPage.sufferingQuantificationSteps.step3.bloc13.pain'),
+      suffering: t('MethodologyPage.sufferingQuantificationSteps.step3.bloc13.suffering'),
+      discomfort: t('MethodologyPage.sufferingQuantificationSteps.step3.bloc13.discomfort'),
+    },
+    {
+      title: t('MethodologyPage.sufferingQuantificationSteps.step3.bloc14.title'),
+      percent: '100%',
+      text: t('MethodologyPage.sufferingQuantificationSteps.step3.text1'),
+      agony: t('MethodologyPage.sufferingQuantificationSteps.step3.bloc14.agony'),
+      pain: t('MethodologyPage.sufferingQuantificationSteps.step3.bloc14.pain'),
+      suffering: t('MethodologyPage.sufferingQuantificationSteps.step3.bloc14.suffering'),
+      discomfort: t('MethodologyPage.sufferingQuantificationSteps.step3.bloc14.discomfort'),
+    },
+    {
+      title: t('MethodologyPage.sufferingQuantificationSteps.step3.bloc15.title'),
+      percent: '100%',
+      text: t('MethodologyPage.sufferingQuantificationSteps.step3.text1'),
+      agony: t('MethodologyPage.sufferingQuantificationSteps.step3.bloc15.agony'),
+      pain: t('MethodologyPage.sufferingQuantificationSteps.step3.bloc15.pain'),
+      suffering: t('MethodologyPage.sufferingQuantificationSteps.step3.bloc15.suffering'),
+      discomfort: t('MethodologyPage.sufferingQuantificationSteps.step3.bloc15.discomfort'),
+    },
+    {
+      title: t('MethodologyPage.sufferingQuantificationSteps.step3.bloc16.title'),
+      percent: '100%',
+      text: t('MethodologyPage.sufferingQuantificationSteps.step3.text1'),
+      agony: t('MethodologyPage.sufferingQuantificationSteps.step3.bloc16.agony'),
+      pain: t('MethodologyPage.sufferingQuantificationSteps.step3.bloc16.pain'),
+      suffering: t('MethodologyPage.sufferingQuantificationSteps.step3.bloc16.suffering'),
+      discomfort: t('MethodologyPage.sufferingQuantificationSteps.step3.bloc16.discomfort'),
+    },
+    {
+      title: t('MethodologyPage.sufferingQuantificationSteps.step3.bloc17.title'),
+      percent: '100%',
+      text: t('MethodologyPage.sufferingQuantificationSteps.step3.text1'),
+      agony: t('MethodologyPage.sufferingQuantificationSteps.step3.bloc17.agony'),
+      pain: t('MethodologyPage.sufferingQuantificationSteps.step3.bloc17.pain'),
+      suffering: t('MethodologyPage.sufferingQuantificationSteps.step3.bloc17.suffering'),
+      discomfort: t('MethodologyPage.sufferingQuantificationSteps.step3.bloc17.discomfort'),
+    },
+    {
+      title: t('MethodologyPage.sufferingQuantificationSteps.step3.bloc18.title'),
+      percent: '0,01%',
+      text: t('MethodologyPage.sufferingQuantificationSteps.step3.text1'),
+      agony: t('MethodologyPage.sufferingQuantificationSteps.step3.bloc18.agony'),
+      pain: t('MethodologyPage.sufferingQuantificationSteps.step3.bloc18.pain'),
+      suffering: t('MethodologyPage.sufferingQuantificationSteps.step3.bloc18.suffering'),
+      discomfort: t('MethodologyPage.sufferingQuantificationSteps.step3.bloc18.discomfort'),
+    },
+    {
+      title: t('MethodologyPage.sufferingQuantificationSteps.step3.bloc19.title'),
+      percent: '1,1%',
+      text: t('MethodologyPage.sufferingQuantificationSteps.step3.text1'),
+      agony: t('MethodologyPage.sufferingQuantificationSteps.step3.bloc19.agony'),
+      pain: t('MethodologyPage.sufferingQuantificationSteps.step3.bloc19.pain'),
+      suffering: t('MethodologyPage.sufferingQuantificationSteps.step3.bloc19.suffering'),
+      discomfort: t('MethodologyPage.sufferingQuantificationSteps.step3.bloc19.discomfort'),
+    },
+    {
+      title: t('MethodologyPage.sufferingQuantificationSteps.step3.bloc20.title'),
+      percent: '100%',
+      text: t('MethodologyPage.sufferingQuantificationSteps.step3.text1'),
+      agony: t('MethodologyPage.sufferingQuantificationSteps.step3.bloc20.agony'),
+      pain: t('MethodologyPage.sufferingQuantificationSteps.step3.bloc20.pain'),
+      suffering: t('MethodologyPage.sufferingQuantificationSteps.step3.bloc20.suffering'),
+      discomfort: t('MethodologyPage.sufferingQuantificationSteps.step3.bloc20.discomfort'),
+    }, // ... add more afflictions here !
   ];
 
   return (
@@ -60,21 +212,21 @@ export default async function GlobalSufferingFigure() {
           <div className="bg-[#E7E4FF] text-center text-3xl font-extrabold">=</div>
           <div className="bg-white p-4">
             <h3 className="text-xs font-extrabold mb-2">
-              {t('MethodologyPage.sufferingQuantificationSteps.step3.bloc5.title')}
+              {t('MethodologyPage.sufferingQuantificationSteps.step3.result.title')}
             </h3>
             <div className="text-[9px] normal-case mx-auto">
               <div className="grid grid-cols-2 grid-rows-2 text-xs font-normal text-left normal-case mx-auto">
                 <div className="bg-[#3C1212] text-white p-2">
-                  {t('MethodologyPage.sufferingQuantificationSteps.step3.bloc5.agony')}
+                  {t('MethodologyPage.sufferingQuantificationSteps.step3.result.agony')}
                 </div>
                 <div className="bg-[#FF7B7B] text-[#3C1212] p-2">
-                  {t('MethodologyPage.sufferingQuantificationSteps.step3.bloc5.pain')}
+                  {t('MethodologyPage.sufferingQuantificationSteps.step3.result.pain')}
                 </div>
                 <div className="bg-[#FFC3C3] text-[#3C1212] p-2">
-                  {t('MethodologyPage.sufferingQuantificationSteps.step3.bloc5.suffering')}
+                  {t('MethodologyPage.sufferingQuantificationSteps.step3.result.suffering')}
                 </div>
                 <div className="bg-[#FFE9E9] text-[#3C1212] p-2">
-                  {t('MethodologyPage.sufferingQuantificationSteps.step3.bloc5.discomfort')}
+                  {t('MethodologyPage.sufferingQuantificationSteps.step3.result.discomfort')}
                 </div>
               </div>
             </div>
