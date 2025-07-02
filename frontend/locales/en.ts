@@ -330,6 +330,13 @@ export default {
           suffering: '1min of suffering',
           discomfort: '3h 1min of discomfort',
         },
+        bloc5: {
+          title: 'During its lifetime, a caged hen undergoes on average:',
+          agony: '6 minutes of agony',
+          pain: '385 hours of pain',
+          suffering: '448 hours of suffering',
+          discomfort: '3000 hours of discomfort',
+        },
         bloc6: {
           title: 'Skin wound (infected)',
           agony: '0min of agony',

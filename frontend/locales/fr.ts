@@ -331,6 +331,13 @@ export default {
           suffering: '1min de souffrance',
           discomfort: '3h 1min d’inconfort',
         },
+        bloc5: {
+          title: 'Au cours de sa vie, Une poule en cage subit en moyenne:',
+          agony: '6min d’agonie',
+          pain: '385h de douleur',
+          suffering: '448h de souffrance',
+          discomfort: '3000h d’inconfort',
+        },
         bloc6: {
           title: 'Blessure de la peau (infectée)',
           agony: '0min d’agonie',
