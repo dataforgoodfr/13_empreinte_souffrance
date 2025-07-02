@@ -113,7 +113,7 @@ const ChickenAfflictionsList = ({ t }: StepProps) => {
       <HeaderColone title={t('MethodologyPage.sufferingQuantificationSteps.step1.title')} number="1" />
       <ul className="list-none bg-white font-bold text-xs font-mono divide-y divide-[#FF7B7B] uppercase">
         <li className="flex items-center px-2 py-4 w-full gap-x-6">
-          <p className="text-2xl font-bold w-15 flex-shrink-0 text-left">33%</p>
+          <p className="text-2xl font-bold w-15 flex-shrink-0 text-left">40%</p>
           <p className="flex-1 text-left">{t('MethodologyPage.sufferingQuantificationSteps.step1.text1')}</p>
         </li>
         <li className="flex items-center px-2 py-4 w-full gap-x-6">
@@ -121,7 +121,7 @@ const ChickenAfflictionsList = ({ t }: StepProps) => {
           <p className="flex-1 text-left">{t('MethodologyPage.sufferingQuantificationSteps.step1.text2')}</p>
         </li>
         <li className="flex items-center px-2 py-4 w-full gap-x-6">
-          <p className="text-2xl font-bold w-15 flex-shrink-0 text-left">48%</p>
+          <p className="text-2xl font-bold w-15 flex-shrink-0 text-left">5,5%</p>
           <p className="flex-1 text-left">{t('MethodologyPage.sufferingQuantificationSteps.step1.text3')}</p>
         </li>
         <li className="flex items-center px-2 py-4 w-full gap-x-6">

@@ -131,10 +131,10 @@ function SynteseSurffering(props: Affliction) {
 
         <div className="text-[9px] normal-case ml-4">
           <div className="grid grid-cols-2 grid-rows-2 text-xs font-normal normal-case">
-            <div className="bg-[#3C1212] text-white p-2">{agony}</div>
-            <div className="bg-[#FF7B7B] text-[#3C1212] p-2">{pain}</div>
-            <div className="bg-[#FFC3C3] text-[#3C1212] p-2">{suffering}</div>
-            <div className="bg-[#FFE9E9] text-[#3C1212] p-2">{discomfort}</div>
+            <div className="bg-[#3C1212] text-white p-2 sm:w-35">{agony}</div>
+            <div className="bg-[#FF7B7B] text-[#3C1212] p-2 sm:w-35">{pain}</div>
+            <div className="bg-[#FFC3C3] text-[#3C1212] p-2 sm:w-35">{suffering}</div>
+            <div className="bg-[#FFE9E9] text-[#3C1212] p-2 sm:w-35">{discomfort}</div>
           </div>
         </div>
       </div>
