@@ -13,7 +13,8 @@ The project uses Poetry for dependency management and is designed to separate re
 
 ## Installation
 
-This project requires setting up a separate venv from backend. When installing poetry, it might automatically try to use Python from backend.
+⚠️ Note: This project requires a separate virtual environment from the main backend. The Python version is downgraded to 3.10.12 due to compatibility constraints with torch and numpy.When installing poetry, it might automatically try to use Python from the backend that uses 3.13.
+
 - To deactivate it, you can either do ```deactivate``` or, if no such command is found or permission is denied ```unset VIRTUAL_ENV``` and then ```hash -r```. You might want to reload the terminal.
 - To make sure that you're out of the backend venv, run ```which python``` and ```python --version```.
 - Go to the task folder: ```cd analysis/neural_category_predictions/02_task_classification_model```
