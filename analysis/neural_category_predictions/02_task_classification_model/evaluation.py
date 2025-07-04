@@ -8,11 +8,13 @@ import os
 import numpy as np
 
 class Evaluator:
-    def __init__(self):
+    def __init__(self, dataset_name):
         self._load_config()
         self.model_name = self.config["model"]["name"]
         self.model = self._load_model()
-        self.data_path = Path(__file__).resolve().parent.parent / self.config["dataset"]["path"]
+        self.dataset_name = dataset_name
+        self.data_path = Path(__file__).resolve().parent.parent / self.config["dataset"][self.dataset_name]["path"]
+        self.evaluation_results_path = f"evaluation_results/{self.dataset_name}_fold_class_accuracies.csv"
 
     def _load_config(self, path="config.yaml"):
         with open(path, "r") as f:
@@ -26,7 +28,7 @@ class Evaluator:
         print("Loading dataset...")
         X_train, X_test, y_train, y_test = train_test_dataset(
             input_file=self.data_path,
-            Xcol=self.config["dataset"]["X_col"],
+            Xcol=self.config["dataset"][self.dataset_name]["X_col"],
             ycol=self.config["dataset"]["y_col"],
             test_size=self.config["dataset"].get("train_test_split", 0.15)
         )
@@ -36,14 +38,13 @@ class Evaluator:
 
         print("Evaluating model...")
         results = self.model.evaluate(X_test, y_test)
-        print("Results:", results)
         return results
 
     def evaluate_k_fold(self):
         self.k_fold = self.config["evaluation"]["k_fold"]
         X, y = load_dataset(
             input_file=self.data_path,
-            Xcol=self.config["dataset"]["X_col"],
+            Xcol=self.config["dataset"][self.dataset_name]["X_col"],
             ycol=self.config["dataset"]["y_col"],
             supervised=True
         )
@@ -78,7 +79,7 @@ class Evaluator:
         df_results = pd.DataFrame.from_dict(all_accuracies, orient='index')
         df_results.index.name = 'fold'
         df_results.reset_index(inplace=True)
-        df_results.to_csv("evaluation_results/fold_class_accuracies.csv", index=False)
+        df_results.to_csv(self.evaluation_results_path, index=False)
 
         print("Saved evaluation results to evaluation_results/fold_class_accuracies.csv")
 
@@ -86,7 +87,7 @@ class Evaluator:
 
     def evaluation_stats(self):
         try:
-            dataframe = pd.read_csv("evaluation_results/fold_class_accuracies.csv")
+            dataframe = pd.read_csv(self.evaluation_results_path)
             mean_accuracies = dataframe.drop(columns=['fold']).mean().to_dict()
             return mean_accuracies
         except FileNotFoundError:
@@ -94,5 +95,10 @@ class Evaluator:
             return {}
 
 if __name__ == "__main__":
-    evaluator = Evaluator()
-    print(evaluator.evaluate())
+    dataset_name = input("Which dataset do you want to evaluate? (full_ocr / span_ocr): ").strip()
+    if dataset_name not in {"full_ocr", "span_ocr"}:
+        raise ValueError("Invalid dataset name. Please choose 'full_ocr' or 'span_ocr'.")
+
+    evaluator = Evaluator(dataset_name=dataset_name)
+    print(evaluator.evaluation_stats())
+

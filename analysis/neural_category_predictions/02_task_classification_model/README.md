@@ -31,6 +31,12 @@ The 5-fold cross-validation showed the following results for the chosen model:
 {'barn': 90.37315986313361, 'free_range': 97.77584571575056, 'furnished_cage': 93.51558003567848}
 ```
 
+In another experiment, we made groq extract breeding-related spans from the OCR texts, which led to minimal improvements for two classes and a worse result for the other one:
+
+```
+{'barn': 88.63455834721285, 'free_range': 98.8195516330785, 'furnished_cage': 94.1304347826087}
+```
+
 
 ## Resources
 - Documentation for model2vec: https://github.com/MinishLab/model2vec/blob/main/docs/usage.md
