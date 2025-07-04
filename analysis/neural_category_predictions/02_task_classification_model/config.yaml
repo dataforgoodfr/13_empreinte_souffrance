@@ -9,6 +9,6 @@ dataset:
     X_col: breeding_type_related
   train_test_split: 0.15
   y_col: elevage
-  
+
 evaluation:
   k_fold: 5

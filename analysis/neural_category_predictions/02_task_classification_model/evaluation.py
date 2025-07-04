@@ -101,4 +101,3 @@ if __name__ == "__main__":
 
     evaluator = Evaluator(dataset_name=dataset_name)
     print(evaluator.evaluation_stats())
-
