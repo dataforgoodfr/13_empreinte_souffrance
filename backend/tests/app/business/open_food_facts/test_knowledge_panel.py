@@ -11,10 +11,6 @@ from app.business.open_food_facts.breeding_type_calculator import (
     get_cage_regex,
     get_free_range_regex,
 )
-from app.business.open_food_facts.egg_weight_calculator import (
-    EggSize,
-    calculate_egg_weight,
-)
 from app.business.open_food_facts.knowledge_panel import (
     KnowledgePanelGenerator,
     get_data_from_off_search_a_licious,
@@ -22,6 +18,10 @@ from app.business.open_food_facts.knowledge_panel import (
     get_knowledge_panel_response,
 )
 from app.business.open_food_facts.pain_report_calculator import PainReportCalculator
+from app.business.open_food_facts.quantity_calculator import (
+    EggSize,
+    EggWeightCalculator,
+)
 from app.config.exceptions import ResourceNotFoundException
 from app.config.i18n import I18N
 from app.enums.open_food_facts.enums import AnimalType, LayingHenBreedingType, PainIntensity, PainType
@@ -321,4 +321,4 @@ def test_cage_regex(tag, should_match):
 )
 def test_calculate_egg_weight(product_fixture, expected_weight, request):
     product = request.getfixturevalue(product_fixture)
-    assert calculate_egg_weight(product) == expected_weight
+    assert EggWeightCalculator().calculate_egg_weight(product) == expected_weight
