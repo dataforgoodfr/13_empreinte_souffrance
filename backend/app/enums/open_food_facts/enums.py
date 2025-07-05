@@ -1,6 +1,12 @@
+import os
 from collections.abc import Callable
 from enum import StrEnum, auto
 from typing import TypeAlias
+
+import pandas as pd
+
+base_dir = os.path.dirname(__file__)
+csv_path = os.path.join(base_dir, "pain_data.csv")
 
 
 class LayingHenBreedingType(StrEnum):
@@ -172,4 +178,69 @@ TIME_IN_PAIN_FOR_100G_IN_SECONDS = {
         },
     },
     # Here will come data for other animals...
+}
+
+PAIN_PER_EGG = pd.read_csv(csv_path, sep=";", decimal=",")
+
+
+TIME_IN_PAIN_FOR_AN_EGG_IN_SECONDS = {
+    AnimalType.LAYING_HEN: {
+        LayingHenBreedingType.CONVENTIONAL_CAGE: {
+            PainType.PHYSICAL: {
+                PainIntensity.EXCRUCIATING: 0.5,
+                PainIntensity.DISABLING: 1089.6,
+                PainIntensity.HURTFUL: 12125.6,
+                PainIntensity.ANNOYING: 11968.8,
+            },
+            PainType.PSYCHOLOGICAL: {
+                PainIntensity.EXCRUCIATING: 0,
+                PainIntensity.DISABLING: 4087.4,
+                PainIntensity.HURTFUL: 36504.4,
+                PainIntensity.ANNOYING: 68040.0,
+            },
+        },
+        LayingHenBreedingType.FURNISHED_CAGE: {
+            PainType.PHYSICAL: {
+                PainIntensity.EXCRUCIATING: 0.5,
+                PainIntensity.DISABLING: 1165.9,
+                PainIntensity.HURTFUL: 14660.4,
+                PainIntensity.ANNOYING: 14587.7,
+            },
+            PainType.PSYCHOLOGICAL: {
+                PainIntensity.EXCRUCIATING: 0,
+                PainIntensity.DISABLING: 688.1,
+                PainIntensity.HURTFUL: 23156.3,
+                PainIntensity.ANNOYING: 59115.0,
+            },
+        },
+        LayingHenBreedingType.BARN: {
+            PainType.PHYSICAL: {
+                PainIntensity.EXCRUCIATING: 0.5,
+                PainIntensity.DISABLING: 1475.9,
+                PainIntensity.HURTFUL: 18805.0,
+                PainIntensity.ANNOYING: 18353.6,
+            },
+            PainType.PSYCHOLOGICAL: {
+                PainIntensity.EXCRUCIATING: 0,
+                PainIntensity.DISABLING: 396.7,
+                PainIntensity.HURTFUL: 2098.2,
+                PainIntensity.ANNOYING: 3732.7,
+            },
+        },
+        # To be deleted or replaced by the new data
+        LayingHenBreedingType.FREE_RANGE: {
+            PainType.PHYSICAL: {
+                PainIntensity.EXCRUCIATING: 0,
+                PainIntensity.DISABLING: 60,
+                PainIntensity.HURTFUL: 1000,
+                PainIntensity.ANNOYING: 16000,
+            },
+            PainType.PSYCHOLOGICAL: {
+                PainIntensity.EXCRUCIATING: 1,
+                PainIntensity.DISABLING: 51,
+                PainIntensity.HURTFUL: 1222,
+                PainIntensity.ANNOYING: 17333,
+            },
+        },
+    },
 }
