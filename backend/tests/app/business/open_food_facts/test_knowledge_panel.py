@@ -19,8 +19,8 @@ from app.business.open_food_facts.knowledge_panel import (
 )
 from app.business.open_food_facts.pain_report_calculator import PainReportCalculator
 from app.business.open_food_facts.quantity_calculator import (
+    EggQuantityCalculator,
     EggSize,
-    EggWeightCalculator,
 )
 from app.config.exceptions import ResourceNotFoundException
 from app.config.i18n import I18N
@@ -321,4 +321,4 @@ def test_cage_regex(tag, should_match):
 )
 def test_calculate_egg_weight(product_fixture, expected_weight, request):
     product = request.getfixturevalue(product_fixture)
-    assert EggWeightCalculator().calculate_egg_weight(product) == expected_weight
+    assert EggQuantityCalculator().calculate_egg_quantity(product).total_weight == expected_weight
