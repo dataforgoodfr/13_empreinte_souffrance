@@ -1,4 +1,5 @@
 import re
+from dataclasses import dataclass
 from enum import StrEnum
 from typing import List
 
@@ -24,6 +25,34 @@ class EggSize(StrEnum):
         }[self]
 
 
+@dataclass
+class EggQuantity:
+    """
+    Result of egg weight calculation containing all relevant information.
+
+    Attributes:
+        count: Number of eggs in the product
+        size: Size/caliber of the eggs if known
+        total_weight: Total weight of all eggs in grams
+    """
+
+    count: int | None = None
+    size: EggSize | None = None
+    total_weight: float | None = None
+    is_complete: bool = False
+
+    def fill_from_count(self, count: int, size: EggSize | None = None) -> None:
+        self.count = count
+        self.size = size
+        self.total_weight = count * size.weight if size else count * EggSize.AVERAGE.weight
+        self.is_complete = True
+
+    def fill_from_weight(self, weight: float) -> None:
+        self.total_weight = weight
+        self.count = int(round(weight / EggSize.AVERAGE.weight))
+        self.is_complete = True
+
+
 class PatternRepository:
     """
     Repository for constants and patterns used to estimate egg weight and convert units.
@@ -36,11 +65,10 @@ class PatternRepository:
     """
 
     # Conversion functions for various units to grams
+
+    COUNT_UNITS = {"pcs", "sans", "unite"}
+
     UNIT_CONVERSIONS = {
-        # 1 piece or similar unit = average egg weight
-        "pcs": lambda q: float(q) * EggSize.AVERAGE.weight,
-        "sans": lambda q: float(q) * EggSize.AVERAGE.weight,
-        "unite": lambda q: float(q) * EggSize.AVERAGE.weight,
         # Metric weight units
         "g": lambda q: float(q),
         "gr": lambda q: float(q),
@@ -97,6 +125,7 @@ class EggWeightCalculator:
 
     def __init__(self):
         self.pattern_repository = PatternRepository
+        self.quantity = EggQuantity()
 
     def get_egg_weight_by_tag(self, categories_tags: List[str]) -> int:
         """
@@ -118,98 +147,103 @@ class EggWeightCalculator:
                 return int(match.group(1))
         return 0
 
-    def get_total_egg_weight_from_tags(self, categories_tags: List[str]) -> float:
+    def get_egg_quantity_from_tags(self, categories_tags: List[str]) -> EggQuantity:
         """
-        Calculates total egg weight based on standard weights and pack size.
+        Calculates egg quantity based on standard weights and pack size.
         """
         num_eggs = self.get_number_of_eggs(categories_tags)
         weight_per_egg = self.get_egg_weight_by_tag(categories_tags)
 
         if num_eggs == 0:
-            return 0
+            return self.quantity
         if weight_per_egg > 0:
-            return num_eggs * weight_per_egg
-        return num_eggs * EggSize.AVERAGE.weight
+            self.quantity.is_complete = True
+            self.quantity.count = num_eggs
+            self.quantity.total_weight = num_eggs * weight_per_egg
+            return self.quantity
+        self.quantity.fill_from_count(num_eggs)
+        return self.quantity
 
-    def get_egg_weight_from_quantity(self, quantity: str) -> float:
+    def get_egg_quantity_from_product_quantity(self, quantity: str) -> EggQuantity:
         """
-        Parses quantity into weight in grams.
+        Parses string 'quantity' into egg quantity with count, size and weight.
         """
         if not quantity:
-            return 0
+            return self.quantity
 
         # Case 1: Only numeric (≤30 eggs)
-        parsed = False
+
         if re.fullmatch(self.pattern_repository.REGEX_NUMBERS_ONLY, quantity):
             num = float(quantity)
             if num <= 30:
-                parsed = True
-                return num * EggSize.AVERAGE.weight
+                self.quantity.is_complete = True
+                self.quantity.count = int(round(num))
+                self.quantity.total_weight = num * EggSize.AVERAGE.weight
+                return self.quantity
 
         # Case 2: Numeric + unit (Latin, Cyrillic, accented, etc.)
-        if not parsed:
+        if not self.quantity.is_complete:
             match = re.match(self.pattern_repository.REGEX_NUMERIC_UNIT, quantity)
             if match:
                 number = float(match.group(1))
                 unit = match.group(2).lower().split()
                 # e.g. '1 dozen'
                 if any([u.lower() in self.pattern_repository.DOZEN_EXPRESSIONS for u in unit]):
-                    egg_weight = number * 12 * EggSize.AVERAGE.weight
+                    self.quantity.fill_from_count(int(number * 12))
                 # e.g. '12 M'
                 elif any([u.lower() in self.pattern_repository.MOYEN_EXPRESSIONS for u in unit]):
-                    egg_weight = number * EggSize.AVERAGE.weight
+                    self.quantity.fill_from_count(count=int(number), size=EggSize.MEDIUM)
                 # e.g. '12 large'
                 elif any([u.lower() in self.pattern_repository.LARGE_EXPRESSIONS for u in unit]):
-                    egg_weight = number * EggSize.LARGE.weight
+                    self.quantity.fill_from_count(count=int(number), size=EggSize.LARGE)
                 else:
                     # e.g. '12 unities'
-                    egg_weight = number * EggSize.AVERAGE.weight
-                parsed = True
-                return egg_weight
+                    self.quantity.fill_from_count(count=int(number))
 
         # Case 3: x10 / X10 style
-        if not parsed:
+        if not self.quantity.is_complete:
             match = re.match(self.pattern_repository.REGEX_X_NUM, quantity)
             if match:
                 egg_number = float(match.group(1))
-                parsed = True
-                return egg_number * EggSize.AVERAGE.weight
+                self.quantity.fill_from_count(count=int(egg_number))
 
         # Case 4: Addition expressions: "10 + 2", "12 + 3 oeufs"
-        if not parsed:
+        if not self.quantity.is_complete:
             match = re.search(self.pattern_repository.REGEX_ADDITION, quantity)
             if match:
                 egg_number = int(match.group(1)) + int(match.group(2))
-                parsed = True
-                return egg_number * EggSize.AVERAGE.weight
+                self.quantity.fill_from_count(count=int(egg_number))
 
         # Case 5: Single number (e.g. "Boîte de 6")
-        if not parsed:
+        if not self.quantity.is_complete:
             match = re.search(self.pattern_repository.REGEX_EXTRACT_DIGITS, quantity)
             if match:
                 num = int(match.group(1))
                 if num < 1000:
-                    parsed = True
-                    return num * EggSize.AVERAGE.weight
+                    self.quantity.fill_from_count(count=int(num))
 
-        if not parsed:
+        if not self.quantity.is_complete:
             print(f"Could not parse quantity: {quantity}")
-            return 0
+            return self.quantity
 
-        return 0
+        return self.quantity
 
-    def get_egg_weight_from_product_quantity_and_unit(self, quantity: float, unit: str) -> float:
+    def get_egg_quantity_from_product_quantity_and_unit(self, quantity: float, unit: str) -> EggQuantity:
         """
-        Converts product quantity and unit into weight in grams.
+        Converts product quantity and unit (grams or units) into Egg Quantity : weight, count, and size.
         """
         unit_key = unit.lower()
-        converter = self.pattern_repository.UNIT_CONVERSIONS.get(unit_key)
-        if converter:
-            try:
-                return converter(quantity)
-            except (ValueError, TypeError):
-                pass
-        return 0
+        if unit in self.pattern_repository.COUNT_UNITS:
+            self.quantity.fill_from_count(count=int(round(quantity)))
+        else:
+            converter = self.pattern_repository.UNIT_CONVERSIONS.get(unit_key)
+            if converter:
+                try:
+                    weight = converter(quantity)
+                    self.quantity.fill_from_weight(weight)
+                except (ValueError, TypeError):
+                    pass
+        return self.quantity
 
     def calculate_egg_weight(self, product_data: ProductData) -> float | None:
         """
@@ -224,13 +258,13 @@ class EggWeightCalculator:
         categories_tags = product_data.categories_tags or []
 
         if product_quantity and unit:
-            egg_weight = self.get_egg_weight_from_product_quantity_and_unit(product_quantity, unit)
+            egg_weight = self.get_egg_quantity_from_product_quantity_and_unit(product_quantity, unit).total_weight
         elif quantity:
-            egg_weight = self.get_egg_weight_from_quantity(quantity)
+            egg_weight = self.get_egg_quantity_from_product_quantity(quantity).total_weight
         else:
-            egg_weight = self.get_total_egg_weight_from_tags(categories_tags)
+            egg_weight = self.get_egg_quantity_from_tags(categories_tags).total_weight
 
-        if egg_weight > 0:
+        if egg_weight and egg_weight > 0:
             return egg_weight
         else:
             return None
