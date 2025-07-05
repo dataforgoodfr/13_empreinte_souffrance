@@ -116,7 +116,7 @@ class PatternRepository:
     LARGE_EXPRESSIONS = ["gros", "l", "xl", "large"]
 
 
-class EggWeightCalculator:
+class EggQuantityCalculator:
     """
     Utility for calculating the weight of eggs using various inputs:
     category tags, free-form quantities, unit-based measurements, or structured product data.
@@ -245,7 +245,7 @@ class EggWeightCalculator:
                     pass
         return self.quantity
 
-    def calculate_egg_weight(self, product_data: ProductData) -> float | None:
+    def calculate_egg_quantity(self, product_data: ProductData) -> EggQuantity:
         """
         Calculates the weight of eggs based on the product data.
 
@@ -258,16 +258,13 @@ class EggWeightCalculator:
         categories_tags = product_data.categories_tags or []
 
         if product_quantity and unit:
-            egg_weight = self.get_egg_quantity_from_product_quantity_and_unit(product_quantity, unit).total_weight
+            self.get_egg_quantity_from_product_quantity_and_unit(product_quantity, unit)
         elif quantity:
-            egg_weight = self.get_egg_quantity_from_product_quantity(quantity).total_weight
+            self.get_egg_quantity_from_product_quantity(quantity)
         else:
-            egg_weight = self.get_egg_quantity_from_tags(categories_tags).total_weight
+            self.get_egg_quantity_from_tags(categories_tags)
 
-        if egg_weight and egg_weight > 0:
-            return egg_weight
-        else:
-            return None
+        return self.quantity
 
 
 class QuantityCalculator:
@@ -305,7 +302,7 @@ class QuantityCalculator:
     def get_quantity(self, AnimalType: AnimalType) -> float | None:
         """
         Computes the quantity of the product for a specific animal type.
-        Uses the EggWeightCalculator for LAYING_HEN
+        Uses the EggQuantityCalculator for LAYING_HEN and use output weight for now
 
         Args:
             AnimalType (AnimalType): The animal type to calculate quantity for.
@@ -313,6 +310,6 @@ class QuantityCalculator:
             float | None: Estimated quantity in grams, or None if unsupported.
         """
         if AnimalType == AnimalType.LAYING_HEN:
-            return EggWeightCalculator().calculate_egg_weight(self.product_data)
+            return EggQuantityCalculator().calculate_egg_quantity(self.product_data).total_weight
         else:
             return None
