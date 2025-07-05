@@ -12,8 +12,7 @@ from app.business.open_food_facts.breeding_type_calculator import (
     get_free_range_regex,
 )
 from app.business.open_food_facts.egg_weight_calculator import (
-    AVERAGE_EGG_WEIGHT,
-    LARGE_EGG_WEIGHT,
+    EggSize,
     calculate_egg_weight,
 )
 from app.business.open_food_facts.knowledge_panel import (
@@ -307,14 +306,14 @@ def test_cage_regex(tag, should_match):
 @pytest.mark.parametrize(
     "product_fixture, expected_weight",
     [
-        ("number_only_product", 6 * AVERAGE_EGG_WEIGHT),
-        ("numeric_unit_dozen", 12 * AVERAGE_EGG_WEIGHT),
-        ("numeric_unit_moyen", 12 * AVERAGE_EGG_WEIGHT),
-        ("numeric_unit_large", 12 * LARGE_EGG_WEIGHT),
-        ("x_style_product", 10 * AVERAGE_EGG_WEIGHT),
-        ("addition_expression_product", 12 * AVERAGE_EGG_WEIGHT),
-        ("extract_digits_product", 6 * AVERAGE_EGG_WEIGHT),
-        ("tagged_large_egg_product", 6 * LARGE_EGG_WEIGHT),
+        ("number_only_product", 6 * EggSize.AVERAGE.weight),
+        ("numeric_unit_dozen", 12 * EggSize.AVERAGE.weight),
+        ("numeric_unit_moyen", 12 * EggSize.AVERAGE.weight),
+        ("numeric_unit_large", 12 * EggSize.LARGE.weight),
+        ("x_style_product", 10 * EggSize.AVERAGE.weight),
+        ("addition_expression_product", 12 * EggSize.AVERAGE.weight),
+        ("extract_digits_product", 6 * EggSize.AVERAGE.weight),
+        ("tagged_large_egg_product", 6 * EggSize.LARGE.weight),
         ("product_quantity_with_unit", pytest.approx(0.5 * 453.59, 0.1)),
         ("unknown_quantity_product", None),
         ("no_data_product", None),
