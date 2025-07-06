@@ -1,28 +1,10 @@
 import re
 from dataclasses import dataclass
-from enum import StrEnum
-from typing import List
+from typing import List, TypeAlias
 
+from app.enums.open_food_facts.enums import EggCaliber
 from app.schemas.open_food_facts.external import ProductData
 from app.schemas.open_food_facts.internal import AnimalType, ProductType
-
-
-class EggSize(StrEnum):
-    """Egg sizes with their corresponding weights in grams."""
-
-    LARGE = "large"
-    GRADE_A = "grade_a"
-    MEDIUM = "medium"
-    AVERAGE = "average"
-
-    @property
-    def weight(self) -> int:
-        return {
-            EggSize.LARGE: 60,
-            EggSize.GRADE_A: 55,
-            EggSize.MEDIUM: 50,
-            EggSize.AVERAGE: 50,
-        }[self]
 
 
 @dataclass
@@ -32,25 +14,29 @@ class EggQuantity:
 
     Attributes:
         count: Number of eggs in the product
-        size: Size/caliber of the eggs if known
+        caliber: Caliber of the eggs if known
         total_weight: Total weight of all eggs in grams
     """
 
     count: int | None = None
-    size: EggSize | None = None
+    caliber: EggCaliber | None = None
     total_weight: float | None = None
     is_complete: bool = False
 
-    def fill_from_count(self, count: int, size: EggSize | None = None) -> None:
+    def fill_from_count(self, count: int, caliber: EggCaliber | None = None) -> None:
         self.count = count
-        self.size = size
-        self.total_weight = count * size.weight if size else count * EggSize.AVERAGE.weight
+        self.caliber = caliber
+        self.total_weight = count * caliber.weight if caliber else count * EggCaliber.AVERAGE.weight
         self.is_complete = True
 
     def fill_from_weight(self, weight: float) -> None:
         self.total_weight = weight
-        self.count = int(round(weight / EggSize.AVERAGE.weight))
+        self.count = int(round(weight / EggCaliber.AVERAGE.weight))
         self.is_complete = True
+
+
+ProductQuantity: TypeAlias = float | None
+# float to be changed to EggQuantity while letting PainReportCalculator and KnowledgePanel parse EggQuantity
 
 
 class PatternRepository:
@@ -61,7 +47,7 @@ class PatternRepository:
         UNIT_CONVERSIONS (dict): Mapping of units to conversion lambdas returning weight in grams.
         EGG_WEIGHTS_BY_TAG (dict): Mapping of egg weight values to known category tags.
         REGEX_* (str): Regex patterns used to extract numeric quantities from strings.
-        *_EXPRESSIONS (list): Lists of keywords used to identify specific egg sizes or quantities.
+        *_EXPRESSIONS (list): Lists of keywords used to identify specific egg calibers or quantities.
     """
 
     # Conversion functions for various units to grams
@@ -110,7 +96,7 @@ class PatternRepository:
     # Regex: extracts any number ≤ 999 from a string (e.g. "boîte de 6 œufs")
     REGEX_EXTRACT_DIGITS = r"\b(\d{1,3})\b"
 
-    # Simple expressions used to identify egg sizes and count
+    # Simple expressions used to identify egg calibers and count
     DOZEN_EXPRESSIONS = ["dozen", "dozens", "dzn", "doz"]
     MOYEN_EXPRESSIONS = ["m", "moyen", "moyens"]
     LARGE_EXPRESSIONS = ["gros", "l", "xl", "large"]
@@ -166,7 +152,7 @@ class EggQuantityCalculator:
 
     def get_egg_quantity_from_product_quantity(self, quantity: str) -> EggQuantity:
         """
-        Parses string 'quantity' into egg quantity with count, size and weight.
+        Parses string 'quantity' into egg quantity with count, caliber and weight.
         """
         if not quantity:
             return self.quantity
@@ -178,7 +164,7 @@ class EggQuantityCalculator:
             if num <= 30:
                 self.quantity.is_complete = True
                 self.quantity.count = int(round(num))
-                self.quantity.total_weight = num * EggSize.AVERAGE.weight
+                self.quantity.total_weight = num * EggCaliber.AVERAGE.weight
                 return self.quantity
 
         # Case 2: Numeric + unit (Latin, Cyrillic, accented, etc.)
@@ -192,10 +178,10 @@ class EggQuantityCalculator:
                     self.quantity.fill_from_count(int(number * 12))
                 # e.g. '12 M'
                 elif any([u.lower() in self.pattern_repository.MOYEN_EXPRESSIONS for u in unit]):
-                    self.quantity.fill_from_count(count=int(number), size=EggSize.MEDIUM)
+                    self.quantity.fill_from_count(count=int(number), caliber=EggCaliber.MEDIUM)
                 # e.g. '12 large'
                 elif any([u.lower() in self.pattern_repository.LARGE_EXPRESSIONS for u in unit]):
-                    self.quantity.fill_from_count(count=int(number), size=EggSize.LARGE)
+                    self.quantity.fill_from_count(count=int(number), caliber=EggCaliber.LARGE)
                 else:
                     # e.g. '12 unities'
                     self.quantity.fill_from_count(count=int(number))
@@ -230,7 +216,7 @@ class EggQuantityCalculator:
 
     def get_egg_quantity_from_product_quantity_and_unit(self, quantity: float, unit: str) -> EggQuantity:
         """
-        Converts product quantity and unit (grams or units) into Egg Quantity : weight, count, and size.
+        Converts product quantity and unit (grams or units) into Egg Quantity : weight, count, and caliber.
         """
         unit_key = unit.lower()
         if unit in self.pattern_repository.COUNT_UNITS:
@@ -285,13 +271,13 @@ class QuantityCalculator:
         self.product_data = product_data
         self.product_type = product_type
 
-    def get_quantities_by_animal(self) -> dict[AnimalType, float | None]:
+    def get_quantities_by_animal(self) -> dict[AnimalType, ProductQuantity]:
         """
         Returns a mapping of animal types to their associated quantity estimates.
         This method is a placeholder for mixed products; no actual computation is done.
 
         Returns:
-            dict[AnimalType, float | None]: A dictionary where each animal type is mapped to None.
+            dict[AnimalType, ProductQuantity]: A dictionary where each animal type is mapped to None.
         """
         quantities_by_animal: dict[AnimalType, float | None] = {}
 
@@ -299,7 +285,7 @@ class QuantityCalculator:
             quantities_by_animal[animal_type] = None
         return quantities_by_animal
 
-    def get_quantity(self, AnimalType: AnimalType) -> float | None:
+    def get_quantity(self, AnimalType: AnimalType) -> ProductQuantity:
         """
         Computes the quantity of the product for a specific animal type.
         Uses the EggQuantityCalculator for LAYING_HEN and use output weight for now
@@ -307,7 +293,7 @@ class QuantityCalculator:
         Args:
             AnimalType (AnimalType): The animal type to calculate quantity for.
         Returns:
-            float | None: Estimated quantity in grams, or None if unsupported.
+            ProductQuantity : for now float or None, in grams.
         """
         if AnimalType == AnimalType.LAYING_HEN:
             return EggQuantityCalculator().calculate_egg_quantity(self.product_data).total_weight
