@@ -19,8 +19,8 @@ from app.business.open_food_facts.knowledge_panel import (
 )
 from app.business.open_food_facts.pain_report_calculator import PainReportCalculator
 from app.business.open_food_facts.quantity_calculator import (
+    EggCaliber,
     EggQuantityCalculator,
-    EggSize,
 )
 from app.config.exceptions import ResourceNotFoundException
 from app.config.i18n import I18N
@@ -306,14 +306,14 @@ def test_cage_regex(tag, should_match):
 @pytest.mark.parametrize(
     "product_fixture, expected_weight",
     [
-        ("number_only_product", 6 * EggSize.AVERAGE.weight),
-        ("numeric_unit_dozen", 12 * EggSize.AVERAGE.weight),
-        ("numeric_unit_moyen", 12 * EggSize.AVERAGE.weight),
-        ("numeric_unit_large", 12 * EggSize.LARGE.weight),
-        ("x_style_product", 10 * EggSize.AVERAGE.weight),
-        ("addition_expression_product", 12 * EggSize.AVERAGE.weight),
-        ("extract_digits_product", 6 * EggSize.AVERAGE.weight),
-        ("tagged_large_egg_product", 6 * EggSize.LARGE.weight),
+        ("number_only_product", 6 * EggCaliber.AVERAGE.weight),
+        ("numeric_unit_dozen", 12 * EggCaliber.AVERAGE.weight),
+        ("numeric_unit_moyen", 12 * EggCaliber.AVERAGE.weight),
+        ("numeric_unit_large", 12 * EggCaliber.LARGE.weight),
+        ("x_style_product", 10 * EggCaliber.AVERAGE.weight),
+        ("addition_expression_product", 12 * EggCaliber.AVERAGE.weight),
+        ("extract_digits_product", 6 * EggCaliber.AVERAGE.weight),
+        ("tagged_large_egg_product", 6 * EggCaliber.LARGE.weight),
         ("product_quantity_with_unit", pytest.approx(0.5 * 453.59, 0.1)),
         ("unknown_quantity_product", None),
         ("no_data_product", None),
