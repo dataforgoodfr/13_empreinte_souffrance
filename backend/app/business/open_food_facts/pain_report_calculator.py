@@ -6,15 +6,22 @@ from app.config.exceptions import ResourceNotFoundException
 from app.enums.open_food_facts.enums import TIME_IN_PAIN_FOR_100G_IN_SECONDS, AnimalType, PainIntensity, PainType
 from app.schemas.open_food_facts.external import ProductData
 from app.schemas.open_food_facts.internal import (
-    AnimalError,
     AnimalPainReport,
     BreedingType,
     BreedingTypeAndQuantity,
     PainLevelData,
     PainReport,
-    ProductError,
     ProductType,
 )
+
+
+class MissingBreedingTypeOrQuantityError(Exception):
+    def __init__(self, animal_type: AnimalType, breeding_type: BreedingType | None, quantity: float | None):
+        message = f"Missing breeding type or quantity for animal '{animal_type.name}', "
+        super().__init__(message)
+        self.animal_type = animal_type
+        self.breeding_type = breeding_type
+        self.quantity = quantity
 
 
 class PainReportCalculator:
@@ -61,30 +68,22 @@ class PainReportCalculator:
             A complete pain report, with error messages for animals as an option
         """
         animal_reports = []
-        product_error: ProductError | None = ProductError.NO_HANDLED_ANIMAL
 
         # Process each animal type and its breeding type
         # If unable to compute animal pain report, add error message to animal report
         for animal_type, breeding_type_and_quantity in self.breeding_types_and_quantities.items():
-            if isinstance(breeding_type_and_quantity, AnimalError):
-                animal_report = AnimalPainReport(
-                    animal_type=animal_type,
-                    animal_error=breeding_type_and_quantity,
-                    breeding_type=self.breeding_types.get(animal_type, None),
-                    quantity=self.quantities.get(animal_type, None),
-                )
-                product_error = ProductError.NO_PAIN_LEVELS
+            try:
+                pain_levels = self._generate_pain_levels_for_animal(animal_type, breeding_type_and_quantity)
+            except MissingBreedingTypeOrQuantityError:
+                pain_levels = []
+            except ResourceNotFoundException:
+                raise ResourceNotFoundException(f"Unable to generate pain levels for animal {animal_type}")
 
-            else:
-                try:
-                    animal_report = AnimalPainReport(
-                        animal_type=animal_type,
-                        pain_levels=self._generate_pain_levels_for_animal(animal_type, breeding_type_and_quantity),
-                        breeding_type_and_quantity=breeding_type_and_quantity,
-                    )
-                    product_error = None
-                except ResourceNotFoundException:
-                    raise ResourceNotFoundException(f"Unable to generate pain levels for animal {animal_type}")
+            animal_report = AnimalPainReport(
+                animal_type=animal_type,
+                pain_levels=pain_levels,
+                breeding_type_and_quantity=breeding_type_and_quantity,
+            )
 
             animal_reports.append(animal_report)
 
@@ -92,7 +91,6 @@ class PainReportCalculator:
             animals=animal_reports,
             product_name=self.product_data.product_name,
             product_image_url=self.product_data.image_url,
-            product_error=product_error,
         )
 
     def _generate_pain_levels_for_animal(
@@ -146,7 +144,7 @@ class PainReportCalculator:
 
         return pain_levels
 
-    def _get_breeding_types_and_quantities(self) -> dict[AnimalType, BreedingTypeAndQuantity | AnimalError]:
+    def _get_breeding_types_and_quantities(self) -> dict[AnimalType, BreedingTypeAndQuantity]:
         """
         Gets the breeding types and quantity from separate methods.
 
@@ -159,28 +157,14 @@ class PainReportCalculator:
         breeding_types_by_animal = self.breeding_types
         quantity_by_animal = self.quantities
 
-        breeding_types_and_quantities = dict[AnimalType, BreedingTypeAndQuantity | AnimalError]()
+        breeding_types_and_quantities = dict[AnimalType, BreedingTypeAndQuantity]()
 
         for animal_type in self.product_type.animal_types:
-            try:
-                breeding_type = breeding_types_by_animal[animal_type]
-                quantity = quantity_by_animal[animal_type]
-
-                match (breeding_type, quantity):
-                    case (None, None):
-                        breeding_types_and_quantities[animal_type] = AnimalError.NO_BREEDING_TYPE_AND_NO_QUANTITY
-                    case (None, _):
-                        breeding_types_and_quantities[animal_type] = AnimalError.NO_BREEDING_TYPE
-                    case (_, None):
-                        breeding_types_and_quantities[animal_type] = AnimalError.NO_QUANTITY
-                if breeding_type and quantity is not None:
-                    breeding_types_and_quantities[animal_type] = BreedingTypeAndQuantity(
-                        breeding_type=breeding_type, quantity=quantity
-                    )
-            except KeyError:
-                raise ResourceNotFoundException(
-                    "Missing breeding type or quantity key for animal type: {}".format(animal_type)
-                )
+            breeding_type = breeding_types_by_animal[animal_type]
+            quantity = quantity_by_animal[animal_type]
+            breeding_types_and_quantities[animal_type] = BreedingTypeAndQuantity(
+                breeding_type=breeding_type, quantity=quantity
+            )
 
         return breeding_types_and_quantities
 
@@ -245,6 +229,15 @@ class PainReportCalculator:
             Duration of pain in seconds
         """
 
+        breeding_type = breeding_type_and_quantity.breeding_type
+        quantity = breeding_type_and_quantity.quantity
+
+        if breeding_type is None or quantity is None:
+            raise MissingBreedingTypeOrQuantityError(
+                animal_type=animal_type,
+                breeding_type=breeding_type,
+                quantity=quantity,
+            )
         # Get the time in pain per 100g for this combination of parameters
         # Default to 0 if any level in the hierarchy is missing
         try:
