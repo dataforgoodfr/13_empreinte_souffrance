@@ -23,7 +23,7 @@ export default async function LinkSection() {
       {links.map((link) => (
         <Link
           key={link.description}
-          className="py-2 px-4 text-center font-mono tracking-widest text-[#3b0a0a] border border-red-300 hover:bg-gray-200 text-nowrap min-w-35 md:min-w-100 lg:min-w-120 grow transition-all duration-200"
+          className="py-2 px-4 text-center font-mono tracking-widest dark-text border border-red-300 hover:bg-gray-200 text-nowrap min-w-35 md:min-w-100 lg:min-w-120 grow transition-all duration-200"
           href={link.section_id}
         >
           {link.description}

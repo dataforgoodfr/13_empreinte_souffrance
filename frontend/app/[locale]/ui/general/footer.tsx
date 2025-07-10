@@ -8,8 +8,8 @@ export default async function Footer() {
   const t = await getI18n();
 
   return (
-    <footer className="bg-white text-[#3b0a0a] text-sm p-4">
-      <div className="grid grid-cols-2 md:grid-cols-3 py-4 md:py-0 px-6  bg-white text-[#3b0a0a] text-sm ">
+    <footer className="bg-white dark-text text-sm p-4">
+      <div className="grid grid-cols-2 md:grid-cols-3 py-4 md:py-0 px-6  bg-white dark-text text-sm ">
         <div className="flex flex-col gap-3">
           <Link href="https://animafrance.org/" target="_blank" className="w-fit">
             <img src="/anima-logo.png" alt="" className="w-35 h-[35px] " />
@@ -89,7 +89,7 @@ export default async function Footer() {
           <Link
             target="_blank"
             href="https://animafrance.org/je-donne"
-            className="bg-[#ff7f7f] transition-all duration-200 hover:bg-[#b5abff]  text-[#3b0a0a] font-mono font-bold py-4 px-6 rounded-full shadow-[4px_4px_0_#000] text-center  w-40"
+            className="bg-[#ff7f7f] transition-all duration-200 hover:bg-[#b5abff]  dark-text font-mono font-bold py-4 px-6 rounded-full shadow-[4px_4px_0_#000] text-center  w-40"
           >
             {t('footer.donate')}
           </Link>

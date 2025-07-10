@@ -1,5 +1,57 @@
 @import 'tailwindcss';
 
+/*create color variables*/
+:root {
+    --grey: #F9F9F9;
+    --pink-1: #FFE9E9;
+    --pink-2: #FFC3C3;
+    --pink-3: #FF7B7B;
+    --brown: #3C1212;
+    --violet-1: #E7E4FF;
+    --violet-2: #B5ABFF;
+}
+
+
 html {
-  scroll-behavior: smooth;
+    scroll-behavior: smooth;
+}
+
+.bg-grey {
+    background-color: var(--grey);
+}
+
+.bg-pink-1 {
+    background-color: var(--pink-1)
+}
+
+.bg-pink-2 {
+    background-color: var(--pink-2);
+}
+
+.bg-pink-3 {
+    background-color: var(--pink-3)
+}
+
+.bg-brown {
+    background-color: var(--brown)
+}
+
+.bg-violet-1 {
+    background-color: var(--violet-1)
+}
+
+.bg-violet-2 {
+    background-color: var(--violet-2)
+}
+
+.dark-text {
+    color: var(--brown)
+}
+
+.light-text {
+    color: var(--pink-2)
+}
+
+label:has(.input-checked-bg-pink-3:checked) {
+    background-color: var(--pink-3);
 }

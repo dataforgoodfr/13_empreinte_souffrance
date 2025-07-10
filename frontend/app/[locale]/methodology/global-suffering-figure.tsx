@@ -199,7 +199,7 @@ export default async function GlobalSufferingFigure() {
         <article className="flex-1 md:basis-1/3 divide-y divide-[#FF7B7B] border border-[#FF7B7B] mx-2">
           <AnimatedAfflictionsGroup afflictions={afflictions} delay={4000} cascade={300} />{' '}
           <div className="normal-case p-2 text-xs">{t('MethodologyPage.sufferingQuantificationSteps.step3.text2')}</div>
-          <div className="bg-[#E7E4FF] text-center text-3xl font-extrabold">=</div>
+          <div className="bg-violet-1 text-center text-3xl font-extrabold">=</div>
           <div className="bg-white p-4">
             <h3 className="text-xs font-extrabold mb-2">
               {t('MethodologyPage.sufferingQuantificationSteps.step3.result.title')}

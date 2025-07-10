@@ -5,7 +5,7 @@ export default async function IntroductionSection() {
   const t = await getI18n();
 
   return (
-    <section className="w-full bg-[#E7E4FF] py-8 md:py-16">
+    <section className="w-full bg-violet-1 py-8 md:py-16">
       <div className="w-full max-w-screen-xl mx-auto px-4 md:px-8">
         <img src="/welfare-footprint-logo.png " className="mb-10" alt="" />
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">

@@ -1,4 +1,5 @@
 import { getI18n } from '@/locales/server';
+import clsx from "clsx";
 
 export default async function HeroSection() {
   // const t = await getScopedI18n('HeroSection');
@@ -17,18 +18,17 @@ export default async function HeroSection() {
         <h1 className="text-5xl font-bold">
           <span className="{t('title_sentence.strong1')} ">
             {/* translation map to add a colored dot on each of the letters to keep the style of the model */}
-            {title.split('').map((lettre: string, index: number) => (
-              <ColorText key={index} lettre={lettre} color={lettre === ' ' ? 'transparent' : lettreColor()} />
+            {title.split('').map((letter: string, index: number) => (
+              <ColoredText key={index} letter={letter} />
             ))}
           </span>
           <span
-            style={{ backgroundColor: '#B5ABFF' }}
-            className="inline-flex items-center justify-center h-28 md:w-14 text-5xl text-[#3C0A0A] rounded-[9999px] mx-[2px] uppercase font-mono font-extralight shadow-[0_10px_0px_rgb(0,0,0)]"
+            className="inline-flex items-center justify-center h-28 md:w-14 text-5xl dark-text rounded-[9999px] mx-[2px] uppercase font-mono font-extralight shadow-[0_10px_0px_rgb(0,0,0)] bg-violet-2"
           >
             ?
           </span>
         </h1>
-        <p className="mt-4 text-[#FFE9E9] uppercase">
+        <p className="mt-4 light-text uppercase">
           <span className="text-4xl font-bold">{t('HeroSection.title_sentence.strong1')}</span>
           <span className="text-4xl">{t('HeroSection.title_sentence.part1')}</span>
           <span className="text-4xl font-bold">{t('HeroSection.title_sentence.strong2')}</span>
@@ -48,31 +48,27 @@ export default async function HeroSection() {
   );
 }
 
-// This function is used to generate a random color for the color dots of the letters of h1
-const lettreColor = (): string => {
-  const colors = ['#FFE9E9', '#FFC3C3', '#FF7B7B'];
-  const randomIndex = Math.floor(Math.random() * colors.length);
-  return colors[randomIndex];
-};
-
-interface colorText {
-  lettre: string;
-  color: string;
+interface coloredTextType {
+  letter: string;
 }
 
-// This function adds the colored dot on the letters
-function ColorText({ lettre, color }: colorText) {
+function ColoredText({ letter }: coloredTextType) {
 
-  const isSpace = lettre === ' ';
+  let letter_background_color = 'bg-pink-' + Math.floor(1+ Math.random() * 3)
+
+  const isSpace = letter === ' ';
   return (
     <div
-      style={{ backgroundColor: isSpace ? 'transparent' : color }}
-      className={[
+      className={clsx(
         'inline-flex items-center justify-center h-28 md:w-14 text-5xl text-[#3C0A0A] rounded-[9999px] mx-[2px] uppercase font-mono font-extralight',
-        isSpace ? '' : 'shadow-[0_10px_0px_rgb(0,0,0)]',
-      ].join(' ')}
+          letter_background_color,
+          {
+            'shadow-[0_10px_0px_rgb(0,0,0)]' : isSpace,
+            'bg-transparent' : isSpace,
+          }
+      )}
     >
-      {lettre}
+      {letter}
     </div>
   );
 }

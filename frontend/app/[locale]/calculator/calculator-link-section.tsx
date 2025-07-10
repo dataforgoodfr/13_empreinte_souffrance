@@ -6,7 +6,7 @@ export default async function CalculatorLinkSection() {
 
   return (
     <section className="flex items-center flex-col gap-5 m-16">
-      <h1 className=" w-full text-3xl lg:text-5xl font-bold text-[#3b0a0a] text-center text-wrap">
+      <h1 className=" w-full text-3xl lg:text-5xl font-bold dark-text text-center text-wrap">
         {scopedT('linkSection')}
       </h1>
       <a

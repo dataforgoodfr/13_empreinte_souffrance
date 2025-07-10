@@ -33,7 +33,7 @@ export function AnimatedAfflictionsGroup({ afflictions, delay = 4000, cascade = 
         <div key={offset}>
           <AnimatedCard afflictions={afflictions} index={index} offset={offset} cascade={cascade} />
           {idx < arr.length - 0 && (
-            <div className="bg-[#E7E4FF] text-center text-3xl font-extrabold w-full py-1">+</div>
+            <div className="bg-violet-1 text-center text-3xl font-extrabold w-full py-1">+</div>
           )}
         </div>
       ))}

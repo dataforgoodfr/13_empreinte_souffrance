@@ -254,7 +254,7 @@ const AverageSufferingSummary = ({ t }: StepProps) => {
         suffering={t('MethodologyPage.sufferingQuantificationSteps.step3.bloc1.suffering')}
         discomfort={t('MethodologyPage.sufferingQuantificationSteps.step3.bloc1.discomfort')}
       />
-      <div className="bg-[#E7E4FF] text-center text-3xl font-extrabold">+</div>
+      <div className="bg-violet-1 text-center text-3xl font-extrabold">+</div>
       <SynteseSurffering
         title={t('MethodologyPage.sufferingQuantificationSteps.step3.bloc2.title')}
         percent="100% "
@@ -264,7 +264,7 @@ const AverageSufferingSummary = ({ t }: StepProps) => {
         suffering={t('MethodologyPage.sufferingQuantificationSteps.step3.bloc2.suffering')}
         discomfort={t('MethodologyPage.sufferingQuantificationSteps.step3.bloc2.discomfort')}
       />
-      <div className="bg-[#E7E4FF] text-center text-3xl font-extrabold">+</div>
+      <div className="bg-violet-1 text-center text-3xl font-extrabold">+</div>
       <SynteseSurffering
         title={t('MethodologyPage.sufferingQuantificationSteps.step3.bloc3.title')}
         percent="48% "
@@ -274,9 +274,9 @@ const AverageSufferingSummary = ({ t }: StepProps) => {
         suffering={t('MethodologyPage.sufferingQuantificationSteps.step3.bloc3.suffering')}
         discomfort={t('MethodologyPage.sufferingQuantificationSteps.step3.bloc3.discomfort')}
       />
-      <div className="bg-[#E7E4FF] text-center text-3xl font-extrabold">+</div>
+      <div className="bg-violet-1 text-center text-3xl font-extrabold">+</div>
       <div className="normal-case p-2 text-xs">{t('MethodologyPage.sufferingQuantificationSteps.step3.text2')}</div>
-      <div className="bg-[#E7E4FF] text-center text-3xl font-extrabold">=</div>
+      <div className="bg-violet-1 text-center text-3xl font-extrabold">=</div>
       <div className="bg-white p-4">
         <h3 className="text-xs font-extrabold mb-2">
           {t('MethodologyPage.sufferingQuantificationSteps.step3.bloc5.title')}
