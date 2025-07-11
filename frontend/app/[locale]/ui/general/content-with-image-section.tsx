@@ -27,7 +27,7 @@ export default function ContentWithImageSection({
     >
       {' '}
       <div className="flex flex-col flex-1 md:basis-1/2">
-        <div className="h-full  w-full  border-[#ff7f7f] border-2 flex flex-col justify-between items-start p-3">
+        <div className="h-full  w-full  border-pink-3 border-2 flex flex-col justify-between items-start p-3">
           <h3 className="text-3xl sm:text-4xl font-extrabold tracking-wide dark-text mb-10 flex justify-start items-center gap-3">
             <BoltIcon />
             {text_heading.toUpperCase()}
@@ -47,7 +47,7 @@ type ImageInContentProps = {
 
 function ImageInContent({ image_url, image_description }: ImageInContentProps) {
   return (
-    <div className="border-[#ff7f7f] border-2 flex justify-center items-center flex-1 md:basis-1/2">
+    <div className="border-pink-3 border-2 flex justify-center items-center flex-1 md:basis-1/2">
       <Image
         src={'/' + image_url}
         alt={image_description}

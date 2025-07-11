@@ -9,7 +9,7 @@ export default async function PainEquationSection() {
     <section
       id="PainEquationSection"
       aria-labelledby="pain-equation-title"
-      className="py-16 px-4  bg-white text-gray-900 scroll-mt-18"
+      className="py-16 px-4 bg-white scroll-mt-18"
     >
       <div className="max-w-screen-xl mx-auto px-4">
         <SectionHeading title={t('PainEquationSection.title')} heading_number="2" />
@@ -21,7 +21,7 @@ export default async function PainEquationSection() {
             <div className="py-2 w-full">{t('PainEquationSection.formula.burden')}</div>{' '}
           </div>
 
-          <p className="mt-12 mb-12 max-w-2xl mx-auto text-base text-center sm:text-lg">
+          <p className="mt-12 mb-12 max-w-2xl mx-auto text-center sm:text-lg">
             {t('PainEquationSection.description')}
           </p>
 
@@ -31,19 +31,19 @@ export default async function PainEquationSection() {
             </h3>
 
             <div className="grid grid-cols-1 md:grid-cols-4 ">
-              <article className="bg-red-100 p-4 border border-red-200">
+              <article className="bg-pink-1 p-4 border border-pink-2">
                 <h4 className="font-bold uppercase mb-4 mt-4">{t('PainEquationSection.stages.discomfort.title')}</h4>
                 <p className="text-sm font-medium">{t('PainEquationSection.stages.discomfort.text')}</p>
               </article>
-              <article className="bg-red-200 p-4 border border-red-300">
+              <article className="bg-pink-2 p-4">
                 <h4 className="font-bold uppercase mb-4 mt-4">{t('PainEquationSection.stages.pain.title')}</h4>
                 <p className="text-sm font-medium">{t('PainEquationSection.stages.pain.text')}</p>
               </article>
-              <article className="bg-red-300 p-4 border border-red-400">
+              <article className="bg-pink-3 p-4">
                 <h4 className="font-bold uppercase mb-4 mt-4">{t('PainEquationSection.stages.suffering.title')}</h4>
                 <p className="text-sm font-medium">{t('PainEquationSection.stages.suffering.text')}</p>
               </article>
-              <article className="bg-red-900 text-white p-4 border border-red-700">
+              <article className="bg-brown light-text p-4">
                 <h4 className="font-bold uppercase mb-4 mt-4">{t('PainEquationSection.stages.agony.title')}</h4>
                 <p className="text-sm font-medium">{t('PainEquationSection.stages.agony.text')}</p>
               </article>
@@ -52,7 +52,7 @@ export default async function PainEquationSection() {
             <footer className="text-center mt-8">
               <Link
                 href="/methodology"
-                className="inline-block border-[0.1px] border-[#ff7f7f] py-3 px-6 text-lg hover:bg-gray-100  w-full font-mono dark-text tracking-wider transition-all duration-200 "
+                className="inline-block border-[0.1px] border-pink-3 py-3 px-6 text-lg hover:bg-gray-100  w-full font-mono dark-text tracking-wider transition-all duration-200 "
                 aria-label={t('PainEquationSection.cta')}
               >
                 {t('PainEquationSection.cta')}

@@ -43,11 +43,15 @@ html {
     background-color: var(--violet-2);
 }
 
-.dark-text {
-    color: var(--brown);
+.text-grey {
+    color: var(--grey);
 }
 
-.light-text {
+.text-pink-1 {
+    color: var(--pink-1);
+}
+
+.light-text, .text-pink-2 {
     color: var(--pink-2);
 }
 
@@ -55,6 +59,42 @@ html {
     color: var(--pink-3);
 }
 
-label:has(.input-checked-bg-pink-3:checked) {
-    background-color: var(--pink-3);
+.dark-text, .text-brown {
+    color: var(--brown);
+}
+
+.text-violet-1 {
+    color: var(--violet-1);
+}
+
+.text-violet-2 {
+    color: var(--violet-2);
+}
+
+.border-grey {
+    border-color: var(--grey);
+}
+
+.border-pink-1 {
+    border-color: var(--pink-1);
+}
+
+.border-pink-2 {
+    border-color: var(--pink-2);
+}
+
+.border-pink-3 {
+    border-color: var(--pink-3) !important;
+}
+
+.border-brown {
+    border-color: var(--brown);
+}
+
+.border-violet-1 {
+    border-color: var(--violet-1);
+}
+
+.border-violet-2 {
+    border-color: var(--violet-2);
 }

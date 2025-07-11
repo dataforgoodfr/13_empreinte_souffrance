@@ -343,7 +343,7 @@ export default function KnowledgePanel() {
         </div>
       )}
 
-      {error && <div className="bg-red-100 text-red-700 p-4 rounded mb-4">{error}</div>}
+      {error && <div className="bg-pink-1 text-red-700 p-4 rounded mb-4">{error}</div>}
 
       {knowledgePanelData && !isLoading && (
         <div className="space-y-4">

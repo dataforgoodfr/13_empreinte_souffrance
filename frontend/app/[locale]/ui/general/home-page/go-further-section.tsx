@@ -1,8 +1,7 @@
 import { getI18n } from '@/locales/server';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faBolt } from '@fortawesome/free-solid-svg-icons';
 import Link from 'next/link';
 import TwitterShareButton from '@/app/actions/share-actions';
+import BoltIcon from "@/app/[locale]/ui/icons/BoltIcon";
 
 export default async function GoFurtherSection() {
   const t = await getI18n();
@@ -10,10 +9,8 @@ export default async function GoFurtherSection() {
   return (
     <section id="GoFurtherSection" className="mb-10 p-8 sm:px-16 scroll-mt-18" aria-labelledby="go-further-heading">
       <div className="flex justify-center mb-6" aria-hidden="true">
-        <div className="bg-indigo-300 w-14 h-20 rounded-full flex items-center justify-center shadow-[4px_4px_0_#000]">
-          <span className="rotate-[-18deg] text-[40px] text-black">
-            <FontAwesomeIcon icon={faBolt} />
-          </span>
+        <div className="bg-violet-2 w-14 h-20 rounded-full flex items-center justify-center shadow-[4px_4px_0_#000]">
+          <BoltIcon color='black'/>
         </div>
       </div>
       <h2
