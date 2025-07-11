@@ -1,6 +1,5 @@
 @import 'tailwindcss';
 
-/*create color variables*/
 :root {
     --grey: #F9F9F9;
     --pink-1: #FFE9E9;
@@ -21,7 +20,7 @@ html {
 }
 
 .bg-pink-1 {
-    background-color: var(--pink-1)
+    background-color: var(--pink-1);
 }
 
 .bg-pink-2 {
@@ -29,27 +28,31 @@ html {
 }
 
 .bg-pink-3 {
-    background-color: var(--pink-3)
+    background-color: var(--pink-3);
 }
 
 .bg-brown {
-    background-color: var(--brown)
+    background-color: var(--brown);
 }
 
 .bg-violet-1 {
-    background-color: var(--violet-1)
+    background-color: var(--violet-1);
 }
 
 .bg-violet-2 {
-    background-color: var(--violet-2)
+    background-color: var(--violet-2);
 }
 
 .dark-text {
-    color: var(--brown)
+    color: var(--brown);
 }
 
 .light-text {
-    color: var(--pink-2)
+    color: var(--pink-2);
+}
+
+.text-pink-3 {
+    color: var(--pink-3);
 }
 
 label:has(.input-checked-bg-pink-3:checked) {

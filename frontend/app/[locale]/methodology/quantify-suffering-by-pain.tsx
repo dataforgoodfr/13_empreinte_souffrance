@@ -105,7 +105,7 @@ export default async function QuantifySufferingByPain() {
         <div className="flex flex-col gap-y-10 justify-center md:w-2/4 px-6 md:px-12">
           <p className="text-md p-2 md:p-0 text-bold">{t('MethodologyPage.QuantifySufferingByPain.conclusionText')}</p>
           <a
-            className="text-sm self-center bg-[#ff7f7f] font-mono font-bold py-4 mb-4 px-6 rounded-full shadow-[4px_4px_0_#000] cursor-pointer transition-all duration-200 hover:bg-[#3C1212]  hover:text-white"
+            className="text-sm self-center bg-pink-3 font-mono font-bold py-4 mb-4 px-6 rounded-full shadow-[4px_4px_0_#000] cursor-pointer transition-all duration-200 hover:bg-[#3C1212]  hover:text-white"
             href="#list_of_pains"
           >
             {t('MethodologyPage.QuantifySufferingByPain.conclusionButton')}

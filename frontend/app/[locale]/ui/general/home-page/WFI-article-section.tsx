@@ -7,18 +7,18 @@ export default async function WFIArticleSection() {
   return (
     <section
       id="WFIArticleSection"
-      className="scroll-mt-18 max-w-screen  p-8 sm:px-16 w-full bg-violet-1 flex flex-col gap-16"
+      className="scroll-mt-18 max-w-screen p-8 sm:px-16 w-full bg-violet-1 flex flex-col gap-16"
     >
       <h1 className="w-full text-3xl lg:text-5xl font-bold dark-text text-left">
         {scopedT('title.part1')}
-        <span className="text-[#ff7f7f]">&nbsp;{scopedT('title.strong1')}</span>
+        <span className="text-pink-3">&nbsp;{scopedT('title.strong1')}</span>
         &nbsp;{scopedT('title.part2')}
         <br />
         {scopedT('title.part3')}
-        <span className="text-[#ff7f7f]">&nbsp;{scopedT('title.strong2')}</span>.
+        <span className="text-pink-3">&nbsp;{scopedT('title.strong2')}</span>.
       </h1>
 
-      <figure className="w-full flex  items-stretch justify-between flex-col lg:flex-row gap-5">
+      <figure className="w-full flex items-stretch justify-between flex-col lg:flex-row gap-5">
         <div className="relative md:basis-2/3  basis-1/3 min-w-0 2xl:h-[500px] h-[400px] flex items-start justify-start">
           <Image
             src="/wfi_article_figure.png"

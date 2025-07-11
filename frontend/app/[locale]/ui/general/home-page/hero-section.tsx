@@ -54,17 +54,16 @@ interface coloredTextType {
 
 function ColoredText({ letter }: coloredTextType) {
 
-  let letter_background_color = 'bg-pink-' + Math.floor(1+ Math.random() * 3)
+    const isSpace = letter === ' ';
+    let letter_background_color = isSpace ? 'bg-transparent' : 'bg-pink-' + Math.floor(1+ Math.random() * 3)
 
-  const isSpace = letter === ' ';
   return (
     <div
       className={clsx(
-        'inline-flex items-center justify-center h-28 md:w-14 text-5xl text-[#3C0A0A] rounded-[9999px] mx-[2px] uppercase font-mono font-extralight',
+        'inline-flex items-center justify-center h-28 md:w-14 text-5xl dark-text rounded-[9999px] mx-[2px] uppercase font-mono font-extralight',
           letter_background_color,
           {
-            'shadow-[0_10px_0px_rgb(0,0,0)]' : isSpace,
-            'bg-transparent' : isSpace,
+            'shadow-[0_10px_0px_rgb(0,0,0)]' : !isSpace,
           }
       )}
     >
