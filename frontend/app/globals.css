@@ -72,15 +72,15 @@ html {
 }
 
 .border-grey {
-    border-color: var(--grey);
+    border-color: var(--grey) !important;
 }
 
 .border-pink-1 {
-    border-color: var(--pink-1);
+    border-color: var(--pink-1) !important;
 }
 
 .border-pink-2 {
-    border-color: var(--pink-2);
+    border-color: var(--pink-2) !important;
 }
 
 .border-pink-3 {
@@ -88,13 +88,18 @@ html {
 }
 
 .border-brown {
-    border-color: var(--brown);
+    border-color: var(--brown)!important;
 }
 
 .border-violet-1 {
-    border-color: var(--violet-1);
+    border-color: var(--violet-1)!important;
 }
 
 .border-violet-2 {
-    border-color: var(--violet-2);
+    border-color: var(--violet-2)!important;
 }
+
+.divide-pink-3 {
+    :where(& > :not(:last-child)) {
+        border-color: var(--pink-3);
+    } }

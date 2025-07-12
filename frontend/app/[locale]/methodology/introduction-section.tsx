@@ -52,7 +52,7 @@ const Scientist = async ({ imgUrl, name, text, link }: ScientistProps) => {
     <div className="text-center">
       <img src={imgUrl} alt="Scientist" className="w-55 rounded-full h-auto object-contain" />
       <p className="text-center font-bold my-5">{name}</p>
-      <p className="text-justify text-sm text-gray-500">{text}</p>
+      <p className="text-justify text-sm dark-text">{text}</p>
       <Link className="font-light text-center" target="_blank" href={link}>
         ({t('MethodologyPage.introductionSection.list_here')})
       </Link>
