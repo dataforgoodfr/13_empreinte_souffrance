@@ -16,7 +16,7 @@ export default function TwitterShareButton({nameLien}:TwitterShareButtonProps) {
 
   return (
     <button
-          className="w-full bg-pink-3 dark-text font-mono font-bold py-4 px-6 rounded-full shadow-[4px_4px_0_#000] cursor-pointer transition-all duration-200 hover:bg-pink-2"
+          className="w-full dark-text font-mono font-bold py-4 px-6 rounded-full shadow-[4px_4px_0_#000] cursor-pointer transition-all duration-200 bg-(--pink-3) hover:bg-(--violet-1)"
       aria-label="Partager sur Twitter"
       onClick={shareOnTwitter}
       type="button"

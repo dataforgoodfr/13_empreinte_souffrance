@@ -52,7 +52,7 @@ export default async function PainEquationSection() {
             <footer className="text-center mt-8">
               <Link
                 href="/methodology"
-                className="inline-block border-[0.1px] border-pink-3 py-3 px-6 text-lg hover:bg-gray-100  w-full font-mono dark-text tracking-wider transition-all duration-200 "
+                className="inline-block border-[0.1px] border-pink-3 py-3 px-6 text-lg hover:bg-(--violet-1)  w-full font-mono dark-text tracking-wider transition-all duration-200 "
                 aria-label={t('PainEquationSection.cta')}
               >
                 {t('PainEquationSection.cta')}

@@ -13,7 +13,7 @@ export default async function CalculatorLinkSection() {
         <Link
             target="_blank"
             href="https://fr.openfoodfacts.org/cgi/search.pl?search_terms=boites+d%27oeufs&search_simple=1&action=process"
-            className="w-85 max-w-3/4 text-center bg-white font-mono font-bold py-1 px-2 rounded-full shadow-[4px_4px_0_#000] hover:shadow-[0px_3px_8px_#000000] flex items-center justify-center transition-all duration-200 hover:bg-pink-2 overflow-hidden"
+            className="w-85 max-w-3/4 text-center bg-white font-mono font-bold py-1 px-2 rounded-full shadow-[4px_4px_0_#000] hover:shadow-[0px_3px_8px_#000000] flex items-center justify-center transition-all duration-200 overflow-hidden"
             aria-label={scopedT('descriptionSection.imageAlt')}
         >
             <Image

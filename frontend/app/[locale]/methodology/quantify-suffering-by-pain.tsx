@@ -1,4 +1,6 @@
 import { getI18n } from '@/locales/server';
+import Link from "next/link";
+import Image from "next/image";
 
 export default async function QuantifySufferingByPain() {
   const t = await getI18n();
@@ -104,12 +106,12 @@ export default async function QuantifySufferingByPain() {
         />
         <div className="flex flex-col gap-y-10 justify-center md:w-2/4 px-6 md:px-12">
           <p className="text-md p-2 md:p-0 text-bold">{t('MethodologyPage.QuantifySufferingByPain.conclusionText')}</p>
-          <a
-            className="text-sm self-center bg-pink-3 font-mono font-bold py-4 mb-4 px-6 rounded-full shadow-[4px_4px_0_#000] cursor-pointer transition-all duration-200 hover:bg-brown  hover:light-text"
-            href="#list_of_pains"
+          <Link
+              href="#list_of_pains"
+              className="text-sm self-center font-mono font-bold py-4 mb-4 px-6 rounded-full shadow-[4px_4px_0_#000] cursor-pointer transition-all duration-200 bg-(--pink-3) hover:bg-(--violet-1)"
           >
             {t('MethodologyPage.QuantifySufferingByPain.conclusionButton')}
-          </a>
+          </Link>
         </div>
       </div>
     </div>
