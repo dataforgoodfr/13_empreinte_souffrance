@@ -33,7 +33,7 @@ export function AnimatedAfflictionsGroup({ afflictions, delay = 4000, cascade = 
         <div key={offset}>
           <AnimatedCard afflictions={afflictions} index={index} offset={offset} cascade={cascade} />
           {idx < arr.length - 0 && (
-            <div className="bg-[#E7E4FF] text-center text-3xl font-extrabold w-full py-1">+</div>
+            <div className="bg-violet-1 text-center text-3xl font-extrabold w-full py-1">+</div>
           )}
         </div>
       ))}
@@ -131,10 +131,10 @@ function SynteseSurffering(props: Affliction) {
 
         <div className="text-[9px] normal-case ml-4">
           <div className="grid grid-cols-2 grid-rows-2 text-xs font-normal normal-case">
-            <div className="bg-[#3C1212] text-white p-2 sm:w-35">{agony}</div>
-            <div className="bg-[#FF7B7B] text-[#3C1212] p-2 sm:w-35">{pain}</div>
-            <div className="bg-[#FFC3C3] text-[#3C1212] p-2 sm:w-35">{suffering}</div>
-            <div className="bg-[#FFE9E9] text-[#3C1212] p-2 sm:w-35">{discomfort}</div>
+            <div className="bg-brown light-text p-2 sm:w-35">{agony}</div>
+            <div className="bg-pink-3 dark-text p-2 sm:w-35">{pain}</div>
+            <div className="bg-pink-2 dark-text p-2 sm:w-35">{suffering}</div>
+            <div className="bg-pink-1 dark-text p-2 sm:w-35">{discomfort}</div>
           </div>
         </div>
       </div>

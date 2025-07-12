@@ -18,7 +18,7 @@ export default function NavLinks({ links }: { links: { name: string; href: strin
                   key={link.name}
                   href={link.href}
                   className={clsx(
-                      'flex h-[48px] items-center justify-center px-2 md:p-3 text-sm font-medium text-gray-700 hover:underline underline-offset-4 decoration-[#FF7B7B] decoration-2',
+                      'flex h-[48px] items-center justify-center px-2 md:p-3 text-sm font-medium dark-text hover:underline underline-offset-4 decoration-[#FF7B7B] decoration-2',
                       {
                         'underline underline-offset-4': isActive,
                       }

@@ -196,26 +196,26 @@ export default async function GlobalSufferingFigure() {
           </p>
         </div>
 
-        <article className="flex-1 md:basis-1/3 divide-y divide-[#FF7B7B] border border-[#FF7B7B] mx-2">
+        <article className="flex-1 md:basis-1/3 divide-y divide-pink-3 border border-pink-3 mx-2">
           <AnimatedAfflictionsGroup afflictions={afflictions} delay={4000} cascade={300} />{' '}
           <div className="normal-case p-2 text-xs">{t('MethodologyPage.sufferingQuantificationSteps.step3.text2')}</div>
-          <div className="bg-[#E7E4FF] text-center text-3xl font-extrabold">=</div>
+          <div className="bg-violet-1 text-center text-3xl font-extrabold">=</div>
           <div className="bg-white p-4">
             <h3 className="text-xs font-extrabold mb-2">
               {t('MethodologyPage.sufferingQuantificationSteps.step3.result.title')}
             </h3>
             <div className="text-[9px] normal-case mx-auto">
               <div className="grid grid-cols-2 grid-rows-2 text-xs font-normal text-left normal-case mx-auto">
-                <div className="bg-[#3C1212] text-white p-2">
+                <div className="bg-brown light-text p-2">
                   {t('MethodologyPage.sufferingQuantificationSteps.step3.result.agony')}
                 </div>
-                <div className="bg-[#FF7B7B] text-[#3C1212] p-2">
+                <div className="bg-pink-3 dark-text p-2">
                   {t('MethodologyPage.sufferingQuantificationSteps.step3.result.pain')}
                 </div>
-                <div className="bg-[#FFC3C3] text-[#3C1212] p-2">
+                <div className="bg-pink-2 dark-text p-2">
                   {t('MethodologyPage.sufferingQuantificationSteps.step3.result.suffering')}
                 </div>
-                <div className="bg-[#FFE9E9] text-[#3C1212] p-2">
+                <div className="bg-pink-1 dark-text p-2">
                   {t('MethodologyPage.sufferingQuantificationSteps.step3.result.discomfort')}
                 </div>
               </div>

@@ -44,8 +44,8 @@ export default function CalculatorSelect({ quantities, farmings, labels }: Props
 
   return (
     <section className="p-4 flex flex-col items-center justify-center rounded-lg text-lg space-y-4 gap-8">
-      
-      <div className="flex justify-center text-[#3b0a0a] font-extrabold tracking-wide lg:flex-row flex-wrap w-full gap-8">
+
+      <div className="flex justify-center dark-text font-extrabold tracking-wide lg:flex-row flex-wrap w-full gap-8">
         <select
           value={quantityKey}
           onChange={(e) => setQuantityKey(e.target.value as QuantityKey)}
@@ -75,31 +75,31 @@ export default function CalculatorSelect({ quantities, farmings, labels }: Props
         <h2>{labels.containsAverage} : </h2>
       </div>
 
-      <div className="flex flex-col gap-5 justify-between text-[#3b0a0a] font-extrabold tracking-wide md:flex-col lg:flex-row  w-full">
+      <div className="flex flex-col gap-5 justify-between dark-text font-extrabold tracking-wide md:flex-col lg:flex-row  w-full">
 
         <hgroup>
-          <h2 className="bg-[#ff7f7f] text-center text-3xl sm:text-6xl flex justify-start items-center w-fit">
+          <h2 className="bg-pink-3 text-center text-3xl sm:text-6xl flex justify-start items-center w-fit">
             {(data.discomfort * factor).toFixed(1)}
           </h2>
           <h3 className="text-xl sm:text-2xl">{labels.discomfort}</h3>
         </hgroup>
 
         <hgroup>
-          <h2 className="bg-[#ff7f7f] text-center text-3xl sm:text-6xl flex justify-start items-center w-fit">
+          <h2 className="bg-pink-3 text-center text-3xl sm:text-6xl flex justify-start items-center w-fit">
             {(data.pain * factor).toFixed(1)}
           </h2>
           <h3 className="text-xl sm:text-2xl"> {labels.pain}</h3>
         </hgroup>
 
         <hgroup>
-          <h2 className="bg-[#ff7f7f] text-center text-3xl sm:text-6xl flex justify-start items-center w-fit">
+          <h2 className="bg-pink-3 text-center text-3xl sm:text-6xl flex justify-start items-center w-fit">
             {(data.intense * factor).toFixed(1)}
           </h2>
           <h3 className="text-xl sm:text-2xl">{labels.intense}</h3>
         </hgroup>
 
         <hgroup>
-          <h2 className="bg-[#ff7f7f] text-center text-3xl sm:text-6xl flex justify-start items-center w-fit">
+          <h2 className="bg-pink-3 text-center text-3xl sm:text-6xl flex justify-start items-center w-fit">
             {(data.agony * factor).toFixed(1)}
           </h2>
           <h3 className="text-xl sm:text-2xl">{labels.agony}.</h3>

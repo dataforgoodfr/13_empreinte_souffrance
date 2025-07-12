@@ -6,12 +6,12 @@ export default async function SufferingCausesSection() {
   const t = await getI18n();
 
   return (
-    <section className="py-16 bg-white text-[#3b0a0a] scroll-mt-18" id="SufferingCausesSection">
+    <section className="py-16 bg-white dark-text scroll-mt-18" id="SufferingCausesSection">
       <div className="max-w-screen-xl mx-auto px-4">
         <SectionHeading title={t('SufferingCausesSection.title')} heading_number="1" />
 
         <div className="flex flex-col md:flex-row justify-center gap-6 relative mt-12">
-          <div className="flex flex-col justify-between  md:w-1/3">
+          <div className="flex flex-col justify-between md:w-1/3">
             <SufferingBox title={t('SufferingCausesSection.box1.title')}>
               {t('SufferingCausesSection.box1.text')}
             </SufferingBox>

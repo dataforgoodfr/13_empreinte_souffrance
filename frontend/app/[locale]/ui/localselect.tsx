@@ -1,5 +1,6 @@
 'use client';
 import { useChangeLocale, useCurrentLocale } from '@/locales/client';
+import clsx from "clsx";
 
 export const LocaleSelect = () => {
   const locale = useCurrentLocale();
@@ -8,14 +9,17 @@ export const LocaleSelect = () => {
   const localesNames: ('fr' | 'en')[] = ['fr', 'en'];
 
   return (
-    <fieldset className="flex gap-2 bg-transparent text-[#3b0a0a] text-sm font-medium rounded-lg">
+    <fieldset className="flex gap-2 dark-text text-sm font-medium rounded-lg">
       {localesNames.map((localeName) => (
         <label
           key={localeName}
           htmlFor={localeName}
-          className="relative cursor-pointer select-none px-2 py-2 rounded-lg transition-all
-                     has-[input:focus]:outline has-[input:focus]:outline-2 has-[input:focus]:outline-offset-2
-                     has-[input:checked]:bg-[#ff7f7f]"
+          className={clsx('relative select-none px-2 py-2 rounded-lg transition-all has-[input:focus]:outline-2 has-[input:focus]:outline-offset-2 font-bold',
+              {
+                'bg-pink-3': locale === localeName,
+              }
+              )}
+
         >
           <input
             type="radio"
@@ -24,7 +28,7 @@ export const LocaleSelect = () => {
             value={localeName}
             checked={locale === localeName}
             onChange={() => changeLocale(localeName)}
-            className="absolute inset-0 opacity-0 w-full h-full"
+            className="absolute inset-0 opacity-0 w-full h-full cursor-pointer"
           />
           {localeName.toUpperCase()}
         </label>

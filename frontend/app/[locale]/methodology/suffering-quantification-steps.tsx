@@ -8,7 +8,7 @@ import SectionHeading from '../ui/general/home-page/elements/section-heading';
  * - AfflictionSufferingQuantifier: column 2, details and suffering tables.
  * - SufferingQuantificationTable: small table for each type of affliction.
  * - AverageSufferingSummary: column 3, visual summary of the total suffering.
- * - SynteseSurffering: synthesis block with a summary and a table.
+ * - SufferingSynthesis: synthesis block with a summary and a table.
  * - LegendPain: colored legend boxes to explain each methodological criterion.
  * - HeaderColone: stylized header for each column.
  */
@@ -17,7 +17,7 @@ export default async function SufferingQuantificationSteps() {
   const t = await getI18n();
 
   return (
-    <section className="bg-white px-6 pb-20 py-2">
+    <section className="bg-grey px-6 pb-20 py-2">
       <div className="max-w-screen-xl mx-auto ">
         <SectionHeading heading_number="1" title={t('MethodologyPage.sufferingQuantificationSteps.title')} />
         <div className="flex flex-col md:flex-row gap-2 items-start mx-auto max-w-screen-xl  md:py-8 uppercase w-full">
@@ -33,33 +33,33 @@ export default async function SufferingQuantificationSteps() {
 
         <div className="flex flex-col md:flex-row text-sm ">
           <LegendPain
-            titre={t('MethodologyPage.sufferingQuantificationSteps.legend.bloc1.title')}
+            title={t('MethodologyPage.sufferingQuantificationSteps.legend.bloc1.title')}
             description={t('MethodologyPage.sufferingQuantificationSteps.legend.bloc1.description')}
-            criteriaDesciption={t('MethodologyPage.sufferingQuantificationSteps.legend.bloc1.criteria_description')}
+            criteria_description={t('MethodologyPage.sufferingQuantificationSteps.legend.bloc1.criteria_description')}
             criteria={t('MethodologyPage.sufferingQuantificationSteps.criteria')}
-            color="#FFE9E9"
+            bg_color="pink-1"
           />
           <LegendPain
-            titre={t('MethodologyPage.sufferingQuantificationSteps.legend.bloc2.title')}
+            title={t('MethodologyPage.sufferingQuantificationSteps.legend.bloc2.title')}
             description={t('MethodologyPage.sufferingQuantificationSteps.legend.bloc2.description')}
-            criteriaDesciption={t('MethodologyPage.sufferingQuantificationSteps.legend.bloc2.criteria_description')}
+            criteria_description={t('MethodologyPage.sufferingQuantificationSteps.legend.bloc2.criteria_description')}
             criteria={t('MethodologyPage.sufferingQuantificationSteps.criteria')}
-            color="#FFC3C3"
+            bg_color="pink-2"
           />
           <LegendPain
-            titre={t('MethodologyPage.sufferingQuantificationSteps.legend.bloc3.title')}
+            title={t('MethodologyPage.sufferingQuantificationSteps.legend.bloc3.title')}
             description={t('MethodologyPage.sufferingQuantificationSteps.legend.bloc3.description')}
-            criteriaDesciption={t('MethodologyPage.sufferingQuantificationSteps.legend.bloc3.criteria_description')}
+            criteria_description={t('MethodologyPage.sufferingQuantificationSteps.legend.bloc3.criteria_description')}
             criteria={t('MethodologyPage.sufferingQuantificationSteps.criteria')}
-            color="#FF7B7B"
+            bg_color="pink-3"
           />
           <LegendPain
-            titre={t('MethodologyPage.sufferingQuantificationSteps.legend.bloc4.title')}
+            title={t('MethodologyPage.sufferingQuantificationSteps.legend.bloc4.title')}
             description={t('MethodologyPage.sufferingQuantificationSteps.legend.bloc4.description')}
-            criteriaDesciption={t('MethodologyPage.sufferingQuantificationSteps.legend.bloc4.criteria_description')}
+            criteria_description={t('MethodologyPage.sufferingQuantificationSteps.legend.bloc4.criteria_description')}
             criteria={t('MethodologyPage.sufferingQuantificationSteps.criteria')}
-            color="#3C1212"
-            color_text="#FFFFFF"
+            bg_color="brown"
+            text_color="light-text"
           />
         </div>
       </div>
@@ -68,35 +68,37 @@ export default async function SufferingQuantificationSteps() {
 }
 
 interface LegendProps {
-  titre: string;
+  title: string;
   description: string;
-  criteriaDesciption: string;
+  criteria_description: string;
   criteria: string;
-  color: string;
-  color_text?: string;
+  bg_color: string;
+  text_color?: string;
 }
 
-const LegendPain = ({ titre, description, criteriaDesciption, criteria, color, color_text }: LegendProps) => {
+const LegendPain = ({ title, description, criteria_description, criteria, bg_color = 'pink-1', text_color = 'dark-text' }: LegendProps) => {
+
+
   return (
-    <div className=" p-4  " style={{ backgroundColor: color, color: color_text }}>
-      <h3 className="font-bold uppercase my-6">{titre}</h3>
+    <div className={`p-4 ${text_color} bg-${bg_color}`}>
+      <h3 className="font-bold uppercase my-6">{title}</h3>
       <p>{description}</p>
       <br />
       <span className="font-bold">{criteria} : </span>
-      <span>{criteriaDesciption}</span>
+      <span>{criteria_description}</span>
     </div>
   );
 };
 
 
-type HeaderColoneProps = {
+type StepColumnHeaderProps = {
   title: string;
   number: number | string;
 };
 
-const HeaderColone = ({ title, number }: HeaderColoneProps) => {
+const StepColumnHeader = ({ title, number }: StepColumnHeaderProps) => {
   return (
-    <div className="text-center font-extrabold font-mono bg-[#FF7B7B] py-3 px-2">
+    <div className="text-center font-extrabold font-mono bg-pink-3 py-3 px-2">
       <p className="text-5xl font-extrabold">{number}</p>
       <h2 className="">{title}</h2>
     </div>
@@ -106,12 +108,11 @@ const HeaderColone = ({ title, number }: HeaderColoneProps) => {
 
 type StepProps = { t: ReturnType<typeof getI18n> extends Promise<infer R> ? R : never };
 
-// column 1
 const ChickenAfflictionsList = ({ t }: StepProps) => {
   return (
-    <article className="border border-[#FF7B7B]  w-full md:basis-1/3 divide-y divide-[#FF7B7B]">
-      <HeaderColone title={t('MethodologyPage.sufferingQuantificationSteps.step1.title')} number="1" />
-      <ul className="list-none bg-white font-bold text-xs font-mono divide-y divide-[#FF7B7B] uppercase">
+    <article className="border border-pink-3 w-full md:basis-1/3">
+      <StepColumnHeader title={t('MethodologyPage.sufferingQuantificationSteps.step1.title')} number="1" />
+      <ul className="list-none bg-white font-bold text-xs font-mono divide-y divide-pink-3 uppercase">
         <li className="flex items-center px-2 py-4 w-full gap-x-6">
           <p className="text-2xl font-bold w-15 flex-shrink-0 text-left">40%</p>
           <p className="flex-1 text-left">{t('MethodologyPage.sufferingQuantificationSteps.step1.text1')}</p>
@@ -132,7 +133,6 @@ const ChickenAfflictionsList = ({ t }: StepProps) => {
   );
 };
 
-// column 2
 interface SufferingQuantificationTableProps {
   title: string;
   agony: string;
@@ -153,16 +153,16 @@ const SufferingQuantificationTable = ({
       <h3 className="text-center font-bold mb-2">{title}</h3>
       <div className="text-xs normal-case">
         <div>
-          <p className="p-1 w_80 text-center text-white bg-[#3C1212]">{agony}</p>
+          <p className="p-1 w_80 text-center light-text bg-brown">{agony}</p>
         </div>
         <div>
-          <p className="p-1 w_80 text-center bg-[#FF7B7B]">{pain}</p>
+          <p className="p-1 w_80 text-center bg-pink-3">{pain}</p>
         </div>
         <div>
-          <p className="p-1 w_80 text-center bg-[#FFC3C3]">{suffering}</p>
+          <p className="p-1 w_80 text-center bg-pink-2">{suffering}</p>
         </div>
         <div>
-          <p className="p-1 w_80 text-center bg-[#FFE9E9]">{discomfort}</p>
+          <p className="p-1 w_80 text-center bg-pink-1">{discomfort}</p>
         </div>
       </div>
     </div>
@@ -171,8 +171,8 @@ const SufferingQuantificationTable = ({
 
 const AfflictionSufferingQuantifier = ({ t }: StepProps) => {
   return (
-    <article className="border border-[#FF7B7B] divide-y divide-[#FF7B7B] md:basis-1/3  w-full ">
-      <HeaderColone title={t('MethodologyPage.sufferingQuantificationSteps.step2.title')} number="2" />
+    <article className="border border-pink-3 divide-y divide-pink-3 md:basis-1/3  w-full ">
+      <StepColumnHeader title={t('MethodologyPage.sufferingQuantificationSteps.step2.title')} number="2" />
       <SufferingQuantificationTable
         title={t('MethodologyPage.sufferingQuantificationSteps.step2.bloc1.text')}
         agony={t('MethodologyPage.sufferingQuantificationSteps.step2.bloc1.agony')}
@@ -203,8 +203,7 @@ const AfflictionSufferingQuantifier = ({ t }: StepProps) => {
   );
 };
 
-// column 3
-interface SynteseSurfferingProps {
+interface SufferingSynthesisProps {
   title: string;
   percent: string;
   text: string;
@@ -214,26 +213,23 @@ interface SynteseSurfferingProps {
   discomfort: string;
 }
 
-const SynteseSurffering = ({ title, percent, text, agony, pain, suffering, discomfort }: SynteseSurfferingProps) => {
+const SufferingSynthesis = ({ title, percent, text, agony, pain, suffering, discomfort }: SufferingSynthesisProps) => {
   return (
     <div className="bg-white p-3">
       <div className="flex items-center mb-2">
         <h3 className="font-bold uppercase text-sm">{title}</h3>
       </div>
-      {/* Bas : contenu partagé gauche/droite */}
       <div className="flex justify-center text-xs ">
-        {/* Moitié gauche : % + texte */}
         <div className="flex justify-center items-center normal-case gap-1 pr-2">
           <span className="font-bold">{percent}</span>
           <span className="font-bold">{text}</span>
         </div>
-        {/* Moitié droite : grille */}
         <div className="flex items-center justify-end w-1/2">
           <div className="grid grid-cols-2 grid-rows-2 w-max text-[8px] text-left normal-case">
-            <div className="bg-[#3C1212] text-white p-2">{agony}</div>
-            <div className="bg-[#FF7B7B] text-[#3C1212] p-2">{pain}</div>
-            <div className="bg-[#FFC3C3] text-[#3C1212] p-2">{suffering}</div>
-            <div className="bg-[#FFE9E9] text-[#3C1212] p-2">{discomfort}</div>
+            <div className="flex justify-center items-center bg-brown light-text p-2">{agony}</div>
+            <div className="flex justify-center items-center bg-pink-3 dark-text p-2">{pain}</div>
+            <div className="flex justify-center items-center bg-pink-2 dark-text p-2">{suffering}</div>
+            <div className="flex justify-center items-center bg-pink-1 dark-text p-2">{discomfort}</div>
           </div>
         </div>
       </div>
@@ -243,9 +239,9 @@ const SynteseSurffering = ({ title, percent, text, agony, pain, suffering, disco
 
 const AverageSufferingSummary = ({ t }: StepProps) => {
   return (
-    <article className="flex-1 md:basis-1/3 divide-y divide-[#FF7B7B] border border-[#FF7B7B]">
-      <HeaderColone title={t('MethodologyPage.sufferingQuantificationSteps.step3.title')} number="3" />
-      <SynteseSurffering
+    <article className="flex-1 md:basis-1/3 divide-y divide-pink-3 border border-pink-3">
+      <StepColumnHeader title={t('MethodologyPage.sufferingQuantificationSteps.step3.title')} number="3" />
+      <SufferingSynthesis
         title={t('MethodologyPage.sufferingQuantificationSteps.step3.bloc1.title')}
         percent="33% "
         text={t('MethodologyPage.sufferingQuantificationSteps.step3.text1')}
@@ -254,8 +250,8 @@ const AverageSufferingSummary = ({ t }: StepProps) => {
         suffering={t('MethodologyPage.sufferingQuantificationSteps.step3.bloc1.suffering')}
         discomfort={t('MethodologyPage.sufferingQuantificationSteps.step3.bloc1.discomfort')}
       />
-      <div className="bg-[#E7E4FF] text-center text-3xl font-extrabold">+</div>
-      <SynteseSurffering
+      <div className="bg-violet-1 text-center text-3xl font-extrabold">+</div>
+      <SufferingSynthesis
         title={t('MethodologyPage.sufferingQuantificationSteps.step3.bloc2.title')}
         percent="100% "
         text={t('MethodologyPage.sufferingQuantificationSteps.step3.text1')}
@@ -264,8 +260,8 @@ const AverageSufferingSummary = ({ t }: StepProps) => {
         suffering={t('MethodologyPage.sufferingQuantificationSteps.step3.bloc2.suffering')}
         discomfort={t('MethodologyPage.sufferingQuantificationSteps.step3.bloc2.discomfort')}
       />
-      <div className="bg-[#E7E4FF] text-center text-3xl font-extrabold">+</div>
-      <SynteseSurffering
+      <div className="bg-violet-1 text-center text-3xl font-extrabold">+</div>
+      <SufferingSynthesis
         title={t('MethodologyPage.sufferingQuantificationSteps.step3.bloc3.title')}
         percent="48% "
         text={t('MethodologyPage.sufferingQuantificationSteps.step3.text1')}
@@ -274,25 +270,25 @@ const AverageSufferingSummary = ({ t }: StepProps) => {
         suffering={t('MethodologyPage.sufferingQuantificationSteps.step3.bloc3.suffering')}
         discomfort={t('MethodologyPage.sufferingQuantificationSteps.step3.bloc3.discomfort')}
       />
-      <div className="bg-[#E7E4FF] text-center text-3xl font-extrabold">+</div>
+      <div className="bg-violet-1 text-center text-3xl font-extrabold">+</div>
       <div className="normal-case p-2 text-xs">{t('MethodologyPage.sufferingQuantificationSteps.step3.text2')}</div>
-      <div className="bg-[#E7E4FF] text-center text-3xl font-extrabold">=</div>
+      <div className="bg-violet-1 text-center text-3xl font-extrabold">=</div>
       <div className="bg-white p-4">
         <h3 className="text-xs font-extrabold mb-2">
           {t('MethodologyPage.sufferingQuantificationSteps.step3.bloc5.title')}
         </h3>
         <div className="text-[9px] normal-case mx-auto">
           <div className="grid grid-cols-2 grid-rows-2 text-xs font-normal text-left normal-case mx-auto">
-            <div className="bg-[#3C1212] text-white p-2">
+            <div className="flex justify-center items-center bg-brown light-text p-2">
               {t('MethodologyPage.sufferingQuantificationSteps.step3.bloc5.agony')}
             </div>
-            <div className="bg-[#FF7B7B] text-[#3C1212] p-2">
+            <div className="flex justify-center items-center bg-pink-3 dark-text p-2">
               {t('MethodologyPage.sufferingQuantificationSteps.step3.bloc5.pain')}
             </div>
-            <div className="bg-[#FFC3C3] text-[#3C1212] p-2">
+            <div className="flex justify-center items-center bg-pink-2 dark-text p-2">
               {t('MethodologyPage.sufferingQuantificationSteps.step3.bloc5.suffering')}
             </div>
-            <div className="bg-[#FFE9E9] text-[#3C1212] p-2">
+            <div className="flex justify-center items-center bg-pink-1 dark-text p-2">
               {t('MethodologyPage.sufferingQuantificationSteps.step3.bloc5.discomfort')}
             </div>
           </div>

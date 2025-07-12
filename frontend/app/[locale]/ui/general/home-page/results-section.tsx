@@ -9,7 +9,7 @@ export default async function ResultsSection() {
     <section id="ResultSection" className="min-h-screen py-8 w-full max-w-screen-xl mx-auto px-4 scroll-mt-18" aria-labelledby="results-heading">
       <SectionHeading title={t('Results.title')} heading_number="3" />
       <div className="flex flex-col justify-center items-center">
-        <div className="border-1 border-[#ff7f7f] w-full md:5/6 lg:w-4/6">
+        <div className="border-1 border-pink-3 w-full md:5/6 lg:w-4/6">
           <ContentWithImageSection
             text_heading={t('Results.agony.title')}
             text_content={t('Results.agony.content')}
