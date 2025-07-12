@@ -1,6 +1,5 @@
 import { getI18n } from '@/locales/server';
 import Link from "next/link";
-import Image from "next/image";
 
 export default async function QuantifySufferingByPain() {
   const t = await getI18n();
