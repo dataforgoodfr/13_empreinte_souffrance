@@ -1,8 +1,7 @@
 import { getI18n } from '@/locales/server';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faBolt } from '@fortawesome/free-solid-svg-icons';
 import Link from 'next/link';
 import TwitterShareButton from '@/app/actions/share-actions';
+import BoltIcon from "@/app/[locale]/ui/icons/BoltIcon";
 
 export default async function GoFurtherSection() {
   const t = await getI18n();
@@ -10,15 +9,13 @@ export default async function GoFurtherSection() {
   return (
     <section id="GoFurtherSection" className="mb-10 p-8 sm:px-16 scroll-mt-18" aria-labelledby="go-further-heading">
       <div className="flex justify-center mb-6" aria-hidden="true">
-        <div className="bg-indigo-300 w-14 h-20 rounded-full flex items-center justify-center shadow-[4px_4px_0_#000]">
-          <span className="rotate-[-18deg] text-[40px] text-black">
-            <FontAwesomeIcon icon={faBolt} />
-          </span>
+        <div className="bg-violet-2 w-14 h-20 rounded-full flex items-center justify-center shadow-[4px_4px_0_#000]">
+          <BoltIcon color='black'/>
         </div>
       </div>
       <h2
         id="go-further-heading"
-        className="text-3xl sm:text-4xl font-extrabold tracking-wide text-[#3b0a0a] mb-10 text-center"
+        className="text-3xl sm:text-4xl font-extrabold tracking-wide dark-text mb-10 text-center"
       >
         {t('GoFurther.title')}
       </h2>
@@ -27,7 +24,7 @@ export default async function GoFurtherSection() {
           {/* <form action={downloadMediaKit}> */}
           {/* <button
             type="submit"
-            className="w-full bg-[#ff7f7f] text-[#3b0a0a] font-mono font-bold py-4 px-6 rounded-full shadow-[4px_4px_0_#000] cursor-pointer transition-all duration-200 hover:bg-[#FFC3C3]"
+            className="w-full bg-(--pink-3) dark-text font-mono font-bold py-4 px-6 rounded-full shadow-[4px_4px_0_#000] cursor-pointer transition-all duration-200 hover:bg-(--violet-1)"
             aria-label={t('GoFurther.downloadMediaKit')}
           >
             {t('GoFurther.downloadMediaKit')}
@@ -35,7 +32,7 @@ export default async function GoFurtherSection() {
           <a
             href="/kit_presse_demo.pdf"
             download
-            className="w-full text-center bg-[#ff7f7f] text-[#3b0a0a] font-mono font-bold py-4 px-6 rounded-full shadow-[4px_4px_0_#000] flex items-center justify-center transition-all duration-200 hover:bg-[#FFC3C3]"
+            className="w-full text-center dark-text font-mono font-bold py-4 px-6 rounded-full shadow-[4px_4px_0_#000] flex items-center justify-center transition-all duration-200 bg-(--pink-3) hover:bg-(--violet-1)"
             aria-label={t('GoFurther.downloadMediaKit')}
           >
             {t('GoFurther.downloadMediaKit')}
@@ -44,7 +41,7 @@ export default async function GoFurtherSection() {
         <TwitterShareButton nameLien={t('GoFurther.share')} />
         <Link
           href="/methodology"
-          className="w-full text-center bg-[#ff7f7f] text-[#3b0a0a] font-mono font-bold py-4 px-6 rounded-full shadow-[4px_4px_0_#000] flex items-center justify-center transition-all duration-200 hover:bg-[#FFC3C3]"
+          className="w-full text-center  dark-text font-mono font-bold py-4 px-6 rounded-full shadow-[4px_4px_0_#000] flex items-center justify-center transition-all duration-200 bg-(--pink-3) hover:bg-(--violet-1)"
           aria-label={t('GoFurther.methodology')}
         >
           {t('GoFurther.methodology')}
@@ -52,7 +49,7 @@ export default async function GoFurtherSection() {
 
         <Link
           href="/about"
-          className="w-full text-center bg-[#ff7f7f] text-[#3b0a0a] font-mono font-bold py-4 px-6 rounded-full shadow-[4px_4px_0_#000] flex items-center justify-center transition-all duration-200 hover:bg-[#FFC3C3] "
+          className="w-full text-center  dark-text font-mono font-bold py-4 px-6 rounded-full shadow-[4px_4px_0_#000] flex items-center justify-center transition-all duration-200 bg-(--pink-3) hover:bg-(--violet-1) "
           aria-label={t('GoFurther.aboutThisWebsite')}
         >
           {t('GoFurther.aboutThisWebsite')}

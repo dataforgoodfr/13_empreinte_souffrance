@@ -7,18 +7,18 @@ export default async function WFIArticleSection() {
   return (
     <section
       id="WFIArticleSection"
-      className="scroll-mt-18 max-w-screen  p-8 sm:px-16 w-full bg-[#E7E4FF] flex flex-col gap-16"
+      className="scroll-mt-18 max-w-screen p-8 sm:px-16 w-full bg-violet-1 flex flex-col gap-16"
     >
-      <h1 className="w-full text-3xl lg:text-5xl font-bold text-[#3b0a0a] text-left">
+      <h1 className="w-full text-3xl lg:text-5xl font-bold dark-text text-left">
         {scopedT('title.part1')}
-        <span className="text-[#ff7f7f]">&nbsp;{scopedT('title.strong1')}</span>
+        <span className="text-pink-3">&nbsp;{scopedT('title.strong1')}</span>
         &nbsp;{scopedT('title.part2')}
         <br />
         {scopedT('title.part3')}
-        <span className="text-[#ff7f7f]">&nbsp;{scopedT('title.strong2')}</span>.
+        <span className="text-pink-3">&nbsp;{scopedT('title.strong2')}</span>.
       </h1>
 
-      <figure className="w-full flex  items-stretch justify-between flex-col lg:flex-row gap-5">
+      <figure className="w-full flex items-stretch justify-between flex-col lg:flex-row gap-5">
         <div className="relative md:basis-2/3  basis-1/3 min-w-0 2xl:h-[500px] h-[400px] flex items-start justify-start">
           <Image
             src="/wfi_article_figure.png"
@@ -30,7 +30,7 @@ export default async function WFIArticleSection() {
           />
         </div>
         <figcaption className=" md:basis-1/3 basis-2/3 max-w-full flex-shrink-0 self-center">
-          <p className="text-2xl text-[#3b0a0a]">
+          <p className="text-2xl dark-text">
             {scopedT('description.part0')}
             &nbsp;<strong>{scopedT('description.strong1')}</strong>
             &nbsp;{scopedT('description.part1')}
@@ -41,7 +41,7 @@ export default async function WFIArticleSection() {
         </figcaption>
       </figure>
 
-      <article className="flex justify-between text-[#3b0a0a] font-extrabold tracking-wide lg:flex-row flex-wrap w-full">
+      <article className="flex justify-between dark-text font-extrabold tracking-wide lg:flex-row flex-wrap w-full">
         <hgroup>
           <h2 className="bg-white text-center text-3xl sm:text-4xl flex justify-start items-center w-fit">500+</h2>
           <h3>{scopedT('key_number.key1')}</h3>

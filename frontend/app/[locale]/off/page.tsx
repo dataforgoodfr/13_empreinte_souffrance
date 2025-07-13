@@ -281,7 +281,7 @@ export default function KnowledgePanel() {
               />
               <button
                 type="submit"
-                className="bg-orange-500 hover:bg-orange-600 text-white px-4 py-2 rounded"
+                className="bg-orange-500 hover:bg-orange-600 light-text px-4 py-2 rounded"
                 disabled={!customBarcode.trim()}
               >
                 {t('KnowledgePanel.search')}
@@ -343,7 +343,7 @@ export default function KnowledgePanel() {
         </div>
       )}
 
-      {error && <div className="bg-red-100 text-red-700 p-4 rounded mb-4">{error}</div>}
+      {error && <div className="bg-pink-1 text-red-700 p-4 rounded mb-4">{error}</div>}
 
       {knowledgePanelData && !isLoading && (
         <div className="space-y-4">

@@ -2,7 +2,7 @@ import { getI18n } from '@/locales/server';
 import QuantifySufferingByPain from '@/app/[locale]/methodology/quantify-suffering-by-pain';
 import GlobalSufferingFigure from './global-suffering-figure';
 import SectionHeading from '../ui/general/home-page/elements/section-heading';
-import ListOfPAffition from './list-of-affition';
+import ListOfAffliction from './list-of-affition';
 
 export default async function MethodDetailsSection() {
   const t = await getI18n();
@@ -28,8 +28,8 @@ export default async function MethodDetailsSection() {
   ];
 
   return (
-    <>
-      <div className="w-full max-w-screen-xl mx-auto mt-12 text-[#3C1212]">
+    <div className="bg-pink-1">
+      <div className="w-full max-w-screen-xl mx-auto mt-12 dark-text">
         <SectionHeading title={t('MethodologyPage.method_details_section.title_h1')} heading_number="2" />
         <div className="flex flex-col p-6  sm:p-20 lg:p-0 md:w-2/3 m-auto">
           <h2 className="text-2xl font-extrabold mb-4 uppercase ">
@@ -43,7 +43,7 @@ export default async function MethodDetailsSection() {
             <h3 className="uppercase font-bold ">
               {t('MethodologyPage.method_details_section.section_img_1.title_h3')}
             </h3>
-            <hr className="border-1  border-[#FF7B7B] my-2" />
+            <hr className="border-1  border-pink-3 my-2" />
             <div className="flex flex-col sm:flex-row m-auto gap-3 mt-4 ">
               <div className="sm:w-1/3 flex flex-col items-center">
                 {/* todo! change img */}
@@ -87,7 +87,7 @@ export default async function MethodDetailsSection() {
             <h3 className="uppercase font-bold ">
               {t('MethodologyPage.method_details_section.section_img_2.title_h3')}
             </h3>
-            <hr className="border-1  border-[#FF7B7B] my-2" />
+            <hr className="border-1  border-pink-3 my-2" />
             <div className="flex flex-col sm:flex-row m-auto gap-3 mt-4 ">
               <div className="sm:w-1/3 flex flex-col items-center">
                 {/* todo! change img */}
@@ -132,8 +132,8 @@ export default async function MethodDetailsSection() {
             <h3 id="list_of_pains" className="uppercase font-bold scroll-mt-22 md:scroll-mt-18">
               {t('MethodologyPage.method_details_section.list_of_pains_h3')}
             </h3>
-            <hr className="border-1  border-[#FF7B7B] my-2" />
-            <ListOfPAffition
+            <hr className="border-1  border-pink-3 my-2" />
+            <ListOfAffliction
               listOfPain={listOfPain}
               seeMore={t('MethodologyPage.method_details_section.see_all_sources_btn')}
               seeLess={t('MethodologyPage.method_details_section.see_less_sources_btn')}
@@ -144,6 +144,6 @@ export default async function MethodDetailsSection() {
 
       <QuantifySufferingByPain />
       <GlobalSufferingFigure />
-    </>
+    </div>
   );
 }
