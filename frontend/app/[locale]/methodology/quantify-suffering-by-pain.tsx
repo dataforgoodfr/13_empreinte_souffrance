@@ -1,4 +1,5 @@
 import { getI18n } from '@/locales/server';
+import PainTrackTable from '../ui/general/pain_track_suffering';
 
 export default async function QuantifySufferingByPain() {
   const t = await getI18n();
@@ -22,9 +23,13 @@ export default async function QuantifySufferingByPain() {
         </h3>
         <hr className="border-1 mb-10 border-[#FF7B7B]" />
         <div className="mt-12  overflow-x-auto w-full">
+          <PainTrackTable/>
           <table className="w-full text-sm text-center mb-6   border-separate border-spacing-0.5">
             <thead>
               <tr className="bg-[#F9F9F9] h-12">
+                <th className="py-2 px-3 ">
+                  {t('MethodologyPage.QuantifySufferingByPain.painTrackTable.intensityOfSuffering')}
+                </th>
                 <th className="py-2 px-3 ">
                   {t('MethodologyPage.QuantifySufferingByPain.painTrackTable.ruptureTissu')}
                 </th>
@@ -38,9 +43,6 @@ export default async function QuantifySufferingByPain() {
                   {t('MethodologyPage.QuantifySufferingByPain.painTrackTable.proliferation')}
                 </th>
                 <th className="py-2 px-3 ">{t('MethodologyPage.QuantifySufferingByPain.painTrackTable.total')}</th>
-                <th className="py-2 px-3 ">
-                  {t('MethodologyPage.QuantifySufferingByPain.painTrackTable.intensityOfSuffering')} de la souffrance
-                </th>
               </tr>
             </thead>
             <tbody>
