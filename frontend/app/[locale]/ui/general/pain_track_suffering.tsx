@@ -2,9 +2,10 @@ import React from 'react';
 
 const PainTrackTable = () => {
   return (
-    <div className='border flex flex-row items-center'>
-<p className='rotate-[-90deg] h-full text-nowrap border'>Intensité de la douleur</p>
-    <div className="p-6 overflow-x-auto">
+    <div className="flex px-8 relative">
+      <p className=" rotate-[-90deg] absolute left-[-70] top-[170] text-nowrap italic font-bold ">
+        Intensité de la douleur
+      </p>
       <table className="w-full text-center border-separate border-spacing-0.5">
         <thead>
           <tr>
@@ -13,7 +14,7 @@ const PainTrackTable = () => {
             </th>
           </tr>
           <tr className="bg-white">
-            <th />
+            <th className="bg-pink-50" />
             <th className="p-2 font-medium">
               Rupture du tissu
               <br />
@@ -72,7 +73,6 @@ const PainTrackTable = () => {
           </tr>
         </tbody>
       </table>
-    </div>
     </div>
   );
 };

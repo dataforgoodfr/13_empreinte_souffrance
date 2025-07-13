@@ -17,84 +17,12 @@ export default async function QuantifySufferingByPain() {
         <p className="text-md mb-2">{t('MethodologyPage.QuantifySufferingByPain.description4')}</p>
       </div>
 
-      <div className="p-6  w-full lg:max-w-4xl lg:mx-auto">
+      <div className="p-6 w-full lg:max-w-4xl lg:mx-auto">
         <h3 className="text-xl font-bold mb-4  uppercase">
           {t('MethodologyPage.QuantifySufferingByPain.painTrackTableTitle')}
         </h3>
-        <hr className="border-1 mb-10 border-[#FF7B7B]" />
-        <div className="mt-12  overflow-x-auto w-full">
-          <PainTrackTable/>
-          <table className="w-full text-sm text-center mb-6   border-separate border-spacing-0.5">
-            <thead>
-              <tr className="bg-[#F9F9F9] h-12">
-                <th className="py-2 px-3 ">
-                  {t('MethodologyPage.QuantifySufferingByPain.painTrackTable.intensityOfSuffering')}
-                </th>
-                <th className="py-2 px-3 ">
-                  {t('MethodologyPage.QuantifySufferingByPain.painTrackTable.ruptureTissu')}
-                </th>
-                <th className="py-2 px-3 ">
-                  {t('MethodologyPage.QuantifySufferingByPain.painTrackTable.coagulation')}
-                </th>
-                <th className="py-2 px-3 ">
-                  {t('MethodologyPage.QuantifySufferingByPain.painTrackTable.inflammation')}
-                </th>
-                <th className="py-2 px-3 ">
-                  {t('MethodologyPage.QuantifySufferingByPain.painTrackTable.proliferation')}
-                </th>
-                <th className="py-2 px-3 ">{t('MethodologyPage.QuantifySufferingByPain.painTrackTable.total')}</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr className="bg-[#F9F9F9]  h-12">
-                <td className="py-2 px-3 "></td>
-                <td className="py-2 px-3 "></td>
-                <td className="py-2 px-3 "></td>
-                <td className="py-2 px-3 ">70%</td>
-                <td className="py-2 px-3 ">196.00</td>
-                <td className="py-2 px-3  bg-[#FFE9E9]">
-                  {t('MethodologyPage.QuantifySufferingByPain.painTrackTable.discomfort')}
-                </td>
-              </tr>
-              <tr className="bg-[#F9F9F9]  h-12">
-                <td className="py-2 px-3 ">50%</td>
-                <td className="py-2 px-3 ">80%</td>
-                <td className="py-2 px-3 ">100%</td>
-                <td className="py-2 px-3 ">30%</td>
-                <td className="py-2 px-3 ">196.00</td>
-                <td className="py-2 px-3  bg-[#FFC3C3]">
-                  {t('MethodologyPage.QuantifySufferingByPain.painTrackTable.pain')}
-                </td>
-              </tr>
-              <tr className="bg-[#F9F9F9]  h-12">
-                <td className="py-2 px-3 ">50%</td>
-                <td className="py-2 px-3 ">20%</td>
-                <td className="py-2 px-3 "></td>
-                <td className="py-2 px-3 "></td>
-                <td className="py-2 px-3 ">196.00</td>
-                <td className="py-2 px-3  bg-[#FF7B7B]">
-                  {t('MethodologyPage.QuantifySufferingByPain.painTrackTable.suffering')}
-                </td>
-              </tr>
-              <tr className="bg-[#F9F9F9]  h-12">
-                <td className="py-2 px-3 "></td>
-                <td className="py-2 px-3 "></td>
-                <td className="py-2 px-3 "></td>
-                <td className="py-2 px-3 "></td>
-                <td className="py-2 px-3 ">0 min</td>
-                <td className="py-2 px-3  bg-[#3C1212]  text-white">
-                  {t('MethodologyPage.QuantifySufferingByPain.painTrackTable.agony')}
-                </td>
-              </tr>
-              <tr className="">
-                <td className="py-2 px-3 ">0,5–2 min</td>
-                <td className="py-2 px-3 ">5–15 min</td>
-                <td className="py-2 px-3 ">16–48h</td>
-                <td className="py-2 px-3 ">224–36h</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
+        <hr className="border-1 border-[#FF7B7B]" />
+        <PainTrackTable />
       </div>
 
       <div className="bg-white flex flex-col md:flex-row items-stretch w-full mb-12 ">
