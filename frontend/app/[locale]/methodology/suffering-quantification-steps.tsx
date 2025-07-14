@@ -3,6 +3,8 @@ import SectionHeading from '../ui/general/home-page/elements/section-heading';
 import SufferingStagesDescription from "@/app/[locale]/ui/general/elements/suffering-stages-description";
 import SufferingSynthesisDurationTable
   from "@/app/[locale]/ui/general/methodology/elements/suffering-synthesis-duration-table";
+import SufferingSynthesisDurationRows
+  from "@/app/[locale]/ui/general/methodology/elements/suffering-synthesis-duration-rows";
 
 /**
  * Quick documentation:
@@ -99,19 +101,8 @@ const SufferingQuantificationTable = ({
   return (
     <div className="bg-white p-4">
       <h3 className="text-center font-bold mb-2">{title}</h3>
-      <div className="text-xs normal-case">
-        <div>
-          <p className="p-1 w_80 text-center light-text bg-brown">{agony}</p>
-        </div>
-        <div>
-          <p className="p-1 w_80 text-center bg-pink-3">{pain}</p>
-        </div>
-        <div>
-          <p className="p-1 w_80 text-center bg-pink-2">{suffering}</p>
-        </div>
-        <div>
-          <p className="p-1 w_80 text-center bg-pink-1">{discomfort}</p>
-        </div>
+      <div className="normal-case">
+        <SufferingSynthesisDurationRows agony_duration_text={agony} pain_duration_text={pain} suffering_duration_text={suffering} discomfort_duration_text={discomfort}/>
       </div>
     </div>
   );

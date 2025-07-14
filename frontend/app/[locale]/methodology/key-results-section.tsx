@@ -1,5 +1,7 @@
 import SectionHeading from '../ui/general/home-page/elements/section-heading';
 import { getI18n } from '@/locales/server';
+import SufferingSynthesisDurationRows
+  from "@/app/[locale]/ui/general/methodology/elements/suffering-synthesis-duration-rows";
 
 export default async function KeyResultsSection() {
   const t = await getI18n();
@@ -57,16 +59,13 @@ interface AfflictionResultCardProps {
 
 const AfflictionResultCard = ({ text, agony, pain, suffering, discomfort }: AfflictionResultCardProps) => {
   return (
-    <div className="bg-pink-1 flex  text-xs  border border-pink-3">
+    <div className="bg-pink-1 flex  border border-pink-3">
       <div className="w-1/2 p-6 font-mono font-bold">
         <img src="/tmp_logo.webp" alt="" style={{ height: '50px', width: '50px' }} />
         <p>{text}</p>
       </div>
       <div className="w-1/2 flex flex-col items-center justify-center ">
-        <p className="h-1/4 w-full text-center p-2 bg-brown light-text">{agony}</p>
-        <p className="h-1/4 w-full text-center p-2 bg-pink-3">{pain}</p>
-        <p className="h-1/4 w-full text-center p-2 bg-pink-2">{suffering}</p>
-        <p className="h-1/4 w-full text-center p-2 bg-pink-1">{discomfort}</p>
+        <SufferingSynthesisDurationRows agony_duration_text={agony} pain_duration_text={pain} suffering_duration_text={suffering} discomfort_duration_text={discomfort}/>
       </div>
     </div>
   );
