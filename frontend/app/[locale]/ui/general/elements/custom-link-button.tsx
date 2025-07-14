@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import clsx from "clsx";
 
-type CustomLinkButtonType = {
+type CustomLinkButtonProps = {
     href : string;
     aria_label : string;
     button_text : string;
@@ -10,7 +10,7 @@ type CustomLinkButtonType = {
     width?: 'full' | 'small';
 }
 
-export default async function CustomLinkButton({href, aria_label, button_text, download = false, open_in_new_tab = false, width = 'full'}: CustomLinkButtonType) {
+export default async function CustomLinkButton({href, aria_label, button_text, download = false, open_in_new_tab = false, width = 'full'}: CustomLinkButtonProps) {
 
     return (
         <Link
