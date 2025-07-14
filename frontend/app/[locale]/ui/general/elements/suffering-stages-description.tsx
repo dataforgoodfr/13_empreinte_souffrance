@@ -4,7 +4,7 @@ type SufferingScaleDescriptionProps = {
     display_criteria?: boolean;
 }
 
-type SufferingStage = {
+interface SufferingStage {
     title: string;
     stage_description: string;
     criteria_description: string;
@@ -53,8 +53,12 @@ export default async function SufferingStagesDescription({display_criteria = fal
                 suffering_stages.map((suffering_stage: SufferingStage) => {
                     const border_color_class = suffering_stage.border_color ? `border border-${suffering_stage.border_color}` : '';
 
+                    const text_color_class = suffering_stage.text_color ? `${suffering_stage.text_color}-text` : 'dark-text';
+
+                    const background_color_class = `bg-${suffering_stage.background_color}`;
+
                     return (
-                    <article className={`p-4 bg-${suffering_stage.background_color} ${border_color_class} ${suffering_stage.text_color}-text`}>
+                    <article className={`p-4 ${background_color_class} ${border_color_class} ${text_color_class}`}>
                         <h4 className="font-bold uppercase mb-4 mt-4">{suffering_stage.title}</h4>
                         <p className="text-sm font-medium">{suffering_stage.stage_description}</p>
                         {display_criteria && <p className="pt-2">
