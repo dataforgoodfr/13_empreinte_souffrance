@@ -10,7 +10,7 @@ type CustomLinkButtonProps = {
     width?: 'full' | 'small';
 }
 
-export default async function CustomLinkButton({href, aria_label, button_text, download = false, open_in_new_tab = false, width = 'full'}: CustomLinkButtonProps) {
+export default async function ButtonLink({href, aria_label, button_text, download = false, open_in_new_tab = false, width = 'full'}: CustomLinkButtonProps) {
 
     return (
         <Link

@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { faFacebook, faLinkedin, faXTwitter, faYoutube } from '@fortawesome/free-brands-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Logo from './home-page/elements/logo-walfare-footprint';
-import CustomLinkButton from "@/app/[locale]/ui/general/elements/custom-link-button";
+import ButtonLink from "@/app/[locale]/ui/general/elements/button-link";
 
 export default async function Footer() {
   const t = await getI18n();
@@ -87,7 +87,7 @@ export default async function Footer() {
               <h4 className="font-semibold m-0 p-0">Data For Good</h4>
             </Link>
           </div>
-          <CustomLinkButton
+          <ButtonLink
               href="https://animafrance.org/je-donne"
               aria_label={t('footer.donate')}
               button_text={t('footer.donate')}

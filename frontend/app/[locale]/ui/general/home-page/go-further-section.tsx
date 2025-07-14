@@ -1,7 +1,7 @@
 import { getI18n } from '@/locales/server';
 import TwitterShareButton from '@/app/actions/share-actions';
 import BoltIcon from "@/app/[locale]/ui/icons/BoltIcon";
-import CustomLinkButton from "@/app/[locale]/ui/general/elements/custom-link-button";
+import ButtonLink from "@/app/[locale]/ui/general/elements/button-link";
 
 export default async function GoFurtherSection() {
     const t = await getI18n();
@@ -21,19 +21,19 @@ export default async function GoFurtherSection() {
                 {t('GoFurther.title')}
             </h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-3xl mx-auto">
-                <CustomLinkButton
+                <ButtonLink
                     href="/kit_presse_demo.pdf"
                     aria_label={t('GoFurther.downloadMediaKit')}
                     button_text={t('GoFurther.downloadMediaKit')}
                     download={true}
                 />
                 <TwitterShareButton nameLien={t('GoFurther.share')}/>
-                <CustomLinkButton
+                <ButtonLink
                     href="/methodology"
                     aria_label={t('GoFurther.methodology')}
                     button_text={t('GoFurther.methodology')}
                 />
-                <CustomLinkButton
+                <ButtonLink
                     href='/about'
                     aria_label={t('GoFurther.aboutThisWebsite')}
                     button_text={t('GoFurther.aboutThisWebsite')}

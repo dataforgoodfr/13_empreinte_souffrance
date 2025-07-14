@@ -1,5 +1,5 @@
 import { getI18n } from '@/locales/server';
-import CustomLinkButton from "@/app/[locale]/ui/general/elements/custom-link-button";
+import ButtonLink from "@/app/[locale]/ui/general/elements/button-link";
 
 export default async function QuantifySufferingByPain() {
     const t = await getI18n();
@@ -107,7 +107,7 @@ export default async function QuantifySufferingByPain() {
                 <div className="flex flex-col gap-y-10 justify-center md:w-2/4 px-6 md:px-12">
                     <p className="text-md p-2 md:p-0 text-bold">{t('MethodologyPage.QuantifySufferingByPain.conclusionText')}</p>
                     <div className="w-full flex justify-center">
-                        <CustomLinkButton
+                        <ButtonLink
                             href="#list_of_pains"
                             aria_label={t('MethodologyPage.QuantifySufferingByPain.conclusionButton')}
                             button_text={t('MethodologyPage.QuantifySufferingByPain.conclusionButton')}
