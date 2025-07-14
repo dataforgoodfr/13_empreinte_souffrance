@@ -25,7 +25,7 @@ export default async function QuantifySufferingByPain() {
         <PainTrackTable />
       </div>
 
-      <div className="bg-white flex flex-col md:flex-row items-stretch w-full mb-12 ">
+      <div className="bg-white flex flex-col md:flex-row items-stretch w-full mt-12 mb-12 ">
         <img
           src="/analyze-pain.png"
           className="w-full md:w-2/4 object-cover"
