@@ -1,6 +1,8 @@
 import { getI18n } from '@/locales/server';
 import SectionHeading from '../ui/general/home-page/elements/section-heading';
 import SufferingStagesDescription from "@/app/[locale]/ui/general/elements/suffering-stages-description";
+import SufferingSynthesisDurationTable
+  from "@/app/[locale]/ui/general/methodology/elements/suffering-synthesis-duration-table";
 
 /**
  * Quick documentation:
@@ -167,18 +169,13 @@ const SufferingSynthesis = ({ title, percent, text, agony, pain, suffering, disc
       <div className="flex items-center mb-2">
         <h3 className="font-bold uppercase text-sm">{title}</h3>
       </div>
-      <div className="flex justify-center text-xs ">
+      <div className="flex justify-center">
         <div className="flex justify-center items-center normal-case gap-1 pr-2">
           <span className="font-bold">{percent}</span>
           <span className="font-bold">{text}</span>
         </div>
         <div className="flex items-center justify-end w-1/2">
-          <div className="grid grid-cols-2 grid-rows-2 w-max text-[8px] text-left normal-case">
-            <div className="flex justify-center items-center bg-brown light-text p-2">{agony}</div>
-            <div className="flex justify-center items-center bg-pink-3 dark-text p-2">{pain}</div>
-            <div className="flex justify-center items-center bg-pink-2 dark-text p-2">{suffering}</div>
-            <div className="flex justify-center items-center bg-pink-1 dark-text p-2">{discomfort}</div>
-          </div>
+          <SufferingSynthesisDurationTable agony_duration_text={agony} pain_duration_text={pain} suffering_duration_text={suffering} discomfort_duration_text={discomfort}/>
         </div>
       </div>
     </div>
@@ -227,21 +224,13 @@ async function AverageSufferingSummary() {
         <h3 className="text-xs font-extrabold mb-2">
           {t('MethodologyPage.sufferingQuantificationSteps.step3.bloc5.title')}
         </h3>
-        <div className="text-[9px] normal-case mx-auto">
-          <div className="grid grid-cols-2 grid-rows-2 text-xs font-normal text-left normal-case mx-auto">
-            <div className="flex justify-center items-center bg-brown light-text p-2">
-              {t('MethodologyPage.sufferingQuantificationSteps.step3.bloc5.agony')}
-            </div>
-            <div className="flex justify-center items-center bg-pink-3 dark-text p-2">
-              {t('MethodologyPage.sufferingQuantificationSteps.step3.bloc5.pain')}
-            </div>
-            <div className="flex justify-center items-center bg-pink-2 dark-text p-2">
-              {t('MethodologyPage.sufferingQuantificationSteps.step3.bloc5.suffering')}
-            </div>
-            <div className="flex justify-center items-center bg-pink-1 dark-text p-2">
-              {t('MethodologyPage.sufferingQuantificationSteps.step3.bloc5.discomfort')}
-            </div>
-          </div>
+        <div className="normal-case mx-auto">
+          <SufferingSynthesisDurationTable
+              agony_duration_text={t('MethodologyPage.sufferingQuantificationSteps.step3.bloc5.agony')}
+              pain_duration_text={t('MethodologyPage.sufferingQuantificationSteps.step3.bloc5.pain')}
+              suffering_duration_text={t('MethodologyPage.sufferingQuantificationSteps.step3.bloc5.suffering')}
+              discomfort_duration_text={t('MethodologyPage.sufferingQuantificationSteps.step3.bloc5.discomfort')}
+          />
         </div>
       </div>
     </article>
