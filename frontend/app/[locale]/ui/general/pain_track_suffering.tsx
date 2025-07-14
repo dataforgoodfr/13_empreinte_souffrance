@@ -2,11 +2,11 @@ import React from 'react';
 
 const PainTrackTable = () => {
   return (
-    <div className="flex px-8 relative">
-      <p className=" rotate-[-90deg] absolute left-[-70] top-[170] text-nowrap italic font-bold ">
+    <div className="flex px-0 lg:px-8 relative">
+      <p className=" rotate-[-90deg] absolute md:left-[-90] lg:left-[-80] left-[-75] md:top-[180] top-[190] text-nowrap text-xs md:text-base italic font-bold ">
         Intensité de la douleur
       </p>
-      <table className="w-full text-center border-separate border-spacing-0.5">
+      <table className="table-auto w-full text-center text-xs md:text-base border-separate border-spacing-0.5">
         <thead>
           <tr>
             <th className="px-4 py-2 text-center italic" colSpan={6}>
