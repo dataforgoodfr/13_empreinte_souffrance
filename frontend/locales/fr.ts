@@ -567,6 +567,7 @@ export default {
         'Au total, ce sont plus de xx spécialistes de xxx disciplines qui ont collaboré pour établir l\'ensemble des pain tracks.',
       painTrackTableTitle: 'Pain-track d’une lésion cutanée',
       painTrackTable: {
+        lesionPhase: 'Phase de la lesion',
         ruptureTissu: 'Rupture du tissu',
         coagulation: 'Coagulation',
         inflammation: 'Inflammation',
