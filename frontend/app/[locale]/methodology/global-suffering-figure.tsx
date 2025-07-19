@@ -1,5 +1,7 @@
 import { getI18n } from '@/locales/server';
 import { AnimatedAfflictionsGroup } from './animated-afflictions';
+import SufferingSynthesisDurationTable
+  from "@/app/[locale]/ui/general/methodology/elements/suffering-synthesis-duration-table";
 
 export default async function GlobalSufferingFigure() {
   const t = await getI18n();
@@ -204,21 +206,13 @@ export default async function GlobalSufferingFigure() {
             <h3 className="text-xs font-extrabold mb-2">
               {t('MethodologyPage.sufferingQuantificationSteps.step3.result.title')}
             </h3>
-            <div className="text-[9px] normal-case mx-auto">
-              <div className="grid grid-cols-2 grid-rows-2 text-xs font-normal text-left normal-case mx-auto">
-                <div className="bg-brown light-text p-2">
-                  {t('MethodologyPage.sufferingQuantificationSteps.step3.result.agony')}
-                </div>
-                <div className="bg-pink-3 dark-text p-2">
-                  {t('MethodologyPage.sufferingQuantificationSteps.step3.result.pain')}
-                </div>
-                <div className="bg-pink-2 dark-text p-2">
-                  {t('MethodologyPage.sufferingQuantificationSteps.step3.result.suffering')}
-                </div>
-                <div className="bg-pink-1 dark-text p-2">
-                  {t('MethodologyPage.sufferingQuantificationSteps.step3.result.discomfort')}
-                </div>
-              </div>
+            <div className="normal-case mx-auto">
+              <SufferingSynthesisDurationTable
+                  agony_duration_text={t('MethodologyPage.sufferingQuantificationSteps.step3.result.agony')}
+                  pain_duration_text={t('MethodologyPage.sufferingQuantificationSteps.step3.result.pain')}
+                  suffering_duration_text={t('MethodologyPage.sufferingQuantificationSteps.step3.result.suffering')}
+                  discomfort_duration_text={t('MethodologyPage.sufferingQuantificationSteps.step3.result.suffering')}
+              />
             </div>
           </div>
         </article>

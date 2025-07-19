@@ -454,26 +454,26 @@ export default {
       text: 'The researchers defined four levels of suffering using behavioral and functional criteria: Is the hen still carrying out its usual activities (eating, exploring, playing)? Is it able to concentrate and react to its surroundings? Are physiological signals associated with discomfort or stress observable? How does it show its suffering (vocalizations, agitation)? Is pain medication helping it ?',
       criteria: 'Criteria',
       legend: {
-        bloc1: {
+        discomfort: {
           title: 'Discomfort',
           description: 'Mild discomfort, with no impact on behavior. Similar to itching or shoes rubbing lightly.',
           criteria_description: 'preserved attention span, absence of behavioral and physiological signs.',
         },
-        bloc2: {
+        pain: {
           title: 'pain',
           description:
             'Persistent pain that alters but does not prevent behavior. Similar to a headache or chronic back pain.',
           criteria_description:
             'decrease in pleasant activities, mild cognitive impairment, effectiveness of analgesics.',
         },
-        bloc3: {
+        suffering: {
           title: 'suffering',
           description:
             'Constant pain, taking precedence over everything. Reduces activity, well-being, and attention. Similar to a migraine or a fracture.',
           criteria_description:
             'drastic change in activity, environmental unresponsiveness, need for strong medications.',
         },
-        bloc4: {
+        agony: {
           title: 'agony',
           description:
             'Extreme pain, unbearable even briefly. Causes screaming, trembling. Comparable to suffering that cannot be endured.',

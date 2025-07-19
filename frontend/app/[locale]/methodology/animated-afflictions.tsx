@@ -1,5 +1,7 @@
 'use client';
 import { useEffect, useRef, useState } from 'react';
+import SufferingSynthesisDurationTable
+  from "@/app/[locale]/ui/general/methodology/elements/suffering-synthesis-duration-table";
 
 export type Affliction = {
   title: string;
@@ -91,7 +93,7 @@ export function AnimatedCard({ afflictions, index, offset, cascade }: AnimatedCa
           `}
           style={{ pointerEvents: 'none' }}
         >
-          <SynteseSurffering {...afflictions[current]} />
+          <SufferingSynthesis {...afflictions[current]} />
         </div>
       )}
       {anim && next !== null && (
@@ -103,19 +105,19 @@ export function AnimatedCard({ afflictions, index, offset, cascade }: AnimatedCa
           `}
           style={{ pointerEvents: 'none' }}
         >
-          <SynteseSurffering {...afflictions[next]} />
+          <SufferingSynthesis {...afflictions[next]} />
         </div>
       )}
       {!anim && (
         <div className="absolute left-0 top-0 w-full z-1">
-          <SynteseSurffering {...afflictions[current]} />
+          <SufferingSynthesis {...afflictions[current]} />
         </div>
       )}
     </div>
   );
 }
 
-function SynteseSurffering(props: Affliction) {
+function SufferingSynthesis(props: Affliction) {
   const { title, percent, text, agony, pain, suffering, discomfort } = props;
   return (
     <div className="bg-white p-3">
@@ -129,13 +131,8 @@ function SynteseSurffering(props: Affliction) {
           <span className="font-bold">{text}</span>
         </div>
 
-        <div className="text-[9px] normal-case ml-4">
-          <div className="grid grid-cols-2 grid-rows-2 text-xs font-normal normal-case">
-            <div className="bg-brown light-text p-2 sm:w-35">{agony}</div>
-            <div className="bg-pink-3 dark-text p-2 sm:w-35">{pain}</div>
-            <div className="bg-pink-2 dark-text p-2 sm:w-35">{suffering}</div>
-            <div className="bg-pink-1 dark-text p-2 sm:w-35">{discomfort}</div>
-          </div>
+        <div className="normal-case ml-4">
+          <SufferingSynthesisDurationTable agony_duration_text={agony} pain_duration_text={pain} suffering_duration_text={suffering} discomfort_duration_text={discomfort}/>
         </div>
       </div>
     </div>

@@ -1,6 +1,7 @@
 import { getI18n } from '@/locales/server';
 import Link from 'next/link';
 import SectionHeading from '@/app/[locale]/ui/general/home-page/elements/section-heading';
+import SufferingStagesDescription from "@/app/[locale]/ui/general/elements/suffering-stages-description";
 
 export default async function PainEquationSection() {
   const t = await getI18n();
@@ -30,24 +31,7 @@ export default async function PainEquationSection() {
               {t('PainEquationSection.painStagesLabel')}
             </h3>
 
-            <div className="grid grid-cols-1 md:grid-cols-4 ">
-              <article className="bg-pink-1 p-4 border border-pink-2">
-                <h4 className="font-bold uppercase mb-4 mt-4">{t('PainEquationSection.stages.discomfort.title')}</h4>
-                <p className="text-sm font-medium">{t('PainEquationSection.stages.discomfort.text')}</p>
-              </article>
-              <article className="bg-pink-2 p-4">
-                <h4 className="font-bold uppercase mb-4 mt-4">{t('PainEquationSection.stages.pain.title')}</h4>
-                <p className="text-sm font-medium">{t('PainEquationSection.stages.pain.text')}</p>
-              </article>
-              <article className="bg-pink-3 p-4">
-                <h4 className="font-bold uppercase mb-4 mt-4">{t('PainEquationSection.stages.suffering.title')}</h4>
-                <p className="text-sm font-medium">{t('PainEquationSection.stages.suffering.text')}</p>
-              </article>
-              <article className="bg-brown light-text p-4">
-                <h4 className="font-bold uppercase mb-4 mt-4">{t('PainEquationSection.stages.agony.title')}</h4>
-                <p className="text-sm font-medium">{t('PainEquationSection.stages.agony.text')}</p>
-              </article>
-            </div>
+            <SufferingStagesDescription/>
 
             <footer className="text-center mt-8">
               <Link

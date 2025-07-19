@@ -332,7 +332,7 @@ export default {
           discomfort: '3h 1min d’inconfort',
         },
         bloc5: {
-          title: 'Au cours de sa vie, Une poule en cage subit en moyenne:',
+          title: 'Au cours de sa vie, une poule en cage subit en moyenne:',
           agony: '6min d’agonie',
           pain: '385h de douleur',
           suffering: '448h de souffrance',
@@ -445,7 +445,7 @@ export default {
         },
 
         result: {
-          title: 'Au cours de sa vie, Une poule en cage subit en moyenne:',
+          title: 'Au cours de sa vie, une poule en cage subit en moyenne:',
           agony: '6min d’agonie',
           pain: '385h de douleur',
           suffering: '448h de souffrance',
@@ -456,27 +456,27 @@ export default {
       text: "Les chercheurs ont défini quatre niveaux de souffrance via des critères comportementaux et fonctionnels : la poule mène-t-elle encore à bien ses activités habituelles (manger, explorer, jouer) ? Arrive-t-elle à se concentrer et à réagir à ce qui l'entoure  ? Des signaux physiologiques associés au mal-être ou au stress sont-ils observables ? Comment montre-t-elle sa souffrance (vocalisations, agitation) ? Des médicaments contre la douleur l'aident-elle ?",
       criteria: 'Critères',
       legend: {
-        bloc1: {
+        discomfort: {
           title: 'Inconfort',
           description:
             'Inconfort léger, sans impact sur le comportement. Comparable à une démangeaison ou des chaussures qui frottent légèrement.',
           criteria_description: "capacité d'attention préservée, absence de signes comportementaux et physiologiques.",
         },
-        bloc2: {
+        pain: {
           title: 'douleur',
           description:
             'Douleur persistante, altérant les comportements sans les empêcher. Semblable à un mal de tête ou un mal de dos chronique.',
           criteria_description:
             'diminution des activités plaisantes, altération cognitive légère, efficacité des analgésiques.',
         },
-        bloc3: {
+        suffering: {
           title: 'souffrance',
           description:
             'Douleur constante, prioritaire sur tout. Réduit l’activité, le bien-être, l’attention. Semblable à une migraine ou une fracture.',
           criteria_description:
             'changement drastique dactivité, non-réactivité environnementale, besoin de médicaments puissants.',
         },
-        bloc4: {
+        agony: {
           title: 'agonie',
           description:
             'Douleur extrême, insupportable même brièvement. Provoque cris, tremblements. Comparable à une souffrance que l’on ne peut endurer',
@@ -590,34 +590,34 @@ export default {
           'Il reste à faire la somme de tous ces résultats pour déterminer la souffrance globale subie par une poule.',
       },
     },
-    
+
     key_results_section: {
       key_results_h1: 'Les principaux résultats',
       text_1: 'On peut donc chiffrer la souffrance d’une poule dans différents systèmes d\'élevage.',
       text_2: 'En appliquant la même méthode aux autres animaux impliqués dans la production d\'œufs (poussins, parentaux...), on peut calculer l\'empreinte souffrance globale pour la production d\'un œuf.',
       carte_1: {
-        text_carte_1: 'Au cours de sa vie, Une poule en cage subit en moyenne:',
+        text_carte_1: 'Au cours de sa vie, une poule en cage subit en moyenne:',
         agony_carte_1: '6 min d’agonie',
         pain_carte_1: '385h de douleur',
         suffering_carte_1: '448h de souffrance',
         discomfort_carte_1: '3000h d’inconfort',
       },
       carte_2: {
-        text_carte_2: 'Au cours de sa vie, Une poule en cage subit en moyenne:',
+        text_carte_2: 'Au cours de sa vie, une poule en cage subit en moyenne:',
         agony_carte_2: '6 min d’agonie',
         pain_carte_2: '385h de douleur',
         suffering_carte_2: '448h de souffrance',
         discomfort_carte_2: '3000h d’inconfort',
       },
       carte_3: {
-        text_carte_3: 'Au cours de sa vie, Une poule en cage subit en moyenne:',
+        text_carte_3: 'Au cours de sa vie, une poule en cage subit en moyenne:',
         agony_carte_3: '6 min d’agonie',
         pain_carte_3: '385h de douleur',
         suffering_carte_3: '448h de souffrance',
         discomfort_carte_3: '3000h d’inconfort',
       },
       carte_4: {
-        text_carte_4: 'Au cours de sa vie, Une poule en cage subit en moyenne:',
+        text_carte_4: 'Au cours de sa vie, une poule en cage subit en moyenne:',
         agony_carte_4: '6 min d’agonie',
         pain_carte_4: '385h de douleur',
         suffering_carte_4: '448h de souffrance',
