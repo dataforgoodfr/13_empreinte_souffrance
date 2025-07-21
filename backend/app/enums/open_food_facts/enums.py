@@ -173,3 +173,26 @@ TIME_IN_PAIN_FOR_100G_IN_SECONDS = {
     },
     # Here will come data for other animals...
 }
+
+
+class EggCaliber(StrEnum):
+    """Egg calibers with their corresponding weights in grams."""
+
+    SMALL = "small"
+    MEDIUM = "medium"
+    LARGE = "large"
+    EXTRA_LARGE = "extra_large"
+    AVERAGE = "average"
+    GRADE_A = "grade_a"  # to be removed while fixing quantity calculator
+
+    @property
+    def weight(self) -> int:
+        # values to be modified while fixing quantity calculator
+        return {
+            EggCaliber.SMALL: 48,
+            EggCaliber.MEDIUM: 50,  # to 58
+            EggCaliber.LARGE: 60,  # to 68
+            EggCaliber.EXTRA_LARGE: 78,
+            EggCaliber.GRADE_A: 55,  # to be removed
+            EggCaliber.AVERAGE: 50,  # to 58
+        }[self]

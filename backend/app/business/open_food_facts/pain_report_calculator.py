@@ -1,7 +1,7 @@
 from typing import List
 
 from app.business.open_food_facts.breeding_type_calculator import BreedingTypeCalculator
-from app.business.open_food_facts.egg_weight_calculator import calculate_egg_weight
+from app.business.open_food_facts.quantity_calculator import QuantityCalculator
 from app.config.exceptions import ResourceNotFoundException
 from app.enums.open_food_facts.enums import TIME_IN_PAIN_FOR_100G_IN_SECONDS, AnimalType, PainIntensity, PainType
 from app.schemas.open_food_facts.external import ProductData
@@ -216,18 +216,14 @@ class PainReportCalculator:
             instances and values are their associated quantities (in grams).
         """
         if self.product_type.is_mixed:
-            # unable for now to compute mixed product
-            return {animal_type: None for animal_type in self.product_type.animal_types}
+            return QuantityCalculator(self.product_data, self.product_type).get_quantities_by_animal()
         else:
             try:
                 animal_type = list(self.product_type.animal_types)[0]
             except IndexError:
                 return {}
-            if animal_type == AnimalType.LAYING_HEN:
-                quantity = calculate_egg_weight(self.product_data)
-                return {animal_type: quantity}
-            else:
-                return {animal_type: None}
+            quantity = QuantityCalculator(self.product_data, self.product_type).get_quantity(animal_type)
+            return {animal_type: quantity}
 
     def _calculate_time_in_pain_for_animal_with_type(
         self,
