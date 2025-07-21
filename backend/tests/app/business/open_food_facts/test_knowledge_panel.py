@@ -11,6 +11,10 @@ from app.business.open_food_facts.breeding_type_calculator import (
     get_cage_regex,
     get_free_range_regex,
 )
+from app.business.open_food_facts.egg_quantity_calculator import (
+    EggCaliber,
+    EggQuantityCalculator,
+)
 from app.business.open_food_facts.knowledge_panel import (
     KnowledgePanelGenerator,
     get_data_from_off_search_a_licious,
@@ -18,10 +22,6 @@ from app.business.open_food_facts.knowledge_panel import (
     get_knowledge_panel_response,
 )
 from app.business.open_food_facts.pain_report_calculator import PainReportCalculator
-from app.business.open_food_facts.quantity_calculator import (
-    EggCaliber,
-    EggQuantityCalculator,
-)
 from app.config.exceptions import ResourceNotFoundException
 from app.config.i18n import I18N
 from app.enums.open_food_facts.enums import AnimalType, LayingHenBreedingType, PainIntensity, PainType
