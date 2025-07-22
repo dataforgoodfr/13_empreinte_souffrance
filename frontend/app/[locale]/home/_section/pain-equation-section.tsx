@@ -1,7 +1,7 @@
 import { getI18n } from '@/locales/server';
 import Link from 'next/link';
-import SectionHeading from '@/app/[locale]/ui/general/home-page/elements/section-heading';
-import SufferingStagesDescription from "@/app/[locale]/ui/general/elements/suffering-stages-description";
+import SectionHeading from '@/app/[locale]/ui/_section/section-heading';
+import SufferingStagesDescription from '@/app/[locale]/ui/_components/suffering-stages-description';
 
 export default async function PainEquationSection() {
   const t = await getI18n();
@@ -22,16 +22,14 @@ export default async function PainEquationSection() {
             <div className="py-2 w-full">{t('PainEquationSection.formula.burden')}</div>{' '}
           </div>
 
-          <p className="mt-12 mb-12 max-w-2xl mx-auto text-center sm:text-lg">
-            {t('PainEquationSection.description')}
-          </p>
+          <p className="mt-12 mb-12 max-w-2xl mx-auto text-center sm:text-lg">{t('PainEquationSection.description')}</p>
 
           <section aria-labelledby="pain-stages" className="mb-12">
             <h3 id="pain-stages" className="sr-only">
               {t('PainEquationSection.painStagesLabel')}
             </h3>
 
-            <SufferingStagesDescription/>
+            <SufferingStagesDescription />
 
             <footer className="text-center mt-8">
               <Link

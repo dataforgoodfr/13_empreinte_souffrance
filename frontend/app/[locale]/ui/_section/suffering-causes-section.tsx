@@ -1,6 +1,6 @@
 import { getI18n } from '@/locales/server';
-import SectionHeading from '@/app/[locale]/ui/general/home-page/elements/section-heading';
-import BoltIcon from '@/app/[locale]/ui/icons/BoltIcon';
+import SectionHeading from '@/app/[locale]/ui/_section/section-heading';
+import BoltIcon from '@/app/[locale]/ui/_components/BoltIcon';
 
 export default async function SufferingCausesSection() {
   const t = await getI18n();

@@ -1,8 +1,8 @@
 import { getI18n } from '@/locales/server';
-import QuantifySufferingByPain from '@/app/[locale]/methodology/quantify-suffering-by-pain';
-import GlobalSufferingFigure from './global-suffering-figure';
-import SectionHeading from '../ui/general/home-page/elements/section-heading';
-import ListOfAffliction from './list-of-affition';
+import QuantifySufferingByPain from '@/app/[locale]/methodology/_components/quantify-suffering-by-pain';
+import GlobalSufferingFigure from '../_components/global-suffering-figure';
+import SectionHeading from '../../ui/_section/section-heading';
+import ListOfAffliction from '../_components/list-of-affition';
 
 export default async function MethodDetailsSection() {
   const t = await getI18n();

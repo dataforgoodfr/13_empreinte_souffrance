@@ -1,7 +1,6 @@
 'use client';
 import { useEffect, useRef, useState } from 'react';
-import SufferingSynthesisDurationTable
-  from "@/app/[locale]/ui/general/methodology/elements/suffering-synthesis-duration-table";
+import SufferingSynthesisDurationTable from '@/app/[locale]/methodology/_components/suffering-synthesis-duration-table';
 
 export type Affliction = {
   title: string;
@@ -34,9 +33,7 @@ export function AnimatedAfflictionsGroup({ afflictions, delay = 4000, cascade = 
       {[0, 1, 2].map((offset, idx, arr) => (
         <div key={offset}>
           <AnimatedCard afflictions={afflictions} index={index} offset={offset} cascade={cascade} />
-          {idx < arr.length - 0 && (
-            <div className="bg-violet-1 text-center text-3xl font-extrabold w-full py-1">+</div>
-          )}
+          {idx < arr.length - 0 && <div className="bg-violet-1 text-center text-3xl font-extrabold w-full py-1">+</div>}
         </div>
       ))}
     </div>
@@ -132,7 +129,12 @@ function SufferingSynthesis(props: Affliction) {
         </div>
 
         <div className="normal-case ml-4">
-          <SufferingSynthesisDurationTable agony_duration_text={agony} pain_duration_text={pain} suffering_duration_text={suffering} discomfort_duration_text={discomfort}/>
+          <SufferingSynthesisDurationTable
+            agony_duration_text={agony}
+            pain_duration_text={pain}
+            suffering_duration_text={suffering}
+            discomfort_duration_text={discomfort}
+          />
         </div>
       </div>
     </div>

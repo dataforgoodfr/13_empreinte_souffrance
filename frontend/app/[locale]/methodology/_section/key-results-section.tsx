@@ -1,7 +1,6 @@
-import SectionHeading from '../ui/general/home-page/elements/section-heading';
+import SectionHeading from '../../ui/_section/section-heading';
 import { getI18n } from '@/locales/server';
-import SufferingSynthesisDurationRows
-  from "@/app/[locale]/ui/general/methodology/elements/suffering-synthesis-duration-rows";
+import SufferingSynthesisDurationRows from '@/app/[locale]/methodology/_components/suffering-synthesis-duration-rows';
 
 export default async function KeyResultsSection() {
   const t = await getI18n();
@@ -65,7 +64,12 @@ const AfflictionResultCard = ({ text, agony, pain, suffering, discomfort }: Affl
         <p>{text}</p>
       </div>
       <div className="w-1/2 flex flex-col items-center justify-center ">
-        <SufferingSynthesisDurationRows agony_duration_text={agony} pain_duration_text={pain} suffering_duration_text={suffering} discomfort_duration_text={discomfort}/>
+        <SufferingSynthesisDurationRows
+          agony_duration_text={agony}
+          pain_duration_text={pain}
+          suffering_duration_text={suffering}
+          discomfort_duration_text={discomfort}
+        />
       </div>
     </div>
   );

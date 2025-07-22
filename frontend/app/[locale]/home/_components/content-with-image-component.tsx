@@ -1,8 +1,8 @@
 import Image from 'next/image';
 import clsx from 'clsx';
-import BoltIcon from '@/app/[locale]/ui/icons/BoltIcon';
+import BoltIcon from '@/app/[locale]/ui/_components/BoltIcon';
 
-type ContentWithImageSectionProps = {
+type ContentWithImageComponentProps = {
   text_heading: string;
   text_content: string;
   image_url: string;
@@ -11,13 +11,13 @@ type ContentWithImageSectionProps = {
   hide_image_on_small_screen?: boolean;
 };
 
-export default function ContentWithImageSection({
+export default function ContentWithImageComponent({
   text_heading,
   text_content,
   image_url,
   image_description,
   image_position = 'left',
-}: ContentWithImageSectionProps) {
+}: ContentWithImageComponentProps) {
   return (
     <section
       className={clsx(
