@@ -1,10 +1,8 @@
 import { getI18n } from '@/locales/server';
-import SectionHeading from '../ui/general/home-page/elements/section-heading';
-import SufferingStagesDescription from "@/app/[locale]/ui/general/elements/suffering-stages-description";
-import SufferingSynthesisDurationTable
-  from "@/app/[locale]/ui/general/methodology/elements/suffering-synthesis-duration-table";
-import SufferingSynthesisDurationRows
-  from "@/app/[locale]/ui/general/methodology/elements/suffering-synthesis-duration-rows";
+import SectionHeading from '../../ui/_section/section-heading';
+import SufferingStagesDescription from '@/app/[locale]/ui/_components/suffering-stages-description';
+import SufferingSynthesisDurationTable from '@/app/[locale]/methodology/_components/suffering-synthesis-duration-table';
+import SufferingSynthesisDurationRows from '@/app/[locale]/methodology/_components/suffering-synthesis-duration-rows';
 
 /**
  * Quick documentation:
@@ -18,7 +16,7 @@ import SufferingSynthesisDurationRows
  * - HeaderColone: stylized header for each column.
  */
 
-export default async function SufferingQuantificationSteps() {
+export default async function SufferingQuantificationStepsSection() {
   const t = await getI18n();
 
   return (
@@ -35,7 +33,7 @@ export default async function SufferingQuantificationSteps() {
           {t('MethodologyPage.sufferingQuantificationSteps.title2')}
         </h2>
         <p className="md:max-w-2/3 my-6">{t('MethodologyPage.sufferingQuantificationSteps.text')}</p>
-          <SufferingStagesDescription display_criteria={true}/>
+        <SufferingStagesDescription display_criteria={true} />
       </div>
     </section>
   );
@@ -55,9 +53,8 @@ const StepColumnHeader = ({ title, number }: StepColumnHeaderProps) => {
   );
 };
 
-
-async function ChickenAfflictionsList(){
-    const t = await getI18n();
+async function ChickenAfflictionsList() {
+  const t = await getI18n();
 
   return (
     <article className="border border-pink-3 w-full md:basis-1/3">
@@ -81,7 +78,7 @@ async function ChickenAfflictionsList(){
       </ul>
     </article>
   );
-};
+}
 
 interface SufferingQuantificationTableProps {
   title: string;
@@ -102,16 +99,21 @@ const SufferingQuantificationTable = ({
     <div className="bg-white p-4">
       <h3 className="text-center font-bold mb-2">{title}</h3>
       <div className="normal-case">
-        <SufferingSynthesisDurationRows agony_duration_text={agony} pain_duration_text={pain} suffering_duration_text={suffering} discomfort_duration_text={discomfort}/>
+        <SufferingSynthesisDurationRows
+          agony_duration_text={agony}
+          pain_duration_text={pain}
+          suffering_duration_text={suffering}
+          discomfort_duration_text={discomfort}
+        />
       </div>
     </div>
   );
 };
 
 async function AfflictionSufferingQuantifier() {
-    const t = await getI18n();
+  const t = await getI18n();
 
-    return (
+  return (
     <article className="border border-pink-3 divide-y divide-pink-3 md:basis-1/3  w-full ">
       <StepColumnHeader title={t('MethodologyPage.sufferingQuantificationSteps.step2.title')} number="2" />
       <SufferingQuantificationTable
@@ -142,7 +144,7 @@ async function AfflictionSufferingQuantifier() {
       </div>
     </article>
   );
-};
+}
 
 interface SufferingSynthesisProps {
   title: string;
@@ -166,7 +168,12 @@ const SufferingSynthesis = ({ title, percent, text, agony, pain, suffering, disc
           <span className="font-bold">{text}</span>
         </div>
         <div className="flex items-center justify-end w-1/2">
-          <SufferingSynthesisDurationTable agony_duration_text={agony} pain_duration_text={pain} suffering_duration_text={suffering} discomfort_duration_text={discomfort}/>
+          <SufferingSynthesisDurationTable
+            agony_duration_text={agony}
+            pain_duration_text={pain}
+            suffering_duration_text={suffering}
+            discomfort_duration_text={discomfort}
+          />
         </div>
       </div>
     </div>
@@ -174,9 +181,9 @@ const SufferingSynthesis = ({ title, percent, text, agony, pain, suffering, disc
 };
 
 async function AverageSufferingSummary() {
-    const t = await getI18n();
+  const t = await getI18n();
 
-    return (
+  return (
     <article className="flex-1 md:basis-1/3 divide-y divide-pink-3 border border-pink-3">
       <StepColumnHeader title={t('MethodologyPage.sufferingQuantificationSteps.step3.title')} number="3" />
       <SufferingSynthesis
@@ -217,13 +224,13 @@ async function AverageSufferingSummary() {
         </h3>
         <div className="normal-case mx-auto">
           <SufferingSynthesisDurationTable
-              agony_duration_text={t('MethodologyPage.sufferingQuantificationSteps.step3.bloc5.agony')}
-              pain_duration_text={t('MethodologyPage.sufferingQuantificationSteps.step3.bloc5.pain')}
-              suffering_duration_text={t('MethodologyPage.sufferingQuantificationSteps.step3.bloc5.suffering')}
-              discomfort_duration_text={t('MethodologyPage.sufferingQuantificationSteps.step3.bloc5.discomfort')}
+            agony_duration_text={t('MethodologyPage.sufferingQuantificationSteps.step3.bloc5.agony')}
+            pain_duration_text={t('MethodologyPage.sufferingQuantificationSteps.step3.bloc5.pain')}
+            suffering_duration_text={t('MethodologyPage.sufferingQuantificationSteps.step3.bloc5.suffering')}
+            discomfort_duration_text={t('MethodologyPage.sufferingQuantificationSteps.step3.bloc5.discomfort')}
           />
         </div>
       </div>
     </article>
   );
-};
+}
