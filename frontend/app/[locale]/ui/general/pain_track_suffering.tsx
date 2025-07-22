@@ -42,7 +42,7 @@ export default async function PainTrackTable() {
         <tbody>
           <tr className="bg-white">
             <td
-              className="px-4 py-2 text-center italic bg-pink-1 font-medium "
+              className="px-4 py-2 text-center italic bg-pink-1 font-medium text-nowrap"
               style={{ textOrientation: 'mixed', writingMode: 'sideways-lr' }}
               rowSpan={6}
             >
