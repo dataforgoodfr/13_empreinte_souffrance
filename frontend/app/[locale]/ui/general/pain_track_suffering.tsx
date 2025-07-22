@@ -14,8 +14,8 @@ export default async function PainTrackTable() {
             </th>
           </tr>
           <tr className="bg-white">
-            <th className="bg-pink-50" />
-            <th className="bg-pink-50" />
+            <th className="bg-pink-1" />
+            <th className="bg-pink-1" />
             <th className="p-2 font-medium">
               {t('MethodologyPage.QuantifySufferingByPain.painTrackTable.ruptureTissu')}
               <br />
@@ -42,7 +42,7 @@ export default async function PainTrackTable() {
         <tbody>
           <tr className="bg-white">
             <td
-              className="px-4 py-2 text-center italic bg-pink-50 font-medium "
+              className="px-4 py-2 text-center italic bg-pink-1 font-medium "
               style={{ textOrientation: 'mixed', writingMode: 'sideways-lr' }}
               rowSpan={6}
             >

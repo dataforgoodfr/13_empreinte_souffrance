@@ -1,6 +1,6 @@
 import { getI18n } from '@/locales/server';
 import PainTrackTable from '../ui/general/pain_track_suffering';
-import ButtonLink from "@/app/[locale]/ui/general/elements/button-link";
+import ButtonLink from '@/app/[locale]/ui/general/elements/button-link';
 
 export default async function QuantifySufferingByPain() {
   const t = await getI18n();
@@ -23,31 +23,30 @@ export default async function QuantifySufferingByPain() {
           {t('MethodologyPage.QuantifySufferingByPain.painTrackTableTitle')}
         </h3>
         <hr className="border-1 mb-10 border-[#FF7B7B]" />
-        <div className="mt-12  overflow-x-auto w-full">
-          <PainTrackTable/>
+        <div className="my-12 overflow-x-auto w-full">
+          <PainTrackTable />
         </div>
       </div>
 
       <div className="bg-white flex flex-col md:flex-row items-stretch w-full mb-12 ">
-                <img
-                    src="/analyze-pain.png"
-                    className="w-full md:w-2/4 object-cover"
-                    alt={t('MethodologyPage.QuantifySufferingByPain.conclusionAltImg')}
-                    style={{display: 'block'}}
-                />
-                <div className="flex flex-col gap-y-10 justify-center md:w-2/4 px-6 md:px-12">
-                    <p className="text-md p-2 md:p-0 text-bold">{t('MethodologyPage.QuantifySufferingByPain.conclusionText')}</p>
-                    <div className="w-full flex justify-center">
-                        <ButtonLink
-                            href="#list_of_pains"
-                            aria_label={t('MethodologyPage.QuantifySufferingByPain.conclusionButton')}
-                            button_text={t('MethodologyPage.QuantifySufferingByPain.conclusionButton')}
-                            width='small'
-                        />
-                    </div>
-                </div>
-            </div>
+        <img
+          src="/analyze-pain.png"
+          className="w-full md:w-2/4 object-cover"
+          alt={t('MethodologyPage.QuantifySufferingByPain.conclusionAltImg')}
+          style={{ display: 'block' }}
+        />
+        <div className="flex flex-col gap-y-10 justify-center md:w-2/4 px-6 md:px-12">
+          <p className="text-md p-2 md:p-0 text-bold">{t('MethodologyPage.QuantifySufferingByPain.conclusionText')}</p>
+          <div className="w-full flex justify-center">
+            <ButtonLink
+              href="#list_of_pains"
+              aria_label={t('MethodologyPage.QuantifySufferingByPain.conclusionButton')}
+              button_text={t('MethodologyPage.QuantifySufferingByPain.conclusionButton')}
+              width="small"
+            />
+          </div>
+        </div>
+      </div>
     </div>
   );
 }
-
