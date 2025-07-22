@@ -1,5 +1,5 @@
 import { getI18n } from '@/locales/server';
-import { AnimatedAfflictionsGroup } from '../animated-afflictions';
+import { AnimatedAfflictionsGroup } from './animated-afflictions';
 import SufferingSynthesisDurationTable from '@/app/[locale]/methodology/_components/suffering-synthesis-duration-table';
 
 export default async function GlobalSufferingFigure() {
