@@ -625,4 +625,12 @@ export default {
       },
     },
   },
+
+    // This Section is used in About Page 
+  AboutPage:{
+association_presentation_section:{
+two_hens_out_five_title:"Deux Poules sur cinq est le fruit d’une collaboration entre Anima et Data for Good, deux associations à but non lucratif.",
+}
+  },
+  
 } as const;
