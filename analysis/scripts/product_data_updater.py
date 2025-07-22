@@ -6,10 +6,12 @@ Automates updates of product info in OpenFoodFacts.
 Includes batch processing and single test updates.
 
 Usage examples:
-  python product_data_updater.py --breeding-types --file breeding.csv
-  python product_data_updater.py --quantities --file quantities.csv
-  python product_data_updater.py --test-breeding --barcode 3760074380089 --tag "en:organic-eggs"
-  python product_data_updater.py --test-quantity --barcode 3760074380089 --tag "12 pcs"
+  python product_data_updater.py --breeding --file breeding.csv
+  python product_data_updater.py --caliber --file caliber.csv
+  python product_data_updater.py --quantity --file quantity.csv
+  python product_data_updater.py --test-breeding --barcode 0061719011930 --tag "en:barn-chicken-eggs"
+  python product_data_updater.py --test-caliber --barcode 0061719011930 --tag "en:large-eggs"
+  python product_data_updater.py --test-quantity --barcode 0061719011930 --tag "12 pcs"
 """
 
 import pandas as pd
@@ -41,6 +43,12 @@ class Config:
         "en:barn-chicken-eggs",
         "en:free-range-chicken-eggs",
         "en:organic-eggs"
+    }
+    CALIBER_TAGS = {
+        "en:small-eggs",
+        "en:medium-eggs",
+        "en:large-eggs",
+        "en:extra-large-eggs",
     }
 
 # =============================================================================
@@ -131,37 +139,42 @@ def validate_barcodes_exist(df: pd.DataFrame, delay_seconds: float) -> bool:
         time.sleep(delay_seconds)
     return all_found
 
-def validate_quantity_tag_format(tag: str) -> bool:
+
+def validate_tag_format(tag: str, operation: str) -> bool:
     """
-    Validate that a quantity tag follows the expected format: "<integer> pcs".
+    Validate that a tag is one of the allowed predefined tags
+    for a defined operation (breeding, caliber or quantity).
+    Quantity tags must be in the format "number unit" (e.g., "12 pcs").
+    Breeding and caliber tags must match predefined sets.
 
     Args:
-        tag (str): The quantity tag string.
-
-    Returns:
-        bool: True if the tag matches the format, False otherwise.
-    """
-    parts = tag.strip().split()
-    if len(parts) != 2:
-        return False
-    number, unit = parts
-    if not number.isdigit():
-        return False
-    if unit.lower() != "pcs":
-        return False
-    return True
-
-def validate_breeding_tag_format(tag: str) -> bool:
-    """
-    Validate that a breeding tag is one of the allowed predefined tags.
-
-    Args:
-        tag (str): The breeding tag string.
+        tag (str): The tag string.
+        operation (str): Either "breeding", "caliber" or "quantity".
 
     Returns:
         bool: True if the tag is allowed, False otherwise.
     """
-    return tag.strip() in Config.BREEDING_TAGS
+    if operation == "breeding":
+        return tag.strip() in Config.BREEDING_TAGS
+
+    elif operation == "caliber":
+        return tag.strip() in Config.CALIBER_TAGS
+
+    elif operation == "quantity":
+        parts = tag.strip().split()
+        if len(parts) != 2:
+            return False
+        number, unit = parts
+        if not number.isdigit():
+            return False
+        if unit.lower() != "pcs":
+            return False
+        return True
+
+    else:
+        print(f"❌ Unknown operation: {operation}")
+        return False
+
 
 def validate_tags(df: pd.DataFrame, operation: str) -> bool:
     """
@@ -169,22 +182,19 @@ def validate_tags(df: pd.DataFrame, operation: str) -> bool:
 
     Args:
         df (pandas.DataFrame): DataFrame containing 'tag' column.
-        operation (str): Either "breeding" or "quantities".
+        operation (str): Either "breeding" or "quantity".
 
     Returns:
         bool: True if all tags are valid for the operation, False otherwise.
     """
+    all_valid = True
     for idx, tag in enumerate(df['tag']):
         tag_str = str(tag).strip()
-        if operation == "breeding":
-            if not validate_breeding_tag_format(tag_str):
-                print(f"❌ Invalid breeding tag '{tag_str}' at CSV line {idx + 2}")
-                return False
-        elif operation == "quantities":
-            if not validate_quantity_tag_format(tag_str):
-                print(f"❌ Invalid quantity tag '{tag_str}' at CSV line {idx + 2}")
-                return False
-    return True
+        if not validate_tag_format(tag_str, operation=operation):
+            print(f"❌ Invalid {operation} tag '{tag_str}' at CSV line {idx + 2}")
+            all_valid = False
+    return all_valid
+
 
 # =============================================================================
 # API UPDATE FUNCTIONS
@@ -286,7 +296,7 @@ def batch_process(df: pd.DataFrame, operation: str, username: str, password: str
 
     Args:
         df (pandas.DataFrame): DataFrame with 'barcode' and 'tag' columns.
-        operation (str): Operation to perform: "breeding" or "quantities".
+        operation (str): Operation to perform: "breeding", "caliber" or "quantity".
         username (str): OpenFoodFacts username.
         password (str): OpenFoodFacts password.
 
@@ -306,7 +316,9 @@ def batch_process(df: pd.DataFrame, operation: str, username: str, password: str
 
         if operation == "breeding":
             success = add_category_to_product(barcode, tag, username, password)
-        elif operation == "quantities":
+        elif operation == "caliber":
+            success = add_category_to_product(barcode, tag, username, password)
+        elif operation == "quantity":
             success = update_product_quantity(barcode, tag, username, password)
         else:
             print(f"❌ Unknown operation: {operation}")
@@ -362,17 +374,21 @@ def parse_args():
         description="Update OpenFoodFacts product data",
         formatter_class=argparse.RawDescriptionHelpFormatter,
         epilog="""Examples:
-  %(prog)s --breeding-types --file breeding.csv
-  %(prog)s --quantities --file quantities.csv
-  %(prog)s --test-breeding --barcode 3760074380089 --tag "en:organic-eggs"
-  %(prog)s --test-quantity --barcode 3760074380089 --tag "12 pcs"
+  %(prog)s --breeding --file breeding.csv
+  %(prog)s --caliber --file caliber.csv
+  %(prog)s --quantity --file quantity.csv
+  %(prog)s --test-breeding --barcode 0061719011930 --tag "en:organic-eggs"
+  %(prog)s --test-caliber --barcode 0061719011930 --tag "en:large-eggs"
+  %(prog)s --test-quantity --barcode 0061719011930 --tag "12 pcs"
         """
     )
 
     group = parser.add_mutually_exclusive_group(required=True)
-    group.add_argument('--breeding-types', action='store_true', help='Update breeding type categories')
-    group.add_argument('--quantities', action='store_true', help='Update product quantities')
+    group.add_argument('--breeding', action='store_true', help='Update breeding type categories')
+    group.add_argument('--caliber', action='store_true', help='Update caliber categories')
+    group.add_argument('--quantity', action='store_true', help='Update product quantity')
     group.add_argument('--test-breeding', action='store_true', help='Test breeding type update on single product')
+    group.add_argument('--test-caliber', action='store_true', help='Test caliber update on single product')
     group.add_argument('--test-quantity', action='store_true', help='Test quantity update on single product')
 
     parser.add_argument('--file', type=str, help='CSV file path for batch operations')
@@ -402,7 +418,7 @@ def main():
     args = parse_args()
 
     # Batch operation flow
-    if args.breeding_types or args.quantities:
+    if args.breeding or args.quantity or args.caliber:
         if not args.file:
             print("❌ Error: --file required for batch operations")
             sys.exit(1)
@@ -412,7 +428,12 @@ def main():
         if df is None:
             sys.exit(1)
 
-        operation = "breeding" if args.breeding_types else "quantities"
+        if args.breeding:
+            operation = "breeding"
+        elif args.caliber:
+            operation = "caliber"
+        else:
+            operation = "quantity"
 
         # Validate tags before credentials input
         if not validate_tags(df, operation):
@@ -444,7 +465,7 @@ def main():
         batch_process(df, operation, username, password)
 
     # Single test operation flow
-    elif args.test_breeding or args.test_quantity:
+    elif args.test_breeding or args.test_quantity or args.test_caliber:
         if not args.barcode or not args.tag:
             print("❌ Error: --barcode and --tag required for test operations")
             sys.exit(1)
@@ -455,20 +476,25 @@ def main():
             sys.exit(1)
 
         # Validate tag format before credentials
-        if args.test_breeding and not validate_breeding_tag_format(args.tag):
+        if args.test_breeding and not validate_tag_format(args.tag, operation="breeding"):
             print(f"❌ Invalid breeding tag '{args.tag}'")
             sys.exit(1)
-        if args.test_quantity and not validate_quantity_tag_format(args.tag):
+        if args.test_caliber and not validate_tag_format(args.tag, operation="caliber"):
+            print(f"❌ Invalid caliber tag '{args.tag}'")
+            sys.exit(1)
+        if args.test_quantity and not validate_tag_format(args.tag, operation="quantity"):
             print(f"❌ Invalid quantity tag '{args.tag}'")
             sys.exit(1)
 
+        # Get credentials
         username, password = get_credentials(args)
 
         if not username or not password:
             print("❌ Error: OpenFoodFacts credentials required")
             sys.exit(1)
 
-        if args.test_breeding:
+        # Perform the update operation
+        if args.test_breeding or args.test_caliber:
             add_category_to_product(args.barcode, args.tag, username, password)
         else:
             update_product_quantity(args.barcode, args.tag, username, password)
