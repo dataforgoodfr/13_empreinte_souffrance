@@ -1,4 +1,3 @@
-#!/usr/bin/env python3
 """
 OpenFoodFacts Product Data Updater
 
@@ -6,35 +5,38 @@ Automates updates of product info in OpenFoodFacts.
 Includes batch processing and single test updates.
 
 Usage examples:
-  python product_data_updater.py --breeding --file breeding.csv
-  python product_data_updater.py --caliber --file caliber.csv
-  python product_data_updater.py --quantity --file quantity.csv
-  python product_data_updater.py --test-breeding --barcode 0061719011930 --tag "en:barn-chicken-eggs"
-  python product_data_updater.py --test-caliber --barcode 0061719011930 --tag "en:large-eggs"
-  python product_data_updater.py --test-quantity --barcode 0061719011930 --tag "12 pcs"
+  python update_product_data.py --breeding --file breeding.csv
+  python update_product_data.py --caliber --file caliber.csv
+  python update_product_data.py --quantity --file quantity.csv
+  python update_product_data.py --test-breeding --barcode 0061719011930 --tag "en:barn-chicken-eggs"
+  python update_product_data.py --test-caliber --barcode 0061719011930 --tag "en:large-eggs"
+  python update_product_data.py --test-quantity --barcode 0061719011930 --tag "12 pcs"
 """
+
+import argparse
+import csv
+import getpass
+import os
+import sys
+import time
+from typing import Dict, Optional
 
 import pandas as pd
 import requests
-import os
-import argparse
-import sys
-import getpass
-import time
-from typing import Optional, Dict
-import csv
 
 # =============================================================================
 # CONFIGURATION
 # =============================================================================
 
+
 class Config:
     """
     Configuration constants for the OpenFoodFacts updater script.
     """
+
     OFF_API_WRITE_URL = "https://world.openfoodfacts.org/cgi/product_jqm2.pl"
     OFF_API_GET_URL = "https://world.openfoodfacts.org/api/v0/product/{}.json"
-    DATA_DIR = "../data"
+    DATA_DIR = "data/"
     REQUEST_DELAY = 0.6  # Fixed delay for ~100 requests/minute
     BREEDING_TAGS = {
         "en:eggs",
@@ -42,7 +44,7 @@ class Config:
         "en:cage-chicken-eggs",
         "en:barn-chicken-eggs",
         "en:free-range-chicken-eggs",
-        "en:organic-eggs"
+        "en:organic-eggs",
     }
     CALIBER_TAGS = {
         "en:small-eggs",
@@ -51,9 +53,11 @@ class Config:
         "en:extra-large-eggs",
     }
 
+
 # =============================================================================
 # UTILS & VALIDATION
 # =============================================================================
+
 
 def load_csv_data(file_path: str) -> Optional[pd.DataFrame]:
     """
@@ -70,16 +74,16 @@ def load_csv_data(file_path: str) -> Optional[pd.DataFrame]:
         The CSV file must contain at least the columns 'barcode' and 'tag'.
     """
     try:
-        with open(file_path, newline='', encoding='utf-8') as csvfile:
+        with open(file_path, newline="", encoding="utf-8") as csvfile:
             sample = csvfile.read(1024)
             csvfile.seek(0)
-            dialect = csv.Sniffer().sniff(sample, delimiters=[',', ';'])
+            dialect = csv.Sniffer().sniff(sample, delimiters=",;")
             sep = dialect.delimiter
 
             df = pd.read_csv(csvfile, sep=sep)
 
-            if 'barcode' not in df.columns or 'tag' not in df.columns:
-                print(f"❌ Error: CSV must contain 'barcode' and 'tag' columns")
+            if "barcode" not in df.columns or "tag" not in df.columns:
+                print("❌ Error: CSV must contain 'barcode' and 'tag' columns")
                 return None
 
             print(f"📊 Loaded {len(df)} products from {file_path} using detected separator '{sep}'")
@@ -91,6 +95,7 @@ def load_csv_data(file_path: str) -> Optional[pd.DataFrame]:
     except Exception as e:
         print(f"❌ Error loading CSV: {e}")
         return None
+
 
 def check_barcode_exists(barcode: str) -> bool:
     """
@@ -117,6 +122,7 @@ def check_barcode_exists(barcode: str) -> bool:
 
     return data.get("status") == 1
 
+
 def validate_barcodes_exist(df: pd.DataFrame, delay_seconds: float) -> bool:
     """
     Verify that all barcodes in the DataFrame exist in OpenFoodFacts,
@@ -131,7 +137,7 @@ def validate_barcodes_exist(df: pd.DataFrame, delay_seconds: float) -> bool:
     """
     print(f"🔎 Checking existence of {len(df)} barcodes in OpenFoodFacts (delay {delay_seconds}s)...")
     all_found = True
-    for idx, barcode in enumerate(df['barcode']):
+    for idx, barcode in enumerate(df["barcode"]):
         bc = str(barcode).strip()
         if not check_barcode_exists(bc):
             print(f"❌ Barcode not found in OFF: {bc} (CSV line {idx + 2})")
@@ -188,7 +194,7 @@ def validate_tags(df: pd.DataFrame, operation: str) -> bool:
         bool: True if all tags are valid for the operation, False otherwise.
     """
     all_valid = True
-    for idx, tag in enumerate(df['tag']):
+    for idx, tag in enumerate(df["tag"]):
         tag_str = str(tag).strip()
         if not validate_tag_format(tag_str, operation=operation):
             print(f"❌ Invalid {operation} tag '{tag_str}' at CSV line {idx + 2}")
@@ -200,13 +206,8 @@ def validate_tags(df: pd.DataFrame, operation: str) -> bool:
 # API UPDATE FUNCTIONS
 # =============================================================================
 
-def update_product_fields(
-    barcode: str,
-    fields: Dict[str, str],
-    username: str,
-    password: str,
-    comment: str
-) -> bool:
+
+def update_product_fields(barcode: str, fields: Dict[str, str], username: str, password: str, comment: str) -> bool:
     """
     Send a POST request to OpenFoodFacts API to update product fields.
 
@@ -248,6 +249,7 @@ def update_product_fields(
         print(f"❌ Exception for product {barcode}: {e}")
         return False
 
+
 def add_category_to_product(barcode: str, category: str, username: str, password: str) -> bool:
     """
     Add a category tag to a product via the API.
@@ -262,12 +264,9 @@ def add_category_to_product(barcode: str, category: str, username: str, password
         bool: True if the update was successful, False otherwise.
     """
     return update_product_fields(
-        barcode,
-        {"add_categories": category},
-        username,
-        password,
-        comment="Automated category addition via script"
+        barcode, {"add_categories": category}, username, password, comment="Automated category addition via script"
     )
+
 
 def update_product_quantity(barcode: str, quantity: str, username: str, password: str) -> bool:
     """
@@ -283,12 +282,9 @@ def update_product_quantity(barcode: str, quantity: str, username: str, password
         bool: True if the update was successful, False otherwise.
     """
     return update_product_fields(
-        barcode,
-        {"quantity": quantity},
-        username,
-        password,
-        comment="Automated quantity update via script"
+        barcode, {"quantity": quantity}, username, password, comment="Automated quantity update via script"
     )
+
 
 def batch_process(df: pd.DataFrame, operation: str, username: str, password: str) -> Dict[str, int]:
     """
@@ -309,8 +305,8 @@ def batch_process(df: pd.DataFrame, operation: str, username: str, password: str
     print(f"🚀 Starting batch {operation} for {len(df)} products...")
 
     for idx, row in df.iterrows():
-        barcode = str(row['barcode']).strip()
-        tag = str(row['tag']).strip()
+        barcode = str(row["barcode"]).strip()
+        tag = str(row["tag"]).strip()
 
         print(f"\n[{idx + 1}/{len(df)}] Processing {barcode}...")
 
@@ -338,9 +334,11 @@ def batch_process(df: pd.DataFrame, operation: str, username: str, password: str
 
     return {"success": success_count, "failed": failed_count, "total": len(df)}
 
+
 # =============================================================================
 # CLI & MAIN
 # =============================================================================
+
 
 def get_credentials(args) -> tuple[str, str]:
     """
@@ -353,8 +351,8 @@ def get_credentials(args) -> tuple[str, str]:
     Returns:
         tuple[str, str]: Tuple of (username, password).
     """
-    username = args.username or os.getenv('OFF_USERNAME')
-    password = args.password or os.getenv('OFF_PASSWORD')
+    username = args.username or os.getenv("OFF_USERNAME")
+    password = args.password or os.getenv("OFF_PASSWORD")
 
     if not username:
         username = input("OpenFoodFacts username: ")
@@ -362,6 +360,7 @@ def get_credentials(args) -> tuple[str, str]:
         password = getpass.getpass("OpenFoodFacts password: ")
 
     return username, password
+
 
 def parse_args():
     """
@@ -380,34 +379,39 @@ def parse_args():
   %(prog)s --test-breeding --barcode 0061719011930 --tag "en:organic-eggs"
   %(prog)s --test-caliber --barcode 0061719011930 --tag "en:large-eggs"
   %(prog)s --test-quantity --barcode 0061719011930 --tag "12 pcs"
-        """
+        """,
     )
 
     group = parser.add_mutually_exclusive_group(required=True)
-    group.add_argument('--breeding', action='store_true', help='Update breeding type categories')
-    group.add_argument('--caliber', action='store_true', help='Update caliber categories')
-    group.add_argument('--quantity', action='store_true', help='Update product quantity')
-    group.add_argument('--test-breeding', action='store_true', help='Test breeding type update on single product')
-    group.add_argument('--test-caliber', action='store_true', help='Test caliber update on single product')
-    group.add_argument('--test-quantity', action='store_true', help='Test quantity update on single product')
+    group.add_argument("--breeding", action="store_true", help="Update breeding type categories")
+    group.add_argument("--caliber", action="store_true", help="Update caliber categories")
+    group.add_argument("--quantity", action="store_true", help="Update product quantity")
+    group.add_argument("--test-breeding", action="store_true", help="Test breeding type update on single product")
+    group.add_argument("--test-caliber", action="store_true", help="Test caliber update on single product")
+    group.add_argument("--test-quantity", action="store_true", help="Test quantity update on single product")
 
-    parser.add_argument('--file', type=str, help='CSV file path for batch operations')
-    parser.add_argument('--barcode', type=str, help='Barcode for test operations')
-    parser.add_argument('--tag', type=str, help='Tag/value for test operations')
-    parser.add_argument('--username', type=str, help='OpenFoodFacts username (or set OFF_USERNAME env var)')
-    parser.add_argument('--password', type=str, help='OpenFoodFacts password (or set OFF_PASSWORD env var)')
+    parser.add_argument("--file", type=str, help="CSV file path for batch operations")
+    parser.add_argument("--barcode", type=str, help="Barcode for test operations")
+    parser.add_argument("--tag", type=str, help="Tag/value for test operations")
+    parser.add_argument("--username", type=str, help="OpenFoodFacts username (or set OFF_USERNAME env var)")
+    parser.add_argument("--password", type=str, help="OpenFoodFacts password (or set OFF_PASSWORD env var)")
 
     parser.add_argument(
-        '--verify-barcodes', dest='verify_barcodes', action='store_true',
+        "--verify-barcodes",
+        dest="verify_barcodes",
+        action="store_true",
         default=True,
-        help="Verify that barcodes exist in OpenFoodFacts before processing (default: True)"
+        help="Verify that barcodes exist in OpenFoodFacts before processing (default: True)",
     )
     parser.add_argument(
-        '--no-verify-barcodes', dest='verify_barcodes', action='store_false',
-        help="Disable barcode existence verification (product will be created if barcode does not exist)"
+        "--no-verify-barcodes",
+        dest="verify_barcodes",
+        action="store_false",
+        help="Disable barcode existence verification (product will be created if barcode does not exist)",
     )
 
     return parser.parse_args()
+
 
 def main():
     """
@@ -458,7 +462,7 @@ def main():
             print("   Products with nonexistent barcodes will be CREATED if they do not exist.\n")
 
         confirm = input("Type 'CONFIRM' to proceed: ")
-        if confirm != 'CONFIRM':
+        if confirm != "CONFIRM":
             print("Operation cancelled")
             sys.exit(0)
 
@@ -498,6 +502,7 @@ def main():
             add_category_to_product(args.barcode, args.tag, username, password)
         else:
             update_product_quantity(args.barcode, args.tag, username, password)
+
 
 if __name__ == "__main__":
     main()
