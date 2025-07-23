@@ -28,8 +28,6 @@ class MainPanelTexts(Enum):
         "Facts community and help us calculate time in pain by filling in the missing information."
     )
 
-    NOT_HANDLED = "This product does not contain any animal product supported by the Welfare footprint."
-
     PANEL_TITLE = "Welfare footprint"
     PANEL_SUBTITLE = "What is the welfare footprint?"
 

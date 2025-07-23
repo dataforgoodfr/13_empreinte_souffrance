@@ -51,7 +51,9 @@ class PainReportCalculator:
                 and animal_type.categories_tags in self.product_data.categories_tags
             ):
                 animal_types.add(animal_type)
-        if len(animal_types) == 1:
+        if not animal_types:
+            raise ResourceNotFoundException("No animal types found in product data")
+        elif len(animal_types) == 1:
             return ProductType(is_mixed=False, animal_types=animal_types)
         else:
             return ProductType(is_mixed=True, animal_types=animal_types)
@@ -76,8 +78,6 @@ class PainReportCalculator:
                 pain_levels = self._generate_pain_levels_for_animal(animal_type, breeding_type_and_quantity)
             except MissingBreedingTypeOrQuantityError:
                 pain_levels = []
-            except ResourceNotFoundException:
-                raise ResourceNotFoundException(f"Unable to generate pain levels for animal {animal_type}")
 
             animal_report = AnimalPainReport(
                 animal_type=animal_type,

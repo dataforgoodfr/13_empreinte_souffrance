@@ -234,14 +234,6 @@ class KnowledgePanelGenerator:
         """
         animals = self.pain_report.animals
 
-        # If there is no animal pain report, return a panel with a short message
-        if not animals:
-            return self._build_main_panel(
-                [
-                    self._get_text_element(self.text_manager.get_text(MainPanelTexts.NOT_HANDLED)),
-                ]
-            )
-
         # Initialize the panel with generic information message about the project
         elements = [
             self._get_text_element(self.text_manager.get_text(MainPanelTexts.WELFARE_FOOTPRINT_INTRO)),
@@ -273,19 +265,7 @@ class KnowledgePanelGenerator:
             ]
         )
 
-        # Build and return the full panel
-        return self._build_main_panel(elements)
-
-    def _build_main_panel(self, elements: list[Element]) -> Panel:
-        """
-        Assemble and return a Panel object with the given content elements.
-
-        Args:
-            elements: A list of Element objects to include in the main panel content.
-
-        Returns:
-            A fully constructed Panel instance.
-        """
+        # Create and return the main panel
         return Panel(
             elements=elements,
             level="info",
