@@ -26,7 +26,7 @@ from app.business.open_food_facts.pain_report_calculator import (
     MissingBreedingTypeOrQuantityError,
     PainReportCalculator,
 )
-from app.business.open_food_facts.unit_pain_loader import PainDataLoader
+from app.business.open_food_facts.unit_pain_loader import UnitPainLoader
 from app.config.exceptions import ResourceNotFoundException
 from app.config.i18n import I18N
 from app.enums.open_food_facts.enums import AnimalType, LayingHenBreedingType, PainIntensity, PainType
@@ -431,11 +431,11 @@ def test_calculate_egg_weight(product_fixture, expected_weight, request):
 
 def test_load_minimal_csv():
     csv_content = """animal_type;breeding_type;pain_type;pain_intensity;caliber;pain_per_egg_in_seconds
-        laying_hen;barn;physical;hurtful;small;12.5
-        """
+laying_hen;barn;physical;hurtful;small;12.5
+"""
     file_like = io.StringIO(csv_content)
 
-    loader = PainDataLoader(file_like)
+    loader = UnitPainLoader(file_like)
     data = loader.load()
 
     assert isinstance(data, dict)

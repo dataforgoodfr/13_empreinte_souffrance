@@ -19,7 +19,7 @@ LayingHenPainPerProductUnit: TypeAlias = Dict[
 PainPerProductUnit: TypeAlias = LayingHenPainPerProductUnit
 
 
-class PainDataLoader:
+class UnitPainLoader:
     """
     Loader for pain data per product from a CSV file.
     Specific to laying hens, with strong typing support.
@@ -60,10 +60,12 @@ def get_pain_per_egg_data() -> LayingHenPainPerProductUnit:
     csv_path = Path(__file__).resolve().parent / "data" / "pain_data.csv"
     try:
         with csv_path.open(newline="", encoding="utf-8") as f:
-            loader = PainDataLoader(f)
+            loader = UnitPainLoader(f)
             return loader.load()
     except FileNotFoundError:
         raise FileNotFoundError(f"CSV not found: {csv_path}")
 
 
 PAIN_PER_EGG_IN_SECONDS = get_pain_per_egg_data()
+
+print(PAIN_PER_EGG_IN_SECONDS)
