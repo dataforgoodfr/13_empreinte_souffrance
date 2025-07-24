@@ -27,7 +27,7 @@ from app.business.open_food_facts.pain_report_calculator import (
 )
 from app.config.exceptions import ResourceNotFoundException
 from app.config.i18n import I18N
-from app.enums.open_food_facts.enums import AnimalType, BreedingType, LayingHenBreedingType, PainIntensity, PainType
+from app.enums.open_food_facts.enums import AnimalType, LayingHenBreedingType, PainIntensity, PainType
 from app.schemas.open_food_facts.external import ProductData
 from app.schemas.open_food_facts.internal import (
     BreedingTypeAndQuantity,
@@ -155,69 +155,78 @@ def test_get_breeding_types(sample_product_data: ProductData):
     assert result[AnimalType.LAYING_HEN] == LayingHenBreedingType.FURNISHED_CAGE
 
 
-@pytest.mark.parametrize(
-    "quantity, breeding_type, categories, raises_exception",
-    [
-        (200, LayingHenBreedingType.FURNISHED_CAGE, ["en:eggs", "en:chicken-eggs", "en:cage-chicken-eggs"], False),
-        (None, LayingHenBreedingType.FURNISHED_CAGE, ["en:eggs", "en:chicken-eggs", "en:cage-chicken-eggs"], True),
-    ],
-)
-def test_generate_pain_levels_for_type(
-    sample_product_data: ProductData,
-    quantity: float | None,
-    breeding_type: BreedingType | None,
-    categories: list[str],
-    raises_exception: bool,
-):
+def test_generate_pain_levels_for_type(sample_product_data: ProductData):
     """Test generating pain levels for a specific animal, breeding type, and pain type"""
-
-    sample_product_data.categories_tags = categories
-    sample_product_data.product_quantity = quantity
 
     calculator = PainReportCalculator(sample_product_data)
 
-    breeding_type_and_quantity = BreedingTypeAndQuantity(breeding_type=breeding_type, quantity=quantity)
+    breeding_type = BreedingTypeAndQuantity(breeding_type=LayingHenBreedingType.FURNISHED_CAGE, quantity=200)
 
-    if not raises_exception:
-        # Checks that 4 pain levels are generated correctly for each pain type
-        for pain_type in [PainType.PHYSICAL, PainType.PSYCHOLOGICAL]:
-            levels = calculator._generate_pain_levels_for_pain_type(
-                AnimalType.LAYING_HEN, breeding_type_and_quantity, pain_type
-            )
-            assert len(levels) == 4
-            for level in levels:
-                assert level.pain_type == pain_type
-                assert isinstance(level.pain_intensity, PainIntensity)
-                assert isinstance(level.seconds_in_pain, int)
-    else:
-        # Verify that the absence of quantity or breeding type triggers an exception
-        with pytest.raises(MissingBreedingTypeOrQuantityError):
-            calculator._generate_pain_levels_for_pain_type(
-                AnimalType.LAYING_HEN, breeding_type_and_quantity, PainType.PHYSICAL
-            )
+    # Test generating physical pain levels
+    physical_pain_levels = calculator._generate_pain_levels_for_pain_type(
+        AnimalType.LAYING_HEN, breeding_type, PainType.PHYSICAL
+    )
+
+    assert len(physical_pain_levels) == 4  # One for each intensity
+    for level in physical_pain_levels:
+        assert level.pain_type == PainType.PHYSICAL
+        assert isinstance(level.pain_intensity, PainIntensity)
+        assert isinstance(level.seconds_in_pain, int)
+
+    # Test generating psychological pain levels
+    psychological_pain_levels = calculator._generate_pain_levels_for_pain_type(
+        AnimalType.LAYING_HEN, breeding_type, PainType.PSYCHOLOGICAL
+    )
+
+    assert len(psychological_pain_levels) == 4  # One for each intensity
+    for level in psychological_pain_levels:
+        assert level.pain_type == PainType.PSYCHOLOGICAL
+        assert isinstance(level.pain_intensity, PainIntensity)
+        assert isinstance(level.seconds_in_pain, int)
 
 
-@pytest.mark.parametrize(
-    ("quantity", "are_pain_levels_generated"),
-    [(None, False), (200, True)],
-)
-def test_get_pain_report(sample_product_data: ProductData, quantity: float | None, are_pain_levels_generated: bool):
-    """Test generating pain levels for sample product data with and without quantity
-    When no quantity or breeding type is provided, animal pain report is returned
-    with the detected animal type and [] as pain levels"""
+def test_generate_pain_levels_for_type_missing_quantity(sample_product_data: ProductData):
+    """Test generating pain levels for a specific animal with breeding type and missing quantity"""
 
-    sample_product_data.product_quantity = quantity
+    sample_product_data.product_quantity = None
+
+    calculator = PainReportCalculator(sample_product_data)
+
+    breeding_type = BreedingTypeAndQuantity(breeding_type=LayingHenBreedingType.FURNISHED_CAGE, quantity=None)
+
+    # Verify that the absence of quantity triggers an exception
+    with pytest.raises(MissingBreedingTypeOrQuantityError):
+        calculator._generate_pain_levels_for_pain_type(AnimalType.LAYING_HEN, breeding_type, PainType.PHYSICAL)
+
+
+def test_get_pain_report(sample_product_data: ProductData):
+    """Test generating pain report for sample product data"""
+
     calculator = PainReportCalculator(sample_product_data)
     pain_report = calculator.get_pain_report()
 
+    # Verify that the pain report contains the expected animal type
     assert len(pain_report.animals) > 0
-
     assert (pain_report.animals[0]).animal_type == AnimalType.LAYING_HEN
 
-    if are_pain_levels_generated:
-        assert len((pain_report.animals[0]).pain_levels) > 0
-    else:
-        assert len((pain_report.animals[0]).pain_levels) == 0
+    # Verify that pain levels are generated
+    assert len((pain_report.animals[0]).pain_levels) > 0
+
+
+def test_get_pain_report_missing_quantity(sample_product_data: ProductData):
+    """Test generating pain report with missing quantity"""
+
+    sample_product_data.product_quantity = None
+
+    calculator = PainReportCalculator(sample_product_data)
+    pain_report = calculator.get_pain_report()
+
+    # Verify that the pain report contains the expected animal type
+    assert len(pain_report.animals) > 0
+    assert pain_report.animals[0].animal_type == AnimalType.LAYING_HEN
+
+    # Verify that pain levels are empty when breeding type or quantity is missing
+    assert len(pain_report.animals[0].pain_levels) == 0
 
 
 # Test the display of knowledge panel with a product name or without it
