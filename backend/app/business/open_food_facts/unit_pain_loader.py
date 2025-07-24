@@ -73,3 +73,5 @@ def get_pain_per_egg_data() -> LayingHenPainPerProductUnit:
 
 
 PAIN_PER_EGG_IN_SECONDS = get_pain_per_egg_data()
+
+print(PAIN_PER_EGG_IN_SECONDS)
