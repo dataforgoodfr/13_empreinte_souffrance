@@ -405,6 +405,10 @@ class KnowledgePanelGenerator:
         """
         breeding_type = breeding_type_and_quantity.breeding_type
         quantity = breeding_type_and_quantity.quantity
+        if quantity is not None:
+            total_weight = quantity.total_weight
+        else:
+            total_weight = None
 
         return self.text_manager.format_text(
             AnimalInfoTexts.ANIMAL_INFO_TEMPLATE,
@@ -412,8 +416,8 @@ class KnowledgePanelGenerator:
             breeding_type=breeding_type.translated_name(self._)
             if breeding_type
             else self.text_manager.get_text(AnimalInfoTexts.NOT_FOUND),
-            quantity=str(int(quantity)) + self.text_manager.get_text(AnimalInfoTexts.UNIT)
-            if quantity is not None
+            quantity=str(int(total_weight)) + self.text_manager.get_text(AnimalInfoTexts.UNIT)
+            if total_weight is not None
             else self.text_manager.get_text(AnimalInfoTexts.NOT_FOUND),
         )
 

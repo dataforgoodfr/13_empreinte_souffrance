@@ -1,41 +1,10 @@
 import re
 from dataclasses import dataclass
 from typing import List, Optional
+from typing import List
 
-from app.enums.open_food_facts.enums import EggCaliber
+from app.enums.open_food_facts.enums import EggCaliber, EggQuantity
 from app.schemas.open_food_facts.external import ProductData
-
-
-@dataclass
-class EggQuantity:
-    """
-    Result of egg weight calculation containing all relevant information.
-
-    Attributes:
-        count: Number of eggs in the product
-        caliber: Caliber of the eggs if known
-        total_weight: Total weight of all eggs in grams
-    """
-
-    count: int
-    total_weight: float
-    caliber: EggCaliber | None = None
-
-    @classmethod
-    def from_count(cls, count: int, caliber: EggCaliber | None = None) -> Optional["EggQuantity"]:
-        if count <= 0:
-            return None
-        egg_weight = caliber.weight if caliber else EggCaliber.AVERAGE.weight
-        total_weight = count * egg_weight
-        return cls(count=count, total_weight=total_weight, caliber=caliber)
-
-    @classmethod
-    def from_weight(cls, total_weight: float, caliber: EggCaliber | None = None) -> Optional["EggQuantity"]:
-        if total_weight <= 0:
-            return None
-        egg_weight = caliber.weight if caliber else EggCaliber.AVERAGE.weight
-        count = round(total_weight / egg_weight)
-        return cls(count=count, total_weight=total_weight, caliber=caliber)
 
 
 class PatternRepository:
@@ -267,4 +236,5 @@ class EggQuantityCalculator:
         elif quantity:
             return self.get_egg_quantity_from_product_quantity(quantity)
         else:
-            return self.get_egg_quantity_from_tags(categories_tags)
+            self.get_egg_quantity_from_tags(categories_tags)
+

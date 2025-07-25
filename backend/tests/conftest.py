@@ -9,6 +9,8 @@ from starlette.testclient import TestClient
 from app.enums.open_food_facts.enums import (
     AnimalType,
     BroilerChickenBreedingType,
+    EggCaliber,
+    EggQuantity,
     LayingHenBreedingType,
     PainIntensity,
     PainType,
@@ -107,7 +109,8 @@ def laying_hen_breeding_type() -> BreedingTypeAndQuantity:
     """
     Fixture that provides a sample BreedingTypeAndQuantity for laying hens.
     """
-    return BreedingTypeAndQuantity(breeding_type=LayingHenBreedingType.FURNISHED_CAGE, quantity=200)
+    quantity = EggQuantity(count=4, caliber=EggCaliber.AVERAGE, total_weight=200, is_complete=True)
+    return BreedingTypeAndQuantity(breeding_type=LayingHenBreedingType.FURNISHED_CAGE, quantity=quantity)
 
 
 @pytest.fixture
