@@ -1,11 +1,7 @@
-from typing import TypeAlias
-
 from app.business.open_food_facts.egg_quantity_calculator import EggQuantityCalculator
+from app.enums.open_food_facts.enums import ProductQuantity
 from app.schemas.open_food_facts.external import ProductData
 from app.schemas.open_food_facts.internal import AnimalType, ProductType
-
-ProductQuantity: TypeAlias = float | None
-# float to be changed to EggQuantity while letting PainReportCalculator and KnowledgePanel parse EggQuantity
 
 
 class QuantityCalculator:
@@ -34,7 +30,7 @@ class QuantityCalculator:
         Returns:
             dict[AnimalType, ProductQuantity]: A dictionary where each animal type is mapped to None.
         """
-        quantities_by_animal: dict[AnimalType, float | None] = {}
+        quantities_by_animal: dict[AnimalType, ProductQuantity] = {}
 
         for animal_type in self.product_type.animal_types:
             quantities_by_animal[animal_type] = None
@@ -48,7 +44,7 @@ class QuantityCalculator:
         Args:
             AnimalType (AnimalType): The animal type to calculate quantity for.
         Returns:
-            ProductQuantity : for now float or None, in grams.
+            ProductQuantity: The quantity of the product for the specified animal type.
         """
         if animal_type == AnimalType.LAYING_HEN:
             quantity = EggQuantityCalculator().calculate_egg_quantity(self.product_data)

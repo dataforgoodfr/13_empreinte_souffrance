@@ -1,6 +1,7 @@
 from collections.abc import Callable
+from dataclasses import dataclass
 from enum import StrEnum, auto
-from typing import TypeAlias
+from typing import TypeAlias, Optional
 
 
 class LayingHenBreedingType(StrEnum):
@@ -193,3 +194,36 @@ class EggCaliber(StrEnum):
             EggCaliber.LARGE: 68,  # 63g - 73g
             EggCaliber.EXTRA_LARGE: 78,  # > 73g
         }[self]
+
+
+@dataclass
+class EggQuantity:
+    """
+    Result of egg weight calculation containing all relevant information.
+
+    Attributes:
+        count: Number of eggs in the product
+        caliber: Caliber of the eggs if known
+        total_weight: Total weight of all eggs in grams
+    """
+
+    count: int
+    total_weight: float
+    caliber: EggCaliber | None = None
+
+    @classmethod
+    def from_count(cls, count: int, caliber: EggCaliber | None = None) -> Optional["EggQuantity"]:
+        if count <= 0:
+            return None
+        egg_weight = caliber.weight if caliber else EggCaliber.AVERAGE.weight
+        total_weight = count * egg_weight
+        return cls(count=count, total_weight=total_weight, caliber=caliber)
+
+    @classmethod
+    def from_weight(cls, total_weight: float, caliber: EggCaliber | None = None) -> Optional["EggQuantity"]:
+        if total_weight <= 0:
+            return None
+        egg_weight = caliber.weight if caliber else EggCaliber.AVERAGE.weight
+        count = round(total_weight / egg_weight)
+        return cls(count=count, total_weight=total_weight, caliber=caliber)
+
