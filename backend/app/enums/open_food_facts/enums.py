@@ -1,4 +1,5 @@
 from collections.abc import Callable
+from dataclasses import dataclass
 from enum import StrEnum, auto
 from typing import TypeAlias
 
@@ -182,8 +183,9 @@ class EggCaliber(StrEnum):
     MEDIUM = "medium"
     LARGE = "large"
     EXTRA_LARGE = "extra_large"
-    AVERAGE = "average"
     GRADE_A = "grade_a"  # to be removed while fixing quantity calculator
+
+    AVERAGE = MEDIUM  # choosing to set average egg to medium
 
     @property
     def weight(self) -> int:
@@ -194,5 +196,36 @@ class EggCaliber(StrEnum):
             EggCaliber.LARGE: 60,  # to 68
             EggCaliber.EXTRA_LARGE: 78,
             EggCaliber.GRADE_A: 55,  # to be removed
-            EggCaliber.AVERAGE: 50,  # to 58
         }[self]
+
+
+@dataclass
+class EggQuantity:
+    """
+    Result of egg weight calculation containing all relevant information.
+
+    Attributes:
+        count: Number of eggs in the product
+        caliber: Caliber of the eggs if known
+        total_weight: Total weight of all eggs in grams
+    """
+
+    count: int | None = None
+    caliber: EggCaliber | None = None
+    total_weight: float | None = None
+    is_complete: bool = False
+
+    def fill_from_count(self, count: int, caliber: EggCaliber | None = None) -> None:
+        self.count = count
+        self.caliber = caliber
+        self.total_weight = count * caliber.weight if caliber else count * EggCaliber.AVERAGE.weight
+        self.is_complete = True
+
+    def fill_from_weight(self, weight: float) -> None:
+        self.total_weight = weight
+        self.count = int(round(weight / EggCaliber.AVERAGE.weight))
+        self.is_complete = True
+
+
+ProductQuantity: TypeAlias = EggQuantity | None
+# None is used for mixed products or unsupported animal types

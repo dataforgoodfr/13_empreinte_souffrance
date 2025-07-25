@@ -29,7 +29,7 @@ from app.business.open_food_facts.pain_report_calculator import (
 from app.business.open_food_facts.unit_pain_loader import UnitPainLoader
 from app.config.exceptions import ResourceNotFoundException
 from app.config.i18n import I18N
-from app.enums.open_food_facts.enums import AnimalType, LayingHenBreedingType, PainIntensity, PainType
+from app.enums.open_food_facts.enums import AnimalType, EggQuantity, LayingHenBreedingType, PainIntensity, PainType
 from app.schemas.open_food_facts.external import ProductData
 from app.schemas.open_food_facts.internal import (
     BreedingTypeAndQuantity,
@@ -146,7 +146,10 @@ def test_get_breeding_types_and_quantities(
     item = result[AnimalType.LAYING_HEN]
     assert isinstance(item, BreedingTypeAndQuantity)
     assert item.breeding_type == expected_breeding_types
-    assert item.quantity == 200
+    assert item.quantity is not None
+    assert item.quantity.total_weight == 200
+    assert item.quantity.count == 4
+    assert item.quantity.caliber == EggCaliber.AVERAGE
 
 
 def test_get_breeding_types(sample_product_data: ProductData):
@@ -162,7 +165,9 @@ def test_generate_pain_levels_for_type(sample_product_data: ProductData):
 
     calculator = PainReportCalculator(sample_product_data)
 
-    breeding_type = BreedingTypeAndQuantity(breeding_type=LayingHenBreedingType.FURNISHED_CAGE, quantity=200)
+    quantity = EggQuantity(count=4, caliber=EggCaliber.AVERAGE, total_weight=200, is_complete=True)
+
+    breeding_type = BreedingTypeAndQuantity(breeding_type=LayingHenBreedingType.FURNISHED_CAGE, quantity=quantity)
 
     # Test generating physical pain levels
     physical_pain_levels = calculator._generate_pain_levels_for_pain_type(
@@ -420,13 +425,23 @@ def test_cage_regex(tag, should_match):
         ("extract_digits_product", 6 * EggCaliber.AVERAGE.weight),
         ("tagged_large_egg_product", 6 * EggCaliber.LARGE.weight),
         ("product_quantity_with_unit", pytest.approx(0.5 * 453.59, 0.1)),
-        ("unknown_quantity_product", None),
-        ("no_data_product", None),
     ],
 )
 def test_calculate_egg_weight(product_fixture, expected_weight, request):
     product = request.getfixturevalue(product_fixture)
     assert EggQuantityCalculator().calculate_egg_quantity(product).total_weight == expected_weight
+
+
+@pytest.mark.parametrize(
+    "product_fixture",
+    [
+        "unknown_quantity_product",
+        "no_data_product",
+    ],
+)
+def test_calculate_egg_weight_no_quantity(product_fixture, request):
+    product = request.getfixturevalue(product_fixture)
+    assert EggQuantityCalculator().calculate_egg_quantity(product) is None
 
 
 def test_load_minimal_csv():

@@ -1,37 +1,8 @@
 import re
-from dataclasses import dataclass
 from typing import List
 
-from app.enums.open_food_facts.enums import EggCaliber
+from app.enums.open_food_facts.enums import EggCaliber, EggQuantity
 from app.schemas.open_food_facts.external import ProductData
-
-
-@dataclass
-class EggQuantity:
-    """
-    Result of egg weight calculation containing all relevant information.
-
-    Attributes:
-        count: Number of eggs in the product
-        caliber: Caliber of the eggs if known
-        total_weight: Total weight of all eggs in grams
-    """
-
-    count: int | None = None
-    caliber: EggCaliber | None = None
-    total_weight: float | None = None
-    is_complete: bool = False
-
-    def fill_from_count(self, count: int, caliber: EggCaliber | None = None) -> None:
-        self.count = count
-        self.caliber = caliber
-        self.total_weight = count * caliber.weight if caliber else count * EggCaliber.AVERAGE.weight
-        self.is_complete = True
-
-    def fill_from_weight(self, weight: float) -> None:
-        self.total_weight = weight
-        self.count = int(round(weight / EggCaliber.AVERAGE.weight))
-        self.is_complete = True
 
 
 class PatternRepository:
@@ -108,7 +79,7 @@ class EggQuantityCalculator:
         self.pattern_repository = PatternRepository
         self.quantity = EggQuantity()
 
-    def get_egg_weight_by_tag(self, categories_tags: List[str]) -> int:
+    def _get_egg_weight_by_tag(self, categories_tags: List[str]) -> int:
         """
         Returns the standard weight of one egg based on category tags.
         """
@@ -117,7 +88,7 @@ class EggQuantityCalculator:
                 return weight
         return 0
 
-    def get_number_of_eggs(self, categories_tags: List[str]) -> int:
+    def _get_number_of_eggs(self, categories_tags: List[str]) -> int:
         """
         Extracts the number of eggs from tags.
         TODO: Add support for other tags
@@ -128,12 +99,12 @@ class EggQuantityCalculator:
                 return int(match.group(1))
         return 0
 
-    def get_egg_quantity_from_tags(self, categories_tags: List[str]) -> EggQuantity:
+    def _get_egg_quantity_from_tags(self, categories_tags: List[str]) -> EggQuantity:
         """
         Calculates egg quantity based on standard weights and pack size.
         """
-        num_eggs = self.get_number_of_eggs(categories_tags)
-        weight_per_egg = self.get_egg_weight_by_tag(categories_tags)
+        num_eggs = self._get_number_of_eggs(categories_tags)
+        weight_per_egg = self._get_egg_weight_by_tag(categories_tags)
 
         if num_eggs == 0:
             return self.quantity
@@ -145,7 +116,7 @@ class EggQuantityCalculator:
         self.quantity.fill_from_count(num_eggs)
         return self.quantity
 
-    def get_egg_quantity_from_product_quantity(self, quantity: str) -> EggQuantity:
+    def _get_egg_quantity_from_product_quantity(self, quantity: str) -> EggQuantity:
         """
         Parses string 'quantity' into egg quantity with count, caliber and weight.
         """
@@ -209,7 +180,7 @@ class EggQuantityCalculator:
 
         return self.quantity
 
-    def get_egg_quantity_from_product_quantity_and_unit(self, quantity: float, unit: str) -> EggQuantity:
+    def _get_egg_quantity_from_product_quantity_and_unit(self, quantity: float, unit: str) -> EggQuantity:
         """
         Converts product quantity and unit (grams or units) into Egg Quantity : weight, count, and caliber.
         """
@@ -226,7 +197,7 @@ class EggQuantityCalculator:
                     pass
         return self.quantity
 
-    def calculate_egg_quantity(self, product_data: ProductData) -> EggQuantity:
+    def calculate_egg_quantity(self, product_data: ProductData) -> EggQuantity | None:
         """
         Calculates the weight of eggs based on the product data.
 
@@ -239,10 +210,16 @@ class EggQuantityCalculator:
         categories_tags = product_data.categories_tags or []
 
         if product_quantity and unit:
-            self.get_egg_quantity_from_product_quantity_and_unit(product_quantity, unit)
+            self._get_egg_quantity_from_product_quantity_and_unit(product_quantity, unit)
         elif quantity:
-            self.get_egg_quantity_from_product_quantity(quantity)
+            self._get_egg_quantity_from_product_quantity(quantity)
         else:
-            self.get_egg_quantity_from_tags(categories_tags)
+            self._get_egg_quantity_from_tags(categories_tags)
+
+        if not self.quantity.is_complete:
+            return None
+
+        if not self.quantity.caliber:
+            self.quantity.caliber = EggCaliber.AVERAGE
 
         return self.quantity
