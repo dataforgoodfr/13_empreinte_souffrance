@@ -6,7 +6,11 @@ export default async function ResultsSection() {
   const t = await getI18n();
 
   return (
-    <section id="ResultSection" className="min-h-screen py-8 w-full max-w-screen-xl mx-auto px-4 scroll-mt-18" aria-labelledby="results-heading">
+    <section
+      id="ResultSection"
+      className="min-h-screen py-8 w-full max-w-screen-xl mx-auto px-4 scroll-mt-18"
+      aria-labelledby="results-heading"
+    >
       <SectionHeading title={t('Results.title')} heading_number="3" />
       <div className="flex flex-col justify-center items-center">
         <div className="border-1 border-pink-3 w-full md:5/6 lg:w-4/6">

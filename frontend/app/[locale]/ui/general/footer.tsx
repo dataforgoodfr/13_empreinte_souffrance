@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { faFacebook, faLinkedin, faXTwitter, faYoutube } from '@fortawesome/free-brands-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Logo from './home-page/elements/logo-walfare-footprint';
-import ButtonLink from "@/app/[locale]/ui/general/elements/button-link";
+import ButtonLink from '@/app/[locale]/ui/general/elements/button-link';
 
 export default async function Footer() {
   const t = await getI18n();
@@ -88,11 +88,11 @@ export default async function Footer() {
             </Link>
           </div>
           <ButtonLink
-              href="https://animafrance.org/je-donne"
-              aria_label={t('footer.donate')}
-              button_text={t('footer.donate')}
-              width='small'
-              open_in_new_tab={true}
+            href="https://animafrance.org/je-donne"
+            aria_label={t('footer.donate')}
+            button_text={t('footer.donate')}
+            width="small"
+            open_in_new_tab={true}
           />
         </div>
         <div className="col-span-full mt-6 grid grid-cols-1 md:grid-cols-2 text-sm gap-2 justify-center">

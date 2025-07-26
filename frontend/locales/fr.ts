@@ -488,26 +488,30 @@ export default {
 
     method_details_section: {
       title_h1: 'La méthode en détail',
-      title_h2: "2.1 Lister toutes les sources de douleur pour les poules",
-      question: "De quoi souffrent les poules ?",
-      description: "Une revue approfondie de la littérature scientifique a été menée afin d'identifier les principales sources de douleur chez les poulets en production animale, ainsi que leur fréquence selon le mode d'élevage. Il peut s'agir de douleurs physiques (fractures, lésions cutanées, infections, etc.) ou psychologiques (peur, restriction des besoins comportementaux, etc.). Au total, xx sources de douleur ont été identifiées et étudiées par le Welfare Footprint Institute, à partir d'une étude de yy articles.",
+      title_h2: '2.1 Lister toutes les sources de douleur pour les poules',
+      question: 'De quoi souffrent les poules ?',
+      description:
+        "Une revue approfondie de la littérature scientifique a été menée afin d'identifier les principales sources de douleur chez les poulets en production animale, ainsi que leur fréquence selon le mode d'élevage. Il peut s'agir de douleurs physiques (fractures, lésions cutanées, infections, etc.) ou psychologiques (peur, restriction des besoins comportementaux, etc.). Au total, xx sources de douleur ont été identifiées et étudiées par le Welfare Footprint Institute, à partir d'une étude de yy articles.",
 
       section_img_1: {
         title_h3: 'Quelques douleurs psychologiques',
         img_1: {
           alt: 'Restriction de la liberté de mouvement',
           type_of_pain: 'Restriction de la liberté de mouvement :',
-          description_of_pain: 'Enfermées en cage, les poules peuvent difficilement se tenir debout, se nettoyer, se tourner ou étendre leurs ailes.',
+          description_of_pain:
+            'Enfermées en cage, les poules peuvent difficilement se tenir debout, se nettoyer, se tourner ou étendre leurs ailes.',
         },
         img_2: {
           alt: 'Privation de nid',
           type_of_pain: 'Privation de nid :',
-          description_of_pain: 'Les cages n\'offrent pas de lieu de nidification adapté, alors que plusieurs études ont montré que les poules cherchent à tout prix un nid avant la ponte.',
+          description_of_pain:
+            "Les cages n'offrent pas de lieu de nidification adapté, alors que plusieurs études ont montré que les poules cherchent à tout prix un nid avant la ponte.",
         },
         img_3: {
           alt: 'Privation comportementale',
           type_of_pain: 'Privation comportementale :',
-          description_of_pain: 'Incapables de picorer le sol à la recherche de nourriture (un besoin fort pour elles), les poules se frustrent et s\'attaquent entre elles. Leurs becs sont coupés pour prévenir ce risque.',
+          description_of_pain:
+            "Incapables de picorer le sol à la recherche de nourriture (un besoin fort pour elles), les poules se frustrent et s'attaquent entre elles. Leurs becs sont coupés pour prévenir ce risque.",
         },
       },
 
@@ -516,17 +520,20 @@ export default {
         img_1: {
           alt: 'Fracture du bréchet',
           type_of_pain: 'Fracture du bréchet :',
-          description_of_pain: 'Les fractures osseuses sont très courantes en élevage et sources d\'importantes souffrances pour les poules.',
+          description_of_pain:
+            "Les fractures osseuses sont très courantes en élevage et sources d'importantes souffrances pour les poules.",
         },
         img_2: {
           alt: 'Péritonite',
           type_of_pain: 'Péritonite :',
-          description_of_pain: 'Maladie survenant lorsque du jaune d\'œuf se répand dans le ventre de la poule et provoque une inflammation douloureuse qui peut s\'infecter et devenir mortelle.',
+          description_of_pain:
+            "Maladie survenant lorsque du jaune d'œuf se répand dans le ventre de la poule et provoque une inflammation douloureuse qui peut s'infecter et devenir mortelle.",
         },
         img_3: {
           alt: 'Lésions de tissus et perte de plumes',
           type_of_pain: 'Lésions de tissus et perte de plumes :',
-          description_of_pain: 'Les attaques entre poules créées par la frustration entraînent l\'arrachage de plumes, et des lésions de la peau et du cloaque.',
+          description_of_pain:
+            "Les attaques entre poules créées par la frustration entraînent l'arrachage de plumes, et des lésions de la peau et du cloaque.",
         },
       },
 
@@ -556,15 +563,16 @@ export default {
 
     QuantifySufferingByPain: {
       title: '2.2 Quantifier la souffrance pour chaque source de douleur',
-      question: 'Quelle quantité de souffrance pour une fracture du bréchet ? une lésion cutanée ? l\'impossibilité de nidifier ?',
+      question:
+        "Quelle quantité de souffrance pour une fracture du bréchet ? une lésion cutanée ? l'impossibilité de nidifier ?",
       description1:
-        'C\'est le cœur de la méthode : pour chaque source de douleur, il faut déterminer quelle quantité de souffrance en résulte pour la poule.',
+        "C'est le cœur de la méthode : pour chaque source de douleur, il faut déterminer quelle quantité de souffrance en résulte pour la poule.",
       description2:
-        'Le Pain-Track est \'outil qui permet cette quantification. Les quatre niveaux de souffrance y sont représentés sur l\'axe vertical et les différentes phases temporelles sur l\'axe horizontal.',
+        "Le Pain-Track est 'outil qui permet cette quantification. Les quatre niveaux de souffrance y sont représentés sur l'axe vertical et les différentes phases temporelles sur l'axe horizontal.",
       description3:
-        'Pour chaque phase, les scientifiques s\'appuient sur divers indices (comportementaux, pharmacologiques, physiologiques...) pour déterminer le niveau de souffrance correspondant.',
+        "Pour chaque phase, les scientifiques s'appuient sur divers indices (comportementaux, pharmacologiques, physiologiques...) pour déterminer le niveau de souffrance correspondant.",
       description4:
-        'Au total, ce sont plus de xx spécialistes de xxx disciplines qui ont collaboré pour établir l\'ensemble des pain tracks.',
+        "Au total, ce sont plus de xx spécialistes de xxx disciplines qui ont collaboré pour établir l'ensemble des pain tracks.",
       painTrackTableTitle: 'Pain-track d’une lésion cutanée',
       painTrackTable: {
         lesionPhase: 'Phase de la lesion',
@@ -580,7 +588,8 @@ export default {
         agony: 'Agonie',
       },
       conclusionAltImg: 'Scientifique faisant analysant des pain-track',
-      conclusionText: 'Lister les douleurs des animaux en cage permet de mieux comprendre leur souffrance afin d’améliorer leurs conditions de vie et de promouvoir des pratiques d’élevage plus éthiques.',
+      conclusionText:
+        'Lister les douleurs des animaux en cage permet de mieux comprendre leur souffrance afin d’améliorer leurs conditions de vie et de promouvoir des pratiques d’élevage plus éthiques.',
       conclusionButton: 'accédez à l’ensemble des pains-tracks',
       global_suffering_figure_sectinon: {
         title: '2.3 Chiffrer la souffrance globale d’une poule d’élevage',
@@ -594,8 +603,9 @@ export default {
 
     key_results_section: {
       key_results_h1: 'Les principaux résultats',
-      text_1: 'On peut donc chiffrer la souffrance d’une poule dans différents systèmes d\'élevage.',
-      text_2: 'En appliquant la même méthode aux autres animaux impliqués dans la production d\'œufs (poussins, parentaux...), on peut calculer l\'empreinte souffrance globale pour la production d\'un œuf.',
+      text_1: "On peut donc chiffrer la souffrance d’une poule dans différents systèmes d'élevage.",
+      text_2:
+        "En appliquant la même méthode aux autres animaux impliqués dans la production d'œufs (poussins, parentaux...), on peut calculer l'empreinte souffrance globale pour la production d'un œuf.",
       carte_1: {
         text_carte_1: 'Au cours de sa vie, une poule en cage subit en moyenne:',
         agony_carte_1: '6 min d’agonie',

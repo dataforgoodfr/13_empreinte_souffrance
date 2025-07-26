@@ -1,7 +1,6 @@
 import { getI18n } from '@/locales/server';
 import { AnimatedAfflictionsGroup } from './animated-afflictions';
-import SufferingSynthesisDurationTable
-  from "@/app/[locale]/ui/general/methodology/elements/suffering-synthesis-duration-table";
+import SufferingSynthesisDurationTable from '@/app/[locale]/ui/general/methodology/elements/suffering-synthesis-duration-table';
 
 export default async function GlobalSufferingFigure() {
   const t = await getI18n();
@@ -208,10 +207,10 @@ export default async function GlobalSufferingFigure() {
             </h3>
             <div className="normal-case mx-auto">
               <SufferingSynthesisDurationTable
-                  agony_duration_text={t('MethodologyPage.sufferingQuantificationSteps.step3.result.agony')}
-                  pain_duration_text={t('MethodologyPage.sufferingQuantificationSteps.step3.result.pain')}
-                  suffering_duration_text={t('MethodologyPage.sufferingQuantificationSteps.step3.result.suffering')}
-                  discomfort_duration_text={t('MethodologyPage.sufferingQuantificationSteps.step3.result.suffering')}
+                agony_duration_text={t('MethodologyPage.sufferingQuantificationSteps.step3.result.agony')}
+                pain_duration_text={t('MethodologyPage.sufferingQuantificationSteps.step3.result.pain')}
+                suffering_duration_text={t('MethodologyPage.sufferingQuantificationSteps.step3.result.suffering')}
+                discomfort_duration_text={t('MethodologyPage.sufferingQuantificationSteps.step3.result.suffering')}
               />
             </div>
           </div>
