@@ -11,7 +11,7 @@ router = APIRouter()
 logger = setup_logging()
 
 
-@router.get("/knowledge-panel/{barcode}", response_model=KnowledgePanelResponse)
+@router.get("/knowledge-panel/{barcode}", response_model=KnowledgePanelResponse, response_model_exclude_none=True)
 async def knowledge_panel(request: Request, barcode: str):
     """
     API endpoint to return knowledge panel details.
