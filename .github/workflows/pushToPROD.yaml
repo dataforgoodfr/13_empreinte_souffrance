@@ -101,7 +101,7 @@ jobs:
           DOCKER_HOST: ssh://debian@remigirard.dev
       - name: Set DEPLOY_URL
         id: set_deploy_url
-        run: echo "DEPLOY_URL=empreinte-souffrance.remigirard.dev" >> $GITHUB_ENV
+        run: echo "DEPLOY_URL=empreintesouffrance.remigirard.dev" >> $GITHUB_ENV
       - run: docker stack deploy -c docker-compose.prod.yaml --with-registry-auth empreinte-souffrance-${{ github.ref_name }}
         env:
           DEPLOY_URL: ${{ env.DEPLOY_URL }}
