@@ -139,6 +139,9 @@ venv.bak/
 # VS Code
 .vscode
 
+# JetBrains IDEs
+.idea
+
 # Rope project settings
 .ropeproject
 
