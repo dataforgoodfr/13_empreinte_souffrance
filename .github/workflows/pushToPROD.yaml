@@ -41,8 +41,8 @@ jobs:
 #      - name: Enable and prepare pnpm
 #        run: corepack enable && corepack prepare pnpm@10.11.0 --activate
 
-      - name: Install ci/cd dependencies
-        run: npm install
+#      - name: Install ci/cd dependencies
+#        run: npm install
 
 #      - name: Run semantic-release
 #        if: github.ref_name == 'main'
