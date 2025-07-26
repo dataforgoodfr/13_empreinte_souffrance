@@ -44,7 +44,6 @@ export default function CalculatorSelect({ quantities, farmings, labels }: Props
 
   return (
     <section className="p-4 flex flex-col items-center justify-center rounded-lg text-lg space-y-4 gap-8">
-
       <div className="flex justify-center dark-text font-extrabold tracking-wide lg:flex-row flex-wrap w-full gap-8">
         <select
           value={quantityKey}
@@ -76,7 +75,6 @@ export default function CalculatorSelect({ quantities, farmings, labels }: Props
       </div>
 
       <div className="flex flex-col gap-5 justify-between dark-text font-extrabold tracking-wide md:flex-col lg:flex-row  w-full">
-
         <hgroup>
           <h2 className="bg-pink-3 text-center text-3xl sm:text-6xl flex justify-start items-center w-fit">
             {(data.discomfort * factor).toFixed(1)}
@@ -104,9 +102,7 @@ export default function CalculatorSelect({ quantities, farmings, labels }: Props
           </h2>
           <h3 className="text-xl sm:text-2xl">{labels.agony}.</h3>
         </hgroup>
-
       </div>
-
     </section>
   );
 }

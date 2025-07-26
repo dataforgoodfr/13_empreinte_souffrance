@@ -9,14 +9,10 @@ export default async function Logo() {
       href="/"
       className="gap-2 md:gap-1 flex  md:flex-row items-center flex-wrap md:p-2  font-mono text-xl font-black uppercase"
     >
-      <img src="/logo_WF.png" className="w-[40px] "/>
-        
-      < h1 className="  ">
-        {t('btn_imprint_sffering.imprint')}
-      </h1 >
-      <h1 className="">
-        {t('btn_imprint_sffering.suffering')}
-      </h1>
+      <img src="/logo_WF.png" className="w-[40px] " />
+
+      <h1 className="  ">{t('btn_imprint_sffering.imprint')}</h1>
+      <h1 className="">{t('btn_imprint_sffering.suffering')}</h1>
     </Link>
   );
 }

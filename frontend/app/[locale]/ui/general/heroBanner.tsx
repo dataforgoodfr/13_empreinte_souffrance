@@ -1,8 +1,7 @@
-
 // Déclaration du type des props attendues par le composant
 type HeroBannerProps = {
   title: string;
-}
+};
 
 // Composant fonctionnel qui reçoit un titre en prop
 export default function HeroBanner({ title }: HeroBannerProps) {

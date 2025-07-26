@@ -1,5 +1,5 @@
 import { getI18n } from '@/locales/server';
-import clsx from "clsx";
+import clsx from 'clsx';
 
 export default async function HeroSection() {
   // const t = await getScopedI18n('HeroSection');
@@ -22,9 +22,7 @@ export default async function HeroSection() {
               <ColoredText key={index} letter={letter} />
             ))}
           </span>
-          <span
-            className="inline-flex items-center justify-center h-28 md:w-14 text-5xl dark-text rounded-[9999px] mx-[2px] uppercase font-mono font-extralight shadow-[0_10px_0px_rgb(0,0,0)] bg-violet-2"
-          >
+          <span className="inline-flex items-center justify-center h-28 md:w-14 text-5xl dark-text rounded-[9999px] mx-[2px] uppercase font-mono font-extralight shadow-[0_10px_0px_rgb(0,0,0)] bg-violet-2">
             ?
           </span>
         </h1>
@@ -53,18 +51,17 @@ interface coloredTextType {
 }
 
 function ColoredText({ letter }: coloredTextType) {
-
-    const isSpace = letter === ' ';
-    let letter_background_color = isSpace ? 'bg-transparent' : 'bg-pink-' + Math.floor(1+ Math.random() * 3)
+  const isSpace = letter === ' ';
+  let letter_background_color = isSpace ? 'bg-transparent' : 'bg-pink-' + Math.floor(1 + Math.random() * 3);
 
   return (
     <div
       className={clsx(
         'inline-flex items-center justify-center h-28 md:w-14 text-5xl dark-text rounded-[9999px] mx-[2px] uppercase font-mono font-extralight',
-          letter_background_color,
-          {
-            'shadow-[0_10px_0px_rgb(0,0,0)]' : !isSpace,
-          }
+        letter_background_color,
+        {
+          'shadow-[0_10px_0px_rgb(0,0,0)]': !isSpace,
+        }
       )}
     >
       {letter}

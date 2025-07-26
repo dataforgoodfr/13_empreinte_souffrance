@@ -1,6 +1,6 @@
 'use client';
 import { useChangeLocale, useCurrentLocale } from '@/locales/client';
-import clsx from "clsx";
+import clsx from 'clsx';
 
 export const LocaleSelect = () => {
   const locale = useCurrentLocale();
@@ -14,12 +14,12 @@ export const LocaleSelect = () => {
         <label
           key={localeName}
           htmlFor={localeName}
-          className={clsx('relative select-none px-2 py-2 rounded-lg transition-all has-[input:focus]:outline-2 has-[input:focus]:outline-offset-2 font-bold',
-              {
-                'bg-pink-3': locale === localeName,
-              }
-              )}
-
+          className={clsx(
+            'relative select-none px-2 py-2 rounded-lg transition-all has-[input:focus]:outline-2 has-[input:focus]:outline-offset-2 font-bold',
+            {
+              'bg-pink-3': locale === localeName,
+            }
+          )}
         >
           <input
             type="radio"
