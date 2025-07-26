@@ -64,9 +64,7 @@ class Element(BaseModel):
 
 
 class TitleElement(BaseModel):
-    grade: str
     title: str
-    type: str
     subtitle: str | None = None
     name: str | None = None
     icon_url: HttpUrl | None = None
