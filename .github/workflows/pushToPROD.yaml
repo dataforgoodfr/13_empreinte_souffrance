@@ -101,7 +101,12 @@ jobs:
           DOCKER_HOST: ssh://debian@remigirard.dev
       - name: Set DEPLOY_URL
         id: set_deploy_url
-        run: echo "DEPLOY_URL=empreintesouffrance.remigirard.dev" >> $GITHUB_ENV
+        run: |
+          if [ "${{ github.ref_name }}" = "main" ]; then
+            echo "DEPLOY_URL=empreintesouffrance.remigirard.dev" >> $GITHUB_ENV
+          else
+            echo "DEPLOY_URL=${{ github.ref_name }}.staging.empreintesouffrance.remigirard.dev" >> $GITHUB_ENV
+          fi
       - run: docker stack deploy -c docker-compose.prod.yaml --with-registry-auth empreinte-souffrance-${{ github.ref_name }}
         env:
           DEPLOY_URL: ${{ env.DEPLOY_URL }}
