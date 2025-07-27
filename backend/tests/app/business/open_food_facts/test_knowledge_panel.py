@@ -21,7 +21,10 @@ from app.business.open_food_facts.knowledge_panel import (
     get_data_from_off_v3,
     get_knowledge_panel_response,
 )
-from app.business.open_food_facts.pain_report_calculator import PainReportCalculator
+from app.business.open_food_facts.pain_report_calculator import (
+    MissingBreedingTypeOrQuantityError,
+    PainReportCalculator,
+)
 from app.config.exceptions import ResourceNotFoundException
 from app.config.i18n import I18N
 from app.enums.open_food_facts.enums import AnimalType, LayingHenBreedingType, PainIntensity, PainType
@@ -29,6 +32,7 @@ from app.schemas.open_food_facts.external import ProductData
 from app.schemas.open_food_facts.internal import (
     BreedingTypeAndQuantity,
     KnowledgePanelResponse,
+    PainReport,
 )
 
 
@@ -181,6 +185,51 @@ def test_generate_pain_levels_for_type(sample_product_data: ProductData):
         assert isinstance(level.seconds_in_pain, int)
 
 
+def test_generate_pain_levels_for_type_missing_quantity(sample_product_data: ProductData):
+    """Test generating pain levels for a specific animal with breeding type and missing quantity"""
+
+    sample_product_data.product_quantity = None
+
+    calculator = PainReportCalculator(sample_product_data)
+
+    breeding_type = BreedingTypeAndQuantity(breeding_type=LayingHenBreedingType.FURNISHED_CAGE, quantity=None)
+
+    # Verify that the absence of quantity triggers an exception
+    with pytest.raises(MissingBreedingTypeOrQuantityError):
+        calculator._generate_pain_levels_for_pain_type(AnimalType.LAYING_HEN, breeding_type, PainType.PHYSICAL)
+
+
+def test_get_pain_report(sample_product_data: ProductData):
+    """Test generating pain report for sample product data"""
+
+    calculator = PainReportCalculator(sample_product_data)
+    pain_report = calculator.get_pain_report()
+
+    # Verify that the pain report contains the expected animal type
+    assert len(pain_report.animals) > 0
+    assert (pain_report.animals[0]).animal_type == AnimalType.LAYING_HEN
+
+    # Verify that pain levels are generated
+    assert len((pain_report.animals[0]).pain_levels) > 0
+
+
+def test_get_pain_report_missing_quantity(sample_product_data: ProductData):
+    """Test generating pain report with missing quantity"""
+
+    sample_product_data.product_quantity = None
+
+    calculator = PainReportCalculator(sample_product_data)
+    pain_report = calculator.get_pain_report()
+
+    # Verify that the pain report contains the expected animal type
+    assert len(pain_report.animals) > 0
+    assert pain_report.animals[0].animal_type == AnimalType.LAYING_HEN
+
+    # Verify that pain levels are empty when breeding type or quantity is missing
+    assert len(pain_report.animals[0].pain_levels) == 0
+
+
+# Test the display of knowledge panel with a product name or without it
 @pytest.mark.parametrize(
     "product_name_for_test, expected_knowledge_panel_product_name",
     [
@@ -188,23 +237,35 @@ def test_generate_pain_levels_for_type(sample_product_data: ProductData):
         (None, None),
     ],
 )
+# Test knowledge panel generation with a pain report with one animal and
+# with a pain report with one animal with pain data and one animal without pain data
+@pytest.mark.parametrize(
+    "pain_report",
+    ["pain_report", "pain_report_with_two_animals"],
+    indirect=True,
+)
 def test_knowledge_panel_generator(
-    pain_report, product_name_for_test: str | None, expected_knowledge_panel_product_name: str | None
+    pain_report: PainReport, product_name_for_test: str | None, expected_knowledge_panel_product_name: str | None
 ):
-    """Test the KnowledgePanelGenerator class"""
+    """Test the KnowledgePanelGenerator with different pain_report fixtures and product names"""
+
+    pain_report = pain_report.model_copy(update={"product_name": product_name_for_test})
+
     translator = I18N().get_translator(locale="en")
 
-    # Modify the base_pain_report fixture for the current parametrization
-    pain_report_for_test = pain_report.model_copy(update={"product_name": product_name_for_test})
-
     # Create generator and test individual methods
-    generator = KnowledgePanelGenerator(pain_report_for_test, translator)
+    generator = KnowledgePanelGenerator(pain_report, translator)
 
     # Test main panel
     main_panel = generator._create_main_panel()
     assert main_panel.level == "info"
     assert main_panel.title_element.title == "Welfare footprint"
     assert len(main_panel.elements) > 3
+    assert not any(
+        el.text_element is not None and "missing" in el.text_element.html.lower()
+        for el in main_panel.elements
+        if el.element_type == "text"
+    )
 
     # Test intensities definitions panel
     intensities_panel = generator._create_intensities_definitions_panel()
@@ -240,6 +301,36 @@ def test_knowledge_panel_generator(
     )
 
 
+def test_knowledge_panel_generator_missing_quantity(pain_report_missing_quantity: PainReport):
+    """Test the KnowledgePanelGenerator class with a pain report missing quantity"""
+    translator = I18N().get_translator(locale="en")
+
+    # Create generator and test individual methods
+    generator = KnowledgePanelGenerator(pain_report_missing_quantity, translator)
+
+    # Test main panel
+    main_panel = generator._create_main_panel()
+    assert main_panel.level == "info"
+    assert main_panel.title_element.title == "Welfare footprint"
+
+    # Test main panel elements as intro, uniqueness and missing data
+    assert len(main_panel.elements) > 3
+    assert any(
+        el.text_element is not None and "missing" in el.text_element.html.lower()
+        for el in main_panel.elements
+        if el.element_type == "text"
+    )
+
+    # Test complete response
+    response = generator.get_response()
+    assert list(response.panels.keys()) == ["main"]
+
+
+@pytest.mark.parametrize(
+    "pain_report",
+    ["pain_report", "pain_report_with_two_animals"],
+    indirect=True,
+)
 def test_get_knowledge_panel_response(pain_report):
     """Test the get_knowledge_panel_response function"""
     translator = I18N().get_translator(locale="en")
@@ -257,6 +348,18 @@ def test_get_knowledge_panel_response(pain_report):
     for panel in response.panels.values():
         assert hasattr(panel, "elements")
         assert hasattr(panel, "title_element")
+
+
+def test_get_knowledge_panel_response_missing_quantity(pain_report_missing_quantity: PainReport):
+    """Test that only main panel is generated when quantity is missing"""
+    translator = I18N().get_translator(locale="en")
+
+    response = get_knowledge_panel_response(pain_report_missing_quantity, translator)
+
+    # On attend uniquement "main" dans les panels
+    assert list(response.panels.keys()) == ["main"]
+    assert hasattr(response.panels["main"], "elements")
+    assert hasattr(response.panels["main"], "title_element")
 
 
 @pytest.mark.parametrize(

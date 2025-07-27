@@ -579,6 +579,7 @@ export default {
         'In total, more than xx specialists from xxx disciplines collaborated to establish all the pain tracks.',
       painTrackTableTitle: 'Pain-track of a skin lesion',
       painTrackTable: {
+        lesionPhase: 'Lesion phase',
         ruptureTissu: 'Tissue rupture',
         coagulation: 'Coagulation',
         inflammation: 'Inflammation',

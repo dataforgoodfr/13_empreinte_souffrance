@@ -38,7 +38,7 @@ def main():
     print("Auth successful.\n")
 
     # Read CSV file
-    csv_file = "es_properties_for_folksonomy.csv"
+    csv_file = "data/es_properties_for_folksonomy.csv"
     try:
         with open(csv_file, newline="", encoding="utf-8") as f:
             reader = csv.DictReader(f)

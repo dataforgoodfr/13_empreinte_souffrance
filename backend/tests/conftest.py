@@ -6,7 +6,13 @@ from httpx import ASGITransport, AsyncClient
 from pydantic import HttpUrl
 from starlette.testclient import TestClient
 
-from app.enums.open_food_facts.enums import AnimalType, LayingHenBreedingType, PainIntensity, PainType
+from app.enums.open_food_facts.enums import (
+    AnimalType,
+    BroilerChickenBreedingType,
+    LayingHenBreedingType,
+    PainIntensity,
+    PainType,
+)
 from app.main import app
 from app.schemas.open_food_facts.external import ProductData
 from app.schemas.open_food_facts.internal import AnimalPainReport, BreedingTypeAndQuantity, PainLevelData, PainReport
@@ -41,7 +47,7 @@ def sample_product_data() -> ProductData:
         labels_tags=["label1", "label2"],
         product_name="Fake product name",
         image_url=HttpUrl("https://example.com/image.jpg"),
-        quantity="200",
+        quantity=None,
         product_quantity=200,
         product_quantity_unit="g",
         allergens_tags=[],
@@ -91,12 +97,51 @@ def animal_pain_report(laying_hen_breeding_type, pain_levels) -> AnimalPainRepor
 
 
 @pytest.fixture
+def animal_pain_report_missing_quantity() -> AnimalPainReport:
+    """
+    Fixture that provides a sample AnimalPainReport for a laying hen with missing quantity.
+    """
+    return AnimalPainReport(
+        animal_type=AnimalType.BROILER_CHICKEN,
+        pain_levels=[],
+        breeding_type_and_quantity=BreedingTypeAndQuantity(
+            breeding_type=BroilerChickenBreedingType.FREE_RANGE,
+            quantity=None,
+        ),
+    )
+
+
+@pytest.fixture
 def pain_report(animal_pain_report) -> PainReport:
     """
-    Fixture that provides a sample PainReport containing one animal.
+    Fixture that provides a sample PainReport that is returned for one animal
+    with complete information.
     """
     return PainReport(
         animals=[animal_pain_report],
+        product_name="Fake product name",
+        product_image_url=HttpUrl("https://example.com/image.jpg"),
+    )
+
+
+@pytest.fixture
+def pain_report_missing_quantity(animal_pain_report_missing_quantity) -> PainReport:
+    """Fixture that provides a sample PainReport that is returned for one animal with missing quantity."""
+    return PainReport(
+        animals=[animal_pain_report_missing_quantity],
+        product_name="Fake product name",
+        product_image_url=HttpUrl("https://example.com/image.jpg"),
+    )
+
+
+@pytest.fixture
+def pain_report_with_two_animals(animal_pain_report, animal_pain_report_missing_quantity) -> PainReport:
+    """
+    Fixture that provides a sample PainReport that is returned for one animal with complete information
+    and one animal with missing quantity.
+    """
+    return PainReport(
+        animals=[animal_pain_report, animal_pain_report_missing_quantity],
         product_name="Fake product name",
         product_image_url=HttpUrl("https://example.com/image.jpg"),
     )
