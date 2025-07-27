@@ -16,19 +16,19 @@
   /** typography **/
   --primary-font: 'Azeret Mono';
   --secondary-font: 'Albert Sans';
-  --h1: 47px;
-  --h2: 39px;
-  --h3: 31px;
-  --h4: 16px;
-  --h5: 12px;
-  --numbers: 28px;
-  --button: 16px;
-  --lead: 22px;
-  --body: 16px;
-  --caption: 12px;
+  --h1-font-size: 47px;
+  --h2-font-size: 39px;
+  --h3-font-size: 31px;
+  --h4-font-size: 16px;
+  --h5-font-size: 12px;
+  --numbers-font-size: 28px;
+  --button-font-size: 16px;
+  --lead-font-size: 22px;
+  --body-font-size: 16px;
+  --caption-font-size: 12px;
 
   /** margin & padding **/
---padding-section:80px 50px 80px 50px;
+--section-padding:80px 50px 80px 50px;
 }
 
 
@@ -155,50 +155,50 @@ h5,
 }
 
 h1 {
-  font-size: var(--h1);
+  font-size: var(--h1-font-size);
 }
 
 h2 {
-  font-size: var(--h2);
+  font-size: var(--h2-font-size);
 }
 
 h3 {
-  font-size: var(--h3);
+  font-size: var(--h3-font-size);
 }
 
 h4 {
-  font-size: var(--h4);
+  font-size: var(--h4-font-size);
 }
 
 h5 {
-  font-size: var(--h5);
+  font-size: var(--h5-font-size);
 }
 
 .numbers {
-  font-size: var(--numbers);
+  font-size: var(--numbers-font-size);
 }
 
 .button {
-  font-size: var(--button);
+  font-size: var(--button-font-size);
 }
 
 .lead {
-  font-size: var(--lead);
+  font-size: var(--lead-font-size);
 }
 
 .body {
-  font-size: var(--body);
+  font-size: var(--body-font-size);
 }
 
 .caption {
-  font-size: var(--caption);
+  font-size: var(--caption-font-size);
 }
 
 
 /** -------------------------margin&padding------------------------- **/
 
-.padding-section{
-    padding : var(--padding-section);
+.section-padding{
+    padding : var(--section-padding);
 }
 
 /** -------------------------button------------------------- **/
