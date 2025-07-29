@@ -270,12 +270,10 @@ class KnowledgePanelGenerator:
             elements=elements,
             level="info",
             title_element=TitleElement(
-                grade="c",
                 icon_url=HttpUrl("https://iili.io/3o05WOX.png"),
                 name="suffering-footprint",
                 subtitle=self.text_manager.get_text(MainPanelTexts.PANEL_SUBTITLE),
                 title=self.text_manager.get_text(MainPanelTexts.PANEL_TITLE),
-                type="grade",
             ),
             topics=["suffering-footprint"],
         )
@@ -300,9 +298,7 @@ class KnowledgePanelGenerator:
             ],
             level="info",
             title_element=TitleElement(
-                grade="c",
                 title=self.text_manager.get_text(IntensityDefinitionTexts.PANEL_TITLE),
-                type="grade",
             ),
             topics=["suffering-footprint"],
         )
@@ -355,10 +351,8 @@ class KnowledgePanelGenerator:
             elements=elements,
             level="info",
             title_element=TitleElement(
-                grade="c",
                 name="physical-pain",
                 title=self.text_manager.get_text(PhysicalPainTexts.PANEL_TITLE),
-                type="grade",
             ),
             topics=["suffering-footprint"],
         )
@@ -385,10 +379,8 @@ class KnowledgePanelGenerator:
             elements=elements,
             level="info",
             title_element=TitleElement(
-                grade="c",
                 name="psychological-pain",
                 title=self.text_manager.get_text(PsychologicalPainTexts.PANEL_TITLE),
-                type="grade",
             ),
             topics=["suffering-footprint"],
         )
