@@ -1,27 +1,30 @@
 'use client';
 
+import { useEffect, useState } from 'react';
+import ButtonLink from '@/app/[locale]/ui/_components/button-link';
+
 interface TwitterShareButtonProps {
   nameLien: string;
+  shareMessage: string;
 }
 
-export default function TwitterShareButton({nameLien}:TwitterShareButtonProps) {
+export default function TwitterShareButton({ nameLien, shareMessage }: TwitterShareButtonProps) {
+  const [url, setUrl] = useState('');
 
-  // eslint-disable-next-line no-undef
-  const shareOnTwitter = (e: React.MouseEvent<HTMLButtonElement>) => {
-    e.preventDefault();
-    const url = window.location.href;
-    const shareUrl = `https://twitter.com/intent/tweet?url=${encodeURIComponent(url)}&text=Découvrez+ce+site+!`;
-    window.open(shareUrl, '_blank', 'noopener,noreferrer');
-  };
+  useEffect(() => {
+    // runs only on the client where window is set
+    setUrl(window.location.href);
+  }, []);
+
+  const shareUrl = `https://twitter.com/intent/tweet?url=${encodeURIComponent(url)}&text=${encodeURIComponent(shareMessage)}`;
 
   return (
-    <button
-          className="w-full dark-text font-mono font-bold py-4 px-6 rounded-full shadow-[4px_4px_0_#000] cursor-pointer transition-all duration-200 bg-(--pink-3) hover:bg-(--violet-1)"
-      aria-label="Partager sur Twitter"
-      onClick={shareOnTwitter}
-      type="button"
-    >
-      {nameLien}
-    </button>
+    <ButtonLink
+      href={shareUrl}
+      aria_label={nameLien}
+      button_text={nameLien}
+      background_color_name="white"
+      open_in_new_tab={true}
+    />
   );
 }

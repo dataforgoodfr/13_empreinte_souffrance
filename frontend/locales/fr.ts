@@ -16,11 +16,16 @@ export default {
   },
 
   GoFurther: {
-    title: 'Aller plus loin',
-    downloadMediaKit: 'Télécharger le kit presse',
-    share: 'Partager la page',
-    methodology: 'Découvrir la méthodologie',
-    aboutThisWebsite: 'À propos de ce site',
+    title: 'ALLER PLUS LOIN',
+    downloadMediaKit: 'TELECHARGER LE KIT PRESSE',
+    share: 'PARTAGER LA PAGE',
+    methodology: 'DECOUVRIR LA METHODOLOGIE',
+    aboutThisWebsite: 'À PROPOS DE CE SITE',
+    primary: 'PRIMARY',
+  },
+
+  twitterShare: {
+    message: "Découvrez ce site !",
   },
 
   btn_imprint_sffering: {
