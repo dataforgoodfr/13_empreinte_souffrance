@@ -15,7 +15,7 @@ export default async function GoFurtherSection() {
       </div>
       <h2
         id="go-further-heading"
-        className="text-3xl sm:text-4xl font-extrabold tracking-wide dark-text mb-10 text-center"
+        className="text-3xl sm:text-4xl font-extrabold tracking-wide dark-text mb-5 text-center"
       >
         {t('GoFurther.title')}
       </h2>
