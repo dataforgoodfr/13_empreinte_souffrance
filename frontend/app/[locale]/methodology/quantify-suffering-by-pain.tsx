@@ -1,6 +1,6 @@
 import { getI18n } from '@/locales/server';
-import PainTrackTable from '../ui/general/pain-track-suffering';
-import ButtonLink from '@/app/[locale]/ui/general/elements/button-link';
+import PainTrackTable from './_components/pain-track-suffering';
+import ButtonLink from '../ui/_components/button-link';
 
 export default async function QuantifySufferingByPain() {
   const t = await getI18n();
