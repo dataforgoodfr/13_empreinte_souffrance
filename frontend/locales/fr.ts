@@ -25,7 +25,7 @@ export default {
   },
 
   twitterShare: {
-    message: "Découvrez ce site !",
+    message: 'Découvrez ce site !',
   },
 
   btn_imprint_sffering: {

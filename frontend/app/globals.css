@@ -28,7 +28,7 @@
   --caption-font-size: 12px;
 
   /** margin & padding **/
-  --section-padding:80px 50px 80px 50px;
+  --section-padding: 80px 50px 80px 50px;
 }
 
 /** declare colors to be used in tailwind **/
@@ -41,7 +41,6 @@
   --color-violet-1: var(--violet-1);
   --color-violet-2: var(--violet-2);
 }
-
 
 html {
   scroll-behavior: smooth;

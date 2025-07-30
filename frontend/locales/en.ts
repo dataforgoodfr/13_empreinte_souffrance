@@ -13,11 +13,11 @@ export default {
     share: 'SHARE THE WEBSITE',
     methodology: 'UNDERSTAND THE METHODOLOGY',
     aboutThisWebsite: 'ABOUT THIS WEBSITE',
-    primary: "PRIMARY",
+    primary: 'PRIMARY',
   },
 
   twitterShare: {
-    message: "Look at this website!",
+    message: 'Look at this website!',
   },
 
   btn_imprint_sffering: {
