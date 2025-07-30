@@ -1,0 +1,8 @@
+services:
+  app:
+    volumes:
+      - ./frontend/:/app/
+    user: "${UID}:${GID}"
+    environment:
+      NODE_ENV: development
+    command: sh -c "npm install && npm run dev"
