@@ -22,8 +22,8 @@ export default async function GoFurtherSection() {
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-4xl mx-auto">
         <ButtonLink
           href="/methodology"
-          aria_label={t('GoFurther.primary')}
-          button_text={t('GoFurther.primary')}
+          aria_label={t('GoFurther.methodology')}
+          button_text={t('GoFurther.methodology')}
           width="full"
         />
         <ButtonLink

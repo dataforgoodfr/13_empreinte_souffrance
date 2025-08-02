@@ -21,7 +21,6 @@ export default {
     share: 'PARTAGER LA PAGE',
     methodology: 'DECOUVRIR LA METHODOLOGIE',
     aboutThisWebsite: 'À PROPOS DE CE SITE',
-    primary: 'PRIMARY',
   },
 
   twitterShare: {

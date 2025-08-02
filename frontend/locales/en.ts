@@ -13,7 +13,6 @@ export default {
     share: 'SHARE THE WEBSITE',
     methodology: 'UNDERSTAND THE METHODOLOGY',
     aboutThisWebsite: 'ABOUT THIS WEBSITE',
-    primary: 'PRIMARY',
   },
 
   twitterShare: {
