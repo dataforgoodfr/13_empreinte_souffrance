@@ -636,18 +636,28 @@ export default {
     },
   },
   aboutPage: {
+    association_presentation_section: {
+      two_hens_out_five_title:
+        'Deux Poules sur cinq is the result of a collaboration between Anima and Data for Good, two non-profit associations.',
+      anima_presentation:
+        'Anima exists to reduce animal suffering as effectively as possible. The association is leading a national and European campaign to end the caged farming of laying hens. Anima is a member of the European coalition Anima International.',
+      anima_link: 'See the Anima website',
+      dataforgood_presentation:
+        'Data for Good is a French NGO whose goal is to help public interest projects grow. Thanks to a community of over 4,000 tech-savvy volunteers, a dozen projects are supported and developed for over three months.',
+      dataforgood_link: 'See the Data For Good website',
+    },
     whyNameSection: {
       why_welfare_footprint_title: 'WHY “WELFARE FOOTPRINT” ?',
       why_welfare_footprint_description: {
-      new_scientific_work:
-        'New scientific research has made it possible, for the very first time, to quantify the experiences of caged hens. Fractures, skin lesions, deprivation of natural needs... behind every caged hen egg lie dozens of hours of physical and psychological suffering: this is the "Suffering Footprint" of eggs.',
-      accessible_result:
-        'These revolutionary results are now accessible to everyone: each consumer can directly scan their egg cartons in store to find out their Suffering Footprint.',
-      firm_engagement:
-        'However the moment is crucial. On January 1, 2026, companies commitments to no longer sell caged hens eggs will come into effect. This is the case for Leclerc, Carrefour, Système U, Auchan, Lidl, Intermarché, and Aldi.',
-      decisive_moment:
-        'On the eve of this decisive moment for the end of caged farming, Suffering Footprint is alerting citizens and businesses: we must turn the page on cages; the figures show it.',
+        new_scientific_work:
+          'New scientific research has made it possible, for the very first time, to quantify the experiences of caged hens. Fractures, skin lesions, deprivation of natural needs... behind every caged hen egg lie dozens of hours of physical and psychological suffering: this is the "Suffering Footprint" of eggs.',
+        accessible_result:
+          'These revolutionary results are now accessible to everyone: each consumer can directly scan their egg cartons in store to find out their Suffering Footprint.',
+        firm_engagement:
+          'However the moment is crucial. On January 1, 2026, companies commitments to no longer sell caged hens eggs will come into effect. This is the case for Leclerc, Carrefour, Système U, Auchan, Lidl, Intermarché, and Aldi.',
+        decisive_moment:
+          'On the eve of this decisive moment for the end of caged farming, Suffering Footprint is alerting citizens and businesses: we must turn the page on cages; the figures show it.',
+      },
     },
   },
-},
 } as const;
