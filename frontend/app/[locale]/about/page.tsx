@@ -5,9 +5,9 @@ import AssociationPresentationSection from './_section/association-presentation-
 export default async function About() {
   return (
     <>
-      <ThankingSection />
-      <WhyNameSection />
       <AssociationPresentationSection />
+      <WhyNameSection />
+      <ThankingSection />
     </>
   );
 }
