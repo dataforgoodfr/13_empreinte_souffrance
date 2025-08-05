@@ -3,8 +3,8 @@
 @import 'tailwindcss';
 
 :root {
-
   /** colors **/
+  --white: #ffffff;
   --grey: #f9f9f9;
   --pink-1: #ffe9e9;
   --pink-2: #ffc3c3;
@@ -28,101 +28,31 @@
   --caption-font-size: 12px;
 
   /** margin & padding **/
---section-padding:80px 50px 80px 50px;
+  --section-padding: 80px 50px 80px 50px;
 }
 
-
+/** declare colors to be used in tailwind **/
+@theme inline {
+  --color-grey: var(--grey);
+  --color-pink-1: var(--pink-1);
+  --color-pink-2: var(--pink-2);
+  --color-pink-3: var(--pink-3);
+  --color-brown: var(--brown);
+  --color-violet-1: var(--violet-1);
+  --color-violet-2: var(--violet-2);
+}
 
 html {
   scroll-behavior: smooth;
 }
 
 /** -------------------------colors------------------------- **/
-
-.bg-grey {
-  background-color: var(--grey);
-}
-
-.bg-pink-1 {
-  background-color: var(--pink-1);
-}
-
-.bg-pink-2 {
-  background-color: var(--pink-2);
-}
-
-.bg-pink-3 {
-  background-color: var(--pink-3);
-}
-
-.bg-brown {
-  background-color: var(--brown);
-}
-
-.bg-violet-1 {
-  background-color: var(--violet-1);
-}
-
-.bg-violet-2 {
-  background-color: var(--violet-2);
-}
-
-.text-grey {
-  color: var(--grey);
-}
-
-.text-pink-1 {
-  color: var(--pink-1);
-}
-
-.light-text,
-.text-pink-2 {
+.light-text {
   color: var(--pink-2);
 }
 
-.text-pink-3 {
-  color: var(--pink-3);
-}
-
-.dark-text,
-.text-brown {
+.dark-text {
   color: var(--brown);
-}
-
-.text-violet-1 {
-  color: var(--violet-1);
-}
-
-.text-violet-2 {
-  color: var(--violet-2);
-}
-
-.border-grey {
-  border-color: var(--grey) !important;
-}
-
-.border-pink-1 {
-  border-color: var(--pink-1) !important;
-}
-
-.border-pink-2 {
-  border-color: var(--pink-2) !important;
-}
-
-.border-pink-3 {
-  border-color: var(--pink-3) !important;
-}
-
-.border-brown {
-  border-color: var(--brown) !important;
-}
-
-.border-violet-1 {
-  border-color: var(--violet-1) !important;
-}
-
-.border-violet-2 {
-  border-color: var(--violet-2) !important;
 }
 
 .divide-pink-3 {
@@ -198,43 +128,43 @@ h5 {
 /** -------------------------margin&padding------------------------- **/
 
 .section-padding{
-    padding : var(--section-padding);
+  padding : var(--section-padding);
 }
 
 /** -------------------------button------------------------- **/
 
 .primary-button{
-    padding: 16px;
-    background-color: var(--pink-3);
-    box-shadow: 0px 5px 0px 0px black;
-    font-size : var(--button);
-    border-radius: calc(infinity * 1px);
-    text-align: center;
-    flex: content;
-    justify-content: center;
-    align-items: center;
+  padding: 16px;
+  background-color: var(--pink-3);
+  box-shadow: 0px 5px 0px 0px black;
+  font-size : var(--button);
+  border-radius: calc(infinity * 1px);
+  text-align: center;
+  flex: content;
+  justify-content: center;
+  align-items: center;
 }
 
 .primary-button:hover{
-    background-color : var(--pink-1);
-    box-shadow: 0px 2px 0px 0px black;
-    transition:all ease-in-out;
+  background-color : var(--pink-1);
+  box-shadow: 0px 2px 0px 0px black;
+  transition:all ease-in-out;
 }
 
 .secondary-button{
-    padding: 16px;
-    background-color: var(--grey);
-    box-shadow: 0px 5px 0px 0px black;
-    font-size : var(--button);
-    border-radius: calc(infinity * 1px);
-    text-align: center;
-    flex: content;
-    justify-content: center;
-    align-items: center;
+  padding: 16px;
+  background-color: var(--grey);
+  box-shadow: 0px 5px 0px 0px black;
+  font-size : var(--button);
+  border-radius: calc(infinity * 1px);
+  text-align: center;
+  flex: content;
+  justify-content: center;
+  align-items: center;
 }
 
 .secondary-button:hover{
-    background-color : var(--pink-1);
-    box-shadow: 0px 2px 0px 0px black;
-    transition:all ease-in-out;
+  background-color : var(--pink-1);
+  box-shadow: 0px 2px 0px 0px black;
+  transition:all ease-in-out;
 }
