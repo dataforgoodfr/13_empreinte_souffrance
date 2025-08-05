@@ -1,12 +1,16 @@
 import { getI18n } from '@/locales/server';
-import ContentWithImageSection from '@/app/[locale]/ui/general/content-with-image-section';
-import SectionHeading from '@/app/[locale]/ui/general/home-page/elements/section-heading';
+import ContentWithImageSection from '@/app/[locale]/home/_components/content-with-image-component';
+import SectionHeading from '@/app/[locale]/ui/_section/section-heading';
 
 export default async function ResultsSection() {
   const t = await getI18n();
 
   return (
-    <section id="ResultSection" className="min-h-screen py-8 w-full max-w-screen-xl mx-auto px-4 scroll-mt-18" aria-labelledby="results-heading">
+    <section
+      id="ResultSection"
+      className="min-h-screen py-8 w-full max-w-screen-xl mx-auto px-4 scroll-mt-18"
+      aria-labelledby="results-heading"
+    >
       <SectionHeading title={t('Results.title')} heading_number="3" />
       <div className="flex flex-col justify-center items-center">
         <div className="border-1 border-pink-3 w-full md:5/6 lg:w-4/6">

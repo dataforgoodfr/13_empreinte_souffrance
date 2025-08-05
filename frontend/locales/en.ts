@@ -8,11 +8,15 @@ export default {
   },
 
   GoFurther: {
-    title: 'Go Further',
-    downloadMediaKit: 'Download the media kit',
-    share: 'Share the website',
-    methodology: 'Understand the methodology',
-    aboutThisWebsite: 'About this website',
+    title: 'GO FURTHER',
+    downloadMediaKit: 'DOWNLOAD THE MEDIA KIT',
+    share: 'SHARE THE WEBSITE',
+    methodology: 'UNDERSTAND THE METHODOLOGY',
+    aboutThisWebsite: 'ABOUT THIS WEBSITE',
+  },
+
+  twitterShare: {
+    message: 'Look at this website!',
   },
 
   btn_imprint_sffering: {
@@ -571,6 +575,7 @@ export default {
         'In total, more than xx specialists from xxx disciplines collaborated to establish all the pain tracks.',
       painTrackTableTitle: 'Pain-track of a skin lesion',
       painTrackTable: {
+        lesionPhase: 'Lesion phase',
         ruptureTissu: 'Tissue rupture',
         coagulation: 'Coagulation',
         inflammation: 'Inflammation',

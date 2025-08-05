@@ -19,13 +19,12 @@ from app.enums.open_food_facts.panel_texts import (
 from app.schemas.open_food_facts.external import ProductData, ProductResponse, ProductResponseSearchALicious
 from app.schemas.open_food_facts.internal import (
     AnimalPainReport,
-    BreedingType,
+    BreedingTypeAndQuantity,
     Element,
     KnowledgePanelResponse,
     PainReport,
     Panel,
     PanelElement,
-    ProductError,
     ProductInfo,
     TextElement,
     TitleElement,
@@ -197,12 +196,15 @@ class KnowledgePanelGenerator:
     def get_response(self) -> KnowledgePanelResponse:
         """
         Create a complete knowledge panel response with all suffering footprint panels.
-        If pain_report has a product_error, does not include detailed panels.
+        Includes detailed panels only if pain data is available.
         Returns:
             A complete KnowledgePanelResponse with all necessary panels
         """
+        # main panel depending on pain report data
         panels = {"main": self._create_main_panel()}
-        if not self.pain_report.product_error:
+
+        # detailed panels only if there are pain levels
+        if self.pain_report.animals and any(animal.pain_levels for animal in self.pain_report.animals):
             panels.update(
                 {
                     "intensities_definitions": self._create_intensities_definitions_panel(),
@@ -225,46 +227,36 @@ class KnowledgePanelGenerator:
 
         This panel includes an explanation of the suffering footprint, the breeding
         type and animal product quantity information, and links to the other panels.
-        It handles different product errors to display appropriate messages.
+        It handles different cases of pain report data to display appropriate messages.
 
         Returns:
             A panel with general information and links to detailed panels
         """
-        match self.pain_report.product_error:
-            case ProductError.NO_HANDLED_ANIMAL:
-                elements = [
-                    self._get_text_element(self.text_manager.get_text(MainPanelTexts.NOT_HANDLED)),
-                ]
-            case ProductError.NO_PAIN_LEVELS:
-                elements = [
-                    self._get_text_element(self.text_manager.get_text(MainPanelTexts.WELFARE_FOOTPRINT_INTRO)),
-                    self._get_text_element(self.text_manager.get_text(MainPanelTexts.WELFARE_FOOTPRINT_UNIQUENESS)),
-                    self._get_text_element(self.text_manager.get_text(MainPanelTexts.MISSING_DATA)),
-                ]
-            case None:
-                elements = [
-                    self._get_text_element(self.text_manager.get_text(MainPanelTexts.WELFARE_FOOTPRINT_INTRO)),
-                    self._get_text_element(self.text_manager.get_text(MainPanelTexts.WELFARE_FOOTPRINT_UNIQUENESS)),
-                    self._get_text_element(self.text_manager.get_text(MainPanelTexts.DATA_BASED_ON)),
-                ]
-            case _:
-                raise ValueError(f"Unknown product error type: {self.pain_report.product_error}")
+        animals = self.pain_report.animals
 
-        for animal in self.pain_report.animals:
+        # Initialize the panel with generic information message about the project
+        elements = [
+            self._get_text_element(self.text_manager.get_text(MainPanelTexts.WELFARE_FOOTPRINT_INTRO)),
+            self._get_text_element(self.text_manager.get_text(MainPanelTexts.WELFARE_FOOTPRINT_UNIQUENESS)),
+        ]
+
+        # If all animal pain reports contain no pain levels, add a missing data message
+        if all(not animal.pain_levels for animal in animals):
+            elements.append(self._get_text_element(self.text_manager.get_text(MainPanelTexts.MISSING_DATA)))
+
+        # If pain levels are available, add a message explaining suffering is based on breeding type and quantity
+        else:
+            elements.append(self._get_text_element(self.text_manager.get_text(MainPanelTexts.DATA_BASED_ON)))
+
+        # Add breeding type and quantity from each animal pain report aven if not avalable
+        for animal in animals:
             elements.append(
                 self._get_text_element(
-                    self._get_breeding_type_and_quantity_html(
-                        animal.animal_type,
-                        animal.breeding_type_and_quantity.breeding_type
-                        if animal.breeding_type_and_quantity
-                        else animal.breeding_type,
-                        animal.breeding_type_and_quantity.quantity
-                        if animal.breeding_type_and_quantity
-                        else animal.quantity,
-                    )
+                    self._get_breeding_type_and_quantity_html(animal.animal_type, animal.breeding_type_and_quantity)
                 )
             )
 
+        # Add links to detailed panels if existing
         elements.extend(
             [
                 Element(element_type="panel", panel_element=PanelElement(panel_id="intensities_definitions")),
@@ -273,16 +265,15 @@ class KnowledgePanelGenerator:
             ]
         )
 
+        # Create and return the main panel
         return Panel(
             elements=elements,
             level="info",
             title_element=TitleElement(
-                grade="c",
                 icon_url=HttpUrl("https://iili.io/3o05WOX.png"),
                 name="suffering-footprint",
                 subtitle=self.text_manager.get_text(MainPanelTexts.PANEL_SUBTITLE),
                 title=self.text_manager.get_text(MainPanelTexts.PANEL_TITLE),
-                type="grade",
             ),
             topics=["suffering-footprint"],
         )
@@ -307,9 +298,7 @@ class KnowledgePanelGenerator:
             ],
             level="info",
             title_element=TitleElement(
-                grade="c",
                 title=self.text_manager.get_text(IntensityDefinitionTexts.PANEL_TITLE),
-                type="grade",
             ),
             topics=["suffering-footprint"],
         )
@@ -362,10 +351,8 @@ class KnowledgePanelGenerator:
             elements=elements,
             level="info",
             title_element=TitleElement(
-                grade="c",
                 name="physical-pain",
                 title=self.text_manager.get_text(PhysicalPainTexts.PANEL_TITLE),
-                type="grade",
             ),
             topics=["suffering-footprint"],
         )
@@ -392,10 +379,8 @@ class KnowledgePanelGenerator:
             elements=elements,
             level="info",
             title_element=TitleElement(
-                grade="c",
                 name="psychological-pain",
                 title=self.text_manager.get_text(PsychologicalPainTexts.PANEL_TITLE),
-                type="grade",
             ),
             topics=["suffering-footprint"],
         )
@@ -413,11 +398,14 @@ class KnowledgePanelGenerator:
         return Element(element_type="text", text_element=TextElement(html=text))
 
     def _get_breeding_type_and_quantity_html(
-        self, animal_type: AnimalType, breeding_type: BreedingType | None, quantity: float | None
+        self, animal_type: AnimalType, breeding_type_and_quantity: BreedingTypeAndQuantity
     ) -> str:
         """
         Format animal type, breeding type and product quantity information as HTML.
         """
+        breeding_type = breeding_type_and_quantity.breeding_type
+        quantity = breeding_type_and_quantity.quantity
+
         return self.text_manager.format_text(
             AnimalInfoTexts.ANIMAL_INFO_TEMPLATE,
             animal_name=animal_type.translated_name(self._),
@@ -493,10 +481,10 @@ class KnowledgePanelGenerator:
             return ""
 
         # Start with animal name and breeding type
-        if not animal_pain_report.breeding_type_and_quantity:
-            raise ValueError("Error in animal pain report")
         animal_type = animal_pain_report.animal_type
         breeding_type = animal_pain_report.breeding_type_and_quantity.breeding_type
+        if not breeding_type:
+            raise ValueError("Missing breeding type while generating HTML for animal pain report")
         html_parts = [f"<b>{animal_type.translated_name(self._)} - {breeding_type.translated_name(self._)}</b>"]
 
         # Add pain levels in standardized order
