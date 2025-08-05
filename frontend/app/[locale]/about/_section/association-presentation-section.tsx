@@ -2,7 +2,7 @@ import { getScopedI18n } from '@/locales/server';
 import Link from 'next/link';
 
 export default async function AssociationPresentationSection() {
-  const scopedT = await getScopedI18n('AboutPage.association_presentation_section');
+  const scopedT = await getScopedI18n('aboutPage.association_presentation_section');
 
   return (
     <section className="section-padding bg-white">
