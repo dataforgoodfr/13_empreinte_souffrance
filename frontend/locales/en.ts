@@ -491,24 +491,28 @@ export default {
       title_h1: 'The method in detail',
       title_h2: '2.1 List all sources of pain for chickens',
       question: 'What do chickens suffer from?',
-      description: 'An in-depth review of the scientific literature was conducted to identify the main sources of pain for chickens in livestock production, and how frequently they occur depending on the farming method. These can be physical pain (fractures, skin injuries, infections, etc.) or psychological pain (fear, restricted behavioral needs, etc.). In total, xx sources of pain were identified and studied by the Welfare Footprint Institute, based on a study of yy articles.',
+      description:
+        'An in-depth review of the scientific literature was conducted to identify the main sources of pain for chickens in livestock production, and how frequently they occur depending on the farming method. These can be physical pain (fractures, skin injuries, infections, etc.) or psychological pain (fear, restricted behavioral needs, etc.). In total, xx sources of pain were identified and studied by the Welfare Footprint Institute, based on a study of yy articles.',
 
       section_img_1: {
         title_h3: 'Some psychological pain',
         img_1: {
           alt: 'Restriction of freedom of movement',
           type_of_pain: 'Restriction of freedom of movement :',
-          description_of_pain: 'Locked in cages, chickens can hardly stand, clean themselves, turn around or stretch their wings.',
+          description_of_pain:
+            'Locked in cages, chickens can hardly stand, clean themselves, turn around or stretch their wings.',
         },
         img_2: {
           alt: 'Nest deprivation',
           type_of_pain: 'Nest deprivation :',
-          description_of_pain: 'Cages do not provide a suitable nesting site, while several studies have shown that hens search for a nest at all costs before laying.',
+          description_of_pain:
+            'Cages do not provide a suitable nesting site, while several studies have shown that hens search for a nest at all costs before laying.',
         },
         img_3: {
           alt: 'Behavioral deprivation',
           type_of_pain: 'Behavioral deprivation :',
-          description_of_pain: 'Unable to peck at the ground in search of food (a strong need for them), chickens become frustrated and attack each other. Their beaks are cut to prevent this risk.',
+          description_of_pain:
+            'Unable to peck at the ground in search of food (a strong need for them), chickens become frustrated and attack each other. Their beaks are cut to prevent this risk.',
         },
       },
 
@@ -517,17 +521,20 @@ export default {
         img_1: {
           alt: 'Breastbone fracture',
           type_of_pain: 'Breastbone fracture :',
-          description_of_pain: 'Bone fractures are very common in livestock farming and cause significant suffering for chickens.',
+          description_of_pain:
+            'Bone fractures are very common in livestock farming and cause significant suffering for chickens.',
         },
         img_2: {
           alt: 'Peritonitis',
           type_of_pain: 'Peritonitis :',
-          description_of_pain: 'A disease that occurs when egg yolk leaks into the hen\'s stomach, causing painful inflammation that can become infected and fatal.',
+          description_of_pain:
+            "A disease that occurs when egg yolk leaks into the hen's stomach, causing painful inflammation that can become infected and fatal.",
         },
         img_3: {
           alt: 'Tissue damage and feather loss',
           type_of_pain: 'Tissue damage and feather loss :',
-          description_of_pain: 'Attacks between hens caused by frustration result in feather plucking, skin damage, and vent damage.',
+          description_of_pain:
+            'Attacks between hens caused by frustration result in feather plucking, skin damage, and vent damage.',
         },
       },
 
@@ -581,22 +588,23 @@ export default {
         agony: 'Agony',
       },
       conclusionAltImg: 'Scientist analyzes traces of pain',
-      conclusionText: 'Listing the pain of caged animals allows us to better understand their suffering in order to improve their living conditions and promote more ethical breeding practices.',
+      conclusionText:
+        'Listing the pain of caged animals allows us to better understand their suffering in order to improve their living conditions and promote more ethical breeding practices.',
       conclusionButton: 'access all the pain-tracks',
       global_suffering_figure_sectinon: {
         title: '2.3 Calculating the overall suffering of a farmed hen',
         question: 'How can we combine fractures, infections, stress... etc., to obtain a single measure of suffering?',
         description1:
           'The previous steps have allowed us to understand the sources of pain for the hens, their frequency and the amount of suffering associated with each.',
-        description2:
-          'It remains to add up all these results to determine the overall suffering undergone by a hen.',
+        description2: 'It remains to add up all these results to determine the overall suffering undergone by a hen.',
       },
     },
 
     key_results_section: {
       key_results_h1: 'The main results',
       text_1: 'We can therefore quantify the suffering of a hen in different breeding systems.',
-      text_2: 'By applying the same method to other animals involved in egg production (chicks, parents, etc.), we can calculate the overall suffering footprint for the production of an egg.',
+      text_2:
+        'By applying the same method to other animals involved in egg production (chicks, parents, etc.), we can calculate the overall suffering footprint for the production of an egg.',
       carte_1: {
         text_carte_1: 'During its lifetime, a caged hen undergoes on average:',
         agony_carte_1: '6 minutes of agony',
@@ -627,4 +635,19 @@ export default {
       },
     },
   },
+  aboutPage: {
+    whyNameSection: {
+      why_welfare_footprint_title: 'WHY “WELFARE FOOTPRINT” ?',
+      why_welfare_footprint_description: {
+      new_scientific_work:
+        'New scientific research has made it possible, for the very first time, to quantify the experiences of caged hens. Fractures, skin lesions, deprivation of natural needs... behind every caged hen egg lie dozens of hours of physical and psychological suffering: this is the "Suffering Footprint" of eggs.',
+      accessible_result:
+        'These revolutionary results are now accessible to everyone: each consumer can directly scan their egg cartons in store to find out their Suffering Footprint.',
+      firm_engagement:
+        'However the moment is crucial. On January 1, 2026, companies commitments to no longer sell caged hens eggs will come into effect. This is the case for Leclerc, Carrefour, Système U, Auchan, Lidl, Intermarché, and Aldi.',
+      decisive_moment:
+        'On the eve of this decisive moment for the end of caged farming, Suffering Footprint is alerting citizens and businesses: we must turn the page on cages; the figures show it.',
+    },
+  },
+},
 } as const;

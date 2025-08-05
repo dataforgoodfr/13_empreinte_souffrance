@@ -648,4 +648,19 @@ export default {
       },
     },
   },
+  aboutPage: {
+    whyNameSection: {
+      why_welfare_footprint_title: 'POURQUOI “EMPREINTE SOUFFRANCE” ?',
+      why_welfare_footprint_description: {
+        new_scientific_work:
+          'De nouveaux travaux scientifiques permettent pour la toute première fois de quantifier le vécu des poules en cage. Fractures, lésions cutanées, privation des besoins naturels derrière chaque œuf de poule en cage se cachent des dizaines d’heures de souffrance physique et psychologique : c’est l’« Empreinte Souffrance » des œufs.',
+        accessible_result:
+          'Ces résultats révolutionnaires sont maintenant accessibles à toutes et tous : chaque consommateur peut scanner directement ses boîtes d’œufs en magasin pour connaître leur Empreinte Souffrance.',
+        firm_engagement:
+          'Or, le moment est crucial. Le 1er janvier 2026, les engagements des entreprises à ne plus vendre d’œufs de poules en cage entreront en vigueur. C’est le cas de Leclerc, Carrefour, Système U, Auchan, Lidl, Intermarché et Aldi.',
+        decisive_moment:
+          'À la veille de ce moment décisif pour la fin de l’élevage en cage, Empreinte Souffrance alerte les citoyens et les entreprises : il faut tourner la page des cages; les chiffres le montrent.',
+      },
+    },
+  },
 } as const;
