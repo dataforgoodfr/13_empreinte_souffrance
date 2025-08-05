@@ -2,8 +2,8 @@ import '@fortawesome/fontawesome-svg-core/styles.css';
 import { config } from '@fortawesome/fontawesome-svg-core';
 import { I18nProviderClient } from '@/locales/client';
 import { ReactElement } from 'react';
-import Navbar from './ui/_section/navbar';
-import Footer from '@/app/[locale]/ui/_section/footer';
+import Navbar from './ui/_sections/navbar';
+import Footer from '@/app/[locale]/ui/_sections/footer';
 
 config.autoAddCss = false;
 

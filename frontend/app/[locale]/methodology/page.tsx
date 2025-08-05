@@ -2,7 +2,7 @@ import SufferingQuantificationStepsSection from './_section/suffering-quantifica
 import IntroductionSection from './_section/introduction-section';
 import MethodDetailsSection from './_section/method-details-section';
 import KeyResultsSection from './_section/key-results-section';
-import GoFurtherSection from '@/app/[locale]/ui/_section/go-further-section';
+import GoFurtherSection from '@/app/[locale]/ui/_sections/go-further-section';
 
 export default async function MethodologyPage() {
   return (

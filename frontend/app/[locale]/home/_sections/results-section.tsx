@@ -1,6 +1,6 @@
 import { getI18n } from '@/locales/server';
 import ContentWithImageSection from '@/app/[locale]/home/_components/content-with-image-component';
-import SectionHeading from '@/app/[locale]/ui/_section/section-heading';
+import SectionHeading from '@/app/[locale]/ui/_sections/section-heading';
 
 export default async function ResultsSection() {
   const t = await getI18n();
