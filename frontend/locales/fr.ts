@@ -648,4 +648,16 @@ export default {
       },
     },
   },
+
+    // This Section is used in About Page 
+  AboutPage:{
+association_presentation_section:{
+two_hens_out_five_title:"Deux Poules sur cinq est le fruit d’une collaboration entre Anima et Data for Good, deux associations à but non lucratif.",
+anima_presentation : "Anima existe pour réduire la souffrance des animaux de la façon la plus efficace possible. L’association mène une campagne nationale et européenne pour mettre un terme à l’élevage en cage des poules pondeuses. Anima est membre de la coalition européenne Anima International.",
+anima_link:"Voir le site d'Anima",
+dataforgood_presentation : "Data for Good est une ONG française dont le but est d'aider les projets d'intérêt général à se développer. Grâce à une communauté de plus de 4000 bénévoles compétents en technologie, une douzaine de projets sont soutenus et développés pendant plus de 3 mois.",
+dataforgood_link:"Voir le site de Data For Good",
+}
+  },
+  
 } as const;
