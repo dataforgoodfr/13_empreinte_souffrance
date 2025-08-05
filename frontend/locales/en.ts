@@ -635,6 +635,7 @@ export default {
       },
     },
   },
+
   aboutPage: {
     association_presentation_section: {
       two_hens_out_five_title:
@@ -659,5 +660,7 @@ export default {
           'On the eve of this decisive moment for the end of caged farming, Suffering Footprint is alerting citizens and businesses: we must turn the page on cages; the figures show it.',
       },
     },
+    thanking_section:
+      'This project was made possible thanks to the volunteers who worked for several months on the design of the site and the calculator. Anima and Data for Good are deeply grateful to them. Thank you Laurent Basara, Luc Berton, Théo Degorre, Marie Groshens, Mathis Dupuy, Julien Deniaud, Adrien Jérôme, Adelia Khasanova, Paul Pajot, Axelle Playoust-Braure, Justine Tellier, Anaïs Valentin, Myriam Duval, Hakima Arroubat, Tom Francés, Julie Prigent, Tawfik Maalej, Denis Sabardine, Moïri Gamboni, Victor Diné, Hugo de Saint-Martin, Delon Ung.',
   },
 } as const;

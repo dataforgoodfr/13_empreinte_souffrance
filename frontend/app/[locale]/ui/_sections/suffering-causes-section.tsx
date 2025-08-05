@@ -1,5 +1,5 @@
 import { getI18n } from '@/locales/server';
-import SectionHeading from '@/app/[locale]/ui/_section/section-heading';
+import SectionHeading from '@/app/[locale]/ui/_sections/section-heading';
 import BoltIcon from '@/app/[locale]/ui/_components/BoltIcon';
 
 export default async function SufferingCausesSection() {

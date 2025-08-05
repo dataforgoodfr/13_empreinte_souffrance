@@ -1,4 +1,4 @@
-import SectionHeading from '../../ui/_section/section-heading';
+import SectionHeading from '../../ui/_sections/section-heading';
 import { getI18n } from '@/locales/server';
 import SufferingSynthesisDurationRows from '@/app/[locale]/methodology/_components/suffering-synthesis-duration-rows';
 

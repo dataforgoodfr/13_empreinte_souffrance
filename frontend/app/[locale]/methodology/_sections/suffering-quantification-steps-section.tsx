@@ -1,5 +1,5 @@
 import { getI18n } from '@/locales/server';
-import SectionHeading from '../../ui/_section/section-heading';
+import SectionHeading from '../../ui/_sections/section-heading';
 import SufferingStagesDescription from '@/app/[locale]/ui/_components/suffering-stages-description';
 import SufferingSynthesisDurationTable from '@/app/[locale]/methodology/_components/suffering-synthesis-duration-table';
 import SufferingSynthesisDurationRows from '@/app/[locale]/methodology/_components/suffering-synthesis-duration-rows';

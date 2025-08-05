@@ -1,6 +1,6 @@
 import { getI18n } from '@/locales/server';
 import Link from 'next/link';
-import SectionHeading from '@/app/[locale]/ui/_section/section-heading';
+import SectionHeading from '@/app/[locale]/ui/_sections/section-heading';
 import SufferingStagesDescription from '@/app/[locale]/ui/_components/suffering-stages-description';
 
 export default async function PainEquationSection() {
