@@ -648,7 +648,32 @@ export default {
       },
     },
   },
-      aboutPage: {
-      thanking_section:'Ce projet a pu voir le jour grâce aux bénévoles qui ont travaillé pendant plusieurs mois sur la conception du site et du calculateur. Anima et Data for Good leur en sont profondément reconnaissants. Merci Laurent Basara, Luc Berton, Théo Degorre, Marie Groshens, Mathis Dupuy, Julien Deniaud, Adrien Jérôme, Adelia Khasanova, Paul Pajot, Axelle Playoust-Braure, Justine Tellier, Anaïs Valentin, Myriam Duval, Hakima Arroubat, Tom Francés, Julie Prigent, Tawfik Maalej, Denis Sabardine, Moïri Gamboni, Victor Diné, Hugo de Saint-Martin, Delon Ung.',
+
+  aboutPage: {
+    association_presentation_section: {
+      two_hens_out_five_title:
+        'Deux Poules sur cinq est le fruit d’une collaboration entre Anima et Data for Good, deux associations à but non lucratif.',
+      anima_presentation:
+        'Anima existe pour réduire la souffrance des animaux de la façon la plus efficace possible. L’association mène une campagne nationale et européenne pour mettre un terme à l’élevage en cage des poules pondeuses. Anima est membre de la coalition européenne Anima International.',
+      anima_link: "Voir le site d'Anima",
+      dataforgood_presentation:
+        "Data for Good est une ONG française dont le but est d'aider les projets d'intérêt général à se développer. Grâce à une communauté de plus de 4000 bénévoles compétents en technologie, une douzaine de projets sont soutenus et développés pendant plus de 3 mois.",
+      dataforgood_link: 'Voir le site de Data For Good',
     },
+    whyNameSection: {
+      why_welfare_footprint_title: 'POURQUOI “EMPREINTE SOUFFRANCE” ?',
+      why_welfare_footprint_description: {
+        new_scientific_work:
+          'De nouveaux travaux scientifiques permettent pour la toute première fois de quantifier le vécu des poules en cage. Fractures, lésions cutanées, privation des besoins naturels derrière chaque œuf de poule en cage se cachent des dizaines d’heures de souffrance physique et psychologique : c’est l’« Empreinte Souffrance » des œufs.',
+        accessible_result:
+          'Ces résultats révolutionnaires sont maintenant accessibles à toutes et tous : chaque consommateur peut scanner directement ses boîtes d’œufs en magasin pour connaître leur Empreinte Souffrance.',
+        firm_engagement:
+          'Or, le moment est crucial. Le 1er janvier 2026, les engagements des entreprises à ne plus vendre d’œufs de poules en cage entreront en vigueur. C’est le cas de Leclerc, Carrefour, Système U, Auchan, Lidl, Intermarché et Aldi.',
+        decisive_moment:
+          'À la veille de ce moment décisif pour la fin de l’élevage en cage, Empreinte Souffrance alerte les citoyens et les entreprises : il faut tourner la page des cages; les chiffres le montrent.',
+      },
+    },
+    thanking_section:'Ce projet a pu voir le jour grâce aux bénévoles qui ont travaillé pendant plusieurs mois sur la conception du site et du calculateur. Anima et Data for Good leur en sont profondément reconnaissants. Merci Laurent Basara, Luc Berton, Théo Degorre, Marie Groshens, Mathis Dupuy, Julien Deniaud, Adrien Jérôme, Adelia Khasanova, Paul Pajot, Axelle Playoust-Braure, Justine Tellier, Anaïs Valentin, Myriam Duval, Hakima Arroubat, Tom Francés, Julie Prigent, Tawfik Maalej, Denis Sabardine, Moïri Gamboni, Victor Diné, Hugo de Saint-Martin, Delon Ung.',
+  },
+
 } as const;

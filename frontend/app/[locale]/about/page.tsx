@@ -1,9 +1,13 @@
-import ThankingSection from "./thanking_section";
+import ThankingSection from './_section/thanking_section';
+import WhyNameSection from './_section/why_name_section';
+import AssociationPresentationSection from './_section/association-presentation-section';
 
 export default async function About() {
   return (
     <>
-      <ThankingSection/>
+      <ThankingSection />
+      <WhyNameSection />
+      <AssociationPresentationSection />
     </>
   );
 }
