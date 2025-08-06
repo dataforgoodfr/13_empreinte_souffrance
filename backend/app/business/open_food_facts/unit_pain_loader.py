@@ -22,13 +22,21 @@ PainPerProductUnit: TypeAlias = LayingHenPainPerProductUnit
 class UnitPainLoader:
     """
     Loader for pain data per product from a CSV file.
-    Specific to laying hens, with strong typing support.
+    Specific to laying hens
+
+    Attributes:
+        csv_file: File-like object containing the CSV data.
+
+    Columns expected in the CSV:
+        - animal_type: Type of animal (e.g., "laying_hen")
+        - breeding_type: Type of breeding (e.g., "furnished_cage")
+        - pain_type: Type of pain (e.g., "physical")
+        - pain_intensity: Intensity of pain (e.g., "excruciating")
+        - caliber: Caliber of egg (e.g., "large")
+        - pain_per_egg_in_seconds: Pain per egg in seconds (e.g., 30.0)
     """
 
     def __init__(self, csv_file: TextIO):
-        """
-        :param csv_file: opened text file object (e.g., io.StringIO or opened file)
-        """
         self.csv_file = csv_file
 
     def load(self) -> LayingHenPainPerProductUnit:
@@ -46,7 +54,7 @@ class UnitPainLoader:
 
                 raw_data[animal][breeding][pain_type][intensity][caliber] = value
             except (KeyError, ValueError) as e:
-                print(f"⚠️ Ignored row: {row} ({e})")
+                raise ValueError(f"Ignored row in CSV pain data: {row} ({e})")
 
         return self._deep_convert(raw_data)
 
@@ -63,9 +71,7 @@ def get_pain_per_egg_data() -> LayingHenPainPerProductUnit:
             loader = UnitPainLoader(f)
             return loader.load()
     except FileNotFoundError:
-        raise FileNotFoundError(f"CSV not found: {csv_path}")
+        raise FileNotFoundError(f"CSV pain data not found: {csv_path}")
 
 
 PAIN_PER_EGG_IN_SECONDS = get_pain_per_egg_data()
-
-print(PAIN_PER_EGG_IN_SECONDS)
