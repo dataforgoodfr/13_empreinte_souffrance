@@ -16,8 +16,6 @@ LayingHenPainPerProductUnit: TypeAlias = Dict[
     AnimalType, Dict[BreedingType, Dict[PainType, Dict[PainIntensity, Dict[EggCaliber, float]]]]
 ]
 
-PainPerProductUnit: TypeAlias = LayingHenPainPerProductUnit
-
 
 class UnitPainLoader:
     """
