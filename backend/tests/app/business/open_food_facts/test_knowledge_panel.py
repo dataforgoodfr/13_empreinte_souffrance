@@ -418,10 +418,20 @@ def test_cage_regex(tag, should_match):
         ("extract_digits_product", 6 * EggCaliber.AVERAGE.weight),
         ("tagged_large_egg_product", 6 * EggCaliber.LARGE.weight),
         ("product_quantity_with_unit", pytest.approx(0.5 * 453.59, 0.1)),
-        ("unknown_quantity_product", None),
-        ("no_data_product", None),
     ],
 )
 def test_calculate_egg_weight(product_fixture, expected_weight, request):
     product = request.getfixturevalue(product_fixture)
     assert EggQuantityCalculator().calculate_egg_quantity(product).total_weight == expected_weight
+
+
+@pytest.mark.parametrize(
+    "product_fixture",
+    [
+        "unknown_quantity_product",
+        "no_data_product",
+    ],
+)
+def test_calculate_egg_weight_no_quantity(product_fixture, request):
+    product = request.getfixturevalue(product_fixture)
+    assert EggQuantityCalculator().calculate_egg_quantity(product) is None
