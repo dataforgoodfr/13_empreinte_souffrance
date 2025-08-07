@@ -40,7 +40,7 @@ class PatternRepository:
 
     Attributes:
         UNIT_CONVERSIONS (dict): Mapping of units to conversion lambdas returning weight in grams.
-        EGG_WEIGHTS_BY_TAG (dict): Mapping of egg weight values to known category tags.
+        EGG_CALIBERS_BY_TAG (dict): Mapping of egg caliber to known category tags.
         REGEX_* (str): Regex patterns used to extract numeric quantities from strings.
         *_EXPRESSIONS (list): Lists of keywords used to identify specific egg calibers or quantities.
     """
@@ -64,16 +64,15 @@ class PatternRepository:
     }
 
     # Mapping known category tags to average egg weight in grams
-    EGG_WEIGHTS_BY_TAG = {
-        60: {
+    EGG_CALIBERS_BY_TAG = {
+        EggCaliber.LARGE: {
             "en:large-eggs",
             "en:free-range-organic-large-chicken-eggs",
             "gros-oeufs",
             "en:free-range-large-eggs",
             "en:large-free-run-chicken-eggs",
         },
-        55: {"en:grade-a-eggs"},
-        50: {"en:medium-eggs-pack-of-10", "en:organic-chicken-eggs-medium-size"},
+        EggCaliber.MEDIUM: {"en:medium-eggs-pack-of-10", "en:organic-chicken-eggs-medium-size"},
     }
 
     # Regex: matches a number alone (e.g. "6")
@@ -108,14 +107,14 @@ class EggQuantityCalculator:
         self.pattern_repository = PatternRepository
         self.quantity = EggQuantity()
 
-    def get_egg_weight_by_tag(self, categories_tags: List[str]) -> int:
+    def get_egg_caliber_by_tag(self, categories_tags: List[str]) -> EggCaliber | None:
         """
-        Returns the standard weight of one egg based on category tags.
+        Returns the egg caliber based on category tags.
         """
-        for weight, tags in self.pattern_repository.EGG_WEIGHTS_BY_TAG.items():
+        for caliber, tags in self.pattern_repository.EGG_CALIBERS_BY_TAG.items():
             if any(tag in categories_tags for tag in tags):
-                return weight
-        return 0
+                return caliber
+        return None
 
     def get_number_of_eggs(self, categories_tags: List[str]) -> int:
         """
@@ -133,16 +132,12 @@ class EggQuantityCalculator:
         Calculates egg quantity based on standard weights and pack size.
         """
         num_eggs = self.get_number_of_eggs(categories_tags)
-        weight_per_egg = self.get_egg_weight_by_tag(categories_tags)
+        egg_caliber = self.get_egg_caliber_by_tag(categories_tags)
 
         if num_eggs == 0:
             return self.quantity
-        if weight_per_egg > 0:
-            self.quantity.is_complete = True
-            self.quantity.count = num_eggs
-            self.quantity.total_weight = num_eggs * weight_per_egg
-            return self.quantity
-        self.quantity.fill_from_count(num_eggs)
+
+        self.quantity.fill_from_count(count=num_eggs, caliber=egg_caliber)
         return self.quantity
 
     def get_egg_quantity_from_product_quantity(self, quantity: str) -> EggQuantity:
