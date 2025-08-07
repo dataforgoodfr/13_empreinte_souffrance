@@ -19,22 +19,22 @@ class EggQuantity:
 
     count: int
     total_weight: float
-    caliber: EggCaliber | None
+    caliber: EggCaliber | None = None
 
     @classmethod
     def from_count(cls, count: int, caliber: EggCaliber | None = None) -> Optional["EggQuantity"]:
         if count <= 0:
             return None
-        caliber = caliber or EggCaliber.AVERAGE
-        total_weight = count * caliber.weight
+        egg_weight = caliber.weight if caliber else EggCaliber.AVERAGE.weight
+        total_weight = count * egg_weight
         return cls(count=count, total_weight=total_weight, caliber=caliber)
 
     @classmethod
     def from_weight(cls, total_weight: float, caliber: EggCaliber | None = None) -> Optional["EggQuantity"]:
         if total_weight <= 0:
             return None
-        caliber = caliber or EggCaliber.AVERAGE
-        count = int(round(total_weight / caliber.weight))
+        egg_weight = caliber.weight if caliber else EggCaliber.AVERAGE.weight
+        count = round(total_weight / egg_weight)
         return cls(count=count, total_weight=total_weight, caliber=caliber)
 
 
@@ -154,7 +154,7 @@ class EggQuantityCalculator:
 
         if num_eggs == 0:
             return None
-        
+
         return EggQuantity.from_count(count=num_eggs, caliber=egg_caliber)
 
     def get_egg_quantity_from_product_quantity(self, quantity: str) -> EggQuantity | None:

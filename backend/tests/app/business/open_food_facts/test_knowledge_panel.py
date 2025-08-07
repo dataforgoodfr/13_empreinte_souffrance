@@ -13,6 +13,7 @@ from app.business.open_food_facts.breeding_type_calculator import (
 )
 from app.business.open_food_facts.egg_quantity_calculator import (
     EggCaliber,
+    EggQuantity,
     EggQuantityCalculator,
 )
 from app.business.open_food_facts.knowledge_panel import (
@@ -405,33 +406,39 @@ def test_cage_regex(tag, should_match):
     assert bool(re.search(pattern, BreedingTypeCalculator._clean(tag))) == should_match
 
 
-# Test weight calculator
-@pytest.mark.parametrize(
-    "product_fixture, expected_weight",
-    [
-        ("number_only_product", 6 * EggCaliber.AVERAGE.weight),
-        ("numeric_unit_dozen", 12 * EggCaliber.AVERAGE.weight),
-        ("numeric_unit_moyen", 12 * EggCaliber.AVERAGE.weight),
-        ("numeric_unit_large", 12 * EggCaliber.LARGE.weight),
-        ("x_style_product", 10 * EggCaliber.AVERAGE.weight),
-        ("addition_expression_product", 12 * EggCaliber.AVERAGE.weight),
-        ("extract_digits_product", 6 * EggCaliber.AVERAGE.weight),
-        ("tagged_large_egg_product", 6 * EggCaliber.LARGE.weight),
-        ("product_quantity_with_unit", pytest.approx(0.5 * 453.59, 0.1)),
-    ],
-)
-def test_calculate_egg_weight(product_fixture, expected_weight, request):
-    product = request.getfixturevalue(product_fixture)
-    assert EggQuantityCalculator().calculate_egg_quantity(product).total_weight == expected_weight
+# Test egg quantity calculator
 
 
 @pytest.mark.parametrize(
-    "product_fixture",
+    "product_fixture, expected_quantity",
     [
-        "unknown_quantity_product",
-        "no_data_product",
+        ("number_only_product", EggQuantity(count=6, total_weight=6 * EggCaliber.AVERAGE.weight)),
+        ("numeric_unit_dozen", EggQuantity(count=12, total_weight=12 * EggCaliber.AVERAGE.weight)),
+        (
+            "numeric_unit_moyen",
+            EggQuantity(count=12, total_weight=12 * EggCaliber.MEDIUM.weight, caliber=EggCaliber.MEDIUM),
+        ),
+        (
+            "numeric_unit_large",
+            EggQuantity(count=12, total_weight=12 * EggCaliber.LARGE.weight, caliber=EggCaliber.LARGE),
+        ),
+        ("x_style_product", EggQuantity(count=10, total_weight=10 * EggCaliber.AVERAGE.weight)),
+        ("addition_expression_product", EggQuantity(count=12, total_weight=12 * EggCaliber.AVERAGE.weight)),
+        ("extract_digits_product", EggQuantity(count=6, total_weight=6 * EggCaliber.AVERAGE.weight)),
+        (
+            "tagged_large_egg_product",
+            EggQuantity(count=6, total_weight=6 * EggCaliber.LARGE.weight, caliber=EggCaliber.LARGE),
+        ),
+        (
+            "product_quantity_with_unit",
+            EggQuantity(
+                count=round(0.5 * 453.59 / EggCaliber.AVERAGE.weight), total_weight=pytest.approx(0.5 * 453.59, 0.1)
+            ),
+        ),
+        ("unknown_quantity_product", None),
+        ("no_data_product", None),
     ],
 )
-def test_calculate_egg_weight_no_quantity(product_fixture, request):
+def test_calculate_egg_quantity(product_fixture, expected_quantity, request):
     product = request.getfixturevalue(product_fixture)
-    assert EggQuantityCalculator().calculate_egg_quantity(product) is None
+    assert EggQuantityCalculator().calculate_egg_quantity(product) == expected_quantity
