@@ -182,17 +182,14 @@ class EggCaliber(StrEnum):
     MEDIUM = "medium"
     LARGE = "large"
     EXTRA_LARGE = "extra_large"
-    AVERAGE = "average"
-    GRADE_A = "grade_a"  # to be removed while fixing quantity calculator
+
+    AVERAGE = MEDIUM  # Default average caliber when not found
 
     @property
     def weight(self) -> int:
-        # values to be modified while fixing quantity calculator
         return {
-            EggCaliber.SMALL: 48,
-            EggCaliber.MEDIUM: 50,  # to 58
-            EggCaliber.LARGE: 60,  # to 68
-            EggCaliber.EXTRA_LARGE: 78,
-            EggCaliber.GRADE_A: 55,  # to be removed
-            EggCaliber.AVERAGE: 50,  # to 58
+            EggCaliber.SMALL: 48,  # < 53g
+            EggCaliber.MEDIUM: 58,  # 53g - 63g
+            EggCaliber.LARGE: 68,  # 63g - 73g
+            EggCaliber.EXTRA_LARGE: 78,  # > 73g
         }[self]
