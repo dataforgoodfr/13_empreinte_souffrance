@@ -239,7 +239,7 @@ class EggQuantityCalculator:
             converter = self.pattern_repository.UNIT_CONVERSIONS.get(unit_key)
             if converter:
                 try:
-                    weight = converter(quantity)
+                    weight = round(converter(quantity))
                     return EggQuantity.from_weight(total_weight=weight)
                 except (ValueError, TypeError):
                     pass
