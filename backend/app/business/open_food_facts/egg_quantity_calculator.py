@@ -104,7 +104,6 @@ class EggQuantityCalculator:
     """
     Utility for calculating the weight of eggs using various inputs:
     category tags, free-form quantities, unit-based measurements, or structured product data.
-
     """
 
     def __init__(self):
@@ -147,7 +146,8 @@ class EggQuantityCalculator:
         Args:
             categories_tags (List[str]): List of category tags from the product data.
         Returns:
-            EggQuantity: The calculated egg quantity with count, total weight, and caliber.
+            EggQuantity: The calculated egg quantity with count, total weight, and optional caliber,
+            or None if no quantity could be found.
         """
         num_eggs = self.get_number_of_eggs(categories_tags)
         egg_caliber = self.get_egg_caliber_by_tag(categories_tags)
@@ -164,7 +164,8 @@ class EggQuantityCalculator:
         Args:
             quantity (str): The quantity string to parse, e.g. "6", "1 dozen", "12 large", "x10" etc
         Returns:
-            EggQuantity: The calculated egg quantity with count, total weight, and caliber.
+            EggQuantity: The calculated egg quantity with count, total weight, and optional caliber,
+            or None if no quantity could be found.
         """
 
         if not quantity:
@@ -228,7 +229,8 @@ class EggQuantityCalculator:
             unit (str): The unit of the quantity (e.g. "pcs", "unite", "g", "oz", "lbs", "ml", "l", "litres").
 
         Returns:
-            EggQuantity: The calculated egg quantity with count, total weight, and caliber.
+            EggQuantity: The calculated egg quantity with count, total weight, and optional caliber,
+            or None if no quantity could be found.
         """
         unit_key = unit.lower()
         if unit in self.pattern_repository.COUNT_UNITS:
@@ -252,7 +254,8 @@ class EggQuantityCalculator:
         Args:
             product_data (ProductData): The product data containing quantity, unit, and categories tags.
         Returns:
-            EggQuantity: The calculated egg quantity with count, total weight, and caliber.
+            EggQuantity: The calculated egg quantity with count, total weight, and optional caliber,
+            or None if no quantity could be found.
         """
         product_quantity = product_data.product_quantity
         unit = product_data.product_quantity_unit
