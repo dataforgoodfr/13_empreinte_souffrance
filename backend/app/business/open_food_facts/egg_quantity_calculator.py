@@ -234,7 +234,7 @@ class EggQuantityCalculator:
         """
         unit_key = unit.lower()
         if unit in self.pattern_repository.COUNT_UNITS:
-            return EggQuantity.from_count(count=int(round(quantity)))
+            return EggQuantity.from_count(count=int(quantity))
         else:
             converter = self.pattern_repository.UNIT_CONVERSIONS.get(unit_key)
             if converter:
