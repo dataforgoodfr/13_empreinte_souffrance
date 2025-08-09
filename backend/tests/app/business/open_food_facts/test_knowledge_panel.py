@@ -146,10 +146,7 @@ def test_get_breeding_types_and_quantities(
     item = result[AnimalType.LAYING_HEN]
     assert isinstance(item, BreedingTypeAndQuantity)
     assert item.breeding_type == expected_breeding_types
-    assert item.quantity is not None
-    assert item.quantity.total_weight == 230
-    assert item.quantity.count == 4
-    assert item.quantity.caliber is None
+    assert item.quantity == EggQuantity(count=4, total_weight=230)
 
 
 def test_get_breeding_types(sample_product_data: ProductData):
