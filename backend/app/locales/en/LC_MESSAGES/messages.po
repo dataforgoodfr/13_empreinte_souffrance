@@ -123,35 +123,27 @@ msgstr ""
 
 #, python-brace-format
 msgid "{} day"
-msgstr ""
-
-#, python-brace-format
-msgid "{} days"
-msgstr ""
+msgid_plural "{} days"
+msgstr[0] "{} day"
+msgstr[1] "{} days"
 
 #, python-brace-format
 msgid "{} hour"
-msgstr ""
-
-#, python-brace-format
-msgid "{} hours"
-msgstr ""
+msgid_plural "{} hours"
+msgstr[0] "{} hour"
+msgstr[1] "{} hours"
 
 #, python-brace-format
 msgid "{} minute"
-msgstr ""
-
-#, python-brace-format
-msgid "{} minutes"
-msgstr ""
+msgid_plural "{} minutes"
+msgstr[0] "{} minute"
+msgstr[1] "{} minutes"
 
 #, python-brace-format
 msgid "{} second"
-msgstr ""
-
-#, python-brace-format
-msgid "{} seconds"
-msgstr ""
+msgid_plural "{} seconds"
+msgstr[0] "{} second"
+msgstr[1] "{} seconds"
 
 msgid "Laying hen"
 msgstr ""
