@@ -1,7 +1,7 @@
 from collections.abc import Callable
 from dataclasses import dataclass
 from enum import StrEnum, auto
-from typing import TypeAlias, Optional
+from typing import Optional, TypeAlias
 
 
 class LayingHenBreedingType(StrEnum):
@@ -147,3 +147,6 @@ class EggQuantity:
         count = round(total_weight / egg_weight)
         return cls(count=count, total_weight=total_weight, caliber=caliber)
 
+
+ProductQuantity: TypeAlias = EggQuantity | None
+# None is used for mixed products or unsupported animal types
