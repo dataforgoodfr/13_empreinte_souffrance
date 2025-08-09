@@ -1,0 +1,15 @@
+services:
+  app:
+    image: remigirard.dev:5000/admin/empreinte-souffrance_frontend:${STAGE_NAME}
+    networks:
+      - traefik-public
+    deploy:
+      labels:
+        - "traefik.enable=true"
+        - "traefik.http.routers.empreinte-souffrance.rule=Host(`${DEPLOY_URL}`)"
+        - "traefik.http.routers.empreinte-souffrance.entrypoints=websecure"
+        - "traefik.http.routers.empreinte-souffrance.tls.certresolver=wildcardresolver"
+        - "traefik.http.services.empreinte-souffrance.loadbalancer.server.port=3000"
+networks:
+  traefik-public:
+    external: true
