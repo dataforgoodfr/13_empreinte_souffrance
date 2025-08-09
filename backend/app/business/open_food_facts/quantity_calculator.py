@@ -51,6 +51,7 @@ class QuantityCalculator:
             ProductQuantity : for now float or None, in grams.
         """
         if animal_type == AnimalType.LAYING_HEN:
-            return EggQuantityCalculator().calculate_egg_quantity(self.product_data).total_weight
+            quantity = EggQuantityCalculator().calculate_egg_quantity(self.product_data)
+            return quantity.total_weight if quantity else None
         else:
             return None
