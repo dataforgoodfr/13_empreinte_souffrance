@@ -6,6 +6,7 @@ from app.business.open_food_facts.unit_pain_loader import PAIN_PER_EGG_IN_SECOND
 from app.config.exceptions import ResourceNotFoundException
 from app.enums.open_food_facts.enums import (
     AnimalType,
+    EggCaliber,
     EggQuantity,
     LayingHenBreedingType,
     PainIntensity,
@@ -236,11 +237,6 @@ class PainReportCalculator:
         Returns:
             Duration of pain in seconds
         """
-
-        # Pain can only be computed for laying hens and uses specifid dictionnary
-        if animal_type != AnimalType.LAYING_HEN:
-            return 0
-
         breeding_type = breeding_type_and_quantity.breeding_type
         quantity = breeding_type_and_quantity.quantity
 
@@ -251,23 +247,24 @@ class PainReportCalculator:
                 quantity=quantity,
             )
 
-        # If animal type is laying hen, quantity and breeding type can be casted to laying hen types
-        quantity = cast(EggQuantity, quantity)
-        breeding_type = cast(LayingHenBreedingType, breeding_type)
+        if animal_type == AnimalType.LAYING_HEN:
+            # If animal type is laying hen, quantity and breeding type can be casted to laying hen types
+            quantity = cast(EggQuantity, quantity)
+            breeding_type = cast(LayingHenBreedingType, breeding_type)
+            caliber = quantity.caliber or EggCaliber.AVERAGE
+            count = quantity.count
 
-        caliber = quantity.caliber
-        count = quantity.count
+            # Get the time in pain per egg for this combination of parameters
+            # Default to 0 if any level in the hierarchy is missing
+            try:
+                time_in_pain = PAIN_PER_EGG_IN_SECONDS[animal_type][breeding_type][pain_type][pain_intensity][caliber]
+            except (KeyError, TypeError):
+                # This combination of animal, breeding type, pain type, and intensity is not defined
+                return 0
 
-        if caliber is None or count is None:
+            # Scale the time in pain based on the number of eggs
+            return int(time_in_pain * count)
+
+        # Pain can only be computed for laying hens
+        else:
             return 0
-
-        # Get the time in pain per egg for this combination of parameters
-        # Default to 0 if any level in the hierarchy is missing
-        try:
-            time_in_pain = PAIN_PER_EGG_IN_SECONDS[animal_type][breeding_type][pain_type][pain_intensity][caliber]
-        except (KeyError, TypeError):
-            # This combination of animal, breeding type, pain type, and intensity is not defined
-            return 0
-
-        # Scale the time in pain based on the number of eggs
-        return int(time_in_pain * count)
