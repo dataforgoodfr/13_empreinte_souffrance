@@ -1,6 +1,4 @@
 import re
-from dataclasses import dataclass
-from typing import List, Optional
 from typing import List
 
 from app.enums.open_food_facts.enums import EggCaliber, EggQuantity
@@ -236,5 +234,4 @@ class EggQuantityCalculator:
         elif quantity:
             return self.get_egg_quantity_from_product_quantity(quantity)
         else:
-            self.get_egg_quantity_from_tags(categories_tags)
-
+            return self.get_egg_quantity_from_tags(categories_tags)

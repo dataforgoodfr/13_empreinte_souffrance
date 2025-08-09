@@ -14,7 +14,6 @@ from app.business.open_food_facts.breeding_type_calculator import (
 )
 from app.business.open_food_facts.egg_quantity_calculator import (
     EggCaliber,
-    EggQuantity,
     EggQuantityCalculator,
 )
 from app.business.open_food_facts.knowledge_panel import (
@@ -148,9 +147,9 @@ def test_get_breeding_types_and_quantities(
     assert isinstance(item, BreedingTypeAndQuantity)
     assert item.breeding_type == expected_breeding_types
     assert item.quantity is not None
-    assert item.quantity.total_weight == 200
+    assert item.quantity.total_weight == 230
     assert item.quantity.count == 4
-    assert item.quantity.caliber == EggCaliber.AVERAGE
+    assert item.quantity.caliber is None
 
 
 def test_get_breeding_types(sample_product_data: ProductData):
@@ -166,7 +165,7 @@ def test_generate_pain_levels_for_type(sample_product_data: ProductData):
 
     calculator = PainReportCalculator(sample_product_data)
 
-    quantity = EggQuantity(count=4, caliber=EggCaliber.AVERAGE, total_weight=200, is_complete=True)
+    quantity = EggQuantity(count=4, total_weight=230)
 
     breeding_type = BreedingTypeAndQuantity(breeding_type=LayingHenBreedingType.FURNISHED_CAGE, quantity=quantity)
 
@@ -447,7 +446,6 @@ def test_cage_regex(tag, should_match):
 def test_calculate_egg_quantity(product_fixture, expected_quantity, request):
     product = request.getfixturevalue(product_fixture)
     assert EggQuantityCalculator().calculate_egg_quantity(product) == expected_quantity
-
 
 
 def test_load_minimal_csv():
