@@ -164,11 +164,11 @@ msgstr "Douleur psychologique"
 #, python-brace-format
 msgid ""
 "<b>{animal_name} :</b><ul><li>Production system: "
-"<b>{breeding_type}</b></li><li>Quantity of egg in the product: "
+"<b>{breeding_type}</b></li><li>Quantity in the product: "
 "<b>{quantity}</b></li></ul>"
 msgstr ""
 "<b>{animal_name} :</b><ul><li>Type d'élevage : "
-"<b>{breeding_type}</b></li><li>Quantité d'œuf dans le produit : "
+"<b>{breeding_type}</b></li><li>Quantité dans le produit : "
 "<b>{quantity}</b></li></ul>"
 
 #, python-brace-format
@@ -233,3 +233,25 @@ msgstr "Douleur psychologique"
 
 msgid "Not found"
 msgstr "Non trouvé"
+
+#, python-brace-format
+msgid "{} Egg"
+msgid_plural "{} Eggs"
+msgstr[0] "{} Œuf"
+msgstr[1] "{} Œufs"
+
+#, python-brace-format
+msgid "{} Caliber"
+msgstr "Calibre {}"
+
+msgid "Small"
+msgstr "Petit"
+
+msgid "Medium"
+msgstr "Moyen"
+
+msgid "Large"
+msgstr "Gros"
+
+msgid "Extra Large"
+msgstr "Très Gros"
