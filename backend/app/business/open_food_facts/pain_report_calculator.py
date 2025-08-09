@@ -130,7 +130,7 @@ class PainReportCalculator:
 
         Args:
             animal_type: The type of animal
-            breeding_type_and_quantity: The breeding type with quantity information
+            breeding_type: The breeding type with quantity information
             pain_type: The type of pain (physical or psychological)
 
         Returns:
