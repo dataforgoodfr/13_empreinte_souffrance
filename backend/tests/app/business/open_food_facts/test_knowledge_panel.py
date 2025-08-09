@@ -14,7 +14,6 @@ from app.business.open_food_facts.breeding_type_calculator import (
 )
 from app.business.open_food_facts.egg_quantity_calculator import (
     EggCaliber,
-    EggQuantity,
     EggQuantityCalculator,
 )
 from app.business.open_food_facts.knowledge_panel import (
@@ -30,7 +29,7 @@ from app.business.open_food_facts.pain_report_calculator import (
 from app.business.open_food_facts.unit_pain_loader import UnitPainLoader
 from app.config.exceptions import ResourceNotFoundException
 from app.config.i18n import I18N
-from app.enums.open_food_facts.enums import AnimalType, LayingHenBreedingType, PainIntensity, PainType
+from app.enums.open_food_facts.enums import AnimalType, EggQuantity, LayingHenBreedingType, PainIntensity, PainType
 from app.schemas.open_food_facts.external import ProductData
 from app.schemas.open_food_facts.internal import (
     BreedingTypeAndQuantity,
@@ -147,7 +146,7 @@ def test_get_breeding_types_and_quantities(
     item = result[AnimalType.LAYING_HEN]
     assert isinstance(item, BreedingTypeAndQuantity)
     assert item.breeding_type == expected_breeding_types
-    assert item.quantity == 200
+    assert item.quantity == EggQuantity(count=4, total_weight=230)
 
 
 def test_get_breeding_types(sample_product_data: ProductData):
@@ -163,7 +162,9 @@ def test_generate_pain_levels_for_type(sample_product_data: ProductData):
 
     calculator = PainReportCalculator(sample_product_data)
 
-    breeding_type = BreedingTypeAndQuantity(breeding_type=LayingHenBreedingType.FURNISHED_CAGE, quantity=200)
+    quantity = EggQuantity(count=4, total_weight=230)
+
+    breeding_type = BreedingTypeAndQuantity(breeding_type=LayingHenBreedingType.FURNISHED_CAGE, quantity=quantity)
 
     # Test generating physical pain levels
     physical_pain_levels = calculator._generate_pain_levels_for_pain_type(

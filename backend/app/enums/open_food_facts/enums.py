@@ -1,6 +1,7 @@
 from collections.abc import Callable
+from dataclasses import dataclass
 from enum import StrEnum, auto
-from typing import TypeAlias
+from typing import Optional, TypeAlias
 
 
 class LayingHenBreedingType(StrEnum):
@@ -95,86 +96,6 @@ class PainType(StrEnum):
         return mappings.get(self.value, self.value)
 
 
-# Time in pain by animal type, per 100g, in seconds, separated by pain type
-TIME_IN_PAIN_FOR_100G_IN_SECONDS = {
-    AnimalType.LAYING_HEN: {
-        LayingHenBreedingType.CONVENTIONAL_CAGE: {
-            PainType.PHYSICAL: {
-                PainIntensity.EXCRUCIATING: 70,
-                PainIntensity.DISABLING: 1200,
-                PainIntensity.HURTFUL: 1800,
-                PainIntensity.ANNOYING: 2400,
-            },
-            PainType.PSYCHOLOGICAL: {
-                PainIntensity.EXCRUCIATING: 30,
-                PainIntensity.DISABLING: 800,
-                PainIntensity.HURTFUL: 1200,
-                PainIntensity.ANNOYING: 1600,
-            },
-        },
-        LayingHenBreedingType.FURNISHED_CAGE: {
-            PainType.PHYSICAL: {
-                PainIntensity.EXCRUCIATING: 0,
-                PainIntensity.DISABLING: 1100,
-                PainIntensity.HURTFUL: 1700,
-                PainIntensity.ANNOYING: 2300,
-            },
-            PainType.PSYCHOLOGICAL: {
-                PainIntensity.EXCRUCIATING: 40,
-                PainIntensity.DISABLING: 900,
-                PainIntensity.HURTFUL: 1300,
-                PainIntensity.ANNOYING: 1700,
-            },
-        },
-        LayingHenBreedingType.BARN: {
-            PainType.PHYSICAL: {
-                PainIntensity.EXCRUCIATING: 50,
-                PainIntensity.DISABLING: 1000,
-                PainIntensity.HURTFUL: 1500,
-                PainIntensity.ANNOYING: 2000,
-            },
-            PainType.PSYCHOLOGICAL: {
-                PainIntensity.EXCRUCIATING: 50,
-                PainIntensity.DISABLING: 1000,
-                PainIntensity.HURTFUL: 1500,
-                PainIntensity.ANNOYING: 2000,
-            },
-        },
-        LayingHenBreedingType.FREE_RANGE: {
-            PainType.PHYSICAL: {
-                PainIntensity.EXCRUCIATING: 0,
-                PainIntensity.DISABLING: 60,
-                PainIntensity.HURTFUL: 1000,
-                PainIntensity.ANNOYING: 16000,
-            },
-            PainType.PSYCHOLOGICAL: {
-                PainIntensity.EXCRUCIATING: 1,
-                PainIntensity.DISABLING: 51,
-                PainIntensity.HURTFUL: 1222,
-                PainIntensity.ANNOYING: 17333,
-            },
-        },
-    },
-    AnimalType.BROILER_CHICKEN: {
-        BroilerChickenBreedingType.FREE_RANGE: {
-            PainType.PHYSICAL: {
-                PainIntensity.EXCRUCIATING: 70,
-                PainIntensity.DISABLING: 2500,
-                PainIntensity.HURTFUL: 4000,
-                PainIntensity.ANNOYING: 18000,
-            },
-            PainType.PSYCHOLOGICAL: {
-                PainIntensity.EXCRUCIATING: 50,
-                PainIntensity.DISABLING: 2000,
-                PainIntensity.HURTFUL: 4000,
-                PainIntensity.ANNOYING: 17000,
-            },
-        },
-    },
-    # Here will come data for other animals...
-}
-
-
 class EggCaliber(StrEnum):
     """Egg calibers with their corresponding weights in grams."""
 
@@ -193,3 +114,38 @@ class EggCaliber(StrEnum):
             EggCaliber.LARGE: 68,  # 63g - 73g
             EggCaliber.EXTRA_LARGE: 78,  # > 73g
         }[self]
+
+
+@dataclass
+class EggQuantity:
+    """
+    Result of egg weight calculation containing all relevant information.
+
+    Attributes:
+        count: Number of eggs in the product
+        caliber: Caliber of the eggs if known
+        total_weight: Total weight of all eggs in grams
+    """
+
+    count: int
+    total_weight: float
+    caliber: EggCaliber | None = None
+
+    @classmethod
+    def from_count(cls, count: int, caliber: EggCaliber | None = None) -> Optional["EggQuantity"]:
+        if count <= 0:
+            return None
+        egg_weight = caliber.weight if caliber else EggCaliber.AVERAGE.weight
+        total_weight = count * egg_weight
+        return cls(count=count, total_weight=total_weight, caliber=caliber)
+
+    @classmethod
+    def from_weight(cls, total_weight: float, caliber: EggCaliber | None = None) -> Optional["EggQuantity"]:
+        if total_weight <= 0:
+            return None
+        egg_weight = caliber.weight if caliber else EggCaliber.AVERAGE.weight
+        count = round(total_weight / egg_weight)
+        return cls(count=count, total_weight=total_weight, caliber=caliber)
+
+
+ProductQuantity: TypeAlias = EggQuantity

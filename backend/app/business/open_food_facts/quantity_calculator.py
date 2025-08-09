@@ -1,11 +1,7 @@
-from typing import TypeAlias
-
 from app.business.open_food_facts.egg_quantity_calculator import EggQuantityCalculator
+from app.enums.open_food_facts.enums import ProductQuantity
 from app.schemas.open_food_facts.external import ProductData
 from app.schemas.open_food_facts.internal import AnimalType, ProductType
-
-ProductQuantity: TypeAlias = float | None
-# float to be changed to EggQuantity while letting PainReportCalculator and KnowledgePanel parse EggQuantity
 
 
 class QuantityCalculator:
@@ -26,21 +22,22 @@ class QuantityCalculator:
         self.product_data = product_data
         self.product_type = product_type
 
-    def get_quantities_by_animal(self) -> dict[AnimalType, ProductQuantity]:
+    def get_quantities_by_animal(self) -> dict[AnimalType, ProductQuantity | None]:
         """
         Returns a mapping of animal types to their associated quantity estimates.
         This method is a placeholder for mixed products; no actual computation is done.
 
         Returns:
-            dict[AnimalType, ProductQuantity]: A dictionary where each animal type is mapped to None.
+            dict[AnimalType, ProductQuantity | None]: A dictionary where each animal
+            type is mapped to None.
         """
-        quantities_by_animal: dict[AnimalType, float | None] = {}
+        quantities_by_animal: dict[AnimalType, ProductQuantity | None] = {}
 
         for animal_type in self.product_type.animal_types:
             quantities_by_animal[animal_type] = None
         return quantities_by_animal
 
-    def get_quantity(self, animal_type: AnimalType) -> ProductQuantity:
+    def get_quantity(self, animal_type: AnimalType) -> ProductQuantity | None:
         """
         Computes the quantity of the product for a specific animal type.
         Uses the EggQuantityCalculator for LAYING_HEN and use output weight for now
@@ -48,10 +45,11 @@ class QuantityCalculator:
         Args:
             AnimalType (AnimalType): The animal type to calculate quantity for.
         Returns:
-            ProductQuantity : for now float or None, in grams.
+            ProductQuantity | None: The quantity of the product for the specified animal type,
+            None is not found or animal is not managed
         """
         if animal_type == AnimalType.LAYING_HEN:
             quantity = EggQuantityCalculator().calculate_egg_quantity(self.product_data)
-            return quantity.total_weight if quantity else None
+            return quantity
         else:
             return None
