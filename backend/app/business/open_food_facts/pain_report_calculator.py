@@ -1,4 +1,4 @@
-from typing import List, cast
+from typing import List
 
 from app.business.open_food_facts.breeding_type_calculator import BreedingTypeCalculator
 from app.business.open_food_facts.quantity_calculator import QuantityCalculator
@@ -7,8 +7,6 @@ from app.config.exceptions import ResourceNotFoundException
 from app.enums.open_food_facts.enums import (
     AnimalType,
     EggCaliber,
-    EggQuantity,
-    LayingHenBreedingType,
     PainIntensity,
     PainType,
     ProductQuantity,
@@ -248,15 +246,12 @@ class PainReportCalculator:
             )
 
         if animal_type == AnimalType.LAYING_HEN:
-            # If animal type is laying hen, quantity and breeding type can be casted to laying hen types
-            quantity = cast(EggQuantity, quantity)
-            breeding_type = cast(LayingHenBreedingType, breeding_type)
-            caliber = quantity.caliber or EggCaliber.AVERAGE
-            count = quantity.count
-
-            # Get the time in pain per egg for this combination of parameters
-            # Default to 0 if any level in the hierarchy is missing
             try:
+                caliber = quantity.caliber or EggCaliber.AVERAGE
+                count = quantity.count
+
+                # Get the time in pain per egg for this combination of parameters
+                # Default to 0 if any level in the hierarchy is missing
                 time_in_pain = PAIN_PER_EGG_IN_SECONDS[animal_type][breeding_type][pain_type][pain_intensity][caliber]
             except (KeyError, TypeError):
                 # This combination of animal, breeding type, pain type, and intensity is not defined
