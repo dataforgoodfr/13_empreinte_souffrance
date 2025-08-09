@@ -148,5 +148,4 @@ class EggQuantity:
         return cls(count=count, total_weight=total_weight, caliber=caliber)
 
 
-ProductQuantity: TypeAlias = EggQuantity | None
-# None is used for mixed products or unsupported animal types
+ProductQuantity: TypeAlias = EggQuantity

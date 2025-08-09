@@ -22,7 +22,7 @@ class QuantityCalculator:
         self.product_data = product_data
         self.product_type = product_type
 
-    def get_quantities_by_animal(self) -> dict[AnimalType, ProductQuantity]:
+    def get_quantities_by_animal(self) -> dict[AnimalType, ProductQuantity | None]:
         """
         Returns a mapping of animal types to their associated quantity estimates.
         This method is a placeholder for mixed products; no actual computation is done.
@@ -30,13 +30,13 @@ class QuantityCalculator:
         Returns:
             dict[AnimalType, ProductQuantity]: A dictionary where each animal type is mapped to None.
         """
-        quantities_by_animal: dict[AnimalType, ProductQuantity] = {}
+        quantities_by_animal: dict[AnimalType, ProductQuantity | None] = {}
 
         for animal_type in self.product_type.animal_types:
             quantities_by_animal[animal_type] = None
         return quantities_by_animal
 
-    def get_quantity(self, animal_type: AnimalType) -> ProductQuantity:
+    def get_quantity(self, animal_type: AnimalType) -> ProductQuantity | None:
         """
         Computes the quantity of the product for a specific animal type.
         Uses the EggQuantityCalculator for LAYING_HEN and use output weight for now
