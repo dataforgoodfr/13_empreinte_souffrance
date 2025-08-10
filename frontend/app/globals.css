@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Azeret+Mono:ital,wght@0,100..900;1,100..900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Albert+Sans:ital,wght@0,100..900;1,100..900&family=Azeret+Mono:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Albert+Sans:ital,wght@0,100..900;1,100..900&display=swap');
 @import 'tailwindcss';
 
 :root {
@@ -73,7 +73,7 @@ h5,
 .secondary-button {
   font-family: var(--primary-font);
   font-weight: 700;
-  font-style: bold;
+  font-style: normal;
 }
 
 .lead,
@@ -81,7 +81,7 @@ h5,
 .caption {
   font-family: var(--secondary-font);
   font-weight: 400;
-  font-style: regular;
+  font-style: normal;
 }
 
 h1 {
@@ -136,8 +136,8 @@ h5 {
 .primary-button{
   padding: 16px;
   background-color: var(--pink-3);
-  box-shadow: 0px 5px 0px 0px black;
-  font-size : var(--button);
+  box-shadow: 0 5px 0 0 black;
+  font-size : var(--button-font-size);
   border-radius: calc(infinity * 1px);
   text-align: center;
   flex: content;
@@ -147,15 +147,15 @@ h5 {
 
 .primary-button:hover{
   background-color : var(--pink-1);
-  box-shadow: 0px 2px 0px 0px black;
+  box-shadow: 0 2px 0 0 black;
   transition:all ease-in-out;
 }
 
 .secondary-button{
   padding: 16px;
   background-color: var(--grey);
-  box-shadow: 0px 5px 0px 0px black;
-  font-size : var(--button);
+  box-shadow: 0 5px 0 0 black;
+  font-size : var(--button-font-size);
   border-radius: calc(infinity * 1px);
   text-align: center;
   flex: content;
@@ -165,6 +165,6 @@ h5 {
 
 .secondary-button:hover{
   background-color : var(--pink-1);
-  box-shadow: 0px 2px 0px 0px black;
+  box-shadow: 0 2px 0 0 black;
   transition:all ease-in-out;
 }

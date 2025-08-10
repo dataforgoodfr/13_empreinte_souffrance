@@ -15,7 +15,7 @@ export default async function Navbar() {
 
   return (
     <>
-      <header className="bg-grey px-4 w-full">
+      <div className="bg-grey px-4 w-full">
         <div className="flex flex-col md:flex-row md:items-center md:justify-between w-full gap-4">
           <div className="relative flex justify-between md:justify-start items-center w-full">
             <div className="flex justify-start items-center">
@@ -32,7 +32,7 @@ export default async function Navbar() {
             <NavLinks links={links} />
           </div>
         </div>
-      </header>
+      </div>
     </>
   );
 }

@@ -18,10 +18,8 @@ export default async function Layout({
 
   return (
     <>
-      <header className="sticky top-0 z-5">
-        <div className="w-full">
-          <Navbar />
-        </div>
+      <header className="sticky top-0 h-5 z-5 w-full">
+        <Navbar />
       </header>
       <I18nProviderClient locale={locale}>{children}</I18nProviderClient>
       <footer>
