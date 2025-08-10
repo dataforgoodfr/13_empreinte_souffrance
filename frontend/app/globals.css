@@ -1,5 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Azeret+Mono:ital,wght@0,100..900;1,100..900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Albert+Sans:ital,wght@0,100..900;1,100..900&display=swap');
 @import 'tailwindcss';
 
 :root {
@@ -14,8 +12,17 @@
   --violet-2: #b5abff;
 
   /** typography **/
-  --primary-font: 'Azeret Mono';
-  --secondary-font: 'Albert Sans';
+  /*
+    Following fonts vars are overridden at runtime by Next.js
+    See app/layout.tsx
+    we declare them to don't have IDE error
+  */
+  --font-albert-sans: 'Albert Sans';
+  --font-azeret-mono: 'Azeret Mono';
+
+  --primary-font: var(--font-albert-sans);
+  --secondary-font: var(--font-azeret-mono);
+  font-family: var(--primary-font), sans-serif;
   --h1-font-size: 47px;
   --h2-font-size: 39px;
   --h3-font-size: 31px;
@@ -71,7 +78,7 @@ h5,
 .numbers,
 .primary-button,
 .secondary-button {
-  font-family: var(--primary-font);
+  font-family: var(--primary-font), sans-serif;
   font-weight: 700;
   font-style: normal;
 }
@@ -79,7 +86,7 @@ h5,
 .lead,
 .body,
 .caption {
-  font-family: var(--secondary-font);
+  font-family: var(--secondary-font), sans-serif;
   font-weight: 400;
   font-style: normal;
 }

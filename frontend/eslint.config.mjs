@@ -1,9 +1,9 @@
-// eslint.config.mjs
 import js from '@eslint/js';
 import tseslint from '@typescript-eslint/eslint-plugin';
 import tsParser from '@typescript-eslint/parser';
 import reactPlugin from 'eslint-plugin-react';
 import reactHooksPlugin from 'eslint-plugin-react-hooks';
+import globals from 'globals'; // import globals package
 
 export default [
   js.configs.recommended,
@@ -13,24 +13,7 @@ export default [
       ecmaVersion: 2022,
       sourceType: 'module',
       globals: {
-        // Browser globals
-        window: 'readonly',
-        document: 'readonly',
-        navigator: 'readonly',
-        fetch: 'readonly',
-
-        // Timer functions
-        setTimeout: 'readonly',
-        setInterval: 'readonly',
-        clearTimeout: 'readonly',
-        clearInterval: 'readonly',
-
-        // HTML Element types
-        HTMLSelectElement: 'readonly',
-        HTMLInputElement: 'readonly',
-        HTMLFormElement: 'readonly',
-
-        // Node globals
+        ...globals.browser, // include all browser globals
         process: 'readonly',
         __dirname: 'readonly',
         __filename: 'readonly',
