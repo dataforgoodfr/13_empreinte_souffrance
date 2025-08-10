@@ -11,7 +11,7 @@ import pandas as pd
 import requests
 
 SOURCE_PARQUET = "https://huggingface.co/datasets/openfoodfacts/product-database/resolve/main/food.parquet"
-DATA_PATH = Path("../data")
+DATA_PATH = Path("data")
 LOCAL_PARQUET = DATA_PATH / "food.parquet"
 CSV_PATH = DATA_PATH / "eggs_from_parquet.csv"
 
