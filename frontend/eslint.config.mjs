@@ -19,6 +19,12 @@ export default [
         navigator: 'readonly',
         fetch: 'readonly',
 
+        // Timer functions
+        setTimeout: 'readonly',
+        setInterval: 'readonly',
+        clearTimeout: 'readonly',
+        clearInterval: 'readonly',
+
         // HTML Element types
         HTMLSelectElement: 'readonly',
         HTMLInputElement: 'readonly',

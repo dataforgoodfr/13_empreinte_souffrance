@@ -1,27 +1,6 @@
 from collections.abc import Callable
 from enum import StrEnum, auto
-
-
-class AnimalType(StrEnum):
-    LAYING_HEN = auto()
-    BROILER_CHICKEN = auto()
-
-    @property
-    def categories_tags(self) -> str:
-        """
-        Returns the categories_tags string associated with the animal type.
-        """
-        if self == AnimalType.LAYING_HEN:
-            return "en:eggs"
-        elif self == AnimalType.BROILER_CHICKEN:
-            return "en:chickens"
-        else:
-            raise ValueError(f"Unknown animal type: {self.value}")
-
-    def translated_name(self, _: Callable) -> str:
-        """Return the human-readable name for this animal type"""
-        mappings = {"laying_hen": _("Laying hen"), "broiler_chicken": _("Broiler chicken")}
-        return mappings.get(self.value, self.value)
+from typing import TypeAlias
 
 
 class LayingHenBreedingType(StrEnum):
@@ -48,7 +27,39 @@ class BroilerChickenBreedingType(StrEnum):
 
     def translated_name(self, _: Callable) -> str:
         """Return the human-readable name for this breeding type"""
-        mappings = {"free_range": _("Free range")}
+        mappings = {
+            "free_range": _("Free range"),
+        }
+        return mappings.get(self.value, self.value)
+
+
+BreedingType: TypeAlias = LayingHenBreedingType | BroilerChickenBreedingType
+
+
+class AnimalType(StrEnum):
+    LAYING_HEN = auto()
+    BROILER_CHICKEN = auto()
+
+    @property
+    def categories_tags(self) -> str:
+        return {
+            "laying_hen": "en:chicken-eggs",
+            "broiler_chicken": "en:chickens",
+        }.get(self.value) or (_ for _ in ()).throw(ValueError(f"Unknown animal type: {self.value}"))
+
+    @property
+    def is_computed(self) -> bool:
+        result = {
+            "laying_hen": True,
+            "broiler_chicken": False,
+        }.get(self.value)
+        if result is None:
+            raise ValueError(f"Unknown animal type: {self.value}")
+        return result
+
+    def translated_name(self, _: Callable) -> str:
+        """Return the human-readable name for this animal type"""
+        mappings = {"laying_hen": _("Laying hen"), "broiler_chicken": _("Broiler chicken")}
         return mappings.get(self.value, self.value)
 
 
@@ -162,3 +173,23 @@ TIME_IN_PAIN_FOR_100G_IN_SECONDS = {
     },
     # Here will come data for other animals...
 }
+
+
+class EggCaliber(StrEnum):
+    """Egg calibers with their corresponding weights in grams."""
+
+    SMALL = "small"
+    MEDIUM = "medium"
+    LARGE = "large"
+    EXTRA_LARGE = "extra_large"
+
+    AVERAGE = MEDIUM  # Default average caliber when not found
+
+    @property
+    def weight(self) -> int:
+        return {
+            EggCaliber.SMALL: 48,  # < 53g
+            EggCaliber.MEDIUM: 58,  # 53g - 63g
+            EggCaliber.LARGE: 68,  # 63g - 73g
+            EggCaliber.EXTRA_LARGE: 78,  # > 73g
+        }[self]

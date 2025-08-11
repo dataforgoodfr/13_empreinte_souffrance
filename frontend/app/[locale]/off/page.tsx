@@ -1,5 +1,7 @@
 'use client';
 
+//! page test backend, ne pas toucher !//
+
 import { useState, useEffect, ChangeEvent, FormEvent } from 'react';
 import './knowledge_panel.css';
 import Image from 'next/image';
@@ -40,8 +42,8 @@ type KnowledgePanelData = {
     [key: string]: Panel;
   };
   product?: {
-    name: string;
-    image_url: string;
+    name: string | null;
+    image_url: string | null;
   };
 };
 
@@ -50,6 +52,8 @@ export default function KnowledgePanel() {
   const [customBarcode, setCustomBarcode] = useState<string>('3256229237063'); // Poultry chicken barcode
   const [productName, setProductName] = useState<string | null>(null);
   const [productImageUrl, setProductImageUrl] = useState<string | null>(null);
+  const [productUrl, setProductUrl] = useState<string | null>(null);
+  const [APIv2URL, setAPIv2URL] = useState<string | null>(null);
   const [showCustomInput, setShowCustomInput] = useState<boolean>(false);
   const [knowledgePanelData, setKnowledgePanelData] = useState<KnowledgePanelData | null>(null);
   const [expandedPanels, setExpandedPanels] = useState<Record<string, boolean>>({});
@@ -64,18 +68,44 @@ export default function KnowledgePanel() {
     '8003636004529', // no specific category
     '3560071098278', // both en:free-range-chicken-eggs AND en:cage-chicken-eggs
     '3270190205685', // free-range chicken eggs from France
-    '0605388714565 ', // no specific category
+    '0605388714565', // no specific category
     '50326686', // cage chicken eggs from UK
     '4311501688120', // barn chicken eggs from Germany
     '4056489292395 ', // free-range eggs from Germany
     '9413000012057', // free-range eggs from New-Zealand
     '9414674989591', // cage eggs from New-Zealand
     '5202930932252', // free-range eggs, no country
-    '9313715907009', // Poultry chicken barcode
+    '9313715907009', //
     '5010482558413', // cage, France and UK
     '3372140000101', // cage, 2 countries
+    '3302740059193', // broiler chicken
+    '3256229237063',
+    '0451418000005',
+    '3331354307611',
     'custom',
   ];
+
+  const barcodeNames: { [key: string]: string } = {
+    '3450970045360': '10 œufs frais calibre moyen - cage France',
+    '2000000124898': 'Cage eggs from USA',
+    '8003636004529': 'Sans quantité',
+    '3560071098278': 'Free-range & cage chicken eggs',
+    '3270190205685': 'Free-range chicken eggs from France',
+    '0605388714565': "Medium grade A eggs - sans mode d'elevage",
+    '50326686': 'Cage chicken eggs from UK',
+    '4311501688120': 'Barn chicken eggs from Germany',
+    '4056489292395 ': 'Free-range eggs from Germany',
+    '9413000012057': 'Free-range eggs from New-Zealand',
+    '9414674989591': 'Cage eggs from New-Zealand',
+    '5202930932252': 'Free-range eggs, no country',
+    '9313715907009': 'Oeufs cage Australie',
+    '5010482558413': 'Cage, France and UK',
+    '3372140000101': 'Cage, 2 countries',
+    '3302740059193': 'Poulet de chair taggué en:chickens',
+    '3256229237063': 'Poulet de chair non taggué en:chickens',
+    '0451418000005': 'Oeufs barn sans product_name',
+    '3331354307611': 'Oeufs barn et poids sans product_name',
+  };
 
   useEffect(() => {
     if (selectedBarcode && selectedBarcode !== 'custom') {
@@ -112,7 +142,6 @@ export default function KnowledgePanel() {
     setError(null);
     setProductName(null);
     setProductImageUrl(null);
-
     try {
       const response = await fetch(`http://127.0.0.1:8000/off/v1/knowledge-panel/${barcode}?lang=${locale}`);
 
@@ -130,6 +159,8 @@ export default function KnowledgePanel() {
       if (data.product) {
         setProductName(data.product.name);
         setProductImageUrl(data.product.image_url);
+        setAPIv2URL(`https://world.openfoodfacts.net/api/v2/product/${selectedBarcode}`);
+        setProductUrl(`https://fr.openfoodfacts.org/produit/${selectedBarcode}`);
       }
 
       // Init panels as expanded by default
@@ -227,7 +258,13 @@ export default function KnowledgePanel() {
         >
           {barcodes.map((barcode) => (
             <option key={barcode} value={barcode}>
-              {barcode === 'custom' ? t('KnowledgePanel.otherBarcode') : barcode}
+              {
+                barcode === 'custom'
+                  ? t('KnowledgePanel.otherBarcode') // Si c'est 'custom', affiche le texte traduit
+                  : barcodeNames[barcode] // Vérifie si un nom existe pour ce barcode
+                    ? `${barcode} - ${barcodeNames[barcode]}` // Si oui, affiche "code - nom"
+                    : barcode // Sinon, affiche juste le code
+              }
             </option>
           ))}
         </select>
@@ -246,7 +283,7 @@ export default function KnowledgePanel() {
               />
               <button
                 type="submit"
-                className="bg-orange-500 hover:bg-orange-600 text-white px-4 py-2 rounded"
+                className="bg-orange-500 hover:bg-orange-600 light-text px-4 py-2 rounded"
                 disabled={!customBarcode.trim()}
               >
                 {t('KnowledgePanel.search')}
@@ -257,7 +294,7 @@ export default function KnowledgePanel() {
       </div>
 
       {/* Product info */}
-      {!isLoading && productName && (
+      {!isLoading && (productName !== null || productImageUrl !== null) && (
         <div className="mb-8 p-4 bg-white rounded-lg border shadow-sm">
           <div className="flex flex-col md:flex-row items-start md:items-center gap-6">
             {productImageUrl && (
@@ -273,6 +310,30 @@ export default function KnowledgePanel() {
             )}
             <div className="flex-grow">
               <h2 className="text-xl font-bold">{productName}</h2>
+              {productUrl && (
+                <p>
+                  <a
+                    href={productUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-blue-600 hover:underline"
+                  >
+                    Fiche produit OpenFoodFacts
+                  </a>
+                </p>
+              )}
+              {APIv2URL && (
+                <p>
+                  <a
+                    href={APIv2URL}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-blue-600 hover:underline"
+                  >
+                    API V2 OpenFoodFacts
+                  </a>
+                </p>
+              )}
             </div>
           </div>
         </div>
@@ -284,7 +345,7 @@ export default function KnowledgePanel() {
         </div>
       )}
 
-      {error && <div className="bg-red-100 text-red-700 p-4 rounded mb-4">{error}</div>}
+      {error && <div className="bg-pink-1 text-red-700 p-4 rounded mb-4">{error}</div>}
 
       {knowledgePanelData && !isLoading && (
         <div className="space-y-4">

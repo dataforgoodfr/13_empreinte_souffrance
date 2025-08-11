@@ -6,6 +6,7 @@ from sklearn.model_selection import KFold
 import pandas as pd
 import os
 import numpy as np
+from tqdm import tqdm
 
 class Evaluator:
     def __init__(self, dataset_name):
@@ -85,6 +86,62 @@ class Evaluator:
 
         return all_accuracies
 
+
+    def evaluate_with_synth_data(self, k_fold=False):
+        synth_data_path = Path(__file__).resolve().parent.parent / self.config["dataset"]["synth_ocr"]["path"]
+        X_synth, y_synth = load_dataset(
+            input_file=synth_data_path,
+            Xcol=self.config["dataset"][self.dataset_name]["X_col"],
+            ycol=self.config["dataset"]["y_col"],
+            supervised=True
+        )
+
+        X_train, X_test, y_train, y_test = train_test_dataset(
+            input_file=self.data_path,
+            Xcol=self.config["dataset"][self.dataset_name]["X_col"],
+            ycol=self.config["dataset"]["y_col"],
+            test_size=self.config["dataset"].get("train_test_split", 0.15)
+        )
+
+        fractions = [0.1, 0.25, 0.5, 1.0]
+        classes = np.unique(y_test)
+
+        all_accuracies = {}
+
+        for frac in tqdm(fractions):
+            n_synth = int(len(X_synth) * frac)
+
+            if n_synth > 0:
+                X_synth_sample = X_synth[:n_synth]
+                y_synth_sample = y_synth[:n_synth]
+            else:
+                X_synth_sample = []
+                y_synth_sample = []
+
+            X_combined = np.concatenate([X_train, X_synth_sample])
+            y_combined = np.concatenate([y_train, y_synth_sample])
+
+            if k_fold:
+                kf = KFold(n_splits=self.k_fold, shuffle=True, random_state=42)
+                fold = 1
+
+
+            model = self._load_model()
+            model.fit(X_combined, y_combined)
+            y_hat = model.predict(X_test)
+
+
+            class_accuracies = {}
+            for cls in classes:
+                idx = (y_test == cls)
+                class_acc = np.mean(y_hat[idx] == y_test[idx]) * 100
+                class_accuracies[cls] = class_acc
+
+            all_accuracies[frac] = class_accuracies
+
+        return all_accuracies
+
+
     def evaluation_stats(self):
         try:
             dataframe = pd.read_csv(self.evaluation_results_path)
@@ -100,4 +157,4 @@ if __name__ == "__main__":
         raise ValueError("Invalid dataset name. Please choose 'full_ocr' or 'span_ocr'.")
 
     evaluator = Evaluator(dataset_name=dataset_name)
-    print(evaluator.evaluation_stats())
+    print(evaluator.evaluate_with_synth_data())

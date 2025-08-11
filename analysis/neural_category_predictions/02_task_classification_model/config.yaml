@@ -7,6 +7,10 @@ dataset:
   span_ocr:
     path: data/ocr_groq_spans_elevage.csv
     X_col: breeding_type_related
+  synth_ocr:
+    path: data/synthetic_barn_ocr.csv
+    X_col: ocr_text
+
   train_test_split: 0.15
   y_col: elevage
 

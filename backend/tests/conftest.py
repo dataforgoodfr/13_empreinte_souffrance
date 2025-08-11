@@ -6,10 +6,16 @@ from httpx import ASGITransport, AsyncClient
 from pydantic import HttpUrl
 from starlette.testclient import TestClient
 
-from app.enums.open_food_facts.enums import AnimalType, LayingHenBreedingType, PainIntensity, PainType
+from app.enums.open_food_facts.enums import (
+    AnimalType,
+    BroilerChickenBreedingType,
+    LayingHenBreedingType,
+    PainIntensity,
+    PainType,
+)
 from app.main import app
 from app.schemas.open_food_facts.external import ProductData
-from app.schemas.open_food_facts.internal import AnimalPainReport, BreedingTypeAndWeight, PainLevelData, PainReport
+from app.schemas.open_food_facts.internal import AnimalPainReport, BreedingTypeAndQuantity, PainLevelData, PainReport
 
 
 @pytest_asyncio.fixture
@@ -37,11 +43,11 @@ def sample_product_data() -> ProductData:
     Contains cage chicken eggs category...
     """
     return ProductData(
-        categories_tags=["en:eggs", "cat1", "en:cage-chicken-eggs"],
+        categories_tags=["en:eggs", "en:chicken-eggs", "cat1", "en:cage-chicken-eggs"],
         labels_tags=["label1", "label2"],
         product_name="Fake product name",
         image_url=HttpUrl("https://example.com/image.jpg"),
-        quantity="200",
+        quantity=None,
         product_quantity=200,
         product_quantity_unit="g",
         allergens_tags=[],
@@ -97,12 +103,14 @@ def weight_quantity_only_digits() -> ProductData:
 
 
 @pytest.fixture
-def laying_hen_breeding_type() -> BreedingTypeAndWeight:
+def laying_hen_breeding_type() -> BreedingTypeAndQuantity:
     """
-    Fixture that provides a sample BreedingTypeAndWeight for laying hens.
+    Fixture that provides a sample BreedingTypeAndQuantity for laying hens.
     """
-    return BreedingTypeAndWeight(breeding_type=LayingHenBreedingType.FURNISHED_CAGE, animal_product_weight=200)
-
+    return BreedingTypeAndQuantity(
+        breeding_type=LayingHenBreedingType.FURNISHED_CAGE,
+        quantity=200
+    )
 
 @pytest.fixture
 def pain_levels() -> List[PainLevelData]:
@@ -130,17 +138,56 @@ def animal_pain_report(laying_hen_breeding_type, pain_levels) -> AnimalPainRepor
     Fixture that provides a sample AnimalPainReport for a laying hen.
     """
     return AnimalPainReport(
-        animal_type=AnimalType.LAYING_HEN, pain_levels=pain_levels, breeding_type_with_weight=laying_hen_breeding_type
+        animal_type=AnimalType.LAYING_HEN, pain_levels=pain_levels, breeding_type_and_quantity=laying_hen_breeding_type
+    )
+
+
+@pytest.fixture
+def animal_pain_report_missing_quantity() -> AnimalPainReport:
+    """
+    Fixture that provides a sample AnimalPainReport for a laying hen with missing quantity.
+    """
+    return AnimalPainReport(
+        animal_type=AnimalType.BROILER_CHICKEN,
+        pain_levels=[],
+        breeding_type_and_quantity=BreedingTypeAndQuantity(
+            breeding_type=BroilerChickenBreedingType.FREE_RANGE,
+            quantity=None,
+        ),
     )
 
 
 @pytest.fixture
 def pain_report(animal_pain_report) -> PainReport:
     """
-    Fixture that provides a sample PainReport containing one animal.
+    Fixture that provides a sample PainReport that is returned for one animal
+    with complete information.
     """
     return PainReport(
         animals=[animal_pain_report],
+        product_name="Fake product name",
+        product_image_url=HttpUrl("https://example.com/image.jpg"),
+    )
+
+
+@pytest.fixture
+def pain_report_missing_quantity(animal_pain_report_missing_quantity) -> PainReport:
+    """Fixture that provides a sample PainReport that is returned for one animal with missing quantity."""
+    return PainReport(
+        animals=[animal_pain_report_missing_quantity],
+        product_name="Fake product name",
+        product_image_url=HttpUrl("https://example.com/image.jpg"),
+    )
+
+
+@pytest.fixture
+def pain_report_with_two_animals(animal_pain_report, animal_pain_report_missing_quantity) -> PainReport:
+    """
+    Fixture that provides a sample PainReport that is returned for one animal with complete information
+    and one animal with missing quantity.
+    """
+    return PainReport(
+        animals=[animal_pain_report, animal_pain_report_missing_quantity],
         product_name="Fake product name",
         product_image_url=HttpUrl("https://example.com/image.jpg"),
     )

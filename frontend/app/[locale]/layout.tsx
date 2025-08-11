@@ -2,8 +2,8 @@ import '@fortawesome/fontawesome-svg-core/styles.css';
 import { config } from '@fortawesome/fontawesome-svg-core';
 import { I18nProviderClient } from '@/locales/client';
 import { ReactElement } from 'react';
-import Navbar from './ui/general/navbar';
-import Footer from '@/app/[locale]/ui/general/footer';
+import Navbar from './ui/_sections/navbar';
+import Footer from '@/app/[locale]/ui/_sections/footer';
 
 config.autoAddCss = false;
 
@@ -18,8 +18,8 @@ export default async function Layout({
 
   return (
     <>
-      <header>
-        <div className="w-full flex-none fixed">
+      <header className="sticky top-0 z-5">
+        <div className="w-full">
           <Navbar />
         </div>
       </header>

@@ -37,6 +37,9 @@ In another experiment, we made groq extract breeding-related spans from the OCR 
 {'barn': 88.63455834721285, 'free_range': 98.8195516330785, 'furnished_cage': 94.1304347826087}
 ```
 
+When we use synthetic data for minority classes:
+{0.1: {'barn': 95.34883720930233, 'free_range': 98.9247311827957, 'furnished_cage': 95.55555555555556}, 0.25: {'barn': 93.02325581395348, 'free_range': 99.46236559139786, 'furnished_cage': 91.11111111111111}, 0.5: {'barn': 93.02325581395348, 'free_range': 98.9247311827957, 'furnished_cage': 95.55555555555556}, 1.0: {'barn': 97.67441860465115, 'free_range': 98.38709677419355, 'furnished_cage': 97.77777777777777}}
+
 
 ## Resources
 - Documentation for model2vec: https://github.com/MinishLab/model2vec/blob/main/docs/usage.md

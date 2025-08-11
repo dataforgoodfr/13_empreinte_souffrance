@@ -4,17 +4,21 @@ from pydantic import BaseModel, HttpUrl
 
 from app.enums.open_food_facts.enums import (
     AnimalType,
-    BroilerChickenBreedingType,
-    LayingHenBreedingType,
+    BreedingType,
     PainIntensity,
     PainType,
 )
 
 
+class ProductType(BaseModel):
+    is_mixed: bool
+    animal_types: set[AnimalType]
+
+
 # Pain report models, used for calculation
-class BreedingTypeAndWeight(BaseModel):
-    breeding_type: LayingHenBreedingType | BroilerChickenBreedingType
-    animal_product_weight: float = 0  # in grams
+class BreedingTypeAndQuantity(BaseModel):
+    breeding_type: BreedingType | None = None
+    quantity: float | None = None  # in grams
 
 
 class PainLevelData(BaseModel):
@@ -25,8 +29,8 @@ class PainLevelData(BaseModel):
 
 class AnimalPainReport(BaseModel):
     animal_type: AnimalType
-    pain_levels: List[PainLevelData]
-    breeding_type_with_weight: BreedingTypeAndWeight
+    pain_levels: List[PainLevelData] = []
+    breeding_type_and_quantity: BreedingTypeAndQuantity
 
     def get_pain_levels_by_type(self, pain_type: PainType) -> List[PainLevelData]:
         """Returns the PainLevelData objects for a specific pain type, sorted by intensity"""
@@ -39,8 +43,8 @@ class AnimalPainReport(BaseModel):
 
 
 class PainReport(BaseModel):
-    animals: List[AnimalPainReport]
-    product_name: str
+    animals: List[AnimalPainReport] = []
+    product_name: str | None
     product_image_url: HttpUrl | None = None
 
 
@@ -60,9 +64,7 @@ class Element(BaseModel):
 
 
 class TitleElement(BaseModel):
-    grade: str
     title: str
-    type: str
     subtitle: str | None = None
     name: str | None = None
     icon_url: HttpUrl | None = None
@@ -77,7 +79,7 @@ class Panel(BaseModel):
 
 class ProductInfo(BaseModel):
     image_url: HttpUrl | None
-    name: str
+    name: str | None
 
 
 class KnowledgePanelResponse(BaseModel):
