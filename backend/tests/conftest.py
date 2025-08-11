@@ -107,10 +107,8 @@ def laying_hen_breeding_type() -> BreedingTypeAndQuantity:
     """
     Fixture that provides a sample BreedingTypeAndQuantity for laying hens.
     """
-    return BreedingTypeAndQuantity(
-        breeding_type=LayingHenBreedingType.FURNISHED_CAGE,
-        quantity=200
-    )
+    return BreedingTypeAndQuantity(breeding_type=LayingHenBreedingType.FURNISHED_CAGE, quantity=200)
+
 
 @pytest.fixture
 def pain_levels() -> List[PainLevelData]:
