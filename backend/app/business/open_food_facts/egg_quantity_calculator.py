@@ -53,10 +53,10 @@ class PatternRepository:
     # Mapping of egg calibers to regex patterns for product names
     # TODO : enhance patterns
     EGG_CALIBERS_BY_EXPRESSION = {
-        EggCaliber.SMALL: {r"\bs\b", r"\bpetits?\b", r"\bsmall\b"},
-        EggCaliber.MEDIUM: {r"\bm\b", r"\bmedium\b", r"\bmoyen\b", r"\bmoyens\b"},
-        EggCaliber.LARGE: {r"\bgros\b", r"\bl\b", r"\bxl\b", r"\blarge\b"},
-        EggCaliber.EXTRA_LARGE: {r"\bxl\b", r"\bextra\b", r"\bextra large\b", r"\bextra-large\b", r"\btrès gros\b"},
+        EggCaliber.SMALL: {r"\b(s|petits?|small)\b"},
+        EggCaliber.MEDIUM: {r"\b(m|medium|moyens?)\b"},
+        EggCaliber.LARGE: {r"\b(gros|l|xl|large)\b"},
+        EggCaliber.EXTRA_LARGE: {r"\b(xl|extra|extra[ -]large|tr[èe]s gros)\b"},
     }
 
     # Regex: matches a number alone (e.g. "6")
@@ -103,17 +103,18 @@ class EggQuantityCalculator:
                 return caliber
         return None
 
-    def _get_egg_caliber_from_product_name(self, product_name: str) -> EggCaliber | None:
+    def _get_egg_caliber_from_field(self, field: str) -> EggCaliber | None:
         """
         Returns the egg caliber based on the product name.
 
         Args:
-            product_name (str): The name of the product.
+            field (str): A data field containing product information, like product name
+            or quantity.
         Returns:
             EggCaliber: The caliber of one egg if a matching tag is found, otherwise None.
         """
         for caliber, expressions in self.pattern_repository.EGG_CALIBERS_BY_EXPRESSION.items():
-            if any(re.search(str, product_name, re.IGNORECASE) for str in expressions):
+            if any(re.search(str, field, re.IGNORECASE) for str in expressions):
                 return caliber
         return None
 
@@ -245,14 +246,17 @@ class EggQuantityCalculator:
         """
         product_quantity = product_data.product_quantity
         unit = product_data.product_quantity_unit
-        quantity = product_data.quantity
+        quantity = product_data.quantity or ""
         categories_tags = product_data.categories_tags or []
         product_name = product_data.product_name or ""
 
         caliber = self._get_egg_caliber_from_tags(categories_tags)
 
         if not caliber:
-            caliber = self._get_egg_caliber_from_product_name(product_name)
+            caliber = self._get_egg_caliber_from_field(product_name)
+
+        if not caliber:
+            caliber = self._get_egg_caliber_from_field(quantity)
 
         if product_quantity and unit:
             return self._get_egg_quantity_from_product_quantity_and_unit(product_quantity, unit, caliber)
