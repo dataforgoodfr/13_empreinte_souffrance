@@ -6,6 +6,8 @@ __pycache__/
 
 # C extensions
 *.so
+#*.ipynb
+#*.csv
 
 # Distribution / packaging
 bin/
@@ -138,6 +140,7 @@ venv.bak/
 
 # VS Code
 .vscode
+.history
 
 # JetBrains IDEs
 .idea
@@ -173,3 +176,6 @@ backend/logs
 
 # Tilde files
 *~
+
+#heavy models
+analysis/neural_category_predictions/models/lewagon_ocr/models/bestridge_compressed.joblib

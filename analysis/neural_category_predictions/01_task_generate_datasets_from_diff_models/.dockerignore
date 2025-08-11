@@ -1,0 +1,9 @@
+# Ignore everything
+**
+
+# But do NOT ignore these files and folders
+!testing_cat_models.py
+!requirements.txt
+!data/
+!models_categorie/
+!models_categorie/lewagon_ocr_OpenFoodFactsCategorizer/

@@ -59,6 +59,50 @@ def sample_product_data() -> ProductData:
 
 
 @pytest.fixture
+def weight_product_quantity_and_unit() -> ProductData:
+    """
+    Fixture that provides sample product data for testing.
+    Contains data from product with code 9338295000049
+    """
+    return ProductData(
+        categories_tags=["en:farming-productsen:eggsen:chicken-eggs", "en:free-range-chicken-eggs"],
+        labels_tags=[],
+        product_name="Eggs",
+        image_url=HttpUrl("https://example.com/image.jpg"),
+        quantity="800 g",
+        product_quantity=800,
+        product_quantity_unit="g",
+        allergens_tags=[],
+        ingredients_tags=[],
+        ingredients=[],
+        countries="au",
+        countries_tags=["en:australia"],
+    )
+
+
+@pytest.fixture
+def weight_quantity_only_digits() -> ProductData:
+    """
+    Fixture that provides sample product data for testing.
+    Contains data from product with code 3770007836007
+    """
+    return ProductData(
+        categories_tags=["en:farming-productsen:eggsen:chicken-eggs", "en:free-range-chicken-eggs"],
+        labels_tags=[],
+        product_name="6 oeufs frais plein air de poules Marans",
+        image_url=HttpUrl("https://example.com/image.jpg"),
+        quantity="6",
+        product_quantity=None,
+        product_quantity_unit=None,
+        allergens_tags=[],
+        ingredients_tags=[],
+        ingredients=[],
+        countries="fr",
+        countries_tags=["en:france"],
+    )
+
+
+@pytest.fixture
 def laying_hen_breeding_type() -> BreedingTypeAndQuantity:
     """
     Fixture that provides a sample BreedingTypeAndQuantity for laying hens.
