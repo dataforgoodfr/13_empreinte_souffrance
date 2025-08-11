@@ -175,16 +175,16 @@ Méthodes :
 
 ### Description
 
-Ce script traite et analyse les données produits œufs en combinant les données OpenFoodFacts avec les prédictions OCR et les calculs de types d'élevage. Il génère des visualisations sous forme de graphiques sunburst pour analyser la couverture des données.
+Ce script traite et analyse les données produits œufs en combinant les données OpenFoodFacts avec les prédictions OCR et les résultats du calculateurr (PainReportCalculator). Il génère des visualisations sous forme de graphiques sunburst pour visualiser la couverture des données.
 
 ### Fonctionnalités principales
 
-- Chargement et parsing des données CSV avec colonnes JSON
-- Intégration des prédictions OCR depuis un fichier JSONL
+- Chargement et parsing des données des produits au format CSV avec colonnes JSON
 - Calcul automatique des types d'élevage et quantités d'œufs via le `PainReportCalculator`
-- Génération de graphiques sunburst interactifs pour visualiser la répartition des données
+- Intégration des prédictions OCR depuis un fichier JSONL
 - Export des données enrichies au format CSV
-- Filtrage des produits français vs internationaux
+- Filtrage des produits français
+- Génération de graphiques sunburst interactifs pour visualiser la répartition des données
 
 ### Structure des données
 
@@ -194,64 +194,10 @@ Le script traite plusieurs sources de données :
 - **Prédictions OCR** : fichier JSONL contenant les extractions de texte et prédictions
 - **Métadonnées** : fichier `cols_to_json.txt` listant les colonnes à parser en JSON
 
-### Fonctions principales
-
-#### Chargement et parsing des données
-
-```python
-def load_eggs_df() -> pd.DataFrame
-def safe_json_loads(s) -> object
-def create_dataframe_from_jsonl(file_path: Path) -> pd.DataFrame
-```
-
-#### Enrichissement des données
-
-```python
-def enrich_eggs_with_ocr(eggs_df: pd.DataFrame, ocr_df: pd.DataFrame) -> pd.DataFrame
-def row_to_product_data(row) -> ProductData
-def row_to_breeding_type_and_quantity(row) -> tuple
-```
-
-#### Visualisation
-
-```python
-def plot_egg_sunburst(dataset: str, include_caliber: bool, eggs_df: pd.DataFrame) -> None
-def prepare_egg_display_columns(df: pd.DataFrame) -> pd.DataFrame
-```
-
-### Calcul des métriques d'élevage
-
-Le script utilise le `PainReportCalculator` pour extraire :
-
-- **Nombre d'œufs** : comptage automatique depuis les données produit
-- **Calibre** : taille des œufs (small, medium, large, extra-large)
-- **Type d'élevage** : mode d'élevage (cage, barn, free-range, organic)
-
-### Codes de retour
-
-- `egg_count = -1` : quantité non trouvée
-- `egg_count = -2` : produit non géré par le calculateur
-- `caliber = "no caliber"` : calibre non déterminé
-- `breeding = "no breeding"` : type d'élevage non déterminé
-
-### Visualisations générées
-
-Le script génère des graphiques sunburst avec deux modes :
-
-- **Données mondiales** : tous les produits œufs avec distinction français/non-français
-- **Données françaises** : focus sur les produits français uniquement
-
-Options d'affichage :
-
-- Avec ou sans inclusion du calibre dans la hiérarchie
-- Pourcentages et valeurs absolues affichés sur chaque segment
-
-### Fichiers de sortie
+Fichiers de sortie :
 
 - `processed_products.csv` : données complètes avec calculs d'élevage
 - `processed_products_fr.csv` : sous-ensemble des produits français
-
-### Structure des chemins
 
 ```
 ROOT_PATH/
@@ -264,13 +210,37 @@ ROOT_PATH/
     └── processed_products_fr.csv
 ```
 
+### Calcul de quantité et mode d'élevage
+
+Le script utilise le `PainReportCalculator` pour extraire :
+
+- **Nombre d'œufs** : comptage automatique depuis les données produit
+- **Calibre** : taille des œufs (small, medium, large, extra-large)
+- **Type d'élevage** : mode d'élevage (cage, barn, free-range, organic)
+
+Codes de retour :
+
+- `egg_count = -1` : quantité non trouvée
+- `egg_count = -2` : produit non géré par le calculateur
+- `caliber = "no caliber"` : calibre non déterminé
+- `breeding = "no breeding"` : type d'élevage non déterminé
+- `caliber/breeding = "not managed"` : produit non géré par le calculateur
+
+### Visualisations générées
+
+Le script génère des graphiques sunburst présentant la part et le nombre de produits pour lesquel
+le mode d'élevage et la quantité ont été trouvés par le calculateur
+
+Options d'affichage :
+- Avec ou sans inclusion du calibre dans la hiérarchie
+- Dataset **France** ou **Monde**
+
+
 ### Utilisation
 
 ```bash
 python process_product_data.py [--dataset {world,france}] [--include-caliber] [--no-plot] [--no-process]
 ```
-
-#### Options
 
 - `--dataset {world,france}` : choix du jeu de données à visualiser (défaut: france)
 - `--include-caliber` : inclure les calibres dans le graphique sunburst
@@ -287,7 +257,7 @@ python process_product_data.py
 python process_product_data.py --dataset world
 
 # Graphique français avec calibres
-python process_product_data.py --dataset france --include-caliber
+python process_product_data.py --include-caliber
 
 # Traitement uniquement, sans affichage
 python process_product_data.py --no-plot
@@ -295,14 +265,6 @@ python process_product_data.py --no-plot
 # Affichage uniquement, sans retraitement (charge les données déjà traitées)
 python process_product_data.py --no-process --dataset world --include-caliber
 ```
-
-Le script s'exécute et :
-
-1. Charge les données œufs depuis le CSV
-2. Intègre les prédictions OCR depuis le JSONL
-3. Calcule les types d'élevage et quantités
-4. Sauvegarde les données enrichies
-5. Génère un graphique sunburst selon les options choisies (par défaut : France sans calibres)
 
 ### Dépendances spécifiques
 
