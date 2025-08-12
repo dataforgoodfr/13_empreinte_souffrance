@@ -1,4 +1,5 @@
 import re
+import unicodedata
 from typing import List
 
 from app.enums.open_food_facts.enums import EggCaliber, EggQuantity
@@ -18,7 +19,7 @@ class PatternRepository:
 
     # Conversion functions for various units to grams
 
-    COUNT_UNITS = {"pcs", "sans", "unite"}
+    COUNT_UNITS = {"pcs", "sans", "unite", "m", "moyen", "moyens", "gros", "l", "xl", "large"}
 
     UNIT_CONVERSIONS = {
         # Metric weight units
@@ -50,13 +51,15 @@ class PatternRepository:
         },
     }
 
-    # Mapping of egg calibers to regex patterns for product names
-    # TODO : enhance patterns
+    # Mapping of egg calibers to regex patterns for product names and quantities
     EGG_CALIBERS_BY_EXPRESSION = {
-        EggCaliber.SMALL: {r"\b(s|petits?|small)\b"},
-        EggCaliber.MEDIUM: {r"\b(m|medium|moyens?)\b"},
-        EggCaliber.LARGE: {r"\b(gros|l|xl|large)\b"},
-        EggCaliber.EXTRA_LARGE: {r"\b(xl|extra|extra[ -]large|tr[èe]s gros)\b"},
+        # exclude " s' " and " 's " expressions
+        EggCaliber.SMALL: {r"(?<!['’])\b(s|petits?|small)\b(?!['’])"},
+        # exclude " m' " expressions
+        EggCaliber.MEDIUM: {r"\b(m|medium|moyens?)\b(?!['’])"},
+        # exclude extra-large  and " l' " expressions
+        EggCaliber.LARGE: {r"(?<!\bextra\s)(?<!\btres\s)\b(gros|large|l)\b(?!['’])"},
+        EggCaliber.EXTRA_LARGE: {r"\b(xl|extra\slarge|tr[èe]s\sgros)\b"},
     }
 
     # Regex: matches a number alone (e.g. "6")
@@ -76,8 +79,6 @@ class PatternRepository:
 
     # Simple expressions used to identify egg calibers and count
     DOZEN_EXPRESSIONS = ["dozen", "dozens", "dzn", "doz"]
-    MOYEN_EXPRESSIONS = ["m", "moyen", "moyens"]
-    LARGE_EXPRESSIONS = ["gros", "l", "xl", "large"]
 
 
 class EggQuantityCalculator:
@@ -89,9 +90,38 @@ class EggQuantityCalculator:
     def __init__(self):
         self.pattern_repository = PatternRepository
 
+    @staticmethod
+    def _normalize_string(s):
+        """
+        Function that normalizes a string
+        :param s: string to normalize
+        :return: normalized string for parsing
+        """
+        if s is None:
+            return ""
+        s = str(s)
+        # remove accents by decomposing Unicode and filtering out diacritical marks
+        s = "".join(c for c in unicodedata.normalize("NFD", s) if unicodedata.category(c) != "Mn")
+        s = unicodedata.normalize("NFKD", s)  # Unicode normalization
+        # replace all punctuation with a space except simple and typographic apostrophes (' and ’)
+        s = re.sub(r"[^\w\s'’]", " ", s)
+        # replace digits with a space
+        s = re.sub(r"\d+", " ", s)
+        # convert to lowercase
+        s = s.lower()
+        # replace œ with oe
+        s = re.sub(r"œ", "oe", s)
+        # replace multiple spaces with a single space
+        s = re.sub(r"\s+", " ", s)
+        # remove leading and trailing spaces
+        s = s.strip()
+        return s
+
     def _get_egg_caliber_from_tags(self, categories_tags: List[str]) -> EggCaliber | None:
         """
-        Returns the egg caliber based on category tags.
+        Returns the egg caliber based on category tags
+        Parses small, medium, large, and then extra-large egg calibers, returns the smallest
+        matching caliber
 
         Args:
             categories_tags (List[str]): List of category tags from the product data.
@@ -105,16 +135,17 @@ class EggQuantityCalculator:
 
     def _get_egg_caliber_from_field(self, field: str) -> EggCaliber | None:
         """
-        Returns the egg caliber based on the product name.
+        Returns the egg caliber based on a fields, product name or quantity
+        Parses small, medium, large, and then extra-large egg calibers, returns the smallest
+        matching caliber
 
         Args:
-            field (str): A data field containing product information, like product name
-            or quantity.
+            field (str): A data field containing product information
         Returns:
             EggCaliber: The caliber of one egg if a matching tag is found, otherwise None.
         """
         for caliber, expressions in self.pattern_repository.EGG_CALIBERS_BY_EXPRESSION.items():
-            if any(re.search(str, field, re.IGNORECASE) for str in expressions):
+            if any(re.search(str, self._normalize_string(field)) for str in expressions):
                 return caliber
         return None
 
@@ -164,18 +195,8 @@ class EggQuantityCalculator:
             # e.g. '1 dozen'
             if any([u.lower() in self.pattern_repository.DOZEN_EXPRESSIONS for u in unit]):
                 return EggQuantity.from_count(count=int(number * 12), caliber=caliber)
-            # e.g. '12 M'
-            elif any([u.lower() in self.pattern_repository.MOYEN_EXPRESSIONS for u in unit]):
-                if not caliber:
-                    caliber = EggCaliber.MEDIUM
-                return EggQuantity.from_count(count=int(number), caliber=caliber)
-            # e.g. '12 large'
-            elif any([u.lower() in self.pattern_repository.LARGE_EXPRESSIONS for u in unit]):
-                if not caliber:
-                    caliber = EggCaliber.LARGE
-                return EggQuantity.from_count(count=int(number), caliber=caliber)
             else:
-                # e.g. '12 unities'
+                # e.g. '12 unities' or '12 large'
                 return EggQuantity.from_count(count=int(number), caliber=caliber)
 
         # Case 3: x10 / X10 style
@@ -235,7 +256,7 @@ class EggQuantityCalculator:
     def calculate_egg_quantity(self, product_data: ProductData) -> EggQuantity | None:
         """
         Calculates egg quantity based on the product data.
-        First parses categories tags and product name to determine the egg caliber.
+        First parses categories tags, product name, generic name and quantity to determine the egg caliber.
         Then parses quantity and unit, quantity alone and finally categories tags to get the egg count
 
         Args:
@@ -249,12 +270,13 @@ class EggQuantityCalculator:
         quantity = product_data.quantity or ""
         categories_tags = product_data.categories_tags or []
         product_name = product_data.product_name or ""
+        generic_name = product_data.generic_name or ""
 
         caliber = self._get_egg_caliber_from_tags(categories_tags)
-
         if not caliber:
             caliber = self._get_egg_caliber_from_field(product_name)
-
+        if not caliber:
+            caliber = self._get_egg_caliber_from_field(generic_name)
         if not caliber:
             caliber = self._get_egg_caliber_from_field(quantity)
 
