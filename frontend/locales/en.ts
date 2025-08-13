@@ -2,9 +2,10 @@ export default {
   suffering_footprint: 'Suffering footprint',
 
   NavBarLink: {
-    methodology: 'Methodology',
-    calculator: 'Calculator',
-    about: 'About',
+    presentation: 'PRESENTATION',
+    methodology: 'METHODOLOGY',
+    calculator: 'CALCULATOR',
+    about: 'ABOUT',
   },
 
   GoFurther: {

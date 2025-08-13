@@ -1,5 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Azeret+Mono:ital,wght@0,100..900;1,100..900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Albert+Sans:ital,wght@0,100..900;1,100..900&family=Azeret+Mono:ital,wght@0,100..900;1,100..900&display=swap');
 @import 'tailwindcss';
 
 :root {
@@ -14,8 +12,17 @@
   --violet-2: #b5abff;
 
   /** typography **/
-  --primary-font: 'Azeret Mono';
-  --secondary-font: 'Albert Sans';
+  /*
+    Following fonts vars are overridden at runtime by Next.js
+    See app/layout.tsx
+    we declare them to don't have IDE error
+  */
+  --font-albert-sans: 'Albert Sans';
+  --font-azeret-mono: 'Azeret Mono';
+
+  --primary-font: var(--font-albert-sans);
+  --secondary-font: var(--font-azeret-mono);
+  font-family: var(--primary-font), sans-serif;
   --h1-font-size: 47px;
   --h2-font-size: 39px;
   --h3-font-size: 31px;
@@ -71,17 +78,17 @@ h5,
 .numbers,
 .primary-button,
 .secondary-button {
-  font-family: var(--primary-font);
+  font-family: var(--primary-font), sans-serif;
   font-weight: 700;
-  font-style: bold;
+  font-style: normal;
 }
 
 .lead,
 .body,
 .caption {
-  font-family: var(--secondary-font);
+  font-family: var(--secondary-font), sans-serif;
   font-weight: 400;
-  font-style: regular;
+  font-style: normal;
 }
 
 h1 {
@@ -136,8 +143,8 @@ h5 {
 .primary-button{
   padding: 16px;
   background-color: var(--pink-3);
-  box-shadow: 0px 5px 0px 0px black;
-  font-size : var(--button);
+  box-shadow: 0 5px 0 0 black;
+  font-size : var(--button-font-size);
   border-radius: calc(infinity * 1px);
   text-align: center;
   flex: content;
@@ -147,15 +154,15 @@ h5 {
 
 .primary-button:hover{
   background-color : var(--pink-1);
-  box-shadow: 0px 2px 0px 0px black;
+  box-shadow: 0 2px 0 0 black;
   transition:all ease-in-out;
 }
 
 .secondary-button{
   padding: 16px;
   background-color: var(--grey);
-  box-shadow: 0px 5px 0px 0px black;
-  font-size : var(--button);
+  box-shadow: 0 5px 0 0 black;
+  font-size : var(--button-font-size);
   border-radius: calc(infinity * 1px);
   text-align: center;
   flex: content;
@@ -165,6 +172,6 @@ h5 {
 
 .secondary-button:hover{
   background-color : var(--pink-1);
-  box-shadow: 0px 2px 0px 0px black;
+  box-shadow: 0 2px 0 0 black;
   transition:all ease-in-out;
 }
