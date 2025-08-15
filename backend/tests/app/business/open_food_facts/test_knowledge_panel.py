@@ -416,7 +416,10 @@ def test_cage_regex(tag, should_match):
     "product_fixture, expected_quantity",
     [
         ("number_only_product", EggQuantity(count=6, total_weight=6 * EggCaliber.AVERAGE.weight)),
-        ("numeric_unit_dozen", EggQuantity(count=12, total_weight=12 * EggCaliber.AVERAGE.weight)),
+        (
+            "numeric_unit_dozen_small",
+            EggQuantity(count=12, total_weight=12 * EggCaliber.SMALL.weight, caliber=EggCaliber.SMALL),
+        ),
         (
             "numeric_unit_moyen",
             EggQuantity(count=12, total_weight=12 * EggCaliber.MEDIUM.weight, caliber=EggCaliber.MEDIUM),
@@ -427,7 +430,10 @@ def test_cage_regex(tag, should_match):
         ),
         ("x_style_product", EggQuantity(count=10, total_weight=10 * EggCaliber.AVERAGE.weight)),
         ("addition_expression_product", EggQuantity(count=12, total_weight=12 * EggCaliber.AVERAGE.weight)),
-        ("extract_digits_product", EggQuantity(count=6, total_weight=6 * EggCaliber.AVERAGE.weight)),
+        (
+            "extract_digits_product_extra_large",
+            EggQuantity(count=6, total_weight=6 * EggCaliber.EXTRA_LARGE.weight, caliber=EggCaliber.EXTRA_LARGE),
+        ),
         (
             "tagged_large_egg_product",
             EggQuantity(count=6, total_weight=6 * EggCaliber.LARGE.weight, caliber=EggCaliber.LARGE),
