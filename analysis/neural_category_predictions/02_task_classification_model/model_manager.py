@@ -32,6 +32,8 @@ class Evaluator:
 
     def save(self):
         print(f"Saving model to {self.save_path}...")
+        os.makedirs(self.save_path, exist_ok=True)
+
         static_model = self.model.to_static_model()
         print("Model made static.")
         static_model.save_pretrained(self.save_path)

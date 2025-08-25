@@ -124,20 +124,19 @@ h5 {
   font-size: var(--caption-font-size);
 }
 
-
 /** -------------------------margin&padding------------------------- **/
 
-.section-padding{
-  padding : var(--section-padding);
+.section-padding {
+  padding: var(--section-padding);
 }
 
 /** -------------------------button------------------------- **/
 
-.primary-button{
+.primary-button {
   padding: 16px;
   background-color: var(--pink-3);
   box-shadow: 0px 5px 0px 0px black;
-  font-size : var(--button);
+  font-size: var(--button);
   border-radius: calc(infinity * 1px);
   text-align: center;
   flex: content;
@@ -145,17 +144,17 @@ h5 {
   align-items: center;
 }
 
-.primary-button:hover{
-  background-color : var(--pink-1);
+.primary-button:hover {
+  background-color: var(--pink-1);
   box-shadow: 0px 2px 0px 0px black;
-  transition:all ease-in-out;
+  transition: all ease-in-out;
 }
 
-.secondary-button{
+.secondary-button {
   padding: 16px;
   background-color: var(--grey);
   box-shadow: 0px 5px 0px 0px black;
-  font-size : var(--button);
+  font-size: var(--button);
   border-radius: calc(infinity * 1px);
   text-align: center;
   flex: content;
@@ -163,8 +162,8 @@ h5 {
   align-items: center;
 }
 
-.secondary-button:hover{
-  background-color : var(--pink-1);
+.secondary-button:hover {
+  background-color: var(--pink-1);
   box-shadow: 0px 2px 0px 0px black;
-  transition:all ease-in-out;
+  transition: all ease-in-out;
 }

@@ -1,17 +1,16 @@
 'use client';
-import { useState } from "react";
+import { useState } from 'react';
 
 interface ListOfAfflictionProps {
   listOfPain: string[];
-  seeMore:string
-  seeLess:string
+  seeMore: string;
+  seeLess: string;
 }
 
 export default function ListOfAffliction({ listOfPain, seeMore, seeLess }: ListOfAfflictionProps) {
-
-    const [showAll, setShowAll] = useState(false);
+  const [showAll, setShowAll] = useState(false);
   const toggleShowAll = () => setShowAll((prev) => !prev);
-    const displayedList = showAll ? listOfPain : listOfPain.slice(0, 4);
+  const displayedList = showAll ? listOfPain : listOfPain.slice(0, 4);
 
   return (
     <>

@@ -179,4 +179,5 @@ backend/logs
 
 #heavy models
 analysis/neural_category_predictions/models/lewagon_ocr/models/bestridge_compressed.joblib
-saved_model
+model.safetensors
+tokenizer.json

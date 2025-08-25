@@ -14,9 +14,8 @@ print(model.out_dim)
 # Assign it back to the model
 model.classes_ = classes
 
-
 # Run prediction
-texts = ["barn chicken", "free range chicken", "furnished cage chicken"]
+texts = ["Example text"]
 print(texts)
 preds = model.predict(texts)
 print(preds)
