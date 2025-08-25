@@ -9,21 +9,34 @@ This project implements a classification model pipeline for predicting labels su
 
 - **Evaluation stats**: Summarize results across folds, computing mean accuracy per class.
 
-The project uses Poetry for dependency management and is designed to separate research experiments from backend and frontend code.
+
 
 ## Installation
+The project uses ```uv``` for dependency management and is designed to separate research experiments from backend and frontend code.
+1. Install uv (if not installed)
+```
+pip install uv
+```
 
-⚠️ Note: This project requires a separate virtual environment from the main backend. The Python version is downgraded to 3.10.12 due to compatibility constraints with torch and numpy.When installing poetry, it might automatically try to use Python from the backend that uses 3.13.
+2. Navigate to the project folder
+```
+cd path/to/project/
+```
 
-- To deactivate it, you can either do ```deactivate``` or, if no such command is found or permission is denied ```unset VIRTUAL_ENV``` and then ```hash -r```. You might want to reload the terminal.
-- To make sure that you're out of the backend venv, run ```which python``` and ```python --version```.
-- Go to the task folder: ```cd analysis/neural_category_predictions/02_task_classification_model```
-- Set a local python version: ```pyenv local 3.10.12```.
-- Make poetry use it too: ```poetry env use /Users/adeliakhasanova/.pyenv/versions/3.10.12/bin/python```
-- Now install everything: ```poetry install --no-root```
-- NB: sometimes, even though packages are added to poetry, running ```python your_script.py``` doesn't work, in this case, I advise you to do ```poetry run python your_script.py```.
+3. Install dependencies from the uv lock file
+```
+uv sync
+```
+- This reads the uv.lock file and installs all the pinned packages into a virtual environment.
+- It will create a .venv folder inside the project directory by default.
 
-If you want to use any new libraries when working on this project do so through ```poetry add your_library```. It might start a conflict with existing dependencies -- have fun!
+4. Activate the virtual environment
+```
+uv shell
+```
+- This drops you into the project’s virtual environment.
+- From here, you can run scripts like python model_manager.py.
+
 
 ## Results
 The 5-fold cross-validation showed the following results for the chosen model:

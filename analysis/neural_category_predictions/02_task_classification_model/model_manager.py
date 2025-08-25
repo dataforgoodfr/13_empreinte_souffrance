@@ -7,15 +7,20 @@ import pandas as pd
 import os
 import numpy as np
 from tqdm import tqdm
+import json
+
+from collections import Counter
 
 class Evaluator:
-    def __init__(self, dataset_name):
+    def __init__(self, dataset_name, save_model=False, save_path="saved_model"):
         self._load_config()
         self.model_name = self.config["model"]["name"]
-        self.model = self._load_model()
         self.dataset_name = dataset_name
         self.data_path = Path(__file__).resolve().parent.parent / self.config["dataset"][self.dataset_name]["path"]
         self.evaluation_results_path = f"evaluation_results/{self.dataset_name}_fold_class_accuracies.csv"
+        self.save_model = save_model
+        self.save_path = save_path
+        self.model = self._load_model()
 
     def _load_config(self, path="config.yaml"):
         with open(path, "r") as f:
@@ -24,6 +29,40 @@ class Evaluator:
     def _load_model(self):
         print(f"Loading model: {self.model_name}")
         return StaticModelForClassification.from_pretrained(model_name=self.model_name)
+
+    def save(self):
+        print(f"Saving model to {self.save_path}...")
+        static_model = self.model.to_static_model()
+        print("Model made static.")
+        static_model.save_pretrained(self.save_path)
+        print("Model saved successfully.")
+
+    def push_to_hf(self, token: str | None = None):
+        from huggingface_hub import HfApi #, RepositoryNotFoundError
+
+        repo_id = self.config["hugging_face"]["repo_id"]
+        repo_type = self.config["hugging_face"]["repo_type"]
+        folder_path = "saved_model"
+
+        api = HfApi(token=token)
+
+        # Check if repo exists
+        try:
+            api.repo_info(repo_id=repo_id, repo_type=repo_type)
+            print(f"Repository '{repo_id}' already exists.")
+        except:
+            print(f"Repository '{repo_id}' not found. Creating a new one...")
+            api.create_repo(repo_id=repo_id, repo_type=repo_type, exist_ok=True)
+            print(f"Repository '{repo_id}' created successfully.")
+
+        # Upload folder
+        api.upload_folder(
+            folder_path=folder_path,
+            repo_id=repo_id,
+            repo_type=repo_type,
+            token=token
+        )
+        print(f"Model pushed to Hugging Face repository: {repo_id}")
 
     def evaluate(self):
         print("Loading dataset...")
@@ -36,6 +75,19 @@ class Evaluator:
 
         print("Training model...")
         self.model.fit(X_train, y_train)
+
+        # After fit, classes_ and out_dim are correct
+        print(f"Detected classes: {self.model.classes_}")  # should be ['barn', 'furnished_cage', 'free_range']
+        print(f"Number of classes: {self.model.out_dim}")  # should be 3
+
+        # Save classes
+        classes_list = self.model.classes_  # convert list or np.ndarray to pure Python list
+        os.makedirs(self.save_path, exist_ok=True)
+        with open(os.path.join(self.save_path, "classes.json"), "w") as f:
+            json.dump(classes_list, f)
+
+        if self.save_model:
+            self.save()
 
         print("Evaluating model...")
         results = self.model.evaluate(X_test, y_test)
@@ -53,6 +105,7 @@ class Evaluator:
         kf = KFold(n_splits=self.k_fold, shuffle=True, random_state=42)
         fold = 1
         all_accuracies = {}
+
         for train_index, test_index in kf.split(X):
             print(f"Fold {fold}:")
 
@@ -73,6 +126,7 @@ class Evaluator:
                 idx = (y_test == cls)
                 class_acc = np.mean(y_hat[idx] == y_test[idx]) * 100
                 class_accuracies[cls] = class_acc
+
             all_accuracies[fold] = class_accuracies
             fold += 1
 
@@ -84,8 +138,10 @@ class Evaluator:
 
         print("Saved evaluation results to evaluation_results/fold_class_accuracies.csv")
 
-        return all_accuracies
+        if self.save_model:
+            self.save()
 
+        return all_accuracies
 
     def evaluate_with_synth_data(self, k_fold=False):
         synth_data_path = Path(__file__).resolve().parent.parent / self.config["dataset"]["synth_ocr"]["path"]
@@ -115,8 +171,8 @@ class Evaluator:
                 X_synth_sample = X_synth[:n_synth]
                 y_synth_sample = y_synth[:n_synth]
             else:
-                X_synth_sample = []
-                y_synth_sample = []
+                X_synth_sample = np.array([])
+                y_synth_sample = np.array([])
 
             X_combined = np.concatenate([X_train, X_synth_sample])
             y_combined = np.concatenate([y_train, y_synth_sample])
@@ -125,11 +181,9 @@ class Evaluator:
                 kf = KFold(n_splits=self.k_fold, shuffle=True, random_state=42)
                 fold = 1
 
-
             model = self._load_model()
             model.fit(X_combined, y_combined)
             y_hat = model.predict(X_test)
-
 
             class_accuracies = {}
             for cls in classes:
@@ -139,8 +193,11 @@ class Evaluator:
 
             all_accuracies[frac] = class_accuracies
 
-        return all_accuracies
+        if self.save_model:
+            self.model = model
+            self.save()
 
+        return all_accuracies
 
     def evaluation_stats(self):
         try:
@@ -151,10 +208,13 @@ class Evaluator:
             print("Evaluation file does not exist")
             return {}
 
+
 if __name__ == "__main__":
     dataset_name = input("Which dataset do you want to evaluate? (full_ocr / span_ocr): ").strip()
     if dataset_name not in {"full_ocr", "span_ocr"}:
         raise ValueError("Invalid dataset name. Please choose 'full_ocr' or 'span_ocr'.")
 
-    evaluator = Evaluator(dataset_name=dataset_name)
-    print(evaluator.evaluate_with_synth_data())
+    # Set save_model=True to save the model after training
+    evaluator = Evaluator(dataset_name=dataset_name, save_model=True)
+    print(evaluator.evaluate())
+    evaluator.push_to_hf()

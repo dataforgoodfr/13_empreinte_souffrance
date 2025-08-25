@@ -16,3 +16,7 @@ dataset:
 
 evaluation:
   k_fold: 5
+
+hugging_face:
+  repo_type: model
+  repo_id: adeliaKH/breeding_type_classificator
