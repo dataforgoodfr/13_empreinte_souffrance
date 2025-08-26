@@ -7,6 +7,7 @@ from app.enums.open_food_facts.enums import (
     BreedingType,
     PainIntensity,
     PainType,
+    ProductQuantity,
 )
 
 
@@ -18,7 +19,7 @@ class ProductType(BaseModel):
 # Pain report models, used for calculation
 class BreedingTypeAndQuantity(BaseModel):
     breeding_type: BreedingType | None = None
-    quantity: float | None = None  # in grams
+    quantity: ProductQuantity | None = None  # in grams
 
 
 class PainLevelData(BaseModel):

@@ -2,12 +2,14 @@ from typing import List
 
 from app.business.open_food_facts.breeding_type_calculator import BreedingTypeCalculator
 from app.business.open_food_facts.quantity_calculator import QuantityCalculator
+from app.business.open_food_facts.unit_pain_loader import PAIN_PER_EGG_IN_SECONDS
 from app.config.exceptions import ResourceNotFoundException
 from app.enums.open_food_facts.enums import (
-    TIME_IN_PAIN_FOR_100G_IN_SECONDS,
     AnimalType,
+    EggCaliber,
     PainIntensity,
     PainType,
+    ProductQuantity,
 )
 from app.schemas.open_food_facts.external import ProductData
 from app.schemas.open_food_facts.internal import (
@@ -21,7 +23,7 @@ from app.schemas.open_food_facts.internal import (
 
 
 class MissingBreedingTypeOrQuantityError(Exception):
-    def __init__(self, animal_type: AnimalType, breeding_type: BreedingType | None, quantity: float | None):
+    def __init__(self, animal_type: AnimalType, breeding_type: BreedingType | None, quantity: ProductQuantity | None):
         message = f"Missing breeding type or quantity for animal '{animal_type.name}', "
         super().__init__(message)
         self.animal_type = animal_type
@@ -193,7 +195,7 @@ class PainReportCalculator:
             )
             return {animal_type: breeding_type}
 
-    def _get_quantities(self) -> dict[AnimalType, float | None]:
+    def _get_quantities(self) -> dict[AnimalType, ProductQuantity | None]:
         """
         Calculates and returns the quantities associated with each animal type
         present in the product.
@@ -233,7 +235,6 @@ class PainReportCalculator:
         Returns:
             Duration of pain in seconds
         """
-
         breeding_type = breeding_type_and_quantity.breeding_type
         quantity = breeding_type_and_quantity.quantity
 
@@ -243,14 +244,22 @@ class PainReportCalculator:
                 breeding_type=breeding_type,
                 quantity=quantity,
             )
-        # Get the time in pain per 100g for this combination of parameters
-        # Default to 0 if any level in the hierarchy is missing
-        try:
-            breeding_type = breeding_type_and_quantity.breeding_type
-            time_in_pain = TIME_IN_PAIN_FOR_100G_IN_SECONDS[animal_type][breeding_type][pain_type][pain_intensity]  # type: ignore[index]
-        except (KeyError, TypeError):
-            # This combination of animal, breeding type, pain type, and intensity is not defined
-            return 0
 
-        # Scale the time in pain based on the quantity of animal product
-        return int(time_in_pain * breeding_type_and_quantity.quantity / 100)
+        if animal_type == AnimalType.LAYING_HEN:
+            try:
+                caliber = quantity.caliber or EggCaliber.AVERAGE
+                count = quantity.count
+
+                # Get the time in pain per egg for this combination of parameters
+                # Default to 0 if any level in the hierarchy is missing
+                time_in_pain = PAIN_PER_EGG_IN_SECONDS[animal_type][breeding_type][pain_type][pain_intensity][caliber]
+            except (KeyError, TypeError):
+                # This combination of animal, breeding type, pain type, and intensity is not defined
+                return 0
+
+            # Scale the time in pain based on the number of eggs
+            return int(time_in_pain * count)
+
+        # Pain can only be computed for laying hens
+        else:
+            return 0
