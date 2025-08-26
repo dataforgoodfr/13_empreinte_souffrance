@@ -15,6 +15,7 @@ from app.enums.open_food_facts.panel_texts import (
     PanelTextManager,
     PhysicalPainTexts,
     PsychologicalPainTexts,
+    QuantityTexts,
 )
 from app.schemas.open_food_facts.external import ProductData, ProductResponse, ProductResponseSearchALicious
 from app.schemas.open_food_facts.internal import (
@@ -401,24 +402,40 @@ class KnowledgePanelGenerator:
         self, animal_type: AnimalType, breeding_type_and_quantity: BreedingTypeAndQuantity
     ) -> str:
         """
-        Format animal type, breeding type and product quantity information as HTML.
+        Format animal type, breeding type and product quantity information as HTML,
+        using display methods defined for each object in enums
+
+        Args:
+            animal_type: The type of animal
+            breeding_type_and_quantity: The breeding type and quantity information
+              that can contain None information
+
+        Returns: a formatted HTML string, eg. for laying hens :
+            'Animal type : Laying hen'
+            'Production system: Furnished cage' (or 'Not found')
+            'Quantity of egg in the product: 12 Eggs - Large Caliber'
+              (or 'Not found')
         """
         breeding_type = breeding_type_and_quantity.breeding_type
         quantity = breeding_type_and_quantity.quantity
-        if quantity is not None:
-            total_weight = quantity.total_weight
+
+        if breeding_type:
+            breeding_type_text = breeding_type.translated_name(self._)
         else:
-            total_weight = None
+            breeding_type_text = self.text_manager.get_text(AnimalInfoTexts.NOT_FOUND)
+
+        if quantity:
+            quantity_text = quantity.translated_display(
+                _=self._, text_manager=self.text_manager, quantity_texts=QuantityTexts
+            )
+        else:
+            quantity_text = self.text_manager.get_text(AnimalInfoTexts.NOT_FOUND)
 
         return self.text_manager.format_text(
             AnimalInfoTexts.ANIMAL_INFO_TEMPLATE,
             animal_name=animal_type.translated_name(self._),
-            breeding_type=breeding_type.translated_name(self._)
-            if breeding_type
-            else self.text_manager.get_text(AnimalInfoTexts.NOT_FOUND),
-            quantity=str(int(total_weight)) + self.text_manager.get_text(AnimalInfoTexts.UNIT)
-            if total_weight is not None
-            else self.text_manager.get_text(AnimalInfoTexts.NOT_FOUND),
+            breeding_type=breeding_type_text,
+            quantity=quantity_text,
         )
 
     def _format_duration(self, seconds: int) -> str:

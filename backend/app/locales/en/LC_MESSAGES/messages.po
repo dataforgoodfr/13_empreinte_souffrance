@@ -117,7 +117,7 @@ msgstr ""
 #, python-brace-format
 msgid ""
 "<b>{animal_name} :</b><ul><li>Production system: "
-"<b>{breeding_type}</b></li><li>Quantity of egg in the product: "
+"<b>{breeding_type}</b></li><li>Quantity in the product: "
 "<b>{weight}g</b></li></ul>"
 msgstr ""
 
@@ -182,4 +182,26 @@ msgid "Psychological"
 msgstr ""
 
 msgid "Not found"
+msgstr ""
+
+#, python-brace-format
+msgid "{} Egg"
+msgid_plural "{} Eggs"
+msgstr[0] "{} Egg"
+msgstr[1] "{} Eggs"
+
+#, python-brace-format
+msgid "{} Caliber"
+msgstr ""
+
+msgid "Small"
+msgstr ""
+
+msgid "Medium"
+msgstr ""
+
+msgid "Large"
+msgstr ""
+
+msgid "Extra Large"
 msgstr ""

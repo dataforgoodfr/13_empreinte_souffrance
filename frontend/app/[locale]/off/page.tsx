@@ -63,6 +63,7 @@ export default function KnowledgePanel() {
   const t = useI18n();
 
   const barcodes = [
+    'custom',
     '3450970045360', // cage eggs from France
     '2000000124898', // cage eggs from usa
     '8003636004529', // no specific category
@@ -82,7 +83,9 @@ export default function KnowledgePanel() {
     '3256229237063',
     '0451418000005',
     '3331354307611',
-    'custom',
+    '78742330808',
+    '5051140152901',
+    '3560071227241',
   ];
 
   const barcodeNames: { [key: string]: string } = {
@@ -105,6 +108,9 @@ export default function KnowledgePanel() {
     '3256229237063': 'Poulet de chair non taggué en:chickens',
     '0451418000005': 'Oeufs barn sans product_name',
     '3331354307611': 'Oeufs barn et poids sans product_name',
+    '78742330808' : '"1 egg" dans quantity',
+    '5051140152901' : '12 large - calibre trouvé',
+    '3560071227241' : '6 moyens - calibre trouvé',
   };
 
   useEffect(() => {
@@ -159,8 +165,8 @@ export default function KnowledgePanel() {
       if (data.product) {
         setProductName(data.product.name);
         setProductImageUrl(data.product.image_url);
-        setAPIv2URL(`https://world.openfoodfacts.net/api/v2/product/${selectedBarcode}`);
-        setProductUrl(`https://fr.openfoodfacts.org/produit/${selectedBarcode}`);
+        setAPIv2URL(`https://world.openfoodfacts.net/api/v2/product/${barcode}`);
+        setProductUrl(`https://fr.openfoodfacts.org/produit/${barcode}`);
       }
 
       // Init panels as expanded by default

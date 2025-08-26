@@ -111,12 +111,10 @@ class AnimalInfoTexts(Enum):
     ANIMAL_INFO_TEMPLATE = (
         "<b>{animal_name} :</b><ul>"
         "<li>Production system: <b>{breeding_type}</b></li>"
-        "<li>Quantity of egg in the product: <b>{quantity}</b></li></ul>"
+        "<li>Quantity in the product: <b>{quantity}</b></li></ul>"
     )
 
     NOT_FOUND = "Not found"
-
-    UNIT = " g"
 
 
 class DurationTexts(Enum):
@@ -131,6 +129,14 @@ class DurationTexts(Enum):
     MINUTE_PLURAL = "{} minutes"
     SECOND_SINGULAR = "{} second"
     SECOND_PLURAL = "{} seconds"
+
+
+class QuantityTexts(Enum):
+    """Texts for quantity formatting"""
+
+    EGG_SINGULAR = "{} Egg"
+    EGG_PLURAL = "{} Eggs"
+    CALIBER = "{} Caliber"
 
 
 class PanelTextManager:
