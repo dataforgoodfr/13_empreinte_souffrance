@@ -402,7 +402,19 @@ class KnowledgePanelGenerator:
         self, animal_type: AnimalType, breeding_type_and_quantity: BreedingTypeAndQuantity
     ) -> str:
         """
-        Format animal type, breeding type and product quantity information as HTML.
+        Format animal type, breeding type and product quantity information as HTML,
+        using display methods defined for each object in enums
+
+        Args:
+            animal_type: The type of animal
+            breeding_type_and_quantity: The breeding type and quantity information
+              that can contain None information
+
+        Returns: a formatted HTML string, eg. for laying hens :
+            'Animal type : Laying hen'
+            'Production system: Furnished cage' (or 'Not found')
+            'Quantity of egg in the product: 12 Eggs - Large Caliber'
+              (or 'Not found')
         """
         breeding_type = breeding_type_and_quantity.breeding_type
         quantity = breeding_type_and_quantity.quantity
