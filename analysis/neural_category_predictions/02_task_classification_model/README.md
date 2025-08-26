@@ -149,3 +149,4 @@ When we use synthetic data for minority classes:
 
 ## Resources
 - Documentation for model2vec: https://github.com/MinishLab/model2vec/blob/main/docs/usage.md
+- Our model on HF: https://huggingface.co/adeliaKH/breeding_type_classificator
