@@ -570,7 +570,7 @@ export default {
         pain_17: 'Stress thermique (transport)',
       },
       list_of_pains_h3: 'Liste de toutes les sources de douleur',
-      see_all_sources_btn: 'Voir toutes les sources de douleur',
+      see_all_sources_btn: 'Voir plus de sources de douleur',
       see_less_sources_btn: 'Voir moins de sources de douleur',
     },
 
