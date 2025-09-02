@@ -492,7 +492,7 @@ export default {
         agony: {
           title: 'agonie',
           description:
-            'Douleur extrême, insupportable même brièvement. Provoque cris, tremblements. Comparable à une souffrance que l’on ne peut endurer',
+            'Douleur extrême, insupportable même brièvement. Provoque cris, tremblements. Comparable à une souffrance que l’on ne peut endurer.',
           criteria_description:
             "expressions comportementales intenses, conduites dangereuses pour l'intégrité corporelle, impossibilité de dissimuler.",
         },
