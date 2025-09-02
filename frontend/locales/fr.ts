@@ -504,7 +504,7 @@ export default {
       title_h2: '2.1 Lister toutes les sources de douleur pour les poules',
       question: 'De quoi souffrent les poules ?',
       description:
-        "Une revue approfondie de la littérature scientifique a été menée afin d'identifier les principales sources de douleur chez les poules et leur fréquence selon le mode d'élevage. Il peut s'agir de douleurs physiques (fractures, lésions cutanées, infections, etc.) ou psychologiques (peur, restriction des besoins comportementaux, etc.). Au total, xx sources de douleur ont été identifiées et étudiées par le Welfare Footprint Institute, à partir d'une étude de yy articles.",
+        "Une revue approfondie de la littérature scientifique a été menée afin d'identifier les principales sources de douleur chez les poules et leur fréquence selon le mode d'élevage. Il peut s'agir de douleurs physiques (fractures, lésions cutanées, infections, etc.) ou psychologiques (peur, restriction des besoins comportementaux, etc.). Au total, 128 sources de douleur ont été identifiées et étudiées par le Welfare Footprint Institute, à partir d'une étude de plus de 1000 articles scientifiques.",
 
       section_img_1: {
         title_h3: 'Quelques douleurs psychologiques',
