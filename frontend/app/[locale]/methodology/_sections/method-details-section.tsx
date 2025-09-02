@@ -1,5 +1,5 @@
 import { getI18n } from '@/locales/server';
-import QuantifySufferingByPain from '@/app/[locale]/methodology/_components/quantify-suffering-by-pain';
+import QuantifySufferingByPain from '../_sections/quantify-suffering-by-pain';
 import GlobalSufferingFigure from '../_components/global-suffering-figure';
 import SectionHeading from '../../ui/_sections/section-heading';
 import ListOfAffliction from '../_components/list-of-affition';

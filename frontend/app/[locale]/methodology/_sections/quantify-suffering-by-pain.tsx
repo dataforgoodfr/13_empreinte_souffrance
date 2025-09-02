@@ -1,13 +1,13 @@
 import { getI18n } from '@/locales/server';
-import PainTrackTable from './_components/pain-track-suffering';
-import ButtonLink from '../ui/_components/button-link';
+import ButtonLink from '@/app/[locale]/ui/_components/button-link';
+import PainTrackTable from '../_components/pain-track-suffering';
 
 export default async function QuantifySufferingByPain() {
   const t = await getI18n();
 
   return (
     <div className="w-full max-w-screen-xl mx-auto mt-12 dark-text">
-      <div className="flex flex-col p-6  sm:p-20 lg:p-0 md:w-2/3 m-auto">
+      <div className="flex flex-col p-6 sm:p-20 lg:p-0 md:w-2/3 m-auto">
         <h2 className="text-2xl font-extrabold mb-4 uppercase ">
           {t('MethodologyPage.QuantifySufferingByPain.title')}
         </h2>
@@ -23,7 +23,7 @@ export default async function QuantifySufferingByPain() {
           {t('MethodologyPage.QuantifySufferingByPain.painTrackTableTitle')}
         </h3>
         <hr className="border-1 mb-10 border-pink-3" />
-        <div className="my-12 overflow-x-auto w-full">
+        <div className="mb-12 overflow-x-auto w-full">
           <PainTrackTable />
         </div>
       </div>
