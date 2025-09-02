@@ -264,7 +264,7 @@ export default {
       paragraph3:
         'These results are the result of extensive work between 2021 and 2025, bringing together specialists in animal welfare and veterinary sciences, ethology, and neuroscience, who analyzed more than 1,000 studies. This interdisciplinary work resulted in a pioneering methodology for quantifying animal suffering throughout the egg production cycle.',
       scientist_text1:
-        'Cynthia holds a PhD in Zoology (Animal Behavior and Intelligence) from the University of Oxford. She has developed several research projects for research institutions in the UK, USA, and Brazil, and has written over 70 scientific publications, book chapters, and educational materials.',
+        'Cynthia holds a PhD in Zoology (Animal Behavior and Intelligence) from the University of Oxford. She has collaborated with research institutions in the UK, USA and Brazil, and has written over 70 scientific publications, book chapters, and educational materials.',
       scientist_text2:
         'Wladimir holds a PhD in epidemiology from the University of Oxford, with over 20 years of research experience in evolution, ethology, and global health. He has collaborated with universities worldwide and published over 100 studies in peer-reviewed journals.',
       list_here: 'list here',
