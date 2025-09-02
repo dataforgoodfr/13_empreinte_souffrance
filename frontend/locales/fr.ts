@@ -581,7 +581,7 @@ export default {
       description1:
         "C'est le cœur de la méthode : pour chaque source de douleur, il faut déterminer quelle quantité de souffrance en résulte pour la poule.",
       description2:
-        "Le Pain-Track est 'outil qui permet cette quantification. Les quatre niveaux de souffrance y sont représentés sur l'axe vertical et les différentes phases temporelles sur l'axe horizontal.",
+        "Le Pain-Track est l'outil qui permet cette quantification. Les quatre niveaux de souffrance y sont représentés sur l'axe vertical et les différentes phases temporelles sur l'axe horizontal.",
       description3:
         "Pour chaque phase, les scientifiques s'appuient sur divers indices (comportementaux, pharmacologiques, physiologiques...) pour déterminer le niveau de souffrance correspondant.",
       description4:
