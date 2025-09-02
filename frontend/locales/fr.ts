@@ -127,7 +127,7 @@ export default {
 
   SufferingCausesSection: {
     title: 'De quoi souffrent les poules en cage ?',
-    othersSources: '+ 24 autres sources de douleur',
+    othersSources: '+ 122 autres sources de douleur',
     box1: {
       title: 'Blessures dues au picage',
       text: 'Stressées, les poules s’arrachent les plumes entre elles, causant blessures, infections... et parfois la mort par cannibalisme.',
@@ -174,7 +174,7 @@ export default {
         text: 'Douleur persistante, altérant les comportements sans les empêcher. Semblable à un mal de tête ou un mal de dos chronique.',
       },
       suffering: {
-        title: 'Souffrance',
+        title: 'Souffrance intense',
         text: 'Douleur constante, prioritaire sur tout. Réduit l’activité, le bien-être, l’attention. Semblable à une migraine ou une fracture.',
       },
       agony: {
@@ -483,7 +483,7 @@ export default {
             'diminution des activités plaisantes, altération cognitive légère, efficacité des analgésiques.',
         },
         suffering: {
-          title: 'souffrance',
+          title: 'souffrance intense',
           description:
             'Douleur constante, prioritaire sur tout. Réduit l’activité, le bien-être, l’attention. Semblable à une migraine ou une fracture.',
           criteria_description:

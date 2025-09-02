@@ -166,7 +166,7 @@ export default {
         text: 'Persistent pain, altering behavior without completely preventing it. Comparable to a headache or chronic back pain.',
       },
       suffering: {
-        title: 'Suffering',
+        title: 'Intense Suffering',
         text: 'Constant pain, taking priority over everything else. Reduces activity, well-being, and attention. Comparable to a migraine or fracture.',
       },
       agony: {
