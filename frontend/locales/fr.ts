@@ -585,7 +585,7 @@ export default {
       description3:
         "Pour chaque phase, les scientifiques s'appuient sur divers indices (comportementaux, pharmacologiques, physiologiques...) pour déterminer le niveau de souffrance correspondant.",
       description4:
-        "Au total, ce sont plus de xx spécialistes de xxx disciplines qui ont collaboré pour établir l'ensemble des pain tracks.",
+        "Au total, ce sont plus de 70 spécialistes des sciences du bien-être animal et vétérinaires, de l’éthologie et des neurosciences qui ont collaboré pour établir l'ensemble des pain tracks.",
       painTrackTableTitle: 'Pain-track d’une lésion cutanée',
       painTrackTable: {
         lesionPhase: 'Phase de la lesion',

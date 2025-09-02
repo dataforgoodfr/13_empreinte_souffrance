@@ -573,7 +573,7 @@ export default {
       description3:
         'For each phase, scientists rely on various indices (behavioral, pharmacological, physiological, etc.) to determine the corresponding level of suffering.',
       description4:
-        'In total, more than xx specialists from xxx disciplines collaborated to establish all the pain tracks.',
+        'In total, more than 70 specialists in animal welfare and veterinary sciences, ethology and neuroscience collaborated to establish all the pain tracks.',
       painTrackTableTitle: 'Pain-track of a skin lesion',
       painTrackTable: {
         lesionPhase: 'Lesion phase',
