@@ -270,7 +270,7 @@ export default {
       paragraph2:
         'Le Welfare Footprint Institute vise à combler cette lacune en quantifiant pour la toute première fois la souffrance animale derrière un produit alimentaire : l’œuf.',
       paragraph3:
-        "Ces résultats sont le fruit d'un travail de longue haleine entre xxx et xxxx, réunissant des spécialistes de xxxx disciplines qui ont analysé plus de xxx études. De ce travail interdisciplinaire est née une méthodologie pionnière pour quantifier la souffrance animale.",
+        "Ces résultats sont le fruit d'un travail de longue haleine entre 2021 et 2025, réunissant des spécialistes des sciences du bien-être animal et vétérinaires, de l’éthologie et des neurosciences qui ont analysé plus de 1000 études. De ce travail interdisciplinaire est née une méthodologie pionnière pour quantifier la souffrance animale dans tout le cycle de production d’un oeuf.",
       scientist_text1:
         "Cynthia est docteure en zoologie (comportement et intelligence animale) de l'université d'Oxford. Elle a développé plusieurs projets de recherche pour des institutions de recherche au Royaume-Uni, aux États-Unis et au Brésil, et a écrit plus de 70 publications scientifiques, chapitres de livres et matériel éducatif.",
       scientist_text2:
