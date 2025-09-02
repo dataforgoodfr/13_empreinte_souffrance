@@ -229,7 +229,7 @@ export default {
       title: 'Combien de souffrance animale contient un œuf ?',
       imageAlt: "Boite d'œufs",
       figcaption:
-        'Ces recherches permettent de calculer l’empreinte souffrance de l’alimentation, un nouvel indicateur au service de la transparence alimentaire ',
+        'Ces recherches permettent de calculer l’empreinte souffrance d’une boite d’œufs, un nouvel indicateur au service de la transparence alimentaire ',
     },
     calculSection: {
       selectorSection: {

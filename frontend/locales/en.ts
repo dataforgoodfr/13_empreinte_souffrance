@@ -221,7 +221,7 @@ export default {
       title: 'How much animal suffering does an egg contain?',
       imageAlt: 'egg box',
       figcaption:
-        'This research makes it possible to calculate the suffering footprint of food, a new indicator for food transparency. ',
+        'This research makes it possible to calculate the suffering footprint of eggs, a new indicator for food transparency. ',
     },
     calculSection: {
       selectorSection: {
