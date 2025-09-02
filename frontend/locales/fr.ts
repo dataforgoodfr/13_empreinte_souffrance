@@ -285,7 +285,7 @@ export default {
         text1: 'des poules victimes de fracture du bréchet',
         text2: 'des poules en cage victomes de restriction de la liberté de mouvement',
         text3: 'des poules victimes de lésions cutanées',
-        text4: '+ 24 autres sources de douleur',
+        text4: '+ 122 autres sources de douleur',
       },
       step2: {
         title: 'Quantifier la souffrance causée par chaque affliction',

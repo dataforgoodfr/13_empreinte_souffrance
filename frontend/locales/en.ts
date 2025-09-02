@@ -119,7 +119,7 @@ export default {
 
   SufferingCausesSection: {
     title: 'What do caged hens suffer from ?',
-    othersSources: '+ 24 other sources of pain',
+    othersSources: '+ 122 other sources of pain',
     box1: {
       title: 'Pecking injuries',
       text: "Stressed hens pull out each other's feathers, causing injuries, infections... and sometimes death through cannibalism.",
