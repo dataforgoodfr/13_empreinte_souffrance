@@ -48,7 +48,7 @@ export default {
       'Découvrez tout ce que vous devez savoir sur ce qu’un poulet vit en élevage et faites des choix éclairés.',
     link: 'Comprendre la méthode',
     how_much: 'Combien',
-    does_this_hen_suffer_to_produce_eggs: 'souffre cette poule pour produire des oeufs ?',
+    does_this_hen_suffer_to_produce_eggs: 'souffre cette poule pour produire des œufs ?',
     returnHome: "Retournez à l'accueil",
   },
 
@@ -103,7 +103,7 @@ export default {
     agony: {
       title: "2 heures d'agonie",
       content:
-        "...et 13 heures de souffrance intense : c'est ce que subit en moyenne chaque poule qui meurt de péritonite de l'oeuf avec septicémie, soit 1.5% des poules",
+        "...et 13 heures de souffrance intense : c'est ce que subit en moyenne chaque poule qui meurt de péritonite de l'œuf avec septicémie, soit 1.5% des poules",
       image_description: "Poule se tenant sur un perchoir au dessus du cadavre d'une autre poule",
     },
     discomfort: {
@@ -226,8 +226,8 @@ export default {
       title: 'Calculateur',
     },
     descriptionSection: {
-      title: 'Combien de souffrance animale contient un oeuf ?',
-      imageAlt: "Boite d'oeufs",
+      title: 'Combien de souffrance animale contient un œuf ?',
+      imageAlt: "Boite d'œufs",
       figcaption:
         'Ces recherches permettent de calculer l’empreinte souffrance de l’alimentation, un nouvel indicateur au service de la transparence alimentaire ',
     },
@@ -235,9 +235,9 @@ export default {
       selectorSection: {
         selector1: {
           Option1: 'Une omelette',
-          Option2: 'Une boite de 6 oeufs',
-          Option3: 'Une boite de 12 oeufs',
-          Option4: 'Un oeuf',
+          Option2: 'Une boite de 6 œufs',
+          Option3: 'Une boite de 12 œufs',
+          Option4: 'Un œuf',
         },
 
         texte1: "issu(e)s d'un élevage",
@@ -254,7 +254,7 @@ export default {
         key4: "secondes d'agonie",
       },
     },
-    linkSection: "CONSULTEZ L'EMPREINTE SOUFFRANCE DES OEUFS DU COMMERCE",
+    linkSection: "CONSULTEZ L'EMPREINTE SOUFFRANCE DES œufS DU COMMERCE",
   },
 
   // This section is used in the Methodology page
@@ -270,7 +270,7 @@ export default {
       paragraph2:
         'Le Welfare Footprint Institute vise à combler cette lacune en quantifiant pour la toute première fois la souffrance animale derrière un produit alimentaire : l’œuf.',
       paragraph3:
-        "Ces résultats sont le fruit d'un travail de longue haleine entre 2021 et 2025, réunissant des spécialistes des sciences du bien-être animal et vétérinaires, de l’éthologie et des neurosciences qui ont analysé plus de 1000 études. De ce travail interdisciplinaire est née une méthodologie pionnière pour quantifier la souffrance animale dans tout le cycle de production d’un oeuf.",
+        "Ces résultats sont le fruit d'un travail de longue haleine entre 2021 et 2025, réunissant des spécialistes des sciences du bien-être animal et vétérinaires, de l’éthologie et des neurosciences qui ont analysé plus de 1000 études. De ce travail interdisciplinaire est née une méthodologie pionnière pour quantifier la souffrance animale dans tout le cycle de production d’un œuf.",
       scientist_text1:
         "Cynthia est docteure en zoologie (comportement et intelligence animale) de l'université d'Oxford. Elle a collaboré avec des institutions de recherche au Royaume-Uni, aux États-Unis et au Brésil, et a écrit plus de 70 publications scientifiques, chapitres de livres et matériel éducatif.",
       scientist_text2:
@@ -552,7 +552,7 @@ export default {
 
       array_of_pain: {
         pain_1: 'fracture du bréchet',
-        pain_2: 'péritonite de l’oeuf',
+        pain_2: 'péritonite de l’œuf',
         pain_3: 'restriction de la possibilité de nidifier',
         pain_4: 'Arrachage de plumes',
         pain_5: 'Plaies cutanées',
