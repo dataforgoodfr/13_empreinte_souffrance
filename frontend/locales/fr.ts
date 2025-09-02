@@ -331,7 +331,7 @@ export default {
           discomfort: '70h d’inconfort',
         },
         bloc3: {
-          title: 'Blessure de la peau',
+          title: 'Lésion cutanée',
           agony: '0min d’agonie',
           pain: '1h 35min de douleur',
           suffering: '0min de souffrance',
@@ -352,7 +352,7 @@ export default {
           discomfort: '3000h d’inconfort',
         },
         bloc6: {
-          title: 'Blessure de la peau (infectée)',
+          title: 'Lésion cutanée (infectée)',
           agony: '0min d’agonie',
           pain: '1h 56min de douleur',
           suffering: '0min de souffrance',
