@@ -487,7 +487,7 @@ export default {
           description:
             'Douleur constante, prioritaire sur tout. Réduit l’activité, le bien-être, l’attention. Semblable à une migraine ou une fracture.',
           criteria_description:
-            'changement drastique dactivité, non-réactivité environnementale, besoin de médicaments puissants.',
+            'changement drastique d’activité, non-réactivité environnementale, besoin de médicaments puissants.',
         },
         agony: {
           title: 'agonie',
