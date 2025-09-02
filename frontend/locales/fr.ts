@@ -315,7 +315,7 @@ export default {
         title:
           'synthétiser les dux étapes  précédentes pour calculer la souffrance moyenne par poule au courant de sa vie',
         text1: 'des poules subissant',
-        text2: 'de meme pour les 24 autres afflictions',
+        text2: 'de meme pour les 127 autres afflictions',
         bloc1: {
           title: 'Fracture du bréchet',
           agony: '0min d’agonie',

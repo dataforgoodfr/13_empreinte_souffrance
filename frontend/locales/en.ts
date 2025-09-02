@@ -277,7 +277,7 @@ export default {
         text1: 'chickens suffering from keel fracture',
         text2: 'caged hens victims of restricted freedom of movement',
         text3: 'chickens with skin lesions',
-        text4: '+ 24 other sources of pain',
+        text4: '+ 122 other sources of pain',
       },
       step2: {
         title: 'Quantify the suffering caused by each affliction',
@@ -306,7 +306,7 @@ export default {
       step3: {
         title: 'synthesize the two previous steps to calculate the average suffering per hen over its lifetime',
         text1: 'hens undergoing',
-        text2: 'the same for the other 24 afflictions',
+        text2: 'the same for the other 127 afflictions',
         bloc1: {
           title: 'Breastbone fracture',
           agony: '0min of agony',
