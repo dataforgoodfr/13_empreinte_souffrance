@@ -1,4 +1,5 @@
 @import 'tailwindcss';
+/*@source inline("border-{grey,brown,pink-{1..3},violet-{1..2}}");*/
 
 :root {
   /** colors **/
@@ -62,27 +63,27 @@ html {
   color: var(--brown);
 }
 
-.border-grey {
-    border-color: var(--grey);
-}
-.border-pink-1 {
-    border-color: var(--pink-1);
-}
-.border-pink-2 {
-    border-color: var(--pink-2);
-}
-.border-pink-3 {
-    border-color: var(--pink-3);
-}
-.border-brown {
-    border-color: var(--brown);
-}
-.border-violet-1 {
-    border-color: var(--violet-1);
-}
-.border-violet-2 {
-    border-color: var(--violet-2);
-}
+/*.border-grey {*/
+/*    border-color: var(--grey);*/
+/*}*/
+/*.border-pink-1 {*/
+/*    border-color: var(--pink-1);*/
+/*}*/
+/*.border-pink-2 {*/
+/*    border-color: var(--pink-2);*/
+/*}*/
+/*.border-pink-3 {*/
+/*    border-color: var(--pink-3);*/
+/*}*/
+/*.border-brown {*/
+/*    border-color: var(--brown);*/
+/*}*/
+/*.border-violet-1 {*/
+/*    border-color: var(--violet-1);*/
+/*}*/
+/*.border-violet-2 {*/
+/*    border-color: var(--violet-2);*/
+/*}*/
 
 .divide-pink-3 {
   :where(& > :not(:last-child)) {
