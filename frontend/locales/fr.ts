@@ -48,7 +48,7 @@ export default {
       'Découvrez tout ce que vous devez savoir sur ce qu’un poulet vit en élevage et faites des choix éclairés.',
     link: 'Comprendre la méthode',
     how_much: 'Combien',
-    does_this_hen_suffer_to_produce_eggs: 'souffre cette poule pour produire des oeufs ?',
+    does_this_hen_suffer_to_produce_eggs: 'souffre cette poule pour produire des œufs ?',
     returnHome: "Retournez à l'accueil",
   },
 
@@ -103,7 +103,7 @@ export default {
     agony: {
       title: "2 heures d'agonie",
       content:
-        "...et 13 heures de souffrance intense : c'est ce que subit en moyenne chaque poule qui meurt de péritonite de l'oeuf avec septicémie, soit 1.5% des poules",
+        "...et 13 heures de souffrance intense : c'est ce que subit en moyenne chaque poule qui meurt de péritonite de l'œuf avec septicémie, soit 1.5% des poules",
       image_description: "Poule se tenant sur un perchoir au dessus du cadavre d'une autre poule",
     },
     discomfort: {
@@ -127,7 +127,7 @@ export default {
 
   SufferingCausesSection: {
     title: 'De quoi souffrent les poules en cage ?',
-    othersSources: '+ 24 autres sources de douleur',
+    othersSources: '+ 122 autres sources de douleur',
     box1: {
       title: 'Blessures dues au picage',
       text: 'Stressées, les poules s’arrachent les plumes entre elles, causant blessures, infections... et parfois la mort par cannibalisme.',
@@ -174,7 +174,7 @@ export default {
         text: 'Douleur persistante, altérant les comportements sans les empêcher. Semblable à un mal de tête ou un mal de dos chronique.',
       },
       suffering: {
-        title: 'Souffrance',
+        title: 'Souffrance intense',
         text: 'Douleur constante, prioritaire sur tout. Réduit l’activité, le bien-être, l’attention. Semblable à une migraine ou une fracture.',
       },
       agony: {
@@ -226,18 +226,18 @@ export default {
       title: 'Calculateur',
     },
     descriptionSection: {
-      title: 'Combien de souffrance animale contient un oeuf ?',
-      imageAlt: "Boite d'oeufs",
+      title: 'Combien de souffrance animale contient un œuf ?',
+      imageAlt: "Boite d'œufs",
       figcaption:
-        'Ces recherches permettent de calculer l’empreinte souffrance de l’alimentation, un nouvel indicateur au service de la transparence alimentaire ',
+        'Ces recherches permettent de calculer l’empreinte souffrance d’une boite d’œufs, un nouvel indicateur au service de la transparence alimentaire ',
     },
     calculSection: {
       selectorSection: {
         selector1: {
           Option1: 'Une omelette',
-          Option2: 'Une boite de 6 oeufs',
-          Option3: 'Une boite de 12 oeufs',
-          Option4: 'Un oeuf',
+          Option2: 'Une boite de 6 œufs',
+          Option3: 'Une boite de 12 œufs',
+          Option4: 'Un œuf',
         },
 
         texte1: "issu(e)s d'un élevage",
@@ -254,7 +254,7 @@ export default {
         key4: "secondes d'agonie",
       },
     },
-    linkSection: "CONSULTEZ L'EMPREINTE SOUFFRANCE DES OEUFS DU COMMERCE",
+    linkSection: "CONSULTEZ L'EMPREINTE SOUFFRANCE DES œufS DU COMMERCE",
   },
 
   // This section is used in the Methodology page
@@ -270,9 +270,9 @@ export default {
       paragraph2:
         'Le Welfare Footprint Institute vise à combler cette lacune en quantifiant pour la toute première fois la souffrance animale derrière un produit alimentaire : l’œuf.',
       paragraph3:
-        "Ces résultats sont le fruit d'un travail de longue haleine entre xxx et xxxx, réunissant des spécialistes de xxxx disciplines qui ont analysé plus de xxx études. De ce travail interdisciplinaire est née une méthodologie pionnière pour quantifier la souffrance animale.",
+        "Ces résultats sont le fruit d'un travail de longue haleine entre 2021 et 2025, réunissant des spécialistes des sciences du bien-être animal et vétérinaires, de l’éthologie et des neurosciences qui ont analysé plus de 1000 études. De ce travail interdisciplinaire est née une méthodologie pionnière pour quantifier la souffrance animale dans tout le cycle de production d’un œuf.",
       scientist_text1:
-        "Cynthia est docteure en zoologie (comportement et intelligence animale) de l'université d'Oxford. Elle a développé plusieurs projets de recherche pour des institutions de recherche au Royaume-Uni, aux États-Unis et au Brésil, et a écrit plus de 70 publications scientifiques, chapitres de livres et matériel éducatif.",
+        "Cynthia est docteure en zoologie (comportement et intelligence animale) de l'université d'Oxford. Elle a collaboré avec des institutions de recherche au Royaume-Uni, aux États-Unis et au Brésil, et a écrit plus de 70 publications scientifiques, chapitres de livres et matériel éducatif.",
       scientist_text2:
         "Wladimir est docteur en épidémiologie de l'université d'Oxford, avec plus de 20 ans d'expérience de recherche en évolution, éthologie et santé mondiale. Il a collaboré avec des universités du monde entier et publié plus de 100 études dans des revues à comité de lecture.",
       list_here: 'liste ici',
@@ -285,7 +285,7 @@ export default {
         text1: 'des poules victimes de fracture du bréchet',
         text2: 'des poules en cage victomes de restriction de la liberté de mouvement',
         text3: 'des poules victimes de lésions cutanées',
-        text4: '+ 24 autres sources de douleur',
+        text4: '+ 122 autres sources de douleur',
       },
       step2: {
         title: 'Quantifier la souffrance causée par chaque affliction',
@@ -315,7 +315,7 @@ export default {
         title:
           'synthétiser les dux étapes  précédentes pour calculer la souffrance moyenne par poule au courant de sa vie',
         text1: 'des poules subissant',
-        text2: 'de meme pour les 24 autres afflictions',
+        text2: 'de meme pour les 127 autres afflictions',
         bloc1: {
           title: 'Fracture du bréchet',
           agony: '0min d’agonie',
@@ -331,7 +331,7 @@ export default {
           discomfort: '70h d’inconfort',
         },
         bloc3: {
-          title: 'Blessure de la peau',
+          title: 'Lésion cutanée',
           agony: '0min d’agonie',
           pain: '1h 35min de douleur',
           suffering: '0min de souffrance',
@@ -352,7 +352,7 @@ export default {
           discomfort: '3000h d’inconfort',
         },
         bloc6: {
-          title: 'Blessure de la peau (infectée)',
+          title: 'Lésion cutanée (infectée)',
           agony: '0min d’agonie',
           pain: '1h 56min de douleur',
           suffering: '0min de souffrance',
@@ -483,16 +483,16 @@ export default {
             'diminution des activités plaisantes, altération cognitive légère, efficacité des analgésiques.',
         },
         suffering: {
-          title: 'souffrance',
+          title: 'souffrance intense',
           description:
             'Douleur constante, prioritaire sur tout. Réduit l’activité, le bien-être, l’attention. Semblable à une migraine ou une fracture.',
           criteria_description:
-            'changement drastique dactivité, non-réactivité environnementale, besoin de médicaments puissants.',
+            'changement drastique d’activité, non-réactivité environnementale, besoin de médicaments puissants.',
         },
         agony: {
           title: 'agonie',
           description:
-            'Douleur extrême, insupportable même brièvement. Provoque cris, tremblements. Comparable à une souffrance que l’on ne peut endurer',
+            'Douleur extrême, insupportable même brièvement. Provoque cris, tremblements. Comparable à une souffrance que l’on ne peut endurer.',
           criteria_description:
             "expressions comportementales intenses, conduites dangereuses pour l'intégrité corporelle, impossibilité de dissimuler.",
         },
@@ -504,7 +504,7 @@ export default {
       title_h2: '2.1 Lister toutes les sources de douleur pour les poules',
       question: 'De quoi souffrent les poules ?',
       description:
-        "Une revue approfondie de la littérature scientifique a été menée afin d'identifier les principales sources de douleur chez les poulets en production animale, ainsi que leur fréquence selon le mode d'élevage. Il peut s'agir de douleurs physiques (fractures, lésions cutanées, infections, etc.) ou psychologiques (peur, restriction des besoins comportementaux, etc.). Au total, xx sources de douleur ont été identifiées et étudiées par le Welfare Footprint Institute, à partir d'une étude de yy articles.",
+        "Une revue approfondie de la littérature scientifique a été menée afin d'identifier les principales sources de douleur chez les poules et leur fréquence selon le mode d'élevage. Il peut s'agir de douleurs physiques (fractures, lésions cutanées, infections, etc.) ou psychologiques (peur, restriction des besoins comportementaux, etc.). Au total, 128 sources de douleur ont été identifiées et étudiées par le Welfare Footprint Institute, à partir d'une étude de plus de 1000 articles scientifiques.",
 
       section_img_1: {
         title_h3: 'Quelques douleurs psychologiques',
@@ -552,7 +552,7 @@ export default {
 
       array_of_pain: {
         pain_1: 'fracture du bréchet',
-        pain_2: 'péritonite de l’oeuf',
+        pain_2: 'péritonite de l’œuf',
         pain_3: 'restriction de la possibilité de nidifier',
         pain_4: 'Arrachage de plumes',
         pain_5: 'Plaies cutanées',
@@ -570,7 +570,7 @@ export default {
         pain_17: 'Stress thermique (transport)',
       },
       list_of_pains_h3: 'Liste de toutes les sources de douleur',
-      see_all_sources_btn: 'Voir toutes les sources de douleur',
+      see_all_sources_btn: 'Voir plus de sources de douleur',
       see_less_sources_btn: 'Voir moins de sources de douleur',
     },
 
@@ -581,11 +581,11 @@ export default {
       description1:
         "C'est le cœur de la méthode : pour chaque source de douleur, il faut déterminer quelle quantité de souffrance en résulte pour la poule.",
       description2:
-        "Le Pain-Track est 'outil qui permet cette quantification. Les quatre niveaux de souffrance y sont représentés sur l'axe vertical et les différentes phases temporelles sur l'axe horizontal.",
+        "Le Pain-Track est l'outil qui permet cette quantification. Les quatre niveaux de souffrance y sont représentés sur l'axe vertical et les différentes phases temporelles sur l'axe horizontal.",
       description3:
         "Pour chaque phase, les scientifiques s'appuient sur divers indices (comportementaux, pharmacologiques, physiologiques...) pour déterminer le niveau de souffrance correspondant.",
       description4:
-        "Au total, ce sont plus de xx spécialistes de xxx disciplines qui ont collaboré pour établir l'ensemble des pain tracks.",
+        "Au total, ce sont plus de 70 spécialistes des sciences du bien-être animal et vétérinaires, de l’éthologie et des neurosciences qui ont collaboré pour établir l'ensemble des pain tracks.",
       painTrackTableTitle: 'Pain-track d’une lésion cutanée',
       painTrackTable: {
         lesionPhase: 'Phase de la lesion',

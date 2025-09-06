@@ -7,7 +7,7 @@ export default async function IntroductionSection() {
   return (
     <section className="w-full bg-violet-1 py-8 md:py-16">
       <div className="w-full max-w-screen-xl mx-auto px-4 md:px-8">
-        <img src="/welfare-footprint-logo.png " className="mb-10" alt="" />
+        <img src="/welfare-footprint-logo.png " className="mb-10 bg-white max-w-[250px] pr-4" alt="" />
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {' '}
           <article>

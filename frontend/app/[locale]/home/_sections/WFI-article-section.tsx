@@ -43,17 +43,17 @@ export default async function WFIArticleSection() {
 
       <article className="flex justify-between dark-text font-extrabold tracking-wide lg:flex-row flex-wrap w-full">
         <hgroup>
-          <h2 className="bg-white text-center text-3xl sm:text-4xl flex justify-start items-center w-fit">500+</h2>
+          <h2 className="bg-white text-center text-3xl sm:text-4xl flex justify-start items-center w-fit">1000+</h2>
           <h3>{scopedT('key_number.key1')}</h3>
         </hgroup>
         <hgroup>
           <h2 className="bg-white text-center text-3xl sm:text-4xl flex justify-start items-center w-fit ">
-            4 {scopedT('key_number.years')}
+            5 {scopedT('key_number.years')}
           </h2>
           <h3>{scopedT('key_number.key2')}</h3>
         </hgroup>
         <hgroup>
-          <h2 className="bg-white text-center text-3xl sm:text-4xl flex justify-start items-center w-fit">50+</h2>
+          <h2 className="bg-white text-center text-3xl sm:text-4xl flex justify-start items-center w-fit">70+</h2>
           <h3>{scopedT('key_number.key3')}</h3>
         </hgroup>
         <hgroup>

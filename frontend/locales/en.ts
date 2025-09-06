@@ -119,7 +119,7 @@ export default {
 
   SufferingCausesSection: {
     title: 'What do caged hens suffer from ?',
-    othersSources: '+ 24 other sources of pain',
+    othersSources: '+ 122 other sources of pain',
     box1: {
       title: 'Pecking injuries',
       text: "Stressed hens pull out each other's feathers, causing injuries, infections... and sometimes death through cannibalism.",
@@ -166,7 +166,7 @@ export default {
         text: 'Persistent pain, altering behavior without completely preventing it. Comparable to a headache or chronic back pain.',
       },
       suffering: {
-        title: 'Suffering',
+        title: 'Intense Suffering',
         text: 'Constant pain, taking priority over everything else. Reduces activity, well-being, and attention. Comparable to a migraine or fracture.',
       },
       agony: {
@@ -221,7 +221,7 @@ export default {
       title: 'How much animal suffering does an egg contain?',
       imageAlt: 'egg box',
       figcaption:
-        'This research makes it possible to calculate the suffering footprint of food, a new indicator for food transparency. ',
+        'This research makes it possible to calculate the suffering footprint of eggs, a new indicator for food transparency. ',
     },
     calculSection: {
       selectorSection: {
@@ -262,9 +262,9 @@ export default {
       paragraph2:
         'The Welfare Footprint Institute aims to fill this gap by quantifying for the very first time the animal suffering behind a food product: the egg.',
       paragraph3:
-        'These results are the result of extensive work between xxx and xxxx, bringing together specialists from xxxx disciplines who analyzed more than xxx studies. This interdisciplinary work resulted in a pioneering methodology for quantifying animal suffering.',
+        'These results are the result of extensive work between 2021 and 2025, bringing together specialists in animal welfare and veterinary sciences, ethology, and neuroscience, who analyzed more than 1,000 studies. This interdisciplinary work resulted in a pioneering methodology for quantifying animal suffering throughout the egg production cycle.',
       scientist_text1:
-        'Cynthia holds a PhD in Zoology (Animal Behavior and Intelligence) from the University of Oxford. She has developed several research projects for research institutions in the UK, USA, and Brazil, and has written over 70 scientific publications, book chapters, and educational materials.',
+        'Cynthia holds a PhD in Zoology (Animal Behavior and Intelligence) from the University of Oxford. She has collaborated with research institutions in the UK, USA and Brazil, and has written over 70 scientific publications, book chapters, and educational materials.',
       scientist_text2:
         'Wladimir holds a PhD in epidemiology from the University of Oxford, with over 20 years of research experience in evolution, ethology, and global health. He has collaborated with universities worldwide and published over 100 studies in peer-reviewed journals.',
       list_here: 'list here',
@@ -277,7 +277,7 @@ export default {
         text1: 'chickens suffering from keel fracture',
         text2: 'caged hens victims of restricted freedom of movement',
         text3: 'chickens with skin lesions',
-        text4: '+ 24 other sources of pain',
+        text4: '+ 122 other sources of pain',
       },
       step2: {
         title: 'Quantify the suffering caused by each affliction',
@@ -306,7 +306,7 @@ export default {
       step3: {
         title: 'synthesize the two previous steps to calculate the average suffering per hen over its lifetime',
         text1: 'hens undergoing',
-        text2: 'the same for the other 24 afflictions',
+        text2: 'the same for the other 127 afflictions',
         bloc1: {
           title: 'Breastbone fracture',
           agony: '0min of agony',
@@ -559,7 +559,7 @@ export default {
         pain_17: 'Heat stress (transport)',
       },
       list_of_pains_h3: 'List of all sources of pain',
-      see_all_sources_btn: 'See all sources of pain',
+      see_all_sources_btn: 'See more sources of pain',
       see_less_sources_btn: 'See less sources of pain',
     },
 
@@ -573,7 +573,7 @@ export default {
       description3:
         'For each phase, scientists rely on various indices (behavioral, pharmacological, physiological, etc.) to determine the corresponding level of suffering.',
       description4:
-        'In total, more than xx specialists from xxx disciplines collaborated to establish all the pain tracks.',
+        'In total, more than 70 specialists in animal welfare and veterinary sciences, ethology and neuroscience collaborated to establish all the pain tracks.',
       painTrackTableTitle: 'Pain-track of a skin lesion',
       painTrackTable: {
         lesionPhase: 'Lesion phase',
