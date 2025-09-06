@@ -215,9 +215,16 @@ export default {
     all_rights_reserved: 'Tous droits réservés',
     graphics: 'Graphisme :',
     rights: ' © 2025 Empreinte Souffrance et Data for Good',
-    by: 'par',
+    by: 'Un projet de :',
     and: 'et',
     donate: 'donnation',
+    website: 'Site internet',
+    linkedin: 'Linkedin',
+    facebook: 'Facebook',
+    instagram: 'Instagram',
+    email: 'Email',
+    anima_logo_alt: 'Logo Anima',
+    dfg_logo_alt: 'Logo Data For Good',
   },
 
   // This section is used in the calculator page
