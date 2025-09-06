@@ -10,7 +10,9 @@ export default async function Footer() {
   return (
     <footer className="bg-white px-6 md:px-12 pt-8 md:pt-12 pb-8">
       <div className="max-w-7xl mx-auto flex flex-col">
-        <Logo className="w-32 md:w-40 mx-auto md:mx-0" />
+        <div className="w-32 md:w-40 mx-auto md:mx-0">
+          <Logo />
+        </div>
         <hr className="border-[#3b0a0a] my-6 md:my-8" />
         <p className="text-sm mb-8 text-center md:text-left">{t('footer.by')}</p>
         
