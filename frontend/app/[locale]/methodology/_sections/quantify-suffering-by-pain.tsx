@@ -35,9 +35,9 @@ export default async function QuantifySufferingByPain() {
           alt={t('MethodologyPage.QuantifySufferingByPain.conclusionAltImg')}
           style={{ display: 'block' }}
         />
-        <div className="flex flex-col gap-y-10 justify-center md:w-2/4 px-6 md:px-12">
+        <div className="flex flex-col gap-y-2 md:gap-y-10 justify-center md:w-2/4 px-6 md:px-12">
           <p className="text-md p-2 md:p-0 text-bold">{t('MethodologyPage.QuantifySufferingByPain.conclusionText')}</p>
-          <div className="w-full flex justify-center">
+          <div className="w-full flex justify-center pb-5">
             <ButtonLink
               href="#list_of_pains"
               aria_label={t('MethodologyPage.QuantifySufferingByPain.conclusionButton')}
