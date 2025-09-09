@@ -16,13 +16,19 @@ class I18N:
         return self.supported_locales
 
     def load_translations(self):
-        """Load (or reload) translations for all supported locales"""
+        """Load (or reload) translations for all supported locales.
+        Uses gettext fallback to avoid crashing when .mo files are missing.
+        """
         self.translations.clear()
-        for locale_dir in self.locales_dir.iterdir():
-            if locale_dir.is_dir():
-                locale = locale_dir.name
-                translations = gettext.translation("messages", localedir=str(self.locales_dir), languages=[locale])
-                self.translations[locale] = translations
+        # Iterate over declared supported locales instead of filesystem to be robust
+        for locale in self.supported_locales:
+            translations = gettext.translation(
+                "messages",
+                localedir=str(self.locales_dir),
+                languages=[locale],
+                fallback=True,  # Return NullTranslations if not found
+            )
+            self.translations[locale] = translations
 
     def get_translator(self, locale: str) -> tuple[Callable, Callable]:
         """Get the gettext translator and ngettext for the given locale"""
