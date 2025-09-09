@@ -46,6 +46,8 @@ jobs:
 
       - run: docker tag empreinte-souffrance-frontend empreinte-souffrance.remigirard.dev:5000/admin/empreinte-souffrance_frontend:${{ github.ref_name }}
       - run: docker push empreinte-souffrance.remigirard.dev:5000/admin/empreinte-souffrance_frontend:${{ github.ref_name }}
+      - run: docker tag empreinte-souffrance-backend empreinte-souffrance.remigirard.dev:5000/admin/empreinte-souffrance_backend:${{ github.ref_name }}
+      - run: docker push empreinte-souffrance.remigirard.dev:5000/admin/empreinte-souffrance_backend:${{ github.ref_name }}
 
       # Deploy to remote swarm cluster
 
@@ -60,6 +62,9 @@ jobs:
         env:
           DOCKER_HOST: ssh://debian@empreinte-souffrance.remigirard.dev
       - run: docker pull empreinte-souffrance.remigirard.dev:5000/admin/empreinte-souffrance_frontend:${{ github.ref_name }}
+        env:
+          DOCKER_HOST: ssh://debian@empreinte-souffrance.remigirard.dev
+      - run: docker pull empreinte-souffrance.remigirard.dev:5000/admin/empreinte-souffrance_backend:${{ github.ref_name }}
         env:
           DOCKER_HOST: ssh://debian@empreinte-souffrance.remigirard.dev
       - name: Set DEPLOY_URL

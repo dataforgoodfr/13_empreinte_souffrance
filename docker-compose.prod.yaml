@@ -10,6 +10,17 @@ services:
         - "traefik.http.routers.`${TRAEFIK_ROUTER_NAME}`.entrypoints=websecure"
         - "traefik.http.routers.`${TRAEFIK_ROUTER_NAME}`.tls.certresolver=wildcardresolver"
         - "traefik.http.services.`${TRAEFIK_ROUTER_NAME}`.loadbalancer.server.port=3000"
+  backend:
+    image: empreinte-souffrance.remigirard.dev:5000/admin/empreinte-souffrance_backend:${STAGE_NAME}
+    networks:
+      - traefik-public
+    deploy:
+      labels:
+        - "traefik.enable=true"
+        - "traefik.http.routers.`${TRAEFIK_ROUTER_NAME}`-api.rule=Host(`api.${DEPLOY_URL}`)"
+        - "traefik.http.routers.`${TRAEFIK_ROUTER_NAME}`-api.entrypoints=websecure"
+        - "traefik.http.routers.`${TRAEFIK_ROUTER_NAME}`-api.tls.certresolver=wildcardresolver"
+        - "traefik.http.services.`${TRAEFIK_ROUTER_NAME}`-api.loadbalancer.server.port=8000"
 networks:
   traefik-public:
     external: true
