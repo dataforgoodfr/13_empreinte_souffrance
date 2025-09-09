@@ -1,83 +1,96 @@
 import { getI18n } from '@/locales/server';
 import Link from 'next/link';
-import Logo from '../_components/logo-walfare-footprint';
+import LogoWelfare from '../_components/logo-walfare-footprint';
+import ButtonLink from '@/app/[locale]/ui/_components/button-link';
 
 export default async function Footer() {
   const t = await getI18n();
   
-  const footerLinkClasses = "text-[#3b0a0a]/70 hover:text-[#3b0a0a] transition-colors duration-200";
+  const footerLinkClasses = "text-brown hover:text-pink-3 transition-colors duration-200";
+  const footerUnderlineClasses = `${footerLinkClasses} underline`;
 
   return (
-    <footer className="bg-white px-6 md:px-12 pt-8 md:pt-12 pb-8">
-      <div className="max-w-7xl mx-auto flex flex-col">
-        <div className="w-32 md:w-40 mx-auto md:mx-0">
-          <Logo />
-        </div>
-        <hr className="border-[#3b0a0a] my-6 md:my-8" />
-        <p className="text-sm mb-8 text-center md:text-left">{t('footer.by')}</p>
-        
-        {/* Grid container avec centrage */}
-        <div className="w-full mb-12 md:mb-16">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-72 max-w-4xl mx-auto">
-            {/* Anima */}
-            <section className="flex flex-col items-center md:items-start">
-              <img
-                src="/anima-logo.png"
-                alt={t('footer.anima_logo_alt')}
-                className="h-8 w-auto"
-              />
-              <ul className="space-y-2 mt-4 text-[13px] font-light text-center md:text-left">
-                <li>
-                  <Link href="https://animafrance.org/" target="_blank" className={footerLinkClasses}>Site internet</Link>
-                </li>
-                <li>
-                  <Link href="https://www.linkedin.com/company/animafrance/" target="_blank" className={footerLinkClasses}>Linkedin</Link>
-                </li>
-                <li>
-                  <Link href="https://www.facebook.com/animafrance.org" target="_blank" className={footerLinkClasses}>Facebook</Link>
-                </li>
-                <li>
-                  <Link href="https://www.instagram.com/assoanima" target="_blank" className={footerLinkClasses}>Instagram</Link>
-                </li>
-                <li>
-                  <Link href="mailto:contact@animafrance.org" target="_blank" className={footerLinkClasses}>Email</Link>
-                </li>
-              </ul>
-            </section>
-            
-            {/* Data For Good */}
-            <section className="flex flex-col items-center md:items-start">
-              <div className="flex items-center gap-3 justify-center md:justify-start w-full">
-                <img
-                  src="/logo_data_for_good.png"
-                  alt={t('footer.dfg_logo_alt')}
-                  className="h-10 w-10 rounded-full"
-                />
-                <span className="text-lg font-normal">Data For Good</span>
-              </div>
-              <ul className="space-y-2 mt-4 text-[13px] font-light text-center md:text-left">
-                <li>
-                  <Link href="https://dataforgood.fr/" target="_blank" className={footerLinkClasses}>Site internet</Link>
-                </li>
-                <li>
-                  <Link href="https://www.linkedin.com/company/dataforgood/" target="_blank" className={footerLinkClasses}>Linkedin</Link>
-                </li>
-                <li>
-                  <Link href="mailto:contact@dataforgood.fr" target="_blank" className={footerLinkClasses}>Email</Link>
-                </li>
-              </ul>
-            </section>
+    <footer className="bg-white px-6 md:px-12 py-8">
+      <div className="max-w-7xl mx-auto">
+        {/* Logo + Bouton Don */}
+        <div className="flex">
+          <div className="w-48 flex flex-col space-y-3">
+            <LogoWelfare />
+            <ButtonLink
+              href="/donate"
+              aria_label={t('footer.donate')}
+              button_text={t('footer.donate')}
+              width="small"
+            />
           </div>
         </div>
 
-        {/* Footer bottom */}
-        <div className="flex flex-col md:flex-row justify-between items-center md:items-start text-[11px] text-[#3b0a0a]/60 font-light">
-          <div className="space-y-0.5 text-center md:text-left mb-4 md:mb-0">
-            <div>Tous droits réservé - <Link href="/terms" className="underline decoration-1 underline-offset-1">Mentions Légales</Link></div>
-            <div>© 2025 Empreinte Souffrance et Data for Good</div>
+        <hr className="border-brown/20 my-8" />
+
+        {/* Section Partenaires */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="text-sm text-brown/80">{t('footer.by')}</div>
+
+          {/* Anima */}
+          <div className="flex flex-col">
+            <div>
+              <img
+                src="/Anima-logo.png"
+                alt={t('footer.anima_logo_alt')}
+                className="w-[120px] h-[28px] mb-4"
+              />
+              <ul className="space-y-3 text-sm">
+                <li><a className={footerLinkClasses} href="https://animafrance.org/">{t('footer.website')}</a></li>
+                <li><a className={footerLinkClasses} href="https://www.linkedin.com/company/animafrance/">{t('footer.linkedin')}</a></li>
+                <li><a className={footerLinkClasses} href="https://www.facebook.com/animafrance.org">{t('footer.facebook')}</a></li>
+                <li><a className={footerLinkClasses} href="https://www.instagram.com/assoanima">{t('footer.instagram')}</a></li>
+                <li><a className={footerLinkClasses} href="mailto:contact@animafrance.org">{t('footer.email')}</a></li>
+              </ul>
+            </div>
           </div>
-          <div className="text-center md:text-right">
-            Graphisme : <Link href="https://coucou.design" target="_blank" className="underline decoration-1 underline-offset-1">Coucou.Design</Link>
+
+          {/* Data For Good */}
+          <div className="flex flex-col">
+            <div>
+              <div className="flex items-center gap-4 mb-4">
+                <img 
+                  src="/logo_data_for_good.png" 
+                  alt={t('footer.dfg_logo_alt')} 
+                  className="h-12 w-12 rounded-full" 
+                />
+                <span className="text-lg font-extrabold text-brown">Data For Good</span>
+              </div>
+              <ul className="space-y-3 text-sm">
+                <li><a className={footerLinkClasses} href="https://dataforgood.fr/">{t('footer.website')}</a></li>
+                <li><a className={footerLinkClasses} href="https://www.linkedin.com/company/dataforgood/">{t('footer.linkedin')}</a></li>
+                <li><a className={footerLinkClasses} href="mailto:contact@dataforgood.fr">{t('footer.email')}</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        {/* Footer Bottom */}
+        <div className="flex flex-col md:flex-row justify-between mt-12 text-sm text-brown">
+          <div className="mb-6">
+            <div>
+              {t('footer.all_rights_reserved')} &nbsp;-&nbsp;
+              <Link className={footerUnderlineClasses} href="/mentions-legales">
+                {t('footer.legal_terms')}
+              </Link>
+            </div>
+            <div className="mt-2">{t('footer.rights')}</div>
+          </div>
+
+          <div className='md:mt-7'>
+            <span>{t('footer.graphics')} </span>
+            <a 
+              className={footerUnderlineClasses} 
+              href="https://coucou.design" 
+              target="_blank" 
+              rel="noopener noreferrer"
+            >
+              Coucou.Design
+            </a>
           </div>
         </div>
       </div>

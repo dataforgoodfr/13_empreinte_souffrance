@@ -217,7 +217,7 @@ export default {
     rights: ' © 2025 Empreinte Souffrance et Data for Good',
     by: 'Un projet de :',
     and: 'et',
-    donate: 'donnation',
+    donate: 'JE DONNE',
     website: 'Site internet',
     linkedin: 'Linkedin',
     facebook: 'Facebook',

@@ -209,7 +209,7 @@ export default {
     rights: '© 2025 Welfare Footprint and Data for Good',
     by: 'by',
     and: 'and',
-    donate: 'Donate',
+    donate: 'DONATE',
     website: 'Website',
     linkedin: 'Linkedin',
     facebook: 'Facebook',
