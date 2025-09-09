@@ -32,7 +32,7 @@ COPY . .
 RUN pip install --no-cache-dir .
 
 # Create a non-root user similar to frontend image practice
-RUN useradd --create-home --uid 1001 appuser
+RUN useradd --create-home --uid 1001 appuser && mkdir -p /app/logs && chown -R appuser:appuser /app/logs
 USER appuser
 
 EXPOSE 8000
