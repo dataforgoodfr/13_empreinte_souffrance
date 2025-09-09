@@ -17,7 +17,7 @@ export default async function Footer() {
           <div className="w-48 flex flex-col space-y-3">
             <LogoWelfare />
             <ButtonLink
-              href="/donate"
+              href="https://animafrance.org/je-donne"
               aria_label={t('footer.donate')}
               button_text={t('footer.donate')}
               width="small"
@@ -74,7 +74,7 @@ export default async function Footer() {
           <div className="mb-6">
             <div>
               {t('footer.all_rights_reserved')} &nbsp;-&nbsp;
-              <Link className={footerUnderlineClasses} href="/mentions-legales">
+              <Link className={footerUnderlineClasses} href="/terms">
                 {t('footer.legal_terms')}
               </Link>
             </div>
