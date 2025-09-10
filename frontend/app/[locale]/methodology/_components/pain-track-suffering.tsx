@@ -48,7 +48,7 @@ export default async function PainTrackTable() {
             >
               {t('MethodologyPage.QuantifySufferingByPain.painTrackTable.intensityOfSuffering')}
             </td>
-            <th className=" font-semibold text-center p-2">
+            <th className="bg-pink-1 font-semibold text-center p-2">
               {t('MethodologyPage.QuantifySufferingByPain.painTrackTable.discomfort')}
             </th>
             <td className=""></td>
@@ -58,7 +58,7 @@ export default async function PainTrackTable() {
             <td className="">196h ± 39.2h</td>
           </tr>
           <tr className="bg-white">
-            <th className="bg-pink-200  font-semibold text-center p-2">
+            <th className="bg-pink-2 font-semibold text-center p-2">
               {t('MethodologyPage.QuantifySufferingByPain.painTrackTable.pain')}
             </th>
             <td className="">50%</td>
@@ -68,7 +68,7 @@ export default async function PainTrackTable() {
             <td className="">116.14h ± 23.20h</td>
           </tr>
           <tr className="bg-white">
-            <th className="bg-red-300 font-semibold text-center p-2">
+            <th className="bg-pink-3 font-semibold text-center p-2">
               {t('MethodologyPage.QuantifySufferingByPain.painTrackTable.suffering')}
             </th>
             <td className="">50%</td>
@@ -78,7 +78,7 @@ export default async function PainTrackTable() {
             <td className="">2.63 min ± 1.07 min</td>
           </tr>
           <tr className="bg-white">
-            <th className=" bg-red-900 font-semibold text-center p-2 text-white">
+            <th className="bg-brown font-semibold text-center p-2 light-text">
               {t('MethodologyPage.QuantifySufferingByPain.painTrackTable.agony')}
             </th>
             <td className=""></td>
