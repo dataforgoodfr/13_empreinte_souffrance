@@ -29,7 +29,7 @@ export default async function Footer() {
 
         {/* Section Partenaires */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          <div className="text-sm text-brown/80">{t('footer.by')}</div>
+          <div className="text-sm text-brown">{t('footer.by')}</div>
 
           {/* Anima */}
           <div className="flex flex-col">
@@ -44,7 +44,7 @@ export default async function Footer() {
                 <li><a className={footerLinkClasses} href="https://www.linkedin.com/company/animafrance/">{t('footer.linkedin')}</a></li>
                 <li><a className={footerLinkClasses} href="https://www.facebook.com/animafrance.org">{t('footer.facebook')}</a></li>
                 <li><a className={footerLinkClasses} href="https://www.instagram.com/assoanima">{t('footer.instagram')}</a></li>
-                <li><a className={footerLinkClasses} href="mailto:contact@animafrance.org">{t('footer.email')}</a></li>
+                <li><a className={footerLinkClasses} href="mailto:www@animafrance.org">{t('footer.email')}</a></li>
               </ul>
             </div>
           </div>
@@ -63,7 +63,7 @@ export default async function Footer() {
               <ul className="space-y-3 text-sm">
                 <li><a className={footerLinkClasses} href="https://dataforgood.fr/">{t('footer.website')}</a></li>
                 <li><a className={footerLinkClasses} href="https://www.linkedin.com/company/dataforgood/">{t('footer.linkedin')}</a></li>
-                <li><a className={footerLinkClasses} href="mailto:contact@dataforgood.fr">{t('footer.email')}</a></li>
+                <li><a className={footerLinkClasses} href="mailto:hellodataforgood@gmail.com">{t('footer.email')}</a></li>
               </ul>
             </div>
           </div>
