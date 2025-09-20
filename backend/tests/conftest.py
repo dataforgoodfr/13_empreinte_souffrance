@@ -200,8 +200,8 @@ def number_only_product():
 
 
 @pytest.fixture
-def numeric_unit_dozen():
-    return ProductData(product_name="Fake product name", quantity="1 dozen")
+def numeric_unit_dozen_small():
+    return ProductData(product_name="Fake product name", quantity="1 dozen", categories_tags=["en:small-eggs"])
 
 
 @pytest.fixture
@@ -216,17 +216,17 @@ def numeric_unit_large():
 
 @pytest.fixture
 def x_style_product():
-    return ProductData(product_name="Fake product name", quantity="x10")
+    return ProductData(product_name="Fake product name l'œuf", quantity="x10")
 
 
 @pytest.fixture
 def addition_expression_product():
-    return ProductData(product_name="Fake product name", quantity="10 + 2")
+    return ProductData(product_name="Fake product name's", quantity="10 + 2")
 
 
 @pytest.fixture
-def extract_digits_product():
-    return ProductData(product_name="Fake product name", quantity="Boîte de 6")
+def extract_digits_product_extra_large():
+    return ProductData(product_name="Fake product name XL", quantity="Boîte de 6")
 
 
 @pytest.fixture
@@ -241,7 +241,9 @@ def product_quantity_with_unit():
 
 @pytest.fixture
 def unknown_quantity_product():
-    return ProductData(product_name="Fake product name", quantity="some weird string")
+    return ProductData(
+        product_name="Fake product name", quantity="some weird string", categories_tags=["en:small-eggs"]
+    )
 
 
 @pytest.fixture
