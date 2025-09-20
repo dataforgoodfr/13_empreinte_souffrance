@@ -201,18 +201,23 @@ class KnowledgePanelGenerator:
         Returns:
             A complete KnowledgePanelResponse with all necessary panels
         """
-        # main panel depending on pain report data
-        panels = {"main": self._create_main_panel()}
-
-        # detailed panels only if there are pain levels
+        # Defining which detailed panels are to be displayed
         if self.pain_report.animals and any(animal.pain_levels for animal in self.pain_report.animals):
-            panels.update(
-                {
-                    "intensities_definitions": self._create_intensities_definitions_panel(),
-                    "physical_pain": self._create_physical_pain_panel(),
-                    "psychological_pain": self._create_psychological_pain_panel(),
-                }
-            )
+            detailed_panels = ["intensities_definitions", "physical_pain", "psychological_pain"]
+        else:
+            detailed_panels = []
+
+        # main panel depending on pain report data and detailed panels
+        panels = {"main": self._create_main_panel(detailed_panels)}
+
+        # build detailed panels that where defined before
+        for panel_name, panel_creator in [
+            ("intensities_definitions", self._create_intensities_definitions_panel),
+            ("physical_pain", self._create_physical_pain_panel),
+            ("psychological_pain", self._create_psychological_pain_panel),
+        ]:
+            if panel_name in detailed_panels:
+                panels.update({panel_name: panel_creator()})
 
         return KnowledgePanelResponse(
             panels=panels,
@@ -222,7 +227,7 @@ class KnowledgePanelGenerator:
             ),
         )
 
-    def _create_main_panel(self) -> Panel:
+    def _create_main_panel(self, detailed_panels: list[str]) -> Panel:
         """
         Create the main panel showing general information about the suffering footprint.
 
@@ -257,14 +262,13 @@ class KnowledgePanelGenerator:
                 )
             )
 
-        # Add links to detailed panels if existing
-        elements.extend(
-            [
-                Element(element_type="panel", panel_element=PanelElement(panel_id="intensities_definitions")),
-                Element(element_type="panel", panel_element=PanelElement(panel_id="physical_pain")),
-                Element(element_type="panel", panel_element=PanelElement(panel_id="psychological_pain")),
-            ]
-        )
+        # Build detailed panels if existing
+        for detailed_panel in detailed_panels:
+            elements.extend(
+                [
+                    Element(element_type="panel", panel_element=PanelElement(panel_id=detailed_panel)),
+                ]
+            )
 
         # Create and return the main panel
         return Panel(
