@@ -261,7 +261,7 @@ def test_knowledge_panel_generator(
     generator = KnowledgePanelGenerator(pain_report, translator)
 
     # Test main panel
-    main_panel = generator._create_main_panel()
+    main_panel = generator._create_main_panel(["intensities_definitions", "physical_pain", "psychological_pain"])
     assert main_panel.level == "info"
     assert main_panel.title_element.title == "Welfare footprint"
     assert len(main_panel.elements) > 3
@@ -313,7 +313,7 @@ def test_knowledge_panel_generator_missing_quantity(pain_report_missing_quantity
     generator = KnowledgePanelGenerator(pain_report_missing_quantity, translator)
 
     # Test main panel
-    main_panel = generator._create_main_panel()
+    main_panel = generator._create_main_panel([])
     assert main_panel.level == "info"
     assert main_panel.title_element.title == "Welfare footprint"
 

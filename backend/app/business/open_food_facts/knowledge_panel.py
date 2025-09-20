@@ -210,7 +210,7 @@ class KnowledgePanelGenerator:
         # main panel depending on pain report data and detailed panels
         panels = {"main": self._create_main_panel(detailed_panels)}
 
-        # build detailed panels that where defined before
+        # build detailed panels that where defined
         for panel_name, panel_creator in [
             ("intensities_definitions", self._create_intensities_definitions_panel),
             ("physical_pain", self._create_physical_pain_panel),
