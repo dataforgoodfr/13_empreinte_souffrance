@@ -5,6 +5,7 @@ Ce dépôt contient trois scripts Python pour travailler avec les données OpenF
 1. **extract_egg_products.py** : Extraction et filtrage des produits de catégorie "eggs" depuis la base de données OpenFoodFacts exportée au format Parquet
 2. **update_off_product_data.py** : Upload vers OpenFoodFacts des données produit de quantité, et mode d'élevage via l'API d'écriture
 3. **process_product_data.py** : Analyse et traitement des données produits œufs avec prédictions OCR et calcul des types d'élevage
+4. **export_computed_data_to_excel.py** : Export des données traitées vers des fichiers Excel formatés avec images et colonnes d’analyse
 
 ## Dépendances
 
@@ -271,3 +272,55 @@ python process_product_data.py --no-process --dataset world --include-caliber
 - `plotly.express` pour les visualisations sunburst
 - Module métier `app.business.open_food_facts.pain_report_calculator`
 - Schémas de validation `app.schemas.open_food_facts.external.ProductData`
+
+
+## 4. export_computed_data_to_excel.py
+
+### Description
+
+Ce script exporte les données produits traitées par le calcualteur (`processed_products(_fr).csv`) vers des fichiers Excel formatés pour vérifier les données.
+Il ajoute automatiquement les données produit, les images, les colonnes d’analyse (OCR, prédictions, types d’élevage…), les hyperliens vers OpenFoodFacts.
+
+### Fonctionnalités principales
+
+- Chargement du fichier CSV des oeufs Openfoodfacts après ajout des informations générées par le calculateur + l'OCR
+- Génération de fichiers Excel :
+  - **Test** : échantillon aléatoire de `n` produits (`test_products.xlsx`)
+  - **Tous les produits** : l’ensemble du CSV (`all_products.xlsx`)
+  - **Produits avec informations manquantes** : produits sans mode d'élevage ni quantité détectés (`missing_data_products.xlsx`)
+- Hyperliens vers les pages produit OpenFoodFacts
+- Insertion d’images via formules Excel (ouvrir sous Google sheets pour les afficher automatiquement)
+
+Adapter le script pour une liste donnée de codes produits
+
+### Utilisation
+
+```bash
+# Mode test (échantillon aléatoire)
+python backend/app/scripts/export_computed_data_to_excel.py --test
+
+# Tous les produits
+python backend/app/scripts/export_computed_data_to_excel.py --all-products
+
+# Mode production (catégories filtrées)
+python backend/app/scripts/export_computed_data_to_excel.py --missing-data
+
+# Pour ne traiter que les produits français
+python backend/app/scripts/export_computed_data_to_excel.py --all-products --fr
+```
+
+Si aucun argument n’est fourni, le script propose un mode interactif.
+
+### Fichiers d’entrée et de sortie
+
+- Entrée : `backend/app/scripts/data/processed_products(_fr).csv`
+- Sorties :
+  - `test_products(_fr).xlsx` (test)
+  - `all_productss(_fr).xlsx` (tous produits)
+  - `missing_data_productss(_fr).xlsx` (production avec plusieurs feuilles)
+
+### Dépendances spécifiques
+
+- `pandas`, `numpy`
+- `openpyxl` pour l’écriture et le formatage Excel
+- `tqdm` pour les barres de progression

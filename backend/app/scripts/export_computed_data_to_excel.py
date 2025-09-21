@@ -1,15 +1,10 @@
-#!/usr/bin/env python
-# -*- coding: utf-8 -*-
 """
 Excel Product Data Exporter
 
 This module provides functionality to export product data from a pandas DataFrame
 to formatted Excel files with images, product information, and analysis results.
-The script is specifically designed for egg product analysis including breeding
+The script is designed for egg product analysis including breeding
 type, quantity, and OCR text extraction.
-
-Author: Data Analysis Team
-Date: 2025
 """
 
 import argparse
@@ -31,9 +26,13 @@ from tqdm import tqdm
 # File paths
 DATA_PATH = "C:\\dev\\git\\13_empreinte_souffrance\\backend\\app\\scripts\\data\\"
 INPUT_CSV_FILE = "processed_products.csv"
-OUTPUT_EXCEL_FILE = "products_to_tag_14_06_25.xlsx"
+INPUT_CSV_FILE_FR = "processed_products_fr.csv"
+MISSING_DATA_EXCEL_FILE = "missing_data_products.xlsx"
+MISSING_DATA_EXCEL_FILE_FR = "missing_data_products_fr.xlsx"
 ALL_PRODUCTS_EXCEL_FILE = "all_products.xlsx"
-TEST_EXCEL_FILE = "products_test.xlsx"
+ALL_PRODUCTS_EXCEL_FILE_FR = "all_products_fr.xlsx"
+TEST_EXCEL_FILE = "test_products.xlsx"
+TEST_EXCEL_FILE_FR = "test_products_fr.xlsx"
 
 # Excel configuration
 DEFAULT_SHEET_NAME = "Feuille1"
@@ -125,7 +124,7 @@ def load_product_data(file_path: str) -> pd.DataFrame:
         raise pd.errors.EmptyDataError(f"The file {file_path} is empty")
 
 
-def get_product_code_lists(df: pd.DataFrame) -> Dict[str, List[str]]:
+def get_product_code_lists_missing_data(df: pd.DataFrame) -> Dict[str, List[str]]:
     """
     Generate lists of product codes based on missing breeding/quantity information.
 
@@ -610,6 +609,11 @@ def create_test_excel(df: pd.DataFrame, generator: ExcelProductGenerator) -> Non
         df: Source DataFrame containing product data
         generator: ExcelProductGenerator instance
     """
+    if parse_arguments().fr:
+        output_file = TEST_EXCEL_FILE_FR
+    else:
+        output_file = TEST_EXCEL_FILE
+
     print("Creating test Excel with random products...")
     sample_codes = get_random_sample_codes(df, TEST_SAMPLE_SIZE)
     print(f"Selected products: {sample_codes}")
@@ -617,7 +621,7 @@ def create_test_excel(df: pd.DataFrame, generator: ExcelProductGenerator) -> Non
     generator.generate_excel(
         product_codes=sample_codes,
         df=df,
-        output_filename=TEST_EXCEL_FILE,
+        output_filename=output_file,
         show_col_breeding=True,
         show_cols_quantity=True,
         sheet_name="Test products",
@@ -626,7 +630,7 @@ def create_test_excel(df: pd.DataFrame, generator: ExcelProductGenerator) -> Non
 
     # Open file (Windows only)
     if os.name == "nt":
-        os.startfile(os.path.join(generator.data_path, TEST_EXCEL_FILE))
+        os.startfile(os.path.join(generator.data_path, output_file))
 
 
 def create_all_products_excel(df: pd.DataFrame, generator: ExcelProductGenerator) -> None:
@@ -641,10 +645,15 @@ def create_all_products_excel(df: pd.DataFrame, generator: ExcelProductGenerator
     all_codes = df["code"].tolist()
     print(f"Total number of products: {len(all_codes)}")
 
+    if parse_arguments().fr:
+        output_file = ALL_PRODUCTS_EXCEL_FILE_FR
+    else:
+        output_file = ALL_PRODUCTS_EXCEL_FILE
+
     generator.generate_excel(
         product_codes=all_codes,
         df=df,
-        output_filename=ALL_PRODUCTS_EXCEL_FILE,
+        output_filename=output_file,
         show_col_breeding=True,
         show_cols_quantity=True,
         sheet_name="All products",
@@ -653,22 +662,28 @@ def create_all_products_excel(df: pd.DataFrame, generator: ExcelProductGenerator
 
     # Open file (Windows only)
     if os.name == "nt":
-        os.startfile(os.path.join(generator.data_path, ALL_PRODUCTS_EXCEL_FILE))
+        os.startfile(os.path.join(generator.data_path, output_file))
 
 
-def create_production_excel(df: pd.DataFrame, generator: ExcelProductGenerator) -> None:
+def create_missing_data_excel(df: pd.DataFrame, generator: ExcelProductGenerator) -> None:
     """
-    Create production Excel file with all product categories.
+    Create  Excel file with all product categories.
 
     Args:
         df: Source DataFrame containing product data
         generator: ExcelProductGenerator instance
     """
+
+    if parse_arguments().fr:
+        output_file = MISSING_DATA_EXCEL_FILE_FR
+    else:
+        output_file = MISSING_DATA_EXCEL_FILE
+
     print("Creating production Excel for all product categories...")
     print("=" * 60)
 
     # Get product code lists
-    code_lists = get_product_code_lists(df)
+    code_lists = get_product_code_lists_missing_data(df)
 
     print("📋 Category breakdown:")
     print(f"  • No breeding & no quantity: {len(code_lists['no_breeding_no_quantity'])} products")
@@ -685,7 +700,7 @@ def create_production_excel(df: pd.DataFrame, generator: ExcelProductGenerator) 
     generator.generate_excel(
         product_codes=code_lists["no_breeding_no_quantity"],
         df=df,
-        output_filename=OUTPUT_EXCEL_FILE,
+        output_filename=output_file,
         show_col_breeding=True,
         show_cols_quantity=True,
         sheet_name="no_breeding_no_quantity",
@@ -698,7 +713,7 @@ def create_production_excel(df: pd.DataFrame, generator: ExcelProductGenerator) 
     generator.generate_excel(
         product_codes=code_lists["no_breeding"],
         df=df,
-        output_filename=OUTPUT_EXCEL_FILE,
+        output_filename=output_file,
         show_col_breeding=True,
         show_cols_quantity=True,
         sheet_name="no_breeding",
@@ -711,7 +726,7 @@ def create_production_excel(df: pd.DataFrame, generator: ExcelProductGenerator) 
     generator.generate_excel(
         product_codes=code_lists["no_quantity_not_free_range"],
         df=df,
-        output_filename=OUTPUT_EXCEL_FILE,
+        output_filename=output_file,
         show_col_breeding=True,
         show_cols_quantity=True,
         sheet_name="no_quantity_not_free_range",
@@ -723,7 +738,7 @@ def create_production_excel(df: pd.DataFrame, generator: ExcelProductGenerator) 
 
     # Open file (Windows only)
     if os.name == "nt":
-        os.startfile(os.path.join(generator.data_path, OUTPUT_EXCEL_FILE))
+        os.startfile(os.path.join(generator.data_path, output_file))
 
 
 def parse_arguments():
@@ -741,7 +756,9 @@ def parse_arguments():
 
     parser.add_argument("--all-products", action="store_true", help="Create Excel with all products without filters")
 
-    parser.add_argument("--production", action="store_true", help="Create production Excel with filtered categories")
+    parser.add_argument("--missing-data", action="store_true", help="Create Excel with products with missing data")
+
+    parser.add_argument("--fr", action="store_true", help="Handle only French products")
 
     return parser.parse_args()
 
@@ -754,8 +771,12 @@ def main():
         # Parse arguments
         args = parse_arguments()
 
-        # Load data
-        input_file_path = os.path.join(DATA_PATH, INPUT_CSV_FILE)
+        # Load data, world or France
+        if args.fr:
+            input_file_path = os.path.join(DATA_PATH, INPUT_CSV_FILE_FR)
+        else:
+            input_file_path = os.path.join(DATA_PATH, INPUT_CSV_FILE)
+
         df = load_product_data(input_file_path)
 
         # Initialize generator
@@ -766,14 +787,14 @@ def main():
             create_test_excel(df, generator)
         elif args.all_products:
             create_all_products_excel(df, generator)
-        elif args.production:
-            create_production_excel(df, generator)
+        elif args.missing_data:
+            create_missing_data_excel(df, generator)
         else:
             # Interactive mode if no arguments provided
             print("Interactive mode - Choose an option:")
             print("1. Test Excel (random products)")
             print("2. Excel with all products")
-            print("3. Production Excel (filtered categories)")
+            print("3. Excel with missing data products (breeding type and/or quantity)")
 
             choice = input("Your choice (1/2/3): ")
 
@@ -782,7 +803,7 @@ def main():
             elif choice == "2":
                 create_all_products_excel(df, generator)
             elif choice == "3":
-                create_production_excel(df, generator)
+                create_missing_data_excel(df, generator)
             else:
                 print("Invalid choice, stopping program")
                 return

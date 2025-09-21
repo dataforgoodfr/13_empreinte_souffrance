@@ -5,6 +5,7 @@ This repository contains three Python scripts for working with OpenFoodFacts dat
 1. **extract_egg_products.py**: Extract and filter products from the "eggs" category from the OpenFoodFacts database exported in Parquet format
 2. **update_off_product_data.py**: Upload quantity and farming method product data to OpenFoodFacts via the write API
 3. **process_product_data.py**: Analysis and processing of egg product data with OCR predictions and farming type calculations
+4. **export_computed_data_to_excel.py**: Export processed data to formatted Excel files with images and analysis columns
 
 ## Dependencies
 
@@ -269,3 +270,54 @@ python process_product_data.py --no-process --dataset world --include-caliber
 - `plotly.express` for sunburst visualizations
 - Business module `app.business.open_food_facts.pain_report_calculator`
 - Validation schemas `app.schemas.open_food_facts.external.ProductData`
+
+## 4. export_computed_data_to_excel.py
+
+### Description
+
+This script exports product data processed by the calculator (`processed_products(_fr).csv`) to formatted Excel files for data verification.
+It automatically adds product data, images, analysis columns (OCR, predictions, breeding types…), and hyperlinks to OpenFoodFacts.
+
+### Main Features
+
+- Load the OpenFoodFacts eggs CSV file after enrichment with calculator + OCR information
+- Generate Excel files:
+  - **Test**: random sample of `n` products (`test_products.xlsx`)
+  - **All products**: the entire CSV (`all_products.xlsx`)
+  - **Products with missing information**: products without detected breeding type or quantity (`missing_data_products.xlsx`)
+- Hyperlinks to OpenFoodFacts product pages
+- Image insertion using Excel formulas (open in Google Sheets to display automatically)
+
+The script can be adapted for a given list of product codes.
+
+### Usage
+
+```bash
+# Test mode (random sample)
+python backend/app/scripts/export_computed_data_to_excel.py --test
+
+# All products
+python backend/app/scripts/export_computed_data_to_excel.py --all-products
+
+# Missing data mode (filtered categories)
+python backend/app/scripts/export_computed_data_to_excel.py --missing-data
+
+# To process only French products
+python backend/app/scripts/export_computed_data_to_excel.py --all-products --fr
+
+
+If no argument is provided, the script will offer an interactive mode.
+
+### Input and Output Files
+
+- Input: `backend/app/scripts/data/processed_products(_fr).csv`
+- Outputs:
+  - `test_products(_fr).xlsx` (test)
+  - `all_products(_fr).xlsx` (all products)
+  - `missing_data_products(_fr).xlsx` (production with multiple sheets)
+
+### Specific Dependencies
+
+- `pandas`, `numpy`
+- `openpyxl` for Excel writing and formatting
+- `tqdm` for progress bars
