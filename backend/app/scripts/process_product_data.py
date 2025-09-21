@@ -17,7 +17,7 @@ JSONL_FILE_PATH = (
     ANALYSIS_PATH
     / "neural_category_predictions"
     / "data"
-    / "dfoeufs_with_predictions_with_ground_truth_with_groq.jsonl"
+    / "dfoeufs_with_predictions_with_ground_truth_with_groq_spans.jsonl"
 )
 EGGS_CSV_PATH = DATA_PATH / "eggs_from_parquet.csv"
 COLS_TO_JSON_PATH = DATA_PATH / "cols_to_json.txt"
