@@ -62,8 +62,11 @@ class PatternRepository:
         EggCaliber.EXTRA_LARGE: {r"\b(xl|extra\slarge|tr[èe]s\sgros)\b"},
     }
 
-    # Regex: matches a number alone (e.g. "6")
+    # Regex: matches a number alone (e.g. "6" or 12.5)
     REGEX_NUMBERS_ONLY = r"\s*\d+(\.\d+)?\s*"
+
+    # Checks for isolated numbers (e.g. "6" but not "6C")
+    REGEX_ISOLATED_NUMBER = r"\b(\d+)\b"
 
     # Regex: matches number + unit (e.g. "6 eggs", "12 pcs", "3 gros")
     REGEX_NUMERIC_UNIT = r"\s*(\d+(?:\.\d+)?)\s*((?:[a-zA-Zа-яА-ЯёЁ\u00C0-\u00FFœŒ]+\s*)+)\.?"
@@ -80,20 +83,49 @@ class PatternRepository:
     # Simple expressions used to identify egg calibers and count
     DOZEN_EXPRESSIONS = ["dozen", "dozens", "dzn", "doz"]
 
+    @staticmethod
+    def normalize_string_and_remove_specific_digits(s):
+        """
+        Function that normalizes a string before parsing numbers
+        Supprime dans une chaîne :
+        - nombres suivis de '%'
+        - 'omega 3'
+        - nombres suivis de g
+        - mentions 'size xx'
 
-class EggQuantityCalculator:
-    """
-    Utility for calculating the weight of eggs using various inputs:
-    category tags, free-form quantities, unit-based measurements, or structured product data.
-    """
-
-    def __init__(self):
-        self.pattern_repository = PatternRepository
+        :param s: string to normalize
+        :return: normalized string for parsing
+        """
+        if s is None:
+            return ""
+        s = str(s)
+        # Supprimer nombres suivis de %
+        s = re.sub(r"\d+\s*\%", "", s)
+        # remove accents by decomposing Unicode and filtering out diacritical marks
+        s = "".join(c for c in unicodedata.normalize("NFD", s) if unicodedata.category(c) != "Mn")
+        s = unicodedata.normalize("NFKD", s)  # Unicode normalization
+        # replace all punctuation with a space except '+'
+        s = re.sub(r"[^\w\s+]", " ", s)
+        # convert to lowercase
+        s = s.lower()
+        # replace œ with oe
+        s = re.sub(r"œ", "oe", s)
+        # replace multiple spaces with a single space
+        s = re.sub(r"\s+", " ", s)
+        # Supprimer omega 3
+        s = re.sub(r"\bomega\s*3\b", "", s)
+        # Supprimer quantités en g (nombre + unité)
+        s = re.sub(r"\b\d+\s*(?:g)\b", "", s)
+        # Supprimer mentions size xx (size + nombre)
+        s = re.sub(r"\bsize\s*\d+\b", "", s)
+        # Nettoyer les espaces multiples
+        s = re.sub(r"\s+", " ", s).strip()
+        return s
 
     @staticmethod
-    def _normalize_string(s):
+    def normalize_string_for_caliber(s):
         """
-        Function that normalizes a string
+        Function that normalizes a string before parsing caliber
         :param s: string to normalize
         :return: normalized string for parsing
         """
@@ -116,6 +148,16 @@ class EggQuantityCalculator:
         # remove leading and trailing spaces
         s = s.strip()
         return s
+
+
+class EggQuantityCalculator:
+    """
+    Utility for calculating the weight of eggs using various inputs:
+    category tags, free-form quantities, unit-based measurements, or structured product data.
+    """
+
+    def __init__(self):
+        self.pattern_repository = PatternRepository
 
     def _get_egg_caliber_from_tags(self, categories_tags: List[str]) -> EggCaliber | None:
         """
@@ -145,7 +187,7 @@ class EggQuantityCalculator:
             EggCaliber: The caliber of one egg if a matching tag is found, otherwise None.
         """
         for caliber, expressions in self.pattern_repository.EGG_CALIBERS_BY_EXPRESSION.items():
-            if any(re.search(str, self._normalize_string(field)) for str in expressions):
+            if any(re.search(str, PatternRepository.normalize_string_for_caliber(field)) for str in expressions):
                 return caliber
         return None
 
@@ -164,6 +206,28 @@ class EggQuantityCalculator:
             match = re.search(r"pack-of-(\d+)", tag)
             if match:
                 return EggQuantity.from_count(count=int(match.group(1)), caliber=caliber)
+
+        return None
+
+    def _get_egg_quantity_from_name(self, product_name: str, caliber: EggCaliber | None) -> EggQuantity | None:
+        """
+        Calculates egg quantity based on information found in the product name.
+
+        Args:
+            product_name (str): The product name from the product data.
+        """
+        name = PatternRepository.normalize_string_and_remove_specific_digits(product_name)
+
+        # Case 1 : '10+2 eggs'
+        match = re.search(PatternRepository.REGEX_ADDITION, name)
+        if match:
+            egg_number = int(match.group(1)) + int(match.group(2))
+            return EggQuantity.from_count(count=int(egg_number), caliber=caliber)
+
+        # Case 2 : ' 10 [...] eggs' or 'X10' or '10'
+        match = re.search(PatternRepository.REGEX_ISOLATED_NUMBER, name)
+        if match:
+            return EggQuantity.from_count(count=int(match.group(1)), caliber=caliber)
 
         return None
 
@@ -280,9 +344,17 @@ class EggQuantityCalculator:
         if not caliber:
             caliber = self._get_egg_caliber_from_field(quantity)
 
-        if product_quantity and unit:
-            return self._get_egg_quantity_from_product_quantity_and_unit(product_quantity, unit, caliber)
-        elif quantity:
-            return self._get_egg_quantity_from_product_quantity(quantity, caliber)
-        else:
-            return self._get_egg_quantity_from_tags(categories_tags, caliber)
+        egg_quantity = None
+
+        if quantity:
+            egg_quantity = self._get_egg_quantity_from_product_quantity(quantity, caliber)
+        if not egg_quantity:
+            egg_quantity = self._get_egg_quantity_from_name(product_name, caliber)
+        if not egg_quantity:
+            egg_quantity = self._get_egg_quantity_from_name(generic_name, caliber)
+        if not egg_quantity:
+            egg_quantity = self._get_egg_quantity_from_tags(categories_tags, caliber)
+        if (product_quantity and unit) and (not egg_quantity):
+            egg_quantity = self._get_egg_quantity_from_product_quantity_and_unit(product_quantity, unit, caliber)
+
+        return egg_quantity
