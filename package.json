@@ -1,0 +1,19 @@
+{
+  "name": "13_empreinte_souffrance",
+  "version": "1.0.0",
+  "description": "The **Suffering Footprint** project promotes food transparency by developing a website and tool that empower consumers, civil society, and policymakers to identify the most effective ways to reduce the suffering of farmed animals. 🐥",
+  "main": "index.js",
+  "scripts": {
+    "up": "UID=$(id -u) GID=$(id -g) docker compose up"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RemiGirard/13_empreinte_souffrance.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dataforgoodfr/13_empreinte_souffrance/issues"
+  },
+  "homepage": "https://github.com/dataforgoodfr/13_empreinte_souffrance#readme"
+}
