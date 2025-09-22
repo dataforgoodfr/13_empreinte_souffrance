@@ -22,12 +22,10 @@ from app.business.open_food_facts.knowledge_panel import (
     get_data_from_off_v3,
     get_knowledge_panel_response,
 )
-from app.business.open_food_facts.pain_report_calculator import (
-    MissingBreedingTypeOrQuantityError,
-    PainReportCalculator,
-)
+from app.business.open_food_facts.pain_report_calculator import PainReportCalculator
+from app.business.open_food_facts.product_type_calculator import get_product_type
 from app.business.open_food_facts.unit_pain_loader import UnitPainLoader
-from app.config.exceptions import ResourceNotFoundException
+from app.config.exceptions import MissingBreedingTypeOrQuantityError, ResourceNotFoundException
 from app.config.i18n import I18N
 from app.enums.open_food_facts.enums import AnimalType, EggQuantity, LayingHenBreedingType, PainIntensity, PainType
 from app.schemas.open_food_facts.external import ProductData
@@ -35,6 +33,7 @@ from app.schemas.open_food_facts.internal import (
     BreedingTypeAndQuantity,
     KnowledgePanelResponse,
     PainReport,
+    ProductType,
 )
 
 
@@ -261,7 +260,7 @@ def test_knowledge_panel_generator(
     generator = KnowledgePanelGenerator(pain_report, translator)
 
     # Test main panel
-    main_panel = generator._create_main_panel()
+    main_panel = generator._create_main_panel(["intensities_definitions", "physical_pain", "psychological_pain"])
     assert main_panel.level == "info"
     assert main_panel.title_element.title == "Welfare footprint"
     assert len(main_panel.elements) > 3
@@ -313,7 +312,7 @@ def test_knowledge_panel_generator_missing_quantity(pain_report_missing_quantity
     generator = KnowledgePanelGenerator(pain_report_missing_quantity, translator)
 
     # Test main panel
-    main_panel = generator._create_main_panel()
+    main_panel = generator._create_main_panel([])
     assert main_panel.level == "info"
     assert main_panel.title_element.title == "Welfare footprint"
 
@@ -416,7 +415,10 @@ def test_cage_regex(tag, should_match):
     "product_fixture, expected_quantity",
     [
         ("number_only_product", EggQuantity(count=6, total_weight=6 * EggCaliber.AVERAGE.weight)),
-        ("numeric_unit_dozen", EggQuantity(count=12, total_weight=12 * EggCaliber.AVERAGE.weight)),
+        (
+            "numeric_unit_dozen_small",
+            EggQuantity(count=12, total_weight=12 * EggCaliber.SMALL.weight, caliber=EggCaliber.SMALL),
+        ),
         (
             "numeric_unit_moyen",
             EggQuantity(count=12, total_weight=12 * EggCaliber.MEDIUM.weight, caliber=EggCaliber.MEDIUM),
@@ -427,7 +429,10 @@ def test_cage_regex(tag, should_match):
         ),
         ("x_style_product", EggQuantity(count=10, total_weight=10 * EggCaliber.AVERAGE.weight)),
         ("addition_expression_product", EggQuantity(count=12, total_weight=12 * EggCaliber.AVERAGE.weight)),
-        ("extract_digits_product", EggQuantity(count=6, total_weight=6 * EggCaliber.AVERAGE.weight)),
+        (
+            "extract_digits_product_extra_large",
+            EggQuantity(count=6, total_weight=6 * EggCaliber.EXTRA_LARGE.weight, caliber=EggCaliber.EXTRA_LARGE),
+        ),
         (
             "tagged_large_egg_product",
             EggQuantity(count=6, total_weight=6 * EggCaliber.LARGE.weight, caliber=EggCaliber.LARGE),
@@ -435,6 +440,10 @@ def test_cage_regex(tag, should_match):
         (
             "product_quantity_with_unit",
             EggQuantity(count=round(round(0.5 * 453.59) / EggCaliber.AVERAGE.weight), total_weight=round(0.5 * 453.59)),
+        ),
+        (
+            "product_quantity_with_product_name_and_weight",
+            EggQuantity(count=10, total_weight=10 * EggCaliber.AVERAGE.weight),
         ),
         ("unknown_quantity_product", None),
         ("no_data_product", None),
@@ -469,3 +478,15 @@ laying_hen;barn;physical;hurtful;small;12.5
         ]
         == 12.5
     )
+
+
+def test_get_product_type_fresh_chicken_egg(fresh_chicken_eggs_product: ProductData):
+    """Test that a fresh chicken egg is correctly identified as a laying hen product"""
+    product_type = get_product_type(fresh_chicken_eggs_product)
+    assert product_type == ProductType(is_mixed=False, animal_types={AnimalType.LAYING_HEN})
+
+
+def test_get_product_type_liquid_eggs(liquid_eggs_product: ProductData):
+    """Test that a liquid egg raises ResourceNotFoundException since not handled by the calculator"""
+    with pytest.raises(ResourceNotFoundException):
+        get_product_type(liquid_eggs_product)

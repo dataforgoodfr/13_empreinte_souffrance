@@ -200,8 +200,8 @@ def number_only_product():
 
 
 @pytest.fixture
-def numeric_unit_dozen():
-    return ProductData(product_name="Fake product name", quantity="1 dozen")
+def numeric_unit_dozen_small():
+    return ProductData(product_name="Fake product name", quantity="1 dozen", categories_tags=["en:small-eggs"])
 
 
 @pytest.fixture
@@ -216,22 +216,24 @@ def numeric_unit_large():
 
 @pytest.fixture
 def x_style_product():
-    return ProductData(product_name="Fake product name", quantity="x10")
+    return ProductData(product_name="Fake product name l'œuf", quantity="x10")
 
 
 @pytest.fixture
 def addition_expression_product():
-    return ProductData(product_name="Fake product name", quantity="10 + 2")
+    return ProductData(product_name="Fake product name's", quantity="10 + 2")
 
 
 @pytest.fixture
-def extract_digits_product():
-    return ProductData(product_name="Fake product name", quantity="Boîte de 6")
+def extract_digits_product_extra_large():
+    return ProductData(product_name="Fake product name XL", quantity="Boîte de 6")
 
 
 @pytest.fixture
 def tagged_large_egg_product():
-    return ProductData(product_name="Fake product name", categories_tags=["en:large-eggs", "pack-of-6"])
+    return ProductData(
+        product_name="Fake product name", ingredients_tags=["en:6-large-eggs"], categories_tags=["en:large-eggs"]
+    )
 
 
 @pytest.fixture
@@ -240,12 +242,37 @@ def product_quantity_with_unit():
 
 
 @pytest.fixture
+def product_quantity_with_product_name_and_weight():
+    return ProductData(product_name="Fake product name 10 eggs", product_quantity=0.5, product_quantity_unit="kg")
+
+
+@pytest.fixture
 def unknown_quantity_product():
-    return ProductData(product_name="Fake product name", quantity="some weird string")
+    return ProductData(
+        product_name="Fake product name", quantity="some weird string", categories_tags=["en:small-eggs"]
+    )
 
 
 @pytest.fixture
 def no_data_product():
     return ProductData(
         product_name="Fake product name",
+    )
+
+
+@pytest.fixture
+def fresh_chicken_eggs_product():
+    return ProductData(
+        product_name="6 Fresh Chicken Eggs",
+        categories_tags=["en:eggs"],
+        quantity="12 large eggs",
+    )
+
+
+@pytest.fixture
+def liquid_eggs_product():
+    return ProductData(
+        product_name="Liquid Eggs",
+        categories_tags=["en:eggs"],
+        quantity="1 L",
     )

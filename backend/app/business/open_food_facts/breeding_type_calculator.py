@@ -3,7 +3,7 @@ import unicodedata
 from typing import Dict
 
 from app.enums.open_food_facts.breeding_type_enums import (
-    COUNTRIES_WHERE_CAGES_ARE_FURNISHED,
+    BreedingTypesPatternRepository,
     get_barn_regex,
     get_cage_regex,
     get_free_range_regex,
@@ -191,7 +191,8 @@ class BreedingTypeCalculator:
         """
         if breeding_type == LayingHenBreedingType.CAGE:
             if self.product_data.countries_tags and any(
-                country in COUNTRIES_WHERE_CAGES_ARE_FURNISHED for country in self.product_data.countries_tags
+                country in BreedingTypesPatternRepository.COUNTRIES_WHERE_CAGES_ARE_FURNISHED
+                for country in self.product_data.countries_tags
             ):
                 return LayingHenBreedingType.FURNISHED_CAGE
             else:
