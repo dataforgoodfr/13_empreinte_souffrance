@@ -1,9 +1,10 @@
 from typing import List
 
 from app.business.open_food_facts.breeding_type_calculator import BreedingTypeCalculator
+from app.business.open_food_facts.product_type_calculator import get_product_type
 from app.business.open_food_facts.quantity_calculator import QuantityCalculator
 from app.business.open_food_facts.unit_pain_loader import PAIN_PER_EGG_IN_SECONDS
-from app.config.exceptions import ResourceNotFoundException
+from app.config.exceptions import MissingBreedingTypeOrQuantityError, ResourceNotFoundException
 from app.enums.open_food_facts.enums import (
     AnimalType,
     EggCaliber,
@@ -22,15 +23,6 @@ from app.schemas.open_food_facts.internal import (
 )
 
 
-class MissingBreedingTypeOrQuantityError(Exception):
-    def __init__(self, animal_type: AnimalType, breeding_type: BreedingType | None, quantity: ProductQuantity | None):
-        message = f"Missing breeding type or quantity for animal '{animal_type.name}', "
-        super().__init__(message)
-        self.animal_type = animal_type
-        self.breeding_type = breeding_type
-        self.quantity = quantity
-
-
 class PainReportCalculator:
     """
     Class to calculate the pain report for an animal product.
@@ -44,12 +36,19 @@ class PainReportCalculator:
             product_data: ProductData instance containing categories_tags and labels_tags.
         """
         self.product_data = product_data
-        self.product_type = self._get_product_type()
+        self.product_type = get_product_type(self.product_data)
         self.breeding_types = self._get_breeding_types()
         self.quantities = self._get_quantities()
         self.breeding_types_and_quantities = self._get_breeding_types_and_quantities()
 
     def _get_product_type(self) -> ProductType:
+        """
+        Determine the product type based on the product data.
+        checks if the product is mixed or single animal type,
+        and identifies the animal types present.
+        Returns:
+            ProductType instance indicating if the product is mixed and the set of animal types.
+        """
         animal_types = set()
         for animal_type in AnimalType:
             if (
@@ -239,11 +238,7 @@ class PainReportCalculator:
         quantity = breeding_type_and_quantity.quantity
 
         if breeding_type is None or quantity is None:
-            raise MissingBreedingTypeOrQuantityError(
-                animal_type=animal_type,
-                breeding_type=breeding_type,
-                quantity=quantity,
-            )
+            raise MissingBreedingTypeOrQuantityError()
 
         if animal_type == AnimalType.LAYING_HEN:
             try:

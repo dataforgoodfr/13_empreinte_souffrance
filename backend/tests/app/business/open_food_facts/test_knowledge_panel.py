@@ -22,12 +22,10 @@ from app.business.open_food_facts.knowledge_panel import (
     get_data_from_off_v3,
     get_knowledge_panel_response,
 )
-from app.business.open_food_facts.pain_report_calculator import (
-    MissingBreedingTypeOrQuantityError,
-    PainReportCalculator,
-)
+from app.business.open_food_facts.pain_report_calculator import PainReportCalculator
+from app.business.open_food_facts.product_type_calculator import get_product_type
 from app.business.open_food_facts.unit_pain_loader import UnitPainLoader
-from app.config.exceptions import ResourceNotFoundException
+from app.config.exceptions import MissingBreedingTypeOrQuantityError, ResourceNotFoundException
 from app.config.i18n import I18N
 from app.enums.open_food_facts.enums import AnimalType, EggQuantity, LayingHenBreedingType, PainIntensity, PainType
 from app.schemas.open_food_facts.external import ProductData
@@ -35,6 +33,7 @@ from app.schemas.open_food_facts.internal import (
     BreedingTypeAndQuantity,
     KnowledgePanelResponse,
     PainReport,
+    ProductType,
 )
 
 
@@ -479,3 +478,15 @@ laying_hen;barn;physical;hurtful;small;12.5
         ]
         == 12.5
     )
+
+
+def test_get_product_type_fresh_chicken_egg(fresh_chicken_eggs_product: ProductData):
+    """Test that a fresh chicken egg is correctly identified as a laying hen product"""
+    product_type = get_product_type(fresh_chicken_eggs_product)
+    assert product_type == ProductType(is_mixed=False, animal_types={AnimalType.LAYING_HEN})
+
+
+def test_get_product_type_liquid_eggs(liquid_eggs_product: ProductData):
+    """Test that a liquid egg raises ResourceNotFoundException since not handled by the calculator"""
+    with pytest.raises(ResourceNotFoundException):
+        get_product_type(liquid_eggs_product)

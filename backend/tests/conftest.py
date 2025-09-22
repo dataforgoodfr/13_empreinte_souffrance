@@ -258,3 +258,21 @@ def no_data_product():
     return ProductData(
         product_name="Fake product name",
     )
+
+
+@pytest.fixture
+def fresh_chicken_eggs_product():
+    return ProductData(
+        product_name="6 Fresh Chicken Eggs",
+        categories_tags=["en:eggs"],
+        quantity="12 large eggs",
+    )
+
+
+@pytest.fixture
+def liquid_eggs_product():
+    return ProductData(
+        product_name="Liquid Eggs",
+        categories_tags=["en:eggs"],
+        quantity="1 L",
+    )
