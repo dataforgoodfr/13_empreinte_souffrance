@@ -442,6 +442,10 @@ def test_cage_regex(tag, should_match):
             "product_quantity_with_unit",
             EggQuantity(count=round(round(0.5 * 453.59) / EggCaliber.AVERAGE.weight), total_weight=round(0.5 * 453.59)),
         ),
+        (
+            "product_quantity_with_product_name_and_weight",
+            EggQuantity(count=10, total_weight=10 * EggCaliber.AVERAGE.weight),
+        ),
         ("unknown_quantity_product", None),
         ("no_data_product", None),
     ],

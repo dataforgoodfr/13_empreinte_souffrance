@@ -242,6 +242,11 @@ def product_quantity_with_unit():
 
 
 @pytest.fixture
+def product_quantity_with_product_name_and_weight():
+    return ProductData(product_name="Fake product name 10 eggs", product_quantity=0.5, product_quantity_unit="kg")
+
+
+@pytest.fixture
 def unknown_quantity_product():
     return ProductData(
         product_name="Fake product name", quantity="some weird string", categories_tags=["en:small-eggs"]
