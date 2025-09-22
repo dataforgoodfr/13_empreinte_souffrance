@@ -231,12 +231,19 @@ def extract_digits_product_extra_large():
 
 @pytest.fixture
 def tagged_large_egg_product():
-    return ProductData(product_name="Fake product name", categories_tags=["en:large-eggs", "pack-of-6"])
+    return ProductData(
+        product_name="Fake product name", ingredients_tags=["en:6-large-eggs"], categories_tags=["en:large-eggs"]
+    )
 
 
 @pytest.fixture
 def product_quantity_with_unit():
     return ProductData(product_name="Fake product name", product_quantity=0.5, product_quantity_unit="lbs")
+
+
+@pytest.fixture
+def product_quantity_with_product_name_and_weight():
+    return ProductData(product_name="Fake product name 10 eggs", product_quantity=0.5, product_quantity_unit="kg")
 
 
 @pytest.fixture
