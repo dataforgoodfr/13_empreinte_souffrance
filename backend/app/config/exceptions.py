@@ -39,3 +39,11 @@ class ExternalServiceException(BaseAppException):
 
     status_code = 502
     default_message = "External service error"
+
+
+class MissingBreedingTypeOrQuantityError(Exception):
+    """Exception raised when breeding type or quantity is missing for an animal product
+    Catched in PainReportCalculator to return empty pain levels
+    and generate specific knowledge panel."""
+
+    default_message = "Missing breeding type or quantity for animal product."

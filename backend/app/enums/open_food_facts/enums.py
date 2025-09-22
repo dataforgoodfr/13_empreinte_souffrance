@@ -44,7 +44,7 @@ class AnimalType(StrEnum):
     @property
     def categories_tags(self) -> str:
         return {
-            "laying_hen": "en:chicken-eggs",
+            "laying_hen": "en:eggs",
             "broiler_chicken": "en:chickens",
         }.get(self.value) or (_ for _ in ()).throw(ValueError(f"Unknown animal type: {self.value}"))
 
