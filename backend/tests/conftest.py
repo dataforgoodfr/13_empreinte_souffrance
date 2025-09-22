@@ -231,7 +231,9 @@ def extract_digits_product_extra_large():
 
 @pytest.fixture
 def tagged_large_egg_product():
-    return ProductData(product_name="Fake product name", categories_tags=["en:large-eggs", "pack-of-6"])
+    return ProductData(
+        product_name="Fake product name", ingredients_tags=["en:6-large-eggs"], categories_tags=["en:large-eggs"]
+    )
 
 
 @pytest.fixture

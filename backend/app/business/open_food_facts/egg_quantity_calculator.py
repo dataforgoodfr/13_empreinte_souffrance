@@ -73,21 +73,18 @@ class PatternRepository:
     # Regex: matches number + unit (e.g. "6 eggs", "12 pcs", "3 gros", '1.5 dozen')
     REGEX_NUMERIC_UNIT = r"\s*(\d+(?:[.,]\d+)?)\s*((?:[a-zA-Zа-яА-ЯёЁ\u00C0-\u00FFœŒ]+\s*)+)\.?"
 
-    # Regex: matches formats like "x10", "X12"
-    REGEX_X_NUM = r"[xX]\s*(\d+(?:[.,]\d+)?)"
-
     # Regex: matches addition patterns like "10 + 2"
     REGEX_ADDITION = r"(\d+)\s*\+\s*(\d+)"
 
     # Regex: extracts any number ≤ 999 from a string (e.g. "boîte de 6 œufs")
     REGEX_EXTRACT_DIGITS = r"\b(\d{1,3})\b"
 
+    # Regex for ingredients : '12 large eggs' or '6 oeufs'
+    REGEX_INGREDIENTS = r"(\d+).*?(?:eggs?|oeufs?)"
+
     # Text expressions used to identify egg count like dozens
     DOZEN_EXPRESSIONS = {"dozen", "dozens", "dzn", "doz"}
     REGEX_DOZEN = r"(\d+)?\s*(?:" + r"|".join(DOZEN_EXPRESSIONS) + r")"
-
-    # Regex: matches "pack-of-6" in category tags
-    REGEX_PACK_OF = r"pack-of-(\d+)"
 
     # Conversion functions for various units to grams
     UNIT_CONVERSIONS = {
@@ -241,20 +238,26 @@ class EggQuantityCalculator:
                 return caliber
         return None
 
-    def _get_egg_quantity_from_tags(self, categories_tags: List[str], caliber: EggCaliber | None) -> EggQuantity | None:
+    def _get_egg_quantity_from_ingredients(
+        self, ingredients_tags: List[str], caliber: EggCaliber | None
+    ) -> EggQuantity | None:
         """
         Calculates egg quantity based on information found in categories tags.
-
+        Only 12 egg(s) or 12 oeufs patterns are supported.
         Args:
             categories_tags (List[str]): List of category tags from the product data.
         Returns:
             EggQuantity: The calculated egg quantity with count, total weight, and optional caliber,
             or None if no quantity could be found.
         """
+        if not ingredients_tags:
+            return None
 
-        for tag in categories_tags:
-            match = re.search(PatternRepository.REGEX_PACK_OF, tag)
+        for ingredient in ingredients_tags:
+            ingredient = PatternRepository._normalize_common(ingredient)
+            match = re.search(PatternRepository.REGEX_INGREDIENTS, ingredient)
             if match:
+                print(f"Extracted count from ingredients_tags: {match.group(1)[:10]}")
                 return EggQuantity.from_count(count=int(match.group(1)), caliber=caliber)
 
         return None
@@ -287,7 +290,6 @@ class EggQuantityCalculator:
             match = matches[0]  # Take the first match
             egg_number = int(match[0] or match[1])
             if egg_number <= self.pattern_repository.MAX_EGG_COUNT:
-                print(f"Extracted count: {egg_number} from name: {name}")
                 return EggQuantity.from_count(count=egg_number, caliber=caliber)
 
         return None
@@ -303,7 +305,7 @@ class EggQuantityCalculator:
             or None if no quantity could be found.
         """
 
-        if not quantity:
+        if not quantity or quantity == "":
             return None
 
         quantity = PatternRepository.prepare_string_to_parse_egg_count(quantity)
@@ -352,7 +354,7 @@ class EggQuantityCalculator:
                 return EggQuantity.from_count(count=int(num), caliber=caliber)
 
         # If no patterns matched, return None
-        print(f"Could not parse quantity as egg count: {quantity}")
+        # print(f"Could not parse quantity as egg count: {quantity}")
         return None
 
     def _get_egg_quantity_from_quantity_as_weight(
@@ -368,7 +370,7 @@ class EggQuantityCalculator:
             or None if no quantity could be found.
         """
 
-        if not quantity:
+        if not quantity or quantity == "":
             return None
 
         quantity = PatternRepository.prepare_string_to_parse_weight(quantity)
@@ -430,7 +432,7 @@ class EggQuantityCalculator:
         - quantity as count (e.g. "6", "1 dozen", "12 large", "x10" etc)
         - product name (e.g. "box of 6 eggs", "12 + 3 eggs", "x10 eggs" etc)
         - generic name (e.g. "box of 6 eggs", "12 + 3 eggs", "x10 eggs" etc)
-        - categories tags (e.g. "pack-of-6", "en:large-eggs" etc)
+        - ingredients tags (e.g. "6-eggs", "en:12-large-eggs" etc)
         - product quantity and unit, only weight (e.g. 500 g, 1.5 lbs, 0.5 kg, 6 pcs, 12 unities etc)
         - quantity as weight (e.g. "500 g", "1.5 lbs", "0.5 kg" etc)
         in this order, returning the first valid egg quantity found.
@@ -447,6 +449,7 @@ class EggQuantityCalculator:
         categories_tags = product_data.categories_tags or []
         product_name = product_data.product_name or ""
         generic_name = product_data.generic_name or ""
+        ingredients_tags = product_data.ingredients_tags or []
 
         caliber = self._get_egg_caliber_from_tags(categories_tags)
         if not caliber:
@@ -465,7 +468,7 @@ class EggQuantityCalculator:
         if not egg_quantity:
             egg_quantity = self._get_egg_quantity_from_name(generic_name, caliber)
         if not egg_quantity:
-            egg_quantity = self._get_egg_quantity_from_tags(categories_tags, caliber)
+            egg_quantity = self._get_egg_quantity_from_ingredients(ingredients_tags, caliber)
         if (product_quantity and unit) and (not egg_quantity):
             egg_quantity = self._get_egg_quantity_from_product_quantity_and_unit(product_quantity, unit, caliber)
         if quantity and (not egg_quantity):
