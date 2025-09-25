@@ -38,13 +38,25 @@ class Config:
     OFF_API_GET_URL = "https://world.openfoodfacts.org/api/v0/product/{}.json"
     DATA_DIR = "data/"
     REQUEST_DELAY = 0.6  # Fixed delay for ~100 requests/minute
+    EGG_TAGS = {
+        "en:eggs",
+        "en:fresh-eggs",
+        "en:chicken-eggs",
+        "en:liquid-eggs",  # to be added to taxonomy
+        "en:powdered-eggs",  # to be added to taxonomy
+        "en:egg-yolk",
+        "en:egg-white",
+        "en:boiled-eggs",
+        "en:pickled-eggs",  # to be added to taxonomy
+    }
+
     BREEDING_TAGS = {
         "en:eggs",
         "en:chicken-eggs",
         "en:cage-chicken-eggs",
         "en:barn-chicken-eggs",
         "en:free-range-chicken-eggs",
-        "en:organic-eggs",
+        "en:organic-eggs",  # to be added to taxonomy and changed to organic-chicken-eggs
     }
     CALIBER_TAGS = {
         "en:small-eggs",
@@ -80,7 +92,7 @@ def load_csv_data(file_path: str) -> Optional[pd.DataFrame]:
             dialect = csv.Sniffer().sniff(sample, delimiters=",;")
             sep = dialect.delimiter
 
-            df = pd.read_csv(csvfile, sep=sep)
+            df = pd.read_csv(csvfile, sep=sep, dtype={"barcode": str, "tag": str})
 
             if "barcode" not in df.columns or "tag" not in df.columns:
                 print("❌ Error: CSV must contain 'barcode' and 'tag' columns")
@@ -165,6 +177,10 @@ def validate_tag_format(tag: str, operation: str) -> bool:
 
     elif operation == "caliber":
         return tag.strip() in Config.CALIBER_TAGS
+
+    elif operation == "categories":
+        categories = [cat.strip() for cat in tag.split(",")]
+        return all("en:" in cat for cat in categories)
 
     elif operation == "quantity":
         parts = tag.strip().split()
@@ -286,6 +302,25 @@ def update_product_quantity(barcode: str, quantity: str, username: str, password
     )
 
 
+def update_product_categories(barcode: str, categories: str, username: str, password: str) -> bool:
+    """
+    Update the 'categories' field of a product via the API.
+
+    Args:
+        barcode (str): Product barcode.
+        categories (str): Comma-separated string of category tags to set,
+            like 'en:eggs,en:fresh-eggs,en:chicken-eggs'
+        username (str): OpenFoodFacts username.
+        password (str): OpenFoodFacts password.
+
+    Returns:
+        bool: True if the update was successful, False otherwise.
+    """
+    return update_product_fields(
+        barcode, {"categories": categories}, username, password, comment="Automated categories update via script"
+    )
+
+
 def batch_process(df: pd.DataFrame, operation: str, username: str, password: str) -> Dict[str, int]:
     """
     Perform batch updates on a list of products for breeding type or quantity.
@@ -306,7 +341,7 @@ def batch_process(df: pd.DataFrame, operation: str, username: str, password: str
 
     for idx, row in df.iterrows():
         barcode = str(row["barcode"]).strip()
-        tag = str(row["tag"]).strip()
+        tag = str(row["tag"]).replace("\n", ",").replace("\r", ",").strip()
 
         print(f"\n[{idx + 1}/{len(df)}] Processing {barcode}...")
 
@@ -316,6 +351,8 @@ def batch_process(df: pd.DataFrame, operation: str, username: str, password: str
             success = add_category_to_product(barcode, tag, username, password)
         elif operation == "quantity":
             success = update_product_quantity(barcode, tag, username, password)
+        elif operation == "categories":
+            success = update_product_categories(barcode, tag, username, password)
         else:
             print(f"❌ Unknown operation: {operation}")
             success = False
@@ -376,19 +413,23 @@ def parse_args():
   %(prog)s --breeding --file breeding.csv
   %(prog)s --caliber --file caliber.csv
   %(prog)s --quantity --file quantity.csv
+  %(prog)s --categories --file categories.csv
   %(prog)s --test-breeding --barcode 0061719011930 --tag "en:organic-eggs"
   %(prog)s --test-caliber --barcode 0061719011930 --tag "en:large-eggs"
   %(prog)s --test-quantity --barcode 0061719011930 --tag "12 pcs"
+  %(prog)s --test-categories --barcode 0061719011930 --tag "en:eggs,en:fresh-eggs,en:chicken-eggs"
         """,
     )
 
     group = parser.add_mutually_exclusive_group(required=True)
-    group.add_argument("--breeding", action="store_true", help="Update breeding type categories")
-    group.add_argument("--caliber", action="store_true", help="Update caliber categories")
+    group.add_argument("--breeding", action="store_true", help="Add breeding type category")
+    group.add_argument("--caliber", action="store_true", help="Add caliber category")
     group.add_argument("--quantity", action="store_true", help="Update product quantity")
-    group.add_argument("--test-breeding", action="store_true", help="Test breeding type update on single product")
-    group.add_argument("--test-caliber", action="store_true", help="Test caliber update on single product")
+    group.add_argument("--categories", action="store_true", help="Update full categories list")
+    group.add_argument("--test-breeding", action="store_true", help="Test breeding type add on single product")
+    group.add_argument("--test-caliber", action="store_true", help="Test caliber add on single product")
     group.add_argument("--test-quantity", action="store_true", help="Test quantity update on single product")
+    group.add_argument("--test-categories", action="store_true", help="Test categories update on single product")
 
     parser.add_argument("--file", type=str, help="CSV file path for batch operations")
     parser.add_argument("--barcode", type=str, help="Barcode for test operations")
@@ -422,7 +463,7 @@ def main():
     args = parse_args()
 
     # Batch operation flow
-    if args.breeding or args.quantity or args.caliber:
+    if args.breeding or args.quantity or args.caliber or args.categories:
         if not args.file:
             print("❌ Error: --file required for batch operations")
             sys.exit(1)
@@ -436,6 +477,8 @@ def main():
             operation = "breeding"
         elif args.caliber:
             operation = "caliber"
+        elif args.categories:
+            operation = "categories"
         else:
             operation = "quantity"
 
@@ -469,7 +512,7 @@ def main():
         batch_process(df, operation, username, password)
 
     # Single test operation flow
-    elif args.test_breeding or args.test_quantity or args.test_caliber:
+    elif args.test_breeding or args.test_quantity or args.test_caliber or args.test_categories:
         if not args.barcode or not args.tag:
             print("❌ Error: --barcode and --tag required for test operations")
             sys.exit(1)
@@ -489,6 +532,9 @@ def main():
         if args.test_quantity and not validate_tag_format(args.tag, operation="quantity"):
             print(f"❌ Invalid quantity tag '{args.tag}'")
             sys.exit(1)
+        if args.test_categories and not validate_tag_format(args.tag, operation="categories"):
+            print(f"❌ Invalid categories tag '{args.tag}'")
+            sys.exit(1)
 
         # Get credentials
         username, password = get_credentials(args)
@@ -500,8 +546,10 @@ def main():
         # Perform the update operation
         if args.test_breeding or args.test_caliber:
             add_category_to_product(args.barcode, args.tag, username, password)
-        else:
+        elif args.test_quantity:
             update_product_quantity(args.barcode, args.tag, username, password)
+        elif args.test_categories:
+            update_product_categories(args.barcode, args.tag, username, password)
 
 
 if __name__ == "__main__":

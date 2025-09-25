@@ -233,7 +233,8 @@ class ExcelProductGenerator:
 
         ingredients = product.get("ingredients_tags", [])
         labels = product.get("labels_tags", [])
-        categories = product.get("categories_tags", [])
+        categories = product.get("categories_tags", "")
+        categories = json.loads(categories.replace("'", '"').replace("None", "null")) if categories else []
 
         # Get quantity from DataFrame
         quantity_value = self._get_dataframe_value(code, df, "quantity") or ""
@@ -252,7 +253,7 @@ class ExcelProductGenerator:
             "Pas œuf": "",
             "Code et URL produit": code,
             "Autres": f"{product_name}\n{generic_name}\n{ingredients}\n{labels}",
-            "Catégories": str(categories),
+            "Catégories": str("\n".join(categorie for categorie in categories if categorie)),
             "Quantité": quantity_value,
         }
 
