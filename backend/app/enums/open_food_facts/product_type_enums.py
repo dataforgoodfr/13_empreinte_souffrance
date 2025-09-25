@@ -40,6 +40,12 @@ class ProductTypePatternRepository:
         "en:cereals-and-potatoes",
         "fr:ovo-produits",
         "en:desserts",
+        "en:breads",
+        "en:fish-eggs",
+        "en:free-range-duck-eggs",
+        "en:raw-quail-eggs",
+        "en:savoury-eggs",
+        "en:streamed-eggs",
     }
 
     EXCLUDED_WORDS = {
