@@ -15,24 +15,7 @@ DATA_PATH = Path("data")
 LOCAL_PARQUET = DATA_PATH / "food.parquet"
 CSV_PATH = DATA_PATH / "eggs_from_parquet.csv"
 
-
-# List of categories to exclude from selected products because pointing to products which are not eggs
-EXCLUDED_CATEGORIES = {
-    "en:chocolate-eggs",
-    "en:duck-eggs",
-    "en:easter-eggs",
-    "en:fish-eggs",
-    "en:free-range-duck-eggs",
-    "en:quail-eggs",
-    "en:raw-quail-eggs",
-    "en:savoury-eggs",
-    "en:scotch-eggs",
-    "en:streamed-eggs",
-    "en:meals",
-    "en:snacks",
-    "en:meats-and-their-products",
-    "en:breads",
-}
+EGG_CATEGORY = "en:eggs"
 
 # List of columns which are useful for further data analysis
 SELECTED_COLUMNS = [
@@ -130,12 +113,10 @@ def create_filtered_df() -> pd.DataFrame:
     Returns:
         pandas.DataFrame: Filtered DataFrame with hen egg products.
     """
-    exclusion_conditions = " AND ".join(f"NOT array_contains(categories_tags, '{cat}')" for cat in EXCLUDED_CATEGORIES)
     query = f"""
     SELECT {",".join(SELECTED_COLUMNS)}
     FROM '{LOCAL_PARQUET}'
-    WHERE array_contains(categories_tags, 'en:eggs')
-    AND {exclusion_conditions}
+    WHERE array_contains(categories_tags, '{EGG_CATEGORY}')
     """
     print("Starting combined DuckDB query to select and filter data...")
     start_time = time.time()
