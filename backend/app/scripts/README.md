@@ -76,6 +76,7 @@ The script allows:
 
 - Adding category tags: breeding types and egg calibers
 - Updating quantity fields: replaces existing value
+- Replacing entire category lists
 - Batch processing from CSV files
 - Single-product test mode
 - Optional barcode existence verification
@@ -93,6 +94,7 @@ python update_product_data.py [options]
 python update_product_data.py --breeding --file breeding.csv
 python update_product_data.py --caliber --file caliber.csv
 python update_product_data.py --quantity --file quantity.csv
+python update_product_data.py --categories --file categories.csv
 ```
 
 #### Single Product Test
@@ -101,6 +103,7 @@ python update_product_data.py --quantity --file quantity.csv
 python update_product_data.py --test-breeding --barcode 0061719011930 --tag "en:organic-eggs"
 python update_product_data.py --test-caliber --barcode 0061719011930 --tag "en:large-eggs"
 python update_product_data.py --test-quantity --barcode 0061719011930 --tag "12 pcs"
+python update_product_data.py --test-categories --barcode 0061719011930 --tag "en:eggs,en:chicken-eggs,en:free-range-chicken-eggs"
 ```
 
 ### CSV Format
@@ -108,6 +111,7 @@ python update_product_data.py --test-quantity --barcode 0061719011930 --tag "12 
 - Files must be placed in the `./data/` directory.
 - Required columns: `barcode`, `tag`
 - Supported delimiters: `,` or `;`
+- Support delimiter for categories updater : `;`
 
 Example:
 
@@ -116,10 +120,22 @@ barcode,tag
 0061719011930,en:free-range-chicken-eggs
 ```
 
+```csv
+barcode,tag
+0061719011930;en:free-range-chicken-eggs,en:chicken-eggs,en:eggs
+```
+
+```csv
+barcode,tag
+0061719011930;"en:free-range-chicken-eggs,en:chicken-eggs\nen:eggs"
+```
+
+
 ### Operation Behavior
 
 - `--breeding` and `--caliber`: tags are added to the category list.
 - `--quantity`: field is replaced
+- `--categories`: replaces the entire category list with provided tags
 
 #### Valid Tags
 
@@ -138,6 +154,9 @@ barcode,tag
 - `en:medium-eggs`
 - `en:large-eggs`
 - `en:extra-large-eggs`
+
+##### Categories:
+All strings starting with `en:` or `fr:` corresponding to OpenFoodFacts category tags.
 
 ##### Quantity:
 

@@ -180,7 +180,7 @@ def validate_tag_format(tag: str, operation: str) -> bool:
 
     elif operation == "categories":
         categories = [cat.strip() for cat in tag.split(",")]
-        return all("en:" in cat for cat in categories)
+        return all("en:" in cat or "fr:" in cat for cat in categories)
 
     elif operation == "quantity":
         parts = tag.strip().split()
