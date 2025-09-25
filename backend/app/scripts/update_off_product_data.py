@@ -8,9 +8,12 @@ Usage examples:
   python update_product_data.py --breeding --file breeding.csv
   python update_product_data.py --caliber --file caliber.csv
   python update_product_data.py --quantity --file quantity.csv
+  python update_product_data.py --categories --file categories.csv
   python update_product_data.py --test-breeding --barcode 0061719011930 --tag "en:barn-chicken-eggs"
   python update_product_data.py --test-caliber --barcode 0061719011930 --tag "en:large-eggs"
   python update_product_data.py --test-quantity --barcode 0061719011930 --tag "12 pcs"
+  python update_product_data.py --test-categories --barcode 0061719011930 --tag \
+    "en:eggs,en:chicken-eggs,en:barn-chicken-eggs,en:fresh-eggs,en:large-eggs"
 """
 
 import argparse

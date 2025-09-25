@@ -101,10 +101,10 @@ python update_product_data.py --categories --file categories.csv
 #### Test sur un seul produit
 
 ```bash
-python update_product_data.py --test-breeding --barcode 0061719011930 --tag "en:organic-eggs"
+python update_product_data.py --test-breeding --barcode 0061719011930 --tag "en:barn-chicken-eggs"
 python update_product_data.py --test-caliber --barcode 0061719011930 --tag "en:large-eggs"
 python update_product_data.py --test-quantity --barcode 0061719011930 --tag "12 pcs"
-python update_product_data.py --test-categories --barcode 0061719011930 --tag "en:eggs,en:chicken-eggs,en:free-range-chicken-eggs"
+python update_product_data.py --test-categories --barcode 0061719011930 --tag "en:eggs,en:chicken-eggs,en:barn-chicken-eggs,en:fresh-eggs,en:large-eggs"
 ```
 
 ### Format CSV
