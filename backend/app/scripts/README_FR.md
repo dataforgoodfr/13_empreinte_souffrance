@@ -35,7 +35,7 @@ Les données parquet, csv et txt sont stockées dans le fichier data/
 ### Utilisation
 
 ```bash
-python extract_egg_products.py [--download] [--remove] [--csv-export]
+python extract_egg_products.py [--download] [--remove] [--csv-export] [--potential]
 ```
 
 Options :
@@ -43,6 +43,7 @@ Options :
 - `--download` : télécharge le fichier Parquet avant traitement.
 - `--remove` : supprime le fichier Parquet après export.
 - `--csv-export` : exporte directement le CSV filtré sans demander.
+- `--potential` : recherche dans le fichier parquet les potentiels oeufs non catégorisés en 'en:eggs'
 Si les options ne sont pas fournies, il sera demandé ses choix à l'utilisateur dans l'interface CLI
 
 ### Exemples
@@ -51,6 +52,12 @@ Si les options ne sont pas fournies, il sera demandé ses choix à l'utilisateur
 
 ```bash
 python extract_egg_products.py --download --csv-export
+```
+
+- Exporter le CSV des potentiels oeufs non catégorisés, conserver le fichier Parquet pour réutilisation :
+
+```bash
+python extract_egg_products.py --csv-export --potential
 ```
 
 - Exporter le CSV à partir d'un fichier Parquet existant à partir d'un fichier parquet déjà stocké et conservé :
@@ -297,16 +304,18 @@ python process_product_data.py --no-process --dataset world --include-caliber
 
 ### Description
 
-Ce script exporte les données produits traitées par le calcualteur (`processed_products(_fr).csv`) vers des fichiers Excel formatés pour vérifier les données.
+Ce script exporte les données produits traitées par le calcualteur (`processed_products(_fr).csv` ou `processed_potential_eggs.csv` selon le dataset choisi) vers des fichiers Excel formatés pour vérifier les données.
 Il ajoute automatiquement les données produit, les images, les colonnes d’analyse (OCR, prédictions, types d’élevage…), les hyperliens vers OpenFoodFacts.
 
 ### Fonctionnalités principales
 
 - Chargement du fichier CSV des oeufs Openfoodfacts après ajout des informations générées par le calculateur + l'OCR
-- Génération de fichiers Excel :
-  - **Test** : échantillon aléatoire de `n` produits (`test_products.xlsx`)
-  - **Tous les produits** : l’ensemble du CSV (`all_products.xlsx`)
-  - **Produits avec informations manquantes** : produits sans mode d'élevage ni quantité détectés (`missing_data_products.xlsx`)
+- Choix du dataset importé : **world**, **france** (défaut) ou **potential** (sur le monde)
+- Choix d'un subset pour le dataset :
+  - **test** : échantillon aléatoire de 10 produits
+  - **all** : l’ensemble du CSV (défaut)
+  - **missing-data** : produits sans mode d'élevage ni quantité détectés
+- Création d'un fichier Excel `products_{dataset}_{subset}.xlsx`
 - Hyperliens vers les pages produit OpenFoodFacts
 - Insertion d’images via formules Excel (ouvrir sous Google sheets pour les afficher automatiquement)
 
@@ -315,31 +324,35 @@ Adapter le script pour une liste donnée de codes produits
 ### Utilisation
 
 ```bash
-# Mode test (échantillon aléatoire)
-python backend/app/scripts/export_computed_data_to_excel.py --test
-
-# Tous les produits
-python backend/app/scripts/export_computed_data_to_excel.py --all-products
-
-# Mode production (catégories filtrées)
-python backend/app/scripts/export_computed_data_to_excel.py --missing-data
-
-# Pour ne traiter que les produits français
-python backend/app/scripts/export_computed_data_to_excel.py --all-products --fr
+python export_computed_data_to_excel.py [--dataset {world,france,potential}] [--subset {all,test,missing-data}]
 ```
+Le dataset par défaut est france et le subset par défaut est all
 
-Si aucun argument n’est fourni, le script propose un mode interactif.
+#### Exemples
+
+```bash
+# Mode test (échantillon aléatoire) sur le dataset France
+python export_computed_data_to_excel.py --subset test
+
+# Tous les produits sur le dataset world
+python export_computed_data_to_excel.py --dataset world
+
+# Seulement les produits où mode d'élevage ou quantité sont manquants sur le dataset world
+python export_computed_data_to_excel.py --dataset world --subset missing-data
+
+# Pour traiter les oeufs potentiels et non les oeufs déjà catégorisés
+python export_computed_data_to_excel.py --dataset potentiel
+```
 
 ### Fichiers d’entrée et de sortie
 
-- Entrée : `backend/app/scripts/data/processed_products(_fr).csv`
-- Sorties :
-  - `test_products(_fr).xlsx` (test)
-  - `all_productss(_fr).xlsx` (tous produits)
-  - `missing_data_productss(_fr).xlsx` (production avec plusieurs feuilles)
+- Entrée : `/data/processed_products(_fr).csv` ou `/data/processed_potential_eggs.csv`
+- Sortie : `/data/products_{datset}_{subset}.xlsx`
 
 ### Dépendances spécifiques
 
 - `pandas`, `numpy`
 - `openpyxl` pour l’écriture et le formatage Excel
 - `tqdm` pour les barres de progression
+- `unicodedata` pour le nettoyage des noms de produits
+- `re` pour parser les noms de produits
