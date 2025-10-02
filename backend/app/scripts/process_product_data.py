@@ -13,13 +13,20 @@ ROOT_PATH = Path(__file__).resolve().parents[3]
 ANALYSIS_PATH = ROOT_PATH / "analysis"
 DATA_PATH = Path("data")
 
-JSONL_FILE_PATH = (
+OCR_JSONL_FILE_PATH = (
     ANALYSIS_PATH
     / "neural_category_predictions"
     / "data"
     / "dfoeufs_with_predictions_with_ground_truth_with_groq_spans.jsonl"
 )
+
 EGGS_CSV_PATH = DATA_PATH / "eggs_from_parquet.csv"
+POTENTIAL_EGGS_CSV_PATH = DATA_PATH / "potential_eggs_from_parquet.csv"
+
+PROCESSED_EGGS_PATH = DATA_PATH / "processed_products.csv"
+PROCESSED_EGGS_FR_PATH = DATA_PATH / "processed_products_fr.csv"
+PROCESSED_POTENTIAL_EGGS_PATH = DATA_PATH / "processed_potential_eggs.csv"
+
 COLS_TO_JSON_PATH = DATA_PATH / "cols_to_json.txt"
 
 
@@ -43,14 +50,14 @@ def safe_json_loads(s):
     return s
 
 
-def load_eggs_df() -> pd.DataFrame:
+def load_eggs_df(input_file: Path) -> pd.DataFrame:
     """
     Loads the eggs DataFrame from CSV and converts specified columns from JSON strings to Python objects.
 
     Returns:
         pd.DataFrame: DataFrame containing eggs data with JSON columns parsed.
     """
-    df = pd.read_csv(EGGS_CSV_PATH)
+    df = pd.read_csv(input_file)
     with open(COLS_TO_JSON_PATH, "r") as f:
         cols_to_json = json.load(f)
     for col in cols_to_json:
@@ -248,9 +255,10 @@ def parse_arguments():
 
     parser.add_argument(
         "--dataset",
-        choices=["world", "france"],
+        choices=["world", "france", "potential"],
         default="france",
-        help="Dataset to visualize: 'world' for all eggs or 'france' for French eggs only (default: france)",
+        help="Dataset to visualize: 'world' for all eggs or 'france' for French eggs only (default: france), or "
+        "'potential' for potential eggs (world)",
     )
 
     parser.add_argument("--include-caliber", action="store_true", help="Include egg calibers in the sunburst chart")
@@ -270,9 +278,22 @@ def main():
     """
     args = parse_arguments()
 
+    if args.dataset == "world":
+        processed_file = PROCESSED_EGGS_PATH
+        input_file = EGGS_CSV_PATH
+    elif args.dataset == "france":
+        processed_file = PROCESSED_EGGS_FR_PATH
+        input_file = EGGS_CSV_PATH
+    elif args.dataset == "potential":
+        processed_file = PROCESSED_POTENTIAL_EGGS_PATH
+        input_file = POTENTIAL_EGGS_CSV_PATH
+
+    # Load JSON columns
+    with open(COLS_TO_JSON_PATH, "r") as f:
+        cols_to_json = json.load(f)
+
     if args.no_process:
         # Load already processed data
-        processed_file = DATA_PATH / "processed_products.csv"
         if not processed_file.exists():
             print(f"Error: Processed file {processed_file} not found. Run without --no-process first.")
             return
@@ -280,9 +301,6 @@ def main():
         print(f"Loading already processed data from {processed_file}")
         eggs_df = pd.read_csv(processed_file)
 
-        # Load JSON columns if needed
-        with open(COLS_TO_JSON_PATH, "r") as f:
-            cols_to_json = json.load(f)
         for col in cols_to_json:
             if col in eggs_df.columns:
                 eggs_df[col] = eggs_df[col].apply(safe_json_loads)
@@ -290,10 +308,10 @@ def main():
         print(f"Loaded processed data with {len(eggs_df)} rows")
     else:
         # Full processing pipeline
-        eggs_df = load_eggs_df()
-        print(f"Loaded eggs_df with {len(eggs_df)} rows")
+        eggs_df = load_eggs_df(input_file)
+        print(f"Loaded eggs_df with {len(eggs_df)} rows from {input_file}")
 
-        code_ocr = create_dataframe_from_jsonl(JSONL_FILE_PATH)
+        code_ocr = create_dataframe_from_jsonl(OCR_JSONL_FILE_PATH)
         print(f"Loaded OCR data with {len(code_ocr)} rows")
 
         eggs_df = enrich_eggs_with_ocr(eggs_df, code_ocr)
@@ -302,8 +320,8 @@ def main():
             lambda row: pd.Series(row_to_breeding_type_and_quantity(row)), axis=1
         )
 
-        eggs_df.to_csv(DATA_PATH / "processed_products.csv", index=False)
-        print(f"Saved processed data to {DATA_PATH / 'processed_products.csv'}")
+        eggs_df.to_csv(processed_file, index=False)
+        print(f"Saved processed data to {processed_file}")
 
     # Add french column if not present
     if "french" not in eggs_df.columns:
@@ -312,19 +330,21 @@ def main():
         )
 
     # Save French subset if processing was done
-    if not args.no_process:
-        eggs_df[eggs_df["french"]].to_csv(DATA_PATH / "processed_products_fr.csv", index=False)
-        print(f"Saved French subset to {DATA_PATH / 'processed_products_fr.csv'}")
+    if not args.no_process and args.dataset != "potential":
+        eggs_df[eggs_df["french"]].to_csv(PROCESSED_EGGS_FR_PATH, index=False)
+        print(f"Saved French subset to {PROCESSED_EGGS_FR_PATH}")
 
     eggs_df = prepare_egg_display_columns(eggs_df)
 
     # Plot according to command line arguments
-    if not args.no_plot:
+    if not args.no_plot and args.dataset != "potential":
         plot_egg_sunburst(args.dataset, args.include_caliber, eggs_df)
         print(
             f"Sunburst chart displayed for {args.dataset} dataset, caliber\
                   {'included' if args.include_caliber else 'excluded'}"
         )
+    elif args.dataset == "potential":
+        print(f"Not coverage chart to display for potential eggs - {eggs_df.shape[0]} products")
     else:
         print("Chart display disabled")
 

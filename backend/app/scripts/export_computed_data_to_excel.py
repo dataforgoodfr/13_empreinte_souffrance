@@ -27,12 +27,8 @@ from tqdm import tqdm
 DATA_PATH = "C:\\dev\\git\\13_empreinte_souffrance\\backend\\app\\scripts\\data\\"
 INPUT_CSV_FILE = "processed_products.csv"
 INPUT_CSV_FILE_FR = "processed_products_fr.csv"
-MISSING_DATA_EXCEL_FILE = "missing_data_products.xlsx"
-MISSING_DATA_EXCEL_FILE_FR = "missing_data_products_fr.xlsx"
-ALL_PRODUCTS_EXCEL_FILE = "all_products.xlsx"
-ALL_PRODUCTS_EXCEL_FILE_FR = "all_products_fr.xlsx"
-TEST_EXCEL_FILE = "test_products.xlsx"
-TEST_EXCEL_FILE_FR = "test_products_fr.xlsx"
+INPUT_CSV_FILE_POTENTIAL = "processed_potential_eggs.csv"
+OUTPUT_FILE_PREFIX = "products"
 
 # Excel configuration
 DEFAULT_SHEET_NAME = "Feuille1"
@@ -602,18 +598,15 @@ class ExcelProductGenerator:
 # =============================================================================
 
 
-def create_test_excel(df: pd.DataFrame, generator: ExcelProductGenerator) -> None:
+def create_test_excel(df: pd.DataFrame, generator: ExcelProductGenerator, output_file: str) -> None:
     """
     Create a test Excel file with random sample products.
 
     Args:
         df: Source DataFrame containing product data
         generator: ExcelProductGenerator instance
+        output_file: Name of the output Excel file
     """
-    if parse_arguments().fr:
-        output_file = TEST_EXCEL_FILE_FR
-    else:
-        output_file = TEST_EXCEL_FILE
 
     print("Creating test Excel with random products...")
     sample_codes = get_random_sample_codes(df, TEST_SAMPLE_SIZE)
@@ -634,22 +627,18 @@ def create_test_excel(df: pd.DataFrame, generator: ExcelProductGenerator) -> Non
         os.startfile(os.path.join(generator.data_path, output_file))
 
 
-def create_all_products_excel(df: pd.DataFrame, generator: ExcelProductGenerator) -> None:
+def create_all_products_excel(df: pd.DataFrame, generator: ExcelProductGenerator, output_file: str) -> None:
     """
     Create Excel file with all products without filters.
 
     Args:
         df: Source DataFrame containing product data
         generator: ExcelProductGenerator instance
+        output_file: Name of the output Excel file
     """
     print("Creating Excel with all products...")
     all_codes = df["code"].tolist()
     print(f"Total number of products: {len(all_codes)}")
-
-    if parse_arguments().fr:
-        output_file = ALL_PRODUCTS_EXCEL_FILE_FR
-    else:
-        output_file = ALL_PRODUCTS_EXCEL_FILE
 
     generator.generate_excel(
         product_codes=all_codes,
@@ -666,19 +655,15 @@ def create_all_products_excel(df: pd.DataFrame, generator: ExcelProductGenerator
         os.startfile(os.path.join(generator.data_path, output_file))
 
 
-def create_missing_data_excel(df: pd.DataFrame, generator: ExcelProductGenerator) -> None:
+def create_missing_data_excel(df: pd.DataFrame, generator: ExcelProductGenerator, output_file: str) -> None:
     """
     Create  Excel file with all product categories.
 
     Args:
         df: Source DataFrame containing product data
         generator: ExcelProductGenerator instance
+        output_file: Name of the output Excel file
     """
-
-    if parse_arguments().fr:
-        output_file = MISSING_DATA_EXCEL_FILE_FR
-    else:
-        output_file = MISSING_DATA_EXCEL_FILE
 
     print("Creating production Excel for all product categories...")
     print("=" * 60)
@@ -745,21 +730,25 @@ def create_missing_data_excel(df: pd.DataFrame, generator: ExcelProductGenerator
 def parse_arguments():
     """
     Parse command line arguments.
-
+    2 arguments : the dataset to process and the subset of this dataset to export
     Returns:
         Namespace containing parsed arguments
     """
     parser = argparse.ArgumentParser(description="Export product data to Excel with filtering options")
 
     parser.add_argument(
-        "--test", action="store_true", help=f"Create test Excel with {TEST_SAMPLE_SIZE} random products"
+        "--dataset",
+        choices=["world", "france", "potential"],
+        default="france",
+        help="Processed dataset to be exported to Excel",
     )
 
-    parser.add_argument("--all-products", action="store_true", help="Create Excel with all products without filters")
-
-    parser.add_argument("--missing-data", action="store_true", help="Create Excel with products with missing data")
-
-    parser.add_argument("--fr", action="store_true", help="Handle only French products")
+    parser.add_argument(
+        "--subset",
+        choices=["all", "test", "missing-data"],
+        default="all",
+        help="Choose to extract only a subset of the dataset",
+    )
 
     return parser.parse_args()
 
@@ -772,42 +761,33 @@ def main():
         # Parse arguments
         args = parse_arguments()
 
+        # Build output file name
+        output_file = OUTPUT_FILE_PREFIX + "_" + args.dataset + "_" + args.subset + ".xlsx"
+
         # Load data, world or France
-        if args.fr:
+        if args.dataset == "france":
             input_file_path = os.path.join(DATA_PATH, INPUT_CSV_FILE_FR)
-        else:
+        elif args.dataset == "potential":
+            input_file_path = os.path.join(DATA_PATH, INPUT_CSV_FILE_POTENTIAL)
+        elif args.dataset == "world":
             input_file_path = os.path.join(DATA_PATH, INPUT_CSV_FILE)
+        else:
+            raise ValueError(f"Invalid dataset: {args.dataset}")
 
         df = load_product_data(input_file_path)
 
-        # Initialize generator
+        # Initialize Excel generator
         generator = ExcelProductGenerator(DATA_PATH)
 
-        # Handle command line options
-        if args.test:
-            create_test_excel(df, generator)
-        elif args.all_products:
-            create_all_products_excel(df, generator)
-        elif args.missing_data:
-            create_missing_data_excel(df, generator)
+        # Handle subset parameter to create Excel files
+        if args.subset == "test":
+            create_test_excel(df, generator, output_file)
+        elif args.subset == "missing-data":
+            create_missing_data_excel(df, generator, output_file)
+        elif args.subset == "all":
+            create_all_products_excel(df, generator, output_file)
         else:
-            # Interactive mode if no arguments provided
-            print("Interactive mode - Choose an option:")
-            print("1. Test Excel (random products)")
-            print("2. Excel with all products")
-            print("3. Excel with missing data products (breeding type and/or quantity)")
-
-            choice = input("Your choice (1/2/3): ")
-
-            if choice == "1":
-                create_test_excel(df, generator)
-            elif choice == "2":
-                create_all_products_excel(df, generator)
-            elif choice == "3":
-                create_missing_data_excel(df, generator)
-            else:
-                print("Invalid choice, stopping program")
-                return
+            raise ValueError(f"Invalid subset: {args.subset}")
 
         print("\n✅ Script execution completed successfully!")
 

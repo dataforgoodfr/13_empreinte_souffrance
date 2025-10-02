@@ -43,6 +43,8 @@ Options:
 - `--download`: downloads the Parquet file before processing.
 - `--remove`: removes the Parquet file after export.
 - `--csv-export`: directly exports the filtered CSV without asking.
+- `--potential` : gets potential egg products from parquet file that are not categorized as 'en:eggs'
+
 Prompted interactively if not provided
 
 ### Examples
@@ -51,6 +53,12 @@ Prompted interactively if not provided
 
 ```bash
 python extract_egg_products.py --download --csv-export
+```
+
+- Export csv file of potential non categorized eggs keep the Parquet file for reuse :
+
+```bash
+python extract_egg_products.py --csv-export --potential
 ```
 
 - Export the CSV from an existing Parquet file from an already stored and preserved parquet file:
@@ -294,16 +302,18 @@ python process_product_data.py --no-process --dataset world --include-caliber
 
 ### Description
 
-This script exports product data processed by the calculator (`processed_products(_fr).csv`) to formatted Excel files for data verification.
+This script exports product data processed by the calculator (`processed_products(_fr).csv` or `processed_potential_eggs.csv` depending on the chosen dataset) to formatted Excel files for data verification.
 It automatically adds product data, images, analysis columns (OCR, predictions, breeding types…), and hyperlinks to OpenFoodFacts.
 
 ### Main Features
 
 - Load the OpenFoodFacts eggs CSV file after enrichment with calculator + OCR information
-- Generate Excel files:
-  - **Test**: random sample of `n` products (`test_products.xlsx`)
-  - **All products**: the entire CSV (`all_products.xlsx`)
-  - **Products with missing information**: products without detected breeding type or quantity (`missing_data_products.xlsx`)
+- Choice of loaded dataset : **world**, **france** (défaut) ou **potential** (sur le monde)
+- Choice of subset from dataset :
+  - **test** : random 10 products from dataset
+  - **all** : whole csv file (default)
+  - **missing-data** : products missing breeding tupe or quantity
+- Export to an Excel file `products_{dataset}_{subset}.xlsx`
 - Hyperlinks to OpenFoodFacts product pages
 - Image insertion using Excel formulas (open in Google Sheets to display automatically)
 
@@ -312,31 +322,37 @@ The script can be adapted for a given list of product codes.
 ### Usage
 
 ```bash
-# Test mode (random sample)
-python backend/app/scripts/export_computed_data_to_excel.py --test
+python export_computed_data_to_excel.py [--dataset {world,france,potential}] [--subset {all,test,missing-data}]
+```
 
-# All products
-python backend/app/scripts/export_computed_data_to_excel.py --all-products
+Default dataset is France and default subset is all
 
-# Missing data mode (filtered categories)
-python backend/app/scripts/export_computed_data_to_excel.py --missing-data
+#### Examples
 
-# To process only French products
-python backend/app/scripts/export_computed_data_to_excel.py --all-products --fr
+```bash
+# Test mode on france dataset
+python export_computed_data_to_excel.py --subset test
 
+# All products from dataset world
+python export_computed_data_to_excel.py --dataset world
 
-If no argument is provided, the script will offer an interactive mode.
+# Only products with missing information from dataset world
+python export_computed_data_to_excel.py --dataset world --subset missing-data
+
+# To export potential and not categorized eggs
+python export_computed_data_to_excel.py --dataset potentiel
+```
+
 
 ### Input and Output Files
 
-- Input: `backend/app/scripts/data/processed_products(_fr).csv`
-- Outputs:
-  - `test_products(_fr).xlsx` (test)
-  - `all_products(_fr).xlsx` (all products)
-  - `missing_data_products(_fr).xlsx` (production with multiple sheets)
+- Input : `/data/processed_products(_fr).csv` or `/data/processed_potential_eggs.csv`
+- Ouput : `/data/products_{datset}_{subset}.xlsx`
 
 ### Specific Dependencies
 
 - `pandas`, `numpy`
 - `openpyxl` for Excel writing and formatting
 - `tqdm` for progress bars
+- `unicodedata` to clean product names
+- `re` to parse product names
