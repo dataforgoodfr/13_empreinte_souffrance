@@ -21,6 +21,7 @@ export default async function Footer() {
               aria_label={t('footer.donate')}
               button_text={t('footer.donate')}
               width="small"
+              open_in_new_tab={true}
             />
           </div>
         </div>
