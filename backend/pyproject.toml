@@ -10,7 +10,7 @@ name = "suffering-footprint"
 version = "0.1.0"
 description = "Suffering Footprint API"
 authors = [{ name = "DataForGood" }]
-requires-python = "~=3.13"
+requires-python = "==3.13.*"
 readme = "README.md"
 license = "MIT"
 dependencies = [
