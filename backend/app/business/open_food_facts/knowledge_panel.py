@@ -11,11 +11,11 @@ from app.enums.open_food_facts.panel_texts import (
     AnimalInfoTexts,
     DurationTexts,
     IntensityDefinitionTexts,
-    MainPanelTexts,
     PanelTextManager,
     PhysicalPainTexts,
     PsychologicalPainTexts,
     QuantityTexts,
+    RootPanelTexts,
 )
 from app.schemas.open_food_facts.external import ProductData, ProductResponse, ProductResponseSearchALicious
 from app.schemas.open_food_facts.internal import (
@@ -169,7 +169,7 @@ def get_knowledge_panel_response(
         translator: The translation function to use for i18n
 
     Returns:
-        A complete KnowledgePanelResponse containing main panel, intensity definitions,
+        A complete KnowledgePanelResponse containing root panel, intensity definitions,
         physical pain data and psychological pain data
     """
     panel_generator = KnowledgePanelGenerator(pain_report, translator)
@@ -207,8 +207,8 @@ class KnowledgePanelGenerator:
         else:
             detailed_panels = []
 
-        # main panel depending on pain report data and detailed panels
-        panels = {"main": self._create_main_panel(detailed_panels)}
+        # root panel depending on pain report data and detailed panels
+        panels = {"root": self._create_root_panel(detailed_panels)}
 
         # build detailed panels that where defined
         for panel_name, panel_creator in [
@@ -227,9 +227,9 @@ class KnowledgePanelGenerator:
             ),
         )
 
-    def _create_main_panel(self, detailed_panels: list[str]) -> Panel:
+    def _create_root_panel(self, detailed_panels: list[str]) -> Panel:
         """
-        Create the main panel showing general information about the suffering footprint.
+        Create the root panel showing general information about the suffering footprint.
 
         This panel includes an explanation of the suffering footprint, the breeding
         type and animal product quantity information, and links to the other panels.
@@ -242,17 +242,17 @@ class KnowledgePanelGenerator:
 
         # Initialize the panel with generic information message about the project
         elements = [
-            self._get_text_element(self.text_manager.get_text(MainPanelTexts.WELFARE_FOOTPRINT_INTRO)),
-            self._get_text_element(self.text_manager.get_text(MainPanelTexts.WELFARE_FOOTPRINT_UNIQUENESS)),
+            self._get_text_element(self.text_manager.get_text(RootPanelTexts.WELFARE_FOOTPRINT_INTRO)),
+            self._get_text_element(self.text_manager.get_text(RootPanelTexts.WELFARE_FOOTPRINT_UNIQUENESS)),
         ]
 
         # If all animal pain reports contain no pain levels, add a missing data message
         if all(not animal.pain_levels for animal in animals):
-            elements.append(self._get_text_element(self.text_manager.get_text(MainPanelTexts.MISSING_DATA)))
+            elements.append(self._get_text_element(self.text_manager.get_text(RootPanelTexts.MISSING_DATA)))
 
         # If pain levels are available, add a message explaining suffering is based on breeding type and quantity
         else:
-            elements.append(self._get_text_element(self.text_manager.get_text(MainPanelTexts.DATA_BASED_ON)))
+            elements.append(self._get_text_element(self.text_manager.get_text(RootPanelTexts.DATA_BASED_ON)))
 
         # Add breeding type and quantity from each animal pain report aven if not avalable
         for animal in animals:
@@ -270,15 +270,15 @@ class KnowledgePanelGenerator:
                 ]
             )
 
-        # Create and return the main panel
+        # Create and return the root panel
         return Panel(
             elements=elements,
             level="info",
             title_element=TitleElement(
                 icon_url=HttpUrl("https://iili.io/3o05WOX.png"),
                 name="suffering-footprint",
-                subtitle=self.text_manager.get_text(MainPanelTexts.PANEL_SUBTITLE),
-                title=self.text_manager.get_text(MainPanelTexts.PANEL_TITLE),
+                subtitle=self.text_manager.get_text(RootPanelTexts.PANEL_SUBTITLE),
+                title=self.text_manager.get_text(RootPanelTexts.PANEL_TITLE),
             ),
             topics=["suffering-footprint"],
         )
