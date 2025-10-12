@@ -355,8 +355,8 @@ export default function KnowledgePanel() {
 
       {knowledgePanelData && !isLoading && (
         <div className="space-y-4">
-          {knowledgePanelData.panels.main &&
-            renderPanel('main', knowledgePanelData.panels.main, knowledgePanelData.panels)}
+          {knowledgePanelData.panels.root &&
+            renderPanel('root', knowledgePanelData.panels.root, knowledgePanelData.panels)}
         </div>
       )}
     </div>

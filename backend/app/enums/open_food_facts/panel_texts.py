@@ -2,7 +2,7 @@ from enum import Enum
 from typing import Callable
 
 
-class MainPanelTexts(Enum):
+class RootPanelTexts(Enum):
     """Texts for the main knowledge panel"""
 
     WELFARE_FOOTPRINT_INTRO = (
