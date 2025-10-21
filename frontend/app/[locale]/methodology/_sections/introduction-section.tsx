@@ -7,16 +7,16 @@ export default async function IntroductionSection() {
   return (
     <section className="bg-violet p-section ">
       <div>
-        <img src="/welfare-footprint-logo.png " className="mb-10 bg-white max-w-[250px] pr-4" alt="" />
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <img src="/welfare-footprint-logo.png " className="w-[300px] lg:w-[450px]" alt="" />
+        <div className="grid grid-cols-1 md:grid-cols-2 md:pr-20 gap-8">
           <article>
-            <h1 className="">{t('MethodologyPage.introductionSection.title')}</h1>
+            <h1>{t('MethodologyPage.introductionSection.title')}</h1>
             <br />
-            <p className=" md:pr-20">{t('MethodologyPage.introductionSection.paragraph1')}</p>
+            <p>{t('MethodologyPage.introductionSection.paragraph1')}</p>
             <br />
-            <p className="md:pr-20">{t('MethodologyPage.introductionSection.paragraph2')}</p>
+            <p>{t('MethodologyPage.introductionSection.paragraph2')}</p>
             <br />
-            <p className="md:pr-20">{t('MethodologyPage.introductionSection.paragraph3')}</p>
+            <p>{t('MethodologyPage.introductionSection.paragraph3')}</p>
           </article>
           <div className=" grid grid-cols-1 md:grid-cols-2 gap-8">
             <Scientist

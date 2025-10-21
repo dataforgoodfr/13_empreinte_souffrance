@@ -19,12 +19,12 @@
   --font-albert-sans: 'Albert Sans';
 
   /* Font-size Desktop */
-  --text-h1-desktop: 47px;
-  --text-h1: 38px;
-  --text-h2-desktop: 39px;
+  --text-h1-desktop: 38px;
+  --text-h1: 32px;
+  --text-h2-desktop: 32px;
   --text-h2: 26px;
-  --text-h3-desktop: 31px;
-  --text-h3: 22px;
+  --text-h3-desktop: 26px;
+  --text-h3: 20px;
   --text-body: 16px;
   --text-caption: 12px;
 
