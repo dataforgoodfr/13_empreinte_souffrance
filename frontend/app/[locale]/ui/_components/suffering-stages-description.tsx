@@ -1,6 +1,6 @@
 import { getI18n } from '@/locales/server';
 
-type SufferingScaleDescriptionProps = {
+interface SufferingScaleDescriptionProps {
   display_criteria?: boolean;
 };
 
@@ -9,20 +9,19 @@ interface SufferingStage {
   stage_description: string;
   criteria_description: string;
   background_color: string;
-  border_color?: string;
-  text_color?: 'light-text' | 'dark-text';
+  text_color?: string;
 }
 
 export default async function SufferingStagesDescription({ display_criteria = false }: SufferingScaleDescriptionProps) {
+  
   const t = await getI18n();
-
   const suffering_stages: SufferingStage[] = [
     {
       title: t('PainEquationSection.stages.discomfort.title'),
       stage_description: t('PainEquationSection.stages.discomfort.text'),
       criteria_description: t('MethodologyPage.sufferingQuantificationSteps.legend.discomfort.criteria_description'),
       background_color: 'bg-pink-1',
-      border_color: 'border-pink-2',
+      
     },
     {
       title: t('PainEquationSection.stages.pain.title'),
@@ -41,34 +40,26 @@ export default async function SufferingStagesDescription({ display_criteria = fa
       stage_description: t('PainEquationSection.stages.agony.text'),
       criteria_description: t('MethodologyPage.sufferingQuantificationSteps.legend.agony.criteria_description'),
       background_color: 'bg-brown',
-      text_color: 'light-text',
+      text_color:'text-pink-2',
     },
   ];
 
-  return (
-    <div className="grid grid-cols-1 md:grid-cols-4 ">
-      {suffering_stages.map((suffering_stage: SufferingStage, index) => {
-        const border_color_class = suffering_stage.border_color ? `border ${suffering_stage.border_color}` : '';
+return (
+  <div className="grid grid-cols-1 md:grid-cols-4 gap-2">
+    {suffering_stages.map((suffering_stage: SufferingStage, index) => (
+      <article key={index} className={`flex flex-col gap-[20px] p-4 rounded-[16px] ${suffering_stage.background_color} ${suffering_stage.text_color}`}>
+        <h4 className="font-bold uppercase mb-4 mt-4">{suffering_stage.title}</h4>
+        <p className="text-body font-medium">{suffering_stage.stage_description}</p>
 
-        const text_color_class = suffering_stage.text_color ? `${suffering_stage.text_color}` : 'dark-text';
-
-        const background_color_class = `${suffering_stage.background_color}`;
-
-        return (
-          <article key={index} className={`p-4 ${background_color_class} ${border_color_class} ${text_color_class}`}>
-            <h4 className="font-bold uppercase mb-4 mt-4">{suffering_stage.title}</h4>
-            <p className="text-sm font-medium">{suffering_stage.stage_description}</p>
-            {display_criteria && (
-              <p className="pt-2">
-                <span className="text-sm font-bold">
-                  {t('MethodologyPage.sufferingQuantificationSteps.criteria')} :{' '}
-                </span>
-                <span className={`text-sm`}>{suffering_stage.criteria_description}</span>
-              </p>
-            )}
-          </article>
-        );
-      })}
-    </div>
-  );
-}
+        {display_criteria && (
+          <p className="pt-2 text-body">
+            <span className="font-bold">
+              {t("MethodologyPage.sufferingQuantificationSteps.criteria")} :{" "}
+            </span>
+            <span>{suffering_stage.criteria_description}</span>
+          </p>
+        )}
+      </article>
+    ))}
+  </div>
+)};
