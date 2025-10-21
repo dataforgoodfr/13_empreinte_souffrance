@@ -1,3 +1,5 @@
+// ! No references using this components ? ! //
+
 
 // Déclaration du type des props attendues par le composant
 type HeroBannerProps = {

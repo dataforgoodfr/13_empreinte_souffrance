@@ -20,16 +20,19 @@
 
   /* Font-size Desktop */
   --text-h1-desktop: 38px;
-  --text-h1: 32px;
   --text-h2-desktop: 32px;
-  --text-h2: 26px;
   --text-h3-desktop: 26px;
-  --text-h3: 20px;
-  --text-body: 16px;
-  --text-caption: 12px;
+  --text-numbers-desktop: 150px;
 
   /* Font-size Mobile */
+  --text-h1: 32px;
+  --text-h2: 26px;
+  --text-h3: 20px;
+  --text-numbers:90px;
 
+  /* Default Font-size */
+  --text-body: 16px;
+  --text-caption: 12px;
   --spacing-section: 56px 32px 56px 32px;
 }
 
