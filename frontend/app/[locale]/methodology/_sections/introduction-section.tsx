@@ -5,21 +5,20 @@ export default async function IntroductionSection() {
   const t = await getI18n();
 
   return (
-    <section className="w-full bg-violet-1 py-8 md:py-16">
-      <div className="w-full max-w-screen-xl mx-auto px-4 md:px-8">
+    <section className="bg-violet p-section ">
+      <div>
         <img src="/welfare-footprint-logo.png " className="mb-10 bg-white max-w-[250px] pr-4" alt="" />
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {' '}
           <article>
-            <p className="font-mono font-extrabold text-3xl">{t('MethodologyPage.introductionSection.title')}</p>
+            <h1 className="">{t('MethodologyPage.introductionSection.title')}</h1>
             <br />
-            <p className="md:pr-20">{t('MethodologyPage.introductionSection.paragraph1')}</p>
+            <p className=" md:pr-20">{t('MethodologyPage.introductionSection.paragraph1')}</p>
             <br />
             <p className="md:pr-20">{t('MethodologyPage.introductionSection.paragraph2')}</p>
             <br />
             <p className="md:pr-20">{t('MethodologyPage.introductionSection.paragraph3')}</p>
           </article>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div className=" grid grid-cols-1 md:grid-cols-2 gap-8">
             <Scientist
               imgUrl={'/Cynthia-Schuck-Paim.png'}
               name={'Cynthia Schuck Paim'}
@@ -49,7 +48,7 @@ interface ScientistProps {
 const Scientist = async ({ imgUrl, name, text, link }: ScientistProps) => {
   const t = await getI18n();
   return (
-    <div className="text-center">
+    <div className="text-center flex flex-col items-center">
       <img src={imgUrl} alt="Scientist" className="w-55 rounded-full h-auto object-contain" />
       <p className="text-center font-bold my-5">{name}</p>
       <p className="text-justify text-sm dark-text">{text}</p>
