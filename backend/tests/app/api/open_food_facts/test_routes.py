@@ -26,7 +26,7 @@ async def test_get_off_knowledge_panel(async_client: AsyncClient, sample_product
     # Test response has the expected structure
     response_data = response.json()
     assert "panels" in response_data
-    assert "main" in response_data["panels"]
+    assert "root" in response_data["panels"]
     assert "physical_pain" in response_data["panels"]
     assert "psychological_pain" in response_data["panels"]
     assert "intensities_definitions" in response_data["panels"]

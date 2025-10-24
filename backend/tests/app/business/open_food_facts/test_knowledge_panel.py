@@ -259,14 +259,14 @@ def test_knowledge_panel_generator(
     # Create generator and test individual methods
     generator = KnowledgePanelGenerator(pain_report, translator)
 
-    # Test main panel
-    main_panel = generator._create_main_panel(["intensities_definitions", "physical_pain", "psychological_pain"])
-    assert main_panel.level == "info"
-    assert main_panel.title_element.title == "Welfare footprint"
-    assert len(main_panel.elements) > 3
+    # Test root panel
+    root_panel = generator._create_root_panel(["intensities_definitions", "physical_pain", "psychological_pain"])
+    assert root_panel.level == "info"
+    assert root_panel.title_element.title == "Welfare footprint"
+    assert len(root_panel.elements) > 3
     assert not any(
         el.text_element is not None and "missing" in el.text_element.html.lower()
-        for el in main_panel.elements
+        for el in root_panel.elements
         if el.element_type == "text"
     )
 
@@ -311,22 +311,22 @@ def test_knowledge_panel_generator_missing_quantity(pain_report_missing_quantity
     # Create generator and test individual methods
     generator = KnowledgePanelGenerator(pain_report_missing_quantity, translator)
 
-    # Test main panel
-    main_panel = generator._create_main_panel([])
-    assert main_panel.level == "info"
-    assert main_panel.title_element.title == "Welfare footprint"
+    # Test root panel
+    root_panel = generator._create_root_panel([])
+    assert root_panel.level == "info"
+    assert root_panel.title_element.title == "Welfare footprint"
 
-    # Test main panel elements as intro, uniqueness and missing data
-    assert len(main_panel.elements) > 3
+    # Test root panel elements as intro, uniqueness and missing data
+    assert len(root_panel.elements) > 3
     assert any(
         el.text_element is not None and "missing" in el.text_element.html.lower()
-        for el in main_panel.elements
+        for el in root_panel.elements
         if el.element_type == "text"
     )
 
     # Test complete response
     response = generator.get_response()
-    assert list(response.panels.keys()) == ["main"]
+    assert list(response.panels.keys()) == ["root"]
 
 
 @pytest.mark.parametrize(
@@ -342,7 +342,7 @@ def test_get_knowledge_panel_response(pain_report):
     response = get_knowledge_panel_response(pain_report, translator)
 
     # Verify response structure
-    assert "main" in response.panels
+    assert "root" in response.panels
     assert "physical_pain" in response.panels
     assert "psychological_pain" in response.panels
     assert "intensities_definitions" in response.panels
@@ -354,15 +354,15 @@ def test_get_knowledge_panel_response(pain_report):
 
 
 def test_get_knowledge_panel_response_missing_quantity(pain_report_missing_quantity: PainReport):
-    """Test that only main panel is generated when quantity is missing"""
+    """Test that only root panel is generated when quantity is missing"""
     translator = I18N().get_translator(locale="en")
 
     response = get_knowledge_panel_response(pain_report_missing_quantity, translator)
 
-    # On attend uniquement "main" dans les panels
-    assert list(response.panels.keys()) == ["main"]
-    assert hasattr(response.panels["main"], "elements")
-    assert hasattr(response.panels["main"], "title_element")
+    # On attend uniquement "root" dans les panels
+    assert list(response.panels.keys()) == ["root"]
+    assert hasattr(response.panels["root"], "elements")
+    assert hasattr(response.panels["root"], "title_element")
 
 
 @pytest.mark.parametrize(
