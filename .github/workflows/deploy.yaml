@@ -33,21 +33,21 @@ jobs:
       # Push Docker image to registry
       - name: Prepare Docker client certificates
         run: |
-          sudo mkdir -p /etc/docker/certs.d/empreinte-souffrance.remigirard.dev:5000/
-          echo "${{ secrets.REGISTRY_CA_CRT }}" | sudo tee /etc/docker/certs.d/empreinte-souffrance.remigirard.dev:5000/ca.crt
-          echo "${{ secrets.REGISTRY_CLIENT_CRT }}" | sudo tee /etc/docker/certs.d/empreinte-souffrance.remigirard.dev:5000/client.cert
-          echo "${{ secrets.REGISTRY_CLIENT_KEY }}" | sudo tee /etc/docker/certs.d/empreinte-souffrance.remigirard.dev:5000/client.key
+          sudo mkdir -p /etc/docker/certs.d/lheuredescomptes.org:5000/
+          echo "${{ secrets.REGISTRY_CA_CRT }}" | sudo tee /etc/docker/certs.d/lheuredescomptes.org:5000/ca.crt
+          echo "${{ secrets.REGISTRY_CLIENT_CRT }}" | sudo tee /etc/docker/certs.d/lheuredescomptes.org:5000/client.cert
+          echo "${{ secrets.REGISTRY_CLIENT_KEY }}" | sudo tee /etc/docker/certs.d/lheuredescomptes.org:5000/client.key
 
       - name: Verify Docker registry certificates
-        run: docker pull empreinte-souffrance.remigirard.dev:5000/nonexistent-image || echo "Certificates are valid"
+        run: docker pull lheuredescomptes.org:5000/nonexistent-image || echo "Certificates are valid"
 
       - name: list docker images
         run: docker image ls
 
-      - run: docker tag empreinte-souffrance-frontend empreinte-souffrance.remigirard.dev:5000/admin/empreinte-souffrance_frontend:${{ github.ref_name }}
-      - run: docker push empreinte-souffrance.remigirard.dev:5000/admin/empreinte-souffrance_frontend:${{ github.ref_name }}
-      - run: docker tag empreinte-souffrance-backend empreinte-souffrance.remigirard.dev:5000/admin/empreinte-souffrance_backend:${{ github.ref_name }}
-      - run: docker push empreinte-souffrance.remigirard.dev:5000/admin/empreinte-souffrance_backend:${{ github.ref_name }}
+      - run: docker tag lheuredescomptes-frontend lheuredescomptes.org:5000/admin/lheuredescomptes_frontend:${{ github.ref_name }}
+      - run: docker push lheuredescomptes.org:5000/admin/lheuredescomptes_frontend:${{ github.ref_name }}
+      - run: docker tag lheuredescomptes-backend lheuredescomptes.org:5000/admin/lheuredescomptes_backend:${{ github.ref_name }}
+      - run: docker push lheuredescomptes.org:5000/admin/lheuredescomptes_backend:${{ github.ref_name }}
 
       # Deploy to remote swarm cluster
 
@@ -56,29 +56,29 @@ jobs:
       - run: echo "${{secrets.REGISTRY_CERTIFICATE}}" > ~/.ssh/id_rsa
       - run: chmod 600 ~/.ssh/id_rsa
 
-      - run: ssh-keyscan -H empreinte-souffrance.remigirard.dev >> ~/.ssh/known_hosts
+      - run: ssh-keyscan -H lheuredescomptes.org >> ~/.ssh/known_hosts
 
       - run: docker container ls
         env:
-          DOCKER_HOST: ssh://debian@empreinte-souffrance.remigirard.dev
-      - run: docker pull empreinte-souffrance.remigirard.dev:5000/admin/empreinte-souffrance_frontend:${{ github.ref_name }}
+          DOCKER_HOST: ssh://debian@lheuredescomptes.org
+      - run: docker pull lheuredescomptes.org:5000/admin/lheuredescomptes_frontend:${{ github.ref_name }}
         env:
-          DOCKER_HOST: ssh://debian@empreinte-souffrance.remigirard.dev
-      - run: docker pull empreinte-souffrance.remigirard.dev:5000/admin/empreinte-souffrance_backend:${{ github.ref_name }}
+          DOCKER_HOST: ssh://debian@lheuredescomptes.org
+      - run: docker pull lheuredescomptes.org:5000/admin/lheuredescomptes_backend:${{ github.ref_name }}
         env:
-          DOCKER_HOST: ssh://debian@empreinte-souffrance.remigirard.dev
+          DOCKER_HOST: ssh://debian@lheuredescomptes.org
       - name: Set DEPLOY_URL
         id: set_deploy_url
         run: |
           if [ "${{ github.ref_name }}" = "main" ]; then
-            echo "DEPLOY_URL=empreinte-souffrance.remigirard.dev" >> $GITHUB_ENV
+            echo "DEPLOY_URL=lheuredescomptes.org" >> $GITHUB_ENV
           else
-            echo "DEPLOY_URL=${{ github.ref_name }}.staging.empreinte-souffrance.remigirard.dev" >> $GITHUB_ENV
+            echo "DEPLOY_URL=${{ github.ref_name }}.staging.lheuredescomptes.org" >> $GITHUB_ENV
           fi
-      - run: docker stack deploy -c docker-compose.prod.yaml --with-registry-auth empreinte-souffrance-${{ github.ref_name }}
+      - run: docker stack deploy -c docker-compose.prod.yaml --with-registry-auth lheuredescomptes-${{ github.ref_name }}
         env:
           DEPLOY_URL: ${{ env.DEPLOY_URL }}
-          TRAEFIK_ROUTER_NAME: empreinte-souffrance-${{ github.ref_name }}
+          TRAEFIK_ROUTER_NAME: lheuredescomptes-${{ github.ref_name }}
           STAGE_NAME: ${{ github.ref_name }}
-          DOCKER_HOST: ssh://debian@empreinte-souffrance.remigirard.dev
+          DOCKER_HOST: ssh://debian@lheuredescomptes.org
 

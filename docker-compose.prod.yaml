@@ -1,6 +1,6 @@
 services:
   frontend:
-    image: empreinte-souffrance.remigirard.dev:5000/admin/empreinte-souffrance_frontend:${STAGE_NAME}
+    image: lheuredescomptes.org:5000/admin/lheuredescomptes_frontend:${STAGE_NAME}
     networks:
       - traefik-public
     deploy:
@@ -11,7 +11,7 @@ services:
         - "traefik.http.routers.`${TRAEFIK_ROUTER_NAME}`.tls.certresolver=wildcardresolver"
         - "traefik.http.services.`${TRAEFIK_ROUTER_NAME}`.loadbalancer.server.port=3000"
   backend:
-    image: empreinte-souffrance.remigirard.dev:5000/admin/empreinte-souffrance_backend:${STAGE_NAME}
+    image: lheuredescomptes.org:5000/admin/lheuredescomptes_backend:${STAGE_NAME}
     networks:
       - traefik-public
     deploy:
