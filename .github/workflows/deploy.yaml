@@ -1,4 +1,4 @@
-name: Build, Test, Analyze, Release, Push image  and Deploy
+name: Build, Test, Analyze, Release, Push image and Deploy
 
 on:
   workflow_dispatch:
@@ -28,8 +28,6 @@ jobs:
       #      - name: Run unit tests
       #        run: docker compose exec app pnpm test
 
-      # @TODO: Run static code analysis
-
       # Push Docker image to registry
       - name: Prepare Docker client certificates
         run: |
@@ -50,7 +48,6 @@ jobs:
       - run: docker push lheuredescomptes.org:5000/admin/lheuredescomptes_backend:${{ github.ref_name }}
 
       # Deploy to remote swarm cluster
-
       - name: create .ssh if does not exist
         run: mkdir -p ~/.ssh
       - run: echo "${{secrets.REGISTRY_CERTIFICATE}}" > ~/.ssh/id_rsa
