@@ -1,7 +1,10 @@
+import json
 import logging
+from pathlib import Path
 from typing import Callable
 
 import httpx
+from fastapi.responses import JSONResponse
 from pydantic import HttpUrl, ValidationError
 
 from app.business.open_food_facts.pain_report_calculator import PainReportCalculator
@@ -172,8 +175,11 @@ def get_knowledge_panel_response(
         A complete KnowledgePanelResponse containing root panel, intensity definitions,
         physical pain data and psychological pain data
     """
-    panel_generator = KnowledgePanelGenerator(pain_report, translator)
-    return panel_generator.get_response()
+    json_path = Path(__file__).resolve().parent / "data" / "knowledge_panel_project.json"
+    with open(json_path, "r", encoding="utf-8") as f:
+        data = json.load(f)
+    knowledge_panel_mock = JSONResponse(content=data)
+    return knowledge_panel_mock
 
 
 class KnowledgePanelGenerator:

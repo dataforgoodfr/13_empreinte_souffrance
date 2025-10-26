@@ -27,7 +27,7 @@ async def knowledge_panel(request: Request, barcode: str):
     cache_key = f"knowledge_panel:{barcode}:{locale}"
 
     # Try to get from cache first
-    cached_response = knowledge_panel_cache.get(cache_key)
+    cached_response = None
     if cached_response is not None:
         logger.info(f"Returning cached knowledge panel for product {barcode} (locale: {locale})")
         return cached_response

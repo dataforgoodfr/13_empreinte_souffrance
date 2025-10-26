@@ -1,0 +1,295 @@
+{
+  "panels": {
+    "root": {
+      "elements": [
+        {
+          "element_type": "text",
+          "text_element":
+            {
+              "html": "\u003Cdiv style=\"font-size: 1.75rem; background-color: #ffffff; padding: 1rem;\"\u003E\u003Ch3 style=\"text-align: center; font-weight: bold; margin-bottom: 0.5rem; text-transform: uppercase; color: #3c1212;\"\u003ESouffrance physique\u003C/h3\u003E\u003Cdiv style=\"text-transform: none; font-size: 1rem;\"\u003E\n  \u003Cp style=\"width: 100%; height: 25%; margin: 0; padding: 0.25rem; box-sizing: border-box; text-align: center; background-color: #3c1212; color: #ffffff;\"\u003E4 secondes d'agonie\u003C/p\u003E\n  \u003Cp style=\"width: 100%; height: 25%; margin: 0; padding: 0.25rem; box-sizing: border-box; text-align: center; background-color: #ff7b7b;\"\u003E14 minutes 30 secondes de souffrance\u003C/p\u003E\n  \u003Cp style=\"width: 100%; height: 25%; margin: 0; padding: 0.25rem; box-sizing: border-box; text-align: center; background-color: #ffc3c3;\"\u003E2 heures 25 minutes de souffrance\u003C/p\u003E\n  \u003Cp style=\"width: 100%; height: 25%; margin: 0; padding: 0.25rem; box-sizing: border-box; text-align: center; background-color: #ffe9e9;\"\u003E1 jour 6 heures d'inconfort\u003C/p\u003E\n\u003C/div\u003E\u003C/div\u003E"
+            }
+        },
+        {
+          "element_type": "text",
+          "text_element":
+            {
+              "html": "\u003Cdiv style=\"font-size: 1.75rem; background-color: #ffffff; padding: 1rem;\"\u003E\u003Ch3 style=\"text-align: center; font-weight: bold; margin-bottom: 0.5rem; text-transform: uppercase; color: #3c1212;\"\u003ESouffrance psychologique\u003C/h3\u003E\u003Cdiv style=\"text-transform: none; font-size: 1rem;\"\u003E\n  \u003Cp style=\"width: 100%; height: 25%; margin: 0; padding: 0.25rem; box-sizing: border-box; text-align: center; background-color: #3c1212; color: #ffffff;\"\u003E4 secondes d'agonie\u003C/p\u003E\n  \u003Cp style=\"width: 100%; height: 25%; margin: 0; padding: 0.25rem; box-sizing: border-box; text-align: center; background-color: #ff7b7b;\"\u003E14 minutes 30 secondes de souffrance\u003C/p\u003E\n  \u003Cp style=\"width: 100%; height: 25%; margin: 0; padding: 0.25rem; box-sizing: border-box; text-align: center; background-color: #ffc3c3;\"\u003E2 heures 25 minutes de souffrance\u003C/p\u003E\n  \u003Cp style=\"width: 100%; height: 25%; margin: 0; padding: 0.25rem; box-sizing: border-box; text-align: center; background-color: #ffe9e9;\"\u003E1 jour 6 heures d'inconfort\u003C/p\u003E\n\u003C/div\u003E\u003C/div\u003E"
+            }
+        },
+        {
+          "element_type": "panel",
+          "panel_element": {
+            "panel_id": "physical_psychological_pain"
+          }
+        },
+        {
+          "element_type": "panel",
+          "panel_element": {
+            "panel_id": "intensities_definitions"
+          }
+        },
+
+        {
+          "element_type": "panel",
+          "panel_element": {
+            "panel_id": "animal"
+          },
+          "expanded": true
+        },
+        {
+          "element_type": "panel",
+          "panel_element": {
+            "panel_id": "WFI_information"
+          }
+        },
+        {
+          "element_type": "panel",
+          "panel_element": {
+            "panel_id": "heure_des_comptes"
+          }
+        }
+      ],
+      "level": "info",
+      "title_element": {
+        "title": "Empreinte Souffrance",
+        "subtitle": "Qu'est-ce que l'empreinte souffrance ?",
+        "name": "suffering-footprint"
+      },
+      "topics": [
+        "suffering-footprint"
+      ]
+    },
+    "suffering_footprint": {
+      "elements": [
+        {
+          "element_type": "text",
+          "text_element":
+            {
+              "html": "\u003Cdiv style=\"font-size: 1.75rem; background-color: #ffffff; padding: 1rem;\"\u003E\u003Ch3 style=\"text-align: center; font-weight: bold; margin-bottom: 0.5rem; text-transform: uppercase; color: #3c1212;\"\u003ESouffrance physique\u003C/h3\u003E\u003Cdiv style=\"text-transform: none; font-size: 1rem;\"\u003E\n  \u003Cp style=\"width: 100%; height: 25%; margin: 0; padding: 0.25rem; box-sizing: border-box; text-align: center; background-color: #3c1212; color: #ffffff;\"\u003E4 secondes d'agonie\u003C/p\u003E\n  \u003Cp style=\"width: 100%; height: 25%; margin: 0; padding: 0.25rem; box-sizing: border-box; text-align: center; background-color: #ff7b7b;\"\u003E14 minutes 30 secondes de souffrance\u003C/p\u003E\n  \u003Cp style=\"width: 100%; height: 25%; margin: 0; padding: 0.25rem; box-sizing: border-box; text-align: center; background-color: #ffc3c3;\"\u003E2 heures 25 minutes de souffrance\u003C/p\u003E\n  \u003Cp style=\"width: 100%; height: 25%; margin: 0; padding: 0.25rem; box-sizing: border-box; text-align: center; background-color: #ffe9e9;\"\u003E1 jour 6 heures d'inconfort\u003C/p\u003E\n\u003C/div\u003E\u003C/div\u003E"
+            }
+        },
+        {
+          "element_type": "text",
+          "text_element":
+            {
+              "html": "\u003Cdiv style=\"font-size: 1.75rem; background-color: #ffffff; padding: 1rem;\"\u003E\u003Ch3 style=\"text-align: center; font-weight: bold; margin-bottom: 0.5rem; text-transform: uppercase; color: #3c1212;\"\u003ESouffrance psychologique\u003C/h3\u003E\u003Cdiv style=\"text-transform: none; font-size: 1rem;\"\u003E\n  \u003Cp style=\"width: 100%; height: 25%; margin: 0; padding: 0.25rem; box-sizing: border-box; text-align: center; background-color: #3c1212; color: #ffffff;\"\u003E4 secondes d'agonie\u003C/p\u003E\n  \u003Cp style=\"width: 100%; height: 25%; margin: 0; padding: 0.25rem; box-sizing: border-box; text-align: center; background-color: #ff7b7b;\"\u003E14 minutes 30 secondes de souffrance\u003C/p\u003E\n  \u003Cp style=\"width: 100%; height: 25%; margin: 0; padding: 0.25rem; box-sizing: border-box; text-align: center; background-color: #ffc3c3;\"\u003E2 heures 25 minutes de souffrance\u003C/p\u003E\n  \u003Cp style=\"width: 100%; height: 25%; margin: 0; padding: 0.25rem; box-sizing: border-box; text-align: center; background-color: #ffe9e9;\"\u003E1 jour 6 heures d'inconfort\u003C/p\u003E\n\u003C/div\u003E\u003C/div\u003E"
+            }
+        },
+        {
+          "element_type": "panel",
+          "panel_element": {
+            "panel_id": "physical_psychological_pain"
+          }
+        },
+        {
+          "element_type": "panel",
+          "panel_element": {
+            "panel_id": "intensities_definitions"
+          }
+        }
+
+      ],
+      "level": "info",
+      "expanded": true,
+      "title_element": {
+          "title": "2 jours et 23 heures de souffrance générée dans la vie d'une poule pondeuse",
+          "type": "info",
+          "icon_url": "https://raw.githubusercontent.com/littlecoffe8/icons/519996a5d1328779be406be7bed09a4c83a56de2/chronograph-160753.svg",
+          "icon_size": "large"
+      },
+      "topics": [
+        "suffering-footprint"
+      ]
+    },
+    "intensities_definitions": {
+      "elements": [
+        {
+          "element_type": "text",
+          "text_element": {
+            "html": "\u003Cb\u003EInconfort\u003C/b\u003E : Gêne perceptible qui peut être ignorée. N'interfère pas avec les activités quotidiennes ou les comportements motivés (exploration, confort, entretien). Pas d'expressions visibles de douleur ni de perturbations physiologiques."
+          }
+        },
+        {
+          "element_type": "text",
+          "text_element": {
+            "html": "\u003Cb\u003EDouleur\u003C/b\u003E : Douleur persistante avec possibilité de brefs moments d'oubli lors de distractions. Réduit la fréquence des comportements motivés et altère partiellement les capacités fonctionnelles, tout en permettant la réalisation des activités essentielles."
+          }
+        },
+        {
+          "element_type": "text",
+          "text_element": {
+            "html": "\u003Cb\u003ESouffrance\u003C/b\u003E : Douleur constante qui prend le pas sur la plupart des comportements. Empêche le bien-être positif et modifie radicalement le niveau d'activité. Nécessite des analgésiques plus puissants et provoque une inattention à l'environnement."
+          }
+        },
+        {
+          "element_type": "text",
+          "text_element": {
+            "html": "\u003Cb\u003EAgonie\u003C/b\u003E : Douleur extrême insupportable, même brièvement. Chez l'humain, ce serait le seuil de souffrance en dessous duquel beaucoup choisissent de mettre fin à leurs jours plutôt que de l'endurer. Déclenche des manifestations involontaires (cris, tremblements, agitation extrême) et ne peut être soulagée."
+          }
+        }
+      ],
+      "level": "info",
+      "title_element": {
+          "icon_size": "small",
+          "icon_url": "https://static.openfoodfacts.org/images/icons/dist/info.svg",
+          "title": "Les différents niveaux d'intensité de souffrance",
+          "type": "info"
+      },
+      "topics": [
+        "suffering-footprint"
+      ]
+    },
+    "animal": {
+      "elements": [
+        {
+          "element_type": "panel_group",
+          "panel_group_element": {
+            "image": {
+              "alt": "Poule pondeuse",
+              "id": "laying_hen",
+              "lc": "en",
+              "sizes": {
+                "full": {
+                  "h": 5,
+                  "url": "",
+                  "w": 5
+                }
+              }
+            },
+            "panel_group_id": "laying_hen_image",
+            "type": "subcard"
+          }
+        },
+        {
+          "element_type": "text",
+          "text_element": {
+            "html": "Type d'élevage : \u003Cb\u003ECage aménagée\u003C/b\u003E "
+          }
+        },
+        {
+          "element_type": "text",
+          "text_element": {
+            "html": "Quantité dans le produit : \u003Cb\u003E10 Œufs - Calibre Moyen\u003C/b\u003E"
+          }
+        },
+
+        {
+          "element_type": "text",
+          "text_element": {
+            "html": "\u003Ci\u003ECes informations sont basées sur les données fournies par la communauté Open Food Facts et permettent de calculer l'empreinte souffrance du produit. Si vous observez une erreur pouvez rectifier la catégorie de produit (mode d'élevage et calibre) ou la quantité pour obtenir le calcul juste.\u003C/i\u003E"
+          }
+        }
+      ],
+      "level": "info",
+      "title_element": {
+          "title": "Animal identifié : Poule pondeuse",
+          "type": "info"
+      },
+      "topics": [
+        "suffering-footprint"
+      ],
+      "expanded": true
+    },
+    "physical_psychological_pain": {
+      "elements": [
+        {
+          "element_type": "text",
+          "text_element": {
+            "html": "\u003Cb\u003ELa douleur physique\u003C/b\u003E comprend toutes les souffrances corporelles subies par les animaux : fractures, blessures, maladies, difficultés respiratoires, etc."
+          }
+        },
+        {
+          "element_type": "text",
+          "text_element": {
+            "html": "\u003Cb\u003ELa douleur psychologique\u003C/b\u003E comprend les souffrances mentales vécues par les animaux : stress, anxiété, impossibilité d'exprimer les comportements naturels, etc."
+          }
+        }
+
+      ],
+      "level": "info",
+      "title_element": {
+          "title": "Les souffrances physiques et psychologiques",
+          "type": "info",
+          "icon_url": "https://static.openfoodfacts.org/images/icons/dist/info.svg",
+          "icon_size": "small"
+      },
+      "topics": [
+        "suffering-footprint"
+      ]
+    },
+    "WFI_information": {
+      "elements": [
+        {
+          "element_type": "text",
+          "text_element": {
+            "html": "L'\u003Ca href='https://empreinte-souffrance.org/'\u003EEmpreinte Souffrance\u003C/a\u003E est calculée sur la base des recherches du \u003Ca href='https://welfarefootprint.org/'\u003EWelfare Footprint Institute\u003C/a\u003E qui a développé une méthodologie scientifiquement rigoureuse pour évaluer et quantifier le bien-être animal dans les systèmes de production alimentaire."
+          }
+        },
+        {
+          "element_type": "text",
+          "text_element": {
+            "html": "Elle est unique en ce qu’elle fournit une mesure complète et biologiquement significative du temps que les animaux passent à souffrir, à des degrés de douleur variables."
+          }
+        }
+      ],
+      "level": "info",
+      "title_element": {
+          "icon_size": "small",
+          "icon_url": "https://static.openfoodfacts.org/images/icons/dist/info.svg",
+          "title": "Le Welfare Footprint Institute",
+          "type": "info"
+      },
+      "topics": [
+        "suffering-footprint"
+      ]
+    },
+    "heure_des_comptes": {
+      "elements": [
+        {
+          "element_type": "text",
+          "text_element": {
+            "html": "\u003Ca href='https://lheuredescomptes.org/'\u003EL'Heure des Comptes\u003C/a\u003E est une opération menée par l'assocation \u003Ca href='https://animafrance.org/'\u003EAnima\u003C/a\u003E visant à sensibiliser les consommateurs à la souffrance animale générée par les produis qu'ils achètent, et à mettre les professionnels face à leurs engagements d'amélioration des conditions d'élevage, et notamment celui de ne plus vendre d'oeufs en cage en supermarché au 1er janvier 2026."
+          }
+        },
+        {
+          "element_type": "text",
+          "text_element": {
+            "html": "Ce knowledge panel a été créé dans le cadre de l'opération grâce à une collaboration avec l'association \u003Ca href='https://dataforgood.fr/'\u003EData For Good\u003C/a\u003E."
+          }
+        }
+
+      ],
+      "level": "info",
+      "title_element": {
+          "icon_size": "small",
+          "icon_url": "https://static.openfoodfacts.org/images/icons/dist/info.svg",
+          "title": "L'Heure des Comptes",
+          "type": "info"
+      },
+      "topics": [
+        "suffering-footprint"
+      ]
+    },
+    "physical_pain":
+      {
+        "title_element":
+      {
+            "type": "subcard"
+        },
+        "elements":
+          [
+            {
+              "element_type": "text",
+              "text_element":
+                {
+                  "html": "\u003Cdiv style=\"font-size: 1.75rem; background-color: #ffffff; padding: 1rem;\"\u003E\u003Ch3 style=\"text-align: center; font-weight: bold; margin-bottom: 0.5rem; text-transform: uppercase; color: #3c1212;\"\u003ESouffrance physique\u003C/h3\u003E\u003Cdiv style=\"text-transform: none; font-size: 1rem;\"\u003E\n  \u003Cp style=\"width: 100%; height: 25%; margin: 0; padding: 0.25rem; box-sizing: border-box; text-align: center; background-color: #3c1212; color: #ffffff;\"\u003E4 secondes d'agonie\u003C/p\u003E\n  \u003Cp style=\"width: 100%; height: 25%; margin: 0; padding: 0.25rem; box-sizing: border-box; text-align: center; background-color: #ff7b7b;\"\u003E14 minutes 30 secondes de souffrance\u003C/p\u003E\n  \u003Cp style=\"width: 100%; height: 25%; margin: 0; padding: 0.25rem; box-sizing: border-box; text-align: center; background-color: #ffc3c3;\"\u003E2 heures 25 minutes de souffrance\u003C/p\u003E\n  \u003Cp style=\"width: 100%; height: 25%; margin: 0; padding: 0.25rem; box-sizing: border-box; text-align: center; background-color: #ffe9e9;\"\u003E1 jour 6 heures d'inconfort\u003C/p\u003E\n\u003C/div\u003E\u003C/div\u003E"
+                }
+            }
+          ]
+        }
+      },
+  "product": {
+    "image_url": "https://images.openfoodfacts.org/images/products/345/097/004/5360/front_fr.3.400.jpg",
+    "name": "10 œufs frais calibre moyen"
+  }
+}
