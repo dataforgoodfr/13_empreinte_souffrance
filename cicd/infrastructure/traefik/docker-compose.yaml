@@ -1,0 +1,46 @@
+version: "3.8"
+
+services:
+  traefik:
+    image: traefik:v3.4.0
+    deploy:
+      mode: global
+      placement:
+        constraints:
+          - node.role == manager
+      labels:
+        - "traefik.enable=true"
+        - "traefik.http.routers.dashboard.rule=Host(${HOST_URL})"
+        - "traefik.http.routers.dashboard.service=api@internal"
+        - "traefik.http.routers.dashboard.tls.certresolver=wildcardresolver"
+        - "traefik.http.services.traefik.loadbalancer.server.port=8080"
+    environment:
+      - INFOMANIAK_ACCESS_TOKEN=${INFOMANIAK_ACCESS_TOKEN}
+    command:
+      - "--providers.docker=true"
+      - "--providers.docker.exposedbydefault=false"
+      - "--providers.swarm=true"
+      - "--providers.swarm.exposedbydefault=false"
+      - "--entrypoints.web.address=:80"
+      - "--entrypoints.websecure.address=:443"
+      - "--certificatesresolvers.wildcardresolver.acme.email=${LETSENCRYPT_EMAIL}"
+      - "--certificatesresolvers.wildcardresolver.acme.storage=/certificates/acme.json"
+      - "--certificatesresolvers.wildcardresolver.acme.dnschallenge.provider=infomaniak"
+      - "--certificatesresolvers.wildcardresolver.acme.dnschallenge.delaybeforecheck=60"
+      - "--certificatesresolvers.wildcardresolver.acme.certificatesduration=720"
+      - "--api.dashboard=true"
+    volumes:
+      - traefik-certificates:/certificates
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+    networks:
+      - traefik-public
+    ports:
+      - "80:80"
+      - "443:443"
+
+volumes:
+  traefik-certificates:
+
+networks:
+  traefik-public:
+    external: true

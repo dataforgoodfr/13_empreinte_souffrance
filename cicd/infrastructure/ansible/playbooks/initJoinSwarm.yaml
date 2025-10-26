@@ -1,0 +1,44 @@
+---
+- name: Initialize Docker Swarm on main host
+  hosts: main
+  become: true
+  tasks:
+    - name: Check if node is already a Swarm manager
+      shell: docker info --format '{{ "{{.Swarm.LocalNodeState}}" }}'
+      register: swarm_state
+      changed_when: false
+
+    - name: Initialize Docker Swarm if not already a manager
+      shell: docker swarm init --advertise-addr {{ private_ip }}
+      when: swarm_state.stdout != "active"
+      register: swarm_init_output
+      ignore_errors: true
+
+    - name: Get join token for worker nodes
+      shell: docker swarm join-token -q worker
+      register: worker_join_token
+
+    - name: Set worker join token fact globally
+      set_fact:
+        worker_join_token_value: "{{ worker_join_token.stdout }}"
+
+- name: Join worker nodes to the swarm
+  hosts: workers
+  become: true
+  tasks:
+    - name: Check if worker is already part of a Swarm
+      shell: docker info --format '{{"{{.Swarm.LocalNodeState}}"}}'
+      register: worker_swarm_state
+      changed_when: false
+      failed_when: false
+
+    - name: Leave swarm if already part of one
+      shell: docker swarm leave --force
+      when: worker_swarm_state.stdout | trim | lower in ['active', 'error']
+      ignore_errors: true
+
+    - name: Join worker node to the swarm
+      shell: docker swarm join --token {{ hostvars['main']['worker_join_token_value'] }} {{ hostvars['main']['private_ip'] }}:2377
+      when: hostvars['main']['worker_join_token_value'] is defined
+
+
