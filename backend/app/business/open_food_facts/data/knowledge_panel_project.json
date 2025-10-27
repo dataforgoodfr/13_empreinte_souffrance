@@ -3,18 +3,12 @@
     "root": {
       "elements": [
         {
-          "element_type": "text",
-          "text_element":
-            {
-              "html": "\u003Cdiv style=\"font-size: 1.75rem; background-color: #ffffff; padding: 1rem;\"\u003E\u003Ch3 style=\"text-align: center; font-weight: bold; margin-bottom: 0.5rem; text-transform: uppercase; color: #3c1212;\"\u003ESouffrance physique\u003C/h3\u003E\u003Cdiv style=\"text-transform: none; font-size: 1rem;\"\u003E\n  \u003Cp style=\"width: 100%; height: 25%; margin: 0; padding: 0.25rem; box-sizing: border-box; text-align: center; background-color: #3c1212; color: #ffffff;\"\u003E4 secondes d'agonie\u003C/p\u003E\n  \u003Cp style=\"width: 100%; height: 25%; margin: 0; padding: 0.25rem; box-sizing: border-box; text-align: center; background-color: #ff7b7b;\"\u003E14 minutes 30 secondes de souffrance\u003C/p\u003E\n  \u003Cp style=\"width: 100%; height: 25%; margin: 0; padding: 0.25rem; box-sizing: border-box; text-align: center; background-color: #ffc3c3;\"\u003E2 heures 25 minutes de souffrance\u003C/p\u003E\n  \u003Cp style=\"width: 100%; height: 25%; margin: 0; padding: 0.25rem; box-sizing: border-box; text-align: center; background-color: #ffe9e9;\"\u003E1 jour 6 heures d'inconfort\u003C/p\u003E\n\u003C/div\u003E\u003C/div\u003E"
-            }
-        },
-        {
-          "element_type": "text",
-          "text_element":
-            {
-              "html": "\u003Cdiv style=\"font-size: 1.75rem; background-color: #ffffff; padding: 1rem;\"\u003E\u003Ch3 style=\"text-align: center; font-weight: bold; margin-bottom: 0.5rem; text-transform: uppercase; color: #3c1212;\"\u003ESouffrance psychologique\u003C/h3\u003E\u003Cdiv style=\"text-transform: none; font-size: 1rem;\"\u003E\n  \u003Cp style=\"width: 100%; height: 25%; margin: 0; padding: 0.25rem; box-sizing: border-box; text-align: center; background-color: #3c1212; color: #ffffff;\"\u003E4 secondes d'agonie\u003C/p\u003E\n  \u003Cp style=\"width: 100%; height: 25%; margin: 0; padding: 0.25rem; box-sizing: border-box; text-align: center; background-color: #ff7b7b;\"\u003E14 minutes 30 secondes de souffrance\u003C/p\u003E\n  \u003Cp style=\"width: 100%; height: 25%; margin: 0; padding: 0.25rem; box-sizing: border-box; text-align: center; background-color: #ffc3c3;\"\u003E2 heures 25 minutes de souffrance\u003C/p\u003E\n  \u003Cp style=\"width: 100%; height: 25%; margin: 0; padding: 0.25rem; box-sizing: border-box; text-align: center; background-color: #ffe9e9;\"\u003E1 jour 6 heures d'inconfort\u003C/p\u003E\n\u003C/div\u003E\u003C/div\u003E"
-            }
+        
+            "element_type": "text",
+            "text_element": {
+    "html": "\u003Cdiv style=\"display: flex; flex-wrap: wrap; gap: 0.5rem; align-items: stretch; justify-content: center;\"\u003E\n\n  <!-- Bloc Poule -->\n  \u003Cdiv style=\"flex: 0 0 300px; max-width: 300px; background-color: #ffffff; display: flex; flex-direction: column; justify-content: center; text-align: center; margin-left: 0.5rem; margin-right: 0.5rem;\"\u003E\n    \u003Cdiv style=\"display: flex; justify-content: center;\"\u003E\n      \u003Cimg src=\"https://github.com/littlecoffe8/icons/blob/main/suffering_logo_hen-03.png?raw=true\" alt=\"Logo souffrance\" style=\"width: 150px; height: auto;\"\u003E\n    \u003C/div\u003E\n     \u003Cp style=\"margin-top: 0.5rem; margin-bottom: 0; font-weight: bold; color: #3c1212;\"\u003EPoule pondeuse élevée en \n      \u003Ca style=\"width: 100%; margin: 0; padding: 0.25rem; box-sizing: border-box; text-align: center; background-color: #ff7b7b;\"\u003Ecage aménagée\u003C/a\u003E\n        \u003Cspan style=\"display: block; margin-top: 0.5rem;\"\u003E10 oeufs moyen calibre\u003C/span\u003E\n    \u003C/p\u003E\n  \u003C/div\u003E\n\n  <!-- Bloc Souffrance -->\n  \u003Cdiv style=\"flex: 1 1 650px; display: flex; flex-wrap: wrap;  margin-left: 0.5rem; margin-right: 0.5rem;\"\u003E\n\n    <!-- Souffrance Physique -->\n    \u003Cdiv style=\"flex: 1 1 300px; background-color: #ffffff; padding: 0.25rem; margin-left:0.5rem; margin-right:0.5rem; display: flex; flex-direction: column;\"\u003E\n      \u003Ch3 style=\"text-align: center; font-weight: bold; margin-bottom: 1rem; text-transform: uppercase; color: #3c1212; font-size: 1.5rem; flex: 1;\"\u003ESouffrance physique\u003C/h3\u003E\n      \u003Cdiv style=\"text-transform: none; font-size: 1rem; display: flex; flex-direction: column; justify-content: space-between; flex: 1;\"\u003E\n        \u003Cp style=\"width: 100%; margin: 0; padding: 0.25rem; box-sizing: border-box; text-align: center; background-color: #3c1212; color: #ffffff;\"\u003E4 secondes d'agonie\u003C/p\u003E\n        \u003Cp style=\"width: 100%; margin: 0; padding: 0.25rem; box-sizing: border-box; text-align: center; background-color: #ff7b7b;\"\u003E14 minutes 30 secondes de souffrance\u003C/p\u003E\n        \u003Cp style=\"width: 100%; margin: 0; padding: 0.25rem; box-sizing: border-box; text-align: center; background-color: #ffc3c3;\"\u003E2 heures 25 minutes de douleur\u003C/p\u003E\n        \u003Cp style=\"width: 100%; margin: 0; padding: 0.25rem; box-sizing: border-box; text-align: center; background-color: #ffe9e9;\"\u003E1 jour 6 heures d'inconfort\u003C/p\u003E\n      \u003C/div\u003E\n    \u003C/div\u003E\n\n    <!-- Souffrance Psychologique -->\n    \u003Cdiv style=\"flex: 1 1 300px; background-color: #ffffff; padding: 0.25rem;  margin-left:0.5rem; margin-right:0.5rem; display: flex; flex-direction: column;\"\u003E\n      \u003Ch3 style=\"text-align: center; font-weight: bold; margin-bottom: 1rem; text-transform: uppercase; color: #3c1212; font-size: 1.5rem; flex: 1;\"\u003ESouffrance psychologique\u003C/h3\u003E\n      \u003Cdiv style=\"text-transform: none; font-size: 1rem; display: flex; flex-direction: column; justify-content: space-between; flex: 1;\"\u003E\n        \u003Cp style=\"width: 100%; margin: 0; padding: 0.25rem; box-sizing: border-box; text-align: center; background-color: #3c1212; color: #ffffff;\"\u003E0 seconde d'agonie\u003C/p\u003E\n        \u003Cp style=\"width: 100%; margin: 0; padding: 0.25rem; box-sizing: border-box; text-align: center; background-color: #ff7b7b;\"\u003E7 minutes 5 secondes de souffrance\u003C/p\u003E\n        \u003Cp style=\"width: 100%; margin: 0; padding: 0.25rem; box-sizing: border-box; text-align: center; background-color: #ffc3c3;\"\u003E2 heures 10 minutes de douleur\u003C/p\u003E\n        \u003Cp style=\"width: 100%; margin: 0; padding: 0.25rem; box-sizing: border-box; text-align: center; background-color: #ffe9e9;\"\u003E1 jour 3 heures d'inconfort\u003C/p\u003E\n      \u003C/div\u003E\n    \u003C/div\u003E\n\n  \u003C/div\u003E\n\n\u003C/div\u003E"
+          }
+
         },
         {
           "element_type": "panel",
@@ -27,14 +21,6 @@
           "panel_element": {
             "panel_id": "intensities_definitions"
           }
-        },
-
-        {
-          "element_type": "panel",
-          "panel_element": {
-            "panel_id": "animal"
-          },
-          "expanded": true
         },
         {
           "element_type": "panel",
@@ -60,21 +46,23 @@
       ]
     },
     "suffering_footprint": {
+      "comment" : "non utilisé",
       "elements": [
         {
           "element_type": "text",
           "text_element":
             {
-              "html": "\u003Cdiv style=\"font-size: 1.75rem; background-color: #ffffff; padding: 1rem;\"\u003E\u003Ch3 style=\"text-align: center; font-weight: bold; margin-bottom: 0.5rem; text-transform: uppercase; color: #3c1212;\"\u003ESouffrance physique\u003C/h3\u003E\u003Cdiv style=\"text-transform: none; font-size: 1rem;\"\u003E\n  \u003Cp style=\"width: 100%; height: 25%; margin: 0; padding: 0.25rem; box-sizing: border-box; text-align: center; background-color: #3c1212; color: #ffffff;\"\u003E4 secondes d'agonie\u003C/p\u003E\n  \u003Cp style=\"width: 100%; height: 25%; margin: 0; padding: 0.25rem; box-sizing: border-box; text-align: center; background-color: #ff7b7b;\"\u003E14 minutes 30 secondes de souffrance\u003C/p\u003E\n  \u003Cp style=\"width: 100%; height: 25%; margin: 0; padding: 0.25rem; box-sizing: border-box; text-align: center; background-color: #ffc3c3;\"\u003E2 heures 25 minutes de souffrance\u003C/p\u003E\n  \u003Cp style=\"width: 100%; height: 25%; margin: 0; padding: 0.25rem; box-sizing: border-box; text-align: center; background-color: #ffe9e9;\"\u003E1 jour 6 heures d'inconfort\u003C/p\u003E\n\u003C/div\u003E\u003C/div\u003E"
+              "html": "\u003Cdiv style=\"font-size: 1.5rem; background-color: #ffffff; padding: 1rem;\"\u003E\u003Ch3 style=\"text-align: center; font-weight: bold; margin-bottom: 0.5rem; text-transform: uppercase; color: #3c1212;\"\u003ESouffrance physique\u003C/h3\u003E\u003Cdiv style=\"text-transform: none; font-size: 1rem;\"\u003E\n  \u003Cp style=\"width: 100%; height: 25%; margin: 0; padding: 0.25rem; box-sizing: border-box; text-align: center; background-color: #3c1212; color: #ffffff;\"\u003E4 secondes d'agonie\u003C/p\u003E\n  \u003Cp style=\"width: 100%; height: 25%; margin: 0; padding: 0.25rem; box-sizing: border-box; text-align: center; background-color: #ff7b7b;\"\u003E14 minutes 30 secondes de souffrance\u003C/p\u003E\n  \u003Cp style=\"width: 100%; height: 25%; margin: 0; padding: 0.25rem; box-sizing: border-box; text-align: center; background-color: #ffc3c3;\"\u003E2 heures 25 minutes de souffrance\u003C/p\u003E\n  \u003Cp style=\"width: 100%; height: 25%; margin: 0; padding: 0.25rem; box-sizing: border-box; text-align: center; background-color: #ffe9e9;\"\u003E1 jour 6 heures d'inconfort\u003C/p\u003E\n\u003C/div\u003E\u003C/div\u003E"
             }
         },
         {
           "element_type": "text",
           "text_element":
             {
-              "html": "\u003Cdiv style=\"font-size: 1.75rem; background-color: #ffffff; padding: 1rem;\"\u003E\u003Ch3 style=\"text-align: center; font-weight: bold; margin-bottom: 0.5rem; text-transform: uppercase; color: #3c1212;\"\u003ESouffrance psychologique\u003C/h3\u003E\u003Cdiv style=\"text-transform: none; font-size: 1rem;\"\u003E\n  \u003Cp style=\"width: 100%; height: 25%; margin: 0; padding: 0.25rem; box-sizing: border-box; text-align: center; background-color: #3c1212; color: #ffffff;\"\u003E4 secondes d'agonie\u003C/p\u003E\n  \u003Cp style=\"width: 100%; height: 25%; margin: 0; padding: 0.25rem; box-sizing: border-box; text-align: center; background-color: #ff7b7b;\"\u003E14 minutes 30 secondes de souffrance\u003C/p\u003E\n  \u003Cp style=\"width: 100%; height: 25%; margin: 0; padding: 0.25rem; box-sizing: border-box; text-align: center; background-color: #ffc3c3;\"\u003E2 heures 25 minutes de souffrance\u003C/p\u003E\n  \u003Cp style=\"width: 100%; height: 25%; margin: 0; padding: 0.25rem; box-sizing: border-box; text-align: center; background-color: #ffe9e9;\"\u003E1 jour 6 heures d'inconfort\u003C/p\u003E\n\u003C/div\u003E\u003C/div\u003E"
+              "html": "\u003Cdiv style=\"font-size: 1.5rem; background-color: #ffffff; padding: 1rem;\"\u003E\u003Ch3 style=\"text-align: center; font-weight: bold; margin-bottom: 0.5rem; text-transform: uppercase; color: #3c1212;\"\u003ESouffrance psychologique\u003C/h3\u003E\u003Cdiv style=\"text-transform: none; font-size: 1rem;\"\u003E\n  \u003Cp style=\"width: 100%; height: 25%; margin: 0; padding: 0.25rem; box-sizing: border-box; text-align: center; background-color: #3c1212; color: #ffffff;\"\u003E4 secondes d'agonie\u003C/p\u003E\n  \u003Cp style=\"width: 100%; height: 25%; margin: 0; padding: 0.25rem; box-sizing: border-box; text-align: center; background-color: #ff7b7b;\"\u003E14 minutes 30 secondes de souffrance\u003C/p\u003E\n  \u003Cp style=\"width: 100%; height: 25%; margin: 0; padding: 0.25rem; box-sizing: border-box; text-align: center; background-color: #ffc3c3;\"\u003E2 heures 25 minutes de souffrance\u003C/p\u003E\n  \u003Cp style=\"width: 100%; height: 25%; margin: 0; padding: 0.25rem; box-sizing: border-box; text-align: center; background-color: #ffe9e9;\"\u003E1 jour 6 heures d'inconfort\u003C/p\u003E\n\u003C/div\u003E\u003C/div\u003E"
             }
         },
+
         {
           "element_type": "panel",
           "panel_element": {
@@ -147,17 +135,17 @@
             "image": {
               "alt": "Poule pondeuse",
               "id": "laying_hen",
-              "lc": "en",
+              "lc": "fr",
               "sizes": {
                 "full": {
-                  "h": 5,
-                  "url": "",
-                  "w": 5
-                }
+                  "height": 10,
+                  "url": "https://github.com/littlecoffe8/icons/blob/main/suffering_logo_hen-03.png?raw=true",
+                  "width": 10
               }
-            },
-            "panel_group_id": "laying_hen_image",
-            "type": "subcard"
+              },
+              "panel_group_id": "laying_hen_image",
+              "type": "subcard"
+            }
           }
         },
         {
@@ -169,10 +157,16 @@
         {
           "element_type": "text",
           "text_element": {
-            "html": "Quantité dans le produit : \u003Cb\u003E10 Œufs - Calibre Moyen\u003C/b\u003E"
+            "html": "Quantité dans le produit : \u003Cb\u003E10 Œufs moyen calibre\u003C/b\u003E"
           }
         },
-
+        {
+          "element_type": "text",
+          "text_element":
+            {
+              "html": "\u003Cdiv style=\"background-color: #ffffff; padding: 1rem; text-align: center;\"\u003E\n  \u003Cimg src=\"https://github.com/littlecoffe8/icons/blob/main/suffering_logo_hen-03.png?raw=true\" alt=\"Logo souffrance\" style=\"max-width: 100%; height: auto;\"\u003E\n\u003C/div\u003E"
+            }
+        },        
         {
           "element_type": "text",
           "text_element": {
@@ -282,7 +276,7 @@
               "element_type": "text",
               "text_element":
                 {
-                  "html": "\u003Cdiv style=\"font-size: 1.75rem; background-color: #ffffff; padding: 1rem;\"\u003E\u003Ch3 style=\"text-align: center; font-weight: bold; margin-bottom: 0.5rem; text-transform: uppercase; color: #3c1212;\"\u003ESouffrance physique\u003C/h3\u003E\u003Cdiv style=\"text-transform: none; font-size: 1rem;\"\u003E\n  \u003Cp style=\"width: 100%; height: 25%; margin: 0; padding: 0.25rem; box-sizing: border-box; text-align: center; background-color: #3c1212; color: #ffffff;\"\u003E4 secondes d'agonie\u003C/p\u003E\n  \u003Cp style=\"width: 100%; height: 25%; margin: 0; padding: 0.25rem; box-sizing: border-box; text-align: center; background-color: #ff7b7b;\"\u003E14 minutes 30 secondes de souffrance\u003C/p\u003E\n  \u003Cp style=\"width: 100%; height: 25%; margin: 0; padding: 0.25rem; box-sizing: border-box; text-align: center; background-color: #ffc3c3;\"\u003E2 heures 25 minutes de souffrance\u003C/p\u003E\n  \u003Cp style=\"width: 100%; height: 25%; margin: 0; padding: 0.25rem; box-sizing: border-box; text-align: center; background-color: #ffe9e9;\"\u003E1 jour 6 heures d'inconfort\u003C/p\u003E\n\u003C/div\u003E\u003C/div\u003E"
+                  "html": "\u003Cdiv style=\"font-size: 1.5rem; background-color: #ffffff; padding: 1rem;\"\u003E\u003Ch3 style=\"text-align: center; font-weight: bold; margin-bottom: 0.5rem; text-transform: uppercase; color: #3c1212;\"\u003ESouffrance physique\u003C/h3\u003E\u003Cdiv style=\"text-transform: none; font-size: 1rem;\"\u003E\n  \u003Cp style=\"width: 100%; height: 25%; margin: 0; padding: 0.25rem; box-sizing: border-box; text-align: center; background-color: #3c1212; color: #ffffff;\"\u003E4 secondes d'agonie\u003C/p\u003E\n  \u003Cp style=\"width: 100%; height: 25%; margin: 0; padding: 0.25rem; box-sizing: border-box; text-align: center; background-color: #ff7b7b;\"\u003E14 minutes 30 secondes de souffrance\u003C/p\u003E\n  \u003Cp style=\"width: 100%; height: 25%; margin: 0; padding: 0.25rem; box-sizing: border-box; text-align: center; background-color: #ffc3c3;\"\u003E2 heures 25 minutes de souffrance\u003C/p\u003E\n  \u003Cp style=\"width: 100%; height: 25%; margin: 0; padding: 0.25rem; box-sizing: border-box; text-align: center; background-color: #ffe9e9;\"\u003E1 jour 6 heures d'inconfort\u003C/p\u003E\n\u003C/div\u003E\u003C/div\u003E"
                 }
             }
           ]
