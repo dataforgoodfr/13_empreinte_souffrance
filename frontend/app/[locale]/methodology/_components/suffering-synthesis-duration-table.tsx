@@ -14,10 +14,10 @@ export default function SufferingSynthesisDurationTable({
 
     return (
         <div className="w-full grid grid-cols-2 grid-rows-2 normal-case text-center">
-            <div className="flex justify-center items-center bg-brown light-text p-2">{agony_duration_text}</div>
-            <div className="flex justify-center items-center bg-pink-3 dark-text p-2">{pain_duration_text}</div>
-            <div className="flex justify-center items-center bg-pink-2 dark-text p-2">{suffering_duration_text}</div>
-            <div className="flex justify-center items-center bg-pink-1 dark-text p-2">{discomfort_duration_text}</div>
+            <p className="text caption flex justify-center items-center bg-brown light-text p-2">{agony_duration_text}</p>
+            <p className="flex justify-center items-center bg-pink-3 dark-text p-2">{pain_duration_text}</p>
+            <p className="flex justify-center items-center bg-pink-2 dark-text p-2">{suffering_duration_text}</p>
+            <p className="flex justify-center items-center bg-pink-1 dark-text p-2">{discomfort_duration_text}</p>
         </div>
     )
 }

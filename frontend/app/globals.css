@@ -6,14 +6,15 @@
 @theme inline {
   /* Color */
   --color-white: #ffffff;
-  --color-grey: #f9f9f9;
+  --color-grey: #f2f1f1;
+  --color-grey-2:  #b3b3b3;
   --color-black: #242233;
+  --color-violet: #d3cdff;
 
   --color-pink-1: #ffe9e9;
   --color-pink-2: #ffc3c3;
   --color-pink-3: #FF584B;
   --color-brown: #3c1212;
-  --color-violet: #d3cdff;
 
   /* Typography */
   --font-albert-sans: 'Albert Sans';
