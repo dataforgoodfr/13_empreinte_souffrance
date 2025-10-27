@@ -1,4 +1,4 @@
-import SufferingQuantificationStepsSection from './_sections/suffering-quantification-steps-section';
+import SufferingQuantificationStepsSection from './_sections/three-steps-method-section';
 import IntroductionSection from './_sections/introduction-section';
 import MethodDetailsSection from './_sections/method-details-section';
 import KeyResultsSection from './_sections/key-results-section';

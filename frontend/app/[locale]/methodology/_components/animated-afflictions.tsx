@@ -1,6 +1,6 @@
 'use client';
 import { useEffect, useRef, useState } from 'react';
-import SufferingSynthesisDurationTable from '@/app/[locale]/methodology/_components/suffering-synthesis-duration-table';
+import SufferingSynthesisDurationRows from '@/app/[locale]/methodology/_components/suffering-scales';
 
 export type Affliction = {
   title: string;
@@ -129,7 +129,7 @@ function SufferingSynthesis(props: Affliction) {
         </div>
 
         <div className="normal-case ml-4">
-          <SufferingSynthesisDurationTable
+          <SufferingSynthesisDurationRows
             agony_duration_text={agony}
             pain_duration_text={pain}
             suffering_duration_text={suffering}

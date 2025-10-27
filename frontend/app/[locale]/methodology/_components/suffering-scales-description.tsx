@@ -4,7 +4,7 @@ interface SufferingScaleDescriptionProps {
   display_criteria?: boolean;
 }
 
-interface SufferingStage {
+interface SufferingScale {
   title: string;
   stage_description: string;
   criteria_description: string;
@@ -12,9 +12,9 @@ interface SufferingStage {
   text_color?: string;
 }
 
-export default async function SufferingStagesDescription({ display_criteria = false }: SufferingScaleDescriptionProps) {
+export default async function SufferingScalesDescription({ display_criteria = false }: SufferingScaleDescriptionProps) {
   const t = await getI18n();
-  const suffering_stages: SufferingStage[] = [
+  const suffering_stages: SufferingScale[] = [
     {
       title: t('PainEquationSection.stages.discomfort.title'),
       stage_description: t('PainEquationSection.stages.discomfort.text'),
@@ -47,7 +47,7 @@ export default async function SufferingStagesDescription({ display_criteria = fa
       <h2 className="font-bold uppercase mt-6">{t('MethodologyPage.sufferingQuantificationSteps.title2')}</h2>
       <p className="md:max-w-2/3 my-6">{t('MethodologyPage.sufferingQuantificationSteps.text')}</p>
       <div className="grid grid-cols-1 md:grid-cols-4 gap-2">
-        {suffering_stages.map((suffering_stage: SufferingStage, index) => (
+        {suffering_stages.map((suffering_stage: SufferingScale, index) => (
           <article
             key={index}
             className={`flex flex-col gap-[20px] p-4 rounded-[16px] ${suffering_stage.background_color} ${suffering_stage.text_color}`}
