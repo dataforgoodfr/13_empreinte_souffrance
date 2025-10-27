@@ -38,7 +38,7 @@ export default async function SufferingScalesDescription({ display_criteria = fa
       stage_description: t('PainEquationSection.stages.agony.text'),
       criteria_description: t('MethodologyPage.sufferingQuantificationSteps.legend.agony.criteria_description'),
       background_color: 'bg-brown',
-      text_color: 'text-pink-2',
+      text_color: 'text-pink-1',
     },
   ];
 
