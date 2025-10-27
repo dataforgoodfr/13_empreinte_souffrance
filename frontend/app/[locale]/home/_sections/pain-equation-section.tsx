@@ -1,7 +1,7 @@
 import { getI18n } from '@/locales/server';
 import Link from 'next/link';
 import SectionHeading from '@/app/[locale]/ui/_sections/section-heading';
-import SufferingStagesDescription from '@/app/[locale]/ui/_components/suffering-stages-description';
+import SufferingStagesDescription from '@/app/[locale]/methodology/_components/suffering-scales-description';
 
 export default async function PainEquationSection() {
   const t = await getI18n();

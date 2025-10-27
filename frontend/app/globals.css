@@ -1,70 +1,44 @@
+@import url('https://fonts.googleapis.com/css2?family=Albert+Sans:ital,wght@0,100..900;1,100..900&display=swap');
 @import 'tailwindcss';
-:root {
-  /** colors **/
-  --white: #ffffff;
-  --grey: #f9f9f9;
-  --pink-1: #ffe9e9;
-  --pink-2: #ffc3c3;
-  --pink-3: #ff7b7b;
-  --brown: #3c1212;
-  --violet-1: #e7e4ff;
-  --violet-2: #b5abff;
 
-  /** typography **/
-  /*
-    Following fonts vars are overridden at runtime by Next.js
-    See app/layout.tsx
-    we declare them to don't have IDE error
-  */
-  --font-albert-sans: 'Albert Sans';
-  --font-azeret-mono: 'Azeret Mono';
+/** Themes variables Tailwind **/
 
-  --primary-font: var(--font-albert-sans);
-  --secondary-font: var(--font-azeret-mono);
-  font-family: var(--primary-font), sans-serif;
-  --h1-font-size: 47px;
-  --h2-font-size: 39px;
-  --h3-font-size: 31px;
-  --h4-font-size: 16px;
-  --h5-font-size: 12px;
-  --numbers-font-size: 28px;
-  --button-font-size: 16px;
-  --lead-font-size: 22px;
-  --body-font-size: 16px;
-  --caption-font-size: 12px;
-
-  /** margin & padding **/
-  --section-padding: 80px 50px 80px 50px;
-}
-
-/** declare colors to be used in tailwind **/
 @theme inline {
-  --color-grey: var(--grey);
-  --color-pink-1: var(--pink-1);
-  --color-pink-2: var(--pink-2);
-  --color-pink-3: var(--pink-3);
-  --color-brown: var(--brown);
-  --color-violet-1: var(--violet-1);
-  --color-violet-2: var(--violet-2);
+  /* Color */
+  --color-white: #ffffff;
+  --color-grey: #f2f1f1;
+  --color-grey-2:  #b3b3b3;
+  --color-black: #242233;
+  --color-violet: #d3cdff;
+
+  --color-pink-1: #ffe9e9;
+  --color-pink-2: #ffc3c3;
+  --color-pink-3: #FF584B;
+  --color-brown: #3c1212;
+
+  /* Typography */
+  --font-albert-sans: 'Albert Sans';
+
+  /* Font-size Desktop */
+  --text-h1-desktop: 38px;
+  --text-h2-desktop: 32px;
+  --text-h3-desktop: 26px;
+  --text-numbers-desktop: 150px;
+
+  /* Font-size Mobile */
+  --text-h1: 32px;
+  --text-h2: 26px;
+  --text-h3: 20px;
+  --text-numbers:90px;
+
+  /* Default Font-size */
+  --text-body: 16px;
+  --text-caption: 12px;
+  --spacing-section: 56px 32px 56px 32px;
 }
 
 html {
   scroll-behavior: smooth;
-}
-
-/** -------------------------colors------------------------- **/
-.light-text {
-  color: var(--pink-1);
-}
-
-.dark-text {
-  color: var(--brown);
-}
-
-.divide-pink-3 {
-  :where(& > :not(:last-child)) {
-    border-color: var(--pink-3);
-  }
 }
 
 /** -------------------------typography------------------------- **/
@@ -73,77 +47,87 @@ h1,
 h2,
 h3,
 h4,
-h5,
 .numbers,
 .primary-button,
-.secondary-button {
-  font-family: var(--primary-font), sans-serif;
-  font-weight: 700;
-  font-style: normal;
-}
-
+.secondary-button,
 .lead,
 .body,
 .caption {
-  font-family: var(--secondary-font), sans-serif;
-  font-weight: 400;
+  font-family:
+    Albert Sans,
+    sans-serif;
+  font-weight: 700;
+  line-height: normal;
   font-style: normal;
 }
 
+/* Automatique font-size */
+
 h1 {
-  font-size: var(--h1-font-size);
+  font-size: var(--text-h1);
 }
-
 h2 {
-  font-size: var(--h2-font-size);
+  font-size: var(--text-h2);
 }
-
 h3 {
-  font-size: var(--h3-font-size);
+  font-size: var(--text-h3);
 }
-
 h4 {
-  font-size: var(--h4-font-size);
+  font-size: var(--text-h4);
 }
-
-h5 {
-  font-size: var(--h5-font-size);
-}
-
 .numbers {
-  font-size: var(--numbers-font-size);
+  font-size: var(--text-numbers);
 }
-
 .button {
-  font-size: var(--button-font-size);
+  font-size: var(--text-button);
 }
-
 .lead {
-  font-size: var(--lead-font-size);
+  font-size: var(--text-lead);
 }
-
 .body {
-  font-size: var(--body-font-size);
+  font-size: var(--text-body);
 }
-
 .caption {
-  font-size: var(--caption-font-size);
+  font-size: var(--text-caption);
 }
 
-
-/** -------------------------margin&padding------------------------- **/
-
-.section-padding{
-  padding : var(--section-padding);
+@media (width >= 640px) {
+  h1 {
+    font-size: var(--text-h1-desktop);
+  }
+  h2 {
+    font-size: var(--text-h2-desktop);
+  }
+  h3 {
+    font-size: var(--text-h3-desktop);
+  }
+  h4 {
+    font-size: var(--text-h4-desktop);
+  }
+  .numbers {
+    font-size: var(--text-numbers-desktop);
+  }
+  .button {
+    font-size: var(--text-button-desktop);
+  }
+  .lead {
+    font-size: var(--text-lead-desktop);
+  }
+  .body {
+    font-size: var(--text-body-desktop);
+  }
+  .caption {
+    font-size: var(--text-caption-desktop);
+  }
 }
 
 /** -------------------------button------------------------- **/
 
-.primary-button{
+.primary-button {
   padding: 16px;
   background-color: var(--pink-3);
   box-shadow: 0 5px 0 0 black;
-  font-size : var(--button-font-size);
+  font-size: var(--button-font-size);
   border-radius: calc(infinity * 1px);
   text-align: center;
   flex: content;
@@ -151,17 +135,17 @@ h5 {
   align-items: center;
 }
 
-.primary-button:hover{
-  background-color : var(--pink-1);
+.primary-button:hover {
+  background-color: var(--pink-1);
   box-shadow: 0 2px 0 0 black;
-  transition:all ease-in-out;
+  transition: all ease-in-out;
 }
 
-.secondary-button{
+.secondary-button {
   padding: 16px;
   background-color: var(--grey);
   box-shadow: 0 5px 0 0 black;
-  font-size : var(--button-font-size);
+  font-size: var(--button-font-size);
   border-radius: calc(infinity * 1px);
   text-align: center;
   flex: content;
@@ -169,8 +153,8 @@ h5 {
   align-items: center;
 }
 
-.secondary-button:hover{
-  background-color : var(--pink-1);
+.secondary-button:hover {
+  background-color: var(--pink-1);
   box-shadow: 0 2px 0 0 black;
-  transition:all ease-in-out;
+  transition: all ease-in-out;
 }

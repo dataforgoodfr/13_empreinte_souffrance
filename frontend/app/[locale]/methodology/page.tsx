@@ -1,4 +1,4 @@
-import SufferingQuantificationStepsSection from './_sections/suffering-quantification-steps-section';
+import ThreeStepsMethodSection from './_sections/three-steps-method-section';
 import IntroductionSection from './_sections/introduction-section';
 import MethodDetailsSection from './_sections/method-details-section';
 import KeyResultsSection from './_sections/key-results-section';
@@ -8,7 +8,7 @@ export default async function MethodologyPage() {
   return (
     <>
       <IntroductionSection />
-      <SufferingQuantificationStepsSection />
+      <ThreeStepsMethodSection/>
       <MethodDetailsSection />
       <KeyResultsSection />
       <GoFurtherSection />

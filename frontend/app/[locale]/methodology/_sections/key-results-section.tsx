@@ -1,6 +1,6 @@
 import SectionHeading from '../../ui/_sections/section-heading';
 import { getI18n } from '@/locales/server';
-import SufferingSynthesisDurationRows from '@/app/[locale]/methodology/_components/suffering-synthesis-duration-rows';
+import SufferingSynthesisDurationRows from '@/app/[locale]/methodology/_components/suffering-scales';
 
 export default async function KeyResultsSection() {
   const t = await getI18n();
