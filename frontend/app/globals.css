@@ -32,6 +32,7 @@
   --text-numbers:90px;
 
   /* Default Font-size */
+  --text-lead: 18px;
   --text-body: 16px;
   --text-caption: 12px;
   --spacing-section: 56px 32px 56px 32px;
