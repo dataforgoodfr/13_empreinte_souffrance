@@ -2,51 +2,92 @@
 <html lang="fr">
 <body>
 
-  
-
-<div style="display: flex; flex-direction: column; align-items: flex-start; max-width: 400px; box-sizing: border-box; color: #3c1212;">
+ <div style="box-sizing: border-box; color: #3c1212; display: inline-block; width: 100%; max-width:800px">
 
   <!-- Bloc Poule -->
-  <div style="margin: 1rem 0; width: 100%; text-align: center;">
-    <p style="margin: 0; font-weight: bold">
+  <div style="margin: 1rem auto; flex: 1 1 400px; text-align: center; box-sizing: border-box;">
+    <p style="margin: 0; font-weight: bold;">
       Poule pondeuse élevée en
       <a style="display: inline-block; padding: 0.25rem; background-color: #ff7b7b;">cage aménagée</a>
     </p>
     <img src="https://github.com/littlecoffe8/icons/blob/main/suffering_logo_hen-03.png?raw=true" alt="Logo souffrance" style="width: 150px;">
-    <p style="margin: 0; font-weight: bold">
+    <p style="margin: 0; font-weight: bold;">
       <a style="display: inline-block; padding: 0.25rem; background-color: #ffe9e9;">10 oeufs moyen calibre</a>
       contiennent en moyenne :
     </p>
   </div>
 
-  <!-- Bloc Souffrance Physique -->
-  <div style="margin: 0.5rem 0; width: 100%; text-align: center;">
-    <h3 style="margin: 0 0.5rem 1rem 0.5rem; font-weight: bold; text-transform: uppercase; font-size: 1.25rem;">
-      Souffrance physique
-    </h3>
-    <p style="margin: 0; padding: 0.25rem; background-color: #3c1212; color: #ffffff;">4 secondes d'agonie</p>
-    <p style="margin: 0; padding: 0.25rem; background-color: #ff7b7b;">14 minutes 30 secondes de souffrance</p>
-    <p style="margin: 0; padding: 0.25rem; background-color: #ffc3c3;">2 heures 25 minutes de douleur</p>
-    <p style="margin: 0; padding: 0.25rem; background-color: #ffe9e9;">1 jour 6 heures d'inconfort</p>
+  <!-- Conteneur des 2 blocs -->
+  <div style="display: flex; justify-content: flex-start; align-items: flex-start; gap: 0.5rem; flex-wrap: wrap; width: 100%;">
+
+    <!-- Bloc Souffrance Physique -->
+    <div style="flex: 1 1 350px; text-align: center; padding: 0.5rem; box-sizing: border-box; background-color: #fff; margin-bottom: 0.5rem;">
+      <h3 style="margin: 0 0 1rem 0; font-weight: bold; text-transform: uppercase; font-size: 1.25rem;">
+        Souffrance physique
+      </h3>
+      <p style="margin: 0; padding: 0.25rem; background-color: #3c1212; color: #fff;">4 secondes d'agonie</p>
+      <p style="margin: 0; padding: 0.25rem; background-color: #ff7b7b;">14 minutes 30 secondes de souffrance</p>
+      <p style="margin: 0; padding: 0.25rem; background-color: #ffc3c3;">2 heures 25 minutes de douleur</p>
+      <p style="margin: 0; padding: 0.25rem; background-color: #ffe9e9;">1 jour 6 heures d'inconfort</p>
+    </div>
+
+    <!-- Bloc Souffrance Psychologique -->
+    <div style="flex: 1 1 350px; text-align: center; padding: 0.5rem; box-sizing: border-box; background-color: #fff; margin-bottom: 0.5rem;">
+      <h3 style="margin: 0 0 1rem 0; font-weight: bold; text-transform: uppercase; font-size: 1.25rem;">
+        Souffrance psychologique
+      </h3>
+      <p style="margin: 0; padding: 0.25rem; background-color: #3c1212; color: #fff;">0 seconde d'agonie</p>
+      <p style="margin: 0; padding: 0.25rem; background-color: #ff7b7b;">7 minutes 5 secondes de souffrance</p>
+      <p style="margin: 0; padding: 0.25rem; background-color: #ffc3c3;">2 heures 10 minutes de douleur</p>
+      <p style="margin: 0; padding: 0.25rem; background-color: #ffe9e9;">1 jour 3 heures d'inconfort</p>
+    </div>
+
+  </div>
+</div>
+
+
+<div style="width: 100%; box-sizing: border-box; display: flex; flex-wrap: wrap;">
+
+  <!-- Inconfort -->
+   <div style="flex: 1 1 410px; min-width:200px; box-sizing: border-box; display: flex; flex-wrap: wrap;">
+
+    <div style="flex: 1 1 0; min-width:200px; padding: 0.5rem; box-sizing: border-box; background-color: #ffe9e9; text-align: center;">
+      <strong>Inconfort</strong>
+      <p style="margin:  0; font-size: 0.95rem;">
+        Gêne perceptible qui peut être ignorée. N'interfère pas avec les activités quotidiennes ou les comportements motivés (exploration, confort, entretien). Pas d'expressions visibles de douleur ni de perturbations physiologiques.
+      </p>
+    </div>
+
+    <!-- Douleur -->
+    <div style="flex: 1 1 0; min-width:200px; padding: 0.5rem; box-sizing: border-box; background-color: #ffc3c3; text-align: center;">
+      <strong>Douleur</strong>
+      <p style="margin:0; font-size: 0.95rem;">
+        Douleur persistante avec possibilité de brefs moments d'oubli lors de distractions. Réduit la fréquence des comportements motivés et altère partiellement les capacités fonctionnelles, tout en permettant la réalisation des activités essentielles.
+      </p>
+    </div>
+
   </div>
 
-  <div style="width: 100%; text-align: center;">
-    <span style="display:block; height:1.5rem; font-size:1.5rem; font-weight: bolder;">+</span>
-  </div>
+  <div style="flex: 1 1 410px; min-width:200px; box-sizing: border-box; display: flex; flex-wrap: wrap;">
 
-  <!-- Bloc Souffrance Psychologique -->
-  <div style="margin: 0.5rem 0; width: 100%; text-align: center;">
-    <h3 style="margin: 0 0.5rem 1rem 0.5rem; font-weight: bold; text-transform: uppercase; font-size: 1.25rem;">
-      Souffrance psychologique
-    </h3>
-    <p style="margin: 0; padding: 0.25rem; background-color: #3c1212; color: #ffffff;">0 seconde d'agonie</p>
-    <p style="margin: 0; padding: 0.25rem; background-color: #ff7b7b;">7 minutes 5 secondes de souffrance</p>
-    <p style="margin: 0; padding: 0.25rem; background-color: #ffc3c3;">2 heures 10 minutes de douleur</p>
-    <p style="margin: 0; padding: 0.25rem; background-color: #ffe9e9;">1 jour 3 heures d'inconfort</p>
+    <!-- Souffrance -->
+    <div style="flex: 1 1 0; min-width:200px; padding: 0.5rem; box-sizing: border-box; background-color: #ff7b7b; text-align: center;">
+      <strong>Souffrance</strong>
+      <p style="margin: 0; font-size: 0.95rem;">
+        Douleur constante qui prend le pas sur la plupart des comportements. Empêche le bien-être positif et modifie radicalement le niveau d'activité. Nécessite des analgésiques plus puissants et provoque une inattention à l'environnement.
+      </p>
+    </div>
+
+    <!-- Agonie -->
+    <div style="flex: 1 1 0; min-width:200px; padding: 0.5rem; box-sizing: border-box; background-color: #3c1212; color: #fff; text-align: center;">
+      <strong>Agonie</strong>
+      <p style="margin: 0; font-size: 0.95rem;">
+        Douleur extrême insupportable, même brièvement. Chez l'humain, ce serait le seuil de souffrance en dessous duquel beaucoup choisissent de mettre fin à leurs jours plutôt que de l'endurer. Déclenche des manifestations involontaires (cris, tremblements, agitation extrême) et ne peut être soulagée.
+      </p>
+    </div>
   </div>
 
 </div>
-
 
 
 </body>
