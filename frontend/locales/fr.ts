@@ -7,6 +7,9 @@
 // => UI > Section > Component > Elements
 
 export default {
+
+  //*___________ UI COMPONENTS __________________
+
   suffering_footprint: 'Empreinte souffrance',
 
   NavBarLink: {
@@ -38,6 +41,8 @@ export default {
     link2: 'Calculateur',
     link3: 'À propos',
   },
+
+  //*___________ HOME PAGE __________________
 
   Home: {
     badge: "Adopter l'élevage en plein air pour chaque poulet en Europe !",
@@ -227,7 +232,8 @@ export default {
     dfg_logo_alt: 'Logo Data For Good',
   },
 
-  // This section is used in the calculator page
+  //*___________ CALCULATOR PAGE __________________
+
   calculatorPage: {
     heroBanner: {
       title: 'Calculateur',
@@ -264,7 +270,8 @@ export default {
     linkSection: "CONSULTEZ L'EMPREINTE SOUFFRANCE DES œufS DU COMMERCE",
   },
 
-  // This section is used in the Methodology page
+  //*___________ METHODOLOGY PAGE __________________
+
   MethodologyPage: {
     heroiBanner: {
       title: 'Méthodologie',
@@ -623,39 +630,41 @@ export default {
 
     key_results_section: {
       key_results_h1: 'Les principaux résultats',
-      text_1: "On peut donc chiffrer la souffrance d’une poule dans différents systèmes d'élevage.",
-      text_2:
+      quantify_suffering_description: "On peut donc chiffrer la souffrance d’une poule dans différents systèmes d'élevage.",
+      calculation_method_description:
         "En appliquant la même méthode aux autres animaux impliqués dans la production d'œufs (poussins, parentaux...), on peut calculer l'empreinte souffrance globale pour la production d'un œuf.",
-      carte_1: {
-        text_carte_1: 'Au cours de sa vie, une poule en cage subit en moyenne:',
-        agony_carte_1: '6 min d’agonie',
-        pain_carte_1: '385h de douleur',
-        suffering_carte_1: '448h de souffrance',
-        discomfort_carte_1: '3000h d’inconfort',
+      caged_hen_card: {
+        title: 'Au cours de sa vie, une poule élevée en cage subit en moyenne:',
+        agony: '6 min d’agonie',
+        pain: '385h de douleur',
+        suffering: '448h de souffrance',
+        discomfort: '3000h d’inconfort',
       },
-      carte_2: {
-        text_carte_2: 'Au cours de sa vie, une poule en cage subit en moyenne:',
-        agony_carte_2: '6 min d’agonie',
-        pain_carte_2: '385h de douleur',
-        suffering_carte_2: '448h de souffrance',
-        discomfort_carte_2: '3000h d’inconfort',
+      barn_raised_hen_card: {
+        title: 'Au cours de sa vie, une poule élevée au sol subit en moyenne:',
+        agony: '6 min d’agonie',
+        pain: '385h de douleur',
+        suffering: '448h de souffrance',
+        discomfort: '3000h d’inconfort',
       },
-      carte_3: {
-        text_carte_3: 'Au cours de sa vie, une poule en cage subit en moyenne:',
-        agony_carte_3: '6 min d’agonie',
-        pain_carte_3: '385h de douleur',
-        suffering_carte_3: '448h de souffrance',
-        discomfort_carte_3: '3000h d’inconfort',
+      caged_hen_egg_card: {
+        title: 'La production d’un oeuf par une poule élevée en cage a provoqué:',
+        agony: '6 min d’agonie',
+        pain: '385h de douleur',
+        suffering: '448h de souffrance',
+        discomfort: '3000h d’inconfort',
       },
-      carte_4: {
-        text_carte_4: 'Au cours de sa vie, une poule en cage subit en moyenne:',
-        agony_carte_4: '6 min d’agonie',
-        pain_carte_4: '385h de douleur',
-        suffering_carte_4: '448h de souffrance',
-        discomfort_carte_4: '3000h d’inconfort',
+      barn_raised_hen_egg_card: {
+        title: 'La production d’un oeuf par une poule élevé au sol a provoqué:',
+        agony: '6 min d’agonie',
+        pain: '385h de douleur',
+        suffering: '448h de souffrance',
+        discomfort: '3000h d’inconfort',
       },
     },
   },
+
+  //*___________ ABOUT PAGE __________________
 
   aboutPage: {
     association_presentation_section: {
