@@ -17,11 +17,12 @@ export default {
   },
 
   GoFurther: {
-    title: 'ALLER PLUS LOIN',
-    downloadMediaKit: 'TELECHARGER LE KIT PRESSE',
-    share: 'PARTAGER LA PAGE',
-    methodology: 'DECOUVRIR LA METHODOLOGIE',
-    aboutThisWebsite: 'À PROPOS DE CE SITE',
+    title: 'Il est l’heure de définitivement bannir les poules en cage en france',
+    subtitle:
+      'Rejoignez la vague pour faire cesser les poules en cage en france, nous sommes deja 2405 signataires, nous comptons bien nous faire entendre aupres de la grande distribution.',
+    signPetition: 'Signer la pétition',
+    goEvent: 'Me rendre à la manifestation',
+    share: 'Partager la page',
   },
 
   twitterShare: {
@@ -681,7 +682,7 @@ export default {
           'À la veille de ce moment décisif pour la fin de l’élevage en cage, Empreinte Souffrance alerte les citoyens et les entreprises : il faut tourner la page des cages; les chiffres le montrent.',
       },
     },
-    thanking_section:'Ce projet a pu voir le jour grâce aux bénévoles qui ont travaillé pendant plusieurs mois sur la conception du site et du calculateur. Anima et Data for Good leur en sont profondément reconnaissants. Merci Laurent Basara, Luc Berton, Théo Degorre, Marie Groshens, Mathis Dupuy, Julien Deniaud, Adrien Jérôme, Adelia Khasanova, Paul Pajot, Axelle Playoust-Braure, Justine Tellier, Anaïs Valentin, Myriam Duval, Hakima Arroubat, Tom Francés, Julie Prigent, Tawfik Maalej, Denis Sabardine, Moïri Gamboni, Victor Diné, Hugo de Saint-Martin, Delon Ung.',
+    thanking_section:
+      'Ce projet a pu voir le jour grâce aux bénévoles qui ont travaillé pendant plusieurs mois sur la conception du site et du calculateur. Anima et Data for Good leur en sont profondément reconnaissants. Merci Laurent Basara, Luc Berton, Théo Degorre, Marie Groshens, Mathis Dupuy, Julien Deniaud, Adrien Jérôme, Adelia Khasanova, Paul Pajot, Axelle Playoust-Braure, Justine Tellier, Anaïs Valentin, Myriam Duval, Hakima Arroubat, Tom Francés, Julie Prigent, Tawfik Maalej, Denis Sabardine, Moïri Gamboni, Victor Diné, Hugo de Saint-Martin, Delon Ung.',
   },
-
 } as const;

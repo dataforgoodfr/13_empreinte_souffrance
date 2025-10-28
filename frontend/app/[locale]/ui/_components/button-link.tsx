@@ -6,6 +6,13 @@ const bgColorList = {
   white: 'bg-white',
 };
 
+const boxShadowList = {
+  none: 'bg-pink-3',
+  light: 'bg-white',
+  dark: '',
+};
+
+
 type CustomLinkButtonProps = {
   href: string;
   aria_label: string;
@@ -31,7 +38,7 @@ export default function ButtonLink({
       target={download || open_in_new_tab ? '_blank' : ''}
       download={download}
       className={clsx(
-        'text-center dark-text text-sm font-mono font-bold py-2 px-6 rounded-md shadow-[0_4px_0_#000] flex items-center justify-center transition-all duration-200 hover:bg-(--violet-1) ',
+        'primary-button text-center dark-text text-caption font-bold py-2 px-6 rounded-md shadow-[0_4px_0_#000] flex items-center justify-center transition-all duration-200 hover:bg-violet ',
         bgColorList[background_color_name],
         {
           'w-full': width == 'full',
