@@ -3,13 +3,31 @@
     "root": {
       "elements": [
         {
-        
             "element_type": "text",
-            "text_element": {
-    "html": "\u003Cdiv style=\"display: flex; flex-wrap: wrap; gap: 0.5rem; align-items: stretch; justify-content: center;\"\u003E\n\n  <!-- Bloc Poule -->\n  \u003Cdiv style=\"flex: 0 0 300px; max-width: 300px; background-color: #ffffff; display: flex; flex-direction: column; justify-content: center; text-align: center; margin-left: 0.5rem; margin-right: 0.5rem;\"\u003E\n    \u003Cdiv style=\"display: flex; justify-content: center;\"\u003E\n      \u003Cimg src=\"https://github.com/littlecoffe8/icons/blob/main/suffering_logo_hen-03.png?raw=true\" alt=\"Logo souffrance\" style=\"width: 150px; height: auto;\"\u003E\n    \u003C/div\u003E\n     \u003Cp style=\"margin-top: 0.5rem; margin-bottom: 0; font-weight: bold; color: #3c1212;\"\u003EPoule pondeuse élevée en \n      \u003Ca style=\"width: 100%; margin: 0; padding: 0.25rem; box-sizing: border-box; text-align: center; background-color: #ff7b7b;\"\u003Ecage aménagée\u003C/a\u003E\n        \u003Cspan style=\"display: block; margin-top: 0.5rem;\"\u003E10 oeufs moyen calibre\u003C/span\u003E\n    \u003C/p\u003E\n  \u003C/div\u003E\n\n  <!-- Bloc Souffrance -->\n  \u003Cdiv style=\"flex: 1 1 650px; display: flex; flex-wrap: wrap;  margin-left: 0.5rem; margin-right: 0.5rem;\"\u003E\n\n    <!-- Souffrance Physique -->\n    \u003Cdiv style=\"flex: 1 1 300px; background-color: #ffffff; padding: 0.25rem; margin-left:0.5rem; margin-right:0.5rem; display: flex; flex-direction: column;\"\u003E\n      \u003Ch3 style=\"text-align: center; font-weight: bold; margin-bottom: 1rem; text-transform: uppercase; color: #3c1212; font-size: 1.5rem; flex: 1;\"\u003ESouffrance physique\u003C/h3\u003E\n      \u003Cdiv style=\"text-transform: none; font-size: 1rem; display: flex; flex-direction: column; justify-content: space-between; flex: 1;\"\u003E\n        \u003Cp style=\"width: 100%; margin: 0; padding: 0.25rem; box-sizing: border-box; text-align: center; background-color: #3c1212; color: #ffffff;\"\u003E4 secondes d'agonie\u003C/p\u003E\n        \u003Cp style=\"width: 100%; margin: 0; padding: 0.25rem; box-sizing: border-box; text-align: center; background-color: #ff7b7b;\"\u003E14 minutes 30 secondes de souffrance\u003C/p\u003E\n        \u003Cp style=\"width: 100%; margin: 0; padding: 0.25rem; box-sizing: border-box; text-align: center; background-color: #ffc3c3;\"\u003E2 heures 25 minutes de douleur\u003C/p\u003E\n        \u003Cp style=\"width: 100%; margin: 0; padding: 0.25rem; box-sizing: border-box; text-align: center; background-color: #ffe9e9;\"\u003E1 jour 6 heures d'inconfort\u003C/p\u003E\n      \u003C/div\u003E\n    \u003C/div\u003E\n\n    <!-- Souffrance Psychologique -->\n    \u003Cdiv style=\"flex: 1 1 300px; background-color: #ffffff; padding: 0.25rem;  margin-left:0.5rem; margin-right:0.5rem; display: flex; flex-direction: column;\"\u003E\n      \u003Ch3 style=\"text-align: center; font-weight: bold; margin-bottom: 1rem; text-transform: uppercase; color: #3c1212; font-size: 1.5rem; flex: 1;\"\u003ESouffrance psychologique\u003C/h3\u003E\n      \u003Cdiv style=\"text-transform: none; font-size: 1rem; display: flex; flex-direction: column; justify-content: space-between; flex: 1;\"\u003E\n        \u003Cp style=\"width: 100%; margin: 0; padding: 0.25rem; box-sizing: border-box; text-align: center; background-color: #3c1212; color: #ffffff;\"\u003E0 seconde d'agonie\u003C/p\u003E\n        \u003Cp style=\"width: 100%; margin: 0; padding: 0.25rem; box-sizing: border-box; text-align: center; background-color: #ff7b7b;\"\u003E7 minutes 5 secondes de souffrance\u003C/p\u003E\n        \u003Cp style=\"width: 100%; margin: 0; padding: 0.25rem; box-sizing: border-box; text-align: center; background-color: #ffc3c3;\"\u003E2 heures 10 minutes de douleur\u003C/p\u003E\n        \u003Cp style=\"width: 100%; margin: 0; padding: 0.25rem; box-sizing: border-box; text-align: center; background-color: #ffe9e9;\"\u003E1 jour 3 heures d'inconfort\u003C/p\u003E\n      \u003C/div\u003E\n    \u003C/div\u003E\n\n  \u003C/div\u003E\n\n\u003C/div\u003E"
-          }
-
+            "text_element": 
+            {
+              "html": "<div style=\"display: flex; flex-direction: column; align-items: flex-start; max-width: 400px; box-sizing: border-box;\">\n\n  <!-- Bloc Poule -->\n  <div style=\"margin: 1rem 0; width: 100%; text-align: center;\">\n    <p style=\"margin: 0; font-weight: bold; color: #3c1212;\">\n      Poule pondeuse élevée en\n      <a style=\"display: inline-block; padding: 0.25rem; background-color: #ff7b7b;\">cage aménagée</a>\n    </p>\n    <img src=\"https://github.com/littlecoffe8/icons/blob/main/suffering_logo_hen-03.png?raw=true\" alt=\"Logo souffrance\" style=\"width: 150px;\">\n    <p style=\"margin: 0; font-weight: bold; color: #3c1212;\">\n      <a style=\"display: inline-block; padding: 0.25rem; background-color: #ffe9e9;\">10 oeufs moyen calibre</a>\n      contiennent en moyenne :\n    </p>\n  </div>\n\n  <!-- Bloc Souffrance Physique -->\n  <div style=\"margin: 0.5rem 0; width: 100%; text-align: center;\">\n    <h3 style=\"margin: 0 0.5rem 1rem 0.5rem; font-weight: bold; text-transform: uppercase; color: #3c1212; font-size: 1.25rem;\">\n      Souffrance physique\n    </h3>\n    <p style=\"margin: 0; padding: 0.25rem; background-color: #3c1212; color: #ffffff;\">4 secondes d'agonie</p>\n    <p style=\"margin: 0; padding: 0.25rem; background-color: #ff7b7b;\">14 minutes 30 secondes de souffrance</p>\n    <p style=\"margin: 0; padding: 0.25rem; background-color: #ffc3c3;\">2 heures 25 minutes de douleur</p>\n    <p style=\"margin: 0; padding: 0.25rem; background-color: #ffe9e9;\">1 jour 6 heures d'inconfort</p>\n  </div>\n\n  <div style=\"width: 100%; text-align: center;\">\n    <span style=\"display:block; height:1.5rem; font-size:1.5rem; font-weight: bolder;\">+</span>\n  </div>\n\n  <!-- Bloc Souffrance Psychologique -->\n  <div style=\"margin: 0.5rem 0; width: 100%; text-align: center;\">\n    <h3 style=\"margin: 0 0.5rem 1rem 0.5rem; font-weight: bold; text-transform: uppercase; color: #3c1212; font-size: 1.25rem;\">\n      Souffrance psychologique\n    </h3>\n    <p style=\"margin: 0; padding: 0.25rem; background-color: #3c1212; color: #ffffff;\">0 seconde d'agonie</p>\n    <p style=\"margin: 0; padding: 0.25rem; background-color: #ff7b7b;\">7 minutes 5 secondes de souffrance</p>\n    <p style=\"margin: 0; padding: 0.25rem; background-color: #ffc3c3;\">2 heures 10 minutes de douleur</p>\n    <p style=\"margin: 0; padding: 0.25rem; background-color: #ffe9e9;\">1 jour 3 heures d'inconfort</p>\n  </div>\n\n</div>"
+            }
         },
+        {
+          "element_type":"panel",
+          "panel_element": {
+            "panel_id": "about_suffering_footrint"
+          }
+        }
+      ],
+      "level": "info",
+      "title_element": {
+        "title": "Empreinte Souffrance",
+        "subtitle": "Qu'est-ce que l'empreinte souffrance ?",
+        "name": "suffering-footprint"
+      },
+      "topics": [
+        "suffering-footprint"
+      ]
+    },
+    "about_suffering_footrint": {
+      "elements": [
         {
           "element_type": "panel",
           "panel_element": {
@@ -35,59 +53,10 @@
           }
         }
       ],
-      "level": "info",
       "title_element": {
-        "title": "Empreinte Souffrance",
-        "subtitle": "Qu'est-ce que l'empreinte souffrance ?",
+        "title": "En savoir plus sur l'Empreinte Souffrance",
         "name": "suffering-footprint"
-      },
-      "topics": [
-        "suffering-footprint"
-      ]
-    },
-    "suffering_footprint": {
-      "comment" : "non utilisé",
-      "elements": [
-        {
-          "element_type": "text",
-          "text_element":
-            {
-              "html": "\u003Cdiv style=\"font-size: 1.5rem; background-color: #ffffff; padding: 1rem;\"\u003E\u003Ch3 style=\"text-align: center; font-weight: bold; margin-bottom: 0.5rem; text-transform: uppercase; color: #3c1212;\"\u003ESouffrance physique\u003C/h3\u003E\u003Cdiv style=\"text-transform: none; font-size: 1rem;\"\u003E\n  \u003Cp style=\"width: 100%; height: 25%; margin: 0; padding: 0.25rem; box-sizing: border-box; text-align: center; background-color: #3c1212; color: #ffffff;\"\u003E4 secondes d'agonie\u003C/p\u003E\n  \u003Cp style=\"width: 100%; height: 25%; margin: 0; padding: 0.25rem; box-sizing: border-box; text-align: center; background-color: #ff7b7b;\"\u003E14 minutes 30 secondes de souffrance\u003C/p\u003E\n  \u003Cp style=\"width: 100%; height: 25%; margin: 0; padding: 0.25rem; box-sizing: border-box; text-align: center; background-color: #ffc3c3;\"\u003E2 heures 25 minutes de souffrance\u003C/p\u003E\n  \u003Cp style=\"width: 100%; height: 25%; margin: 0; padding: 0.25rem; box-sizing: border-box; text-align: center; background-color: #ffe9e9;\"\u003E1 jour 6 heures d'inconfort\u003C/p\u003E\n\u003C/div\u003E\u003C/div\u003E"
-            }
-        },
-        {
-          "element_type": "text",
-          "text_element":
-            {
-              "html": "\u003Cdiv style=\"font-size: 1.5rem; background-color: #ffffff; padding: 1rem;\"\u003E\u003Ch3 style=\"text-align: center; font-weight: bold; margin-bottom: 0.5rem; text-transform: uppercase; color: #3c1212;\"\u003ESouffrance psychologique\u003C/h3\u003E\u003Cdiv style=\"text-transform: none; font-size: 1rem;\"\u003E\n  \u003Cp style=\"width: 100%; height: 25%; margin: 0; padding: 0.25rem; box-sizing: border-box; text-align: center; background-color: #3c1212; color: #ffffff;\"\u003E4 secondes d'agonie\u003C/p\u003E\n  \u003Cp style=\"width: 100%; height: 25%; margin: 0; padding: 0.25rem; box-sizing: border-box; text-align: center; background-color: #ff7b7b;\"\u003E14 minutes 30 secondes de souffrance\u003C/p\u003E\n  \u003Cp style=\"width: 100%; height: 25%; margin: 0; padding: 0.25rem; box-sizing: border-box; text-align: center; background-color: #ffc3c3;\"\u003E2 heures 25 minutes de souffrance\u003C/p\u003E\n  \u003Cp style=\"width: 100%; height: 25%; margin: 0; padding: 0.25rem; box-sizing: border-box; text-align: center; background-color: #ffe9e9;\"\u003E1 jour 6 heures d'inconfort\u003C/p\u003E\n\u003C/div\u003E\u003C/div\u003E"
-            }
-        },
-
-        {
-          "element_type": "panel",
-          "panel_element": {
-            "panel_id": "physical_psychological_pain"
-          }
-        },
-        {
-          "element_type": "panel",
-          "panel_element": {
-            "panel_id": "intensities_definitions"
-          }
-        }
-
-      ],
-      "level": "info",
-      "expanded": true,
-      "title_element": {
-          "title": "2 jours et 23 heures de souffrance générée dans la vie d'une poule pondeuse",
-          "type": "info",
-          "icon_url": "https://raw.githubusercontent.com/littlecoffe8/icons/519996a5d1328779be406be7bed09a4c83a56de2/chronograph-160753.svg",
-          "icon_size": "large"
-      },
-      "topics": [
-        "suffering-footprint"
-      ]
+      }
     },
     "intensities_definitions": {
       "elements": [
@@ -126,63 +95,6 @@
       "topics": [
         "suffering-footprint"
       ]
-    },
-    "animal": {
-      "elements": [
-        {
-          "element_type": "panel_group",
-          "panel_group_element": {
-            "image": {
-              "alt": "Poule pondeuse",
-              "id": "laying_hen",
-              "lc": "fr",
-              "sizes": {
-                "full": {
-                  "height": 10,
-                  "url": "https://github.com/littlecoffe8/icons/blob/main/suffering_logo_hen-03.png?raw=true",
-                  "width": 10
-              }
-              },
-              "panel_group_id": "laying_hen_image",
-              "type": "subcard"
-            }
-          }
-        },
-        {
-          "element_type": "text",
-          "text_element": {
-            "html": "Type d'élevage : \u003Cb\u003ECage aménagée\u003C/b\u003E "
-          }
-        },
-        {
-          "element_type": "text",
-          "text_element": {
-            "html": "Quantité dans le produit : \u003Cb\u003E10 Œufs moyen calibre\u003C/b\u003E"
-          }
-        },
-        {
-          "element_type": "text",
-          "text_element":
-            {
-              "html": "\u003Cdiv style=\"background-color: #ffffff; padding: 1rem; text-align: center;\"\u003E\n  \u003Cimg src=\"https://github.com/littlecoffe8/icons/blob/main/suffering_logo_hen-03.png?raw=true\" alt=\"Logo souffrance\" style=\"max-width: 100%; height: auto;\"\u003E\n\u003C/div\u003E"
-            }
-        },        
-        {
-          "element_type": "text",
-          "text_element": {
-            "html": "\u003Ci\u003ECes informations sont basées sur les données fournies par la communauté Open Food Facts et permettent de calculer l'empreinte souffrance du produit. Si vous observez une erreur pouvez rectifier la catégorie de produit (mode d'élevage et calibre) ou la quantité pour obtenir le calcul juste.\u003C/i\u003E"
-          }
-        }
-      ],
-      "level": "info",
-      "title_element": {
-          "title": "Animal identifié : Poule pondeuse",
-          "type": "info"
-      },
-      "topics": [
-        "suffering-footprint"
-      ],
-      "expanded": true
     },
     "physical_psychological_pain": {
       "elements": [
@@ -263,24 +175,7 @@
       "topics": [
         "suffering-footprint"
       ]
-    },
-    "physical_pain":
-      {
-        "title_element":
-      {
-            "type": "subcard"
-        },
-        "elements":
-          [
-            {
-              "element_type": "text",
-              "text_element":
-                {
-                  "html": "\u003Cdiv style=\"font-size: 1.5rem; background-color: #ffffff; padding: 1rem;\"\u003E\u003Ch3 style=\"text-align: center; font-weight: bold; margin-bottom: 0.5rem; text-transform: uppercase; color: #3c1212;\"\u003ESouffrance physique\u003C/h3\u003E\u003Cdiv style=\"text-transform: none; font-size: 1rem;\"\u003E\n  \u003Cp style=\"width: 100%; height: 25%; margin: 0; padding: 0.25rem; box-sizing: border-box; text-align: center; background-color: #3c1212; color: #ffffff;\"\u003E4 secondes d'agonie\u003C/p\u003E\n  \u003Cp style=\"width: 100%; height: 25%; margin: 0; padding: 0.25rem; box-sizing: border-box; text-align: center; background-color: #ff7b7b;\"\u003E14 minutes 30 secondes de souffrance\u003C/p\u003E\n  \u003Cp style=\"width: 100%; height: 25%; margin: 0; padding: 0.25rem; box-sizing: border-box; text-align: center; background-color: #ffc3c3;\"\u003E2 heures 25 minutes de souffrance\u003C/p\u003E\n  \u003Cp style=\"width: 100%; height: 25%; margin: 0; padding: 0.25rem; box-sizing: border-box; text-align: center; background-color: #ffe9e9;\"\u003E1 jour 6 heures d'inconfort\u003C/p\u003E\n\u003C/div\u003E\u003C/div\u003E"
-                }
-            }
-          ]
-        }
+    }
       },
   "product": {
     "image_url": "https://images.openfoodfacts.org/images/products/345/097/004/5360/front_fr.3.400.jpg",
