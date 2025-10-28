@@ -29,15 +29,15 @@ export default async function ContentWithImageComponent({
     >
       {' '}
       <div className="flex flex-col flex-1 md:basis-1/2">
-        <div className="h-full  w-full flex flex-col items-start p-3">
-          <h3 className="text-3xl sm:text-4xl font-extrabold tracking-wide dark-text mb-5 flex justify-start items-center">
+        <div className="h-full  w-full flex flex-col items-start justify-center p-3 gap-5">
+          <h3 className="text-3xl sm:text-4xl font-extrabold tracking-wide dark-text flex justify-start items-center">
             {text_heading.toUpperCase()}
           </h3>
           <p className="text-base sm:text-lg font-light">{text_content}</p>
           <Link
             href="/dashboard"
-            className="inline-block py-3 px-6 text-lg bg-grey hover:bg-violet w-full font-mono dark-text tracking-wider transition-all duration-200"
-            aria-label={t('PainEquationSection.cta')}
+            className="inline-block py-1 px-6 text-lg bg-grey hover:bg-violet w-full font-mono dark-text tracking-wider transition-all duration-200 align-middle"
+             aria-label={t('PainEquationSection.cta')}
           >
             <span className='text-caption'>{t('PainEquationSection.cta')}</span> →
           </Link>
