@@ -6,13 +6,6 @@ const bgColorList = {
   white: 'bg-white',
 };
 
-const boxShadowList = {
-  none: 'bg-pink-3',
-  light: 'bg-white',
-  dark: '',
-};
-
-
 type CustomLinkButtonProps = {
   href: string;
   aria_label: string;
