@@ -1,6 +1,7 @@
 import { getI18n } from '@/locales/server';
 import ContentWithImageSection from '@/app/[locale]/home/_components/content-with-image-component';
 import SectionHeading from '@/app/[locale]/ui/_sections/section-heading';
+import Image from 'next/image';
 
 export default async function ProgressSection() {
   const t = await getI18n();
@@ -11,6 +12,13 @@ export default async function ProgressSection() {
       className="min-h-screen py-8 w-full max-w-screen-xl mx-auto px-4 scroll-mt-18"
       aria-labelledby="results-heading"
     >
+      <Image
+        src="half-bars_egg.svg"
+        width={540}
+        height={740}
+        alt={'TMP egg progress bars'}
+        className="block p-2"
+      />
       <SectionHeading title={t('Results.title')} heading_number="3" />
       <div className="flex flex-col justify-center items-center">
         <div className="w-full md:5/6 lg:w-4/6 flex flex-col gap-7">
