@@ -25,7 +25,7 @@
       <h3 style="margin: 0 0 1rem 0; font-weight: bold; text-transform: uppercase; font-size: 1.25rem;">
         Souffrance physique
       </h3>
-      <p style="margin: 0; padding: 0.25rem; background-color: #3c1212; color: #fff;">4 secondes d'agonie</p>
+      <p style="margin: 0; padding: 0.25rem; background-color: #3c1212; color: #ffe9e9;">4 secondes d'agonie</p>
       <p style="margin: 0; padding: 0.25rem; background-color: #ff7b7b;">14 minutes 30 secondes de souffrance</p>
       <p style="margin: 0; padding: 0.25rem; background-color: #ffc3c3;">2 heures 25 minutes de douleur</p>
       <p style="margin: 0; padding: 0.25rem; background-color: #ffe9e9;">1 jour 6 heures d'inconfort</p>
@@ -36,7 +36,7 @@
       <h3 style="margin: 0 0 1rem 0; font-weight: bold; text-transform: uppercase; font-size: 1.25rem;">
         Souffrance psychologique
       </h3>
-      <p style="margin: 0; padding: 0.25rem; background-color: #3c1212; color: #fff;">0 seconde d'agonie</p>
+      <p style="margin: 0; padding: 0.25rem; background-color: #3c1212; color: #ffe9e9;">0 seconde d'agonie</p>
       <p style="margin: 0; padding: 0.25rem; background-color: #ff7b7b;">7 minutes 5 secondes de souffrance</p>
       <p style="margin: 0; padding: 0.25rem; background-color: #ffc3c3;">2 heures 10 minutes de douleur</p>
       <p style="margin: 0; padding: 0.25rem; background-color: #ffe9e9;">1 jour 3 heures d'inconfort</p>
@@ -46,29 +46,19 @@
 </div>
 
 
-<div style="width: 100%; box-sizing: border-box; display: flex; flex-wrap: wrap;">
+<!-- Définitions souffrance-->
+<div style="width: 100%; max-width:900px; box-sizing: border-box; display: flex; flex-wrap: wrap; color:#3c1212">
 
-  <!-- Inconfort -->
-   <div style="flex: 1 1 410px; min-width:200px; box-sizing: border-box; display: flex; flex-wrap: wrap;">
-
-    <div style="flex: 1 1 0; min-width:200px; padding: 0.5rem; box-sizing: border-box; background-color: #ffe9e9; text-align: center;">
-      <strong>Inconfort</strong>
-      <p style="margin:  0; font-size: 0.95rem;">
-        Gêne perceptible qui peut être ignorée. N'interfère pas avec les activités quotidiennes ou les comportements motivés (exploration, confort, entretien). Pas d'expressions visibles de douleur ni de perturbations physiologiques.
-      </p>
-    </div>
-
-    <!-- Douleur -->
-    <div style="flex: 1 1 0; min-width:200px; padding: 0.5rem; box-sizing: border-box; background-color: #ffc3c3; text-align: center;">
-      <strong>Douleur</strong>
-      <p style="margin:0; font-size: 0.95rem;">
-        Douleur persistante avec possibilité de brefs moments d'oubli lors de distractions. Réduit la fréquence des comportements motivés et altère partiellement les capacités fonctionnelles, tout en permettant la réalisation des activités essentielles.
-      </p>
-    </div>
-
-  </div>
-
+  <!-- Agonie/souffrance -->
   <div style="flex: 1 1 410px; min-width:200px; box-sizing: border-box; display: flex; flex-wrap: wrap;">
+
+    <!-- Agonie -->
+    <div style="flex: 1 1 0; min-width:200px; padding: 0.5rem; box-sizing: border-box; background-color: #3c1212; color: #ffe9e9; text-align: center;">
+      <strong>Agonie</strong>
+      <p style="margin: 0; font-size: 0.95rem;">
+        Douleur extrême insupportable, même brièvement. Chez l'humain, ce serait le seuil de souffrance en dessous duquel beaucoup choisissent de mettre fin à leurs jours plutôt que de l'endurer. Déclenche des manifestations involontaires (cris, tremblements, agitation extrême) et ne peut être soulagée.
+      </p>
+    </div>
 
     <!-- Souffrance -->
     <div style="flex: 1 1 0; min-width:200px; padding: 0.5rem; box-sizing: border-box; background-color: #ff7b7b; text-align: center;">
@@ -78,14 +68,31 @@
       </p>
     </div>
 
-    <!-- Agonie -->
-    <div style="flex: 1 1 0; min-width:200px; padding: 0.5rem; box-sizing: border-box; background-color: #3c1212; color: #fff; text-align: center;">
-      <strong>Agonie</strong>
-      <p style="margin: 0; font-size: 0.95rem;">
-        Douleur extrême insupportable, même brièvement. Chez l'humain, ce serait le seuil de souffrance en dessous duquel beaucoup choisissent de mettre fin à leurs jours plutôt que de l'endurer. Déclenche des manifestations involontaires (cris, tremblements, agitation extrême) et ne peut être soulagée.
+  </div>
+
+  <!-- Douleur/inconfort -->
+  <div style="flex: 1 1 410px; min-width:200px; box-sizing: border-box; display: flex; flex-wrap: wrap;">
+
+    <!-- Douleur -->
+    <div style="flex: 1 1 0; min-width:200px; padding: 0.5rem; box-sizing: border-box; background-color: #ffc3c3; text-align: center;">
+      <strong>Douleur</strong>
+      <p style="margin:0; font-size: 0.95rem;">
+        Douleur persistante avec possibilité de brefs moments d'oubli lors de distractions. Réduit la fréquence des comportements motivés et altère partiellement les capacités fonctionnelles, tout en permettant la réalisation des activités essentielles.
       </p>
     </div>
+
+  <!-- Inconfort -->
+
+    <div style="flex: 1 1 0; min-width:200px; padding: 0.5rem; box-sizing: border-box; background-color: #ffe9e9; text-align: center;">
+      <strong>Inconfort</strong>
+      <p style="margin:  0; font-size: 0.95rem;">
+        Gêne perceptible qui peut être ignorée. N'interfère pas avec les activités quotidiennes ou les comportements motivés (exploration, confort, entretien). Pas d'expressions visibles de douleur ni de perturbations physiologiques.
+      </p>
+    </div>
+
   </div>
+
+
 
 </div>
 
