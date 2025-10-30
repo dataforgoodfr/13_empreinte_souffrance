@@ -1,52 +1,55 @@
 import SectionHeading from '../../ui/_sections/section-heading';
 import { getI18n } from '@/locales/server';
-import SufferingSynthesisDurationRows from '@/app/[locale]/methodology/_components/suffering-scales';
+import SufferingScales from '@/app/[locale]/methodology/_components/suffering-scales';
 
 export default async function KeyResultsSection() {
   const t = await getI18n();
 
   return (
-    <section className="bg-pink-2 px-6 pb-20 py-2">
-      <div className="max-w-screen-xl mx-auto ">
+    <section className="bg-pink-2 p-section">
+      <div className="">
         <SectionHeading title={t('MethodologyPage.key_results_section.key_results_h1')} heading_number="3" />
-        <div className="md:w-1/2">
-          <p>{t('MethodologyPage.key_results_section.text_1')}</p>
-          <p className="py-2">{t('MethodologyPage.key_results_section.text_2')}</p>
+        <div className="text-lead">
+          <p>{t('MethodologyPage.key_results_section.quantify_suffering_description')}</p>
+          <p className="py-4">{t('MethodologyPage.key_results_section.calculation_method_description')}</p>
         </div>
-        <div className="grid md:grid-cols-2 grid-cols-1 gap-2 md:gap-1 mt-10">
+        <div className="grid md:grid-cols-2 grid-cols-1 gap-2 ">
           <AfflictionResultCard
-            text={t('MethodologyPage.key_results_section.carte_1.text_carte_1')}
-            agony={t('MethodologyPage.key_results_section.carte_1.agony_carte_1')}
-            pain={t('MethodologyPage.key_results_section.carte_1.pain_carte_1')}
-            suffering={t('MethodologyPage.key_results_section.carte_1.suffering_carte_1')}
-            discomfort={t('MethodologyPage.key_results_section.carte_1.discomfort_carte_1')}
+            text={t('MethodologyPage.key_results_section.caged_hen_card.title')}
+            agony={t('MethodologyPage.key_results_section.caged_hen_card.agony')}
+            pain={t('MethodologyPage.key_results_section.caged_hen_card.pain')}
+            suffering={t('MethodologyPage.key_results_section.caged_hen_card.suffering')}
+            discomfort={t('MethodologyPage.key_results_section.caged_hen_card.discomfort')}
           />
           <AfflictionResultCard
-            text={t('MethodologyPage.key_results_section.carte_2.text_carte_2')}
-            agony={t('MethodologyPage.key_results_section.carte_2.agony_carte_2')}
-            pain={t('MethodologyPage.key_results_section.carte_2.pain_carte_2')}
-            suffering={t('MethodologyPage.key_results_section.carte_2.suffering_carte_2')}
-            discomfort={t('MethodologyPage.key_results_section.carte_2.discomfort_carte_2')}
+            text={t('MethodologyPage.key_results_section.barn_raised_hen_card.title')}
+            agony={t('MethodologyPage.key_results_section.barn_raised_hen_card.agony')}
+            pain={t('MethodologyPage.key_results_section.barn_raised_hen_card.pain')}
+            suffering={t('MethodologyPage.key_results_section.barn_raised_hen_card.suffering')}
+            discomfort={t('MethodologyPage.key_results_section.barn_raised_hen_card.discomfort')}
           />
           <AfflictionResultCard
-            text={t('MethodologyPage.key_results_section.carte_3.text_carte_3')}
-            agony={t('MethodologyPage.key_results_section.carte_3.agony_carte_3')}
-            pain={t('MethodologyPage.key_results_section.carte_3.pain_carte_3')}
-            suffering={t('MethodologyPage.key_results_section.carte_3.suffering_carte_3')}
-            discomfort={t('MethodologyPage.key_results_section.carte_3.discomfort_carte_3')}
+            text={t('MethodologyPage.key_results_section.caged_hen_egg_card.title')}
+            agony={t('MethodologyPage.key_results_section.caged_hen_egg_card.agony')}
+            pain={t('MethodologyPage.key_results_section.caged_hen_egg_card.pain')}
+            suffering={t('MethodologyPage.key_results_section.caged_hen_egg_card.suffering')}
+            discomfort={t('MethodologyPage.key_results_section.caged_hen_egg_card.discomfort')}
           />
           <AfflictionResultCard
-            text={t('MethodologyPage.key_results_section.carte_4.text_carte_4')}
-            agony={t('MethodologyPage.key_results_section.carte_4.agony_carte_4')}
-            pain={t('MethodologyPage.key_results_section.carte_4.pain_carte_4')}
-            suffering={t('MethodologyPage.key_results_section.carte_4.suffering_carte_4')}
-            discomfort={t('MethodologyPage.key_results_section.carte_4.discomfort_carte_4')}
+            text={t('MethodologyPage.key_results_section.barn_raised_hen_egg_card.title')}
+            agony={t('MethodologyPage.key_results_section.barn_raised_hen_egg_card.agony')}
+            pain={t('MethodologyPage.key_results_section.barn_raised_hen_egg_card.pain')}
+            suffering={t('MethodologyPage.key_results_section.barn_raised_hen_egg_card.suffering')}
+            discomfort={t('MethodologyPage.key_results_section.barn_raised_hen_egg_card.discomfort')}
           />
         </div>
       </div>
     </section>
   );
 }
+
+//* Sub-components ________________________
+
 
 interface AfflictionResultCardProps {
   text: string;
@@ -58,13 +61,12 @@ interface AfflictionResultCardProps {
 
 const AfflictionResultCard = ({ text, agony, pain, suffering, discomfort }: AfflictionResultCardProps) => {
   return (
-    <div className="bg-pink-1 flex  border border-pink-3">
-      <div className="w-1/2 p-6 font-mono font-bold">
-        <img src="/tmp_logo.webp" alt="" style={{ height: '50px', width: '50px' }} />
-        <p>{text}</p>
-      </div>
-      <div className="w-1/2 flex flex-col items-center justify-center ">
-        <SufferingSynthesisDurationRows
+    <div className=" flex items-center bg-grey p-section gap-2 rounded-[10px]">
+   
+        <p className='uppercase font-bold text-h4 w-1/2'>{text}</p>
+  
+      <div className="flex flex-col items-center justify-center gap-2 w-1/2">
+        <SufferingScales
           agony_duration_text={agony}
           pain_duration_text={pain}
           suffering_duration_text={suffering}
