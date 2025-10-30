@@ -7,13 +7,13 @@
   /* Color */
   --color-white: #ffffff;
   --color-grey: #f2f1f1;
-  --color-grey-2:  #b3b3b3;
+  --color-grey-2: #b3b3b3;
   --color-black: #242233;
   --color-violet: #d3cdff;
 
   --color-pink-1: #ffe9e9;
   --color-pink-2: #ffc3c3;
-  --color-pink-3: #FF584B;
+  --color-pink-3: #ff584b;
   --color-brown: #3c1212;
 
   /* Typography */
@@ -29,7 +29,7 @@
   --text-h1: 32px;
   --text-h2: 26px;
   --text-h3: 20px;
-  --text-numbers:90px;
+  --text-numbers: 90px;
 
   /* Default Font-size */
   --text-lead: 18px;
@@ -125,11 +125,11 @@ h4 {
 /** -------------------------button------------------------- **/
 
 .primary-button {
-  padding: 16px;
-  background-color: var(--pink-3);
-  box-shadow: 0 5px 0 0 black;
-  font-size: var(--button-font-size);
-  border-radius: calc(infinity * 1px);
+  padding: 16px 0px 16px 0px;
+  background-color: var(--color-pink-3);
+  box-shadow: 0 5px 0 0 #ff7b7b;
+  font-size: var(--text-button);
+  border-radius: 10px;
   text-align: center;
   flex: content;
   justify-content: center;
@@ -137,17 +137,19 @@ h4 {
 }
 
 .primary-button:hover {
-  background-color: var(--pink-1);
-  box-shadow: 0 2px 0 0 black;
+  background-color: var(--color-violet);
+  box-shadow: 0 5px 0 0 var(--color-violet);
   transition: all ease-in-out;
 }
 
 .secondary-button {
-  padding: 16px;
-  background-color: var(--grey);
-  box-shadow: 0 5px 0 0 black;
-  font-size: var(--button-font-size);
-  border-radius: calc(infinity * 1px);
+  padding: 16px 0px 16px 0px;
+  background-color: none;
+  border: solid, 2px, var(--color-pink-3);
+  /* box-shadow: 0 5px 0 0 #FF7B7B; */
+  font-size: var(--text-button);
+  color: var(--color-pink-3);
+  border-radius: 10px;
   text-align: center;
   flex: content;
   justify-content: center;
@@ -155,7 +157,29 @@ h4 {
 }
 
 .secondary-button:hover {
-  background-color: var(--pink-1);
-  box-shadow: 0 2px 0 0 black;
+  background-color: var(--color-violet);
+  border: solid, 2px, var(--color-violet);
+  color: var(--color-black);
+  transition: all ease-in-out;
+}
+
+.tertiary-button {
+  padding: 16px 0px 16px 0px;
+  background-color: var(--color-white);
+  border: solid, 2px, var(--color-white);
+  box-shadow: 0 5px 0 0 var(--color-black);
+  font-size: var(--text-button);
+  color: var(--color-black);
+  border-radius: 10px;
+  text-align: center;
+  flex: content;
+  justify-content: center;
+  align-items: center;
+}
+
+.tertiary-button:hover {
+  background-color: var(--color-violet);
+  border: solid, 2px, var(--color-violet);
+  color: var(--color-black);
   transition: all ease-in-out;
 }
