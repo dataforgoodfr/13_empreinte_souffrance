@@ -37,9 +37,9 @@ export default async function ContentWithImageComponent({
           <Link
             href="/dashboard"
             className="inline-block py-1 px-6 text-lg bg-grey hover:bg-violet w-full font-mono dark-text tracking-wider transition-all duration-200 align-middle"
-             aria-label={t('PainEquationSection.cta')}
+            aria-label={t('PainEquationSection.cta')}
           >
-            <span className='text-caption'>{t('PainEquationSection.cta')}</span> →
+            <span className="text-caption">{t('PainEquationSection.cta')}</span> →
           </Link>
         </div>
       </div>
@@ -61,7 +61,7 @@ function ImageInContent({ image_url, image_description }: ImageInContentProps) {
         alt={image_description}
         width={560}
         height={560}
-        className="w-full h-auto object-cover"
+        className="w-full h-auto object-cover rounded-md"
         {...(image_description ? {} : { role: 'presentation' })}
       />
     </div>
