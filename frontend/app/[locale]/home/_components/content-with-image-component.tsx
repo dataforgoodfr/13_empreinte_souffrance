@@ -24,10 +24,10 @@ export default async function ContentWithImageComponent({
     <section
       className={clsx(
         'dark-text flex flex-col w-full',
-        image_position === 'right' ? 'md:flex-row' : 'md:flex-row-reverse'
+        image_position === 'left' ? 'md:flex-row' : 'md:flex-row-reverse'
       )}
     >
-      {' '}
+      <ImageInContent image_url={image_url} image_description={image_description} />
       <div className="flex flex-col flex-1 md:basis-1/2">
         <div className="h-full  w-full flex flex-col items-start justify-center gap-5">
           <h3 className="text-3xl sm:text-4xl font-extrabold tracking-wide dark-text flex justify-start items-center">
@@ -43,7 +43,6 @@ export default async function ContentWithImageComponent({
           </Link>
         </div>
       </div>
-      <ImageInContent image_url={image_url} image_description={image_description} />
     </section>
   );
 }
