@@ -159,3 +159,7 @@ h4 {
   box-shadow: 0 2px 0 0 black;
   transition: all ease-in-out;
 }
+
+[id] {
+  scroll-margin-top: 70px;
+}
