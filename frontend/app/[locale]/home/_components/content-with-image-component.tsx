@@ -37,9 +37,9 @@ export default async function ContentWithImageComponent({
           <Link
             href="/dashboard"
             className="inline-block py-1 px-6 text-lg bg-grey hover:bg-violet w-full font-mono dark-text tracking-wider transition-all duration-200 align-middle border-b border-brown"
-            aria-label={t('PainEquationSection.cta')}
+            aria-label={t('ProgressSection.display_dashboard')}
           >
-            <span className="text-caption">{t('PainEquationSection.cta')}</span> →
+            <span className="text-caption">{t('ProgressSection.display_dashboard')}</span> →
           </Link>
         </div>
       </div>

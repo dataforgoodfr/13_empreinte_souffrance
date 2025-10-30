@@ -57,6 +57,17 @@ export default {
     returnHome: "Retournez à l'accueil",
   },
 
+  ProgressSection: {
+    title: 'des progrès mais encore beaucoup d\'œufs cage "invisibles"',
+    display_dashboard: 'voir le dashboard',
+    more_than_80_percent_without_cage: 'plus de 80% des œufs vendus sont hors cage',
+    from_70_percent_in_2015_to_less_than_20_percent : 'De 70% d\'œufs cages en magasin en 2015, nous sommes maintenant passés à moins de 20%. Monoprix et Carrefour ont tenu leur engagement.',
+    most_supermarkets_still_sell_caged_eggs:'la plupart des supermarchés vendent encore des œufs cage',
+    survey_results_2026: 'Une enquête menée dans 500 magasins en janvier 2026 montre que Leclerc, Coopérative U, Intermarché, Franprix, Lidl et Aldi continuent de commercialiser des oeufs cage.',
+    no_transparency_for_ingredients:'pas de transparence sur les œufs ingrédients',
+    only_35_percent_display_no_caged_eggs: 'Une grande enquête menée en magasins montre que seulement 35% des gâteaux, brioches, pâtes fraîches affichent des œufs hors cage dans leurs ingrédients.'
+  },
+
   WFIArticle: {
     title: {
       part1: 'LE',
