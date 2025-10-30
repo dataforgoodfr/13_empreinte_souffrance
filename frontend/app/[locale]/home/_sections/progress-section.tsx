@@ -14,7 +14,7 @@ export default async function ProgressSection() {
       <Image src="half-bars_egg.svg" width={150} height={250} alt={'TMP egg progress bars'} className="block p-2" />
       <h1
         id="results-heading"
-        className="text-black flex flex-col text-center justify-center md:flex-row md:justify-start text-left md:text-center items-center gap-8 mb-8"
+        className="text-black flex flex-col justify-center md:flex-row md:justify-start text-left md:text-center items-center gap-8 mb-8"
       >
         {t('ProgressSection.title').toUpperCase()}
       </h1>
