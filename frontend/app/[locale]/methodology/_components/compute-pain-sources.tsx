@@ -1,8 +1,8 @@
 import { getI18n } from '@/locales/server';
 import { AnimatedAfflictionsGroup } from './animated-afflictions';
-import SufferingSynthesisDurationRows from '@/app/[locale]/methodology/_components/suffering-scales';
+import SufferingScales from '@/app/[locale]/methodology/_components/suffering-scales';
 
-export default async function GlobalSufferingFigure() {
+export default async function ComputePainSources() {
   const t = await getI18n();
 
   const afflictions = [
@@ -180,9 +180,9 @@ export default async function GlobalSufferingFigure() {
   ];
 
   return (
-    <section className="max-w-screen-xl mx-auto ">
-      <div className="sm:px-6 pb-20 xl:px-0 p-6 gap-4 flex flex-col md:flex-row w-full ">
-        <div className="flex flex-col md:w-1/2  sm:p-20 lg:p-6  mx-auto ">
+    <section className="md:p-section">
+      <div className="flex flex-col md:flex-row gap-4">
+        <hgroup className="w-full md:w-1/2 sm:p-20 lg:p-6">
           <h2 className="text-2xl font-extrabold mb-4 uppercase ">
             {t('MethodologyPage.QuantifySufferingByPain.global_suffering_figure_sectinon.title')}
           </h2>
@@ -193,20 +193,22 @@ export default async function GlobalSufferingFigure() {
             {t('MethodologyPage.QuantifySufferingByPain.global_suffering_figure_sectinon.description1')}
           </p>
           <p className="text-md mb-2">
-            {t('MethodologyPage.QuantifySufferingByPain.global_suffering_figure_sectinon.description2')}{' '}
+            {t('MethodologyPage.QuantifySufferingByPain.global_suffering_figure_sectinon.description2')}
           </p>
-        </div>
+        </hgroup>
 
-        <article className="flex-1 md:basis-1/3 divide-y divide-pink-3 border border-pink-3 mx-2">
+        <article className="flex-1">
           <AnimatedAfflictionsGroup afflictions={afflictions} delay={4000} cascade={300} />{' '}
-          <div className="normal-case p-2 text-xs">{t('MethodologyPage.sufferingQuantificationSteps.step3.text2')}</div>
-          <div className="bg-violet-1 text-center text-3xl font-extrabold">=</div>
-          <div className="bg-white p-4">
-            <h3 className="text-xs font-extrabold mb-2">
+          <p className="bg-white text-body rounded-[5px] p-4 my-2">{t('MethodologyPage.sufferingQuantificationSteps.step3.text2')}</p>
+          <p className="bg-violet rounded-[5px] text-center text-3xl p-2 my-4 font-extrabold">=</p>
+
+          {/* Synthèse */}
+          <div className="bg-white rounded-[5px] p-4">
+            <p className="text-body uppercase font-extrabold mb-2">
               {t('MethodologyPage.sufferingQuantificationSteps.step3.result.title')}
-            </h3>
-            <div className="normal-case mx-auto">
-              <SufferingSynthesisDurationRows
+            </p>
+            <div className="w-full grid grid-cols-2 grid-rows-2 normal-case text-center">
+              <SufferingScales
                 agony_duration_text={t('MethodologyPage.sufferingQuantificationSteps.step3.result.agony')}
                 pain_duration_text={t('MethodologyPage.sufferingQuantificationSteps.step3.result.pain')}
                 suffering_duration_text={t('MethodologyPage.sufferingQuantificationSteps.step3.result.suffering')}

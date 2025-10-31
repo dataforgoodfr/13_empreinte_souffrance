@@ -1,5 +1,5 @@
 import { getI18n } from '@/locales/server';
-import ListOfAffliction from '../_components/list-of-affition';
+import ListOfAffliction from './list-of-affition';
 
 export default async function IdentifyPainSources() {
   const t = await getI18n();
@@ -27,11 +27,11 @@ export default async function IdentifyPainSources() {
   return (
     <div className="max-w-[935px] flex flex-col items-center gap-8">
       <hgroup className="max-w-[650px]">
-        <h2 className="text-2xl font-extrabold mb-4 uppercase ">
+        <h2 className="mb-4 uppercase ">
           {t('MethodologyPage.method_details_section.title_h2')}
         </h2>
-        <p className="text-md mb-6">{t('MethodologyPage.method_details_section.question')}</p>
-        <p className="text-md mb-6">{t('MethodologyPage.method_details_section.description')}</p>
+        <p className="mb-6">{t('MethodologyPage.method_details_section.question')}</p>
+        <p className="mb-6">{t('MethodologyPage.method_details_section.description')}</p>
       </hgroup>
 
       {/* some psychologic pain */}
@@ -95,11 +95,11 @@ export default async function IdentifyPainSources() {
               alt=" {t('MethodologyPage.method_details_section.section_img_2.img_1.alt')}"
             />
             <figcaption>
-            <p className="font-bold mb-2">
-              {' '}
-              {t('MethodologyPage.method_details_section.section_img_2.img_1.type_of_pain')}
-            </p>
-            <p> {t('MethodologyPage.method_details_section.section_img_2.img_1.description_of_pain')}</p>
+              <p className="font-bold mb-2">
+                {' '}
+                {t('MethodologyPage.method_details_section.section_img_2.img_1.type_of_pain')}
+              </p>
+              <p> {t('MethodologyPage.method_details_section.section_img_2.img_1.description_of_pain')}</p>
             </figcaption>
           </figure>
 
@@ -110,10 +110,10 @@ export default async function IdentifyPainSources() {
               alt=" {t('MethodologyPage.method_details_section.section_img_2.img_2.alt')}"
             />
             <figcaption>
-            <p className="font-bold mb-2">
-              {t('MethodologyPage.method_details_section.section_img_2.img_2.type_of_pain')}
-            </p>
-            <p> {t('MethodologyPage.method_details_section.section_img_2.img_2.description_of_pain')}</p>
+              <p className="font-bold mb-2">
+                {t('MethodologyPage.method_details_section.section_img_2.img_2.type_of_pain')}
+              </p>
+              <p> {t('MethodologyPage.method_details_section.section_img_2.img_2.description_of_pain')}</p>
             </figcaption>
           </figure>
 

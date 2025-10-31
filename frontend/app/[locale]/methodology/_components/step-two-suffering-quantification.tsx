@@ -2,7 +2,7 @@ import { getI18n } from '@/locales/server';
 import StepColumnHeader from './step-column-header';
 
 import BoltIconV2 from '../../ui/_components/BoltIconV2';
-import SufferingSynthesisDurationRows from './suffering-scales';
+import SufferingScales from './suffering-scales';
 
 //* Sub-Component_______________
 
@@ -28,7 +28,7 @@ const SufferingQuantificationTable = ({
         <p className="text-caption text-center font-bold">{title}</p>
       </div>
       <div className="normal-case w-full">
-        <SufferingSynthesisDurationRows
+        <SufferingScales
           agony_duration_text={agony}
           pain_duration_text={pain}
           suffering_duration_text={suffering}
