@@ -1,0 +1,148 @@
+---
+- name: Deploy Docker Registry in Swarm with Client Certificate Authentication
+  hosts: main
+  become: yes
+  vars:
+    registry_domain: lheuredescomptes.org
+    ansible_python_interpreter: /usr/bin/python3
+    certs_dir: /opt/registry/certs
+    data_dir: /opt/registry/data
+    config_file: /opt/registry/config.yml
+
+  tasks:
+    - name: Ensure Docker SDK for Python is present
+      ansible.builtin.pip:
+        name: docker
+        state: present
+        executable: pip3
+      become: yes
+
+    - name: Ensure required directories exist
+      file:
+        path: "{{ item }}"
+        state: directory
+        mode: '0755'
+      loop:
+        - "{{ data_dir }}"
+        - "{{ certs_dir }}"
+
+    - name: Create OpenSSL config with SAN
+      copy:
+        dest: "{{ certs_dir }}/san.cnf"
+        content: |
+          [req]
+          default_bits       = 2048
+          prompt             = no
+          default_md         = sha256
+          req_extensions     = req_ext
+          distinguished_name = dn
+
+          [dn]
+          CN = {{ registry_domain }}
+
+          [req_ext]
+          subjectAltName = @alt_names
+
+          [alt_names]
+          DNS.1 = {{ registry_domain }}
+
+    - name: Generate CA private key and certificate
+      command: >
+        openssl req -x509 -newkey rsa:4096 -keyout {{ certs_dir }}/ca.key
+        -out {{ certs_dir }}/ca.crt -days 365
+        -subj "/CN=RegistryCA" -nodes
+      args:
+        creates: "{{ certs_dir }}/ca.crt"
+
+    - name: Generate server private key
+      command: >
+        openssl genrsa -out {{ certs_dir }}/registry.key 2048
+      args:
+        creates: "{{ certs_dir }}/registry.key"
+
+    - name: Generate server certificate signing request (CSR)
+      command: >
+        openssl req -new -key {{ certs_dir }}/registry.key
+        -out {{ certs_dir }}/registry.csr
+        -subj "/CN={{ registry_domain }}"
+        -config {{ certs_dir }}/san.cnf
+      args:
+        creates: "{{ certs_dir }}/registry.csr"
+
+    - name: Sign server certificate with CA
+      command: >
+        openssl x509 -req -in {{ certs_dir }}/registry.csr
+        -CA {{ certs_dir }}/ca.crt -CAkey {{ certs_dir }}/ca.key
+        -CAcreateserial -out {{ certs_dir }}/registry.crt -days 365
+        -extfile {{ certs_dir }}/san.cnf -extensions req_ext
+      args:
+        creates: "{{ certs_dir }}/registry.crt"
+
+    - name: Generate client private key
+      command: >
+        openssl genrsa -out {{ certs_dir }}/client.key 2048
+      args:
+        creates: "{{ certs_dir }}/client.key"
+
+    - name: Generate client CSR
+      command: >
+        openssl req -new -key {{ certs_dir }}/client.key
+        -out {{ certs_dir }}/client.csr
+        -subj "/CN=registry-client"
+      args:
+        creates: "{{ certs_dir }}/client.csr"
+
+    - name: Sign client certificate with CA
+      command: >
+        openssl x509 -req -in {{ certs_dir }}/client.csr
+        -CA {{ certs_dir }}/ca.crt -CAkey {{ certs_dir }}/ca.key
+        -CAcreateserial -out {{ certs_dir }}/client.crt -days 365
+      args:
+        creates: "{{ certs_dir }}/client.crt"
+
+    - name: Create Docker registry config.yml for mTLS
+      copy:
+        dest: "{{ config_file }}"
+        content: |
+          version: 0.1
+          log:
+            fields:
+              service: registry
+          storage:
+            filesystem:
+              rootdirectory: /var/lib/registry
+          http:
+            addr: :5000
+            tls:
+              certificate: /certs/registry.crt
+              key: /certs/registry.key
+              client_cas:
+                - /certs/ca.crt
+
+    - name: Deploy registry service with mTLS (using config.yml)
+      docker_swarm_service:
+        name: registry
+        image: registry:2
+        state: present
+        publish:
+          - published_port: 5000
+            target_port: 5000
+        mounts:
+          - source: "{{ data_dir }}"
+            target: /var/lib/registry
+            type: bind
+          - source: "{{ certs_dir }}"
+            target: /certs
+            type: bind
+          - source: "{{ config_file }}"
+            target: /etc/docker/registry/config.yml
+            type: bind
+        mode: replicated
+        replicas: 1
+
+    - name: Show message about client certificate usage
+      debug:
+        msg: |
+          "Distribute {{ certs_dir }}/client.crt, {{ certs_dir }}/client.key, and {{ certs_dir }}/ca.crt to Docker clients.
+          Place them in /etc/docker/certs.d/{{ registry_domain }}:5000/ on each client.
+          Restart the Docker daemon on clients after copying certificates."
