@@ -1,6 +1,6 @@
 import { getI18n } from '@/locales/server';
-import EggOnCage from '@/app/[locale]/home/_logo/EggOnCage';
-import ArrowDown from '@/app/[locale]/home/_logo/ArrowDown';
+import EggOnCage from '@/app/[locale]/_assets/_logo/EggOnCage';
+import ArrowDown from '@/app/[locale]/_assets/_logo/ArrowDown';
 import type { StaticImageData } from 'next/image';
 import Image from 'next/image';
 import { ReactNode } from 'react';
@@ -87,6 +87,8 @@ export default async function ResultsSection() {
             <div className="w-full lg:w-1/2 h-2/3 lg:h-full p-5 flex-shrink-0">{infoContent}</div>
             <div className="w-full lg:w-1/2 h-1/3 lg:h-full flex-shrink-0">
               <Image
+                width={500}
+                height={500}
                 className="w-full h-full object-cover"
                 src={imageSrc ?? '/chicken_with_thunder.jpg'}
                 alt="chicken with thunder"
