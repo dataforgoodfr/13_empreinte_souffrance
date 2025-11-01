@@ -9,11 +9,11 @@ export default {
   },
 
   GoFurther: {
-    title: 'GO FURTHER',
-    downloadMediaKit: 'DOWNLOAD THE MEDIA KIT',
-    share: 'SHARE THE WEBSITE',
-    methodology: 'UNDERSTAND THE METHODOLOGY',
-    aboutThisWebsite: 'ABOUT THIS WEBSITE',
+    title: 'It is time to ban caged hens in France for good',
+    subtitle: 'Join the wave to put an end to caged hens in France. We already have 2,405 signatories and we intend to make our voices heard by major retailers.',
+    signPetition: 'Sign the petition',
+    goEvent: 'Go to the demonstration',
+    share: 'Share the website',
   },
 
   twitterShare: {
