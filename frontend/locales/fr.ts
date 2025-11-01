@@ -104,30 +104,39 @@ export default {
   },
 
   Results: {
-    title: 'Les Résultats ?',
-    agony: {
-      title: "2 heures d'agonie",
-      content:
-        "...et 13 heures de souffrance intense : c'est ce que subit en moyenne chaque poule qui meurt de péritonite de l'œuf avec septicémie, soit 1.5% des poules",
-      image_description: "Poule se tenant sur un perchoir au dessus du cadavre d'une autre poule",
+    title: 'QUE VIVENT LES 12 MILLIONS DE POULES ENCORE EN CAGE ?',
+    subtitle: 'L\'Empreinte souffrance : le nouvel indicateur qui mesure la souffrance animale',
+    sectionList: {
+      first: {
+        superTitle: '1 boite d’oeuf c’est:',
+        title: '2H D’AGONIE\n'+
+          '4H DE SOUFFRANCE\n'+
+          '46H DE DOULEUR\n'+
+          '80H D’INCONFORT',
+        text: 'C’est le prix payé par une poule en cage pour la production d’une boîte de 6 oeufs Calculer l’empreinte souffrance',
+        source: {
+          url: '/',
+          name: 'Source link',
+        },
+      }, second:{
+        superTitle: 'Toutes les privations spécifique aux poules en cage',
+        title: '156H DE SOUFFRANCE PSYCHOLOGIQUE',
+        text: 'Les poules en cage sont privées de la plupart de leurs besoins (se déplacer, gratter le sol, prendre des bains de poussière) et en souffrent grandement.',
+        source: {
+          url: '/',
+          name: 'Source link',
+        },
+      }, third: {
+        superTitle: 'Passer totalement au système hors-cage:',
+        title: '93 % DE RÉDUCTION DES SOUFFRANCES',
+        text: 'Le passage en élevage hors cage permet de diminuer de 93 % les souffrances dues à l’impossibilité pour les poules d’adopter des comportements naturels',
+        source: {
+          url: '/',
+          name: 'Source link',
+        },
+      }
     },
-    discomfort: {
-      title: "3,5X plus d'inconfort",
-      content:
-        "Une poule élevée en cage connaîtra en moyenne 3,5 fois plus d'inconfort et deux fois plus de douleur au cours de sa vie qu'une poule élevée au sol",
-      image_description: "Poule passant la tête à travers les barreaux d'une cage pour pouvoir manger",
-    },
-    suffering_reduction: {
-      title: '93% de réduction des souffrances',
-      content:
-        "Le passage en élevage hors cage permet de diminuer de 93% les souffrances dues à l'impossibilité pour les poules d'adopter des comportements naturels",
-      image_description: "Poule vu du dessous, à travers les barreaux d'une cage",
-    },
-    cage_figure: {
-      title: '12 millions',
-      content: 'Encore 12 millions de poules sont élevées en cage en France, soit 1 poule sur 4',
-      image_description: 'Poules entassées dans des cages superposées les unes sur les autres',
-    },
+    link: 'DÉCOUVRIR LA MÉTHODOLOGIE EN DÉTAIL',
   },
 
   SufferingCausesSection: {
