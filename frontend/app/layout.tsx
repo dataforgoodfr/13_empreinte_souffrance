@@ -30,7 +30,7 @@ export default async function RootLayout({
 
   return (
     <html lang={locale}>
-      <body className={`antialiased bg-grey dark-text ${azeretMono.variable} ${albertSans.variable}`}>{children}</body>
+      <body className={`antialiased dark-text ${azeretMono.variable} ${albertSans.variable}`}>{children}</body>
     </html>
   );
 }
