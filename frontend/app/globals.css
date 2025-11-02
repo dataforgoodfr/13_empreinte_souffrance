@@ -158,7 +158,7 @@ h4 {
 
 .secondary-button:hover {
   background-color: var(--color-violet);
-  border: solid, 2px, var(--color-violet);
+  border: solid 2px var(--color-violet);
   color: var(--color-black);
   transition: all ease-in-out;
 }
