@@ -6,11 +6,13 @@ import ResultsSection from '@/app/[locale]/home/_sections/results-section';
 import BookAnnouncementSection from '@/app/[locale]/home/_sections/book-announcement-section';
 import GoFurtherSection from '@/app/[locale]/ui/_sections/go-further-section';
 import LinkSection from '@/app/[locale]/ui/_sections/link-section';
+import ProgressSection from './home/_sections/progress-section';
 
 export default function Home() {
   return (
     <>
       <HeroSection />
+      <ProgressSection />
       <LinkSection />
       <WFISection />
       <SufferingCausesSection />
