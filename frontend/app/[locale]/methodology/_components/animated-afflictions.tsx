@@ -118,15 +118,15 @@ export function AnimatedCard({ afflictions, index, offset, cascade }: AnimatedCa
 function SufferingSynthesis(props: Affliction) {
   const { title, percent, text, agony, pain, suffering, discomfort } = props;
   return (
-    <div className="w-full min-h-[200px] p-2 flex flex-col items-center justify-center bg-white gap-4 ">
+    <div className="p-4 w-full min-h-[200px] p-2 flex flex-col items-left justify-center bg-white gap-4 ">
       <div className="flex gap-2 items-center">
         <BoltIconV2 className="text-pink-3 h-[30px]" />
         <p className="text-caption text-center font-bold uppercase ">{title}</p>
       </div>
 
-      <div className="grid grid-cols-2 h-[100] text-caption ">
-        <div className="flex flex-wrap justify-center items-center normal-case gap-1">
-          <p className="p-2 flex justify-center items-center font-bold text-center">{percent}{' '}{text}</p>
+      <div className="grid grid-cols-2 text-caption ">
+        <div className="flex flex-wrap justify-left items-center normal-case gap-1">
+          <p className="p-2 flex justify-center items-left font-bold text-center">{percent}{' '}{text}</p>
         </div>
 
         <div className="w-full grid grid-cols-2 grid-rows-2 normal-case text-center">
