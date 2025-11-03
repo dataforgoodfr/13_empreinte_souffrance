@@ -20,11 +20,12 @@ export default {
   },
 
   GoFurther: {
-    title: 'ALLER PLUS LOIN',
-    downloadMediaKit: 'TELECHARGER LE KIT PRESSE',
-    share: 'PARTAGER LA PAGE',
-    methodology: 'DECOUVRIR LA METHODOLOGIE',
-    aboutThisWebsite: 'À PROPOS DE CE SITE',
+    title: 'Il est l’heure de définitivement bannir les poules en cage en france',
+    subtitle:
+      'Rejoignez la vague pour faire cesser les poules en cage en france, nous sommes deja 2405 signataires, nous comptons bien nous faire entendre aupres de la grande distribution.',
+    signPetition: 'Signer la pétition',
+    goEvent: 'Me rendre à la manifestation',
+    share: 'Partager la page',
   },
 
   twitterShare: {
@@ -55,6 +56,17 @@ export default {
     how_much: 'Combien',
     does_this_hen_suffer_to_produce_eggs: 'souffre cette poule pour produire des œufs ?',
     returnHome: "Retournez à l'accueil",
+  },
+
+  ProgressSection: {
+    title: 'des progrès mais encore beaucoup d\'œufs cage "invisibles"',
+    display_dashboard: 'voir le dashboard',
+    more_than_80_percent_without_cage: 'plus de 80% des œufs vendus sont hors cage',
+    from_70_percent_in_2015_to_less_than_20_percent : 'De 70% d\'œufs cages en magasin en 2015, nous sommes maintenant passés à moins de 20%. Monoprix et Carrefour ont tenu leur engagement.',
+    most_supermarkets_still_sell_caged_eggs:'la plupart des supermarchés vendent encore des œufs cage',
+    survey_results_2026: 'Une enquête menée dans 500 magasins en janvier 2026 montre que Leclerc, Coopérative U, Intermarché, Franprix, Lidl et Aldi continuent de commercialiser des oeufs cage.',
+    no_transparency_for_ingredients:'pas de transparence sur les œufs ingrédients',
+    only_35_percent_display_no_caged_eggs: 'Une grande enquête menée en magasins montre que seulement 35% des gâteaux, brioches, pâtes fraîches affichent des œufs hors cage dans leurs ingrédients.'
   },
 
   WFIArticle: {
@@ -690,7 +702,7 @@ export default {
           'À la veille de ce moment décisif pour la fin de l’élevage en cage, Empreinte Souffrance alerte les citoyens et les entreprises : il faut tourner la page des cages; les chiffres le montrent.',
       },
     },
-    thanking_section:'Ce projet a pu voir le jour grâce aux bénévoles qui ont travaillé pendant plusieurs mois sur la conception du site et du calculateur. Anima et Data for Good leur en sont profondément reconnaissants. Merci Laurent Basara, Luc Berton, Théo Degorre, Marie Groshens, Mathis Dupuy, Julien Deniaud, Adrien Jérôme, Adelia Khasanova, Paul Pajot, Axelle Playoust-Braure, Justine Tellier, Anaïs Valentin, Myriam Duval, Hakima Arroubat, Tom Francés, Julie Prigent, Tawfik Maalej, Denis Sabardine, Moïri Gamboni, Victor Diné, Hugo de Saint-Martin, Delon Ung.',
+    thanking_section:
+      'Ce projet a pu voir le jour grâce aux bénévoles qui ont travaillé pendant plusieurs mois sur la conception du site et du calculateur. Anima et Data for Good leur en sont profondément reconnaissants. Merci Laurent Basara, Luc Berton, Théo Degorre, Marie Groshens, Mathis Dupuy, Julien Deniaud, Adrien Jérôme, Adelia Khasanova, Paul Pajot, Axelle Playoust-Braure, Justine Tellier, Anaïs Valentin, Myriam Duval, Hakima Arroubat, Tom Francés, Julie Prigent, Tawfik Maalej, Denis Sabardine, Moïri Gamboni, Victor Diné, Hugo de Saint-Martin, Delon Ung.',
   },
-
 } as const;

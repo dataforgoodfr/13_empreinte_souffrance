@@ -145,7 +145,7 @@ h4 {
 .secondary-button {
   padding: 16px 0px 16px 0px;
   background-color: none;
-  border: solid, 2px, var(--color-pink-3);
+  border: solid 2px var(--color-pink-3);
   /* box-shadow: 0 5px 0 0 #FF7B7B; */
   font-size: var(--text-button);
   color: var(--color-pink-3);

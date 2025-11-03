@@ -1,0 +1,81 @@
+name: Build, Test, Analyze, Release, Push image and Deploy
+
+on:
+  workflow_dispatch:
+
+jobs:
+  release-build-deploy:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      issues: write
+      pull-requests: write
+
+    steps:
+      # Initialize runner
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 20.17.0
+
+      - name: Build using docker compose
+        run: docker compose -f docker-compose.yaml up -d
+
+      # Run unit tests
+      #      - name: Run unit tests
+      #        run: docker compose exec app pnpm test
+
+      # Push Docker image to registry
+      - name: Prepare Docker client certificates
+        run: |
+          sudo mkdir -p /etc/docker/certs.d/lheuredescomptes.org:5000/
+          echo "${{ secrets.REGISTRY_CA_CRT }}" | sudo tee /etc/docker/certs.d/lheuredescomptes.org:5000/ca.crt
+          echo "${{ secrets.REGISTRY_CLIENT_CRT }}" | sudo tee /etc/docker/certs.d/lheuredescomptes.org:5000/client.cert
+          echo "${{ secrets.REGISTRY_CLIENT_KEY }}" | sudo tee /etc/docker/certs.d/lheuredescomptes.org:5000/client.key
+
+      - name: Verify Docker registry certificates
+        run: docker pull lheuredescomptes.org:5000/nonexistent-image || echo "Certificates are valid"
+
+      - name: list docker images
+        run: docker image ls
+
+      - run: docker tag lheuredescomptes-frontend lheuredescomptes.org:5000/admin/lheuredescomptes_frontend:${{ github.ref_name }}
+      - run: docker push lheuredescomptes.org:5000/admin/lheuredescomptes_frontend:${{ github.ref_name }}
+      - run: docker tag lheuredescomptes-backend lheuredescomptes.org:5000/admin/lheuredescomptes_backend:${{ github.ref_name }}
+      - run: docker push lheuredescomptes.org:5000/admin/lheuredescomptes_backend:${{ github.ref_name }}
+
+      # Deploy to remote swarm cluster
+      - name: create .ssh if does not exist
+        run: mkdir -p ~/.ssh
+      - run: echo "${{secrets.REGISTRY_CERTIFICATE}}" > ~/.ssh/id_rsa
+      - run: chmod 600 ~/.ssh/id_rsa
+
+      - run: ssh-keyscan -H lheuredescomptes.org >> ~/.ssh/known_hosts
+
+      - run: docker container ls
+        env:
+          DOCKER_HOST: ssh://debian@lheuredescomptes.org
+      - run: docker pull lheuredescomptes.org:5000/admin/lheuredescomptes_frontend:${{ github.ref_name }}
+        env:
+          DOCKER_HOST: ssh://debian@lheuredescomptes.org
+      - run: docker pull lheuredescomptes.org:5000/admin/lheuredescomptes_backend:${{ github.ref_name }}
+        env:
+          DOCKER_HOST: ssh://debian@lheuredescomptes.org
+      - name: Set DEPLOY_URL
+        id: set_deploy_url
+        run: |
+          if [ "${{ github.ref_name }}" = "main" ]; then
+            echo "DEPLOY_URL=lheuredescomptes.org" >> $GITHUB_ENV
+          else
+            echo "DEPLOY_URL=${{ github.ref_name }}.staging.lheuredescomptes.org" >> $GITHUB_ENV
+          fi
+      - run: docker stack deploy -c docker-compose.prod.yaml --with-registry-auth lheuredescomptes-${{ github.ref_name }}
+        env:
+          DEPLOY_URL: ${{ env.DEPLOY_URL }}
+          TRAEFIK_ROUTER_NAME: lheuredescomptes-${{ github.ref_name }}
+          STAGE_NAME: ${{ github.ref_name }}
+          DOCKER_HOST: ssh://debian@lheuredescomptes.org
+

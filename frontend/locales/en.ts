@@ -9,11 +9,11 @@ export default {
   },
 
   GoFurther: {
-    title: 'GO FURTHER',
-    downloadMediaKit: 'DOWNLOAD THE MEDIA KIT',
-    share: 'SHARE THE WEBSITE',
-    methodology: 'UNDERSTAND THE METHODOLOGY',
-    aboutThisWebsite: 'ABOUT THIS WEBSITE',
+    title: 'It is time to ban caged hens in France for good',
+    subtitle: 'Join the wave to put an end to caged hens in France. We already have 2,405 signatories and we intend to make our voices heard by major retailers.',
+    signPetition: 'Sign the petition',
+    goEvent: 'Go to the demonstration',
+    share: 'Share the website',
   },
 
   twitterShare: {
@@ -43,6 +43,18 @@ export default {
     does_this_hen_suffer_to_produce_eggs: 'does this hen suffer to produce eggs ?',
     returnHome: 'Return Home',
   },
+
+  ProgressSection: {
+    title: 'progress made, but still many “invisible” caged eggs',
+    display_dashboard: 'view the dashboard',
+    more_than_80_percent_without_cage: 'more than 80% of eggs sold are cage-free',
+    from_70_percent_in_2015_to_less_than_20_percent: 'From 70% caged eggs in stores in 2015, we are now down to less than 20%. Monoprix and Carrefour have kept their commitment.',
+    most_supermarkets_still_sell_caged_eggs: 'most supermarkets still sell caged eggs',
+    survey_results_2026: 'A survey conducted in 500 stores in January 2026 shows that Leclerc, Coopérative U, Intermarché, Franprix, Lidl, and Aldi continue to sell caged eggs.',
+    no_transparency_for_ingredients: 'no transparency on ingredient eggs',
+    only_35_percent_display_no_caged_eggs: 'A large in-store survey shows that only 35% of cakes, brioches, and fresh pasta display cage-free eggs in their ingredients.'
+  },
+
 
   WFIArticle: {
     title: {
