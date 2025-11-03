@@ -1,8 +1,7 @@
 import { getI18n } from '@/locales/server';
 import Link from 'next/link';
 import Image from 'next/image';
-import ButtonLink from '@/app/[locale]/ui/_components/button-link';
-import PainTrackTable from './pain-track-table';
+
 
 export default async function QuantifyPainBySources() {
   const t = await getI18n();
