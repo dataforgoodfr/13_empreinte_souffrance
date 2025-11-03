@@ -270,6 +270,15 @@ def fresh_chicken_eggs_product():
 
 
 @pytest.fixture
+def label_rouge_eggs():
+    return ProductData(
+        product_name="6 oeufs Label rouge",
+        categories_tags=["en:eggs"],
+        quantity="",
+    )
+
+
+@pytest.fixture
 def liquid_eggs_product():
     return ProductData(
         product_name="Liquid Eggs",

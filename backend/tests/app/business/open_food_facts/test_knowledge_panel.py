@@ -480,9 +480,17 @@ laying_hen;barn;physical;hurtful;small;12.5
     )
 
 
-def test_get_product_type_fresh_chicken_egg(fresh_chicken_eggs_product: ProductData):
+@pytest.mark.parametrize(
+    "product_fixture",
+    [
+        ("fresh_chicken_eggs_product"),
+        ("label_rouge_eggs"),
+    ],
+)
+def test_get_product_type_fresh_chicken_egg(product_fixture: ProductData, request):
     """Test that a fresh chicken egg is correctly identified as a laying hen product"""
-    product_type = get_product_type(fresh_chicken_eggs_product)
+    product = request.getfixturevalue(product_fixture)
+    product_type = get_product_type(product)
     assert product_type == ProductType(is_mixed=False, animal_types={AnimalType.LAYING_HEN})
 
 
