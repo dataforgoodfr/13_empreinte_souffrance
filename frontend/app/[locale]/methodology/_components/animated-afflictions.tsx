@@ -80,7 +80,7 @@ export function AnimatedCard({ afflictions, index, offset, cascade }: AnimatedCa
   }, [index, offset, cascade, current, afflictions.length]);
 
   return (
-    <div className="relative flex flex-col bg-white rounded-[5px] min-h-[200px] overflow-hidden">
+    <div className="relative bg-white rounded-[5px] min-h-[200px] overflow-hidden">
       {anim && (
         <div
           className={`absolute left-0 top-0 w-full z-1
@@ -118,7 +118,7 @@ export function AnimatedCard({ afflictions, index, offset, cascade }: AnimatedCa
 function SufferingSynthesis(props: Affliction) {
   const { title, percent, text, agony, pain, suffering, discomfort } = props;
   return (
-    <div className="flex flex-col items-center justify-center bg-white gap-4 p-6">
+    <div className="w-full min-h-[200px] p-2 flex flex-col items-center justify-center bg-white gap-4 ">
       <div className="flex gap-2 items-center">
         <BoltIconV2 className="text-pink-3 h-[30px]" />
         <p className="text-caption text-center font-bold uppercase ">{title}</p>
