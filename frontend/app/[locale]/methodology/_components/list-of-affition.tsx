@@ -15,9 +15,9 @@ export default function ListOfAffliction({ listOfPain, seeMore, seeLess }: ListO
 
   return (
     <>
-      <div className="mt-4 grid grid-cols-2 w-full text-center font-mono uppercase font-bold gap-1 text-xs md:text-sm ">
+      <div className=" grid grid-cols-2 w-full text-center font-mono uppercase font-bold gap-[5px] text-xs md:text-sm text-pink-2">
         {displayedList.map((pain, index) => (
-          <p key={index} className="bg-pink-3 p-2 transition-all duration-200">
+          <p key={index} className="bg-brown flex items-center justify-center p-2 rounded-[5px]">
             {pain}
           </p>
         ))}
@@ -25,7 +25,7 @@ export default function ListOfAffliction({ listOfPain, seeMore, seeLess }: ListO
 
       {listOfPain.length > 4 && (
         <button
-          className="text-sm mt-1 bg-pink-2 font-mono font-bold py-4 px-6 rounded-full shadow-[4px_4px_0_#000] w-full block cursor-pointer text-center transition-all duration-200 hover:bg-pink-3"
+          className="tertiary-button mt-4 w-full font-bold "
           onClick={toggleShowAll}
         >
           {showAll ? seeLess : seeMore}

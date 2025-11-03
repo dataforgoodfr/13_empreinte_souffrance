@@ -125,13 +125,13 @@ h4 {
 /** -------------------------button------------------------- **/
 
 .primary-button {
-  padding: 16px 0px 16px 0px;
+  padding: 16px 8px 16px 8px;
   background-color: var(--color-pink-3);
   box-shadow: 0 5px 0 0 #ff7b7b;
   font-size: var(--text-button);
   border-radius: 10px;
   text-align: center;
-  flex: content;
+
   justify-content: center;
   align-items: center;
 }
@@ -151,14 +151,34 @@ h4 {
   color: var(--color-pink-3);
   border-radius: 10px;
   text-align: center;
-  flex: content;
+
   justify-content: center;
   align-items: center;
 }
 
 .secondary-button:hover {
   background-color: var(--color-violet);
-  border: solid 2px var(--color-violet);
+  border: solid, 2px, var(--color-violet);
+  color: var(--color-black);
+  transition: all ease-in-out;
+}
+
+.tertiary-button {
+  padding: 16px 0px 16px 0px;
+  background-color: var(--color-white);
+  border: solid, 2px, var(--color-white);
+  box-shadow: 0 5px 0 0 var(--color-black);
+  font-size: var(--text-button);
+  color: var(--color-black);
+  border-radius: 10px;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+}
+
+.tertiary-button:hover {
+  background-color: var(--color-violet);
+  border: solid, 2px, var(--color-violet);
   color: var(--color-black);
   transition: all ease-in-out;
 }

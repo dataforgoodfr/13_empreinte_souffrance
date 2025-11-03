@@ -1,6 +1,7 @@
 'use client';
 import { useEffect, useRef, useState } from 'react';
-import SufferingSynthesisDurationRows from '@/app/[locale]/methodology/_components/suffering-scales';
+import SufferingScales from '@/app/[locale]/methodology/_components/suffering-scales';
+import BoltIconV2 from '../../ui/_components/BoltIconV2';
 
 export type Affliction = {
   title: string;
@@ -33,7 +34,7 @@ export function AnimatedAfflictionsGroup({ afflictions, delay = 4000, cascade = 
       {[0, 1, 2].map((offset, idx, arr) => (
         <div key={offset}>
           <AnimatedCard afflictions={afflictions} index={index} offset={offset} cascade={cascade} />
-          {idx < arr.length - 0 && <div className="bg-violet-1 text-center text-3xl font-extrabold w-full py-1">+</div>}
+          {idx < arr.length - 0 && <div className="bg-violet rounded-[5px] p-2 my-4 text-center text-3xl font-extrabold w-full">+</div>}
         </div>
       ))}
     </div>
@@ -79,7 +80,7 @@ export function AnimatedCard({ afflictions, index, offset, cascade }: AnimatedCa
   }, [index, offset, cascade, current, afflictions.length]);
 
   return (
-    <div className="relative w-full min-h-[140px] overflow-hidden bg-white">
+    <div className="relative bg-white rounded-[5px] min-h-[200px] overflow-hidden">
       {anim && (
         <div
           className={`absolute left-0 top-0 w-full z-1
@@ -117,19 +118,19 @@ export function AnimatedCard({ afflictions, index, offset, cascade }: AnimatedCa
 function SufferingSynthesis(props: Affliction) {
   const { title, percent, text, agony, pain, suffering, discomfort } = props;
   return (
-    <div className="bg-white p-3">
-      <div className="flex items-center mb-2">
-        <h3 className="font-bold uppercase text-sm">{title}</h3>
+    <div className="p-4 w-full min-h-[200px] p-2 flex flex-col items-left justify-center bg-white gap-4 ">
+      <div className="flex gap-2 items-center">
+        <BoltIconV2 className="text-pink-3 h-[30px]" />
+        <p className="text-caption text-center font-bold uppercase ">{title}</p>
       </div>
 
-      <div className="flex justify-center text-xs ">
-        <div className="flex justify-center items-center normal-case gap-1 mr-4">
-          <span className="font-bold">{percent}</span>
-          <span className="font-bold">{text}</span>
+      <div className="grid grid-cols-2 text-caption ">
+        <div className="flex flex-wrap justify-left items-center normal-case gap-1">
+          <p className="p-2 flex justify-center items-left font-bold text-center">{percent}{' '}{text}</p>
         </div>
 
-        <div className="normal-case ml-4">
-          <SufferingSynthesisDurationRows
+        <div className="w-full grid grid-cols-2 grid-rows-2 normal-case text-center">
+          <SufferingScales
             agony_duration_text={agony}
             pain_duration_text={pain}
             suffering_duration_text={suffering}
