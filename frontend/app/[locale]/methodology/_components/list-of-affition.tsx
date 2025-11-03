@@ -17,7 +17,7 @@ export default function ListOfAffliction({ listOfPain, seeMore, seeLess }: ListO
     <>
       <div className=" grid grid-cols-2 w-full text-center font-mono uppercase font-bold gap-[5px] text-xs md:text-sm text-pink-2">
         {displayedList.map((pain, index) => (
-          <p key={index} className="bg-brown p-2 rounded-[5px]">
+          <p key={index} className="bg-brown flex items-center justify-center p-2 rounded-[5px]">
             {pain}
           </p>
         ))}
