@@ -7,7 +7,6 @@
 // => UI > Section > Component > Elements
 
 export default {
-
   //*___________ UI COMPONENTS __________________
 
   suffering_footprint: 'Empreinte souffrance',
@@ -58,15 +57,23 @@ export default {
     returnHome: "Retournez à l'accueil",
   },
 
+  PressSection: {
+    ten_years_ago_supermarkets_pledged: "il y à 10 ans, les supermarchés s'engageaient",
+    to_ban_eggs_from_caged_hens_by_2026: 'à bannir les œufs de poule en cage avant 2026',
+  },
+
   ProgressSection: {
     title: 'des progrès mais encore beaucoup d\'œufs cage "invisibles"',
     display_dashboard: 'voir le dashboard',
     more_than_80_percent_without_cage: 'plus de 80% des œufs vendus sont hors cage',
-    from_70_percent_in_2015_to_less_than_20_percent : 'De 70% d\'œufs cages en magasin en 2015, nous sommes maintenant passés à moins de 20%. Monoprix et Carrefour ont tenu leur engagement.',
-    most_supermarkets_still_sell_caged_eggs:'la plupart des supermarchés vendent encore des œufs cage',
-    survey_results_2026: 'Une enquête menée dans 500 magasins en janvier 2026 montre que Leclerc, Coopérative U, Intermarché, Franprix, Lidl et Aldi continuent de commercialiser des oeufs cage.',
-    no_transparency_for_ingredients:'pas de transparence sur les œufs ingrédients',
-    only_35_percent_display_no_caged_eggs: 'Une grande enquête menée en magasins montre que seulement 35% des gâteaux, brioches, pâtes fraîches affichent des œufs hors cage dans leurs ingrédients.'
+    from_70_percent_in_2015_to_less_than_20_percent:
+      "De 70% d'œufs cages en magasin en 2015, nous sommes maintenant passés à moins de 20%. Monoprix et Carrefour ont tenu leur engagement.",
+    most_supermarkets_still_sell_caged_eggs: 'la plupart des supermarchés vendent encore des œufs cage',
+    survey_results_2026:
+      'Une enquête menée dans 500 magasins en janvier 2026 montre que Leclerc, Coopérative U, Intermarché, Franprix, Lidl et Aldi continuent de commercialiser des oeufs cage.',
+    no_transparency_for_ingredients: 'pas de transparence sur les œufs ingrédients',
+    only_35_percent_display_no_caged_eggs:
+      'Une grande enquête menée en magasins montre que seulement 35% des gâteaux, brioches, pâtes fraîches affichent des œufs hors cage dans leurs ingrédients.',
   },
 
   WFIArticle: {
@@ -642,7 +649,8 @@ export default {
 
     key_results_section: {
       key_results_h1: 'Les principaux résultats',
-      quantify_suffering_description: "On peut donc chiffrer la souffrance d’une poule dans différents systèmes d'élevage.",
+      quantify_suffering_description:
+        "On peut donc chiffrer la souffrance d’une poule dans différents systèmes d'élevage.",
       calculation_method_description:
         "En appliquant la même méthode aux autres animaux impliqués dans la production d'œufs (poussins, parentaux...), on peut calculer l'empreinte souffrance globale pour la production d'un œuf.",
       caged_hen_card: {
