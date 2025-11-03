@@ -3,7 +3,6 @@ import SectionHeading from '../../ui/_sections/section-heading';
 import IdentifyPainSources from '../_components/identify-pain-sources';
 import QuantifyPainBySources from '../_components/quantify-pain-by-sources';
 import ComputePainSources from '../_components/compute-pain-sources';
-import ListOfAffliction from '../_components/list-of-affition';
 
 export default async function MethodDetailsSection() {
   const t = await getI18n();
