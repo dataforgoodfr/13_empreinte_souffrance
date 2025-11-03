@@ -3,15 +3,28 @@ import unicodedata
 
 
 class ProductTypePatternRepository:
+    """
+    Repository of patterns for product type classification :
+     - egg detection
+     - fresh eggs detection
+     - chicken eggs detection
+    Used by the product type calculator
+    """
+
+    # categories tags that together indicate that the product is a fresh chicken egg
     FRESH_CHICKEN_EGG_TAGS = {
         "en:fresh-eggs",
         "en:chicken-eggs",
     }
 
+    # Terms that indicate that the egg product is fresh
     FRESH_EGG_TERMS = {"fresh", "frais", "freschi", "fresco"}
 
+    # Terms that indicate that the egg product is a chicken egg
     CHICKEN_EGG_TERMS = {"poule", "chicken", "hen", "gallina", "pollo"}
 
+    # Categories tags that are to be excluded because they
+    # indicate that the product is not fresh chicken eggs
     EXCLUDED_CATEGORY_TAGS = {
         "en:egg-yolk",
         "en:boiled-eggs",
@@ -40,8 +53,16 @@ class ProductTypePatternRepository:
         "en:cereals-and-potatoes",
         "fr:ovo-produits",
         "en:desserts",
+        "en:breads",
+        "en:fish-eggs",
+        "en:free-range-duck-eggs",
+        "en:raw-quail-eggs",
+        "en:savoury-eggs",
+        "en:streamed-eggs",
     }
 
+    # Words that are to be excluded if found in product names because
+    # they indicate that the product is not fresh chicken eggs
     EXCLUDED_WORDS = {
         "a la russe",
         "acidule?",
@@ -49,7 +70,6 @@ class ProductTypePatternRepository:
         "angelina",
         "assaisonnement",
         "assortis?",
-        "aux oeufs",
         "avec",
         "bacon",
         "baguette",
@@ -198,7 +218,7 @@ class ProductTypePatternRepository:
         "muges",
         "naproxene",
         "neiges?",
-        "nids?",
+        "nids",
         "noir",
         "noisettes?",
         "noodles?",
@@ -215,7 +235,7 @@ class ProductTypePatternRepository:
         "papillons",
         "pastes?",
         "pasteurise??",
-        "pastas?",
+        "pastas",
         "patissier",
         "pates?",
         "pate",
@@ -230,7 +250,6 @@ class ProductTypePatternRepository:
         "pomme",
         "poached",
         "poisson",
-        "poulet",
         "poussin",
         "prednisolone",
         "preema",
@@ -249,7 +268,6 @@ class ProductTypePatternRepository:
         "riz",
         "rocket",
         "rolls?",
-        "rouge",
         "rubans?",
         "rustic",
         "saumons?",
@@ -300,6 +318,7 @@ class ProductTypePatternRepository:
         "yolk",
     }
 
+    # regex construction from excluded words list
     EXCLUDED_PATTERNS = re.compile(
         r"\b(" + r"|".join([term.replace(" ", r"\s+") for term in EXCLUDED_WORDS]) + r")\b", re.VERBOSE
     )
