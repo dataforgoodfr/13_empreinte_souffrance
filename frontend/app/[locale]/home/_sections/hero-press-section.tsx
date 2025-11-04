@@ -1,5 +1,6 @@
 import { getI18n } from '@/locales/server';
 import Image from 'next/image';
+import ArrowDown from '../../_assets/_logo/ArrowDown';
 
 export default async function HeroPressSection() {
   const t = await getI18n();
@@ -38,6 +39,9 @@ export default async function HeroPressSection() {
           className="w-full"
         />
       </div>
+      <span className="absolute bottom-0">
+        <ArrowDown />
+      </span>
     </header>
   );
 }
