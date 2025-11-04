@@ -21,23 +21,26 @@ export default async function HeroPressSection() {
         </h1>
       </div>
 
-      <div className="w-full sm:flex hidden justify-center">
-        <Image
-          src="/press-articles.png"
-          width={1650}
-          height={1350}
-          alt="collage of press articles"
-          className="w-full"
-        />
-      </div>
-      <div className="w-full sm:hidden flex justify-center">
-        <Image
-          src="/press-articles_mobile.png"
-          width={1650}
-          height={1350}
-          alt="collage of press articles"
-          className="w-full"
-        />
+      <div className="w-full relative">
+        <div className="w-full sm:flex hidden justify-center ">
+          <Image
+            src="/press-articles.png"
+            width={1650}
+            height={1350}
+            alt="collage of press articles"
+            className="w-full block"
+          />
+        </div>
+        <div className="w-full sm:hidden flex justify-center">
+          <Image
+            src="/press-articles_mobile.png"
+            width={1650}
+            height={1350}
+            alt="collage of press articles"
+            className="w-full"
+          />
+        </div>
+        <div className="absolute inset-0 bg-gradient-to-t from-white/40 to-transparent"></div>
       </div>
       <span className="absolute bottom-0">
         <ArrowDown />
