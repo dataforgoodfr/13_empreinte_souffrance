@@ -279,7 +279,7 @@ export default {
         key4: "secondes d'agonie",
       },
     },
-    linkSection: "CONSULTEZ L'EMPREINTE SOUFFRANCE DES œufS DU COMMERCE",
+    linkSection: "Consultez l’empreinte souffrance des oeufs du commerce grace à notre calculateur intégré à Open food facts",
   },
 
   //*___________ METHODOLOGY PAGE __________________

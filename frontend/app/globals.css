@@ -164,7 +164,7 @@ h4 {
 }
 
 .tertiary-button {
-  padding: 16px 0px 16px 0px;
+  padding: 16px 24px 16px 24px;
   background-color: var(--color-white);
   border: solid, 2px, var(--color-white);
   box-shadow: 0 5px 0 0 var(--color-black);
