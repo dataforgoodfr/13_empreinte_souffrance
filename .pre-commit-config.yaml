@@ -12,7 +12,7 @@ repos:
       - id: check-yaml
       - id: check-json
       - id: check-added-large-files
-        args: ['--maxkb=500']
+        args: ['--maxkb=600']
         exclude: '.*\.(csv|jsonl)$'
       - id: check-added-large-files
         name: check-large-csv-jsonl

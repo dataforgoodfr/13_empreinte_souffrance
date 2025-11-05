@@ -1,4 +1,3 @@
-import HeroSection from '@/app/[locale]/home/_sections/hero-section';
 import WFISection from '@/app/[locale]/home/_sections/WFI-article-section';
 import SufferingCausesSection from '@/app/[locale]/ui/_sections/suffering-causes-section';
 import PainEquationSection from '@/app/[locale]/home/_sections/pain-equation-section';
@@ -7,11 +6,12 @@ import BookAnnouncementSection from '@/app/[locale]/home/_sections/book-announce
 import GoFurtherSection from '@/app/[locale]/ui/_sections/go-further-section';
 import LinkSection from '@/app/[locale]/ui/_sections/link-section';
 import ProgressSection from './home/_sections/progress-section';
+import HeroPressSection from './home/_sections/hero-press-section';
 
 export default function Home() {
   return (
     <>
-      <HeroSection />
+      <HeroPressSection />
       <ProgressSection />
       <LinkSection />
       <WFISection />
