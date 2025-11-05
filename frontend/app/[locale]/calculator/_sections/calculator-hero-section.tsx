@@ -5,22 +5,22 @@ export default async function CalculatorHeroSection() {
   const scopedT = await getScopedI18n('calculatorPage');
   return (
 
-    <section className="scroll-mt-18 max-w-screen p-8 sm:px-16 w-full bg-white flex flex-col justify-center items center gap-16">
-      <h1 className="w-full text-3xl lg:text-5xl font-bold dark-text text-left uppercase">
+    <section className="p-section flex flex-col justify-center items-left">
+      <h1 className="w-full md:w-1/2 font-bold text-brown text-left uppercase">
         {scopedT('descriptionSection.title')}
       </h1>
-      <figure className="flex justify-evenly w-full  flex-col sm:flex-row items-center">
+      <figure className="flex flex-col md:flex-row justify-evenly items-center gap-16">
 
         <Image
           src="/eggs_box.jpeg"
           width={540}
           height={740}
           alt={scopedT('descriptionSection.imageAlt')}
-          className="block rounded w-2/4"
+          className="w-full md:w-1/2"
         />
 
-        <figcaption className=" text-2xl flex w-full sm:w-1/3 items-center dark-text ">
-          {scopedT('descriptionSection.figcaption')}
+        <figcaption className="flex justify-center items-center ">
+          <p className='w-full md:w-2/3 text-bold text-brown text-lead '>{scopedT('descriptionSection.figcaption')}</p>
         </figcaption>
 
       </figure>
