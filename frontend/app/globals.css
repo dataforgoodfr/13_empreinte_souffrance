@@ -23,13 +23,13 @@
   --text-h1-desktop: 38px;
   --text-h2-desktop: 32px;
   --text-h3-desktop: 26px;
-  --text-numbers-desktop: 150px;
+  --text-numbers-desktop: 100px;
 
   /* Font-size Mobile */
   --text-h1: 32px;
   --text-h2: 26px;
   --text-h3: 20px;
-  --text-numbers: 90px;
+  --text-numbers: 80px;
 
   /* Default Font-size */
   --text-lead: 18px;
