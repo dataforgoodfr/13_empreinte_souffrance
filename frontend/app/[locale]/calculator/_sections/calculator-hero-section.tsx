@@ -20,7 +20,7 @@ export default async function CalculatorHeroSection() {
         />
 
         <figcaption className="flex justify-center items-center ">
-          <p className='w-full md:w-2/3 text-brown'>{scopedT('descriptionSection.figcaption')}</p>
+          <p className='w-full md:w-2/3 text-bold text-brown text-lead '>{scopedT('descriptionSection.figcaption')}</p>
         </figcaption>
 
       </figure>
