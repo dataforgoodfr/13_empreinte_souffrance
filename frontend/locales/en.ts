@@ -103,30 +103,39 @@ export default {
   },
 
   Results: {
-    title: 'The Results?',
-    agony: {
-      title: '2 hours of agony',
-      content:
-        '...and 13 hours of intense suffering: this is the average endured by each hen that dies from egg peritonitis with sepsis — affecting 1.5% of hens.',
-      image_description: 'Hen standing on a perch above the corpse of another hen',
+    title: 'HOW LIVE THE 12 MILLION HENS STILL IN CAGES?',
+    subtitle: 'The suffering footprint: the new indicator that measures animal suffering',
+    sectionList: {
+      first: {
+        superTitle: 'One carton of eggs is:',
+        title: '2 HOURS OF AGONY\n' +
+          '4 HOURS OF SUFFERING\n' +
+          '46 HOURS OF PAIN\n' +
+          '80 HOURS OF DISCOMFORT',
+        text: 'This is the price paid by a caged hen for the production of a box of 6 eggs.\nCalculate the suffering footprint',
+        source: {
+          url: '/',
+          name: 'Source link',
+        },
+      }, second: {
+        superTitle: 'All the specific deprivations of caged hens',
+        title: '156H OF PSYCHOLOGICAL SUFFERING',
+        text: 'Caged hens are deprived of most of their needs (moving around, scratching the ground, dust bathing) and suffer greatly from it.',
+        source: {
+          url: '/',
+          name: 'Source link',
+        },
+      }, third: {
+        superTitle: 'Completely switch to cage-free systems:',
+        title: '93% REDUCTION IN SUFFERING',
+        text: 'Switching to cage-free farming reduces suffering caused by hens’ inability to perform natural behaviors by 93%',
+        source: {
+          url: '/',
+          name: 'Source link',
+        },
+      }
     },
-    discomfort: {
-      title: '3.5X more discomfort',
-      content:
-        'A caged hen will experience on average 3.5 times more discomfort and twice as much pain during her lifetime than a hen raised on the floor.',
-      image_description: 'Hen sticking its head through the bars of a cage to eat',
-    },
-    suffering_reduction: {
-      title: '93% reduction in suffering',
-      content:
-        'Switching to cage-free farming reduces by 93% the suffering caused by hens being unable to express natural behaviors.',
-      image_description: 'Hen seen from below through the bars of a cage',
-    },
-    cage_figure: {
-      title: '12 million',
-      content: "There are still 12 million hens kept in cages in France — that's 1 in 4 hens.",
-      image_description: 'Hens crowded in stacked cages',
-    },
+    link: 'DISCOVER THE METHODOLOGY IN DETAIL',
   },
 
   SufferingCausesSection: {

@@ -182,3 +182,7 @@ h4 {
   color: var(--color-black);
   transition: all ease-in-out;
 }
+
+[id] {
+  scroll-margin-top: 70px;
+}
