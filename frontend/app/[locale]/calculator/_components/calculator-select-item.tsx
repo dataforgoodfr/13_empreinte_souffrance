@@ -43,13 +43,13 @@ export default function CalculatorSelect({ quantities, farmings, labels }: Props
   const factor = quantity.factor;
 
   return (
-    <section className="p-4 flex flex-col items-center justify-center rounded-lg text-lg space-y-4 gap-8">
+    <section className="p-section flex flex-col items-center justify-center gap-16">
 
-      <div className="flex justify-center dark-text font-extrabold tracking-wide lg:flex-row flex-wrap w-full gap-8">
+      <div className="flex flex-col md:flex-row items-center justify-center text-brown text-bold gap-8">
         <select
           value={quantityKey}
           onChange={(e) => setQuantityKey(e.target.value as QuantityKey)}
-          className=" border rounded text-center"
+          className="bg-pink-1 shadow-[0_5px_0px_black] rounded-[10px] text-center px-6 py-2"
         >
           {quantities.map((q) => (
             <option key={q.key} value={q.key}>
@@ -63,7 +63,7 @@ export default function CalculatorSelect({ quantities, farmings, labels }: Props
         <select
           value={farmingKey}
           onChange={(e) => setFarmingKey(e.target.value as FarmingKey)}
-          className=" border pr-2 pl-2 rounded text-center"
+          className="bg-pink-1 shadow-[0_5px_0px_black] rounded-[10px] text-center px-6 py-2"
         >
           {farmings.map((f) => (
             <option key={f.key} value={f.key}>
@@ -75,33 +75,33 @@ export default function CalculatorSelect({ quantities, farmings, labels }: Props
         <h2>{labels.containsAverage} : </h2>
       </div>
 
-      <div className="flex flex-col gap-5 justify-between dark-text font-extrabold tracking-wide md:flex-col lg:flex-row  w-full">
+      <div className="flex flex-col md:flex-row justify-between text-brown font-extrabold tracking-wide  gap-5 w-full">
 
         <hgroup>
-          <h2 className="bg-pink-3 text-center text-3xl sm:text-6xl flex justify-start items-center w-fit">
+          <span className="bg-pink-1 text-center text-numbers flex justify-start items-center w-fit rounded-[5px]">
             {Math.round(data.discomfort * factor)}
-          </h2>
+          </span>
           <h3 className="text-xl sm:text-2xl">{labels.discomfort}</h3>
         </hgroup>
 
         <hgroup>
-          <h2 className="bg-pink-3 text-center text-3xl sm:text-6xl flex justify-start items-center w-fit">
+          <span className="bg-pink-2 text-center text-numbers flex justify-start items-center w-fit rounded-[5px]">
             {Math.round(data.pain * factor)}
-          </h2>
+          </span>
           <h3 className="text-xl sm:text-2xl"> {labels.pain}</h3>
         </hgroup>
 
         <hgroup>
-          <h2 className="bg-pink-3 text-center text-3xl sm:text-6xl flex justify-start items-center w-fit">
+          <span className="bg-pink-3 text-center text-numbers flex justify-start items-center w-fit rounded-[5px]">
             {Math.round(data.intense * factor)}
-          </h2>
+          </span>
           <h3 className="text-xl sm:text-2xl">{labels.intense}</h3>
         </hgroup>
 
         <hgroup>
-          <h2 className="bg-pink-3 text-center text-3xl sm:text-6xl flex justify-start items-center w-fit">
+          <span className="bg-brown text-pink-1 text-center text-numbers flex justify-start items-center w-fit rounded-[5px]">
             {Math.round(data.agony * factor)}
-          </h2>
+          </span>
           <h3 className="text-xl sm:text-2xl">{labels.agony}.</h3>
         </hgroup>
 
