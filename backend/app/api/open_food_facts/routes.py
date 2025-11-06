@@ -1,4 +1,4 @@
-from fastapi import APIRouter
+from fastapi import APIRouter, Response
 from starlette.requests import Request
 
 from app.business.open_food_facts.knowledge_panel import get_knowledge_panel_response, get_pain_report
@@ -11,10 +11,16 @@ router = APIRouter()
 logger = setup_logging()
 
 
-@router.get("/knowledge-panel/{barcode}", response_model=KnowledgePanelResponse, response_model_exclude_none=True)
+@router.api_route(
+    "/knowledge-panel/{barcode}",
+    methods=["GET", "HEAD"],
+    response_model=KnowledgePanelResponse,
+    response_model_exclude_none=True,
+)
 async def knowledge_panel(request: Request, barcode: str):
     """
     API endpoint to return knowledge panel details.
+    Handles both GET and HEAD methods.
 
     Args:
         request (Request): The request object.
@@ -30,6 +36,10 @@ async def knowledge_panel(request: Request, barcode: str):
     cached_response = knowledge_panel_cache.get(cache_key)
     if cached_response is not None:
         logger.info(f"Returning cached knowledge panel for product {barcode} (locale: {locale})")
+
+        if request.method == "HEAD":
+            return Response(status_code=200)
+
         return cached_response
 
     logger.info(f"Getting knowledge panel for product {barcode} (locale: {locale})")
@@ -44,5 +54,8 @@ async def knowledge_panel(request: Request, barcode: str):
 
     # Cache the response for 1 day (86400 seconds)
     knowledge_panel_cache.set(cache_key, response, ttl_seconds=86400)
+
+    if request.method == "HEAD":
+        return Response(status_code=200)
 
     return response
