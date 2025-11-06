@@ -8,15 +8,15 @@ export default function NavClass({ children }: { children: React.ReactNode }) {
 
   // Applique un fond différent selon la route
   const navClass = clsx('flex flex-row justify-between w-full h-full', {
-    'bg-pink-2': pathname === '/fr' || pathname === '/en',
-    'bg-violet': pathname === '/fr/methodology' || pathname === '/en/methodology',
+    'bg-pink-2': pathname === '/fr' || pathname === '/',
+    'bg-violet': pathname === '/fr/methodology' || pathname === '/methodology',
     'bg-white':
       pathname === '/fr/calculator' ||
-      pathname === '/en/calculator' ||
+      pathname === '/calculator' ||
       pathname === '/fr/numbers' ||
-      pathname === '/en/numbers' ||
+      pathname === '/numbers' ||
       pathname === '/fr/about' ||
-      pathname === '/en/about',
+      pathname === '/about',
   });
 
   return <nav className={navClass}>{children}</nav>;
