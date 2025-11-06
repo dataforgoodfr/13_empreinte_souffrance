@@ -1,6 +1,6 @@
 import { getI18n } from '@/locales/server';
-import EggOnCage from '@/app/[locale]/_assets/_logo/EggOnCage';
-import ArrowDown from '@/app/[locale]/_assets/_logo/ArrowDown';
+import EggOnCage from '@/app/[locale]/ui/_logo/EggOnCage';
+import ArrowDown from '@/app/[locale]/ui/_logo/ArrowDown';
 import type { StaticImageData } from 'next/image';
 import Image from 'next/image';
 import { ReactNode } from 'react';

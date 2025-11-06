@@ -1,6 +1,6 @@
 import { getI18n } from '@/locales/server';
 import Image from 'next/image';
-import ArrowDown from '../../_assets/_logo/ArrowDown';
+import ArrowDown from '../../ui/_logo/ArrowDown';
 
 export default async function HeroPressSection() {
   const t = await getI18n();
