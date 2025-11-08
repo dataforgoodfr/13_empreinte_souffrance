@@ -1,6 +1,6 @@
 import { ReactNode } from 'react';
 import Thunder from '@/app/[locale]/ui/_components/BoltIconV2';
-import Link from '@/app/[locale]/_components/Link';
+import Link from '@/app/[locale]/ui/_components/Link';
 
 type Props = {
   superTitle?: ReactNode;

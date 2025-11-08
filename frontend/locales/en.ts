@@ -5,6 +5,7 @@ export default {
     presentation: 'PRESENTATION',
     methodology: 'METHODOLOGY',
     calculator: 'CALCULATOR',
+    numbers : 'NUMBERS',
     about: 'ABOUT',
   },
 
@@ -24,6 +25,12 @@ export default {
   btn_imprint_sffering: {
     imprint: 'welfare',
     suffering: 'footprint',
+  },
+
+  time_for_reckoning_logo : {
+    time : 'Time',
+    for : 'For', 
+    reckoning:'Reckoning'
   },
 
   Navbar: {

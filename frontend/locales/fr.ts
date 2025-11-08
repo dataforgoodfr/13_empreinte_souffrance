@@ -15,6 +15,7 @@ export default {
     presentation: 'PRÉSENTATION',
     methodology: 'MÉTHODOLOGIE',
     calculator: 'CALCULATEUR',
+    numbers: 'LES CHIFFRES',
     about: 'À PROPOS',
   },
 
@@ -34,6 +35,12 @@ export default {
   btn_imprint_sffering: {
     imprint: 'empreinte',
     suffering: 'souffrance',
+  },
+
+  time_for_reckoning_logo : {
+    time : 'L’heure',
+    for : 'des', 
+    reckoning:'comptes'
   },
 
   Navbar: {
@@ -132,7 +139,7 @@ export default {
           '4H DE SOUFFRANCE\n'+
           '46H DE DOULEUR\n'+
           '80H D’INCONFORT',
-        text: 'C’est le prix payé par une poule en cage pour la production d’une boîte de 6 oeufs Calculer l’empreinte souffrance',
+        text: 'C’est le prix payé par une poule en cage pour la production d’une boîte de 6 oeufsCalculer l’empreinte souffrance',
         source: {
           url: '/',
           name: 'Source link',
