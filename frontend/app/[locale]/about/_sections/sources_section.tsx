@@ -1,8 +1,5 @@
-import { getScopedI18n } from '@/locales/server';
-
 
 export default async function SourcesSection() {
-     const scopedT = await getScopedI18n("aboutPage");
 
 
   return (
