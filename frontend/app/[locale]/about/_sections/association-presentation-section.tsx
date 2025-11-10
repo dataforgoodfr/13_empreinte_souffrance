@@ -1,21 +1,26 @@
 import { getScopedI18n } from '@/locales/server';
 import Link from 'next/link';
+import Image from 'next/image';
 
 export default async function AssociationPresentationSection() {
   const scopedT = await getScopedI18n('aboutPage.association_presentation_section');
 
   return (
-    <section className="section-padding bg-white">
-      <h1 className="p-8 lg:max-w-[1150px] leading-[57px]">
-        {scopedT('two_hens_out_five_title').toUpperCase()}
-      </h1>
+    <section className="p-section bg-white">
+      <h1 className="p-8 max-w-2/3 text-brown">{scopedT('two_hens_out_five_title').toUpperCase()}</h1>
       <div className="flex flex-wrap lg:p-8 gap-8 justify-between">
         <div className="flex flex-col gap-5 max-w-[700px]">
           <Link href="https://animafrance.org/" target="_blank" className="w-fit">
-            <img src="/anima-logo.png" alt="Logo Anima" className="h-[50px] object-contain " />
+            <Image
+              src="/anima-logo.png"
+              width={215}
+              height={50}
+              alt="Logo Anima"
+              className="mb-0 md:mb-0 object-contain"
+            />
           </Link>
           <p>{scopedT('anima_presentation')}</p>
-          <Link href="https://animafrance.org/" target="_blank" className="w-fit underline">
+          <Link href="https://animafrance.org/" target="_blank" className="fourth-button font-bold w-fit">
             {scopedT('anima_link')}
           </Link>
         </div>
@@ -23,16 +28,17 @@ export default async function AssociationPresentationSection() {
         <div className="flex flex-col gap-5 max-w-[700px]">
           <Link href="https://animafrance.org/" target="_blank" className="w-fit">
             <figure className="flex flex-row justify-center align-center">
-              <img src="/logo_data_for_good.png" alt="Logo Data For Good" className="h-[50px] object-contain" />
-              <h4 className="flex items-center font-semibold m-0 pl-2">Data For Good</h4>
+              <Image
+              src="/dataforgood.svg"
+              width={215}
+              height={50}
+              alt="Logo Data For Good"
+              className="mb-0 md:mb-0 object-contain"
+            />
             </figure>
           </Link>
           <p>{scopedT('dataforgood_presentation')}</p>
-          <Link
-            href="https://dataforgood.fr/"
-            target="_blank"
-            className="underline inline-flex items-center gap-2 w-fit"
-          >
+          <Link href="https://dataforgood.fr/" target="_blank" className="fourth-button font-bold w-fit">
             {scopedT('dataforgood_link')}
           </Link>
         </div>

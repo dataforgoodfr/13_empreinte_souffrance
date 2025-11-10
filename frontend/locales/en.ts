@@ -680,16 +680,18 @@ export default {
     },
   },
 
+//*___________ ABOUT PAGE __________________
+
   aboutPage: {
     association_presentation_section: {
       two_hens_out_five_title:
         'Deux Poules sur cinq is the result of a collaboration between Anima and Data for Good, two non-profit associations.',
       anima_presentation:
         'Anima exists to reduce animal suffering as effectively as possible. The association is leading a national and European campaign to end the caged farming of laying hens. Anima is a member of the European coalition Anima International.',
-      anima_link: 'See the Anima website',
+      anima_link: 'www.animafrance.org',
       dataforgood_presentation:
         'Data for Good is a French NGO whose goal is to help public interest projects grow. Thanks to a community of over 4,000 tech-savvy volunteers, a dozen projects are supported and developed for over three months.',
-      dataforgood_link: 'See the Data For Good website',
+      dataforgood_link: 'www.dataforgood.fr',
     },
     whyNameSection: {
       why_welfare_footprint_title: 'WHY “WELFARE FOOTPRINT” ?',
