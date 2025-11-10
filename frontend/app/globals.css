@@ -183,6 +183,27 @@ h4 {
   transition: all ease-in-out;
 }
 
+.fourth-button {
+padding: 16px 24px 16px 24px;
+  background-color: var(--color-pink-1);
+  border: solid, 2px, var(--color-pink-1);
+  box-shadow: 0 5px 0 0 var(--color-black);
+  font-size: var(--text-button);
+  color: var(--color-brown);
+  border-radius: 10px;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+}
+
+.fourth-button:hover {
+  background-color: var(--color-violet);
+  border: solid, 2px, var(--color-violet);
+  color: var(--color-brown);
+  transition: all ease-in-out;
+}
+
 [id] {
   scroll-margin-top: 70px;
 }
+
