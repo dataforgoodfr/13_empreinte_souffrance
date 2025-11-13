@@ -13,7 +13,6 @@ type Store = {
 };
 
 const stores: Store[] = [
-  // Carrefour
   {
     name: 'Carrefour Paris',
     coords: [48.8566, 2.3522],
@@ -38,7 +37,6 @@ const stores: Store[] = [
     color: '',
     status: '',
   },
-  // Auchan
   {
     name: 'Auchan Lille',
     coords: [50.6292, 3.0573],
@@ -63,7 +61,6 @@ const stores: Store[] = [
     color: '',
     status: '',
   },
-  // Lidl
   {
     name: 'Lidl Nantes',
     coords: [47.2184, -1.5536],
@@ -88,7 +85,6 @@ const stores: Store[] = [
     color: '',
     status: '',
   },
-  // Leclerc
   {
     name: 'Leclerc Rennes',
     coords: [48.1173, -1.6778],
@@ -113,7 +109,6 @@ const stores: Store[] = [
     color: '',
     status: '',
   },
-  // Super U
   {
     name: 'Super U Angers',
     coords: [47.4784, -0.5632],
@@ -140,7 +135,6 @@ const stores: Store[] = [
   },
 ];
 
-// assign colors & statuses randomly like the vanilla JS version
 stores.forEach((store) => {
   store.color = Math.random() < 0.5 ? 'red' : 'green';
   store.status = store.color === 'red' ? "Présence d'œufs cage" : "Pas d'œufs cage";
