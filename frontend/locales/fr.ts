@@ -37,10 +37,10 @@ export default {
     suffering: 'souffrance',
   },
 
-  time_for_reckoning_logo : {
-    time : 'L’heure',
-    for : 'des', 
-    reckoning:'comptes'
+  time_for_reckoning_logo: {
+    time: 'L’heure',
+    for: 'des',
+    reckoning: 'comptes',
   },
 
   Navbar: {
@@ -131,20 +131,18 @@ export default {
 
   Results: {
     title: 'QUE VIVENT LES 12 MILLIONS DE POULES ENCORE EN CAGE ?',
-    subtitle: 'L\'Empreinte souffrance : le nouvel indicateur qui mesure la souffrance animale',
+    subtitle: "L'Empreinte souffrance : le nouvel indicateur qui mesure la souffrance animale",
     sectionList: {
       first: {
         superTitle: '1 boite d’oeuf c’est:',
-        title: '2H D’AGONIE\n'+
-          '4H DE SOUFFRANCE\n'+
-          '46H DE DOULEUR\n'+
-          '80H D’INCONFORT',
+        title: '2H D’AGONIE\n' + '4H DE SOUFFRANCE\n' + '46H DE DOULEUR\n' + '80H D’INCONFORT',
         text: 'C’est le prix payé par une poule en cage pour la production d’une boîte de 6 oeufsCalculer l’empreinte souffrance',
         source: {
           url: '/',
           name: 'Source link',
         },
-      }, second:{
+      },
+      second: {
         superTitle: 'Toutes les privations spécifique aux poules en cage',
         title: '156H DE SOUFFRANCE PSYCHOLOGIQUE',
         text: 'Les poules en cage sont privées de la plupart de leurs besoins (se déplacer, gratter le sol, prendre des bains de poussière) et en souffrent grandement.',
@@ -152,7 +150,8 @@ export default {
           url: '/',
           name: 'Source link',
         },
-      }, third: {
+      },
+      third: {
         superTitle: 'Passer totalement au système hors-cage:',
         title: '93 % DE RÉDUCTION DES SOUFFRANCES',
         text: 'Le passage en élevage hors cage permet de diminuer de 93 % les souffrances dues à l’impossibilité pour les poules d’adopter des comportements naturels',
@@ -160,7 +159,7 @@ export default {
           url: '/',
           name: 'Source link',
         },
-      }
+      },
     },
     link: 'DÉCOUVRIR LA MÉTHODOLOGIE EN DÉTAIL',
   },
@@ -302,7 +301,8 @@ export default {
         key4: "secondes d'agonie",
       },
     },
-    linkSection: "Consultez l’empreinte souffrance des oeufs du commerce grace à notre calculateur intégré à Open food facts",
+    linkSection:
+      'Consultez l’empreinte souffrance des oeufs du commerce grace à notre calculateur intégré à Open food facts',
   },
 
   //*___________ METHODOLOGY PAGE __________________
@@ -708,7 +708,7 @@ export default {
         'Deux Poules sur cinq est le fruit d’une collaboration entre Anima et Data for Good, deux associations à but non lucratif.',
       anima_presentation:
         'Anima existe pour réduire la souffrance des animaux de la façon la plus efficace possible. L’association mène une campagne nationale et européenne pour mettre un terme à l’élevage en cage des poules pondeuses. Anima est membre de la coalition européenne Anima International.',
-      anima_link: "www.animafrance.org",
+      anima_link: 'www.animafrance.org',
       dataforgood_presentation:
         "Data for Good est une ONG française dont le but est d'aider les projets d'intérêt général à se développer. Grâce à une communauté de plus de 4000 bénévoles compétents en technologie, une douzaine de projets sont soutenus et développés pendant plus de 3 mois.",
       dataforgood_link: 'www.dataforgood.fr',

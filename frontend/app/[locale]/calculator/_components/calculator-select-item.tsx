@@ -44,7 +44,6 @@ export default function CalculatorSelect({ quantities, farmings, labels }: Props
 
   return (
     <section className="p-section flex flex-col items-center justify-center gap-16">
-
       <div className="flex flex-col md:flex-row items-center justify-center text-brown text-bold gap-8">
         <select
           value={quantityKey}
@@ -76,7 +75,6 @@ export default function CalculatorSelect({ quantities, farmings, labels }: Props
       </div>
 
       <div className="flex flex-col md:flex-row justify-between text-brown font-extrabold tracking-wide  gap-5 w-full">
-
         <hgroup>
           <span className="bg-pink-1 text-center text-numbers flex justify-start items-center w-fit rounded-[5px]">
             {Math.round(data.discomfort * factor)}
@@ -104,9 +102,7 @@ export default function CalculatorSelect({ quantities, farmings, labels }: Props
           </span>
           <h3 className="text-xl sm:text-2xl">{labels.agony}.</h3>
         </hgroup>
-
       </div>
-
     </section>
   );
 }

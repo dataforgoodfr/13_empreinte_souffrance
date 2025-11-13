@@ -8,7 +8,6 @@ export default async function PainTrackTable() {
     <div className="flex px-0 lg:px-8 ">
       <table className=" table-auto w-full text-center text-xs md:text-base border-separate border-spacing-0.5">
         <thead>
-
           {/* Légende "Phase de lésion" */}
           <tr>
             <th colSpan={2}></th>
@@ -48,7 +47,6 @@ export default async function PainTrackTable() {
         <tbody>
           {/* Ligne inconfort */}
           <tr>
-
             {/* Légende "Intensité de la souffrance" */}
             <td
               className="px-4 py-2 text-center italic font-bold text-nowrap"
@@ -65,7 +63,9 @@ export default async function PainTrackTable() {
             <td className="bg-pink-1"></td>
             <td className="bg-pink-1"></td>
             <td className="bg-pink-1">70%</td>
-            <td className="bg-pink-1">196 h <br/> <p className='text-caption'>± 39.2h</p></td>
+            <td className="bg-pink-1">
+              196 h <br /> <p className="text-caption">± 39.2h</p>
+            </td>
           </tr>
 
           {/* Ligne douleur */}
@@ -77,7 +77,9 @@ export default async function PainTrackTable() {
             <td className="bg-pink-2">80%</td>
             <td className="bg-pink-2">100%</td>
             <td className="bg-pink-2">30%</td>
-            <td className="bg-pink-2">116.14 h<p className='text-caption'> ± 23.20h</p></td>
+            <td className="bg-pink-2">
+              116.14 h<p className="text-caption"> ± 23.20h</p>
+            </td>
           </tr>
 
           {/* Ligne souffrance */}
@@ -89,7 +91,9 @@ export default async function PainTrackTable() {
             <td className="bg-pink-3">20%</td>
             <td className="bg-pink-3"></td>
             <td className="bg-pink-3"></td>
-            <td className="bg-pink-3">2.63 min <p className='text-caption'> ± 1.07 min</p></td>
+            <td className="bg-pink-3">
+              2.63 min <p className="text-caption"> ± 1.07 min</p>
+            </td>
           </tr>
 
           {/* Ligne Agony */}

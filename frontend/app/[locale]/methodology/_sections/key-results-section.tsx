@@ -50,7 +50,6 @@ export default async function KeyResultsSection() {
 
 //* Sub-components ________________________
 
-
 interface AfflictionResultCardProps {
   text: string;
   agony: string;
@@ -62,9 +61,8 @@ interface AfflictionResultCardProps {
 const AfflictionResultCard = ({ text, agony, pain, suffering, discomfort }: AfflictionResultCardProps) => {
   return (
     <div className=" flex items-center bg-grey p-section gap-2 rounded-[10px]">
-   
-        <p className='uppercase font-bold text-h4 w-1/2'>{text}</p>
-  
+      <p className="uppercase font-bold text-h4 w-1/2">{text}</p>
+
       <div className="flex flex-col items-center justify-center gap-2 w-1/2">
         <SufferingScales
           agony_duration_text={agony}

@@ -10,8 +10,8 @@ export default async function About() {
       <AssociationPresentationSection />
       <WhyNameSection />
       <ThankingSection />
-      <SourcesSection/>
-      <GoFurtherSection/>
+      <SourcesSection />
+      <GoFurtherSection />
     </>
   );
 }

@@ -5,7 +5,7 @@ export default {
     presentation: 'PRESENTATION',
     methodology: 'METHODOLOGY',
     calculator: 'CALCULATOR',
-    numbers : 'NUMBERS',
+    numbers: 'NUMBERS',
     about: 'ABOUT',
   },
 
@@ -27,10 +27,10 @@ export default {
     suffering: 'footprint',
   },
 
-  time_for_reckoning_logo : {
-    time : 'Time',
-    for : 'For', 
-    reckoning:'Reckoning'
+  time_for_reckoning_logo: {
+    time: 'Time',
+    for: 'For',
+    reckoning: 'Reckoning',
   },
 
   Navbar: {
@@ -123,16 +123,14 @@ export default {
     sectionList: {
       first: {
         superTitle: 'One carton of eggs is:',
-        title: '2 HOURS OF AGONY\n' +
-          '4 HOURS OF SUFFERING\n' +
-          '46 HOURS OF PAIN\n' +
-          '80 HOURS OF DISCOMFORT',
+        title: '2 HOURS OF AGONY\n' + '4 HOURS OF SUFFERING\n' + '46 HOURS OF PAIN\n' + '80 HOURS OF DISCOMFORT',
         text: 'This is the price paid by a caged hen for the production of a box of 6 eggs.\nCalculate the suffering footprint',
         source: {
           url: '/',
           name: 'Source link',
         },
-      }, second: {
+      },
+      second: {
         superTitle: 'All the specific deprivations of caged hens',
         title: '156H OF PSYCHOLOGICAL SUFFERING',
         text: 'Caged hens are deprived of most of their needs (moving around, scratching the ground, dust bathing) and suffer greatly from it.',
@@ -140,7 +138,8 @@ export default {
           url: '/',
           name: 'Source link',
         },
-      }, third: {
+      },
+      third: {
         superTitle: 'Completely switch to cage-free systems:',
         title: '93% REDUCTION IN SUFFERING',
         text: 'Switching to cage-free farming reduces suffering caused by hens’ inability to perform natural behaviors by 93%',
@@ -148,7 +147,7 @@ export default {
           url: '/',
           name: 'Source link',
         },
-      }
+      },
     },
     link: 'DISCOVER THE METHODOLOGY IN DETAIL',
   },
@@ -680,7 +679,7 @@ export default {
     },
   },
 
-//*___________ ABOUT PAGE __________________
+  //*___________ ABOUT PAGE __________________
 
   aboutPage: {
     association_presentation_section: {

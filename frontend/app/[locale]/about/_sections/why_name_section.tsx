@@ -16,7 +16,7 @@ export default async function WhyNameSection() {
         />
       </figure>
 
-      <figcaption className='flex flex-col items-center gap-[20px]'>
+      <figcaption className="flex flex-col items-center gap-[20px]">
         <h2 className="lg:max-w-[550px] text-center">{scopedT('why_welfare_footprint_title')}</h2>
         <div className="flex flex-col gap-[10px] lg:max-w-1/3">
           <p>{scopedT('why_welfare_footprint_description.new_scientific_work')}</p>
