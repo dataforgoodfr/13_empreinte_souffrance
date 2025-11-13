@@ -8,7 +8,7 @@ export default async function MethodologyPage() {
   return (
     <>
       <IntroductionSection />
-      <ThreeStepsMethodSection/>
+      <ThreeStepsMethodSection />
       <MethodDetailsSection />
       <KeyResultsSection />
       <GoFurtherSection />

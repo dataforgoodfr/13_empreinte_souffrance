@@ -14,9 +14,8 @@ export default async function MethodDetailsSection() {
       <div className="flex flex-col items-center mt-15 gap-16">
         <IdentifyPainSources />
         <QuantifyPainBySources />
-        <ComputePainSources/>
+        <ComputePainSources />
       </div>
     </section>
-
   );
 }

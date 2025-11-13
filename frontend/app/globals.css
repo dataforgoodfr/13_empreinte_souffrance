@@ -184,7 +184,7 @@ h4 {
 }
 
 .fourth-button {
-padding: 16px 24px 16px 24px;
+  padding: 16px 24px 16px 24px;
   background-color: var(--color-pink-1);
   border: solid, 2px, var(--color-pink-1);
   box-shadow: 0 5px 0 0 var(--color-black);
@@ -206,4 +206,3 @@ padding: 16px 24px 16px 24px;
 [id] {
   scroll-margin-top: 70px;
 }
-

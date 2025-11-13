@@ -5,8 +5,8 @@ import ButtonLink from '@/app/[locale]/ui/_components/button-link';
 
 export default async function Footer() {
   const t = await getI18n();
-  
-  const footerLinkClasses = "text-brown hover:text-pink-3 transition-colors duration-200";
+
+  const footerLinkClasses = 'text-brown hover:text-pink-3 transition-colors duration-200';
   const footerUnderlineClasses = `${footerLinkClasses} underline`;
 
   return (
@@ -35,17 +35,33 @@ export default async function Footer() {
           {/* Anima */}
           <div className="flex flex-col">
             <div>
-              <img
-                src="/Anima-logo.png"
-                alt={t('footer.anima_logo_alt')}
-                className="w-[120px] h-[28px] mb-4"
-              />
+              <img src="/Anima-logo.png" alt={t('footer.anima_logo_alt')} className="w-[120px] h-[28px] mb-4" />
               <ul className="space-y-3 text-sm">
-                <li><a className={footerLinkClasses} href="https://animafrance.org/">{t('footer.website')}</a></li>
-                <li><a className={footerLinkClasses} href="https://www.linkedin.com/company/animafrance/">{t('footer.linkedin')}</a></li>
-                <li><a className={footerLinkClasses} href="https://www.facebook.com/animafrance.org">{t('footer.facebook')}</a></li>
-                <li><a className={footerLinkClasses} href="https://www.instagram.com/assoanima">{t('footer.instagram')}</a></li>
-                <li><a className={footerLinkClasses} href="mailto:www@animafrance.org">{t('footer.email')}</a></li>
+                <li>
+                  <a className={footerLinkClasses} href="https://animafrance.org/">
+                    {t('footer.website')}
+                  </a>
+                </li>
+                <li>
+                  <a className={footerLinkClasses} href="https://www.linkedin.com/company/animafrance/">
+                    {t('footer.linkedin')}
+                  </a>
+                </li>
+                <li>
+                  <a className={footerLinkClasses} href="https://www.facebook.com/animafrance.org">
+                    {t('footer.facebook')}
+                  </a>
+                </li>
+                <li>
+                  <a className={footerLinkClasses} href="https://www.instagram.com/assoanima">
+                    {t('footer.instagram')}
+                  </a>
+                </li>
+                <li>
+                  <a className={footerLinkClasses} href="mailto:www@animafrance.org">
+                    {t('footer.email')}
+                  </a>
+                </li>
               </ul>
             </div>
           </div>
@@ -54,17 +70,25 @@ export default async function Footer() {
           <div className="flex flex-col">
             <div>
               <div className="flex items-center gap-4 mb-4">
-                <img 
-                  src="/logo_data_for_good.png" 
-                  alt={t('footer.dfg_logo_alt')} 
-                  className="h-12 w-12 rounded-full" 
-                />
+                <img src="/logo_data_for_good.png" alt={t('footer.dfg_logo_alt')} className="h-12 w-12 rounded-full" />
                 <span className="text-lg font-extrabold text-brown">Data For Good</span>
               </div>
               <ul className="space-y-3 text-sm">
-                <li><a className={footerLinkClasses} href="https://dataforgood.fr/">{t('footer.website')}</a></li>
-                <li><a className={footerLinkClasses} href="https://www.linkedin.com/company/dataforgood/">{t('footer.linkedin')}</a></li>
-                <li><a className={footerLinkClasses} href="mailto:hellodataforgood@gmail.com">{t('footer.email')}</a></li>
+                <li>
+                  <a className={footerLinkClasses} href="https://dataforgood.fr/">
+                    {t('footer.website')}
+                  </a>
+                </li>
+                <li>
+                  <a className={footerLinkClasses} href="https://www.linkedin.com/company/dataforgood/">
+                    {t('footer.linkedin')}
+                  </a>
+                </li>
+                <li>
+                  <a className={footerLinkClasses} href="mailto:hellodataforgood@gmail.com">
+                    {t('footer.email')}
+                  </a>
+                </li>
               </ul>
             </div>
           </div>
@@ -82,12 +106,12 @@ export default async function Footer() {
             <div className="mt-2">{t('footer.rights')}</div>
           </div>
 
-          <div className='md:mt-7'>
+          <div className="md:mt-7">
             <span>{t('footer.graphics')} </span>
-            <a 
-              className={footerUnderlineClasses} 
-              href="https://coucou.design" 
-              target="_blank" 
+            <a
+              className={footerUnderlineClasses}
+              href="https://coucou.design"
+              target="_blank"
               rel="noopener noreferrer"
             >
               Coucou.Design

@@ -199,9 +199,10 @@ export default async function ComputePainSources() {
 
         <article className="flex-1">
           <AnimatedAfflictionsGroup afflictions={afflictions} delay={4000} cascade={300} />{' '}
-          <p className="bg-white text-body rounded-[5px] p-4 my-2">{t('MethodologyPage.sufferingQuantificationSteps.step3.text2')}</p>
+          <p className="bg-white text-body rounded-[5px] p-4 my-2">
+            {t('MethodologyPage.sufferingQuantificationSteps.step3.text2')}
+          </p>
           <p className="bg-violet rounded-[5px] text-center text-3xl p-2 my-4 font-extrabold">=</p>
-
           {/* Synthèse */}
           <div className="bg-white rounded-[5px] p-4">
             <p className="text-body uppercase font-extrabold mb-2">

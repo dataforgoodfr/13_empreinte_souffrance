@@ -7,7 +7,7 @@ export default async function CalculatorLinkSection() {
 
   return (
     <section className="bg-pink-1 p-section flex justify-center">
-      <div className='flex flex-col items-center justify-center gap-6 w-[900px]'> 
+      <div className="flex flex-col items-center justify-center gap-6 w-[900px]">
         <Image
           src="/loupe_icon.png"
           width={74}

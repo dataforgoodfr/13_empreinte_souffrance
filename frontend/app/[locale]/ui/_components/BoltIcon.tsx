@@ -7,13 +7,8 @@ type BoltIconProps = {
 };
 
 export default function BoltIcon({ color = 'pink-3', fontSize = '40px' }: BoltIconProps) {
-
   return (
-    <span
-        style={{fontSize:fontSize}}
-        className={`rotate-[-18deg] text-${color}`}
-        aria-hidden="true"
-    >
+    <span style={{ fontSize: fontSize }} className={`rotate-[-18deg] text-${color}`} aria-hidden="true">
       <FontAwesomeIcon icon={faBolt} />
     </span>
   );

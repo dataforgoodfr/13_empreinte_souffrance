@@ -27,9 +27,7 @@ export default async function IdentifyPainSources() {
   return (
     <div className="max-w-[935px] flex flex-col items-center gap-8">
       <hgroup className="max-w-[650px]">
-        <h2 className="mb-4 uppercase ">
-          {t('MethodologyPage.method_details_section.title_h2')}
-        </h2>
+        <h2 className="mb-4 uppercase ">{t('MethodologyPage.method_details_section.title_h2')}</h2>
         <p className="mb-6">{t('MethodologyPage.method_details_section.question')}</p>
         <p className="mb-6">{t('MethodologyPage.method_details_section.description')}</p>
       </hgroup>

@@ -7,4 +7,4 @@ export default (link: string, pathName: string, langSuffix: string) => {
   }
 
   return isRoot(link) ? isRoot(pathName) : matchesPath(link, pathName);
-}
+};

@@ -34,7 +34,9 @@ export function AnimatedAfflictionsGroup({ afflictions, delay = 4000, cascade = 
       {[0, 1, 2].map((offset, idx, arr) => (
         <div key={offset}>
           <AnimatedCard afflictions={afflictions} index={index} offset={offset} cascade={cascade} />
-          {idx < arr.length - 0 && <div className="bg-violet rounded-[5px] p-2 my-4 text-center text-3xl font-extrabold w-full">+</div>}
+          {idx < arr.length - 0 && (
+            <div className="bg-violet rounded-[5px] p-2 my-4 text-center text-3xl font-extrabold w-full">+</div>
+          )}
         </div>
       ))}
     </div>
@@ -126,7 +128,9 @@ function SufferingSynthesis(props: Affliction) {
 
       <div className="grid grid-cols-2 text-caption ">
         <div className="flex flex-wrap justify-left items-center normal-case gap-1">
-          <p className="p-2 flex justify-center items-left font-bold text-center">{percent}{' '}{text}</p>
+          <p className="p-2 flex justify-center items-left font-bold text-center">
+            {percent} {text}
+          </p>
         </div>
 
         <div className="w-full grid grid-cols-2 grid-rows-2 normal-case text-center">

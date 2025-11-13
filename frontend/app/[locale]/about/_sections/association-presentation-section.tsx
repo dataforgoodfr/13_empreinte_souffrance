@@ -29,12 +29,12 @@ export default async function AssociationPresentationSection() {
           <Link href="https://animafrance.org/" target="_blank" className="w-fit">
             <figure className="flex flex-row justify-center align-center">
               <Image
-              src="/dataforgood.svg"
-              width={215}
-              height={50}
-              alt="Logo Data For Good"
-              className="mb-0 md:mb-0 object-contain"
-            />
+                src="/dataforgood.svg"
+                width={215}
+                height={50}
+                alt="Logo Data For Good"
+                className="mb-0 md:mb-0 object-contain"
+              />
             </figure>
           </Link>
           <p>{scopedT('dataforgood_presentation')}</p>

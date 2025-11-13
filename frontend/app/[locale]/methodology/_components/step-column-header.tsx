@@ -5,7 +5,6 @@ interface StepColumnHeaderProps {
   number: number | string;
 }
 
-
 async function StepColumnHeader({ title, number }: StepColumnHeaderProps) {
   return (
     <div className="text-center rounded-[10px] mb-[10px] font-extrabold font-mono bg-pink-2 py-3 px-2">

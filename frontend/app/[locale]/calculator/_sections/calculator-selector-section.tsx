@@ -1,8 +1,8 @@
 import { getScopedI18n } from '@/locales/server';
-import CalculatorSelect from "@/app/[locale]/calculator/_components/calculator-select-item";
+import CalculatorSelect from '@/app/[locale]/calculator/_components/calculator-select-item';
 
 export default async function SelectorSection() {
-  const scopedT = await getScopedI18n("calculatorPage");
+  const scopedT = await getScopedI18n('calculatorPage');
 
   const quantities = [
     { key: 'Option4', label: scopedT('calculSection.selectorSection.selector1.Option4'), factor: 1 },

@@ -108,9 +108,9 @@ export default function KnowledgePanel() {
     '3256229237063': 'Poulet de chair non taggué en:chickens',
     '0451418000005': 'Oeufs barn sans product_name',
     '3331354307611': 'Oeufs barn et poids sans product_name',
-    '78742330808' : '"1 egg" dans quantity',
-    '5051140152901' : '12 large - calibre trouvé',
-    '3560071227241' : '6 moyens - calibre trouvé',
+    '78742330808': '"1 egg" dans quantity',
+    '5051140152901': '12 large - calibre trouvé',
+    '3560071227241': '6 moyens - calibre trouvé',
   };
 
   useEffect(() => {
