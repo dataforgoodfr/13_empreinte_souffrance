@@ -436,13 +436,13 @@ def main():
         csv_export = answer == "y"
 
     if csv_export:
-        print(f"Exporting csv ({export_time})...")
+        print(f"Exporting csv ({export_time}) starting at {time.strftime('%H:%M:%S')}...")
         if args.potential:
             df = create_df_of_potential_eggs()
-            export_df_as_csv(df, CSV_PATH)
+            export_df_as_csv(df, POTENTIAL_CSV_PATH)
         else:
             df = create_filtered_df()
-            export_df_as_csv(df, POTENTIAL_CSV_PATH)
+            export_df_as_csv(df, CSV_PATH)
     else:
         print("Skipping CSV export.")
 
