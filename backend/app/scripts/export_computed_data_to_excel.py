@@ -81,7 +81,7 @@ class Config:
         "Quantité": 15,
         "Image principale": 50,
         "Image ingrédients": 50,
-        "Elevage\n (cage, sol, plein-air, bio ou 3, 2, 1, 0)": 15,
+        "Elevage\n (3, 2, 1, 0)": 15,
         "Quantité\n(nb d'œufs ou poids)": 13,
         "Calibre\n(S, M, L, XL ou petit, moyen, gros, très gros)": 17,
         "OCR": 50,
