@@ -14,175 +14,187 @@ import requests
 
 from app.enums.open_food_facts.product_type_enums import ProductTypePatternRepository
 
-SOURCE_PARQUET = "https://huggingface.co/datasets/openfoodfacts/product-database/resolve/main/food.parquet"
-DATA_PATH = Path("data")
 
-LOCAL_PARQUET = DATA_PATH / "food.parquet"
-CSV_PATH = DATA_PATH / "eggs_from_parquet.csv"
+class Config:
+    """
+    Configuration constants for the egg product extraction script.
+    """
 
-POTENTIAL_CSV_PATH = DATA_PATH / "potential_eggs_from_parquet.csv"
-COLS_TO_JSON_PATH = DATA_PATH / "cols_to_json.txt"
+    SOURCE_PARQUET = "https://huggingface.co/datasets/openfoodfacts/product-database/resolve/main/food.parquet"
 
-EXPORT_TIME_BASIC = "~1 min 30 sec"
-EXPORT_TIME_POTENTIAL = "~10 min"
+    DATA_PATH = Path("data")
+    LOCAL_PARQUET = DATA_PATH / "food.parquet"
+    CSV_PATH = DATA_PATH / "eggs_from_parquet.csv"
+    POTENTIAL_CSV_PATH = DATA_PATH / "potential_eggs_from_parquet.csv"
+    COLS_TO_JSON_PATH = DATA_PATH / "cols_to_json.txt"
 
-EGG_CATEGORY = "en:eggs"
+    EXPORT_TIME_BASIC = "~1 min 30 sec"
+    EXPORT_TIME_POTENTIAL = "~10 min"
 
-# SQL pattern to match product names containing eggs when searching potential eggs
-EGG_PATTERN_SQL = "(^|[^A-Za-z])(?:eggs?|oeufs?|uove|huevos?)([^A-Za-z]|$)"
+    EGG_CATEGORY = "en:eggs"
 
-# List of words that should not be in the product name when searching potential eggs
-EXCLUDED_WORDS = ProductTypePatternRepository.EXCLUDED_WORDS | {
-    "coque",
-    "starters?",
-    "suisses?",
-    "con huevo",
-    "galettas",
-    "pan",
-    "gummies",
-    "rollos?",
-    "omelette?s?",
-    "roti",
-    "crema",
-    "teriyaki",
-    "pistache",
-    "pie",
-    "mix",
-    "frito",
-    "coffee",
-    "al huevo",
-    "topping",
-    "tofu",
-    "barbie",
-    "pastas",
-    "replacement",
-    "nog",
-    "boeufs?",
-    "encastré",
-    "plat",
-    "veggie",
-    "haribo",
-    "marshmallow",
-    "jamon",
-    "pappardelle",
-    "chile",
-    "linguine",
-    "tarts?",
-    "choccy",
-    "unicorn",
-    "candy",
-    "pork",
-    "mayonnaises?",
-    "bites",
-    "petillant",
-    "tagliolini",
-    "galore",
-    "fettucc?ine",
-    "dye",
-    "leche",
-    "lompia",
-    "sugar",
-    "wheat",
-    "good",
-    "gianduja",
-    "patatas",
-    "ciabatta",
-    "dove",
-    "guimauve",
-    "lindt",
-    "soup",
-    "happy",
-    "golden",
-    "ozmo",
-    "sucreries?",
-    "twix",
-    "vegetable",
-    "vegi",
-    "fruite",
-    "peanut",
-    "avocado",
-    "etoiles?",
-    "bagels?",
-    "pochés?",
-    "daim",
-    "patties?",
-    "rosquillos?",
-    "vegetal",
-    "setas?",
-    "confiseurs?",
-    "natillas?",
-    "steak",
-    "butifarra",
-    "tiny",
-    "cheddar",
-    "spinach",
-    "trufados",
-    "bun",
-    "ham",
-    "licornes?",
-    "bechamel",
-    "nibbly",
-    "chorizo",
-    "fusilli",
-    "cream",
-    "mallow",
-    "breakfast",
-    "crispy?",
-    "scotchmallow",
-    "marmotte",
-    "blancs? d oeufs?",
-    "sauces?",
-    "wich",
-    "plant",
-    "replacer",
-    "pastry",
-    "grill",
-    "pains?",
-    "salsa",
-    "peinture",
-    "peppermint",
-    "croquants?",
-    "mousse",
-    "fruits?",
-    "cake",
-    "tomato",
-    "salad",
-    "cashew",
-    "mushroom",
-    "sin huevo",
-    "cigogne",
-    "taco",
-    "aux oeufs",
-    "macaroni",
-    "custard",
-    "bread",
-    "barley",
-    "you",
-    "benedict",
-    "tortas?",
-    "tortilla",
-}
+    # List of columns which are useful for further data analysis
+    SELECTED_COLUMNS = [
+        "code",
+        "categories_tags",
+        "labels_tags",
+        "product_name",
+        "generic_name",
+        "quantity",
+        "product_quantity_unit",
+        "product_quantity",
+        "allergens_tags",
+        "ingredients_tags",
+        "ingredients",
+        "countries_tags",
+        "images",
+    ]
 
-EXCLUDED_PATTERNS = re.compile(
-    r"\b(" + r"|".join([term.replace(" ", r"\s+") for term in EXCLUDED_WORDS]) + r")\b", re.VERBOSE
-)
 
-# List of columns which are useful for further data analysis
-SELECTED_COLUMNS = [
-    "code",
-    "categories_tags",
-    "labels_tags",
-    "product_name",
-    "generic_name",
-    "quantity",
-    "product_quantity_unit",
-    "product_quantity",
-    "allergens_tags",
-    "ingredients_tags",
-    "ingredients",
-    "countries_tags",
-    "images",
-]
+class PatternRepository:
+    """
+    Pattern repository for egg product extraction
+    Contains patterns to help identify potential eggs
+    """
+
+    # SQL pattern to match product names containing eggs when searching potential eggs
+    EGG_PATTERN_SQL = "(^|[^A-Za-z])(?:eggs?|oeufs?|uove|huevos?)([^A-Za-z]|$)"
+
+    # List of words that should not be in the product name when searching potential eggs
+    EXCLUDED_WORDS = ProductTypePatternRepository.EXCLUDED_WORDS | {
+        "coque",
+        "starters?",
+        "suisses?",
+        "con huevo",
+        "galettas",
+        "pan",
+        "gummies",
+        "rollos?",
+        "omelette?s?",
+        "roti",
+        "crema",
+        "teriyaki",
+        "pistache",
+        "pie",
+        "mix",
+        "frito",
+        "coffee",
+        "al huevo",
+        "topping",
+        "tofu",
+        "barbie",
+        "pastas",
+        "replacement",
+        "nog",
+        "boeufs?",
+        "encastré",
+        "plat",
+        "veggie",
+        "haribo",
+        "marshmallow",
+        "jamon",
+        "pappardelle",
+        "chile",
+        "linguine",
+        "tarts?",
+        "choccy",
+        "unicorn",
+        "candy",
+        "pork",
+        "mayonnaises?",
+        "bites",
+        "petillant",
+        "tagliolini",
+        "galore",
+        "fettucc?ine",
+        "dye",
+        "leche",
+        "lompia",
+        "sugar",
+        "wheat",
+        "good",
+        "gianduja",
+        "patatas",
+        "ciabatta",
+        "dove",
+        "guimauve",
+        "lindt",
+        "soup",
+        "happy",
+        "golden",
+        "ozmo",
+        "sucreries?",
+        "twix",
+        "vegetable",
+        "vegi",
+        "fruite",
+        "peanut",
+        "avocado",
+        "etoiles?",
+        "bagels?",
+        "pochés?",
+        "daim",
+        "patties?",
+        "rosquillos?",
+        "vegetal",
+        "setas?",
+        "confiseurs?",
+        "natillas?",
+        "steak",
+        "butifarra",
+        "tiny",
+        "cheddar",
+        "spinach",
+        "trufados",
+        "bun",
+        "ham",
+        "licornes?",
+        "bechamel",
+        "nibbly",
+        "chorizo",
+        "fusilli",
+        "cream",
+        "mallow",
+        "breakfast",
+        "crispy?",
+        "scotchmallow",
+        "marmotte",
+        "blancs? d oeufs?",
+        "sauces?",
+        "wich",
+        "plant",
+        "replacer",
+        "pastry",
+        "grill",
+        "pains?",
+        "salsa",
+        "peinture",
+        "peppermint",
+        "croquants?",
+        "mousse",
+        "fruits?",
+        "cake",
+        "tomato",
+        "salad",
+        "cashew",
+        "mushroom",
+        "sin huevo",
+        "cigogne",
+        "taco",
+        "aux oeufs",
+        "macaroni",
+        "custard",
+        "bread",
+        "barley",
+        "you",
+        "benedict",
+        "tortas?",
+        "tortilla",
+    }
+
+    EXCLUDED_PATTERNS = re.compile(
+        r"\b(" + r"|".join([term.replace(" ", r"\s+") for term in EXCLUDED_WORDS]) + r")\b", re.VERBOSE
+    )
 
 
 def normalize_string(s):
@@ -219,13 +231,13 @@ def download_parquet():
     Effects:
         Creates a 4 GO local Parquet file in the data directory.
     """
-    LOCAL_PARQUET.parent.mkdir(parents=True, exist_ok=True)
-    with requests.get(SOURCE_PARQUET, stream=True) as r:
+    Config.LOCAL_PARQUET.parent.mkdir(parents=True, exist_ok=True)
+    with requests.get(Config.SOURCE_PARQUET, stream=True) as r:
         r.raise_for_status()
         total_size = int(r.headers.get("Content-Length", 0))
         chunk_size = 8192
         downloaded = 0
-        with open(LOCAL_PARQUET, "wb") as f:
+        with open(Config.LOCAL_PARQUET, "wb") as f:
             for chunk in r.iter_content(chunk_size=chunk_size):
                 if chunk:
                     f.write(chunk)
@@ -234,7 +246,7 @@ def download_parquet():
                     percent = (downloaded / total_size * 100) if total_size else 0
                     bar = "=" * done + " " * (50 - done)
                     print(f"\rDownloading: [{bar}] {percent:.2f}%", end="")
-    print(f"\nFile downloaded: {LOCAL_PARQUET}")
+    print(f"\nFile downloaded: {Config.LOCAL_PARQUET}")
 
 
 def detect_columns_to_convert(df):
@@ -285,9 +297,9 @@ def create_filtered_df() -> pd.DataFrame:
         pandas.DataFrame: Filtered DataFrame with hen egg products.
     """
     query = f"""
-    SELECT {",".join(SELECTED_COLUMNS)}
-    FROM '{LOCAL_PARQUET}'
-    WHERE array_contains(categories_tags, '{EGG_CATEGORY}')
+    SELECT {",".join(Config.SELECTED_COLUMNS)}
+    FROM '{Config.LOCAL_PARQUET}'
+    WHERE array_contains(categories_tags, '{Config.EGG_CATEGORY}')
     """
     print("Starting combined DuckDB query to select and filter data...")
     start_time = time.time()
@@ -310,12 +322,12 @@ def create_df_of_potential_eggs() -> pd.DataFrame:
     # exécuter la requête DuckDB
     con = duckdb.connect()
 
-    sql = f"""SELECT {",".join("f." + col for col in SELECTED_COLUMNS)}, u.unnest.lang, u.unnest.text
-    FROM parquet_scan('{LOCAL_PARQUET}') AS f
+    sql = f"""SELECT {",".join("f." + col for col in Config.SELECTED_COLUMNS)}, u.unnest.lang, u.unnest.text
+    FROM parquet_scan('{Config.LOCAL_PARQUET}') AS f
     LEFT JOIN UNNEST(f.product_name) AS u ON TRUE
-    WHERE (f.categories_tags IS NULL OR NOT array_contains(categories_tags, '{EGG_CATEGORY}'))
+    WHERE (f.categories_tags IS NULL OR NOT array_contains(categories_tags, '{Config.EGG_CATEGORY}'))
     AND u.unnest.lang = 'main'
-    AND REGEXP_MATCHES(u.unnest.text, '{EGG_PATTERN_SQL}', 'i');
+    AND REGEXP_MATCHES(u.unnest.text, '{PatternRepository.EGG_PATTERN_SQL}', 'i');
     """
 
     start_time = time.time()
@@ -324,7 +336,9 @@ def create_df_of_potential_eggs() -> pd.DataFrame:
     print(f"Query executed in {time.time() - start_time:.2f} seconds, rows fetched: {len(df)}")
     print(f"Number of columns returned by duckdb: {len(df.columns)}")
 
-    df = df[~df["text"].apply(lambda x: normalize_string(x)).str.contains(EXCLUDED_PATTERNS, na=False)]
+    df = df[
+        ~df["text"].apply(lambda x: normalize_string(x)).str.contains(PatternRepository.EXCLUDED_PATTERNS, na=False)
+    ]
     print(f"Number of rows after removing excluded patterns: {len(df)}")
 
     return df
@@ -351,9 +365,9 @@ def export_df_as_csv(df, output_path: Path):
     for col in cols_to_convert:
         df[col] = df[col].apply(ndarray_to_json)
 
-    DATA_PATH.mkdir(parents=True, exist_ok=True)
+    Config.DATA_PATH.mkdir(parents=True, exist_ok=True)
 
-    with open(COLS_TO_JSON_PATH, "w") as f:
+    with open(Config.COLS_TO_JSON_PATH, "w") as f:
         json.dump(cols_to_convert, f)
 
     df.to_csv(output_path, index=False)
@@ -364,9 +378,9 @@ def remove_parquet_file():
     """
     Remove the local Parquet file if it exists.
     """
-    if LOCAL_PARQUET.exists():
-        LOCAL_PARQUET.unlink()
-        print(f"File deleted: {LOCAL_PARQUET}")
+    if Config.LOCAL_PARQUET.exists():
+        Config.LOCAL_PARQUET.unlink()
+        print(f"File deleted: {Config.LOCAL_PARQUET}")
     else:
         print("No Parquet file to delete.")
 
@@ -394,23 +408,25 @@ def main():
     if args.download:
         download_parquet()
     else:
-        if not LOCAL_PARQUET.exists():
+        if not Config.LOCAL_PARQUET.exists():
             answer = (
-                input(f"{LOCAL_PARQUET} not found. Do you want to download it now (~ 4 GO) ? (y/n): ").strip().lower()
+                input(f"{Config.LOCAL_PARQUET} not found. Do you want to download it now (~ 4 GO) ? (y/n): ")
+                .strip()
+                .lower()
             )
             if answer == "y":
                 download_parquet()
             else:
                 sys.exit("Parquet file required. Exiting.")
         else:
-            mod_time = file_modification_time(LOCAL_PARQUET)
+            mod_time = file_modification_time(Config.LOCAL_PARQUET)
             today_str = datetime.datetime.now().strftime("%Y-%m-%d")
             if mod_time.startswith(today_str):
                 print(f"Local Parquet file found and up-to-date (last modified: {mod_time}).")
             else:
                 answer = (
                     input(
-                        f"Local Parquet file found: {LOCAL_PARQUET} (last modified: {mod_time}). "
+                        f"Local Parquet file found: {Config.LOCAL_PARQUET} (last modified: {mod_time}). "
                         "Do you want to download the newest version (~ 4 GO) ? (y/n): "
                     )
                     .strip()
@@ -423,9 +439,9 @@ def main():
     csv_export = args.csv_export
 
     if args.potential:
-        export_time = EXPORT_TIME_POTENTIAL
+        export_time = Config.EXPORT_TIME_POTENTIAL
     else:
-        export_time = EXPORT_TIME_BASIC
+        export_time = Config.EXPORT_TIME_BASIC
 
     if not csv_export:
         answer = (
@@ -439,10 +455,10 @@ def main():
         print(f"Exporting csv ({export_time}) starting at {time.strftime('%H:%M:%S')}...")
         if args.potential:
             df = create_df_of_potential_eggs()
-            export_df_as_csv(df, POTENTIAL_CSV_PATH)
+            export_df_as_csv(df, Config.POTENTIAL_CSV_PATH)
         else:
             df = create_filtered_df()
-            export_df_as_csv(df, CSV_PATH)
+            export_df_as_csv(df, Config.CSV_PATH)
     else:
         print("Skipping CSV export.")
 
