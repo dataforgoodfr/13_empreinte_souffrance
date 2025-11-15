@@ -19,75 +19,77 @@ from openpyxl.styles import Alignment, Border, Font, PatternFill, Side
 from openpyxl.utils import get_column_letter
 from tqdm import tqdm
 
-# =============================================================================
-# CONFIGURATION CONSTANTS
-# =============================================================================
 
-# File paths
-DATA_PATH = "C:\\dev\\git\\13_empreinte_souffrance\\backend\\app\\scripts\\data\\"
-INPUT_CSV_FILE = "processed_products.csv"
-INPUT_CSV_FILE_FR = "processed_products_fr.csv"
-INPUT_CSV_FILE_POTENTIAL = "processed_potential_eggs.csv"
-OUTPUT_FILE_PREFIX = "products"
+class Config:
+    """
+    Configuration constants for the Excel exporter.
+    """
 
-# Excel configuration
-DEFAULT_SHEET_NAME = "Feuille1"
-EXCEL_EXTENSION = ".xlsx"
-IMAGE_COUNT = 10
-ROW_HEIGHT = 300
-HEADER_FONT_SIZE = 8
-TEST_SAMPLE_SIZE = 10
+    # File paths
+    DATA_PATH = "C:\\dev\\git\\13_empreinte_souffrance\\backend\\app\\scripts\\data\\"
+    INPUT_CSV_FILE = "processed_products.csv"
+    INPUT_CSV_FILE_FR = "processed_products_fr.csv"
+    INPUT_CSV_FILE_POTENTIAL = "processed_potential_eggs.csv"
+    OUTPUT_FILE_PREFIX = "products"
 
-# OpenFoodFacts URLs
-PRODUCT_BASE_URL = "https://fr.openfoodfacts.org/produit/"
-IMAGE_BASE_URL = "https://images.openfoodfacts.net/images/products/"
+    # Excel configuration
+    DEFAULT_SHEET_NAME = "Feuille1"
+    EXCEL_EXTENSION = ".xlsx"
+    IMAGE_COUNT = 10
+    ROW_HEIGHT = 300
+    HEADER_FONT_SIZE = 8
+    TEST_SAMPLE_SIZE = 10
 
-# Column definitions
-BASE_COLUMNS = ["Traité", "Info invisible", "Pas œuf", "Code et URL produit", "Autres", "Catégories", "Quantité"]
+    # OpenFoodFacts URLs
+    PRODUCT_BASE_URL = "https://fr.openfoodfacts.org/produit/"
+    IMAGE_BASE_URL = "https://images.openfoodfacts.net/images/products/"
 
-OPTIONAL_COLUMNS = {"breeding": ["Elevage"], "quantity": ["Qté", "Calibre"]}
+    # Column definitions
+    BASE_COLUMNS = ["Traité", "Info invisible", "Pas œuf", "Code et URL produit", "Autres", "Catégories", "Quantité"]
 
-NEW_ANALYSIS_COLUMNS = ["OCR", "breeding_type_related", "weight_type_related", "predictions_categories"]
+    OPTIONAL_COLUMNS = {"breeding": ["Elevage"], "quantity": ["Qté", "Calibre"]}
 
-COLUMN_RENAMES = {
-    "Traité": "Traité",
-    "Info invisible": "Info invisible",
-    "Pas œuf": "Pas œuf / comment.",
-    "Code et URL produit": "Code et URL produit",
-    "Image front": "Image principale",
-    "Image ingredients": "Image ingrédients",
-    "Autres": "Nom, ingrédients, labels",
-    "Catégories": "Catégories",
-    "Quantité": "Quantité",
-    "Elevage": "Elevage\n (cage, sol, plein-air, bio ou 3, 2, 1, 0)",
-    "Qté": "Quantité\n(nb d'œufs ou poids)",
-    "Calibre": "Calibre\n(S, M, L, XL ou petit, moyen, gros, très gros)",
-    "OCR": "OCR",
-    "breeding_type_related": "breeding_type_related",
-    "weight_type_related": "weight_type_related",
-    "predictions_categories": "predictions categories",
-}
+    NEW_ANALYSIS_COLUMNS = ["OCR", "breeding_type_related", "weight_type_related", "predictions_categories"]
 
-# Column width settings for Excel formatting
-COLUMN_WIDTHS = {
-    "Traité": 8,
-    "Info invisible": 10,
-    "Pas œuf / comment.": 10,
-    "Code et URL produit": 15,
-    "Nom, ingrédients, labels": 22,
-    "Catégories": 22,
-    "Quantité": 15,
-    "Image principale": 50,
-    "Image ingrédients": 50,
-    "Elevage\n (cage, sol, plein-air, bio ou 3, 2, 1, 0)": 15,
-    "Quantité\n(nb d'œufs ou poids)": 13,
-    "Calibre\n(S, M, L, XL ou petit, moyen, gros, très gros)": 17,
-    "OCR": 50,
-    "breeding_type_related": 15,
-    "weight_type_related": 15,
-    "predictions categories": 15,
-    **{f"Image {i}": 50 for i in range(1, IMAGE_COUNT + 1)},
-}
+    COLUMN_RENAMES = {
+        "Traité": "Traité",
+        "Info invisible": "Info invisible",
+        "Pas œuf": "Pas œuf / comment.",
+        "Code et URL produit": "Code et URL produit",
+        "Image front": "Image principale",
+        "Image ingredients": "Image ingrédients",
+        "Autres": "Nom, ingrédients, labels",
+        "Catégories": "Catégories",
+        "Quantité": "Quantité",
+        "Elevage": "Elevage\n (3, 2, 1, 0)",
+        "Qté": "Quantité\n(nb d'œufs ou poids)",
+        "Calibre": "Calibre\n(S, M, L, XL)",
+        "OCR": "OCR",
+        "breeding_type_related": "breeding_type_related",
+        "weight_type_related": "weight_type_related",
+        "predictions_categories": "predictions categories",
+    }
+
+    # Column width settings for Excel formatting
+    COLUMN_WIDTHS = {
+        "Traité": 8,
+        "Info invisible": 10,
+        "Pas œuf / comment.": 10,
+        "Code et URL produit": 15,
+        "Nom, ingrédients, labels": 22,
+        "Catégories": 22,
+        "Quantité": 15,
+        "Image principale": 50,
+        "Image ingrédients": 50,
+        "Elevage\n (cage, sol, plein-air, bio ou 3, 2, 1, 0)": 15,
+        "Quantité\n(nb d'œufs ou poids)": 13,
+        "Calibre\n(S, M, L, XL ou petit, moyen, gros, très gros)": 17,
+        "OCR": 50,
+        "breeding_type_related": 15,
+        "weight_type_related": 15,
+        "predictions categories": 15,
+        **{f"Image {i}": 50 for i in range(1, IMAGE_COUNT + 1)},
+    }
 
 
 # =============================================================================
@@ -166,7 +168,7 @@ def get_product_code_lists_missing_data(df: pd.DataFrame) -> Dict[str, List[str]
     }
 
 
-def get_random_sample_codes(df: pd.DataFrame, sample_size: int = TEST_SAMPLE_SIZE) -> List[str]:
+def get_random_sample_codes(df: pd.DataFrame, sample_size: int = Config.TEST_SAMPLE_SIZE) -> List[str]:
     """
     Get random sample of product codes for testing.
 
@@ -198,7 +200,7 @@ class ExcelProductGenerator:
     for manual data validation and completion.
     """
 
-    def __init__(self, data_path: str = DATA_PATH):
+    def __init__(self, data_path: str = Config.DATA_PATH):
         """
         Initialize the Excel generator.
 
@@ -254,7 +256,7 @@ class ExcelProductGenerator:
         }
 
         # Add image columns
-        for i in range(IMAGE_COUNT):
+        for i in range(Config.IMAGE_COUNT):
             if i < len(image_urls):
                 row[f"Image {i + 1}"] = f'=IMAGE("{image_urls[i]}")'
             else:
@@ -327,7 +329,7 @@ class ExcelProductGenerator:
         )
 
         # Build complete URLs
-        return [f"{IMAGE_BASE_URL}{path}/{k}.jpg" for k in image_keys][:IMAGE_COUNT]
+        return [f"{Config.IMAGE_BASE_URL}{path}/{k}.jpg" for k in image_keys][: Config.IMAGE_COUNT]
 
     def _get_analysis_data(self, code: str, df: pd.DataFrame) -> Dict[str, str]:
         """
@@ -411,14 +413,14 @@ class ExcelProductGenerator:
         columns = ["Traité"]
 
         if show_breeding:
-            columns.extend(OPTIONAL_COLUMNS["breeding"])
+            columns.extend(Config.OPTIONAL_COLUMNS["breeding"])
 
         if show_quantity:
-            columns.extend(OPTIONAL_COLUMNS["quantity"])
+            columns.extend(Config.OPTIONAL_COLUMNS["quantity"])
 
-        columns.extend(BASE_COLUMNS[1:])  # Skip "Traité" as it's already added
-        columns.extend(NEW_ANALYSIS_COLUMNS)  # Add analysis columns
-        columns.extend([f"Image {i + 1}" for i in range(IMAGE_COUNT)])  # Add image columns
+        columns.extend(Config.BASE_COLUMNS[1:])  # Skip "Traité" as it's already added
+        columns.extend(Config.NEW_ANALYSIS_COLUMNS)  # Add analysis columns
+        columns.extend([f"Image {i + 1}" for i in range(Config.IMAGE_COUNT)])  # Add image columns
 
         return columns
 
@@ -427,7 +429,7 @@ class ExcelProductGenerator:
         filename: str,
         columns: List[str],
         product_codes: List[str],
-        sheet_name: str = DEFAULT_SHEET_NAME,
+        sheet_name: str = Config.DEFAULT_SHEET_NAME,
         show_progress: bool = True,
     ) -> None:
         """
@@ -451,20 +453,20 @@ class ExcelProductGenerator:
 
         for i, code in enumerate(hyperlink_iter):
             cell = ws.cell(row=i + 2, column=code_col_idx)
-            cell.hyperlink = f"{PRODUCT_BASE_URL}{code}"
+            cell.hyperlink = f"{Config.PRODUCT_BASE_URL}{code}"
             cell.style = "Hyperlink"
 
         # Largeur des colonnes
         if show_progress:
             tqdm.write("Adjusting column widths...")
         for idx, name in enumerate(columns, 1):
-            ws.column_dimensions[get_column_letter(idx)].width = COLUMN_WIDTHS.get(name, 15)
+            ws.column_dimensions[get_column_letter(idx)].width = Config.COLUMN_WIDTHS.get(name, 15)
 
         # Hauteur des lignes pour images
         if show_progress:
             tqdm.write("Setting row heights...")
         for r in range(2, 2 + len(product_codes)):
-            ws.row_dimensions[r].height = ROW_HEIGHT
+            ws.row_dimensions[r].height = Config.ROW_HEIGHT
 
         # Définition des styles
         fill_gray = PatternFill(start_color="F2F2F2", end_color="F2F2F2", fill_type="solid")
@@ -489,7 +491,7 @@ class ExcelProductGenerator:
         # Ligne d’en-tête
         for cell in ws[1]:
             cell.alignment = Alignment(horizontal="center", wrap_text=True, vertical="center")
-            cell.font = Font(size=HEADER_FONT_SIZE, bold=True)
+            cell.font = Font(size=Config.HEADER_FONT_SIZE, bold=True)
 
         # Gel des volets + couleur grise
         if "Pas œuf / comment." in columns:
@@ -511,11 +513,11 @@ class ExcelProductGenerator:
         output_filename: str,
         show_col_breeding: bool = True,
         show_cols_quantity: bool = True,
-        sheet_name: str = DEFAULT_SHEET_NAME,
+        sheet_name: str = Config.DEFAULT_SHEET_NAME,
         show_progress: bool = True,
     ) -> str:
-        if not output_filename.endswith(EXCEL_EXTENSION):
-            output_filename += EXCEL_EXTENSION
+        if not output_filename.endswith(Config.EXCEL_EXTENSION):
+            output_filename += Config.EXCEL_EXTENSION
         file_path = os.path.join(self.data_path, output_filename)
 
         total_products = len(product_codes)
@@ -554,7 +556,7 @@ class ExcelProductGenerator:
         column_order = self._create_column_order(show_col_breeding, show_cols_quantity)
         df_output = pd.DataFrame(rows)
         df_output = df_output.reindex(columns=column_order)
-        df_output.rename(columns=COLUMN_RENAMES, inplace=True)
+        df_output.rename(columns=Config.COLUMN_RENAMES, inplace=True)
 
         self._write_to_excel(df_output, file_path, sheet_name)
         self.format_excel_file(file_path, df_output.columns.tolist(), valid_codes, sheet_name)
@@ -609,7 +611,7 @@ def create_test_excel(df: pd.DataFrame, generator: ExcelProductGenerator, output
     """
 
     print("Creating test Excel with random products...")
-    sample_codes = get_random_sample_codes(df, TEST_SAMPLE_SIZE)
+    sample_codes = get_random_sample_codes(df, Config.TEST_SAMPLE_SIZE)
     print(f"Selected products: {sample_codes}")
 
     generator.generate_excel(
@@ -762,22 +764,22 @@ def main():
         args = parse_arguments()
 
         # Build output file name
-        output_file = OUTPUT_FILE_PREFIX + "_" + args.dataset + "_" + args.subset + ".xlsx"
+        output_file = Config.OUTPUT_FILE_PREFIX + "_" + args.dataset + "_" + args.subset + ".xlsx"
 
         # Load data, world or France
         if args.dataset == "france":
-            input_file_path = os.path.join(DATA_PATH, INPUT_CSV_FILE_FR)
+            input_file_path = os.path.join(Config.DATA_PATH, Config.INPUT_CSV_FILE_FR)
         elif args.dataset == "potential":
-            input_file_path = os.path.join(DATA_PATH, INPUT_CSV_FILE_POTENTIAL)
+            input_file_path = os.path.join(Config.DATA_PATH, Config.INPUT_CSV_FILE_POTENTIAL)
         elif args.dataset == "world":
-            input_file_path = os.path.join(DATA_PATH, INPUT_CSV_FILE)
+            input_file_path = os.path.join(Config.DATA_PATH, Config.INPUT_CSV_FILE)
         else:
             raise ValueError(f"Invalid dataset: {args.dataset}")
 
         df = load_product_data(input_file_path)
 
         # Initialize Excel generator
-        generator = ExcelProductGenerator(DATA_PATH)
+        generator = ExcelProductGenerator(Config.DATA_PATH)
 
         # Handle subset parameter to create Excel files
         if args.subset == "test":
