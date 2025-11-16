@@ -397,79 +397,137 @@ def file_modification_time(path: Path) -> str:
     return datetime.datetime.fromtimestamp(ts).strftime("%Y-%m-%d %H:%M:%S")
 
 
-def main():
+def parse_args() -> argparse.Namespace:
+    """
+    Parse command-line arguments.
+    Returns:
+        argparse.Namespace: Parsed arguments including flags for downloading parquet file,
+        removing it, perofrming the CSV extraction, and selecting the potential eggs export mode.
+    """
     parser = argparse.ArgumentParser(description="Extract and filter egg products from the OpenFoodFacts database.")
-    parser.add_argument("--download", action="store_true", help="Download the Parquet file before processing")
-    parser.add_argument("--remove", action="store_true", help="Delete the Parquet file after export")
-    parser.add_argument("--csv-export", action="store_true", help="Export filtered CSV without asking")
-    parser.add_argument("--potential", action="store_true", help="Export potential eggs without asking")
-    args = parser.parse_args()
+    parser.add_argument("--download", action="store_true")
+    parser.add_argument("--remove", action="store_true")
+    parser.add_argument("--csv-export", action="store_true")
+    parser.add_argument("--potential", action="store_true")
+    return parser.parse_args()
 
-    if args.download:
+
+def ensure_parquet_exists(force_download: bool) -> None:
+    """
+    Ensure that the local Parquet file exists and is up-to-date.
+    Args:
+        force_download (bool): If True, always download the Parquet file without asking.
+    Behavior:
+        - Downloads the Parquet file if missing or outdated.
+        - Asks the user before downloading unless forced.
+        - Exits the program if the user refuses and the file is missing.
+    """
+    parquet_path = Config.LOCAL_PARQUET
+
+    if force_download:
         download_parquet()
-    else:
-        if not Config.LOCAL_PARQUET.exists():
-            answer = (
-                input(f"{Config.LOCAL_PARQUET} not found. Do you want to download it now (~ 4 GO) ? (y/n): ")
-                .strip()
-                .lower()
-            )
-            if answer == "y":
-                download_parquet()
-            else:
-                sys.exit("Parquet file required. Exiting.")
+        return
+
+    if not parquet_path.exists():
+        answer = input(f"{parquet_path} not found. Download now (~ 4 GO)? (y/n): ").strip().lower()
+        if answer == "y":
+            download_parquet()
         else:
-            mod_time = file_modification_time(Config.LOCAL_PARQUET)
-            today_str = datetime.datetime.now().strftime("%Y-%m-%d")
-            if mod_time.startswith(today_str):
-                print(f"Local Parquet file found and up-to-date (last modified: {mod_time}).")
-            else:
-                answer = (
-                    input(
-                        f"Local Parquet file found: {Config.LOCAL_PARQUET} (last modified: {mod_time}). "
-                        "Do you want to download the newest version (~ 4 GO) ? (y/n): "
-                    )
-                    .strip()
-                    .lower()
-                )
-                if answer == "y":
-                    download_parquet()
+            sys.exit("Parquet file required. Exiting.")
+        return
 
-    # Parse csv_export argument and reask user if not provided
-    csv_export = args.csv_export
+    # TODO : find a way to check the date of creation of the parquet file
+    mod_time = file_modification_time(parquet_path)
+    today = datetime.datetime.now().strftime("%Y-%m-%d")
 
-    if args.potential:
-        export_time = Config.EXPORT_TIME_POTENTIAL
+    if mod_time.startswith(today):
+        print(f"Local Parquet file is up-to-date (last modified: {mod_time}).")
+        return
+
+    answer = (
+        input(f"Local Parquet found (last modified: {mod_time}). Download newest version (~ 4 GO)? (y/n): ")
+        .strip()
+        .lower()
+    )
+    if answer == "y":
+        download_parquet()
+
+
+def ask_export_decision(default: bool, export_time: str) -> bool:
+    """
+    Decide whether a CSV extraction should be performed.
+    Args:
+        default (bool): If True, export without asking.
+        export_time (str): Estimated export duration text.
+    Returns:
+        bool: True if the user approves the export or if default is True.
+    """
+    if default:
+        return True
+    answer = input(f"Create a new filtered CSV export from the Parquet file? ({export_time}) (y/n): ").strip().lower()
+    return answer == "y"
+
+
+def perform_extraction(potential: bool, export_time: str) -> None:
+    """
+    Process and export the appropriate CSV file.
+    Args:
+        potential (bool): If True, export potential egg products instead of filtered ones.
+        export_time (str): Estimated export duration text.
+    Behavior:
+        - Generates the corresponding DataFrame.
+        - Writes the DataFrame to its configured CSV path.
+    """
+    print(f"Exporting csv ({export_time}) starting at {time.strftime('%H:%M:%S')}...")
+
+    if potential:
+        df = create_df_of_potential_eggs()
+        export_df_as_csv(df, Config.POTENTIAL_CSV_PATH)
     else:
-        export_time = Config.EXPORT_TIME_BASIC
+        df = create_filtered_df()
+        export_df_as_csv(df, Config.CSV_PATH)
 
-    if not csv_export:
-        answer = (
-            input(f"Do you want to create a new filtered CSV export from the Parquet file? ({export_time}) (y/n): ")
-            .strip()
-            .lower()
-        )
-        csv_export = answer == "y"
 
-    if csv_export:
-        print(f"Exporting csv ({export_time}) starting at {time.strftime('%H:%M:%S')}...")
-        if args.potential:
-            df = create_df_of_potential_eggs()
-            export_df_as_csv(df, Config.POTENTIAL_CSV_PATH)
-        else:
-            df = create_filtered_df()
-            export_df_as_csv(df, Config.CSV_PATH)
+def handle_parquet_removal(force_remove: bool) -> None:
+    """
+    Decide whether to delete the local Parquet file.
+    Args:
+        force_remove (bool): If True, remove the file without asking.
+    Behavior:
+        - Removes the file immediately if forced.
+        - Otherwise asks the user and removes only if confirmed.
+    """
+    if force_remove:
+        remove_parquet_file()
+        return
+
+    answer = input("Delete the local Parquet file? (y/n): ").strip().lower()
+    if answer == "y":
+        remove_parquet_file()
+    else:
+        print("Parquet file kept.")
+
+
+def main():
+    """
+    Main entry point.
+    Coordinates the process:
+        - Ensure the Parquet file exists or download it.
+        - Decide whether to export the CSV (filtered or potential eggs).
+        - Optionally remove the local Parquet file.
+    """
+    args = parse_args()
+
+    export_time = Config.EXPORT_TIME_POTENTIAL if args.potential else Config.EXPORT_TIME_BASIC
+
+    ensure_parquet_exists(args.download)
+
+    if ask_export_decision(args.csv_export, export_time):
+        perform_extraction(args.potential, export_time)
     else:
         print("Skipping CSV export.")
 
-    if args.remove:
-        remove_parquet_file()
-    else:
-        answer = input("Do you want to delete the local Parquet file? (y/n): ").strip().lower()
-        if answer == "y":
-            remove_parquet_file()
-        else:
-            print("Parquet file kept.")
+    handle_parquet_removal(args.remove)
 
 
 if __name__ == "__main__":
