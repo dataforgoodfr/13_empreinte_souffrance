@@ -1,5 +1,6 @@
 import { getI18n } from '@/locales/server';
 import Link from 'next/link';
+import BrevoNewsletterForm from '../_components/BrevoNewsletterForm';
 
 export default async function GoFurtherSection() {
   const t = await getI18n();
@@ -37,7 +38,8 @@ export default async function GoFurtherSection() {
           >
             {t('GoFurther.goEvent')}
           </Link>
-
+        </div>
+        <div>
           <Link
             href="/"
             target="_blank"
@@ -46,6 +48,7 @@ export default async function GoFurtherSection() {
           >
             {t('GoFurther.share')}
           </Link>
+          <BrevoNewsletterForm />
         </div>
       </div>
     </section>
