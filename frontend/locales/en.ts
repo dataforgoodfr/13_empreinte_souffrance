@@ -1,4 +1,8 @@
 export default {
+
+    //*___________ UI COMPONENTS __________________
+
+
   suffering_footprint: 'Suffering footprint',
 
   NavBarLink: {
@@ -39,6 +43,8 @@ export default {
     link3: 'About',
   },
 
+    //*___________ HOME PAGE __________________
+
   Home: {
     badge: 'Embracing free-range for every chicken in Europe!',
     animal_welfare: 'Animal Welfare',
@@ -55,6 +61,11 @@ export default {
   PressSection: {
     ten_years_ago_supermarkets_pledged: '10 years ago, supermarkets pledged',
     to_ban_eggs_from_caged_hens_by_2026: 'to ban eggs from caged hens by 2026',
+  },
+
+    PromiseKeptSection : {
+promise_kept_question : "Is the promise kept ?",
+time_for_reckoning : "It is time for reckonning.",
   },
 
   ProgressSection: {
