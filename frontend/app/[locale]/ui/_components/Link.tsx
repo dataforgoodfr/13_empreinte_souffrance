@@ -5,7 +5,7 @@ type Props = {
 
 export default function ({ href, children }: Props) {
   return (
-    <a className={`bg-gray-100 p-3 text-sm underline border-b-1 border-violet`} href={href}>
+    <a className={`p-3 text-sm`} href={href}>
       {children}
     </a>
   );

@@ -69,6 +69,11 @@ export default {
     to_ban_eggs_from_caged_hens_by_2026: 'à bannir les œufs de poule en cage avant 2026',
   },
 
+  PromiseKeptSection : {
+promise_kept_question : "Promesse tenue ?",
+time_for_reckoning : "C'est l'heure des comptes.",
+  },
+
   ProgressSection: {
     title: 'des progrès mais encore beaucoup d\'œufs cage "invisibles"',
     display_dashboard: 'voir le dashboard',

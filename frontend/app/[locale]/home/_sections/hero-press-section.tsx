@@ -1,5 +1,6 @@
 import { getI18n } from '@/locales/server';
 import Image from 'next/image';
+import Link from '../../ui/_components/Link';
 import ArrowDown from '@/app/[locale]/ui/_logo/ArrowDown';
 
 export default async function HeroPressSection() {
@@ -43,7 +44,9 @@ export default async function HeroPressSection() {
         <div className="absolute inset-0 bg-gradient-to-t from-white/40 to-transparent"></div>
       </div>
       <span className="absolute bottom-0">
+        <Link href={'#PromiseKeptSection'}>
         <ArrowDown />
+        </Link>
       </span>
     </header>
   );
