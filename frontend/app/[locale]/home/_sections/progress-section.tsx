@@ -1,6 +1,5 @@
 import { getI18n } from '@/locales/server';
 import ContentWithImageSection from '@/app/[locale]/home/_components/content-with-image-component';
-import Image from 'next/image';
 import SectionTitle from '../_components/section-title';
 
 export default async function ProgressSection() {
