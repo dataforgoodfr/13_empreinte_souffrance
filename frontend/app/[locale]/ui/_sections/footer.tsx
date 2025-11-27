@@ -99,7 +99,7 @@ export default async function Footer() {
           <div className="mb-6">
             <div>
               {t('footer.all_rights_reserved')} &nbsp;-&nbsp;
-              <Link className={footerUnderlineClasses} href="/terms">
+              <Link className={footerUnderlineClasses} href="/legal-notice">
                 {t('footer.legal_terms')}
               </Link>
             </div>
