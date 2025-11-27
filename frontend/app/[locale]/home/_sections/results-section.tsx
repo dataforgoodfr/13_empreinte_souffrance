@@ -43,6 +43,7 @@ export default async function ResultsSection() {
                   {t('Results.sectionList.first.text')}
                 </InfoContent>
               ),
+              imageSrc: '/results-section/bars-egg-squared.png',
             },
             {
               infoContent: (
@@ -57,6 +58,7 @@ export default async function ResultsSection() {
                   {t('Results.sectionList.second.text')}
                 </InfoContent>
               ),
+              imageSrc: '/results-section/bars-hen-squared.png',
             },
             {
               infoContent: (
@@ -71,6 +73,7 @@ export default async function ResultsSection() {
                   {t('Results.sectionList.third.text')}
                 </InfoContent>
               ),
+              imageSrc: '/results-section/free-hen-squared.png',
             },
           ] as {
             infoContent: ReactNode;
