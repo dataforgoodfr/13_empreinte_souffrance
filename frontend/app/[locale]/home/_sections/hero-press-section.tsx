@@ -41,7 +41,7 @@ export default async function HeroPressSection() {
         <div className="absolute inset-0 bg-gradient-to-t from-white/40 to-transparent"></div>
       </div>
       <span className="absolute bottom-0">
-        <ArrowDown />
+        <ArrowDown href="#ProgressSection" />
       </span>
     </header>
   );
