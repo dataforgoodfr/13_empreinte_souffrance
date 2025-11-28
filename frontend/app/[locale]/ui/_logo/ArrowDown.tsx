@@ -7,7 +7,7 @@ type Props = {
 
 export default function ArrowDown({ className, href }: Props) {
   return (
-    <Link href={href ?? '#'} className="animate-bounce">
+    <Link href={href ?? '#'}>
       <svg
         className={className}
         width="62"

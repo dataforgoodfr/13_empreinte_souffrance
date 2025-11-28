@@ -23,7 +23,9 @@ export default async function ResultsSection() {
           title={<>{t('Results.title')}</>}
         />
         <p className="m-5 text-[1.1rem] font-bold max-w-4xl text-center mx-16">{t('Results.subtitle')}</p>
+        <span className="animate-bounce">
           <ArrowDown className="mt-10" href="#results-table" />
+        </span>
       </div>
       <div className="flex flex-col items-center gap-4 mt-15 mx-10" id={'results-table'}>
         {(
