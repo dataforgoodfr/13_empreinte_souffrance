@@ -81,16 +81,16 @@ export default async function ResultsSection() {
           }[]
         ).map(({ infoContent, imageSrc }, index) => (
           <div
-            className={`inline-flex /
-              ${index % 2 ? 'lg:flex-row-reverse' : 'lg:flex-row'} /
-              flex-col rounded-md overflow-hidden /
+            className={`inline-flex
+              ${index % 2 ? 'lg:flex-row-reverse' : 'lg:flex-row'}
+              flex-col rounded-md overflow-hidden
               bg-white max-w-screen-xl
-              h-[840px] lg:h-[420px]
+
               w-[420px] lg:w-full
               `}
             key={index}
           >
-            <div className="w-full lg:w-1/2 lg:h-full p-5 flex-shrink-0">{infoContent}</div>
+            <div className="w-full  lg:w-1/2 p-5 flex-shrink-0">{infoContent}</div>
             <div className="w-full lg:w-1/2 h-1/3 lg:h-full flex-shrink-0">
               <Image
                 width={500}
