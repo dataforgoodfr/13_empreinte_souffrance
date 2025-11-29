@@ -14,7 +14,7 @@ export default async function ProgressSection() {
       <SectionTitle
         image_path="half-bars_egg.svg"
         image_alt=""
-        title={<>{t('ProgressSection.title').toUpperCase()}</>}
+        title={t('ProgressSection.title').toUpperCase()}
       />
       <div className="flex flex-col justify-center items-center">
         <div className="w-full md:5/6 lg:w-4/6 flex flex-col gap-7">

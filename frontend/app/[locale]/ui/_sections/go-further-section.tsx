@@ -12,7 +12,7 @@ export default async function GoFurtherSection() {
       className="flex flex-col items-center justify-center p-section bg-black text-center "
       aria-labelledby="go-further-heading"
     >
-      <SectionTitle image_path="free_hen_egg.svg" image_alt="" title={<>{t('GoFurther.title')}</>} text_color="white" />
+      <SectionTitle image_path="free_hen_egg.svg" image_alt="" title={t('GoFurther.title')} text_color="white" />
       <div className="flex flex-col gap-[24px] items-center justify-center">
         <h2 id="go-further-heading" className="text-h2 md:text-h2-desktop font-extrabold text-grey max-w-[605px]"></h2>
         <p id="go-further-heading" className="text-grey text-bold max-w-[800px]">
