@@ -1,6 +1,6 @@
 import { ReactNode } from 'react';
 import Thunder from '@/app/[locale]/ui/_components/BoltIconV2';
-import Link from '@/app/[locale]/ui/_components/Link';
+import Link from 'next/link';
 
 type Props = {
   superTitle?: ReactNode;
@@ -11,7 +11,7 @@ type Props = {
 
 export default function InfoContent({ superTitle, title, children, source }: Props) {
   return (
-    <div className={`w-full h-full flex flex-col p-2 justify-between`}>
+    <div className={`w-full h-full flex gap-3 flex-col p-2 justify-start lg:justify-between`}>
       <div className={`w-full flex flex-col lg:flex-row`}>
         <Thunder className={'mr-7 my-2 text-pink-3 '} />
         <div className={`flex flex-col`}>
@@ -20,7 +20,14 @@ export default function InfoContent({ superTitle, title, children, source }: Pro
         </div>
       </div>
       <div className={`font-semibold text-lg`}>{children}</div>
-      <Link href={source?.url}>{source?.name}</Link>
+      <div className="w-full">
+        <Link
+          href={source?.url!}
+          className="inline-block py-1 pl-4 bg-grey hover:bg-violet w-full font-mono dark-text tracking-wider transition-all duration-200 align-middle border-b border-brown underline"
+        >
+          {source?.name}
+        </Link>
+      </div>
     </div>
   );
 }

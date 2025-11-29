@@ -90,7 +90,7 @@ export default async function ResultsSection() {
               `}
             key={index}
           >
-            <div className="w-full lg:w-1/2 h-2/3 lg:h-full p-5 flex-shrink-0">{infoContent}</div>
+            <div className="w-full lg:w-1/2 lg:h-full p-5 flex-shrink-0">{infoContent}</div>
             <div className="w-full lg:w-1/2 h-1/3 lg:h-full flex-shrink-0">
               <Image
                 width={500}
