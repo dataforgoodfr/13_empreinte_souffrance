@@ -22,7 +22,7 @@ export default function InfoContent({ superTitle, title, children, source }: Pro
       <div className={`font-semibold text-lg`}>{children}</div>
       <div className="w-full">
         <Link
-          href={source?.url!}
+          href={source?.url ?? '/'}
           className="inline-block py-1 pl-4 bg-grey hover:bg-violet w-full font-mono dark-text tracking-wider transition-all duration-200 align-middle border-b border-brown underline"
         >
           {source?.name}

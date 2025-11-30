@@ -17,8 +17,8 @@ export default function SectionTitle({ image_path, image_alt, title, text_color 
         className={clsx(
           'text-center font-bold text-lg md:text-sm leading-snug px-4 mt-[-2.5rem] mx-10 sm:mx-25 md:mx-45 uppercase',
           {
-            'text-black': text_color == 'black',
-            'text-white': text_color == 'white',
+            'text-black': text_color === 'black',
+            'text-white': text_color === 'white',
           }
         )}
       >
