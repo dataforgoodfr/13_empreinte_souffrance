@@ -709,6 +709,16 @@ export default {
       'This project was made possible thanks to the volunteers who worked for several months on the design of the site and the calculator. Anima and Data for Good are deeply grateful to them. Thank you Laurent Basara, Luc Berton, Théo Degorre, Marie Groshens, Mathis Dupuy, Julien Deniaud, Adrien Jérôme, Adelia Khasanova, Paul Pajot, Axelle Playoust-Braure, Justine Tellier, Anaïs Valentin, Myriam Duval, Hakima Arroubat, Tom Francés, Julie Prigent, Tawfik Maalej, Denis Sabardine, Moïri Gamboni, Victor Diné, Hugo de Saint-Martin, Delon Ung.',
   },
 
+  //*___________ NUMBERS PAGE __________________
+
+  NumbersPage: {
+    caged_eggs_map_section: {
+      caged_eggs_store_title: 'SUPERMARKETS STILL SELLING CAGE EGGS',
+      caged_eggs_store_description:
+        'Anima exists to reduce animal suffering as effectively as possible. The organization leads a national and European campaign to end the caged farming of laying hens. Anima is a member of the European coalition Anima International.',
+    },
+  },
+
   //* _______________ LEGAL MENTIONS PAGE __________________
 
   LegalMentionPage: {
@@ -728,7 +738,8 @@ export default {
     },
     publicationDirector: {
       title: 'Publication Director',
-      description: 'The Publication Director of the website is Keyvan Mostafafi, director of the association Anima France .',
+      description:
+        'The Publication Director of the website is Keyvan Mostafafi, director of the association Anima France .',
     },
     contactUs: {
       title: 'Contact Us',

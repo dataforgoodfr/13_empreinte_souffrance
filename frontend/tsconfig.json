@@ -29,6 +29,6 @@
     "**/*.tsx",
     ".next/types/**/*.ts",
     "app/[locale]/methodology/_components/step-one-affliction-list.tsx"
-  ],
+, "app/[locale]/numbers/_data/store-data.ts"  ],
   "exclude": ["node_modules"]
 }
