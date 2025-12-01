@@ -1,11 +1,11 @@
 import { getI18n } from '@/locales/server';
-import EggOnCage from '@/app/[locale]/ui/_logo/EggOnCage';
 import ArrowDown from '@/app/[locale]/ui/_logo/ArrowDown';
 import type { StaticImageData } from 'next/image';
 import Image from 'next/image';
 import { ReactNode } from 'react';
 import InfoContent from '@/app/[locale]/home/_components/InfoContent';
 import Link from 'next/link';
+import SectionTitle from '../_components/section-title';
 
 export default async function ResultsSection() {
   const t = await getI18n();
@@ -17,12 +17,15 @@ export default async function ResultsSection() {
       aria-labelledby="results-heading"
     >
       <div className="flex flex-col items-center">
-        <EggOnCage />
-        <p className="text-[2.5rem] leading-14 font-black max-w-4xl text-center mx-16">{t('Results.title')}</p>
+        <SectionTitle
+          image_path="full-bars_egg.svg"
+          image_alt="egg shaped logo with a hen behind bars"
+          title={t('Results.title')}
+        />
         <p className="m-5 text-[1.1rem] font-bold max-w-4xl text-center mx-16">{t('Results.subtitle')}</p>
-        <Link href={'#results-table'}>
-          <ArrowDown className="mt-10" />
-        </Link>
+        <span className="animate-bounce">
+          <ArrowDown className="mt-10" href="#results-table" />
+        </span>
       </div>
       <div className="flex flex-col items-center gap-4 mt-15 mx-10" id={'results-table'}>
         {(
@@ -40,6 +43,7 @@ export default async function ResultsSection() {
                   {t('Results.sectionList.first.text')}
                 </InfoContent>
               ),
+              imageSrc: '/results-section/bars-egg-squared.png',
             },
             {
               infoContent: (
@@ -54,6 +58,7 @@ export default async function ResultsSection() {
                   {t('Results.sectionList.second.text')}
                 </InfoContent>
               ),
+              imageSrc: '/results-section/bars-hen-squared.png',
             },
             {
               infoContent: (
@@ -68,6 +73,7 @@ export default async function ResultsSection() {
                   {t('Results.sectionList.third.text')}
                 </InfoContent>
               ),
+              imageSrc: '/results-section/free-hen-squared.png',
             },
           ] as {
             infoContent: ReactNode;
@@ -75,16 +81,16 @@ export default async function ResultsSection() {
           }[]
         ).map(({ infoContent, imageSrc }, index) => (
           <div
-            className={`inline-flex / 
-              ${index % 2 ? 'lg:flex-row-reverse' : 'lg:flex-row'} /
-              flex-col rounded-md overflow-hidden /
+            className={`inline-flex
+              ${index % 2 ? 'lg:flex-row-reverse' : 'lg:flex-row'}
+              flex-col rounded-md overflow-hidden
               bg-white max-w-screen-xl
-              h-[840px] lg:h-[420px]
+
               w-[420px] lg:w-full
               `}
             key={index}
           >
-            <div className="w-full lg:w-1/2 h-2/3 lg:h-full p-5 flex-shrink-0">{infoContent}</div>
+            <div className="w-full  lg:w-1/2 p-5 flex-shrink-0">{infoContent}</div>
             <div className="w-full lg:w-1/2 h-1/3 lg:h-full flex-shrink-0">
               <Image
                 width={500}
@@ -100,7 +106,7 @@ export default async function ResultsSection() {
       <div className={` flex flex-col items-center mx-10`}>
         <Link
           href={'/methodology'}
-          className={`bg-white shadow-[0_4px_0_0_black] rounded-md 
+          className={`bg-white shadow-[0_4px_0_0_black] rounded-md
             cursor-pointer font-black text-brown text-sm tracking-widest
             lg:w-full max-w-screen-xl w-[420px] p-4 m-4 text-center`}
         >

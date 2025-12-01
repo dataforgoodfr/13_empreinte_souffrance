@@ -1,6 +1,7 @@
 import { getI18n } from '@/locales/server';
 import Link from 'next/link';
 import BrevoNewsletterForm from '../_components/BrevoNewsletterForm';
+import SectionTitle from '../../home/_components/section-title';
 
 export default async function GoFurtherSection() {
   const t = await getI18n();
@@ -11,12 +12,8 @@ export default async function GoFurtherSection() {
       className="flex flex-col items-center justify-center p-section bg-black text-center "
       aria-labelledby="go-further-heading"
     >
-      <img src="/free-hen-icon.png" className="w-[150px]" />
-
-      <div className="flex flex-col gap-[24px] items-center justify-center">
-        <h2 id="go-further-heading" className="text-h2 md:text-h2-desktop font-extrabold text-grey max-w-[605px]">
-          {t('GoFurther.title')}
-        </h2>
+      <SectionTitle image_path="free_hen_egg.svg" image_alt="" title={t('GoFurther.title')} text_color="white" />
+      <div className="flex flex-col gap-[24px] items-center justify-center mt-4">
         <p id="go-further-heading" className="text-grey text-bold max-w-[800px]">
           {t('GoFurther.subtitle')}
         </p>

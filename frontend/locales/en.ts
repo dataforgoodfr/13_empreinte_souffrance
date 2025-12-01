@@ -713,12 +713,48 @@ export default {
 
   NumbersPage: {
     caged_eggs_map_section: {
-      caged_eggs_store_title:
-        'SUPERMARCHES VENDANT ENCORE DES ŒUFS CAGE',
+      caged_eggs_store_title: 'SUPERMARKETS STILL SELLING CAGE EGGS',
       caged_eggs_store_description:
-        'Anima existe pour réduire la souffrance des animaux de la façon la plus efficace possible. L’association mène une campagne nationale et européenne pour mettre un terme à l’élevage en cage des poules pondeuses. Anima est membre de la coalition européenne Anima International.',
-      
+        'Anima exists to reduce animal suffering as effectively as possible. The organization leads a national and European campaign to end the caged farming of laying hens. Anima is a member of the European coalition Anima International.',
     },
-   
+  },
+
+  //* _______________ LEGAL MENTIONS PAGE __________________
+
+  LegalMentionPage: {
+    legalMention: 'Legal Mentions',
+    conformingDispositions:
+      'In accordance with the provisions of French Law No. 2004-575 of 21 June 2004 on confidence in the digital economy, users of the website L’heure des comptes are informed of the identity of the various parties involved in its creation and maintenance.',
+    webSiteEdition: {
+      title: 'Site Publisher',
+      editionBy: 'This website, accessible at the URL www.lheuredescomptes.org, is published by:',
+      animaAssociation:
+        'The association ANIMA, registered with the prefecture/sub-prefecture of 67 – Préfecture Strasbourg, with its registered office located at 16 Rue Silbermann, 67000 Strasbourg, represented by Keyvan Mostafavi, duly authorized.',
+    },
+    webHost: {
+      title: 'Hosting',
+      description:
+        'The Site is hosted by Infomaniak, located at Rue Eugène-Marziano 25, 1227 Geneva, Switzerland (telephone or email contact: (+41) 22 820 35 44).',
+    },
+    publicationDirector: {
+      title: 'Publication Director',
+      description:
+        'The Publication Director of the website is Keyvan Mostafafi, director of the association Anima France .',
+    },
+    contactUs: {
+      title: 'Contact Us',
+      tel: 'By phone: +33606000600',
+      email: 'By email : keyvan.mostafavi@animafrance.org',
+      mail: 'By  mail : 16 RUE SILBERMANN 67000 STRASBOURG',
+    },
+    personalData: {
+      title: 'Personal Data',
+      dataCollection:
+        'This site does not collect any personal data, except for information voluntarily submitted through forms provided by the Brevo service (Sendinblue SAS). The data collected is limited to the email address and, where applicable, the first and last name entered by the user. This information is used exclusively for sending newsletters or responding to requests submitted via the form. The processing is based on your consent (Article 6.1.a of the GDPR).',
+      externalServices:
+        'We use the Brevo service (Sendinblue SAS) for sending our emails and newsletters. This provider acts as a data processor under the GDPR, and processes and hosts the collected data. You can consult its privacy policy here : ',
+      dataManagement:
+        'In accordance with the GDPR, you may exercise your rights of access, rectification, objection, and deletion by contacting us.',
+    },
   },
 } as const;

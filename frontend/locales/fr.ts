@@ -743,7 +743,43 @@ export default {
    
   },
 
+  //* _______________ LEGAL MENTIONS PAGE __________________
 
-
+  LegalMentionPage: {
+    legalMention: 'Mentions Légales',
+    conformingDispositions:
+      'Conformément aux dispositions de la loi n° 2004-575 du 21 juin 2004 pour la confiance en l’économie numérique, il est précisé aux utilisateurs du site L’heure des comptes l’identité des différents intervenants dans le cadre de sa réalisation et de son suivi.',
+    webSiteEdition: {
+      title: 'Edition du site',
+      editionBy: 'Le présent site, accessible à l’URL www.lheuredescomptes.org (le « Site »), est édité par :',
+      animaAssociation:
+        'L’association ANIMA, enregistrée auprès de la préfecture/sous-préfecture de 67 - Préfecture Strasbourg, ayant son siège situé à 16 RUE SILBERMANN 67000 STRASBOURG, représentée par Keyvan Mostafavi dûment habilité(e)',
+    },
+    webHost: {
+      title: 'Hébergement',
+      description:
+        'Le Site est hébergé par la société Infomaniak, situé Rue Eugène-Marziano 25, 1227 Genève, Suisse, (contact téléphonique ou email : (+41) 22 820 35 44).',
+    },
+    publicationDirector: {
+      title: 'Directeur de publication ',
+      description:
+        'Le responsable de la publication du site web est Keyvan Mostafafi, directeur de l’association Anima France   .',
+    },
+    contactUs: {
+      title: 'Nous contacter',
+      tel: 'Par téléphone : +33606000600',
+      email: 'Par email : keyvan.mostafavi@animafrance.org',
+      mail: 'Par courrier : 16 RUE SILBERMANN 67000 STRASBOURG',
+    },
+    personalData: {
+      title: 'Données personnelles',
+      dataCollection:
+        'Ce site ne collecte aucune donnée personnelle, à l’exception des informations volontairement transmises via les formulaires fournis par le service Brevo (Sendinblue SAS). Les données collectées se limitent à l’adresse email et, le cas échéant, au nom et prénom indiqués par l’utilisateur Ces données sont utilisées exclusivement pour l’envoi de newsletters ou pour répondre aux demandes envoyées via le formulaire. Le traitement repose sur votre consentement (article 6.1.a du RGPD).',
+      externalServices:
+        'Nous utilisons le service Brevo (Sendinblue SAS) pour l’envoi de nos emails et newsletters. Ce prestataire agit en tant que sous-traitant au sens du RGPD, traite et héberges les données collectés. Vous pouvez consulter sa politique de confidentialité ici : ',
+      dataManagement:
+        'Conformément au RGPD, vous pouvez exercer vos droits d’accès, de rectification, d’opposition et de suppression en nous contactant',
+    },
+  },
 } as const;
 
