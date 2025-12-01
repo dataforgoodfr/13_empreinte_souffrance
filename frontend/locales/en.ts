@@ -708,4 +708,17 @@ export default {
     thanking_section:
       'This project was made possible thanks to the volunteers who worked for several months on the design of the site and the calculator. Anima and Data for Good are deeply grateful to them. Thank you Laurent Basara, Luc Berton, Théo Degorre, Marie Groshens, Mathis Dupuy, Julien Deniaud, Adrien Jérôme, Adelia Khasanova, Paul Pajot, Axelle Playoust-Braure, Justine Tellier, Anaïs Valentin, Myriam Duval, Hakima Arroubat, Tom Francés, Julie Prigent, Tawfik Maalej, Denis Sabardine, Moïri Gamboni, Victor Diné, Hugo de Saint-Martin, Delon Ung.',
   },
+
+  //*___________ NUMBERS PAGE __________________
+
+  NumbersPage: {
+    caged_eggs_map_section: {
+      caged_eggs_store_title:
+        'SUPERMARCHES VENDANT ENCORE DES ŒUFS CAGE',
+      caged_eggs_store_description:
+        'Anima existe pour réduire la souffrance des animaux de la façon la plus efficace possible. L’association mène une campagne nationale et européenne pour mettre un terme à l’élevage en cage des poules pondeuses. Anima est membre de la coalition européenne Anima International.',
+      
+    },
+   
+  },
 } as const;
