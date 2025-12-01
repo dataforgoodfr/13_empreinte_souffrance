@@ -23,7 +23,7 @@ export default async function ContentWithImageComponent({
   return (
     <section
       className={clsx(
-        'dark-text flex flex-col w-full',
+        'dark-text flex flex-col w-full gap-4',
         image_position === 'left' ? 'md:flex-row' : 'md:flex-row-reverse'
       )}
     >

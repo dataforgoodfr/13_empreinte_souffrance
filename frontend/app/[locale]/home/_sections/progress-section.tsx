@@ -1,6 +1,6 @@
 import { getI18n } from '@/locales/server';
 import ContentWithImageSection from '@/app/[locale]/home/_components/content-with-image-component';
-import Image from 'next/image';
+import SectionTitle from '../_components/section-title';
 
 export default async function ProgressSection() {
   const t = await getI18n();
@@ -11,13 +11,11 @@ export default async function ProgressSection() {
       className="min-h-screen py-8 w-full max-w-screen-xl mx-auto px-4 scroll-mt-18 flex flex-col justify-center items-center"
       aria-labelledby="results-heading"
     >
-      <Image src="half-bars_egg.svg" width={150} height={250} alt={'TMP egg progress bars'} className="block p-2" />
-      <h1
-        id="results-heading"
-        className="text-black flex flex-col justify-center md:flex-row md:justify-start text-left md:text-center items-center gap-8 mb-8"
-      >
-        {t('ProgressSection.title').toUpperCase()}
-      </h1>
+      <SectionTitle
+        image_path="half-bars_egg.svg"
+        image_alt=""
+        title={t('ProgressSection.title').toUpperCase()}
+      />
       <div className="flex flex-col justify-center items-center">
         <div className="w-full md:5/6 lg:w-4/6 flex flex-col gap-7">
           <ContentWithImageSection
