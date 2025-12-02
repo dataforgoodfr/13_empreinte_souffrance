@@ -13,7 +13,7 @@ export default function SectionTitle({ image_path, image_alt, title, text_color 
   return (
     <div className="flex flex-col items-center justify-center flex-grow pt-2">
       <Image src={image_path} width={200} height={200} alt={image_alt} className="mb-0 md:mb-0" />
-      <h1
+      <h2
         className={clsx(
           'text-center font-bold text-lg md:text-sm leading-snug px-4 mt-[-2.5rem] mx-10 sm:mx-25 md:mx-45 uppercase',
           {
@@ -23,7 +23,7 @@ export default function SectionTitle({ image_path, image_alt, title, text_color 
         )}
       >
         {title}
-      </h1>
+      </h2>
     </div>
   );
 }

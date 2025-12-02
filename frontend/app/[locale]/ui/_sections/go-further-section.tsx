@@ -14,7 +14,7 @@ export default async function GoFurtherSection() {
     >
       <SectionTitle image_path="free_hen_egg.svg" image_alt="" title={t('GoFurther.title')} text_color="white" />
       <div className="flex flex-col gap-[24px] items-center justify-center mt-4">
-        <p id="go-further-heading" className="text-grey text-bold max-w-[800px]">
+        <p id="go-further-heading" className="lead text-grey max-w-[800px]">
           {t('GoFurther.subtitle')}
         </p>
 
