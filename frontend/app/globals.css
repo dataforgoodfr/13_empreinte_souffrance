@@ -18,14 +18,18 @@
 
   /* Font-size Desktop */
   --text-h1-desktop: 39px;
-  --text-h2-desktop: 32px;
-  --text-h3-desktop: 26px;
+  --text-h2-desktop: 39px;
+  --text-h3-desktop: 32px;
+  --text-h4-desktop: 21px;
+  --text-h5-desktop: 12px;
   --text-numbers-desktop: 100px;
 
   /* Font-size Mobile */
   --text-h1: 32px;
   --text-h2: 26px;
   --text-h3: 20px;
+  --text-h4: 16px;
+  --text-h5: 12px;
   --text-numbers: 80px;
 
   /* Default Font-size */
@@ -109,6 +113,7 @@ p,
   font-weight: 500;
   line-height: normal;
   font-style: normal;
+
 }
 
 .numbers {
@@ -151,7 +156,7 @@ p,
   font-style: normal;
 }
 
-/* Automatique font-size */
+/** Automatique font-size **/
 
 h1 {
   font-size: var(--text-h1);
@@ -164,6 +169,9 @@ h3 {
 }
 h4 {
   font-size: var(--text-h4);
+}
+h5 {
+  font-size: var(--text-h5);
 }
 .numbers {
   font-size: var(--text-numbers);
@@ -194,6 +202,9 @@ h4 {
   h4 {
     font-size: var(--text-h4-desktop);
   }
+  h5 {
+    font-size: var(--text-h5-desktop);
+  }
   .numbers {
     font-size: var(--text-numbers-desktop);
   }
@@ -214,7 +225,6 @@ h4 {
 /** -------------------------button------------------------- **/
 
 .white-button {
-  margin: 16px 0 16px 0;
   padding: 16px 24px 16px 24px;
   background-color: var(--color-white);
   border: solid, 2px, var(--color-white);
@@ -236,19 +246,47 @@ h4 {
 }
 
 .white-button:hover {
-  background-color: var(--color-pink-2);
+  background-color: var(--color-pink-3);
   box-shadow: 0 5px 0 0 var(--color-black);
-  border : solid, 2px, var(--color-pink-2);
+  border : solid, 2px, var(--color-pink-3);
+  transition: all ease-in-out;
+}
+
+.grey-button {
+  padding: 16px 0px 16px 0px;
+  background-color: var(--color-grey);
+  border: solid 2px var(--color-grey);
+  box-shadow: 0 5px 0 0 var(--color-black);
+  font-size: var(--text-CTA);
+  color: var(--color-black);
+  border-radius: 10px;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  font-family:
+    Albert Sans,
+    sans-serif;
+  font-weight: 900;
+  line-height: 100%;
+  font-style: normal;
+  text-transform: uppercase;
+  letter-spacing: 9%;
+}
+
+.grey-button:hover {
+  background-color: var(--color-violet);
+  border: solid, 2px, var(--color-violet);
+  color: var(--color-black);
   transition: all ease-in-out;
 }
 
 .pink-button {
-  padding: 16px 0px 16px 0px;
-  background-color: none;
-  border: solid 2px var(--color-pink-3);
+  padding: 16px 24px 16px 24px;
+  background-color: var(--color-pink-1);
+  border: solid, 2px, var(--color-pink-1);
   box-shadow: 0 5px 0 0 var(--color-black);
   font-size: var(--text-CTA);
-  color: var(--color-pink-3);
+  color: var(--color-black);
   border-radius: 10px;
   text-align: center;
   justify-content: center;
@@ -264,12 +302,14 @@ h4 {
 }
 
 .pink-button:hover {
-  background-color: var(--color-violet);
-  border: solid, 2px, var(--color-violet);
-  color: var(--color-black);
+  background-color: var(--color-pink-3);
+  box-shadow: 0 5px 0 0 var(--color-black);
+  border : solid, 2px, var(--color-pink-3);
   transition: all ease-in-out;
 }
 
+
+/** Autre **/
 
 
 [id] {

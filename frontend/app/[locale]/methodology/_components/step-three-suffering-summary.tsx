@@ -15,12 +15,14 @@ interface SufferingSynthesisProps {
 
 const SufferingSynthesis = ({ title, percent, text, agony, pain, suffering, discomfort }: SufferingSynthesisProps) => {
   return (
-    <div className=" flex flex-col items-center gap-2 bg-grey rounded-[10px] p-[16px_20px_16px_20px]">
-      <p className="font-bold uppercase text-caption">{title}</p>
+    <div className=" flex flex-col items-left gap-2 bg-grey rounded-[10px] p-[16px_20px_16px_20px]">
+      <div className="flex items-center">
+        <BoltIconV2 className="text-pink-3 h-[30px] min-w-[45px]" />
+        <h5 className="text-center">{title}</h5>
+      </div>
 
       <div className="flex gap-2 justify-center items-center">
-        <BoltIconV2 className="text-pink-3 h-[30px]" />
-        <p className="text-caption font-bold w-1/2">
+        <p className="text-body font-bold w-1/2">
           {percent}
           {text}
         </p>
@@ -88,9 +90,9 @@ export default async function StepThreeSufferingSummary() {
         <div className="bg-violet text-center text-h1 font-bold rounded-[10px]">=</div>
 
         <div className="flex flex-col items-center gap-2 bg-grey rounded-[10px] p-[16px_20px_16px_20px]">
-          <h3 className="text-xs font-extrabold mb-2">
+          <h5 className="text-xs font-extrabold mb-2">
             {t('MethodologyPage.sufferingQuantificationSteps.step3.bloc5.title')}
-          </h3>
+          </h5>
 
           <div className="normal-case w-full">
             <SufferingSynthesisDurationRows

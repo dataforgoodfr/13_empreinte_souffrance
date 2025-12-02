@@ -22,10 +22,10 @@ const SufferingQuantificationTable = ({
   discomfort,
 }: SufferingQuantificationTableProps) => {
   return (
-    <div className="flex flex-col gap-2 items-center bg-grey rounded-[10px] p-[16px_20px_16px_20px]">
-      <div className="flex gap-2 justify-between items-center ">
-        <BoltIconV2 className="text-pink-3 h-[30px]" />
-        <p className="text-caption text-center font-bold">{title}</p>
+    <div className="flex flex-col gap-2 items-left bg-grey rounded-[10px] p-[16px_20px_16px_20px]">
+      <div className="flex items-center">
+        <BoltIconV2 className="text-pink-3 h-[30px] min-w-[45px]" />
+        <h5 className="text-center">{title}</h5>
       </div>
       <div className="normal-case w-full">
         <SufferingScales
@@ -69,7 +69,7 @@ async function StepTwoSufferingQuantification() {
           discomfort={t('MethodologyPage.sufferingQuantificationSteps.step2.bloc1.discomfort')}
         />
         <div className="flex items-center bg-grey rounded-[10px] p-[16px_20px_16px_20px]">
-          <p className="text-caption">{t('MethodologyPage.sufferingQuantificationSteps.step1.text4')}</p>
+          <p className="text-caption uppercase">{t('MethodologyPage.sufferingQuantificationSteps.step1.text4')}</p>
         </div>
       </div>
     </article>

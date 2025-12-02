@@ -9,20 +9,20 @@ async function StepOneAfflictionList() {
     <article className=" flex flex-col w-full md:w-[33%] text-black">
       <StepColumnHeader title={t('MethodologyPage.sufferingQuantificationSteps.step1.title')} number="1" />
       <ul className="list-none flex flex-col gap-[10px] font-bold uppercase">
-        <li className="flex space-between bg-grey rounded-[10px] items-center p-[16px_20px_16px_20px] ">
-          <BoltIconV2 className="text-pink-3 h-[30px] mr-4" />
-          <p className="text-h3 w-[52px] mr-4 font-bold">40%</p>
-          <p className="text-caption">{t('MethodologyPage.sufferingQuantificationSteps.step1.text1')}</p>
+        <li className="flex bg-grey rounded-[10px] items-center p-[16px_20px_16px_20px] ">
+          <BoltIconV2 className="text-pink-3 h-[30px] min-w-[45px]" />
+          <p className="text-h2 min-w-[75px]">40%</p>
+          <h5 className="text-caption">{t('MethodologyPage.sufferingQuantificationSteps.step1.text1')}</h5>
         </li>
-        <li className="flex space-between bg-grey rounded-[10px] items-center p-[16px_20px_16px_20px] ">
-          <BoltIconV2 className="text-pink-3 h-[30px] mr-4" />
-          <p className="text-h3 w-[52px] mr-4 font-bold">100%</p>
-          <p className="text-caption">{t('MethodologyPage.sufferingQuantificationSteps.step1.text2')}</p>
+        <li className="flex bg-grey rounded-[10px] items-center p-[16px_20px_16px_20px] ">
+          <BoltIconV2 className="text-pink-3 h-[30px] min-w-[45px]" />
+          <p className="text-h2 min-w-[75px]  ">100%</p>
+          <h5 className="text-caption">{t('MethodologyPage.sufferingQuantificationSteps.step1.text2')}</h5>
         </li>
-        <li className="flex space-between bg-grey rounded-[10px] items-center p-[16px_20px_16px_20px]">
-          <BoltIconV2 className="text-pink-3 h-[30px] mr-4" />
-          <p className="text-h3 w-[52px] mr-4 font-bold">5,5%</p>
-          <p className="text-caption">{t('MethodologyPage.sufferingQuantificationSteps.step1.text3')}</p>
+        <li className="flex bg-grey rounded-[10px] items-center p-[16px_20px_16px_20px]">
+          <BoltIconV2 className="text-pink-3 h-[30px] min-w-[45px]" />
+          <p className="text-h2 min-w-[75px]">5,5%</p>
+          <h5 className="text-caption">{t('MethodologyPage.sufferingQuantificationSteps.step1.text3')}</h5>
         </li>
         <li className="flex bg-grey rounded-[10px] items-center p-[16px_20px_16px_20px]">
           <p className="text-caption">{t('MethodologyPage.sufferingQuantificationSteps.step1.text4')}</p>

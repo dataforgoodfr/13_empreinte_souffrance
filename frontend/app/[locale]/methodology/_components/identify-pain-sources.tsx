@@ -34,17 +34,17 @@ export default async function IdentifyPainSources() {
 
       {/* some psychologic pain */}
       <article className="w-full">
-        <h3 className="uppercase font-bold ">{t('MethodologyPage.method_details_section.section_img_1.title_h3')}</h3>
-        <hr className="border-1  border-pink-3 my-2" />
+        <h3 className="">{t('MethodologyPage.method_details_section.section_img_1.title_h3')}</h3>
+        <hr className="border-1 border-pink-3 my-2" />
         <div className="flex flex-col md:flex-row m-auto gap-3 mt-4 ">
           <figure className="md:w-1/3 flex flex-col items-center gap-2">
             <img
-              className="w-[310px] h-[220px] rounded-[10px] object-cover"
+              className="w-[330px] h-[220px] rounded-[10px] object-cover"
               src="/img_placeholder.png"
               alt=" {t('MethodologyPage.method_details_section.section_img_1.img_1.alt')}"
             />
             <figcaption>
-              <p className="font-bold mb-2">
+              <p className="mb-2 text-bold">
                 {t('MethodologyPage.method_details_section.section_img_1.img_1.type_of_pain')}
               </p>
               <p> {t('MethodologyPage.method_details_section.section_img_1.img_1.description_of_pain')}</p>
@@ -53,12 +53,12 @@ export default async function IdentifyPainSources() {
 
           <figure className="md:w-1/3 flex flex-col items-center gap-2">
             <img
-              className="w-[310px] h-[220px] rounded-[10px] object-cover"
+              className="w-[330px] h-[220px] rounded-[10px] object-cover"
               src="/img_placeholder.png"
               alt=" {t('MethodologyPage.method_details_section.section_img_1.img_2.alt')}"
             />
             <figcaption>
-              <p className="font-bold mb-2">
+              <p className="text-bold mb-2">
                 {t('MethodologyPage.method_details_section.section_img_1.img_2.type_of_pain')}
               </p>
               <p> {t('MethodologyPage.method_details_section.section_img_1.img_2.description_of_pain')}</p>
@@ -67,12 +67,12 @@ export default async function IdentifyPainSources() {
 
           <figure className="md:w-1/3 flex flex-col items-center gap-2">
             <img
-              className="w-[310px] h-[220px] rounded-[10px] object-cover"
+              className="w-[330px] h-[220px] rounded-[10px] object-cover"
               src="/img_placeholder.png"
               alt=" {t('MethodologyPage.method_details_section.section_img_1.img_3.alt')}"
             />
             <figcaption>
-              <p className="font-bold mb-2">
+              <p className="text-bold mb-2">
                 {t('MethodologyPage.method_details_section.section_img_1.img_3.type_of_pain')}
               </p>
               <p> {t('MethodologyPage.method_details_section.section_img_1.img_3.description_of_pain')}</p>
@@ -83,17 +83,17 @@ export default async function IdentifyPainSources() {
 
       {/* some physic pain */}
       <article className="w-full">
-        <h3 className="uppercase font-bold ">{t('MethodologyPage.method_details_section.section_img_2.title_h3')}</h3>
+        <h3>{t('MethodologyPage.method_details_section.section_img_2.title_h3')}</h3>
         <hr className="border-1 border-pink-3 my-2" />
         <div className="flex flex-col sm:flex-row m-auto gap-3 mt-4 ">
           <figure className="md:w-1/3 flex flex-col items-center gap-2">
             <img
-              className="w-[310px] h-[220px] rounded-[10px] object-cover"
+              className="w-[330px] h-[220px] rounded-[10px] object-cover"
               src="/img_placeholder.png"
               alt=" {t('MethodologyPage.method_details_section.section_img_2.img_1.alt')}"
             />
             <figcaption>
-              <p className="font-bold mb-2">
+              <p className="text-bold mb-2">
                 {' '}
                 {t('MethodologyPage.method_details_section.section_img_2.img_1.type_of_pain')}
               </p>
@@ -103,12 +103,12 @@ export default async function IdentifyPainSources() {
 
           <figure className="md:w-1/3 flex flex-col items-center gap-2">
             <img
-              className="w-[310px] h-[220px] rounded-[10px] object-cover"
+              className="w-[330px] h-[220px] rounded-[10px] object-cover"
               src="/img_placeholder.png"
               alt=" {t('MethodologyPage.method_details_section.section_img_2.img_2.alt')}"
             />
             <figcaption>
-              <p className="font-bold mb-2">
+              <p className="text-bold mb-2">
                 {t('MethodologyPage.method_details_section.section_img_2.img_2.type_of_pain')}
               </p>
               <p> {t('MethodologyPage.method_details_section.section_img_2.img_2.description_of_pain')}</p>
@@ -117,12 +117,12 @@ export default async function IdentifyPainSources() {
 
           <figure className="md:w-1/3 flex flex-col items-center gap-2">
             <img
-              className="w-[310px] h-[220px] rounded-[10px] object-cover"
+              className="w-[330px] h-[220px] rounded-[10px] object-cover"
               src="/img_placeholder.png"
               alt=" {t('MethodologyPage.method_details_section.section_img_2.img_3.alt')}"
             />
             <figcaption>
-              <p className="font-bold mb-2">
+              <p className="text-bold mb-2">
                 {t('MethodologyPage.method_details_section.section_img_2.img_3.type_of_pain')}
               </p>
               <p> {t('MethodologyPage.method_details_section.section_img_2.img_3.description_of_pain')}</p>
@@ -132,7 +132,7 @@ export default async function IdentifyPainSources() {
       </article>
 
       <article className="w-full">
-        <h3 id="list_of_pains" className="uppercase font-bold">
+        <h3 id="list_of_pains">
           {t('MethodologyPage.method_details_section.list_of_pains_h3')}
         </h3>
         <hr className="border-1 border-pink-3 my-2" />

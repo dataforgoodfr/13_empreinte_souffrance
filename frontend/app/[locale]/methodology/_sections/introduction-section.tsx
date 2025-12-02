@@ -6,7 +6,7 @@ export default async function IntroductionSection() {
 
   return (
     <section className="bg-violet p-section flex justify-center ">
-      <div className="max-w-contain  ">
+      <div className="max-w-contain ">
         <img src="/welfare-footprint-logo.png " className="w-[300px] lg:w-[450px]" alt="" />
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 ">
           <article className='flex flex-col'>
@@ -30,7 +30,7 @@ export default async function IntroductionSection() {
             />
             <Scientist
               imgUrl={'/Wladimir-J.Alonso.png'}
-              name={'Wladimir Jimenez Alonso'}
+              name={'Wladimir J. Alonso'}
               text={t('MethodologyPage.introductionSection.scientist_text2')}
               link={'https://scholar.google.com/citations?user=9RGfMxMAAAAJ&hl=en&oi=ao'}
             />
