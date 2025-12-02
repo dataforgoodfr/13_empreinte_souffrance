@@ -9,7 +9,7 @@ export default async function IntroductionSection() {
       <div className="max-w-contain  ">
         <img src="/welfare-footprint-logo.png " className="w-[300px] lg:w-[450px]" alt="" />
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 ">
-          <article>
+          <article className='flex flex-col'>
             <h1>{t('MethodologyPage.introductionSection.title')}</h1>
             <br />
             <p>{t('MethodologyPage.introductionSection.paragraph1')}</p>
@@ -17,6 +17,9 @@ export default async function IntroductionSection() {
             <p>{t('MethodologyPage.introductionSection.paragraph2')}</p>
             <br />
             <p>{t('MethodologyPage.introductionSection.paragraph3')}</p>
+            <Link href="www.welfarefootprint.org" className="CTA white-button w-fit">
+              www.welfarefootprint.org
+            </Link>
           </article>
           <div className=" grid grid-cols-1 md:grid-cols-2 gap-8">
             <Scientist
@@ -33,9 +36,6 @@ export default async function IntroductionSection() {
             />
           </div>
         </div>
-        <button className="mt-5 CTA tertiary-button uppercase">
-          <Link href="www.welfarefootprint.org">www.welfarefootprint.org</Link>
-        </button>
       </div>
     </section>
   );

@@ -3,7 +3,7 @@ import ArrowDown from '@/app/[locale]/ui/_logo/ArrowDown';
 import type { StaticImageData } from 'next/image';
 import Image from 'next/image';
 import { ReactNode } from 'react';
-import InfoContent from '@/app/[locale]/home/_components/InfoContent';
+import InfoContent from '@/app/[locale]/home/_components/info-content';
 import Link from 'next/link';
 import SectionTitle from '../_components/section-title';
 

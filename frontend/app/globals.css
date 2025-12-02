@@ -213,46 +213,8 @@ h4 {
 
 /** -------------------------button------------------------- **/
 
-.primary-button {
-  padding: 16px 8px 16px 8px;
-  background-color: var(--color-pink-3);
-  box-shadow: 0 5px 0 0 #ff7b7b;
-  font-size: var(--text-button);
-  border-radius: 10px;
-  text-align: center;
-
-  justify-content: center;
-  align-items: center;
-}
-
-.primary-button:hover {
-  background-color: var(--color-violet);
-  box-shadow: 0 5px 0 0 var(--color-violet);
-  transition: all ease-in-out;
-}
-
-.secondary-button {
-  padding: 16px 0px 16px 0px;
-  background-color: none;
-  border: solid 2px var(--color-pink-3);
-  /* box-shadow: 0 5px 0 0 #FF7B7B; */
-  font-size: var(--text-button);
-  color: var(--color-pink-3);
-  border-radius: 10px;
-  text-align: center;
-
-  justify-content: center;
-  align-items: center;
-}
-
-.secondary-button:hover {
-  background-color: var(--color-violet);
-  border: solid, 2px, var(--color-violet);
-  color: var(--color-black);
-  transition: all ease-in-out;
-}
-
-.tertiary-button {
+.white-button {
+  margin: 16px 0 16px 0;
   padding: 16px 24px 16px 24px;
   background-color: var(--color-white);
   border: solid, 2px, var(--color-white);
@@ -273,32 +235,42 @@ h4 {
   letter-spacing: 9%;
 }
 
-.tertiary-button:hover {
+.white-button:hover {
   background-color: var(--color-pink-2);
-  border: solid, 2px, var(--color-pink-2);
-  color: var(--color-black);
+  box-shadow: 0 5px 0 0 var(--color-black);
+  border : solid, 2px, var(--color-pink-2);
   transition: all ease-in-out;
 }
 
-.fourth-button {
-  padding: 16px 24px 16px 24px;
-  background-color: var(--color-pink-1);
-  border: solid, 2px, var(--color-pink-1);
+.pink-button {
+  padding: 16px 0px 16px 0px;
+  background-color: none;
+  border: solid 2px var(--color-pink-3);
   box-shadow: 0 5px 0 0 var(--color-black);
-  font-size: var(--text-button);
-  color: var(--color-brown);
+  font-size: var(--text-CTA);
+  color: var(--color-pink-3);
   border-radius: 10px;
   text-align: center;
   justify-content: center;
   align-items: center;
+  font-family:
+    Albert Sans,
+    sans-serif;
+  font-weight: 900;
+  line-height: 100%;
+  font-style: normal;
+  text-transform: uppercase;
+  letter-spacing: 9%;
 }
 
-.fourth-button:hover {
+.pink-button:hover {
   background-color: var(--color-violet);
   border: solid, 2px, var(--color-violet);
-  color: var(--color-brown);
+  color: var(--color-black);
   transition: all ease-in-out;
 }
+
+
 
 [id] {
   scroll-margin-top: 70px;
