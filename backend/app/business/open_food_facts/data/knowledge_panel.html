@@ -1,48 +1,348 @@
 <!doctype html>
-<html lang="fr">
+<html lang="fr" font-size="14px">
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+  html {
+    font-size: 14px;
+  }
+</style>
+</head>
+
+
 <body>
 
-  
+<div style="width:100%; padding:0; box-sizing:border-box; font-family: Public Sans, Helvetica, Roboto, Arial, sans-serif;">
 
-<div style="display: flex; flex-direction: column; align-items: flex-start; max-width: 400px; box-sizing: border-box; color: #3c1212;">
+  <!-- Logo + texte -->
+  <div style="display:flex; font-size: 1.1428571429rem; padding:1rem; box-sizing:border-box;">
+     
+    <div style="flex:0 0 auto; vertical-align:middle; margin-right:1rem;">
+      <img src="img/cage.svg" height=70px alt="cage"><!-- 60px = 3.75rem -->
+    </div>
 
-  <!-- Bloc Poule -->
-  <div style="margin: 1rem 0; width: 100%; text-align: center;">
-    <p style="margin: 0; font-weight: bold">
-      Poule pondeuse élevée en
-      <a style="display: inline-block; padding: 0.25rem; background-color: #ff7b7b;">cage aménagée</a>
-    </p>
-    <img src="https://github.com/littlecoffe8/icons/blob/main/suffering_logo_hen-03.png?raw=true" alt="Logo souffrance" style="width: 150px;">
-    <p style="margin: 0; font-weight: bold">
-      <a style="display: inline-block; padding: 0.25rem; background-color: #ffe9e9;">10 oeufs moyen calibre</a>
-      contiennent en moyenne :
-    </p>
+    <div style="flex:0 1 100%; min-width:9.375rem; vertical-align:top;"> <!-- 150px -->
+      <h4 style="color:#BE2F21; font-size: 1.1428571429rem; margin-top:0.25rem; margin-bottom:0.5rem; font-weight:400">
+        Poule élevée en cage
+      </h4>
+      <span>10 oeufs moyen calibre contiennent en moyenne</span>
+    </div>
+
   </div>
 
-  <!-- Bloc Souffrance Physique -->
-  <div style="margin: 0.5rem 0; width: 100%; text-align: center;">
-    <h3 style="margin: 0 0.5rem 1rem 0.5rem; font-weight: bold; text-transform: uppercase; font-size: 1.25rem;">
-      Souffrance physique
-    </h3>
-    <p style="margin: 0; padding: 0.25rem; background-color: #3c1212; color: #ffffff;">4 secondes d'agonie</p>
-    <p style="margin: 0; padding: 0.25rem; background-color: #ff7b7b;">14 minutes 30 secondes de souffrance</p>
-    <p style="margin: 0; padding: 0.25rem; background-color: #ffc3c3;">2 heures 25 minutes de douleur</p>
-    <p style="margin: 0; padding: 0.25rem; background-color: #ffe9e9;">1 jour 6 heures d'inconfort</p>
-  </div>
+  <!-- Bloc souffrances -->
+  <div style="width:100%; padding:0.5rem 2rem; box-sizing:border-box; margin-top:1rem; font-size:1rem;">
 
-  <div style="width: 100%; text-align: center;">
-    <span style="display:block; height:1.5rem; font-size:1.5rem; font-weight: bolder;">+</span>
-  </div>
+    <!-- Souffrance physique -->
+    <div>
 
-  <!-- Bloc Souffrance Psychologique -->
-  <div style="margin: 0.5rem 0; width: 100%; text-align: center;">
-    <h3 style="margin: 0 0.5rem 1rem 0.5rem; font-weight: bold; text-transform: uppercase; font-size: 1.25rem;">
-      Souffrance psychologique
-    </h3>
-    <p style="margin: 0; padding: 0.25rem; background-color: #3c1212; color: #ffffff;">0 seconde d'agonie</p>
-    <p style="margin: 0; padding: 0.25rem; background-color: #ff7b7b;">7 minutes 5 secondes de souffrance</p>
-    <p style="margin: 0; padding: 0.25rem; background-color: #ffc3c3;">2 heures 10 minutes de douleur</p>
-    <p style="margin: 0; padding: 0.25rem; background-color: #ffe9e9;">1 jour 3 heures d'inconfort</p>
+      <!-- titre -->
+      <div style="display:flex;">
+
+        <div style="flex:0 0 auto; width:1rem;">
+          <div style="width:0.5rem; height:0.5rem; background-color:#BE2F21; margin-left:0.25rem; margin-top:0.25rem;"></div>
+        </div>
+
+        <div style="margin-left:0.625rem; font-size:1rem; font-weight: 600;">
+          Souffrance physique
+        </div>
+
+      </div>
+
+      <!-- tableau -->
+      <div style="margin-top:1.25rem;"> <!-- 20px -->
+
+        <!-- souffrance extrême -->
+        <div style="display:flex; margin-top:0.625rem; align-items:flex-start;"> <!-- 10px-->
+
+          <div style="width:1rem; margin-right:0.625rem;">
+            <div style="width:1rem; height:1rem; background-color:#3C1212;"></div>
+          </div>
+
+          <div style="display:flex; flex-wrap:wrap; row-gap:0.25rem;"> <!-- 4px -->
+
+            <div style="
+              width:9.375rem; /* 150px */
+              min-width:9.375rem;
+              font-weight:bold;
+              font-size:1rem;
+              line-height:1.125rem;
+              margin-right:0.625rem;
+            ">
+              Souffrance extrême
+            </div>
+
+            <div style="
+              flex:1 1 10.2rem; /* 170px */
+              min-width:10.2rem;
+              font-size:1rem;
+              margin-left:0.625rem;
+            ">
+              4 secondes
+            </div>
+
+          </div>
+
+        </div>
+
+        <!-- souffrance -->
+        <div style="display:flex; margin-top:0.625rem; align-items:flex-start;">
+
+          <div style="width:1rem; margin-right:0.625rem;">
+            <div style="width:1rem; height:1rem; background-color:#FF584B;"></div>
+          </div>
+
+          <div style="display:flex; flex-wrap:wrap; row-gap:0.25rem;">
+
+            <div style="
+              width:9.375rem;
+              min-width:9.375rem;
+              font-weight:bold;
+              font-size:1rem;
+              line-height:1.125rem;
+              margin-right:0.625rem;
+            ">
+              Souffrance
+            </div>
+
+            <div style="
+              flex:1 1 10.2rem;
+              min-width:10.2rem;
+              font-size:1rem;
+              margin-left:0.625rem;
+            ">
+              3 heures
+            </div>
+
+          </div>
+
+        </div>
+
+        <!-- douleur -->
+        <div style="display:flex; margin-top:0.625rem; align-items:flex-start;">
+
+          <div style="width:1rem; margin-right:0.625rem;">
+            <div style="width:1rem; height:1rem; background-color:#FFC3C3;"></div>
+          </div>
+
+          <div style="display:flex; flex-wrap:wrap; row-gap:0.25rem;">
+
+            <div style="
+              width:9.375rem;
+              min-width:9.375rem;
+              font-weight:bold;
+              font-size:1rem;
+              line-height:1.125rem;
+              margin-right:0.625rem;
+            ">
+              Douleur
+            </div>
+
+            <div style="
+              flex:1 1 10.2rem;
+              min-width:10.2rem;
+              font-size:1rem;
+              margin-left:0.625rem;
+            ">
+              1 jour 10 heures
+            </div>
+
+          </div>
+
+        </div>
+
+        <!-- inconfort -->
+        <div style="display:flex; margin-top:0.625rem; align-items:flex-start;">
+
+          <div style="width:1rem; margin-right:0.625rem;">
+            <div style="width:1rem; height:1rem; background-color:#FFE9E9;"></div>
+          </div>
+
+          <div style="display:flex; flex-wrap:wrap; row-gap:0.25rem;">
+
+            <div style="
+              width:9.375rem;
+              min-width:9.375rem;
+              font-weight:bold;
+              font-size:1rem;
+              line-height:1.125rem;
+              margin-right:0.625rem;
+            ">
+              Inconfort
+            </div>
+
+            <div style="
+              flex:1 1 10.2rem;
+              min-width:10.2rem;
+              font-size:1rem;
+              margin-left:0.625rem;
+            ">
+              2 jours
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- Souffrance psychologique -->
+    <div style="margin-top:2.5rem;">
+
+      <div style="display:flex;">
+
+        <div style="flex:0 0 auto; width:1rem; ">
+          <div style="width:0.5rem; height:0.5rem; background-color:#BE2F21; margin-left:0.25rem; margin-top:0.25rem; border-radius:30%;"></div>
+        </div>
+
+        <div style="margin-left:0.625rem; font-size:1rem; font-weight: bold;">
+          Souffrance psychologique
+        </div>
+
+      </div>
+
+      <div style="margin-top:1.25rem;">
+
+        <!-- extrême -->
+        <div style="display:flex; margin-top:0.625rem; align-items:flex-start;">
+
+          <div style="width:1rem; margin-right:0.625rem;">
+            <div style="width:1rem; height:1rem; background-color:#3C1212; border-radius:30%;"></div>
+          </div>
+
+          <div style="display:flex; flex-wrap:wrap; row-gap:0.25rem;">
+
+            <div style="
+              width:9.375rem;
+              min-width:9.375rem;
+              font-weight:bold;
+              font-size:1rem;
+              line-height:1.125rem;
+              margin-right:0.625rem;
+            ">
+              Souffrance extrême
+            </div>
+
+            <div style="
+              flex:1 1 10.2rem;
+              min-width:10.2rem;
+              font-size:1rem;
+              margin-left:0.625rem;
+            ">
+              -
+            </div>
+
+          </div>
+
+        </div>
+
+        <!-- souffrance -->
+        <div style="display:flex; margin-top:0.625rem; align-items:flex-start;">
+
+          <div style="width:1rem; margin-right:0.625rem;">
+            <div style="width:1rem; height:1rem; background-color:#FF584B; border-radius:30%;"></div>
+          </div>
+
+          <div style="display:flex; flex-wrap:wrap; row-gap:0.25rem;">
+
+            <div style="
+              width:9.375rem;
+              min-width:9.375rem;
+              font-weight:bold;
+              font-size:1rem;
+              line-height:1.125rem;
+              margin-right:0.625rem;
+            ">
+              Souffrance
+            </div>
+
+            <div style="
+              flex:1 1 10.2rem;
+              min-width:10.2rem;
+              font-size:1rem;
+              margin-left:0.625rem;
+            ">
+              2 minutes 10 secondes
+            </div>
+
+          </div>
+
+        </div>
+
+        <!-- douleur -->
+        <div style="display:flex; margin-top:0.625rem; align-items:flex-start;">
+
+          <div style="width:1rem; margin-right:0.625rem;">
+            <div style="width:1rem; height:1rem; background-color:#FFC3C3; border-radius:30%;"></div>
+          </div>
+
+          <div style="display:flex; flex-wrap:wrap; row-gap:0.25rem;">
+
+            <div style="
+              width:9.375rem;
+              min-width:9.375rem;
+              font-weight:bold;
+              font-size:1rem;
+              line-height:1.125rem;
+              margin-right:0.625rem;
+            ">
+              Douleur
+            </div>
+
+            <div style="
+              flex:1 1 10.2rem;
+              min-width:10.2rem;
+              font-size:1rem;
+              margin-left:0.625rem;
+            ">
+              3 jours
+            </div>
+
+          </div>
+
+        </div>
+
+        <!-- inconfort -->
+        <div style="display:flex; margin-top:0.625rem; align-items:flex-start;">
+
+          <div style="width:1rem; margin-right:0.625rem;">
+            <div style="width:1rem; height:1rem; background-color:#FFE9E9; border-radius:30%;"></div>
+          </div>
+
+          <div style="display:flex; flex-wrap:wrap; row-gap:0.25rem;">
+
+            <div style="
+              width:9.375rem;
+              min-width:9.375rem;
+              font-weight:bold;
+              font-size:1rem;
+              line-height:1.125rem;
+              margin-right:0.625rem;
+            ">
+              Inconfort
+            </div>
+
+            <div style="
+              flex:1 1 10.2rem;
+              min-width:10.2rem;
+              font-size:1rem;
+              margin-left:0.625rem;
+            ">
+              7 jours
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
   </div>
 
 </div>

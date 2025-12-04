@@ -6,13 +6,13 @@
             "element_type": "text",
             "text_element": 
             {
-              "html": "<div style=\"display: flex; flex-direction: column; align-items: flex-start; max-width: 400px; box-sizing: border-box;\">\n\n  <!-- Bloc Poule -->\n  <div style=\"margin: 1rem 0; width: 100%; text-align: center;\">\n    <p style=\"margin: 0; font-weight: bold; color: #3c1212;\">\n      Poule pondeuse élevée en\n      <a style=\"display: inline-block; padding: 0.25rem; background-color: #ff7b7b;\">cage aménagée</a>\n    </p>\n    <img src=\"https://github.com/littlecoffe8/icons/blob/main/suffering_logo_hen-03.png?raw=true\" alt=\"Logo souffrance\" style=\"width: 150px;\">\n    <p style=\"margin: 0; font-weight: bold; color: #3c1212;\">\n      <a style=\"display: inline-block; padding: 0.25rem; background-color: #ffe9e9;\">10 oeufs moyen calibre</a>\n      contiennent en moyenne :\n    </p>\n  </div>\n\n  <!-- Bloc Souffrance Physique -->\n  <div style=\"margin: 0.5rem 0; width: 100%; text-align: center;\">\n    <h3 style=\"margin: 0 0.5rem 1rem 0.5rem; font-weight: bold; text-transform: uppercase; color: #3c1212; font-size: 1.25rem;\">\n      Souffrance physique\n    </h3>\n    <p style=\"margin: 0; padding: 0.25rem; background-color: #3c1212; color: #ffffff;\">4 secondes d'agonie</p>\n    <p style=\"margin: 0; padding: 0.25rem; background-color: #ff7b7b;\">14 minutes 30 secondes de souffrance</p>\n    <p style=\"margin: 0; padding: 0.25rem; background-color: #ffc3c3;\">2 heures 25 minutes de douleur</p>\n    <p style=\"margin: 0; padding: 0.25rem; background-color: #ffe9e9;\">1 jour 6 heures d'inconfort</p>\n  </div>\n\n  <div style=\"width: 100%; text-align: center;\">\n    <span style=\"display:block; height:1.5rem; font-size:1.5rem; font-weight: bolder;\">+</span>\n  </div>\n\n  <!-- Bloc Souffrance Psychologique -->\n  <div style=\"margin: 0.5rem 0; width: 100%; text-align: center;\">\n    <h3 style=\"margin: 0 0.5rem 1rem 0.5rem; font-weight: bold; text-transform: uppercase; color: #3c1212; font-size: 1.25rem;\">\n      Souffrance psychologique\n    </h3>\n    <p style=\"margin: 0; padding: 0.25rem; background-color: #3c1212; color: #ffffff;\">0 seconde d'agonie</p>\n    <p style=\"margin: 0; padding: 0.25rem; background-color: #ff7b7b;\">7 minutes 5 secondes de souffrance</p>\n    <p style=\"margin: 0; padding: 0.25rem; background-color: #ffc3c3;\">2 heures 10 minutes de douleur</p>\n    <p style=\"margin: 0; padding: 0.25rem; background-color: #ffe9e9;\">1 jour 3 heures d'inconfort</p>\n  </div>\n\n</div>"
+              "html": "<div style=\"box-sizing: border-box; color: #3c1212; display: inline-block; width: 100%; max-width:800px\">\n\n  <!-- Bloc Poule -->\n  <div style=\"margin: 1rem auto; flex: 1 1 400px; text-align: center; box-sizing: border-box;\">\n    <p style=\"margin: 0; font-weight: bold;\">\n      Poule pondeuse élevée en\n      <a style=\"display: inline-block; padding: 0.25rem; background-color: #ff7b7b;\">cage aménagée</a>\n    </p>\n    <img src=\"https://github.com/littlecoffe8/icons/blob/main/suffering_logo_hen-03.png?raw=true\" alt=\"Logo souffrance\" style=\"width: 150px;\">\n    <p style=\"margin: 0; font-weight: bold;\">\n      <a style=\"display: inline-block; padding: 0.25rem; background-color: #ffe9e9;\">10 oeufs moyen calibre</a>\n      contiennent en moyenne :\n    </p>\n  </div>\n\n  <!-- Conteneur des 2 blocs -->\n  <div style=\"display: flex; justify-content: flex-start; align-items: flex-start; gap: 0.5rem; flex-wrap: wrap; width: 100%;\">\n\n    <!-- Bloc Souffrance Physique -->\n    <div style=\"flex: 1 1 350px; text-align: center; padding: 0.5rem; box-sizing: border-box; background-color: #fff; margin-bottom: 0.5rem;\">\n      <h3 style=\"margin: 0 0 1rem 0; font-weight: bold; text-transform: uppercase; font-size: 1.25rem;\">\n        Souffrance physique\n      </h3>\n      <p style=\"margin: 0; padding: 0.25rem; background-color: #3c1212; color: #fff;\">4 secondes d'agonie</p>\n      <p style=\"margin: 0; padding: 0.25rem; background-color: #ff7b7b;\">14 minutes 30 secondes de souffrance</p>\n      <p style=\"margin: 0; padding: 0.25rem; background-color: #ffc3c3;\">2 heures 25 minutes de douleur</p>\n      <p style=\"margin: 0; padding: 0.25rem; background-color: #ffe9e9;\">1 jour 6 heures d'inconfort</p>\n    </div>\n\n    <!-- Bloc Souffrance Psychologique -->\n    <div style=\"flex: 1 1 350px; text-align: center; padding: 0.5rem; box-sizing: border-box; background-color: #fff; margin-bottom: 0.5rem;\">\n      <h3 style=\"margin: 0 0 1rem 0; font-weight: bold; text-transform: uppercase; font-size: 1.25rem;\">\n        Souffrance psychologique\n      </h3>\n      <p style=\"margin: 0; padding: 0.25rem; background-color: #3c1212; color: #fff;\">0 seconde d'agonie</p>\n      <p style=\"margin: 0; padding: 0.25rem; background-color: #ff7b7b;\">7 minutes 5 secondes de souffrance</p>\n      <p style=\"margin: 0; padding: 0.25rem; background-color: #ffc3c3;\">2 heures 10 minutes de douleur</p>\n      <p style=\"margin: 0; padding: 0.25rem; background-color: #ffe9e9;\">1 jour 3 heures d'inconfort</p>\n    </div>\n\n  </div>\n</div>"
             }
         },
         {
           "element_type":"panel",
           "panel_element": {
-            "panel_id": "about_suffering_footrint"
+            "panel_id": "project_information"
           }
         }
       ],
@@ -31,25 +31,13 @@
         {
           "element_type": "panel",
           "panel_element": {
-            "panel_id": "physical_psychological_pain"
-          }
-        },
-        {
-          "element_type": "panel",
-          "panel_element": {
             "panel_id": "intensities_definitions"
           }
         },
         {
           "element_type": "panel",
           "panel_element": {
-            "panel_id": "WFI_information"
-          }
-        },
-        {
-          "element_type": "panel",
-          "panel_element": {
-            "panel_id": "heure_des_comptes"
+            "panel_id": "project_information"
           }
         }
       ],
@@ -60,28 +48,22 @@
     },
     "intensities_definitions": {
       "elements": [
-        {
+                {
           "element_type": "text",
           "text_element": {
-            "html": "\u003Cb\u003EInconfort\u003C/b\u003E : Gêne perceptible qui peut être ignorée. N'interfère pas avec les activités quotidiennes ou les comportements motivés (exploration, confort, entretien). Pas d'expressions visibles de douleur ni de perturbations physiologiques."
+            "html": "\u003Cb\u003ELa souffrance physique\u003C/b\u003E comprend toutes les souffrances corporelles subies par les animaux : fractures, blessures, maladies, difficultés respiratoires, etc."
           }
         },
         {
           "element_type": "text",
           "text_element": {
-            "html": "\u003Cb\u003EDouleur\u003C/b\u003E : Douleur persistante avec possibilité de brefs moments d'oubli lors de distractions. Réduit la fréquence des comportements motivés et altère partiellement les capacités fonctionnelles, tout en permettant la réalisation des activités essentielles."
+            "html": "\u003Cb\u003ELa souffrance psychologique\u003C/b\u003E comprend les souffrances mentales vécues par les animaux : stress, anxiété, impossibilité d'exprimer les comportements naturels, etc."
           }
         },
         {
           "element_type": "text",
           "text_element": {
-            "html": "\u003Cb\u003ESouffrance\u003C/b\u003E : Douleur constante qui prend le pas sur la plupart des comportements. Empêche le bien-être positif et modifie radicalement le niveau d'activité. Nécessite des analgésiques plus puissants et provoque une inattention à l'environnement."
-          }
-        },
-        {
-          "element_type": "text",
-          "text_element": {
-            "html": "\u003Cb\u003EAgonie\u003C/b\u003E : Douleur extrême insupportable, même brièvement. Chez l'humain, ce serait le seuil de souffrance en dessous duquel beaucoup choisissent de mettre fin à leurs jours plutôt que de l'endurer. Déclenche des manifestations involontaires (cris, tremblements, agitation extrême) et ne peut être soulagée."
+            "html": "<div style=\"width: 100%; box-sizing: border-box; display: flex; flex-wrap: wrap;\">\n\n  <!-- Agonie / Souffrance -->\n  <div style=\"flex: 1 1 410px; min-width:200px; box-sizing: border-box; display: flex; flex-wrap: wrap;\">\n\n    <!-- Agonie -->\n    <div style=\"flex: 1 1 0; min-width:200px; padding: 0.5rem; box-sizing: border-box; background-color: #3c1212; color: #fff; text-align: center;\">\n      <strong>Agonie</strong>\n      <p style=\"margin: 0; font-size: 0.95rem;\">\n        Douleur extrême insupportable, même brièvement. Chez l'humain, ce serait le seuil de souffrance en dessous duquel beaucoup choisissent de mettre fin à leurs jours plutôt que de l'endurer. Déclenche des manifestations involontaires (cris, tremblements, agitation extrême) et ne peut être soulagée.\n      </p>\n    </div>\n\n    <!-- Souffrance -->\n    <div style=\"flex: 1 1 0; min-width:200px; padding: 0.5rem; box-sizing: border-box; background-color: #ff7b7b; text-align: center;\">\n      <strong>Souffrance</strong>\n      <p style=\"margin: 0; font-size: 0.95rem;\">\n        Douleur constante qui prend le pas sur la plupart des comportements. Empêche le bien-être positif et modifie radicalement le niveau d'activité. Nécessite des analgésiques plus puissants et provoque une inattention à l'environnement.\n      </p>\n    </div>\n\n  </div>\n\n  <!-- Douleur / Inconfort -->\n  <div style=\"flex: 1 1 410px; min-width:200px; box-sizing: border-box; display: flex; flex-wrap: wrap;\">\n\n    <!-- Douleur -->\n    <div style=\"flex: 1 1 0; min-width:200px; padding: 0.5rem; box-sizing: border-box; background-color: #ffc3c3; text-align: center;\">\n      <strong>Douleur</strong>\n      <p style=\"margin:0; font-size: 0.95rem;\">\n        Douleur persistante avec possibilité de brefs moments d'oubli lors de distractions. Réduit la fréquence des comportements motivés et altère partiellement les capacités fonctionnelles, tout en permettant la réalisation des activités essentielles.\n      </p>\n    </div>\n\n    <!-- Inconfort -->\n    <div style=\"flex: 1 1 0; min-width:200px; padding: 0.5rem; box-sizing: border-box; background-color: #ffe9e9; text-align: center;\">\n      <strong>Inconfort</strong>\n      <p style=\"margin:  0; font-size: 0.95rem;\">\n        Gêne perceptible qui peut être ignorée. N'interfère pas avec les activités quotidiennes ou les comportements motivés (exploration, confort, entretien). Pas d'expressions visibles de douleur ni de perturbations physiologiques.\n      </p>\n    </div>\n\n  </div>\n\n</div>"
           }
         }
       ],
@@ -89,7 +71,7 @@
       "title_element": {
           "icon_size": "small",
           "icon_url": "https://static.openfoodfacts.org/images/icons/dist/info.svg",
-          "title": "Les différents niveaux d'intensité de souffrance",
+          "title": "A quoi correpondent les différentes souffrances ?",
           "type": "info"
       },
       "topics": [
@@ -123,7 +105,7 @@
         "suffering-footprint"
       ]
     },
-    "WFI_information": {
+    "project_information": {
       "elements": [
         {
           "element_type": "text",
@@ -136,13 +118,24 @@
           "text_element": {
             "html": "Elle est unique en ce qu’elle fournit une mesure complète et biologiquement significative du temps que les animaux passent à souffrir, à des degrés de douleur variables."
           }
-        }
-      ],
+        },
+        {
+          "element_type": "text",
+          "text_element": {
+            "html": "\u003Ca href='https://lheuredescomptes.org/'\u003EL'Heure des Comptes\u003C/a\u003E est une opération menée par l'assocation \u003Ca href='https://animafrance.org/'\u003EAnima\u003C/a\u003E visant à sensibiliser les consommateurs à la souffrance animale générée par les produis qu'ils achètent, et à mettre les professionnels face à leurs engagements d'amélioration des conditions d'élevage, et notamment celui de ne plus vendre d'oeufs en cage en supermarché au 1er janvier 2026."
+          }
+        },
+        {
+          "element_type": "text",
+          "text_element": {
+            "html": "Ce knowledge panel a été créé dans le cadre de l'opération grâce à une collaboration avec l'association \u003Ca href='https://dataforgood.fr/'\u003EData For Good\u003C/a\u003E."
+          }
+        }      ],
       "level": "info",
       "title_element": {
           "icon_size": "small",
           "icon_url": "https://static.openfoodfacts.org/images/icons/dist/info.svg",
-          "title": "Le Welfare Footprint Institute",
+          "title": "Qui sont les acteurs du projet ?",
           "type": "info"
       },
       "topics": [
