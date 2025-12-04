@@ -175,11 +175,45 @@ def get_knowledge_panel_response(
         A complete KnowledgePanelResponse containing root panel, intensity definitions,
         physical pain data and psychological pain data
     """
+
+    def import_html_body(path: str) -> JSONResponse:
+        """
+        Import the html body from a given path
+        """
+        from bs4 import BeautifulSoup
+
+        with open(path, "r", encoding="utf-8") as f:
+            html_content = f.read()
+
+        soup = BeautifulSoup(html_content, "html.parser")
+        body = soup.body
+
+        return body.decode_contents() if body else ""
+
+    def replace_html_body(obj):
+        ''' replaces {html_body} in all strings in json object
+        with body_content extracted from knowledge_panel.html '''
+        if isinstance(obj, dict):
+            return {k: replace_html_body(v) for k, v in obj.items()}
+        elif isinstance(obj, list):
+            return [replace_html_body(v) for v in obj]
+        elif isinstance(obj, str):
+            return obj.replace("{html_body}", html_content)
+        return obj
+
     json_path = Path(__file__).resolve().parent / "data" / "knowledge_panel_project.json"
     with open(json_path, "r", encoding="utf-8") as f:
-        data = json.load(f)
-    knowledge_panel_mock = JSONResponse(content=data)
-    return knowledge_panel_mock
+        raw_knowledge_panel =  json.load(f)
+
+    html_path = Path(__file__).resolve().parent / "data" / "root_panel_complete.html"
+
+    html_content = import_html_body(html_path)
+
+    knowledge_panel = replace_html_body(raw_knowledge_panel)
+
+    knowledge_panel_json = JSONResponse(content=knowledge_panel)
+
+    return knowledge_panel_json
 
 
 class KnowledgePanelGenerator:
