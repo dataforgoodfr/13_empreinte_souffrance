@@ -6,7 +6,7 @@ import ButtonLink from '@/app/[locale]/ui/_components/button-link';
 export default async function Footer() {
   const t = await getI18n();
 
-  const footerLinkClasses = 'text-brown hover:text-pink-3 transition-colors duration-200';
+  const footerLinkClasses = 'text-black text-CTA hover:text-pink-3 transition-colors duration-200';
   const footerUnderlineClasses = `${footerLinkClasses} underline`;
 
   return (
@@ -14,7 +14,7 @@ export default async function Footer() {
       <div className="max-w-7xl mx-auto">
         {/* Logo + Bouton Don */}
         <div className="flex">
-          <div className="w-48 flex flex-col space-y-3">
+          <div className="w-60 flex flex-col space-y-3">
             <LogoWelfare />
             <ButtonLink
               href="https://animafrance.org/je-donne"
@@ -26,17 +26,17 @@ export default async function Footer() {
           </div>
         </div>
 
-        <hr className="border-brown/20 my-8" />
+        <hr className="border-black/60 my-8" />
 
         {/* Section Partenaires */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          <div className="text-sm text-brown">{t('footer.by')}</div>
+          <div className="text-caption text-black">{t('footer.by')}</div>
 
           {/* Anima */}
           <div className="flex flex-col">
             <div>
               <img src="/anima-logo.svg" alt={t('footer.anima_logo_alt')} className="w-[120px] h-[28px] mb-4" />
-              <ul className="space-y-3 text-sm">
+              <ul className="space-y-3 ">
                 <li>
                   <a className={footerLinkClasses} href="https://animafrance.org/">
                     {t('footer.website')}
@@ -71,9 +71,9 @@ export default async function Footer() {
             <div>
               <div className="flex items-center gap-4 mb-4">
                 <img src="/logo_data_for_good.png" alt={t('footer.dfg_logo_alt')} className="h-12 w-12 rounded-full" />
-                <span className="text-lg font-extrabold text-brown">Data For Good</span>
+                <span className="text-lg font-extrabold text-black">Data For Good</span>
               </div>
-              <ul className="space-y-3 text-sm">
+              <ul className="space-y-3 text-CTA text-black">
                 <li>
                   <a className={footerLinkClasses} href="https://dataforgood.fr/">
                     {t('footer.website')}
@@ -95,7 +95,7 @@ export default async function Footer() {
         </div>
 
         {/* Footer Bottom */}
-        <div className="flex flex-col md:flex-row justify-between mt-12 text-sm text-brown">
+        <div className="flex flex-col md:flex-row justify-between mt-12 text-caption text-black">
           <div className="mb-6">
             <div>
               {t('footer.all_rights_reserved')} &nbsp;-&nbsp;

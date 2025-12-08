@@ -1,5 +1,4 @@
 import { getI18n } from '@/locales/server';
-import Link from 'next/link';
 import BrevoNewsletterForm from '../_components/BrevoNewsletterForm';
 import SectionTitle from '../../home/_components/section-title';
 
@@ -20,14 +19,6 @@ export default async function GoFurtherSection() {
           </p>
           
           <div>
-            <Link
-              href="/"
-              target="_blank"
-              className="secondary-button min-w-[30dvw] w-full md:max-w-[30dvw]"
-              aria-label={t('GoFurther.share')}
-            >
-              {t('GoFurther.share')}
-            </Link>
             <BrevoNewsletterForm />
           </div>
         </div>
