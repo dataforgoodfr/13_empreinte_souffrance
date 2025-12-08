@@ -60,8 +60,14 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({ params, children }: { params: { locale: string }; children: ReactElement }) {
-  const { locale } = params;
+export default async function RootLayout({
+  params,
+  children,
+}: {
+  params: Promise<{ locale: string }>;
+  children: ReactElement;
+}) {
+  const { locale } = await params;
   setStaticParamsLocale(locale);
 
   return (
