@@ -6,8 +6,8 @@ export default async function KeyResultsSection() {
   const t = await getI18n();
 
   return (
-    <section className="bg-pink-2 p-section">
-      <div className="">
+    <section className="bg-pink-2 p-section flex justify-center">
+      <div className="max-w-contain">
         <SectionHeading title={t('MethodologyPage.key_results_section.key_results_h1')} heading_number="3" />
         <div className="text-lead">
           <p>{t('MethodologyPage.key_results_section.quantify_suffering_description')}</p>
@@ -61,7 +61,7 @@ interface AfflictionResultCardProps {
 const AfflictionResultCard = ({ text, agony, pain, suffering, discomfort }: AfflictionResultCardProps) => {
   return (
     <div className=" flex items-center bg-grey p-section gap-2 rounded-[10px]">
-      <p className="uppercase font-bold text-h4 w-1/2">{text}</p>
+      <h4 className="w-1/2">{text}</h4>
 
       <div className="flex flex-col items-center justify-center gap-2 w-1/2">
         <SufferingScales

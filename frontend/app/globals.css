@@ -16,26 +16,29 @@
   --color-pink-3: #ff584b;
   --color-brown: #3c1212;
 
-  /* Typography */
-  --font-albert-sans: 'Albert Sans';
-
   /* Font-size Desktop */
-  --text-h1-desktop: 38px;
-  --text-h2-desktop: 32px;
-  --text-h3-desktop: 26px;
+  --text-h1-desktop: 39px;
+  --text-h2-desktop: 39px;
+  --text-h3-desktop: 32px;
+  --text-h4-desktop: 21px;
+  --text-h5-desktop: 12px;
   --text-numbers-desktop: 100px;
 
   /* Font-size Mobile */
   --text-h1: 32px;
   --text-h2: 26px;
   --text-h3: 20px;
+  --text-h4: 16px;
+  --text-h5: 12px;
   --text-numbers: 80px;
 
   /* Default Font-size */
   --text-lead: 18px;
   --text-body: 16px;
   --text-caption: 12px;
+  --text-CTA: 12px;
   --spacing-section: 56px 32px 56px 32px;
+  --spacing-contain: 1450px;
 }
 
 html {
@@ -44,37 +47,116 @@ html {
 
 /** -------------------------typography------------------------- **/
 
-h1,
-h2,
-h3,
+h1 {
+  font-family:
+    Albert Sans,
+    sans-serif;
+  font-weight: 900;
+  line-height: 50px;
+  font-style: normal;
+  text-transform: uppercase;
+  letter-spacing: 0%;
+}
+
+h2 {
+  font-family:
+    Albert Sans,
+    sans-serif;
+  font-weight: 900;
+  line-height: 50px;
+  font-style: normal;
+  text-transform: uppercase;
+  letter-spacing: 0%;
+}
+
+h3 {
+  font-family:
+    Albert Sans,
+    sans-serif;
+  font-weight: 900;
+  line-height: 36px;
+  font-style: normal;
+  text-transform: uppercase;
+  letter-spacing: 0%;
+}
+
 h4 {
   font-family:
     Albert Sans,
     sans-serif;
-  font-weight: 700;
-  line-height: normal;
+  font-weight: 900;
+  line-height: 26px;
   font-style: normal;
+  text-transform: uppercase;
+  letter-spacing: 0%;
+}
+
+h5 {
+  font-family:
+    Albert Sans,
+    sans-serif;
+  font-weight: 900;
+  line-height: 17px;
+  font-style: normal;
+  text-transform: uppercase;
+  letter-spacing: 0%;
 }
 
 span,
 div,
 a,
 p,
-.numbers,
-.primary-button,
-.secondary-button,
-.lead,
-.body,
-.caption {
+.body {
   font-family:
     Albert Sans,
     sans-serif;
   font-weight: 500;
   line-height: normal;
   font-style: normal;
+
 }
 
-/* Automatique font-size */
+.numbers {
+  font-family:
+    Albert Sans,
+    sans-serif;
+  font-weight: 900;
+  line-height: 50px;
+  font-style: normal;
+  text-transform: uppercase;
+  letter-spacing: 0%;
+}
+
+.lead {
+  font-family:
+    Albert Sans,
+    sans-serif;
+  font-weight: 700;
+  line-height: 24px;
+  font-style: normal;
+}
+
+.CTA {
+  font-family:
+    Albert Sans,
+    sans-serif;
+  font-weight: 900;
+  line-height: normal;
+  font-style: normal;
+  text-transform: uppercase;
+  letter-spacing: 9%;
+}
+
+.caption {
+  font-family:
+    Albert Sans,
+    sans-serif;
+  font-weight: 500;
+  line-height: 18px;
+  font-style: normal;
+}
+
+/** Automatique font-size **/
 
 h1 {
   font-size: var(--text-h1);
@@ -88,11 +170,14 @@ h3 {
 h4 {
   font-size: var(--text-h4);
 }
+h5 {
+  font-size: var(--text-h5);
+}
 .numbers {
   font-size: var(--text-numbers);
 }
-.button {
-  font-size: var(--text-button);
+.CTA {
+  font-size: var(--text-CTA);
 }
 .lead {
   font-size: var(--text-lead);
@@ -117,6 +202,9 @@ h4 {
   h4 {
     font-size: var(--text-h4-desktop);
   }
+  h5 {
+    font-size: var(--text-h5-desktop);
+  }
   .numbers {
     font-size: var(--text-numbers-desktop);
   }
@@ -136,84 +224,93 @@ h4 {
 
 /** -------------------------button------------------------- **/
 
-.primary-button {
-  padding: 16px 8px 16px 8px;
-  background-color: var(--color-pink-3);
-  box-shadow: 0 5px 0 0 #ff7b7b;
-  font-size: var(--text-button);
-  border-radius: 10px;
-  text-align: center;
-
-  justify-content: center;
-  align-items: center;
-}
-
-.primary-button:hover {
-  background-color: var(--color-violet);
-  box-shadow: 0 5px 0 0 var(--color-violet);
-  transition: all ease-in-out;
-}
-
-.secondary-button {
-  padding: 16px 0px 16px 0px;
-  background-color: none;
-  border: solid 2px var(--color-pink-3);
-  /* box-shadow: 0 5px 0 0 #FF7B7B; */
-  font-size: var(--text-button);
-  color: var(--color-pink-3);
-  border-radius: 10px;
-  text-align: center;
-
-  justify-content: center;
-  align-items: center;
-}
-
-.secondary-button:hover {
-  background-color: var(--color-violet);
-  border: solid, 2px, var(--color-violet);
-  color: var(--color-black);
-  transition: all ease-in-out;
-}
-
-.tertiary-button {
+.white-button {
   padding: 16px 24px 16px 24px;
   background-color: var(--color-white);
   border: solid, 2px, var(--color-white);
   box-shadow: 0 5px 0 0 var(--color-black);
-  font-size: var(--text-button);
+  font-size: var(--text-CTA);
   color: var(--color-black);
   border-radius: 10px;
   text-align: center;
   justify-content: center;
   align-items: center;
+  font-family:
+    Albert Sans,
+    sans-serif;
+  font-weight: 900;
+  line-height: 100%;
+  font-style: normal;
+  text-transform: uppercase;
+  letter-spacing: 9%;
 }
 
-.tertiary-button:hover {
+.white-button:hover {
+  background-color: var(--color-pink-3);
+  box-shadow: 0 5px 0 0 var(--color-black);
+  border : solid, 2px, var(--color-pink-3);
+  transition: all ease-in-out;
+}
+
+.grey-button {
+  padding: 16px 0px 16px 0px;
+  background-color: var(--color-grey);
+  border: solid 2px var(--color-grey);
+  box-shadow: 0 5px 0 0 var(--color-black);
+  font-size: var(--text-CTA);
+  color: var(--color-black);
+  border-radius: 10px;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  font-family:
+    Albert Sans,
+    sans-serif;
+  font-weight: 900;
+  line-height: 100%;
+  font-style: normal;
+  text-transform: uppercase;
+  letter-spacing: 9%;
+}
+
+.grey-button:hover {
   background-color: var(--color-violet);
   border: solid, 2px, var(--color-violet);
   color: var(--color-black);
   transition: all ease-in-out;
 }
 
-.fourth-button {
+.pink-button {
   padding: 16px 24px 16px 24px;
   background-color: var(--color-pink-1);
   border: solid, 2px, var(--color-pink-1);
   box-shadow: 0 5px 0 0 var(--color-black);
-  font-size: var(--text-button);
-  color: var(--color-brown);
+  font-size: var(--text-CTA);
+  color: var(--color-black);
   border-radius: 10px;
   text-align: center;
   justify-content: center;
   align-items: center;
+  font-family:
+    Albert Sans,
+    sans-serif;
+  font-weight: 900;
+  line-height: 100%;
+  font-style: normal;
+  text-transform: uppercase;
+  letter-spacing: 9%;
 }
 
-.fourth-button:hover {
-  background-color: var(--color-violet);
-  border: solid, 2px, var(--color-violet);
-  color: var(--color-brown);
+.pink-button:hover {
+  background-color: var(--color-pink-3);
+  box-shadow: 0 5px 0 0 var(--color-black);
+  border : solid, 2px, var(--color-pink-3);
   transition: all ease-in-out;
 }
+
+
+/** Autre **/
+
 
 [id] {
   scroll-margin-top: 70px;

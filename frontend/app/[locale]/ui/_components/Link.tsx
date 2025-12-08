@@ -1,11 +1,12 @@
 type Props = {
   href?: string;
   children?: React.ReactNode;
+  className? : string;
 };
 
-export default function ({ href, children }: Props) {
+export default function ({ href, children, className }: Props) {
   return (
-    <a className={`bg-gray-100 p-3 text-sm underline border-b-1 border-violet`} href={href}>
+    <a className={className} href={href}>
       {children}
     </a>
   );

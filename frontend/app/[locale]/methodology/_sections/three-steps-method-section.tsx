@@ -10,10 +10,10 @@ export default async function SufferingQuantificationStepsSection() {
   const t = await getI18n();
 
   return (
-    <section className="p-section bg-white">
-      <div className="">
+    <section className="p-section bg-white flex justify-center text-black">
+      <div className="max-w-contain">
         <SectionHeading heading_number="1" title={t('MethodologyPage.sufferingQuantificationSteps.title')} />
-        <div className="flex flex-col md:flex-row gap-6 py-8 uppercase">
+        <div className="flex flex-col md:flex-row gap-2 py-8 ">
           <StepOneAfflictionList />
           <StepTwoSufferingQuantification />
           <StepThreeSufferingSummary />

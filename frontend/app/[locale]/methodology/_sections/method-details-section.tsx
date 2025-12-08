@@ -8,13 +8,16 @@ export default async function MethodDetailsSection() {
   const t = await getI18n();
 
   return (
-    <section className="p-section bg-pink-1">
+    <section className="p-section bg-pink-1 flex justify-center text-black">
+      <div className='max-w-contain w-full'>
+
       <SectionHeading title={t('MethodologyPage.method_details_section.title_h1')} heading_number="2" />
 
       <div className="flex flex-col items-center mt-15 gap-16">
         <IdentifyPainSources />
         <QuantifyPainBySources />
         <ComputePainSources />
+      </div>
       </div>
     </section>
   );

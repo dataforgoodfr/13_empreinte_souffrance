@@ -5,14 +5,14 @@ type SectionHeadingProps = {
 
 export default function SectionHeading({ title, heading_number }: SectionHeadingProps) {
   return (
-    <h1
+    <h2
       id="results-heading"
-      className="text-black flex flex-col text-center justify-center md:flex-row md:justify-start md:text-left items-center gap-8 mb-8"
+      className="flex flex-col text-center justify-center items-center md:flex-row md:justify-start md:text-left gap-8 mb-8 text-black"
     >
-      <span className="w-[50vw] h-[12vh] md:w-[23vw] md:h-[20vh] text-numbers md:text-numbers-desktop bg-pink-3 text-black rounded-[1.6rem] inline-flex items-center justify-center ">
+      <span className="flex items-center justify-center p-[8px_84px_8px_84px] text-numbers md:text-numbers-desktop bg-pink-3 text-black rounded-[1.6rem]  ">
         {heading_number}.
       </span>
       {title.toUpperCase()}
-    </h1>
+    </h2>
   );
 }

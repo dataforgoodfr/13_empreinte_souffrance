@@ -123,12 +123,12 @@ function SufferingSynthesis(props: Affliction) {
     <div className="p-4 w-full min-h-[200px] p-2 flex flex-col items-left justify-center bg-white gap-4 ">
       <div className="flex gap-2 items-center">
         <BoltIconV2 className="text-pink-3 h-[30px]" />
-        <p className="text-caption text-center font-bold uppercase ">{title}</p>
+        <h5 className="text-caption text-center font-bold uppercase ">{title}</h5>
       </div>
 
-      <div className="grid grid-cols-2 text-caption ">
+      <div className="grid grid-cols-2 ">
         <div className="flex flex-wrap justify-left items-center normal-case gap-1">
-          <p className="p-2 flex justify-center items-left font-bold text-center">
+          <p className="p-2 text-body flex justify-center items-left font-bold text-center">
             {percent} {text}
           </p>
         </div>

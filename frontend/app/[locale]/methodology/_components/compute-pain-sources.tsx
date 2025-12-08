@@ -180,7 +180,7 @@ export default async function ComputePainSources() {
   ];
 
   return (
-    <section className="max-w-[1066px]">
+    <div className="max-w-[1066px]">
       <div className="flex flex-col md:flex-row gap-6">
         <hgroup className="w-full md:w-1/2">
           <h2 className="text-2xl font-extrabold mb-4 uppercase ">
@@ -199,15 +199,15 @@ export default async function ComputePainSources() {
 
         <article className="flex-1">
           <AnimatedAfflictionsGroup afflictions={afflictions} delay={4000} cascade={300} />{' '}
-          <p className="bg-white text-body rounded-[5px] p-4 my-2">
+          <p className="bg-white text-caption uppercase rounded-[5px] p-4 my-2">
             {t('MethodologyPage.sufferingQuantificationSteps.step3.text2')}
           </p>
           <p className="bg-violet rounded-[5px] text-center text-3xl p-2 my-4 font-extrabold">=</p>
           {/* Synthèse */}
           <div className="bg-white rounded-[5px] p-4">
-            <p className="text-body uppercase font-extrabold mb-2">
+            <h5 className="mb-2">
               {t('MethodologyPage.sufferingQuantificationSteps.step3.result.title')}
-            </p>
+            </h5>
             <div className="w-full grid grid-cols-2 grid-rows-2 normal-case text-center">
               <SufferingScales
                 agony_duration_text={t('MethodologyPage.sufferingQuantificationSteps.step3.result.agony')}
@@ -219,6 +219,6 @@ export default async function ComputePainSources() {
           </div>
         </article>
       </div>
-    </section>
+    </div>
   );
 }

@@ -26,8 +26,11 @@ export default async function SelectorSection() {
   };
 
   return (
-    <section className="bg-white p-section flex flex-col gap-16">
+    <section className="bg-white p-section flex justify-center gap-16">
+      <div className='max-w-contain'>
+
       <CalculatorSelect quantities={[...quantities]} farmings={[...farmings]} labels={labels} />
+      </div>
     </section>
   );
 }

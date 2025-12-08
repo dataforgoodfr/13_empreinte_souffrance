@@ -7,7 +7,7 @@ export default async function CalculatorLinkSection() {
 
   return (
     <section className="bg-pink-1 p-section flex justify-center">
-      <div className="flex flex-col items-center justify-center gap-6 w-[900px]">
+      <div className="max-w-contain flex flex-col items-center justify-center gap-8 ">
         <Image
           src="/loupe_icon.png"
           width={74}
@@ -15,7 +15,7 @@ export default async function CalculatorLinkSection() {
           alt={scopedT('descriptionSection.imageAlt')}
           className=" block p-2 "
         />
-        <h2 className="font-bold text-brown text-center text-wrap uppercase">{scopedT('linkSection')}</h2>
+        <h3 className="font-bold text-black text-center text-wrap max-w-[900px]">{scopedT('linkSection')}</h3>
 
         <Link
           target="_blank"
