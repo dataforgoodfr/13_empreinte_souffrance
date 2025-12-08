@@ -1,5 +1,4 @@
 import { getScopedI18n } from '@/locales/server';
-import Image from 'next/image';
 import SectionTitle from '../../home/_components/section-title';
 
 export default async function WhyNameSection() {
@@ -11,7 +10,7 @@ export default async function WhyNameSection() {
         <figure className="flex flex-col items-center gap-6">
           <SectionTitle
             image_path="/full-bars_egg.svg"
-            image_alt=""
+            image_alt="icon of an egg behind bars"
             title={scopedT('why_welfare_footprint_title').toUpperCase()}
           />
 
