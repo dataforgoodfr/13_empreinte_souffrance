@@ -35,7 +35,7 @@ export default async function Footer() {
           {/* Anima */}
           <div className="flex flex-col">
             <div>
-              <img src="/Anima-logo.png" alt={t('footer.anima_logo_alt')} className="w-[120px] h-[28px] mb-4" />
+              <img src="/anima-logo.svg" alt={t('footer.anima_logo_alt')} className="w-[120px] h-[28px] mb-4" />
               <ul className="space-y-3 text-sm">
                 <li>
                   <a className={footerLinkClasses} href="https://animafrance.org/">

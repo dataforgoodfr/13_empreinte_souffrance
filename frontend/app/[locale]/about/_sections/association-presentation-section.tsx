@@ -10,7 +10,6 @@ export default async function AssociationPresentationSection() {
       <div className="max-w-contain">
         <h1 className="mb-8 md:max-w-2/3 text-black">{scopedT('two_hens_out_five_title').toUpperCase()}</h1>
         <div className="flex flex-row gap-[20px] justify-between">
-
           {/* Anima */}
           <div className="flex flex-col items-start gap-5 max-w-[650px]">
             <Link href="https://animafrance.org/" target="_blank" className="w-fit">
@@ -22,7 +21,7 @@ export default async function AssociationPresentationSection() {
                 className="mb-0 md:mb-0 object-contain"
               />
             </Link>
-            <p className='text-body'>{scopedT('anima_presentation')}</p>
+            <p className="text-body">{scopedT('anima_presentation')}</p>
             <Link href="https://animafrance.org/" target="_blank" className="pink-button">
               {scopedT('anima_link')}
             </Link>
@@ -30,7 +29,7 @@ export default async function AssociationPresentationSection() {
 
           {/* Data4Good */}
           <div className="flex flex-col items-start gap-5 max-w-[650px]">
-            <Link href="https://animafrance.org/" target="_blank" className="w-fit">
+            <Link href="https://dataforgood.fr/" target="_blank" className="w-fit">
               <figure className="flex flex-row justify-center align-center">
                 <Image
                   src="/dataforgood.svg"
@@ -41,7 +40,7 @@ export default async function AssociationPresentationSection() {
                 />
               </figure>
             </Link>
-            <p className='text-body'>{scopedT('dataforgood_presentation')}</p>
+            <p className="text-body">{scopedT('dataforgood_presentation')}</p>
             <Link href="https://dataforgood.fr/" target="_blank" className="pink-button">
               {scopedT('dataforgood_link')}
             </Link>
