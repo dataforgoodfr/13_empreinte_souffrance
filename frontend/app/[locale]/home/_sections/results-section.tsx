@@ -18,7 +18,7 @@ export default async function ResultsSection() {
     >
       <div className="flex flex-col items-center">
         <SectionTitle
-          image_path="full-bars_egg.svg"
+          image_path="/full-bars_egg.svg"
           image_alt="egg shaped logo with a hen behind bars"
           title={t('Results.title')}
         />

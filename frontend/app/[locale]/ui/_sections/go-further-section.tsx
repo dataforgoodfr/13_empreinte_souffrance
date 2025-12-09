@@ -12,7 +12,7 @@ export default async function GoFurtherSection() {
       aria-labelledby="go-further-heading"
     >
       <div className="max-w-contain">
-        <SectionTitle image_path="free_hen_egg.svg" image_alt="" title={t('GoFurther.title')} text_color="white" />
+        <SectionTitle image_path="/free_hen_egg.svg" image_alt="" title={t('GoFurther.title')} text_color="white" />
         <div className="flex flex-col gap-[24px] items-center justify-center mt-4">
           <p id="go-further-heading" className="lead text-grey max-w-[800px]">
             {t('GoFurther.subtitle')}
