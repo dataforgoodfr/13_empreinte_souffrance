@@ -72,7 +72,7 @@ export default async function RootLayout({
 
   return (
     <html lang={locale}>
-      <body className={`antialiased dark-text ${albertSans.variable}`}>{children}</body>
+      <body className={`antialiased text-black ${albertSans.variable}`}>{children}</body>
     </html>
   );
 }

@@ -3,7 +3,6 @@ import { getI18n } from '@/locales/server';
 import NavLinks from '@/app/[locale]/ui/_components/nav-links';
 import NavClass from '../_components/nav-class';
 import Logo from '../_components/logo-walfare-footprint';
-import { LocaleSelect } from '@/app/[locale]/ui/_components/localselect';
 import BurgerMenu from '@/app/[locale]/ui/_components/BurgerMenu';
 
 export default async function Navbar() {
@@ -20,13 +19,11 @@ export default async function Navbar() {
   return (
     <NavClass>
       <Logo />
-      <div className="hidden md:flex flex-row items-center ">
+      <div className="hidden md:flex flex-row items-center mr-16">
         <NavLinks links={links} />
-        <LocaleSelect />
       </div>
       <BurgerMenu className="md:hidden">
         <NavLinks links={links} isVertical={true} />
-        <LocaleSelect />
       </BurgerMenu>
     </NavClass>
   );

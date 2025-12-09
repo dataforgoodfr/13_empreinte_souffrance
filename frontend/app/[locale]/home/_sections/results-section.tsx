@@ -18,7 +18,7 @@ export default async function ResultsSection() {
     >
       <div className="flex flex-col items-center">
         <SectionTitle
-          image_path="full-bars_egg.svg"
+          image_path="/full-bars_egg.svg"
           image_alt="egg shaped logo with a hen behind bars"
           title={t('Results.title')}
         />
@@ -43,7 +43,7 @@ export default async function ResultsSection() {
                   {t('Results.sectionList.first.text')}
                 </InfoContent>
               ),
-              imageSrc: '/results-section/bars-egg-squared.png',
+              imageSrc: '/results-section/bars-egg-squared.svg',
             },
             {
               infoContent: (
@@ -58,7 +58,7 @@ export default async function ResultsSection() {
                   {t('Results.sectionList.second.text')}
                 </InfoContent>
               ),
-              imageSrc: '/results-section/bars-hen-squared.png',
+              imageSrc: '/results-section/bars-hen-squared.svg',
             },
             {
               infoContent: (
@@ -73,7 +73,7 @@ export default async function ResultsSection() {
                   {t('Results.sectionList.third.text')}
                 </InfoContent>
               ),
-              imageSrc: '/results-section/free-hen-squared.png',
+              imageSrc: '/results-section/free-hen-squared.svg',
             },
           ] as {
             infoContent: ReactNode;

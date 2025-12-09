@@ -38,7 +38,7 @@ export default function BrevoNewsletterForm() {
       data-type="subscription"
       className="mx-5 px-3 mb-5 pb-3"
     >
-      <div className="flex gap-3.5">
+      <div className="flex flex-wrap justify-center gap-3.5 mb-1">
         <input
           type="text"
           className="border-2 border-pink-3 rounded-[10px] text-pink-3 p-4 font-black w-48"

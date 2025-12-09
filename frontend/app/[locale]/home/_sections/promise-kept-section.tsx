@@ -13,13 +13,13 @@ export default async function PromiseKeptSection() {
     >
       <div className="h-svh max-w-contain flex items-center justify-center mb-20">
         <SectionTitle
-          image_path="hollow_egg.svg"
+          image_path="/hollow_egg.svg"
           image_alt=""
           title={
-            <p>
+            <>
               {t('PromiseKept.promiseKept').toUpperCase()} <br />
               {t('PromiseKept.timeToReckon').toUpperCase()}.
-            </p>
+            </>
           }
           text_color="white"
         />

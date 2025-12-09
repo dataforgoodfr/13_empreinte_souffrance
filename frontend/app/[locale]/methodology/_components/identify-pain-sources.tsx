@@ -40,8 +40,8 @@ export default async function IdentifyPainSources() {
           <figure className="md:w-1/3 flex flex-col items-center gap-2">
             <img
               className="w-[330px] h-[220px] rounded-[10px] object-cover"
-              src="/img_placeholder.png"
-              alt=" {t('MethodologyPage.method_details_section.section_img_1.img_1.alt')}"
+              src="/method-details/freedom-restriction.svg"
+              alt={t('MethodologyPage.method_details_section.section_img_1.img_1.alt')}
             />
             <figcaption>
               <p className="mb-2 text-bold">
@@ -54,8 +54,8 @@ export default async function IdentifyPainSources() {
           <figure className="md:w-1/3 flex flex-col items-center gap-2">
             <img
               className="w-[330px] h-[220px] rounded-[10px] object-cover"
-              src="/img_placeholder.png"
-              alt=" {t('MethodologyPage.method_details_section.section_img_1.img_2.alt')}"
+              src="/method-details/nest-privation.svg"
+              alt={t('MethodologyPage.method_details_section.section_img_1.img_2.alt')}
             />
             <figcaption>
               <p className="text-bold mb-2">
@@ -68,8 +68,8 @@ export default async function IdentifyPainSources() {
           <figure className="md:w-1/3 flex flex-col items-center gap-2">
             <img
               className="w-[330px] h-[220px] rounded-[10px] object-cover"
-              src="/img_placeholder.png"
-              alt=" {t('MethodologyPage.method_details_section.section_img_1.img_3.alt')}"
+              src="/method-details/behavior-privation.svg"
+              alt={t('MethodologyPage.method_details_section.section_img_1.img_3.alt')}
             />
             <figcaption>
               <p className="text-bold mb-2">
@@ -89,8 +89,8 @@ export default async function IdentifyPainSources() {
           <figure className="md:w-1/3 flex flex-col items-center gap-2">
             <img
               className="w-[330px] h-[220px] rounded-[10px] object-cover"
-              src="/img_placeholder.png"
-              alt=" {t('MethodologyPage.method_details_section.section_img_2.img_1.alt')}"
+              src="/method-details/keelbone-fracture.svg"
+              alt={t('MethodologyPage.method_details_section.section_img_2.img_1.alt')}
             />
             <figcaption>
               <p className="text-bold mb-2">
@@ -104,8 +104,8 @@ export default async function IdentifyPainSources() {
           <figure className="md:w-1/3 flex flex-col items-center gap-2">
             <img
               className="w-[330px] h-[220px] rounded-[10px] object-cover"
-              src="/img_placeholder.png"
-              alt=" {t('MethodologyPage.method_details_section.section_img_2.img_2.alt')}"
+              src="/method-details/peritonitis.svg"
+              alt={t('MethodologyPage.method_details_section.section_img_2.img_2.alt')}
             />
             <figcaption>
               <p className="text-bold mb-2">
@@ -118,8 +118,8 @@ export default async function IdentifyPainSources() {
           <figure className="md:w-1/3 flex flex-col items-center gap-2">
             <img
               className="w-[330px] h-[220px] rounded-[10px] object-cover"
-              src="/img_placeholder.png"
-              alt=" {t('MethodologyPage.method_details_section.section_img_2.img_3.alt')}"
+              src="/method-details/lesions.svg"
+              alt={t('MethodologyPage.method_details_section.section_img_2.img_3.alt')}
             />
             <figcaption>
               <p className="text-bold mb-2">
@@ -132,9 +132,7 @@ export default async function IdentifyPainSources() {
       </article>
 
       <article className="w-full">
-        <h3 id="list_of_pains">
-          {t('MethodologyPage.method_details_section.list_of_pains_h3')}
-        </h3>
+        <h3 id="list_of_pains">{t('MethodologyPage.method_details_section.list_of_pains_h3')}</h3>
         <hr className="border-1 border-pink-3 my-2" />
         <ListOfAffliction
           listOfPain={listOfPain}

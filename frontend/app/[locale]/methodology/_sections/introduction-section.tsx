@@ -7,7 +7,7 @@ export default async function IntroductionSection() {
   return (
     <section className="bg-violet p-section flex justify-center ">
       <div className="max-w-contain ">
-        <img src="/welfare-footprint-logo.png " className="w-[300px] lg:w-[450px]" alt="" />
+        <img src="/welfare-footprint-logo.svg " className="w-[300px] lg:w-[450px]" alt="" />
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 ">
           <article className="flex flex-col">
             <h1>{t('MethodologyPage.introductionSection.title')}</h1>
@@ -17,8 +17,13 @@ export default async function IntroductionSection() {
             <p>{t('MethodologyPage.introductionSection.paragraph2')}</p>
             <br />
             <p>{t('MethodologyPage.introductionSection.paragraph3')}</p>
-            <Link href="www.welfarefootprint.org" className="CTA white-button w-fit">
-              www.welfarefootprint.org
+            <Link
+              href="https://welfarefootprint.org/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="CTA white-button w-fit"
+            >
+              welfarefootprint.org
             </Link>
           </article>
           <div className=" grid grid-cols-1 md:grid-cols-2 gap-8">

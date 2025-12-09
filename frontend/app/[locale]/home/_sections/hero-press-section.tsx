@@ -22,7 +22,7 @@ export default async function HeroPressSection() {
       <div className="w-full relative">
         <div className="w-full sm:flex hidden justify-center ">
           <Image
-            src="/press-articles.png"
+            src="/press-articles.svg"
             width={1650}
             height={1350}
             alt="collage of press articles"
