@@ -20,13 +20,11 @@ export default async function Navbar() {
   return (
     <NavClass>
       <Logo />
-      <div className="hidden md:flex flex-row items-center ">
+      <div className="hidden md:flex flex-row items-center mr-16">
         <NavLinks links={links} />
-        <LocaleSelect />
       </div>
       <BurgerMenu className="md:hidden">
         <NavLinks links={links} isVertical={true} />
-        <LocaleSelect />
       </BurgerMenu>
     </NavClass>
   );
