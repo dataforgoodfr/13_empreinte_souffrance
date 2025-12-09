@@ -3,7 +3,6 @@ import { getI18n } from '@/locales/server';
 import NavLinks from '@/app/[locale]/ui/_components/nav-links';
 import NavClass from '../_components/nav-class';
 import Logo from '../_components/logo-walfare-footprint';
-import { LocaleSelect } from '@/app/[locale]/ui/_components/localselect';
 import BurgerMenu from '@/app/[locale]/ui/_components/BurgerMenu';
 
 export default async function Navbar() {
