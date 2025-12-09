@@ -18,6 +18,11 @@ export default {
     share: 'Share the website',
   },
 
+  PromiseKept: {
+    promiseKept: 'Promesse tenue ?',
+    timeToReckon: "C'est l'heure des comptes",
+  },
+
   twitterShare: {
     message: 'Look at this website!',
   },
