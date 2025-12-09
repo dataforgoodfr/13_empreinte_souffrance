@@ -16,10 +16,10 @@ export default async function PromiseKeptSection() {
           image_path="hollow_egg.svg"
           image_alt=""
           title={
-            <p>
+            <>
               {t('PromiseKept.promiseKept').toUpperCase()} <br />
               {t('PromiseKept.timeToReckon').toUpperCase()}.
-            </p>
+            </>
           }
           text_color="white"
         />
