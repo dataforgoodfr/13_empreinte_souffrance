@@ -1,6 +1,7 @@
 'use client';
 
 import { useCurrentLocale } from '@/locales/client';
+import Link from 'next/link';
 import React, { useState, ChangeEvent } from 'react';
 
 interface BrevoFormData {
@@ -83,6 +84,17 @@ export default function BrevoNewsletterForm() {
           S’inscrire
         </button>
       </div>
+      <span className="text-xs text-white" style={{ fontStyle: 'italic' }}>
+        En soumettant ce formulaire, vous acceptez le traitement de vos données personnelles par Brevo selon sa{' '}
+        <Link
+          href="https://www.brevo.com/fr/legal/privacypolicy/"
+          className="underline"
+          style={{ fontStyle: 'italic' }}
+        >
+          politique de confidentialité
+        </Link>
+        .
+      </span>
     </form>
   );
 }
