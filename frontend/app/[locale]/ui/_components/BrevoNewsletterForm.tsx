@@ -1,6 +1,7 @@
 'use client';
 
 import { useCurrentLocale } from '@/locales/client';
+import Link from 'next/link';
 import React, { useState, ChangeEvent } from 'react';
 
 interface BrevoFormData {
@@ -35,43 +36,65 @@ export default function BrevoNewsletterForm() {
       method="POST"
       action="https://2380490f.sibforms.com/serve/MUIFAOy6vdvkWDXGcqK9LTFr53-yrlYfCJIvV-h9BbbD_lDs-CH9suIo-kk0I29W3UtwbksOkFXRbJqaMOiJTn6lqgHujB-1--fNTUYtorsHtn98Cx6yOK52FS-Kkvy5wbqbxfZtDMskJy20NQa_U4dE6zf8ZVTjz_xqUDqBQgCzT2Zi6B-7nMvdHarKbkMky6JI9EmammCY7jIC"
       data-type="subscription"
-      className="m-5 p-3 bg-white"
+      className="mx-5 px-3 mb-5 pb-3"
     >
-      <h3>Inscription au mouvement</h3>
-
-      <div>
+      <div className="flex gap-3.5">
         <input
           type="text"
+          className="border-2 border-pink-3 rounded-[10px] text-pink-3 p-4 font-black w-48"
           name="PRENOM"
           placeholder="Prénom"
           required
           value={formData.PRENOM}
           onChange={handleChange}
         />
+
+        <input
+          type="text"
+          className="border-2 border-pink-3 rounded-[10px] text-pink-3 p-4 font-black w-48"
+          name="NOM"
+          placeholder="Nom"
+          required
+          value={formData.NOM}
+          onChange={handleChange}
+        />
+
+        <input
+          type="email"
+          className="border-2 border-pink-3 rounded-[10px] text-pink-3 p-4 font-black w-48"
+          name="EMAIL"
+          placeholder="Email"
+          required
+          value={formData.EMAIL}
+          onChange={handleChange}
+        />
+
+        {/* Required Brevo fields */}
+        <input
+          type="text"
+          name="email_address_check"
+          value={formData.email_address_check}
+          style={{ display: 'none' }}
+          readOnly
+        />
+
+        <input type="hidden" name="locale" value={formData.locale} />
+
+        <button type="submit" className="pink-3-button w-48">
+          S’inscrire
+        </button>
       </div>
-
-      <div>
-        <input type="text" name="NOM" placeholder="Nom" required value={formData.NOM} onChange={handleChange} />
-      </div>
-
-      <div>
-        <input type="email" name="EMAIL" placeholder="Email" required value={formData.EMAIL} onChange={handleChange} />
-      </div>
-
-      {/* Required Brevo fields */}
-      <input
-        type="text"
-        name="email_address_check"
-        value={formData.email_address_check}
-        style={{ display: 'none' }}
-        readOnly
-      />
-
-      <input type="hidden" name="locale" value={formData.locale} />
-
-      <button type="submit" className="primary-button">
-        S’inscrire
-      </button>
+      <span className="text-xs text-white" style={{ fontStyle: 'italic' }}>
+        En soumettant ce formulaire, vous acceptez le traitement de vos données personnelles par Brevo selon sa{' '}
+        <Link
+          href="https://www.brevo.com/fr/legal/privacypolicy/"
+          className="underline"
+          style={{ fontStyle: 'italic' }}
+        >
+          politique de confidentialité
+        </Link>
+        .
+      </span>
     </form>
   );
 }
