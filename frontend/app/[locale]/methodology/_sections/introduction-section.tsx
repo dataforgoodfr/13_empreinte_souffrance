@@ -17,8 +17,13 @@ export default async function IntroductionSection() {
             <p>{t('MethodologyPage.introductionSection.paragraph2')}</p>
             <br />
             <p>{t('MethodologyPage.introductionSection.paragraph3')}</p>
-            <Link href="www.welfarefootprint.org" className="CTA white-button w-fit">
-              www.welfarefootprint.org
+            <Link
+              href="https://welfarefootprint.org/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="CTA white-button w-fit"
+            >
+              welfarefootprint.org
             </Link>
           </article>
           <div className=" grid grid-cols-1 md:grid-cols-2 gap-8">
