@@ -186,7 +186,7 @@ export default async function ComputePainSources() {
           <h2 className="text-2xl font-extrabold mb-4 uppercase ">
             {t('MethodologyPage.QuantifySufferingByPain.global_suffering_figure_sectinon.title')}
           </h2>
-          <p className="text-md mb-6">
+          <p className="text-md mb-6 font-bold">
             {t('MethodologyPage.QuantifySufferingByPain.global_suffering_figure_sectinon.question')}
           </p>
           <p className="text-md">
@@ -205,9 +205,7 @@ export default async function ComputePainSources() {
           <p className="bg-violet rounded-[5px] text-center text-3xl p-2 my-4 font-extrabold">=</p>
           {/* Synthèse */}
           <div className="bg-white rounded-[5px] p-4">
-            <h5 className="mb-2">
-              {t('MethodologyPage.sufferingQuantificationSteps.step3.result.title')}
-            </h5>
+            <h5 className="mb-2">{t('MethodologyPage.sufferingQuantificationSteps.step3.result.title')}</h5>
             <div className="w-full grid grid-cols-2 grid-rows-2 normal-case text-center">
               <SufferingScales
                 agony_duration_text={t('MethodologyPage.sufferingQuantificationSteps.step3.result.agony')}
