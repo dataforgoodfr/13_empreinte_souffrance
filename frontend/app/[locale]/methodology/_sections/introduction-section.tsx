@@ -7,7 +7,7 @@ export default async function IntroductionSection() {
   return (
     <section className="bg-violet p-section flex justify-center ">
       <div className="max-w-contain ">
-        <img src="/welfare-footprint-logo.png " className="w-[300px] lg:w-[450px]" alt="" />
+        <img src="/welfare-footprint-logo.svg " className="w-[300px] lg:w-[450px]" alt="" />
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 ">
           <article className="flex flex-col">
             <h1>{t('MethodologyPage.introductionSection.title')}</h1>
