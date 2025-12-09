@@ -113,7 +113,6 @@ p,
   font-weight: 500;
   line-height: normal;
   font-style: normal;
-
 }
 
 .numbers {
@@ -243,12 +242,13 @@ h5 {
   font-style: normal;
   text-transform: uppercase;
   letter-spacing: 9%;
+  cursor: pointer;
 }
 
 .white-button:hover {
   background-color: var(--color-pink-3);
   box-shadow: 0 5px 0 0 var(--color-black);
-  border : solid, 2px, var(--color-pink-3);
+  border: solid, 2px, var(--color-pink-3);
   transition: all ease-in-out;
 }
 
@@ -271,6 +271,7 @@ h5 {
   font-style: normal;
   text-transform: uppercase;
   letter-spacing: 9%;
+  cursor: pointer;
 }
 
 .grey-button:hover {
@@ -299,18 +300,46 @@ h5 {
   font-style: normal;
   text-transform: uppercase;
   letter-spacing: 9%;
+  cursor: pointer;
 }
 
 .pink-button:hover {
   background-color: var(--color-pink-3);
   box-shadow: 0 5px 0 0 var(--color-black);
-  border : solid, 2px, var(--color-pink-3);
+  border: solid, 2px, var(--color-pink-3);
   transition: all ease-in-out;
 }
 
+.pink-3-button {
+  padding: 16px 24px 16px 24px;
+  background-color: var(--color-pink-3);
+  border: solid, 2px, var(--color-pink-3);
+  box-shadow: 0 5px 0 0 black;
+  font-size: var(--text-CTA);
+  color: var(--color-black);
+  border-radius: 10px;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  font-family:
+    Albert Sans,
+    sans-serif;
+  font-weight: 900;
+  line-height: 100%;
+  font-style: normal;
+  text-transform: uppercase;
+  letter-spacing: 9%;
+  cursor: pointer;
+}
+
+.pink-3-button:hover {
+  background-color: var(--color-violet);
+  box-shadow: 0 5px 0 0 black;
+  border: solid, 2px, var(--color-violet);
+  transition: all ease-in-out;
+}
 
 /** Autre **/
-
 
 [id] {
   scroll-margin-top: 70px;
