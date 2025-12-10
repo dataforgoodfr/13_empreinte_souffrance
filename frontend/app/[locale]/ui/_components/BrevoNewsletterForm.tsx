@@ -1,6 +1,7 @@
 'use client';
 
 import { useCurrentLocale } from '@/locales/client';
+import clsx from 'clsx';
 import Link from 'next/link';
 import React, { useState, ChangeEvent } from 'react';
 
@@ -43,25 +44,24 @@ export default function BrevoNewsletterForm() {
       <div className="flex flex-wrap justify-center items-center gap-3.5 mb-1">
         <div>
           <div
-            className={`
-    overflow-hidden
-    transition-all duration-800 ease-out
-    ${showNameFields ? 'h-34' : 'h-0'}
-  `}
+            className={clsx('overflow-hidden transition-all duration-800 ease-out', {
+              'h-0': !showNameFields,
+              'h-34': showNameFields,
+            })}
           >
             <div
-              className={`
-      flex flex-col items-center gap-3.5 w-full
-      transition-all duration-800 ease-out
-      ${showNameFields ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}
-    `}
+              className={clsx('flex flex-col items-center gap-3.5 w-full transition-all duration-800 ease-out', {
+                'opacity-0 translate-y-12': !showNameFields,
+                'opacity-100 translate-y-0': showNameFields,
+              })}
             >
               <input
                 type="text"
                 tabIndex={showNameFields ? 0 : -1}
-                className={`border-2 border-pink-3 rounded-[10px] text-pink-3 p-4 font-black w-48
-                              ${showNameFields ? 'pointer-events-auto' : 'pointer-events-none'}
-                  `}
+                className={clsx('border-2 border-pink-3 rounded-[10px] text-pink-3 p-4 font-black w-48', {
+                  'pointer-events-none': !showNameFields,
+                  'pointer-events-auto': showNameFields,
+                })}
                 name="PRENOM"
                 placeholder="Prénom"
                 required
