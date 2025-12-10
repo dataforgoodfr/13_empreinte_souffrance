@@ -45,20 +45,23 @@ export default function BrevoNewsletterForm() {
           <div
             className={`
     overflow-hidden
-    transition-all duration-1000 ease-out
+    transition-all duration-800 ease-out
     ${showNameFields ? 'h-34' : 'h-0'}
   `}
           >
             <div
               className={`
       flex flex-col items-center gap-3.5 w-full
-      transition-all duration-1000 ease-out
-      ${showNameFields ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}
+      transition-all duration-800 ease-out
+      ${showNameFields ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}
     `}
             >
               <input
                 type="text"
-                className="border-2 border-pink-3 rounded-[10px] text-pink-3 p-4 font-black w-48"
+                tabIndex={showNameFields ? 0 : -1}
+                className={`border-2 border-pink-3 rounded-[10px] text-pink-3 p-4 font-black w-48
+                              ${showNameFields ? 'pointer-events-auto' : 'pointer-events-none'}
+                  `}
                 name="PRENOM"
                 placeholder="Prénom"
                 required
@@ -68,7 +71,10 @@ export default function BrevoNewsletterForm() {
 
               <input
                 type="text"
-                className="border-2 border-pink-3 rounded-[10px] text-pink-3 p-4 font-black w-48"
+                tabIndex={showNameFields ? 0 : -1}
+                className={`border-2 border-pink-3 rounded-[10px] text-pink-3 p-4 font-black w-48
+                              ${showNameFields ? 'pointer-events-auto' : 'pointer-events-none'}
+                  `}
                 name="NOM"
                 placeholder="Nom"
                 required
