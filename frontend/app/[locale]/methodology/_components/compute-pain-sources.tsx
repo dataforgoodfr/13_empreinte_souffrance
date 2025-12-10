@@ -8,7 +8,7 @@ export default async function ComputePainSources() {
   const afflictions = [
     {
       title: t('MethodologyPage.sufferingQuantificationSteps.step3.bloc1.title'),
-      percent: '40%',
+      percent: '9.5%',
       text: t('MethodologyPage.sufferingQuantificationSteps.step3.text1'),
       agony: t('MethodologyPage.sufferingQuantificationSteps.step3.bloc1.agony'),
       pain: t('MethodologyPage.sufferingQuantificationSteps.step3.bloc1.pain'),

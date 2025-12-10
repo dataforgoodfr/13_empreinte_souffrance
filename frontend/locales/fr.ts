@@ -139,9 +139,9 @@ export default {
     subtitle: "L'Empreinte souffrance : le nouvel indicateur qui mesure la souffrance animale",
     sectionList: {
       first: {
-        superTitle: '1 boite d’oeuf c’est:',
-        title: '2H D’AGONIE\n' + '4H DE SOUFFRANCE\n' + '46H DE DOULEUR\n' + '80H D’INCONFORT',
-        text: 'C’est le prix payé par une poule en cage pour la production d’une boîte de 6 oeufsCalculer l’empreinte souffrance',
+        superTitle: "Derrière chaque boîte d'oeufs cage se cache",
+        title: "DES DIZAINES D'HEURES DE SOUFFRANCE",
+        text: "C'est le prix payé par les poules enfermées toute leur vie en cage pour pondre.",
         source: {
           url: '/',
           name: 'Source link',
@@ -158,7 +158,7 @@ export default {
       },
       third: {
         superTitle: 'Passer totalement au système hors-cage:',
-        title: '93 % DE RÉDUCTION DES SOUFFRANCES',
+        title: "DES MILLIERS D'HEURES DE SOUFFRANCE EN MOINS",
         text: 'Le passage en élevage hors cage permet de diminuer de 93 % les souffrances dues à l’impossibilité pour les poules d’adopter des comportements naturels',
         source: {
           url: '/',
@@ -317,12 +317,11 @@ export default {
       title: 'Méthodologie',
     },
     introductionSection: {
-      title:
-        "Un projet scientifique d'ampleur sans précédent, impliquant la quasi-totalité de la recherche en bien-être des poules pondeuses",
+      title: 'Le vécu des poules en cages révélé par une nouvelle méthode scientifique',
       paragraph1:
-        "Que vit une poule en cage ? Son expérience diffère-t-elle d'une poule élevée en plein air ? Quelle est la nature et l’ampleur de ces différences ? S'il est aujourd'hui possible de comparer précisément l'empreinte carbone de différents aliments, le flou demeure sur leur empreinte \"souffrance animale\". ",
+        "Que ressent une poule en cage ? Son expérience diffère-t-elle de celle d'une poule élevée dans un système alternatif ? Quelle est la nature et l'ampleur de ces différences ?",
       paragraph2:
-        'Le Welfare Footprint Institute vise à combler cette lacune en quantifiant pour la toute première fois la souffrance animale derrière un produit alimentaire : l’œuf.',
+        'Le Welfare Footprint Institute vise à combler cette lacune en quantifiant pour la première fois la souffrance éprouvée par les poules en élevage.',
       paragraph3:
         "Ces résultats sont le fruit d'un travail de longue haleine entre 2021 et 2025, réunissant des spécialistes des sciences du bien-être animal et vétérinaires, de l’éthologie et des neurosciences qui ont analysé plus de 1000 études. De ce travail interdisciplinaire est née une méthodologie pionnière pour quantifier la souffrance animale dans tout le cycle de production d’un œuf.",
       scientist_text1:
@@ -336,60 +335,60 @@ export default {
       title: 'Une méthode en 3 étapes pour quantifier la souffrance animale',
       step1: {
         title: 'Lister de quoi souffre les poules et à quelle fréquence',
-        text1: 'des poules victimes de fracture du bréchet',
-        text2: 'des poules en cage victomes de restriction de la liberté de mouvement',
-        text3: 'des poules victimes de lésions cutanées',
-        text4: '+ 122 autres sources de douleur',
+        text1: 'des poules en cage victimes de fractures lors du transport',
+        text2: 'des poules en cage victimes de restriction de la liberté de mouvement',
+        text3: 'des poules en cage victimes de lésions cutanées',
+        text4: '+ 16 autres sources de douleur',
       },
       step2: {
         title: 'Quantifier la souffrance causée par chaque affliction',
         bloc1: {
-          text: 'Une fracture du bréchet cause',
-          agony: '2min d’agonie',
-          pain: '45h de douleur',
-          suffering: '5h de souffrance',
-          discomfort: '80h d’inconfort',
+          text: 'Une fracture lors du transport',
+          agony: '27s d’agonie',
+          pain: '0h de douleur',
+          suffering: '29.47h de souffrance',
+          discomfort: '0h d’inconfort',
         },
         bloc2: {
           text: 'La restriction de la liberté de mouvement cause',
-          agony: '1min d’agonie',
-          pain: '45h de douleur',
-          suffering: '5h de souffrance',
-          discomfort: '30h d’inconfort',
+          agony: '0h d’agonie',
+          pain: '0h de douleur',
+          suffering: '0h de souffrance',
+          discomfort: '2520h d’inconfort',
         },
         bloc3: {
           text: 'Une lésion cutanée cause',
-          agony: '1min d’agonie',
-          pain: '5h de douleur',
-          suffering: '4h de souffrance',
-          discomfort: '30h d’inconfort',
+          agony: '0h d’agonie',
+          pain: '95h de douleur',
+          suffering: '0.07h de souffrance',
+          discomfort: '281h d’inconfort',
         },
       },
       step3: {
         title:
           'synthétiser les deux étapes  précédentes pour calculer la souffrance moyenne par poule au courant de sa vie',
-        text1: 'des poules subissant',
-        text2: 'de meme pour les 127 autres afflictions',
+        text1: 'des poules en cage subissant',
+        text2: 'de même pour les 16 autres sources de douleur',
         bloc1: {
-          title: 'Fracture du bréchet',
-          agony: '2min d’agonie',
-          pain: '45h de douleur',
-          suffering: '5h de souffrance',
-          discomfort: '80h d’inconfort',
+          title: 'fracture lors du transport',
+          agony: '27s d’agonie',
+          pain: '0h de douleur',
+          suffering: '29.47h de souffrance',
+          discomfort: '0h d’inconfort',
         },
         bloc2: {
           title: 'Restriction de la liberté de mouvement',
-          agony: '1min d’agonie',
-          pain: '45h de douleur',
-          suffering: '5h de souffrance',
-          discomfort: '30h d’inconfort',
+          agony: '0h d’agonie',
+          pain: '0h de douleur',
+          suffering: '0h de souffrance',
+          discomfort: '2520h d’inconfort',
         },
         bloc3: {
           title: 'Lésion cutanée',
-          agony: '1min d’agonie',
-          pain: '5h de douleur',
-          suffering: '4h de souffrance',
-          discomfort: '30h d’inconfort',
+          agony: '0h d’agonie',
+          pain: '95h de douleur',
+          suffering: '0.07h de souffrance',
+          discomfort: '281h d’inconfort',
         },
         bloc4: {
           title: 'Perte de plumes',
@@ -400,10 +399,10 @@ export default {
         },
         bloc5: {
           title: 'Au cours de sa vie, une poule en cage subit en moyenne:',
-          agony: '6min d’agonie',
-          pain: '385h de douleur',
-          suffering: '448h de souffrance',
-          discomfort: '3000h d’inconfort',
+          agony: '144s d’agonie',
+          pain: '3151h de douleur de douleur',
+          suffering: '154,64h de souffrance',
+          discomfort: '6142h d’inconfort',
         },
         bloc6: {
           title: 'Lésion cutanée (infectée)',
@@ -555,10 +554,10 @@ export default {
 
     method_details_section: {
       title_h1: 'La méthode en détail',
-      title_h2: '2.1 Lister toutes les sources de douleur pour les poules',
+      title_h2: '2.1 Lister toutes les sources de douleur pour les poules en cage',
       question: 'De quoi souffrent les poules ?',
       description:
-        "Une revue approfondie de la littérature scientifique a été menée afin d'identifier les principales sources de douleur chez les poules et leur fréquence selon le mode d'élevage. Il peut s'agir de douleurs physiques (fractures, lésions cutanées, infections, etc.) ou psychologiques (peur, restriction des besoins comportementaux, etc.). Au total, 128 sources de douleur ont été identifiées et étudiées par le Welfare Footprint Institute, à partir d'une étude de plus de 1000 articles scientifiques.",
+        "Une revue approfondie de la littérature scientifique a été menée afin d'identifier les principales sources de douleur chez les poules et leur fréquence selon le mode d'élevage. Il peut s'agir de douleurs physiques (fractures, lésions cutanées, infections, etc.) ou psychologiques (peur, restriction des besoins comportementaux, etc.).",
 
       section_img_1: {
         title_h3: 'Quelques douleurs psychologiques',
@@ -659,7 +658,7 @@ export default {
         'Lister les douleurs des animaux en cage permet de mieux comprendre leur souffrance afin d’améliorer leurs conditions de vie et de promouvoir des pratiques d’élevage plus éthiques.',
       conclusionButton: 'accédez à l’ensemble des pains-tracks',
       global_suffering_figure_sectinon: {
-        title: '2.3 Chiffrer la souffrance globale d’une poule d’élevage',
+        title: '2.3 Chiffrer la souffrance globale d’une poule en cage',
         question: 'Comment combiner fractures, infections, stress... pour obtenir une mesure unique de la souffrance ?',
         description1:
           'Les étapes précédentes ont permis de connaître les sources de douleur pour les poules, leur fréquence et la quantité de souffrance associée à chacune.',
@@ -670,23 +669,22 @@ export default {
 
     key_results_section: {
       key_results_h1: 'Les principaux résultats',
-      quantify_suffering_description:
-        "On peut donc chiffrer la souffrance d’une poule dans différents systèmes d'élevage.",
+      quantify_suffering_description: "On peut donc quantifier la souffrance d'une poule en cage.",
       calculation_method_description:
-        "En appliquant la même méthode aux autres animaux impliqués dans la production d'œufs (poussins, parentaux...), on peut calculer l'empreinte souffrance globale pour la production d'un œuf.",
+        'En appliquant la même méthode aux poules élevées au sol (système en bâtiment fermé, intermédiaire entre la cage et le plein air), on mesure la souffrance minimale évitée en passant au hors cage.',
       caged_hen_card: {
         title: 'Au cours de sa vie, une poule élevée en cage subit en moyenne:',
-        agony: '6 min d’agonie',
-        pain: '385h de douleur',
-        suffering: '448h de souffrance',
-        discomfort: '3000h d’inconfort',
+        agony: '144s d’agonie',
+        pain: '3151h de douleur',
+        suffering: '154,64h de souffrance',
+        discomfort: '6142h d’inconfort',
       },
       barn_raised_hen_card: {
         title: 'Au cours de sa vie, une poule élevée au sol subit en moyenne:',
-        agony: '6 min d’agonie',
-        pain: '385h de douleur',
-        suffering: '448h de souffrance',
-        discomfort: '3000h d’inconfort',
+        agony: '144s d’agonie',
+        pain: '1742h de douleur',
+        suffering: '156,04h de souffrance',
+        discomfort: '2077h d’inconfort',
       },
       caged_hen_egg_card: {
         title: 'La production d’un oeuf par une poule élevée en cage a provoqué:',
