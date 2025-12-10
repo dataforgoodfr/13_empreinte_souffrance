@@ -9,19 +9,15 @@ export default async function IntroductionSection() {
       <div className="max-w-contain ">
         <img src="/welfare-footprint-logo.svg " className="w-[300px] lg:w-[450px]" alt="" />
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 ">
-          <article className="flex flex-col">
+          <article className="flex flex-col gap-3">
             <h1>{t('MethodologyPage.introductionSection.title')}</h1>
-            <br />
             <p>{t('MethodologyPage.introductionSection.paragraph1')}</p>
-            <br />
             <p>{t('MethodologyPage.introductionSection.paragraph2')}</p>
-            <br />
-            <p>{t('MethodologyPage.introductionSection.paragraph3')}</p>
             <Link
               href="https://welfarefootprint.org/"
               target="_blank"
               rel="noopener noreferrer"
-              className="CTA white-button w-fit"
+              className="CTA white-button w-fit "
             >
               welfarefootprint.org
             </Link>

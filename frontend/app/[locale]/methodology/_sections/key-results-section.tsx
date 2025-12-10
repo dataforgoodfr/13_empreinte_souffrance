@@ -28,20 +28,6 @@ export default async function KeyResultsSection() {
             suffering={t('MethodologyPage.key_results_section.barn_raised_hen_card.suffering')}
             discomfort={t('MethodologyPage.key_results_section.barn_raised_hen_card.discomfort')}
           />
-          <AfflictionResultCard
-            text={t('MethodologyPage.key_results_section.caged_hen_egg_card.title')}
-            agony={t('MethodologyPage.key_results_section.caged_hen_egg_card.agony')}
-            pain={t('MethodologyPage.key_results_section.caged_hen_egg_card.pain')}
-            suffering={t('MethodologyPage.key_results_section.caged_hen_egg_card.suffering')}
-            discomfort={t('MethodologyPage.key_results_section.caged_hen_egg_card.discomfort')}
-          />
-          <AfflictionResultCard
-            text={t('MethodologyPage.key_results_section.barn_raised_hen_egg_card.title')}
-            agony={t('MethodologyPage.key_results_section.barn_raised_hen_egg_card.agony')}
-            pain={t('MethodologyPage.key_results_section.barn_raised_hen_egg_card.pain')}
-            suffering={t('MethodologyPage.key_results_section.barn_raised_hen_egg_card.suffering')}
-            discomfort={t('MethodologyPage.key_results_section.barn_raised_hen_egg_card.discomfort')}
-          />
         </div>
       </div>
     </section>

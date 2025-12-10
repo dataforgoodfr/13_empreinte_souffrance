@@ -56,17 +56,17 @@ async function StepTwoSufferingQuantification() {
         />
         <SufferingQuantificationTable
           title={t('MethodologyPage.sufferingQuantificationSteps.step2.bloc2.text')}
-          agony={t('MethodologyPage.sufferingQuantificationSteps.step2.bloc1.agony')}
-          pain={t('MethodologyPage.sufferingQuantificationSteps.step2.bloc1.pain')}
-          suffering={t('MethodologyPage.sufferingQuantificationSteps.step2.bloc1.suffering')}
-          discomfort={t('MethodologyPage.sufferingQuantificationSteps.step2.bloc1.discomfort')}
+          agony={t('MethodologyPage.sufferingQuantificationSteps.step2.bloc2.agony')}
+          pain={t('MethodologyPage.sufferingQuantificationSteps.step2.bloc2.pain')}
+          suffering={t('MethodologyPage.sufferingQuantificationSteps.step2.bloc2.suffering')}
+          discomfort={t('MethodologyPage.sufferingQuantificationSteps.step2.bloc2.discomfort')}
         />
         <SufferingQuantificationTable
           title={t('MethodologyPage.sufferingQuantificationSteps.step2.bloc3.text')}
-          agony={t('MethodologyPage.sufferingQuantificationSteps.step2.bloc1.agony')}
-          pain={t('MethodologyPage.sufferingQuantificationSteps.step2.bloc1.pain')}
-          suffering={t('MethodologyPage.sufferingQuantificationSteps.step2.bloc1.suffering')}
-          discomfort={t('MethodologyPage.sufferingQuantificationSteps.step2.bloc1.discomfort')}
+          agony={t('MethodologyPage.sufferingQuantificationSteps.step2.bloc3.agony')}
+          pain={t('MethodologyPage.sufferingQuantificationSteps.step2.bloc3.pain')}
+          suffering={t('MethodologyPage.sufferingQuantificationSteps.step2.bloc3.suffering')}
+          discomfort={t('MethodologyPage.sufferingQuantificationSteps.step2.bloc3.discomfort')}
         />
         <div className="flex items-center bg-grey rounded-[10px] p-[16px_20px_16px_20px]">
           <p className="text-caption uppercase">{t('MethodologyPage.sufferingQuantificationSteps.step1.text4')}</p>

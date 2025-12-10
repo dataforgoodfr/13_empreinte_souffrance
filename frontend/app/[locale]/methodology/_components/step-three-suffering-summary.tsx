@@ -49,7 +49,7 @@ export default async function StepThreeSufferingSummary() {
       <div className="flex flex-col gap-[10px] font-bold normal-case ">
         <SufferingSynthesis
           title={t('MethodologyPage.sufferingQuantificationSteps.step3.bloc1.title')}
-          percent="33% "
+          percent="9.5% "
           text={t('MethodologyPage.sufferingQuantificationSteps.step3.text1')}
           agony={t('MethodologyPage.sufferingQuantificationSteps.step3.bloc1.agony')}
           pain={t('MethodologyPage.sufferingQuantificationSteps.step3.bloc1.pain')}
@@ -73,7 +73,7 @@ export default async function StepThreeSufferingSummary() {
 
         <SufferingSynthesis
           title={t('MethodologyPage.sufferingQuantificationSteps.step3.bloc3.title')}
-          percent="48% "
+          percent="5.5% "
           text={t('MethodologyPage.sufferingQuantificationSteps.step3.text1')}
           agony={t('MethodologyPage.sufferingQuantificationSteps.step3.bloc3.agony')}
           pain={t('MethodologyPage.sufferingQuantificationSteps.step3.bloc3.pain')}
