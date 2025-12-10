@@ -31,6 +31,8 @@ export default function BrevoNewsletterForm() {
     }));
   };
 
+  const showNameFields = formData.EMAIL.trim().length > 0;
+
   return (
     <form
       method="POST"
@@ -38,26 +40,42 @@ export default function BrevoNewsletterForm() {
       data-type="subscription"
       className="mx-5 px-3 mb-5 pb-3"
     >
-      <div className="flex flex-wrap justify-center gap-3.5 mb-1">
-        <input
-          type="text"
-          className="border-2 border-pink-3 rounded-[10px] text-pink-3 p-4 font-black w-48"
-          name="PRENOM"
-          placeholder="Prénom"
-          required
-          value={formData.PRENOM}
-          onChange={handleChange}
-        />
+      <div className="flex flex-col flex-wrap justify-center items-center gap-3.5 mb-1">
+        <div
+          className={`
+    overflow-hidden
+    transition-all duration-1000 ease-out
+    ${showNameFields ? 'max-h-64' : 'max-h-0'}
+  `}
+        >
+          <div
+            className={`
+      flex flex-col items-center gap-3.5 w-full
+      transition-all duration-1000 ease-out
+      ${showNameFields ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}
+    `}
+          >
+            <input
+              type="text"
+              className="border-2 border-pink-3 rounded-[10px] text-pink-3 p-4 font-black w-48"
+              name="PRENOM"
+              placeholder="Prénom"
+              required
+              value={formData.PRENOM}
+              onChange={handleChange}
+            />
 
-        <input
-          type="text"
-          className="border-2 border-pink-3 rounded-[10px] text-pink-3 p-4 font-black w-48"
-          name="NOM"
-          placeholder="Nom"
-          required
-          value={formData.NOM}
-          onChange={handleChange}
-        />
+            <input
+              type="text"
+              className="border-2 border-pink-3 rounded-[10px] text-pink-3 p-4 font-black w-48"
+              name="NOM"
+              placeholder="Nom"
+              required
+              value={formData.NOM}
+              onChange={handleChange}
+            />
+          </div>
+        </div>
 
         <input
           type="email"
