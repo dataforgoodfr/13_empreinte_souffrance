@@ -11,7 +11,7 @@ async function StepOneAfflictionList() {
       <ul className="list-none flex flex-col gap-[10px] font-bold uppercase">
         <li className="flex bg-grey rounded-[10px] items-center p-[16px_20px_16px_20px] ">
           <BoltIconV2 className="text-pink-3 h-[30px] min-w-[45px]" />
-          <p className="text-h2 min-w-[75px]">40%</p>
+          <p className="text-h2 min-w-[75px]">9.5%</p>
           <h5 className="text-caption">{t('MethodologyPage.sufferingQuantificationSteps.step1.text1')}</h5>
         </li>
         <li className="flex bg-grey rounded-[10px] items-center p-[16px_20px_16px_20px] ">
