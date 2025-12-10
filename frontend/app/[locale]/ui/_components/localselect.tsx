@@ -6,7 +6,8 @@ export const LocaleSelect = () => {
   const locale = useCurrentLocale();
   const changeLocale = useChangeLocale();
 
-  const localesNames: ('fr' | 'en')[] = ['fr', 'en'];
+  // const localesNames: ('fr' | 'en')[] = ['fr', 'en'];
+  const localesNames: ('fr')[] = ['fr'];
 
   return (
     <fieldset className="flex flex-row justify-center gap-2 dark-text text-sm font-medium rounded-lg min-w-32">
