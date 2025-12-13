@@ -1,6 +1,7 @@
 'use client';
 
 import { useCurrentLocale } from '@/locales/client';
+import clsx from 'clsx';
 import Link from 'next/link';
 import React, { useState, ChangeEvent } from 'react';
 
@@ -31,6 +32,8 @@ export default function BrevoNewsletterForm() {
     }));
   };
 
+  const showNameFields = formData.EMAIL.trim().length > 0;
+
   return (
     <form
       method="POST"
@@ -38,36 +41,58 @@ export default function BrevoNewsletterForm() {
       data-type="subscription"
       className="mx-5 px-3 mb-5 pb-3"
     >
-      <div className="flex flex-wrap justify-center gap-3.5 mb-1">
-        <input
-          type="text"
-          className="border-2 border-pink-3 rounded-[10px] text-pink-3 p-4 font-black w-48"
-          name="PRENOM"
-          placeholder="Prénom"
-          required
-          value={formData.PRENOM}
-          onChange={handleChange}
-        />
+      <div className="flex flex-wrap justify-center items-center gap-3.5 mb-1">
+        <div>
+          <div
+            className={clsx('overflow-hidden transition-all duration-800 ease-out', {
+              'h-0': !showNameFields,
+              'h-34': showNameFields,
+            })}
+          >
+            <div
+              className={clsx('flex flex-col items-center gap-3.5 w-full transition-all duration-800 ease-out', {
+                'opacity-0 translate-y-12': !showNameFields,
+                'opacity-100 translate-y-0': showNameFields,
+              })}
+            >
+              <input
+                type="text"
+                tabIndex={showNameFields ? 0 : -1}
+                className={clsx('border-2 border-pink-3 rounded-[10px] text-pink-3 p-4 font-black w-48', {
+                  'pointer-events-none': !showNameFields,
+                  'pointer-events-auto': showNameFields,
+                })}
+                name="PRENOM"
+                placeholder="Prénom"
+                required
+                value={formData.PRENOM}
+                onChange={handleChange}
+              />
 
-        <input
-          type="text"
-          className="border-2 border-pink-3 rounded-[10px] text-pink-3 p-4 font-black w-48"
-          name="NOM"
-          placeholder="Nom"
-          required
-          value={formData.NOM}
-          onChange={handleChange}
-        />
-
-        <input
-          type="email"
-          className="border-2 border-pink-3 rounded-[10px] text-pink-3 p-4 font-black w-48"
-          name="EMAIL"
-          placeholder="Email"
-          required
-          value={formData.EMAIL}
-          onChange={handleChange}
-        />
+              <input
+                type="text"
+                tabIndex={showNameFields ? 0 : -1}
+                className={`border-2 border-pink-3 rounded-[10px] text-pink-3 p-4 font-black w-48
+                              ${showNameFields ? 'pointer-events-auto' : 'pointer-events-none'}
+                  `}
+                name="NOM"
+                placeholder="Nom"
+                required
+                value={formData.NOM}
+                onChange={handleChange}
+              />
+            </div>
+          </div>
+          <input
+            type="email"
+            className="border-2 border-pink-3 rounded-[10px] text-pink-3 p-4 font-black w-48"
+            name="EMAIL"
+            placeholder="Email"
+            required
+            value={formData.EMAIL}
+            onChange={handleChange}
+          />
+        </div>
 
         {/* Required Brevo fields */}
         <input
