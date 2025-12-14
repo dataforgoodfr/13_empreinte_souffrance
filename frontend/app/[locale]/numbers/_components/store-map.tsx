@@ -30,7 +30,7 @@ export default function StoreMap() {
   }, [selectedEnseigne, selectedStatus]);
 
   return (
-    <div className="flex flex-col gap-4 w-full">
+    <div className="flex flex-col gap-4 h-[50vh]">
       {/* Filtres & légendes */}
       <fieldset className="flex flex-wrap md:flex-row justify-start md:justify-center items-center gap-4">
 
