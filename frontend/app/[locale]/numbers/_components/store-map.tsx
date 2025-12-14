@@ -8,7 +8,7 @@ import { store } from '../_data/store-data';
 // Couleur + Status
 const storesWithStatus = store.map((s) => {
   const hasCageEggs = Math.random() < 0.5;
-  const color = hasCageEggs ? 'red' : 'green';
+  const color = hasCageEggs ? 'red' : '#008236';
   const status = hasCageEggs ? "Présence d'œufs cage" : "Pas d'œufs cage";
   return { ...s, color, status };
 });
@@ -33,7 +33,6 @@ export default function StoreMap() {
     <div className="flex flex-col gap-4 h-[50vh]">
       {/* Filtres & légendes */}
       <fieldset className="flex flex-wrap md:flex-row justify-start md:justify-center items-center gap-4">
-
         <div className="flex flex-col gap-1">
           <label className="font-bold">Enseigne</label>
           <select
@@ -54,9 +53,7 @@ export default function StoreMap() {
           <label className="font-bold">Présence d'oeuf</label>
           <select
             value={selectedStatus}
-            onChange={(e) =>
-              setSelectedStatus(e.target.value as 'all' | 'cage' | 'nocage')
-            }
+            onChange={(e) => setSelectedStatus(e.target.value as 'all' | 'cage' | 'nocage')}
             className="border rounded px-2 py-1 text-sm"
           >
             <option value="all">Tous les magasins</option>
@@ -73,7 +70,7 @@ export default function StoreMap() {
             <p>Présence d'œufs cage</p>
           </div>
           <div className="flex items-center gap-2">
-            <span className="inline-block w-3 h-3 rounded-full bg-green-500" />
+            <span className="inline-block w-3 h-3 rounded-full bg-green-700" />
             <p>Pas d'œufs cage</p>
           </div>
         </div>
