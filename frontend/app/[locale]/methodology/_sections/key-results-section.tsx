@@ -46,7 +46,7 @@ interface AfflictionResultCardProps {
 
 const AfflictionResultCard = ({ text, agony, pain, suffering, discomfort }: AfflictionResultCardProps) => {
   return (
-    <div className=" flex items-center bg-grey p-section gap-2 rounded-[10px]">
+    <div className=" flex items-center bg-white p-section gap-2 rounded-[10px]">
       <h4 className="w-1/2">{text}</h4>
 
       <div className="flex flex-col items-center justify-center gap-2 w-1/2">
