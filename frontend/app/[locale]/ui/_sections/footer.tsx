@@ -1,7 +1,6 @@
 import { getI18n } from '@/locales/server';
 import Link from 'next/link';
 import LogoWelfare from '../_components/logo-walfare-footprint';
-import ButtonLink from '@/app/[locale]/ui/_components/button-link';
 
 export default async function Footer() {
   const t = await getI18n();
@@ -16,13 +15,6 @@ export default async function Footer() {
         <div className="flex">
           <div className="w-48 flex flex-col space-y-3">
             <LogoWelfare />
-            <ButtonLink
-              href="https://animafrance.org/je-donne"
-              aria_label={t('footer.donate')}
-              button_text={t('footer.donate')}
-              width="small"
-              open_in_new_tab={true}
-            />
           </div>
         </div>
 

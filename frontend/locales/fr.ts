@@ -554,13 +554,13 @@ export default {
 
     method_details_section: {
       title_h1: 'La méthode en détail',
-      title_h2: '2.1 Lister toutes les sources de douleur pour les poules en cage',
+      title: '2.1 Lister toutes les sources de douleur pour les poules en cage',
       question: 'De quoi souffrent les poules ?',
       description:
         "Une revue approfondie de la littérature scientifique a été menée afin d'identifier les principales sources de douleur chez les poules et leur fréquence selon le mode d'élevage. Il peut s'agir de douleurs physiques (fractures, lésions cutanées, infections, etc.) ou psychologiques (peur, restriction des besoins comportementaux, etc.).",
 
       section_img_1: {
-        title_h3: 'Quelques douleurs psychologiques',
+        title: 'Quelques douleurs psychologiques',
         img_1: {
           alt: 'Restriction de la liberté de mouvement',
           type_of_pain: 'Restriction de la liberté de mouvement :',
@@ -582,7 +582,7 @@ export default {
       },
 
       section_img_2: {
-        title_h3: 'Quelques douleurs physiques',
+        title: 'Quelques douleurs physiques',
         img_1: {
           alt: 'Fracture du bréchet',
           type_of_pain: 'Fracture du bréchet :',
@@ -707,8 +707,8 @@ export default {
 
   aboutPage: {
     association_presentation_section: {
-      two_hens_out_five_title:
-        'Deux Poules sur cinq est le fruit d’une collaboration entre Anima et Data for Good, deux associations à but non lucratif.',
+      title:
+        "L'Heure des Comptes est le fruit d’une collaboration entre Anima et Data for Good, deux associations à but non lucratif.",
       anima_presentation:
         'Anima existe pour réduire la souffrance des animaux de la façon la plus efficace possible. L’association mène une campagne nationale et européenne pour mettre un terme à l’élevage en cage des poules pondeuses. Anima est membre de la coalition européenne Anima International.',
       anima_link: 'www.animafrance.org',

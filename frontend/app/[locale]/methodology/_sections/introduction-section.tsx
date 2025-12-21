@@ -7,10 +7,10 @@ export default async function IntroductionSection() {
   return (
     <section className="bg-violet p-section flex justify-center ">
       <div className="max-w-contain ">
-        <img src="/welfare-footprint-logo.svg " className="w-[300px] lg:w-[450px]" alt="" />
+        <img src="/welfare-footprint-logo.svg " className="w-[300px] lg:w-[450px] mt-3 mb-6" alt="" />
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 ">
           <article className="flex flex-col gap-3">
-            <h1>{t('MethodologyPage.introductionSection.title')}</h1>
+            <h2>{t('MethodologyPage.introductionSection.title')}</h2>
             <p>{t('MethodologyPage.introductionSection.paragraph1')}</p>
             <p>{t('MethodologyPage.introductionSection.paragraph2')}</p>
             <Link
@@ -48,10 +48,10 @@ interface ScientistProps {
 
 const Scientist = async ({ imgUrl, name, text }: ScientistProps) => {
   return (
-    <div className="text-center flex flex-col items-center">
+    <div className="flex flex-col items-center">
       <img src={imgUrl} alt="Scientist" className="w-55 rounded-full h-auto object-contain" />
-      <h2 className="text-center my-5">{name}</h2>
-      <p className="caption text-justify">{text}</p>
+      <h3 className="text-center my-5">{name}</h3>
+      <p className="caption">{text}</p>
     </div>
   );
 };

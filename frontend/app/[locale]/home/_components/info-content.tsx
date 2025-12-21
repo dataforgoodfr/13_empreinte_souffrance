@@ -16,7 +16,7 @@ export default function InfoContent({ superTitle, title, children, source }: Pro
         <Thunder className={'mr-7 my-2 text-pink-3 '} />
         <div className={`flex flex-col`}>
           <div className={`text-md font-bold whitespace-pre-line`}>{superTitle}</div>
-          <div className={`text-3xl font-black whitespace-pre-line`}>{title}</div>
+          <h3 className={`text-3xl font-black whitespace-pre-line`}>{title}</h3>
         </div>
       </div>
       <div className={`font-semibold text-lg`}>{children}</div>

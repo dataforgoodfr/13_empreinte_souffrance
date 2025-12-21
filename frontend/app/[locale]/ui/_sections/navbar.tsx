@@ -19,7 +19,7 @@ export default async function Navbar() {
   return (
     <NavClass>
       <Logo />
-      <div className="hidden md:flex flex-row items-center mr-16">
+      <div className="hidden md:flex flex-row grow items-center mr-4 lg:mr-16">
         <NavLinks links={links} />
       </div>
       <BurgerMenu className="md:hidden">

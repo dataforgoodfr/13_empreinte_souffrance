@@ -8,7 +8,7 @@ export default async function AssociationPresentationSection() {
   return (
     <section className="p-section bg-white flex justify-center">
       <div className="max-w-contain">
-        <h1 className="mb-8 md:max-w-2/3 text-black">{scopedT('two_hens_out_five_title').toUpperCase()}</h1>
+        <h2 className="mb-8 md:max-w-2/3 text-black">{scopedT('title').toUpperCase()}</h2>
         <div className="flex flex-row gap-[20px] justify-between">
           {/* Anima */}
           <div className="flex flex-col items-start gap-5 max-w-[650px]">

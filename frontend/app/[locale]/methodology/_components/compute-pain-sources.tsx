@@ -183,9 +183,9 @@ export default async function ComputePainSources() {
     <div className="max-w-[1066px]">
       <div className="flex flex-col md:flex-row gap-6">
         <hgroup className="w-full md:w-1/2">
-          <h2 className="text-2xl font-extrabold mb-4 uppercase ">
+          <h3 className="text-2xl font-extrabold mb-4 uppercase ">
             {t('MethodologyPage.QuantifySufferingByPain.global_suffering_figure_sectinon.title')}
-          </h2>
+          </h3>
           <p className="text-md mb-6 font-bold">
             {t('MethodologyPage.QuantifySufferingByPain.global_suffering_figure_sectinon.question')}
           </p>

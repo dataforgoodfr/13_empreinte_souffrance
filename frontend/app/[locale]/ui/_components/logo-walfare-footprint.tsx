@@ -3,13 +3,13 @@ import Image from 'next/image';
 
 export default async function Logo() {
   return (
-    <Link href="/" className="gap-2 md:gap-1 flex md:flex-row items-center md:p-2 text-bold text-black uppercase">
+    <Link href="/" className="shrink-0">
       <Image
         src="/logotype-heure-comptes.svg"
         width={215}
         height={50}
         alt="Logo Anima"
-        className="mb-0 md:mb-0 object-contain"
+        className="object-contain w-36 min-h-12"
       />
     </Link>
   );
