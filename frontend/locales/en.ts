@@ -689,7 +689,7 @@ export default {
   aboutPage: {
     association_presentation_section: {
       two_hens_out_five_title:
-        'Deux Poules sur cinq is the result of a collaboration between Anima and Data for Good, two non-profit associations.',
+        'L\'Heure des Comptes is the result of a collaboration between Anima and Data for Good, two non-profit associations.',
       anima_presentation:
         'Anima exists to reduce animal suffering as effectively as possible. The association is leading a national and European campaign to end the caged farming of laying hens. Anima is a member of the European coalition Anima International.',
       anima_link: 'www.animafrance.org',

@@ -708,7 +708,7 @@ export default {
   aboutPage: {
     association_presentation_section: {
       two_hens_out_five_title:
-        'Deux Poules sur cinq est le fruit d’une collaboration entre Anima et Data for Good, deux associations à but non lucratif.',
+        "L'Heure des Comptes est le fruit d’une collaboration entre Anima et Data for Good, deux associations à but non lucratif.",
       anima_presentation:
         'Anima existe pour réduire la souffrance des animaux de la façon la plus efficace possible. L’association mène une campagne nationale et européenne pour mettre un terme à l’élevage en cage des poules pondeuses. Anima est membre de la coalition européenne Anima International.',
       anima_link: 'www.animafrance.org',
