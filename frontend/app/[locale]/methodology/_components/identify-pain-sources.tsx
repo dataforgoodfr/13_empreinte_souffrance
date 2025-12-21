@@ -27,13 +27,13 @@ export default async function IdentifyPainSources() {
   return (
     <div className="max-w-[935px] flex flex-col items-center gap-8">
       <hgroup className="max-w-[650px]">
-        <h2 className="mb-4 uppercase ">{t('MethodologyPage.method_details_section.title_h2')}</h2>
+        <h3 className="mb-4 uppercase ">{t('MethodologyPage.method_details_section.title')}</h3>
         <p className="mb-6">{t('MethodologyPage.method_details_section.description')}</p>
       </hgroup>
 
       {/* some psychologic pain */}
       <article className="w-full">
-        <h3 className="">{t('MethodologyPage.method_details_section.section_img_1.title_h3')}</h3>
+        <h4 className="">{t('MethodologyPage.method_details_section.section_img_1.title')}</h4>
         <hr className="border-1 border-pink-3 my-2" />
         <div className="flex flex-col md:flex-row m-auto gap-3 mt-4 ">
           <figure className="md:w-1/3 flex flex-col items-center gap-2">
@@ -82,7 +82,7 @@ export default async function IdentifyPainSources() {
 
       {/* some physic pain */}
       <article className="w-full">
-        <h3>{t('MethodologyPage.method_details_section.section_img_2.title_h3')}</h3>
+        <h4>{t('MethodologyPage.method_details_section.section_img_2.title')}</h4>
         <hr className="border-1 border-pink-3 my-2" />
         <div className="flex flex-col sm:flex-row m-auto gap-3 mt-4 ">
           <figure className="md:w-1/3 flex flex-col items-center gap-2">

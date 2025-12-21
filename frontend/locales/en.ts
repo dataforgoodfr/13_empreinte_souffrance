@@ -537,13 +537,13 @@ export default {
 
     method_details_section: {
       title_h1: 'The method in detail',
-      title_h2: '2.1 List all sources of pain for chickens',
+      title_h3: '2.1 List all sources of pain for chickens',
       question: 'What do chickens suffer from?',
       description:
         'An in-depth review of the scientific literature was conducted to identify the main sources of pain for chickens in livestock production, and how frequently they occur depending on the farming method. These can be physical pain (fractures, skin injuries, infections, etc.) or psychological pain (fear, restricted behavioral needs, etc.). In total, xx sources of pain were identified and studied by the Welfare Footprint Institute, based on a study of yy articles.',
 
       section_img_1: {
-        title_h3: 'Some psychological pain',
+        title_h4: 'Some psychological pain',
         img_1: {
           alt: 'Restriction of freedom of movement',
           type_of_pain: 'Restriction of freedom of movement :',
@@ -688,7 +688,7 @@ export default {
 
   aboutPage: {
     association_presentation_section: {
-      two_hens_out_five_title:
+      title:
         'L\'Heure des Comptes is the result of a collaboration between Anima and Data for Good, two non-profit associations.',
       anima_presentation:
         'Anima exists to reduce animal suffering as effectively as possible. The association is leading a national and European campaign to end the caged farming of laying hens. Anima is a member of the European coalition Anima International.',

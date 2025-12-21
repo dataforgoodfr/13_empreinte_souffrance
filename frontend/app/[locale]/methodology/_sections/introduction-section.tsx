@@ -10,7 +10,7 @@ export default async function IntroductionSection() {
         <img src="/welfare-footprint-logo.svg " className="w-[300px] lg:w-[450px] mt-3 mb-6" alt="" />
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 ">
           <article className="flex flex-col gap-3">
-            <h1>{t('MethodologyPage.introductionSection.title')}</h1>
+            <h2>{t('MethodologyPage.introductionSection.title')}</h2>
             <p>{t('MethodologyPage.introductionSection.paragraph1')}</p>
             <p>{t('MethodologyPage.introductionSection.paragraph2')}</p>
             <Link
