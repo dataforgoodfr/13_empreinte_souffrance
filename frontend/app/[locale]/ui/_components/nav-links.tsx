@@ -20,9 +20,9 @@ export default function NavLinks({ links, isVertical: passedIsVertical }: Props)
   return (
     <nav
       className={`
-        flex flex-${isVertical ? 'col' : 'row'} justify-center items-center md:justify-end min-w-0
-        gap-8 md:gap-4 font-mono font-black
-        text-sm text-black
+        flex flex-${isVertical ? 'col' : 'row'} justify-end items-center min-w-0
+        gap-6 lg:gap-8 font-mono font-black
+        text-black grow
       `}
     >
       {links.map((link) => {
@@ -34,7 +34,7 @@ export default function NavLinks({ links, isVertical: passedIsVertical }: Props)
             href={link.href}
             className={clsx(
               'flex flex-row h-[48px] items-center justify-center ' +
-                'px-2 md:p-3 text-[.875rem] dark-text font-bold tracking-[.14em] antialiased text-nowrap ' +
+                'text-xs lg:text-[.875rem] dark-text font-bold tracking-[.14em] antialiased text-nowrap ' +
                 'hover:underline underline-offset-4 decoration-[#FF7B7B] decoration-2',
               {
                 'underline underline-offset-4': isActive,
