@@ -16,13 +16,6 @@ export default async function Footer() {
         <div className="flex">
           <div className="w-48 flex flex-col space-y-3">
             <LogoWelfare />
-            <ButtonLink
-              href="https://animafrance.org/je-donne"
-              aria_label={t('footer.donate')}
-              button_text={t('footer.donate')}
-              width="small"
-              open_in_new_tab={true}
-            />
           </div>
         </div>
 
