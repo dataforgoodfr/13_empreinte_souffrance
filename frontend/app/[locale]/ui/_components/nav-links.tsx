@@ -34,7 +34,7 @@ export default function NavLinks({ links, isVertical: passedIsVertical }: Props)
             href={link.href}
             className={clsx(
               'flex flex-row h-[48px] items-center justify-center ' +
-                'text-xs lg:text-[.875rem] dark-text font-bold tracking-[.14em] antialiased text-nowrap ' +
+                'text-xs lg:text-[.875rem] dark-text font-black tracking-[.14em] antialiased text-nowrap ' +
                 'hover:underline underline-offset-4 decoration-[#FF7B7B] decoration-2',
               {
                 'underline underline-offset-4': isActive,
