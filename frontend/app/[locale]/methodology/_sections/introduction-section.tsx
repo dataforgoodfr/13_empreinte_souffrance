@@ -48,10 +48,10 @@ interface ScientistProps {
 
 const Scientist = async ({ imgUrl, name, text }: ScientistProps) => {
   return (
-    <div className="text-center flex flex-col items-center">
+    <div className="flex flex-col items-center">
       <img src={imgUrl} alt="Scientist" className="w-55 rounded-full h-auto object-contain" />
-      <h2 className="text-center my-5">{name}</h2>
-      <p className="caption text-justify">{text}</p>
+      <h3 className="text-center my-5">{name}</h3>
+      <p className="caption">{text}</p>
     </div>
   );
 };
