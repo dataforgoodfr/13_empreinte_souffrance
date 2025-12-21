@@ -1,7 +1,6 @@
 import { getI18n } from '@/locales/server';
 import Link from 'next/link';
 import LogoWelfare from '../_components/logo-walfare-footprint';
-import ButtonLink from '@/app/[locale]/ui/_components/button-link';
 
 export default async function Footer() {
   const t = await getI18n();
