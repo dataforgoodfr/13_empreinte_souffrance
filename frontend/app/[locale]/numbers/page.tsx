@@ -3,7 +3,7 @@ import Header from '@/app/[locale]/numbers/_components/Header';
 import Supermarkets from '@/app/[locale]/numbers/_components/Supermarkets';
 import Section from '@/app/[locale]/numbers/_components/Section';
 import CagedEggsGraph from '@/app/[locale]/numbers/_components/CagedEggs';
-import StoreMap from '@/app/[locale]/numbers/_components/store-map';
+import StoreMapClient from '@/app/[locale]/numbers/_components/store-map-client';
 
 export default async function NumbersPage() {
   return (
@@ -32,7 +32,7 @@ export default async function NumbersPage() {
           'La cage occupait encore une part minoriaire mais signifcative en 2025. Le plein air est le mode délevage le plus répandu en supermarché. '
         }
       >
-        <StoreMap />
+        <StoreMapClient />
       </Section>
       <GoFurtherSection />
     </section>
