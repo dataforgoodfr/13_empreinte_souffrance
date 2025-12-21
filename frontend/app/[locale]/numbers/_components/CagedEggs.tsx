@@ -2,7 +2,7 @@
 
 import { useEffect } from 'react';
 
-export default function CagedEggsGraphSection() {
+export default function CagedEggsGraph() {
   useEffect(() => {
     const script = document.createElement('script');
     script.src = 'https://public.flourish.studio/resources/embed.js';
@@ -15,11 +15,10 @@ export default function CagedEggsGraphSection() {
   }, []);
 
   return (
-    <div className="flourish-embed flourish-chart" data-src="visualisation/26100156" style={{ width: '100%' }}>
+    <div className="flourish-embed flourish-chart w-[50vh]" data-src="visualisation/26100156">
       <noscript>
         <img
           src="https://public.flourish.studio/visualisation/26100156/thumbnail"
-          width="100%"
           alt="chart visualization"
         />
       </noscript>
