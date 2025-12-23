@@ -6,8 +6,6 @@ export default async function IdentifyPainSources() {
 
   const listOfPain = [
     t('MethodologyPage.method_details_section.array_of_pain.pain_1'),
-    t('MethodologyPage.method_details_section.array_of_pain.pain_2'),
-    t('MethodologyPage.method_details_section.array_of_pain.pain_3'),
     t('MethodologyPage.method_details_section.array_of_pain.pain_4'),
     t('MethodologyPage.method_details_section.array_of_pain.pain_5'),
     t('MethodologyPage.method_details_section.array_of_pain.pain_6'),
@@ -18,7 +16,6 @@ export default async function IdentifyPainSources() {
     t('MethodologyPage.method_details_section.array_of_pain.pain_11'),
     t('MethodologyPage.method_details_section.array_of_pain.pain_12'),
     t('MethodologyPage.method_details_section.array_of_pain.pain_13'),
-    t('MethodologyPage.method_details_section.array_of_pain.pain_14'),
     t('MethodologyPage.method_details_section.array_of_pain.pain_15'),
     t('MethodologyPage.method_details_section.array_of_pain.pain_16'),
     t('MethodologyPage.method_details_section.array_of_pain.pain_17'),
