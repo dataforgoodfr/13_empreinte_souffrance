@@ -26,7 +26,7 @@ export default async function ComputePainSources() {
     },
     {
       title: t('MethodologyPage.sufferingQuantificationSteps.step3.bloc3.title'),
-      percent: '48%',
+      percent: '5,5%',
       text: t('MethodologyPage.sufferingQuantificationSteps.step3.text1'),
       agony: t('MethodologyPage.sufferingQuantificationSteps.step3.bloc3.agony'),
       pain: t('MethodologyPage.sufferingQuantificationSteps.step3.bloc3.pain'),
@@ -44,7 +44,7 @@ export default async function ComputePainSources() {
     },
     {
       title: t('MethodologyPage.sufferingQuantificationSteps.step3.bloc6.title'),
-      percent: '0,525%',
+      percent: '0,5%',
       text: t('MethodologyPage.sufferingQuantificationSteps.step3.text1'),
       agony: t('MethodologyPage.sufferingQuantificationSteps.step3.bloc6.agony'),
       pain: t('MethodologyPage.sufferingQuantificationSteps.step3.bloc6.pain'),
@@ -62,7 +62,7 @@ export default async function ComputePainSources() {
     },
     {
       title: t('MethodologyPage.sufferingQuantificationSteps.step3.bloc8.title'),
-      percent: '0,225%',
+      percent: '0,23%',
       text: t('MethodologyPage.sufferingQuantificationSteps.step3.text1'),
       agony: t('MethodologyPage.sufferingQuantificationSteps.step3.bloc8.agony'),
       pain: t('MethodologyPage.sufferingQuantificationSteps.step3.bloc8.pain'),
@@ -71,7 +71,7 @@ export default async function ComputePainSources() {
     },
     {
       title: t('MethodologyPage.sufferingQuantificationSteps.step3.bloc9.title'),
-      percent: '0,135%',
+      percent: '0,1%',
       text: t('MethodologyPage.sufferingQuantificationSteps.step3.text1'),
       agony: t('MethodologyPage.sufferingQuantificationSteps.step3.bloc9.agony'),
       pain: t('MethodologyPage.sufferingQuantificationSteps.step3.bloc9.pain'),
@@ -79,17 +79,8 @@ export default async function ComputePainSources() {
       discomfort: t('MethodologyPage.sufferingQuantificationSteps.step3.bloc9.discomfort'),
     },
     {
-      title: t('MethodologyPage.sufferingQuantificationSteps.step3.bloc10.title'),
-      percent: '0,035%',
-      text: t('MethodologyPage.sufferingQuantificationSteps.step3.text1'),
-      agony: t('MethodologyPage.sufferingQuantificationSteps.step3.bloc10.agony'),
-      pain: t('MethodologyPage.sufferingQuantificationSteps.step3.bloc10.pain'),
-      suffering: t('MethodologyPage.sufferingQuantificationSteps.step3.bloc10.suffering'),
-      discomfort: t('MethodologyPage.sufferingQuantificationSteps.step3.bloc10.discomfort'),
-    },
-    {
       title: t('MethodologyPage.sufferingQuantificationSteps.step3.bloc11.title'),
-      percent: '1,425%',
+      percent: '1,4%',
       text: t('MethodologyPage.sufferingQuantificationSteps.step3.text1'),
       agony: t('MethodologyPage.sufferingQuantificationSteps.step3.bloc11.agony'),
       pain: t('MethodologyPage.sufferingQuantificationSteps.step3.bloc11.pain'),
@@ -152,7 +143,7 @@ export default async function ComputePainSources() {
     },
     {
       title: t('MethodologyPage.sufferingQuantificationSteps.step3.bloc18.title'),
-      percent: '0,01%',
+      percent: '9,5%',
       text: t('MethodologyPage.sufferingQuantificationSteps.step3.text1'),
       agony: t('MethodologyPage.sufferingQuantificationSteps.step3.bloc18.agony'),
       pain: t('MethodologyPage.sufferingQuantificationSteps.step3.bloc18.pain'),
