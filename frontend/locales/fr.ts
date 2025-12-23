@@ -610,11 +610,11 @@ export default {
         pain_15: 'Peur (transport)',
         pain_16: 'Fractures (manipulation/transport)',
         pain_17: 'Stress thermique (transport)',
-        pain_infected_skin_wound:"LÉSION CUTANÉE (INFECTÉE)",
-        pain_heat_stress:"STRESS THERMIQUE (FATAL) (TRANSPORT)",
-        pain_dust_bath_deprivation:"PRIVATION DE BAIN DE POUSSIÈRE",
-        pain_infected_cloaca_wound:"BLESSURE DU CLOAQUE (INFECTÉE)",
-        pain_fatal_cloaca_wound:"BLESSURE DU CLOAQUE (FATALE)",
+        pain_infected_skin_wound: 'LÉSION CUTANÉE (INFECTÉE)',
+        pain_heat_stress: 'STRESS THERMIQUE (FATAL) (TRANSPORT)',
+        pain_dust_bath_deprivation: 'PRIVATION DE BAIN DE POUSSIÈRE',
+        pain_infected_cloaca_wound: 'BLESSURE DU CLOAQUE (INFECTÉE)',
+        pain_fatal_cloaca_wound: 'BLESSURE DU CLOAQUE (FATALE)',
       },
       list_of_pains_h3: 'Liste de toutes les sources de douleur',
       see_all_sources_btn: 'Voir plus de sources de douleur',
@@ -701,8 +701,7 @@ export default {
 
   aboutPage: {
     association_presentation_section: {
-      title:
-        "L'Heure des Comptes est le fruit d’une collaboration entre Anima et Data for Good.",
+      title: "L'Heure des Comptes est le fruit d’une collaboration entre Anima et Data for Good.",
       anima_presentation:
         'Anima existe pour réduire la souffrance des animaux de la façon la plus efficace possible. L’association mène une campagne nationale et européenne pour mettre un terme à l’élevage en cage des poules pondeuses. Anima est membre de la coalition européenne Anima International.',
       anima_link: 'www.animafrance.org',
@@ -711,20 +710,19 @@ export default {
       dataforgood_link: 'www.dataforgood.fr',
     },
     whyNameSection: {
-      why_welfare_footprint_title: 'POURQUOI “EMPREINTE SOUFFRANCE” ?',
+      why_welfare_footprint_title: "POURQUOI “L'HEURE DES COMPTES” ?",
       why_welfare_footprint_description: {
-        new_scientific_work:
-          'De nouveaux travaux scientifiques permettent pour la toute première fois de quantifier le vécu des poules en cage. Fractures, lésions cutanées, privation des besoins naturels derrière chaque œuf de poule en cage se cachent des dizaines d’heures de souffrance physique et psychologique : c’est l’« Empreinte Souffrance » des œufs.',
-        accessible_result:
-          'Ces résultats révolutionnaires sont maintenant accessibles à toutes et tous : chaque consommateur peut scanner directement ses boîtes d’œufs en magasin pour connaître leur Empreinte Souffrance.',
-        firm_engagement:
-          'Or, le moment est crucial. Le 1er janvier 2026, les engagements des entreprises à ne plus vendre d’œufs de poules en cage entreront en vigueur. C’est le cas de Leclerc, Carrefour, Système U, Auchan, Lidl, Intermarché et Aldi.',
-        decisive_moment:
-          'À la veille de ce moment décisif pour la fin de l’élevage en cage, Empreinte Souffrance alerte les citoyens et les entreprises : il faut tourner la page des cages; les chiffres le montrent.',
+        main_description:
+          "Il y a 10 ans, les enseignes de la grande distribution prenaient un engagement historique : bannir les œufs de poules en cage avant 2026. Aujourd'hui, l'échéance est arrivée. Malgré les progrès des grandes surfaces, les œufs cage restent présents, souvent dans des boîtes opaques ou dans les gâteaux, desserts, brioches et biscuits que nous achetons.",
+        goals: "L'heure des comptes est là pour :",
+        engagement_assessment: 'Faire le bilan réel des engagements pris il y a une décennie par les supermarchés.',
+        invisible_eggs: 'Lever le voile sur les œufs "invisibles" cachés dans les rayons et les produits du quotidien.',
+        store_actions:
+          "Pousser les enseignes à agir pour tenir leur engagement et épargner aux dernières poules enfermées en cage des milliers d'heures de souffrance.",
       },
     },
     thanking_section:
-      'Ce projet a pu voir le jour grâce aux bénévoles qui ont travaillé pendant plusieurs mois sur la conception du site et du calculateur. Anima et Data for Good leur en sont profondément reconnaissants. Merci Laurent Basara, Luc Berton, Théo Degorre, Marie Groshens, Mathis Dupuy, Julien Deniaud, Adrien Jérôme, Adelia Khasanova, Paul Pajot, Axelle Playoust-Braure, Justine Tellier, Anaïs Valentin, Myriam Duval, Hakima Arroubat, Tom Francés, Julie Prigent, Tawfik Maalej, Denis Sabardine, Moïri Gamboni, Victor Diné, Hugo de Saint-Martin, Delon Ung.',
+      'Ce projet a pu voir le jour grâce aux bénévoles qui ont travaillé pendant plusieurs mois sur la conception du site et de la campagne. Anima et Data for Good leur en sont profondément reconnaissants. Merci Laurent Basara, Luc Berton, Théo Degorre, Marie Groshens, Mathis Dupuy, Julien Deniaud, Adrien Jérôme, Adelia Khasanova, Paul Pajot, Axelle Playoust-Braure, Justine Tellier, Anaïs Valentin, Myriam Duval, Tom Francés.',
   },
 
   //*___________ NUMBERS PAGE __________________
