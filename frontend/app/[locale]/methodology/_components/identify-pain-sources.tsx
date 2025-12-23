@@ -19,6 +19,11 @@ export default async function IdentifyPainSources() {
     t('MethodologyPage.method_details_section.array_of_pain.pain_15'),
     t('MethodologyPage.method_details_section.array_of_pain.pain_16'),
     t('MethodologyPage.method_details_section.array_of_pain.pain_17'),
+    t('MethodologyPage.method_details_section.array_of_pain.pain_infected_skin_wound'),
+    t('MethodologyPage.method_details_section.array_of_pain.pain_heat_stress'),
+    t('MethodologyPage.method_details_section.array_of_pain.pain_dust_bath_deprivation'),
+    t('MethodologyPage.method_details_section.array_of_pain.pain_infected_cloaca_wound'),
+    t('MethodologyPage.method_details_section.array_of_pain.pain_fatal_cloaca_wound'),
   ];
 
   return (
