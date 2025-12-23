@@ -70,7 +70,7 @@ export default {
   },
 
   PressSection: {
-    ten_years_ago_supermarkets_pledged: "il y à 10 ans, les supermarchés s'engageaient",
+    ten_years_ago_supermarkets_pledged: "il y a 10 ans, les supermarchés s'engageaient",
     to_ban_eggs_from_caged_hens_by_2026: 'à bannir les œufs de poule en cage avant 2026',
   },
 
