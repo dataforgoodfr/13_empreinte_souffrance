@@ -20,9 +20,9 @@ export default {
   },
 
   GoFurther: {
-    title: 'Il est l’heure de définitivement bannir les poules en cage en france',
+    title: 'REJOIGNEZ LE MOUVEMENT POUR LA FIN DES CAGES',
     subtitle:
-      'Rejoignez la vague pour faire cesser les poules en cage en france, nous sommes deja 2405 signataires, nous comptons bien nous faire entendre aupres de la grande distribution.',
+      "Il est l'heure de tourner définitivement la page des cages ! Je recevrai des informations sur les avancées d'Anima et les opportunités d'agir.",
     signPetition: 'Signer la pétition',
     goEvent: 'Me rendre à la manifestation',
     share: 'Partager la page',
@@ -76,7 +76,7 @@ export default {
 
   ProgressSection: {
     title: 'des progrès mais encore beaucoup d\'œufs cage "invisibles"',
-    display_dashboard: 'voir le dashboard',
+    display_dashboard: 'voir les chiffres',
     more_than_80_percent_without_cage: 'plus de 80% des œufs vendus sont hors cage',
     from_70_percent_in_2015_to_less_than_20_percent:
       "De 70% d'œufs cages en magasin en 2015, nous sommes maintenant passés à moins de 20%. Monoprix et Carrefour ont tenu leur engagement.",
@@ -139,30 +139,30 @@ export default {
     subtitle: "L'Empreinte souffrance : le nouvel indicateur qui mesure la souffrance animale",
     sectionList: {
       first: {
-        superTitle: "Derrière chaque boîte d'oeufs cage se cache",
+        superTitle: "Derrière chaque boîte d'œufs cage se cachent",
         title: "DES DIZAINES D'HEURES DE SOUFFRANCE",
-        text: "C'est le prix payé par les poules enfermées toute leur vie en cage pour pondre.",
+        text: "C'est le prix payé par les poules enfermées en cage toute leur vie pour pondre.",
         source: {
           url: '/',
-          name: 'Source link',
+          name: 'voir les chiffres',
         },
       },
       second: {
-        superTitle: 'Toutes les privations spécifique aux poules en cage',
-        title: '156H DE SOUFFRANCE PSYCHOLOGIQUE',
-        text: 'Les poules en cage sont privées de la plupart de leurs besoins (se déplacer, gratter le sol, prendre des bains de poussière) et en souffrent grandement.',
+        superTitle: 'Les privations imposées à une poule en cage lui font subir',
+        title: '7000 HEURES DE SOUFFRANCE PSYCHOLOGIQUE',
+        text: 'Les poules en cages sont privées de leurs besoins essentiels : se déplacer, faire un nid, gratter le sol, se percher ou prendre des bains de poussière.',
         source: {
           url: '/',
-          name: 'Source link',
+          name: 'voir les chiffres',
         },
       },
       third: {
-        superTitle: 'Passer totalement au système hors-cage:',
-        title: "DES MILLIERS D'HEURES DE SOUFFRANCE EN MOINS",
-        text: 'Le passage en élevage hors cage permet de diminuer de 93 % les souffrances dues à l’impossibilité pour les poules d’adopter des comportements naturels',
+        superTitle: 'Pour chaque poule, mettre fin aux cages entraîne une',
+        title: 'RÉDUCTION DE 93% DE LA SOUFFRANCE PSYCHOLOGIQUE',
+        text: "Les entreprises peuvent changer la vie de millions de poules en tenant leur promesse : ne plus vendre d'œufs cage.",
         source: {
           url: '/',
-          name: 'Source link',
+          name: 'voir les chiffres',
         },
       },
     },
@@ -332,9 +332,9 @@ export default {
     },
 
     sufferingQuantificationSteps: {
-      title: 'Une méthode en 3 étapes pour quantifier la souffrance animale',
+      title: 'UNE MÉTHODE EN 3 ÉTAPES POUR QUANTIFIER LA SOUFFRANCE DES POULES EN CAGE',
       step1: {
-        title: 'Lister de quoi souffre les poules et à quelle fréquence',
+        title: 'Lister de quoi souffre les poules',
         text1: 'des poules en cage victimes de fractures lors du transport',
         text2: 'des poules en cage victimes de restriction de la liberté de mouvement',
         text3: 'des poules en cage victimes de lésions cutanées',
