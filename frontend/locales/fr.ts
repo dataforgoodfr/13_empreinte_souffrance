@@ -20,9 +20,9 @@ export default {
   },
 
   GoFurther: {
-    title: 'Il est l’heure de définitivement bannir les poules en cage en france',
+    title: 'REJOIGNEZ LE MOUVEMENT POUR LA FIN DES CAGES',
     subtitle:
-      'Rejoignez la vague pour faire cesser les poules en cage en france, nous sommes deja 2405 signataires, nous comptons bien nous faire entendre aupres de la grande distribution.',
+      "Il est l'heure de tourner définitivement la page des cages ! Je recevrai des informations sur les avancées d'Anima et les opportunités d'agir.",
     signPetition: 'Signer la pétition',
     goEvent: 'Me rendre à la manifestation',
     share: 'Partager la page',
@@ -70,13 +70,13 @@ export default {
   },
 
   PressSection: {
-    ten_years_ago_supermarkets_pledged: "il y à 10 ans, les supermarchés s'engageaient",
+    ten_years_ago_supermarkets_pledged: "il y a 10 ans, les supermarchés s'engageaient",
     to_ban_eggs_from_caged_hens_by_2026: 'à bannir les œufs de poule en cage avant 2026',
   },
 
   ProgressSection: {
     title: 'des progrès mais encore beaucoup d\'œufs cage "invisibles"',
-    display_dashboard: 'voir le dashboard',
+    display_dashboard: 'voir les chiffres',
     more_than_80_percent_without_cage: 'plus de 80% des œufs vendus sont hors cage',
     from_70_percent_in_2015_to_less_than_20_percent:
       "De 70% d'œufs cages en magasin en 2015, nous sommes maintenant passés à moins de 20%. Monoprix et Carrefour ont tenu leur engagement.",
@@ -139,30 +139,30 @@ export default {
     subtitle: "L'Empreinte souffrance : le nouvel indicateur qui mesure la souffrance animale",
     sectionList: {
       first: {
-        superTitle: "Derrière chaque boîte d'oeufs cage se cache",
+        superTitle: "Derrière chaque boîte d'œufs cage se cachent",
         title: "DES DIZAINES D'HEURES DE SOUFFRANCE",
-        text: "C'est le prix payé par les poules enfermées toute leur vie en cage pour pondre.",
+        text: "C'est le prix payé par les poules enfermées en cage toute leur vie pour pondre.",
         source: {
           url: '/',
-          name: 'Source link',
+          name: 'voir les chiffres',
         },
       },
       second: {
-        superTitle: 'Toutes les privations spécifique aux poules en cage',
-        title: '156H DE SOUFFRANCE PSYCHOLOGIQUE',
-        text: 'Les poules en cage sont privées de la plupart de leurs besoins (se déplacer, gratter le sol, prendre des bains de poussière) et en souffrent grandement.',
+        superTitle: 'Les privations imposées à une poule en cage lui font subir',
+        title: '7000 HEURES DE SOUFFRANCE PSYCHOLOGIQUE',
+        text: 'Les poules en cages sont privées de leurs besoins essentiels : se déplacer, faire un nid, gratter le sol, se percher ou prendre des bains de poussière.',
         source: {
           url: '/',
-          name: 'Source link',
+          name: 'voir les chiffres',
         },
       },
       third: {
-        superTitle: 'Passer totalement au système hors-cage:',
-        title: "DES MILLIERS D'HEURES DE SOUFFRANCE EN MOINS",
-        text: 'Le passage en élevage hors cage permet de diminuer de 93 % les souffrances dues à l’impossibilité pour les poules d’adopter des comportements naturels',
+        superTitle: 'Pour chaque poule, mettre fin aux cages entraîne une',
+        title: 'RÉDUCTION DE 93% DE LA SOUFFRANCE PSYCHOLOGIQUE',
+        text: "Les entreprises peuvent changer la vie de millions de poules en tenant leur promesse : ne plus vendre d'œufs cage.",
         source: {
           url: '/',
-          name: 'Source link',
+          name: 'voir les chiffres',
         },
       },
     },
@@ -332,16 +332,16 @@ export default {
     },
 
     sufferingQuantificationSteps: {
-      title: 'Une méthode en 3 étapes pour quantifier la souffrance animale',
+      title: 'UNE MÉTHODE EN 3 ÉTAPES POUR QUANTIFIER LA SOUFFRANCE DES POULES EN CAGE',
       step1: {
-        title: 'Lister de quoi souffre les poules et à quelle fréquence',
+        title: 'Lister de quoi souffre les poules',
         text1: 'des poules en cage victimes de fractures lors du transport',
         text2: 'des poules en cage victimes de restriction de la liberté de mouvement',
         text3: 'des poules en cage victimes de lésions cutanées',
         text4: '+ 16 autres sources de douleur',
       },
       step2: {
-        title: 'Quantifier la souffrance causée par chaque affliction',
+        title: 'QUANTIFIER LA SOUFFRANCE POUR CHAQUE SOURCE DE DOULEUR',
         bloc1: {
           text: 'Une fracture lors du transport',
           agony: '27s d’agonie',
@@ -365,156 +365,148 @@ export default {
         },
       },
       step3: {
-        title:
-          'synthétiser les deux étapes  précédentes pour calculer la souffrance moyenne par poule au courant de sa vie',
+        title: 'ÉTABLIR LA SOUFFRANCE MOYENNE PAR POULE SUR SA VIE',
         text1: 'des poules en cage subissant',
         text2: 'de même pour les 16 autres sources de douleur',
         bloc1: {
           title: 'fracture lors du transport',
           agony: '27s d’agonie',
-          pain: '0h de douleur',
           suffering: '29.47h de souffrance',
+          pain: '0h de douleur',
           discomfort: '0h d’inconfort',
         },
         bloc2: {
           title: 'Restriction de la liberté de mouvement',
           agony: '0h d’agonie',
-          pain: '0h de douleur',
           suffering: '0h de souffrance',
+          pain: '0h de douleur',
           discomfort: '2520h d’inconfort',
         },
         bloc3: {
           title: 'Lésion cutanée',
           agony: '0h d’agonie',
-          pain: '95h de douleur',
           suffering: '0.07h de souffrance',
+          pain: '95h de douleur',
           discomfort: '281h d’inconfort',
         },
         bloc4: {
-          title: 'Perte de plumes',
+          title: 'Arrachage de plumes',
           agony: '0min d’agonie',
-          pain: '14min de douleur',
-          suffering: '1min de souffrance',
-          discomfort: '3h 1min d’inconfort',
+          suffering: '0.79h de souffrance',
+          pain: '14h de douleur',
+          discomfort: '181h d’inconfort',
         },
         bloc5: {
           title: 'Au cours de sa vie, une poule en cage subit en moyenne:',
           agony: '144s d’agonie',
-          pain: '3151h de douleur de douleur',
           suffering: '154,64h de souffrance',
+          pain: '3151h de douleur de douleur',
           discomfort: '6142h d’inconfort',
         },
         bloc6: {
           title: 'Lésion cutanée (infectée)',
           agony: '0min d’agonie',
-          pain: '1h 56min de douleur',
-          suffering: '0min de souffrance',
-          discomfort: '3h 16min d’inconfort',
+          suffering: '0.04h de souffrance',
+          pain: '116h de douleur',
+          discomfort: '196h d’inconfort',
         },
         bloc7: {
           title: 'Blessure du cloaque',
           agony: '0min d’agonie',
-          pain: '3h 32min de douleur',
-          suffering: '38min de souffrance',
-          discomfort: '1h 10min d’inconfort',
+          suffering: '38h de souffrance',
+          pain: '212hn de douleur',
+          discomfort: '70h d’inconfort',
         },
         bloc8: {
           title: 'Blessure du cloaque (infestée)',
-          agony: '1h 31min d’agonie',
-          pain: '4h 11min de douleur',
-          suffering: '1h 31min de souffrance',
-          discomfort: '34min d’inconfort',
+          agony: '0h d’agonie',
+          suffering: '91h de souffrance',
+          pain: '251h de douleur',
+          discomfort: '34h d’inconfort',
         },
         bloc9: {
           title: 'Blessure du cloaque (fatale)',
-          agony: '53min d’agonie',
-          pain: '29min de douleur',
-          suffering: '53min de souffrance',
-          discomfort: '1min d’inconfort',
-        },
-        bloc10: {
-          title: 'Attaque entre poules (fatale)',
-          agony: '0min d’agonie',
-          pain: '0min de douleur',
-          suffering: '0min de souffrance',
-          discomfort: '0min d’inconfort',
+          agony: '135min d’agonie',
+          suffering: '53h de souffrance',
+          pain: '29h de douleur',
+          discomfort: '1h d’inconfort',
         },
         bloc11: {
           title: 'Péritonite aiguë (fatale)',
-          agony: '2h 15min d’agonie',
-          pain: '6h 38min de douleur',
-          suffering: '2h 12min de souffrance',
-          discomfort: '1h 14min d’inconfort',
+          agony: '135min d’agonie',
+          suffering: '131h de souffrance',
+          pain: '398h de douleur',
+          discomfort: '74h d’inconfort',
         },
         bloc12: {
           title: 'Péritonite chronique',
           agony: '0min d’agonie',
-          pain: '18h 40min de douleur',
-          suffering: '1h 30min de souffrance',
-          discomfort: '34h 50min d’inconfort',
+          suffering: '90h de souffrance',
+          pain: '1120h de douleur',
+          discomfort: '2090h d’inconfort',
         },
         bloc13: {
           title: 'Privation de nid',
           agony: '0min d’agonie',
-          pain: '3h 21min de douleur',
-          suffering: '5h 24min de souffrance',
+          suffering: '324h de souffrance',
+          pain: '201h de douleur',
           discomfort: '0min d’inconfort',
         },
         bloc14: {
           title: 'Privation de picorage',
-          agony: '0min d’agonie',
-          pain: '37h 20min de douleur',
-          suffering: '0min de souffrance',
-          discomfort: '9h 20min d’inconfort',
+          agony: '0h d’agonie',
+          suffering: '0h de souffrance',
+          pain: '1680h de douleur',
+          discomfort: '1120h d’inconfort',
         },
         bloc15: {
           title: 'Privation de perchoir',
-          agony: '0min d’agonie',
-          pain: '5h 33min de douleur',
-          suffering: '0min de souffrance',
-          discomfort: '4h 58min d’inconfort',
+          agony: '0h d’agonie',
+          suffering: '0h de souffrance',
+          pain: '131h de douleur',
+          discomfort: '499h d’inconfort',
         },
         bloc16: {
           title: 'Privation de bain de poussière',
           agony: '0min d’agonie',
-          pain: '4h 23min de douleur',
           suffering: '0min de souffrance',
-          discomfort: '10h 13min d’inconfort',
+          pain: '88h de douleur',
+          discomfort: '788h d’inconfort',
         },
         bloc17: {
           title: 'Peur (transport)',
-          agony: '17min d’agonie',
-          pain: '6min de douleur',
-          suffering: '17min de souffrance',
-          discomfort: '0min d’inconfort',
+          agony: '0h d’agonie',
+          suffering: '17h de souffrance',
+          pain: '6h de douleur',
+          discomfort: '0h d’inconfort',
         },
         bloc18: {
-          title: 'Fractures (transport)',
-          agony: '39min d’agonie',
-          pain: '0min de douleur',
-          suffering: '39min de souffrance',
-          discomfort: '0min d’inconfort',
+          title: 'Fracture (transport)',
+          agony: '27s d’agonie',
+          suffering: '29.47h de souffrance',
+          pain: '0h de douleur',
+          discomfort: '0h d’inconfort',
         },
         bloc19: {
           title: 'Stress thermique, fatal (transport)',
-          agony: '9min d’agonie',
-          pain: '10min de douleur',
-          suffering: '6min de souffrance',
-          discomfort: '2min d’inconfort',
+          agony: '0h d’agonie',
+          suffering: '9h de souffrance',
+          pain: '10h de douleur',
+          discomfort: '2h d’inconfort',
         },
         bloc20: {
           title: 'Stress thermique (transport)',
-          agony: '6min  d’agonie',
-          pain: '10min de douleur',
-          suffering: '6min de souffrance',
-          discomfort: '6min d’inconfort',
+          agony: '0h d’agonie',
+          suffering: '6h de souffrance',
+          pain: '10h de douleur',
+          discomfort: '6h d’inconfort',
         },
 
         result: {
           title: 'Au cours de sa vie, une poule en cage subit en moyenne:',
           agony: '6min d’agonie',
-          pain: '385h de douleur',
           suffering: '448h de souffrance',
+          pain: '385h de douleur',
           discomfort: '3000h d’inconfort',
         },
       },
@@ -563,21 +555,21 @@ export default {
         title: 'Quelques douleurs psychologiques',
         img_1: {
           alt: 'Restriction de la liberté de mouvement',
-          type_of_pain: 'Restriction de la liberté de mouvement :',
+          type_of_pain: 'Restriction de la liberté de mouvement',
           description_of_pain:
-            'Enfermées en cage, les poules peuvent difficilement se tenir debout, se nettoyer, se tourner ou étendre leurs ailes.',
+            'Enfermées en cage, les poules peuvent difficilement se tenir debout, se tourner ou étendre leurs ailes.',
         },
         img_2: {
           alt: 'Privation de nid',
-          type_of_pain: 'Privation de nid :',
+          type_of_pain: 'Privation de nid',
           description_of_pain:
-            "Les cages n'offrent pas de lieu de nidification adapté, alors que plusieurs études ont montré que les poules cherchent à tout prix un nid avant la ponte.",
+            "Les cages n'offrent pas d'espace de nidification adapté, un besoin pourtant essentiel pour les poules.",
         },
         img_3: {
-          alt: 'Privation comportementale',
-          type_of_pain: 'Privation comportementale :',
+          alt: 'Privations comportementale',
+          type_of_pain: 'Privation comportementale',
           description_of_pain:
-            "Incapables de picorer le sol à la recherche de nourriture (un besoin fort pour elles), les poules se frustrent et s'attaquent entre elles. Leurs becs sont coupés pour prévenir ce risque.",
+            'En cage, les poules ne peuvent ni picorer le sol à la recherche de nourriture, ni prendre des bains de poussière.',
         },
       },
 
@@ -585,19 +577,19 @@ export default {
         title: 'Quelques douleurs physiques',
         img_1: {
           alt: 'Fracture du bréchet',
-          type_of_pain: 'Fracture du bréchet :',
+          type_of_pain: 'Fracture du bréchet',
           description_of_pain:
             "Les fractures osseuses sont très courantes en élevage et sources d'importantes souffrances pour les poules.",
         },
         img_2: {
           alt: 'Péritonite',
-          type_of_pain: 'Péritonite :',
+          type_of_pain: 'Péritonite',
           description_of_pain:
             "Maladie survenant lorsque du jaune d'œuf se répand dans le ventre de la poule et provoque une inflammation douloureuse qui peut s'infecter et devenir mortelle.",
         },
         img_3: {
-          alt: 'Lésions de tissus et perte de plumes',
-          type_of_pain: 'Lésions de tissus et perte de plumes :',
+          alt: 'Lésions cutanées et arrachage de plumes',
+          type_of_pain: 'Lésions de tissus et perte de plumes',
           description_of_pain:
             "Les attaques entre poules créées par la frustration entraînent l'arrachage de plumes, et des lésions de la peau et du cloaque.",
         },
@@ -605,24 +597,26 @@ export default {
 
       array_of_pain: {
         pain_1: 'fracture du bréchet',
-        pain_2: 'péritonite de l’œuf',
-        pain_3: 'restriction de la possibilité de nidifier',
         pain_4: 'Arrachage de plumes',
-        pain_5: 'Plaies cutanées',
-        pain_6: 'Blessures du cloaque',
+        pain_5: 'Lésions cutanées',
+        pain_6: 'Blessure du cloaque',
         pain_7: 'Cannibalisme',
-        pain_8: 'Péritonite aiguë',
+        pain_8: 'Péritonite aiguë (FATALE)',
         pain_9: 'Péritonite chronique',
         pain_10: 'Privation de nid',
         pain_11: 'Privation de picorage',
         pain_12: 'Restriction de mouvement',
         pain_13: 'Privation de perchoir',
-        pain_14: 'Privation de toilettage',
         pain_15: 'Peur (transport)',
         pain_16: 'Fractures (manipulation/transport)',
         pain_17: 'Stress thermique (transport)',
+        pain_infected_skin_wound: 'LÉSION CUTANÉE (INFECTÉE)',
+        pain_heat_stress: 'STRESS THERMIQUE (FATAL) (TRANSPORT)',
+        pain_dust_bath_deprivation: 'PRIVATION DE BAIN DE POUSSIÈRE',
+        pain_infected_cloaca_wound: 'BLESSURE DU CLOAQUE (INFECTÉE)',
+        pain_fatal_cloaca_wound: 'BLESSURE DU CLOAQUE (FATALE)',
       },
-      list_of_pains_h3: 'Liste de toutes les sources de douleur',
+      list_of_pains_title: 'Liste de toutes les sources de douleur',
       see_all_sources_btn: 'Voir plus de sources de douleur',
       see_less_sources_btn: 'Voir moins de sources de douleur',
     },
@@ -641,7 +635,7 @@ export default {
         "Au total, ce sont plus de 70 spécialistes des sciences du bien-être animal et vétérinaires, de l’éthologie et des neurosciences qui ont collaboré pour établir l'ensemble des pain tracks.",
       painTrackTableTitle: 'Pain-track d’une lésion cutanée',
       painTrackTable: {
-        lesionPhase: 'Phase de la lesion',
+        lesionPhase: 'Phase de la lésion',
         ruptureTissu: 'Rupture du tissu',
         coagulation: 'Coagulation',
         inflammation: 'Inflammation',
@@ -659,7 +653,7 @@ export default {
       conclusionButton: 'accédez à l’ensemble des pains-tracks',
       global_suffering_figure_sectinon: {
         title: '2.3 Chiffrer la souffrance globale d’une poule en cage',
-        question: 'Comment combiner fractures, infections, stress... pour obtenir une mesure unique de la souffrance ?',
+        question: 'Comment combiner fractures, lésions, stress... pour obtenir une mesure unique de la souffrance ?',
         description1:
           'Les étapes précédentes ont permis de connaître les sources de douleur pour les poules, leur fréquence et la quantité de souffrance associée à chacune.',
         description2:
@@ -707,8 +701,7 @@ export default {
 
   aboutPage: {
     association_presentation_section: {
-      title:
-        "L'Heure des Comptes est le fruit d’une collaboration entre Anima et Data for Good, deux associations à but non lucratif.",
+      title: "L'Heure des Comptes est le fruit d’une collaboration entre Anima et Data for Good.",
       anima_presentation:
         'Anima existe pour réduire la souffrance des animaux de la façon la plus efficace possible. L’association mène une campagne nationale et européenne pour mettre un terme à l’élevage en cage des poules pondeuses. Anima est membre de la coalition européenne Anima International.',
       anima_link: 'www.animafrance.org',
@@ -717,20 +710,19 @@ export default {
       dataforgood_link: 'www.dataforgood.fr',
     },
     whyNameSection: {
-      why_welfare_footprint_title: 'POURQUOI “EMPREINTE SOUFFRANCE” ?',
+      why_welfare_footprint_title: "POURQUOI “L'HEURE DES COMPTES” ?",
       why_welfare_footprint_description: {
-        new_scientific_work:
-          'De nouveaux travaux scientifiques permettent pour la toute première fois de quantifier le vécu des poules en cage. Fractures, lésions cutanées, privation des besoins naturels derrière chaque œuf de poule en cage se cachent des dizaines d’heures de souffrance physique et psychologique : c’est l’« Empreinte Souffrance » des œufs.',
-        accessible_result:
-          'Ces résultats révolutionnaires sont maintenant accessibles à toutes et tous : chaque consommateur peut scanner directement ses boîtes d’œufs en magasin pour connaître leur Empreinte Souffrance.',
-        firm_engagement:
-          'Or, le moment est crucial. Le 1er janvier 2026, les engagements des entreprises à ne plus vendre d’œufs de poules en cage entreront en vigueur. C’est le cas de Leclerc, Carrefour, Système U, Auchan, Lidl, Intermarché et Aldi.',
-        decisive_moment:
-          'À la veille de ce moment décisif pour la fin de l’élevage en cage, Empreinte Souffrance alerte les citoyens et les entreprises : il faut tourner la page des cages; les chiffres le montrent.',
+        main_description:
+          "Il y a 10 ans, les enseignes de la grande distribution prenaient un engagement historique : bannir les œufs de poules en cage avant 2026. Aujourd'hui, l'échéance est arrivée. Malgré les progrès des grandes surfaces, les œufs cage restent présents, souvent dans des boîtes opaques ou dans les gâteaux, desserts, brioches et biscuits que nous achetons.",
+        goals: "L'heure des comptes est là pour :",
+        engagement_assessment: 'Faire le bilan réel des engagements pris il y a une décennie par les supermarchés.',
+        invisible_eggs: 'Lever le voile sur les œufs "invisibles" cachés dans les rayons et les produits du quotidien.',
+        store_actions:
+          "Pousser les enseignes à agir pour tenir leur engagement et épargner aux dernières poules enfermées en cage des milliers d'heures de souffrance.",
       },
     },
     thanking_section:
-      'Ce projet a pu voir le jour grâce aux bénévoles qui ont travaillé pendant plusieurs mois sur la conception du site et du calculateur. Anima et Data for Good leur en sont profondément reconnaissants. Merci Laurent Basara, Luc Berton, Théo Degorre, Marie Groshens, Mathis Dupuy, Julien Deniaud, Adrien Jérôme, Adelia Khasanova, Paul Pajot, Axelle Playoust-Braure, Justine Tellier, Anaïs Valentin, Myriam Duval, Hakima Arroubat, Tom Francés, Julie Prigent, Tawfik Maalej, Denis Sabardine, Moïri Gamboni, Victor Diné, Hugo de Saint-Martin, Delon Ung.',
+      'Ce projet a pu voir le jour grâce aux bénévoles qui ont travaillé pendant plusieurs mois sur la conception du site et de la campagne. Anima et Data for Good leur en sont profondément reconnaissants. Merci Laurent Basara, Luc Berton, Théo Degorre, Marie Groshens, Mathis Dupuy, Julien Deniaud, Adrien Jérôme, Adelia Khasanova, Paul Pajot, Axelle Playoust-Braure, Justine Tellier, Anaïs Valentin, Myriam Duval, Tom Francés.',
   },
 
   //*___________ NUMBERS PAGE __________________

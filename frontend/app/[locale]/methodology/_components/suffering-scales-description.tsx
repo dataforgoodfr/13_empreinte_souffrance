@@ -60,7 +60,7 @@ export default async function SufferingScalesDescription({ display_criteria = fa
 
             {display_criteria && (
               <p className="pt-2 text-body">
-                <strong>{t('MethodologyPage.sufferingQuantificationSteps.criteria')} :</strong>
+                <strong>{t('MethodologyPage.sufferingQuantificationSteps.criteria')} :</strong>{' '}
                 {suffering_stage.criteria_description}
               </p>
             )}

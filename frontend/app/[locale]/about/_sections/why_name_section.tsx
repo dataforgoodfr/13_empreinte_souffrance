@@ -16,10 +16,11 @@ export default async function WhyNameSection() {
 
           <figcaption className="flex flex-col items-center gap-6 max-w-[650px]">
             <div className="flex flex-col gap-3">
-              <p>{scopedT('why_welfare_footprint_description.new_scientific_work')}</p>
-              <p>{scopedT('why_welfare_footprint_description.accessible_result')}</p>
-              <p>{scopedT('why_welfare_footprint_description.firm_engagement')}</p>
-              <p>{scopedT('why_welfare_footprint_description.decisive_moment')}</p>
+              <p>{scopedT('why_welfare_footprint_description.main_description')}</p>
+              <p>{scopedT('why_welfare_footprint_description.goals')}</p>
+              <p>{scopedT('why_welfare_footprint_description.engagement_assessment')}</p>
+              <p>{scopedT('why_welfare_footprint_description.invisible_eggs')}</p>
+              <p>{scopedT('why_welfare_footprint_description.store_actions')}</p>
             </div>
           </figcaption>
         </figure>

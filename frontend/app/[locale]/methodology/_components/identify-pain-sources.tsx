@@ -6,8 +6,6 @@ export default async function IdentifyPainSources() {
 
   const listOfPain = [
     t('MethodologyPage.method_details_section.array_of_pain.pain_1'),
-    t('MethodologyPage.method_details_section.array_of_pain.pain_2'),
-    t('MethodologyPage.method_details_section.array_of_pain.pain_3'),
     t('MethodologyPage.method_details_section.array_of_pain.pain_4'),
     t('MethodologyPage.method_details_section.array_of_pain.pain_5'),
     t('MethodologyPage.method_details_section.array_of_pain.pain_6'),
@@ -18,10 +16,14 @@ export default async function IdentifyPainSources() {
     t('MethodologyPage.method_details_section.array_of_pain.pain_11'),
     t('MethodologyPage.method_details_section.array_of_pain.pain_12'),
     t('MethodologyPage.method_details_section.array_of_pain.pain_13'),
-    t('MethodologyPage.method_details_section.array_of_pain.pain_14'),
     t('MethodologyPage.method_details_section.array_of_pain.pain_15'),
     t('MethodologyPage.method_details_section.array_of_pain.pain_16'),
     t('MethodologyPage.method_details_section.array_of_pain.pain_17'),
+    t('MethodologyPage.method_details_section.array_of_pain.pain_infected_skin_wound'),
+    t('MethodologyPage.method_details_section.array_of_pain.pain_heat_stress'),
+    t('MethodologyPage.method_details_section.array_of_pain.pain_dust_bath_deprivation'),
+    t('MethodologyPage.method_details_section.array_of_pain.pain_infected_cloaca_wound'),
+    t('MethodologyPage.method_details_section.array_of_pain.pain_fatal_cloaca_wound'),
   ];
 
   return (
@@ -131,7 +133,7 @@ export default async function IdentifyPainSources() {
       </article>
 
       <article className="w-full">
-        <h3 id="list_of_pains">{t('MethodologyPage.method_details_section.list_of_pains_h3')}</h3>
+        <h4 id="list_of_pains">{t('MethodologyPage.method_details_section.list_of_pains_title')}</h4>
         <hr className="border-1 border-pink-3 my-2" />
         <ListOfAffliction
           listOfPain={listOfPain}
