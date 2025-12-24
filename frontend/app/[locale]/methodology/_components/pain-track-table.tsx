@@ -33,12 +33,12 @@ export default async function PainTrackTable() {
             <th className="bg-grey p-2">
               {t('MethodologyPage.QuantifySufferingByPain.painTrackTable.inflammation')}
               <br />
-              <span className="italic text-caption">16h–48h</span>
+              <span className="italic text-caption">16h–28h</span>
             </th>
             <th className="bg-grey p-2">
               {t('MethodologyPage.QuantifySufferingByPain.painTrackTable.proliferation')}
               <br />
-              <span className="italic text-caption">22h–36h</span>
+              <span className="italic text-caption">112h–224h</span>
             </th>
             <th className="bg-grey p-6">Total</th>
           </tr>
@@ -61,10 +61,10 @@ export default async function PainTrackTable() {
             </th>
             <td className="bg-pink-1"></td>
             <td className="bg-pink-1"></td>
-            <td className="bg-pink-1"></td>
-            <td className="bg-pink-1">70%</td>
+            <td className="bg-pink-1">30%</td>
+            <td className="bg-pink-1">80%</td>
             <td className="bg-pink-1">
-              196 h <br /> <p className="text-caption">± 39.2h</p>
+              140.40 h <br /> <p className="text-caption">± 44.86h</p>
             </td>
           </tr>
 
@@ -75,10 +75,10 @@ export default async function PainTrackTable() {
             </th>
             <td className="bg-pink-2">50%</td>
             <td className="bg-pink-2">80%</td>
-            <td className="bg-pink-2">100%</td>
-            <td className="bg-pink-2">30%</td>
+            <td className="bg-pink-2">70%</td>
+            <td className="bg-pink-2">20%</td>
             <td className="bg-pink-2">
-              116.14 h<p className="text-caption"> ± 23.20h</p>
+              47.74 h<p className="text-caption"> ± 12.52h</p>
             </td>
           </tr>
 
