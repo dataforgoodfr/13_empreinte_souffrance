@@ -605,7 +605,7 @@ export default {
         pain_16: 'Fractures (handling/transport)',
         pain_17: 'Heat stress (transport)',
       },
-      list_of_pains_h3: 'List of all sources of pain',
+      list_of_pains_title: 'List of all sources of pain',
       see_all_sources_btn: 'See more sources of pain',
       see_less_sources_btn: 'See less sources of pain',
     },

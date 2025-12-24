@@ -616,7 +616,7 @@ export default {
         pain_infected_cloaca_wound: 'BLESSURE DU CLOAQUE (INFECTÉE)',
         pain_fatal_cloaca_wound: 'BLESSURE DU CLOAQUE (FATALE)',
       },
-      list_of_pains_h3: 'Liste de toutes les sources de douleur',
+      list_of_pains_title: 'Liste de toutes les sources de douleur',
       see_all_sources_btn: 'Voir plus de sources de douleur',
       see_less_sources_btn: 'Voir moins de sources de douleur',
     },

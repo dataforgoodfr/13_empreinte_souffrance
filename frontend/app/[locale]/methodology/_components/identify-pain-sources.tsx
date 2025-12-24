@@ -133,7 +133,7 @@ export default async function IdentifyPainSources() {
       </article>
 
       <article className="w-full">
-        <h3 id="list_of_pains">{t('MethodologyPage.method_details_section.list_of_pains_h3')}</h3>
+        <h4 id="list_of_pains">{t('MethodologyPage.method_details_section.list_of_pains_title')}</h4>
         <hr className="border-1 border-pink-3 my-2" />
         <ListOfAffliction
           listOfPain={listOfPain}

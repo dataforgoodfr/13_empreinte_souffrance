@@ -14,9 +14,11 @@ export default async function QuantifyPainBySources() {
         <p className="text-md mb-2">{t('MethodologyPage.QuantifySufferingByPain.description3')}</p>
       </hgroup>
 
-      <div className="w-full">
-        <h4 className="mb-4">{t('MethodologyPage.QuantifySufferingByPain.painTrackTableTitle')}</h4>
+      <div className="w-full md:max-w-[935px]">
+        <h4 className="mb-4 ">{t('MethodologyPage.QuantifySufferingByPain.painTrackTableTitle')}</h4>
         <hr className="border-1 mb-10 border-pink-3" />
+      </div>
+      <div className="w-full">
         <div className="bg-white rounded-[5px] mx-0 lg:mx-36">
           <PainTrackTable />
         </div>
