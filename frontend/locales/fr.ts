@@ -143,7 +143,7 @@ export default {
         title: "DES DIZAINES D'HEURES DE SOUFFRANCE",
         text: "C'est le prix payé par les poules enfermées en cage toute leur vie pour pondre.",
         source: {
-          url: '/',
+          url: '/numbers',
           name: 'voir les chiffres',
         },
       },
@@ -152,7 +152,7 @@ export default {
         title: '7000 HEURES DE SOUFFRANCE PSYCHOLOGIQUE',
         text: 'Les poules en cages sont privées de leurs besoins essentiels : se déplacer, faire un nid, gratter le sol, se percher ou prendre des bains de poussière.',
         source: {
-          url: '/',
+          url: '/numbers',
           name: 'voir les chiffres',
         },
       },
@@ -161,7 +161,7 @@ export default {
         title: 'RÉDUCTION DE 93% DE LA SOUFFRANCE PSYCHOLOGIQUE',
         text: "Les entreprises peuvent changer la vie de millions de poules en tenant leur promesse : ne plus vendre d'œufs cage.",
         source: {
-          url: '/',
+          url: '/numbers',
           name: 'voir les chiffres',
         },
       },

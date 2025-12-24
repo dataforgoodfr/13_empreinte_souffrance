@@ -35,7 +35,7 @@ export default async function ContentWithImageComponent({
           </h3>
           <p className="text-base sm:text-lg font-light">{text_content}</p>
           <Link
-            href="/dashboard"
+            href="/numbers"
             className="inline-block py-1 px-6 text-lg bg-grey hover:bg-violet w-full font-mono dark-text tracking-wider transition-all duration-200 align-middle border-b border-brown"
             aria-label={t('ProgressSection.display_dashboard')}
           >
