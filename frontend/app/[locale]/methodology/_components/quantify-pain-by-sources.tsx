@@ -1,5 +1,5 @@
 import { getI18n } from '@/locales/server';
-import Image from 'next/image';
+import PainTrackTable from './pain-track-table';
 
 export default async function QuantifyPainBySources() {
   const t = await getI18n();
@@ -14,18 +14,11 @@ export default async function QuantifyPainBySources() {
         <p className="text-md mb-2">{t('MethodologyPage.QuantifySufferingByPain.description3')}</p>
       </hgroup>
 
-      <div className=" md:min-w-[950px]">
+      <div className="w-full">
         <h4 className="mb-4">{t('MethodologyPage.QuantifySufferingByPain.painTrackTableTitle')}</h4>
         <hr className="border-1 mb-10 border-pink-3" />
-        <div className="bg-white p-6 rounded-[5px]">
-          {/* <PainTrackTable /> */}
-          <Image
-            src="/pain-track-table.png"
-            width={640}
-            height={840}
-            alt={t('MethodologyPage.QuantifySufferingByPain.painTrackTableTitle')}
-            className="w-full"
-          />
+        <div className="bg-white rounded-[5px] mx-0 lg:mx-36">
+          <PainTrackTable />
         </div>
       </div>
     </div>

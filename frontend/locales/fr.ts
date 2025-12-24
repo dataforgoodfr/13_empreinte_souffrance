@@ -635,7 +635,7 @@ export default {
         "Au total, ce sont plus de 70 spécialistes des sciences du bien-être animal et vétérinaires, de l’éthologie et des neurosciences qui ont collaboré pour établir l'ensemble des pain tracks.",
       painTrackTableTitle: 'Pain-track d’une lésion cutanée',
       painTrackTable: {
-        lesionPhase: 'Phase de la lesion',
+        lesionPhase: 'Phase de la lésion',
         ruptureTissu: 'Rupture du tissu',
         coagulation: 'Coagulation',
         inflammation: 'Inflammation',

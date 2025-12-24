@@ -5,7 +5,7 @@ export default async function PainTrackTable() {
   const t = await getI18n();
 
   return (
-    <div className="flex px-0 lg:px-8 ">
+    <div className="flex pr-4 lg:pr-8 lg:pl-2 pb-8 pt-2  overflow-x-auto">
       <table className=" table-auto w-full text-center text-xs md:text-base border-separate border-spacing-0.5">
         <thead>
           {/* Légende "Phase de lésion" */}
@@ -56,7 +56,7 @@ export default async function PainTrackTable() {
               {t('MethodologyPage.QuantifySufferingByPain.painTrackTable.intensityOfSuffering')}
             </td>
 
-            <th className="bg-pink-1 text-center p-2">
+            <th className="bg-pink-1 text-center p-2 py-4">
               {t('MethodologyPage.QuantifySufferingByPain.painTrackTable.discomfort')}
             </th>
             <td className="bg-pink-1"></td>
@@ -70,7 +70,7 @@ export default async function PainTrackTable() {
 
           {/* Ligne douleur */}
           <tr className="bg-white">
-            <th className="bg-pink-2 font-semibold text-center p-2">
+            <th className="bg-pink-2 font-semibold text-center p-2 py-4">
               {t('MethodologyPage.QuantifySufferingByPain.painTrackTable.pain')}
             </th>
             <td className="bg-pink-2">50%</td>
@@ -84,7 +84,7 @@ export default async function PainTrackTable() {
 
           {/* Ligne souffrance */}
           <tr className="bg-white">
-            <th className="bg-pink-3 font-semibold text-center p-2">
+            <th className="bg-pink-3 font-semibold text-center p-2 py-4">
               {t('MethodologyPage.QuantifySufferingByPain.painTrackTable.suffering')}
             </th>
             <td className="bg-pink-3">50%</td>
@@ -98,7 +98,7 @@ export default async function PainTrackTable() {
 
           {/* Ligne Agony */}
           <tr className="bg-white">
-            <th className="bg-brown font-semibold text-center p-2 text-pink-1">
+            <th className="bg-brown font-semibold text-center p-2 py-4 text-pink-1">
               {t('MethodologyPage.QuantifySufferingByPain.painTrackTable.agony')}
             </th>
             <td className="bg-brown"></td>
