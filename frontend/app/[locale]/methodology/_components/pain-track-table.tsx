@@ -5,17 +5,9 @@ export default async function PainTrackTable() {
   const t = await getI18n();
 
   return (
-    <div className="flex pr-4 lg:pr-8 lg:pl-2 pb-8 pt-2 overflow-x-auto">
+    <div className="flex pr-4 lg:pr-8 lg:pl-2 py-8 overflow-x-auto">
       <table className="table-auto w-full text-center text-xs md:text-base border-separate border-spacing-0.5">
         <thead>
-          {/* Légende "Phase de lésion" */}
-          <tr>
-            <th colSpan={2}></th>
-            <th className="px-4 py-2 text-center italic" colSpan={5}>
-              {t('MethodologyPage.QuantifySufferingByPain.painTrackTable.lesionPhase')}{' '}
-            </th>
-          </tr>
-
           {/* Ligne en-têtes */}
           <tr>
             <th />

@@ -5,7 +5,7 @@ export default async function QuantifyPainBySources() {
   const t = await getI18n();
 
   return (
-    <div className="w-full flex flex-col items-center gap-8">
+    <div className="w-full flex flex-col items-center gap-4">
       <hgroup className="max-w-[650px]">
         <h3 className="mb-4">{t('MethodologyPage.QuantifySufferingByPain.title')}</h3>
         <p className="text-md mb-6">{t('MethodologyPage.QuantifySufferingByPain.question')}</p>
@@ -16,7 +16,7 @@ export default async function QuantifyPainBySources() {
 
       <div className="w-full md:max-w-[935px]">
         <h4 className="mb-4 ">{t('MethodologyPage.QuantifySufferingByPain.painTrackTableTitle')}</h4>
-        <hr className="border-1 mb-10 border-pink-3" />
+        <hr className="border-1 border-pink-3" />
       </div>
       <div className="w-full">
         <div className="bg-white rounded-[5px] mx-0 lg:mx-36">
