@@ -6,7 +6,7 @@ export default async function PainTrackTable() {
 
   return (
     <div className="flex pr-4 lg:pr-8 lg:pl-2 pb-8 pt-2 overflow-x-auto">
-      <table className=" table-auto w-full text-center text-xs md:text-base border-separate border-spacing-0.5">
+      <table className="table-auto w-full text-center text-xs md:text-base border-separate border-spacing-0.5">
         <thead>
           {/* Légende "Phase de lésion" */}
           <tr>
