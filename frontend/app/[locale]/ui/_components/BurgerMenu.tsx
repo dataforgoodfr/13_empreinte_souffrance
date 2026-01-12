@@ -51,7 +51,7 @@ export default function BurgerMenu({ children, className }: Props) {
         </button>
 
         <div
-          className={`absolute top-full right-0 bg-white overflow-hidden transition-all duration-300 ease-out
+          className={`absolute top-15 right-0 bg-white overflow-hidden transition-all duration-300 ease-out
           ${open ? 'h-screen w-screen opacity-100' : 'max-h-0 opacity-0'}
           flex flex-col gap-2 p-4`}
           style={{ minWidth: '200px' }}
