@@ -9,7 +9,7 @@ export default async function Logo() {
         width={215}
         height={50}
         alt="Logo Anima"
-        className="object-contain w-36 min-h-12"
+        className="object-contain w-48 min-h-12"
       />
     </Link>
   );
