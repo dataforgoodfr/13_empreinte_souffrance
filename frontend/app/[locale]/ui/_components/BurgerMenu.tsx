@@ -33,17 +33,17 @@ export default function BurgerMenu({ children, className }: Props) {
         >
           <div className="flex flex-col items-center justify-center gap-1 h-full w-[36px] mr-4">
             <span
-              className={`block h-[4px] bg-gray-800 rounded origin-center transition-all duration-300 ${
+              className={`block h-[4px] bg-gray-800 origin-center transition-all duration-300 ${
                 open ? 'w-[28px] rotate-45 translate-y-[8px] translate-x-[2px]' : 'w-[30px]'
               }`}
             />
             <span
-              className={`block w-[30px] h-[4px] bg-gray-800 rounded transition-opacity duration-300 ${
+              className={`block w-[30px] h-[4px] bg-gray-800 transition-opacity duration-300 ${
                 open ? 'opacity-0' : 'opacity-100'
               }`}
             />
             <span
-              className={`block h-[4px] bg-gray-800 rounded origin-center transition-all duration-300 ${
+              className={`block h-[4px] bg-gray-800 origin-center transition-all duration-300 ${
                 open ? 'w-[28px] -rotate-45 -translate-y-[8px] translate-x-[2px]' : 'w-[30px]'
               }`}
             />
