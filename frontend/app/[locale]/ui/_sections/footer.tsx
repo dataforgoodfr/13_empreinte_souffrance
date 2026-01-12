@@ -9,7 +9,7 @@ export default async function Footer() {
   const footerUnderlineClasses = `${footerLinkClasses} underline`;
 
   return (
-    <footer className="bg-white px-6 md:px-12 py-8">
+    <footer className="bg-white px-6 md:px-12 py-8 font-medium">
       <div className="max-w-7xl mx-auto">
         {/* Logo + Bouton Don */}
         <div className="flex">

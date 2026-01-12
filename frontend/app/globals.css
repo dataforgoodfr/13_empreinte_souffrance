@@ -110,8 +110,9 @@ p,
   font-family:
     Albert Sans,
     sans-serif;
-  line-height: normal;
+  line-height: auto;
   font-style: normal;
+  
 }
 
 .numbers {
