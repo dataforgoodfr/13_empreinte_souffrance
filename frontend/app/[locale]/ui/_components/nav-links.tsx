@@ -20,7 +20,7 @@ export default function NavLinks({ links, isVertical: passedIsVertical }: Props)
   return (
     <nav
       className={`
-        flex flex-${isVertical ? 'col' : 'row'} pt-12 justify-between md:justify-end items-center min-w-0
+        flex flex-${isVertical ? 'col' : 'row'} justify-between md:justify-end items-center min-w-0
         gap-6 lg:gap-8 font-mono font-black
         text-black grow
       `}

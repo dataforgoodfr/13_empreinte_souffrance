@@ -13,7 +13,7 @@ export default {
 
   NavBarLink: {
     presentation: 'PRÉSENTATION',
-    methodology: 'MÉTHODOLOGIE',
+    methodology: 'LE VÉCU D’UNE POULE',
     calculator: 'CALCULATEUR',
     numbers: 'LES CHIFFRES',
     about: 'À PROPOS',
