@@ -9,7 +9,7 @@ export default function SectionHeading({ title, heading_number }: SectionHeading
       id="results-heading"
       className="flex flex-col text-center justify-center items-center md:flex-row md:justify-start md:text-left gap-8 mb-8 text-black"
     >
-      <span className="flex items-center justify-center p-[8px_84px_8px_84px] text-numbers md:text-numbers-desktop bg-pink-3 text-black rounded-[1.6rem]  ">
+      <span className="flex items-center justify-center p-[28px_84px_28px_84px] text-numbers md:text-numbers-desktop bg-pink-3 text-black rounded-[1.6rem]  ">
         {heading_number}.
       </span>
       {title.toUpperCase()}
