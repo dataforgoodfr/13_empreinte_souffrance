@@ -15,7 +15,7 @@ export default function SectionTitle({ image_path, image_alt, title, text_color 
       <Image src={image_path} width={200} height={200} alt={image_alt} className="mb-0 md:mb-0" />
       <h2
         className={clsx(
-          'text-center text-lg md:text-sm leading-snug px-4 mt-[-2.5rem] mx-10 sm:mx-25 md:mx-45 uppercase',
+          'text-center text-lg md:text-sm leading-snug px-4 mt-[-2.5rem] sm:mx-25 md:mx-45 uppercase',
           {
             'text-black': text_color === 'black',
             'text-white': text_color === 'white',
