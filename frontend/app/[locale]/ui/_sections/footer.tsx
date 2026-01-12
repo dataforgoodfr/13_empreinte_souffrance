@@ -30,22 +30,22 @@ export default async function Footer() {
               <img src="/anima-logo.svg" alt={t('footer.anima_logo_alt')} className="w-[120px] h-[28px] mb-4" />
               <ul className="space-y-3 text-sm">
                 <li>
-                  <a className={footerLinkClasses} href="https://animafrance.org/">
+                  <a className={footerLinkClasses} target="_blank" href="https://animafrance.org/">
                     {t('footer.website')}
                   </a>
                 </li>
                 <li>
-                  <a className={footerLinkClasses} href="https://www.linkedin.com/company/animafrance/">
+                  <a className={footerLinkClasses} target="_blank" href="https://www.linkedin.com/company/animafrance/">
                     {t('footer.linkedin')}
                   </a>
                 </li>
                 <li>
-                  <a className={footerLinkClasses} href="https://www.facebook.com/animafrance.org">
+                  <a className={footerLinkClasses} target="_blank" href="https://www.facebook.com/animafrance.org">
                     {t('footer.facebook')}
                   </a>
                 </li>
                 <li>
-                  <a className={footerLinkClasses} href="https://www.instagram.com/assoanima">
+                  <a className={footerLinkClasses} target="_blank" href="https://www.instagram.com/assoanima">
                     {t('footer.instagram')}
                   </a>
                 </li>
@@ -67,13 +67,14 @@ export default async function Footer() {
               </div>
               <ul className="space-y-3 text-sm">
                 <li>
-                  <a className={footerLinkClasses} href="https://dataforgood.fr/">
+                  <a className={footerLinkClasses} target="_blank" href="https://dataforgood.fr/">
                     {t('footer.website')}
                   </a>
                 </li>
                 <li>
-                  <a className={footerLinkClasses} href="https://www.linkedin.com/company/dataforgood/">
+                  <a className={footerLinkClasses} target="_blank" href="https://www.linkedin.com/company/dataforgood/">
                     {t('footer.linkedin')}
+                    
                   </a>
                 </li>
                 <li>
