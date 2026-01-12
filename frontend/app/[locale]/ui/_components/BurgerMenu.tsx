@@ -31,7 +31,7 @@ export default function BurgerMenu({ children, className }: Props) {
           className="bg-transparent border-none p-0 cursor-pointer outline-none h-full"
           aria-label={open ? 'Close menu' : 'Open menu'}
         >
-          <div className="flex flex-col items-center justify-center gap-1 h-full w-[36px]">
+          <div className="flex flex-col items-center justify-center gap-1 h-full w-[36px] mr-4">
             <span
               className={`block h-[4px] bg-gray-800 rounded origin-center transition-all duration-300 ${
                 open ? 'w-[28px] rotate-45 translate-y-[8px] translate-x-[2px]' : 'w-[30px]'
