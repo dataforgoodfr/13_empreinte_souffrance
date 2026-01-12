@@ -62,8 +62,8 @@ export default async function Footer() {
           <div className="flex flex-col">
             <div>
               <div className="flex items-center gap-4 mb-4">
-                <img src="/logo_data_for_good.png" alt={t('footer.dfg_logo_alt')} className="h-12 w-12 rounded-full" />
-                <span className="text-lg font-extrabold text-brown">Data For Good</span>
+                <img src="/dataforgood.svg" alt={t('footer.dfg_logo_alt')} className="w-48 rounded-full" />
+                <span className="text-lg font-extrabold text-brown"></span>
               </div>
               <ul className="space-y-3 text-sm">
                 <li>
