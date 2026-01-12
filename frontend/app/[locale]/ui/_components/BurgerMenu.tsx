@@ -15,9 +15,13 @@ export default function BurgerMenu({ children, className }: Props) {
     setOpen((prev) => !prev);
   };
 
-  const handleClose = () => {
-    setOpen(false);
+ const handleClose = (e: React.MouseEvent<HTMLDivElement>) => {
+     const target = e.target as HTMLElement;
+    if (target.tagName === 'A' || target.closest('a')) {
+      setOpen(false);
+    }
   };
+  
 
   return (
     <div className={className}>
@@ -48,9 +52,10 @@ export default function BurgerMenu({ children, className }: Props) {
 
         <div
           className={`absolute top-full right-0 bg-white border border-gray-200 shadow-lg rounded-lg overflow-hidden transition-all duration-300 ease-out
-          ${open ? 'max-h-[500px] opacity-100' : 'max-h-0 opacity-0'}
-          flex flex-col gap-2 p-4`}
+          ${open ? 'h-screen w-screen opacity-100' : 'max-h-0 opacity-0'}
+          flex flex-col justify-start gap-2 p-4`}
           style={{ minWidth: '200px' }}
+          onClick={handleClose}
         >
           {children}
         </div>
