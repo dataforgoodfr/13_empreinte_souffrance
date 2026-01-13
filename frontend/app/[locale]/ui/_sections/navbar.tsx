@@ -9,10 +9,8 @@ export default async function Navbar() {
   const t = await getI18n();
 
   const links = [
-    { name: t('NavBarLink.presentation'), href: '/' },
-    { name: t('NavBarLink.methodology'), href: '/methodology' },
-    { name: t('NavBarLink.calculator'), href: '/calculator' },
     { name: t('NavBarLink.numbers'), href: '/numbers' },
+    { name: t('NavBarLink.methodology'), href: '/methodology' },
     { name: t('NavBarLink.about'), href: '/about' },
   ];
 

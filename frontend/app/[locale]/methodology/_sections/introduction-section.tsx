@@ -5,12 +5,12 @@ export default async function IntroductionSection() {
   const t = await getI18n();
 
   return (
-    <section className="bg-violet p-section flex justify-center ">
+    <section className="bg-violet p-section flex justify-center font-medium">
       <div className="max-w-contain ">
-        <img src="/welfare-footprint-logo.svg " className="w-[300px] lg:w-[450px] mt-3 mb-6" alt="" />
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 ">
           <article className="flex flex-col gap-3">
             <h2>{t('MethodologyPage.introductionSection.title')}</h2>
+        <img src="/welfare-footprint-logo.svg " className="w-[200px] lg:w-[350px] mt-3 mb-6" alt="welfare footprint institute logo" />
             <p>{t('MethodologyPage.introductionSection.paragraph1')}</p>
             <p>{t('MethodologyPage.introductionSection.paragraph2')}</p>
             <Link
@@ -51,7 +51,7 @@ const Scientist = async ({ imgUrl, name, text }: ScientistProps) => {
     <div className="flex flex-col items-center">
       <img src={imgUrl} alt="Scientist" className="w-55 rounded-full h-auto object-contain" />
       <h3 className="text-center my-5">{name}</h3>
-      <p className="caption">{text}</p>
+      <p className="font-medium">{text}</p>
     </div>
   );
 };

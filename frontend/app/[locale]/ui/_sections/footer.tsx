@@ -9,7 +9,7 @@ export default async function Footer() {
   const footerUnderlineClasses = `${footerLinkClasses} underline`;
 
   return (
-    <footer className="bg-white px-6 md:px-12 py-8">
+    <footer className="bg-white px-6 md:px-12 py-8 font-medium">
       <div className="max-w-7xl mx-auto">
         {/* Logo + Bouton Don */}
         <div className="flex">
@@ -30,22 +30,22 @@ export default async function Footer() {
               <img src="/anima-logo.svg" alt={t('footer.anima_logo_alt')} className="w-[120px] h-[28px] mb-4" />
               <ul className="space-y-3 text-sm">
                 <li>
-                  <a className={footerLinkClasses} href="https://animafrance.org/">
+                  <a className={footerLinkClasses} target="_blank" href="https://animafrance.org/">
                     {t('footer.website')}
                   </a>
                 </li>
                 <li>
-                  <a className={footerLinkClasses} href="https://www.linkedin.com/company/animafrance/">
+                  <a className={footerLinkClasses} target="_blank" href="https://www.linkedin.com/company/animafrance/">
                     {t('footer.linkedin')}
                   </a>
                 </li>
                 <li>
-                  <a className={footerLinkClasses} href="https://www.facebook.com/animafrance.org">
+                  <a className={footerLinkClasses} target="_blank" href="https://www.facebook.com/animafrance.org">
                     {t('footer.facebook')}
                   </a>
                 </li>
                 <li>
-                  <a className={footerLinkClasses} href="https://www.instagram.com/assoanima">
+                  <a className={footerLinkClasses} target="_blank" href="https://www.instagram.com/assoanima">
                     {t('footer.instagram')}
                   </a>
                 </li>
@@ -62,18 +62,19 @@ export default async function Footer() {
           <div className="flex flex-col">
             <div>
               <div className="flex items-center gap-4 mb-4">
-                <img src="/logo_data_for_good.png" alt={t('footer.dfg_logo_alt')} className="h-12 w-12 rounded-full" />
-                <span className="text-lg font-extrabold text-brown">Data For Good</span>
+                <img src="/dataforgood.svg" alt={t('footer.dfg_logo_alt')} className="w-48 rounded-full" />
+                <span className="text-lg font-extrabold text-brown"></span>
               </div>
               <ul className="space-y-3 text-sm">
                 <li>
-                  <a className={footerLinkClasses} href="https://dataforgood.fr/">
+                  <a className={footerLinkClasses} target="_blank" href="https://dataforgood.fr/">
                     {t('footer.website')}
                   </a>
                 </li>
                 <li>
-                  <a className={footerLinkClasses} href="https://www.linkedin.com/company/dataforgood/">
+                  <a className={footerLinkClasses} target="_blank" href="https://www.linkedin.com/company/dataforgood/">
                     {t('footer.linkedin')}
+                    
                   </a>
                 </li>
                 <li>
