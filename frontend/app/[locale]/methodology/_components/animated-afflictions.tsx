@@ -91,7 +91,7 @@ export function AnimatedCard({ afflictions, index, offset, cascade }: AnimatedCa
           className={`absolute left-0 top-0 w-full z-1
             transition-transform duration-500
             -translate-x-full
-            ${entering ? 'translate-x-full' : 'translate-x-0'}
+            ${entering ? '-translate-x-full' : 'translate-x-0'}
 
           `}
           style={{ pointerEvents: 'none' }}
