@@ -23,7 +23,7 @@ export default async function NumbersPage() {
         text={
           'Une grande enquête menée en janvier 2026 a montré que xxx supermachés continuaient de vendre des œufs cage. Pourtant, plus aucun oeuf cage ne devrait se trouver en supermarché selon les engagements.'
         }
-        className={'h-[70vh]'}
+ 
       >
         <CagedEggsGraph />
       </Section>
