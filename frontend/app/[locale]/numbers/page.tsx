@@ -17,6 +17,7 @@ export default async function NumbersPage() {
       >
         <Supermarkets className="w-full h-full" />
       </Section>
+       <hr className='border border-pink-3 w-full max-w-[250px] md:max-w-[620px]'/>
       <Section
         title={'SUPERMARCHES VENDANT ENCORE DES ŒUFS CAGE'}
         text={
@@ -26,6 +27,7 @@ export default async function NumbersPage() {
       >
         <CagedEggsGraph />
       </Section>
+       <hr className='border border-pink-3 w-full max-w-[250px] md:max-w-[620px]'/>
       <Section
         title={'PART D’OEUFS CAGE EN SUPERMARCHES'}
         text={
@@ -34,6 +36,7 @@ export default async function NumbersPage() {
       >
         <StoreMapClient />
       </Section>
+      <hr className='border border-pink-3 w-full max-w-[250px] md:max-w-[620px]'/>
       <GoFurtherSection />
     </section>
   );
