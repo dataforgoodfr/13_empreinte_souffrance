@@ -12,11 +12,11 @@ const albertSans = Albert_Sans({
 export const metadata: Metadata = {
   metadataBase: new URL('https://lheuredescomptes.org'),
   title: {
-    default: 'L’heure des comptes',
-    template: '%s | L’heure des comptes',
+    default: 'L’heure des comptes - Anima x Data For Good',
+    template: '%s | L’heure des comptes - Anima x Data For Good',
   },
   description:
-    'Il y a 10 ans, les supermarchés s’engageaient à ne plus vendre aucun œuf de poule en cage d’ici fin 2025. Ont-ils tenus leurs engagements ? C’est l’heure des comptes',
+    'L’heure des comptes révèle si les supermarchés ont tenu leur promesse de ne plus vendre d’œufs de poules en cage, en s’appuyant sur une enquête d’Anima.',
   robots: {
     index: true,
     follow: true,
@@ -31,9 +31,9 @@ export const metadata: Metadata = {
   },
 
   openGraph: {
-    title: 'L’heure des comptes',
+    title: 'L’heure des comptes - Anima x Data For Good',
     description:
-      'Il y a 10 ans, les supermarchés s’engageaient à ne plus vendre aucun œuf de poule en cage d’ici fin 2025. Ont-ils tenus leurs engagements ? C’est l’heure des comptes',
+      'L’heure des comptes révèle si les supermarchés ont tenu leur promesse de ne plus vendre d’œufs de poules en cage, en s’appuyant sur une enquête d’Anima.',
     url: 'https://lheuredescomptes.org',
     siteName: 'L’heure des comptes',
     locale: 'fr',
@@ -49,9 +49,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'L’heure des comptes',
+    title: 'L’heure des comptes - Anima x Data For Good',
     description:
-      'Il y a 10 ans, les supermarchés s’engageaient à ne plus vendre aucun œuf de poule en cage d’ici fin 2025. Ont-ils tenus leurs engagements ? C’est l’heure des comptes',
+      'L’heure des comptes révèle si les supermarchés ont tenu leur promesse de ne plus vendre d’œufs de poules en cage, en s’appuyant sur une enquête d’Anima.',
     images: ['/og-image.png'],
   },
   icons: {
