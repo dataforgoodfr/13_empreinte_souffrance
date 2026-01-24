@@ -31,14 +31,17 @@ export function AnimatedAfflictionsGroup({ afflictions, delay = 4000, cascade = 
 
   return (
     <div>
-      {[0, 1, 2].map((offset, idx, arr) => (
-        <div key={offset}>
-          <AnimatedCard afflictions={afflictions} index={index} offset={offset} cascade={cascade} />
-          {idx < arr.length - 0 && (
-            <div className="bg-violet rounded-[5px] p-2 my-4 text-center text-3xl font-extrabold w-full">+</div>
-          )}
-        </div>
-      ))}
+      {[0, 1, 2].map((_, idx) => {
+        const offset = Math.floor((idx * afflictions.length) / 3);
+        return (
+          <div key={offset}>
+            <AnimatedCard afflictions={afflictions} index={index} offset={offset} cascade={cascade} />
+            {idx < 2 && (
+              <div className="bg-violet rounded-[5px] p-2 my-4 text-center text-3xl font-extrabold w-full">+</div>
+            )}
+          </div>
+        );
+      })}
     </div>
   );
 }
@@ -88,7 +91,7 @@ export function AnimatedCard({ afflictions, index, offset, cascade }: AnimatedCa
           className={`absolute left-0 top-0 w-full z-1
             transition-transform duration-500
             -translate-x-full
-            ${entering ? 'translate-x-full' : 'translate-x-0'}
+            ${entering ? '-translate-x-full' : 'translate-x-0'}
 
           `}
           style={{ pointerEvents: 'none' }}
