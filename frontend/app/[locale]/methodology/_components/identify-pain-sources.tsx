@@ -45,7 +45,7 @@ export default async function IdentifyPainSources() {
               alt={t('MethodologyPage.method_details_section.section_img_1.img_1.alt')}
             />
             <figcaption>
-              <p className="mb-2 text-bold">
+              <p className="mb-2 font-bold">
                 {t('MethodologyPage.method_details_section.section_img_1.img_1.type_of_pain')}
               </p>
               <p> {t('MethodologyPage.method_details_section.section_img_1.img_1.description_of_pain')}</p>
@@ -59,7 +59,7 @@ export default async function IdentifyPainSources() {
               alt={t('MethodologyPage.method_details_section.section_img_1.img_2.alt')}
             />
             <figcaption>
-              <p className="text-bold mb-2">
+              <p className="mb-2 font-bold">
                 {t('MethodologyPage.method_details_section.section_img_1.img_2.type_of_pain')}
               </p>
               <p> {t('MethodologyPage.method_details_section.section_img_1.img_2.description_of_pain')}</p>
@@ -73,7 +73,7 @@ export default async function IdentifyPainSources() {
               alt={t('MethodologyPage.method_details_section.section_img_1.img_3.alt')}
             />
             <figcaption>
-              <p className="text-bold mb-2">
+              <p className="mb-2 font-bold">
                 {t('MethodologyPage.method_details_section.section_img_1.img_3.type_of_pain')}
               </p>
               <p> {t('MethodologyPage.method_details_section.section_img_1.img_3.description_of_pain')}</p>
@@ -94,7 +94,7 @@ export default async function IdentifyPainSources() {
               alt={t('MethodologyPage.method_details_section.section_img_2.img_1.alt')}
             />
             <figcaption>
-              <p className="text-bold mb-2">
+              <p className="mb-2 font-bold">
                 {' '}
                 {t('MethodologyPage.method_details_section.section_img_2.img_1.type_of_pain')}
               </p>
@@ -109,7 +109,7 @@ export default async function IdentifyPainSources() {
               alt={t('MethodologyPage.method_details_section.section_img_2.img_2.alt')}
             />
             <figcaption>
-              <p className="text-bold mb-2">
+              <p className="mb-2 font-bold">
                 {t('MethodologyPage.method_details_section.section_img_2.img_2.type_of_pain')}
               </p>
               <p> {t('MethodologyPage.method_details_section.section_img_2.img_2.description_of_pain')}</p>
@@ -123,7 +123,7 @@ export default async function IdentifyPainSources() {
               alt={t('MethodologyPage.method_details_section.section_img_2.img_3.alt')}
             />
             <figcaption>
-              <p className="text-bold mb-2">
+              <p className="mb-2 font-bold">
                 {t('MethodologyPage.method_details_section.section_img_2.img_3.type_of_pain')}
               </p>
               <p> {t('MethodologyPage.method_details_section.section_img_2.img_3.description_of_pain')}</p>
