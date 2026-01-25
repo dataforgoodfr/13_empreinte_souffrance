@@ -3,128 +3,166 @@
 import { useMemo, useState } from 'react';
 import { CircleMarker, MapContainer, Popup, TileLayer } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
-import { store } from '../_data/store-data';
-
-// Couleur + Status
-const storesWithStatus = store.map((s) => {
-  const hasCageEggs = Math.random() < 0.5;
-  const color = hasCageEggs ? 'red' : '#008236';
-  const status = hasCageEggs ? "Présence d'œufs cage" : "Pas d'œufs cage";
-  return { ...s, color, status };
-});
-
-// Liste des enseignes distinctes pour le select
-const enseignes = Array.from(new Set(storesWithStatus.map((s) => s.category)));
+import { store, enseignes } from '../_data/store-data';
 
 export default function StoreMap() {
-  const [selectedEnseigne, setSelectedEnseigne] = useState<'all' | string>('all');
-  const [selectedStatus, setSelectedStatus] = useState<'all' | 'cage' | 'nocage'>('all');
+  // Filtres toggle : statut (mutuellement exclusif)
+  const [filterCage, setFilterCage] = useState(false);
+  const [filterNoCage, setFilterNoCage] = useState(false);
+  
+  // Filtres toggle : enseignes (sélection multiple)
+  const [selectedEnseignes, setSelectedEnseignes] = useState<string[]>([]);
+
+  // Handler pour toggle statut (mutuellement exclusif)
+  const toggleCage = () => {
+    setFilterCage(!filterCage);
+    if (!filterCage) setFilterNoCage(false);
+  };
+
+  const toggleNoCage = () => {
+    setFilterNoCage(!filterNoCage);
+    if (!filterNoCage) setFilterCage(false); 
+  };
+
+  
+  const toggleEnseigne = (enseigneId: string) => {
+    setSelectedEnseignes(prev =>
+      prev.includes(enseigneId)
+        ? prev.filter(id => id !== enseigneId)
+        : [...prev, enseigneId] 
+    );
+  };
+
 
   const filteredStores = useMemo(() => {
-    return storesWithStatus.filter((s) => {
-      if (selectedEnseigne !== 'all' && s.category !== selectedEnseigne) return false;
-      if (selectedStatus === 'cage' && s.status !== "Présence d'œufs cage") return false;
-      if (selectedStatus === 'nocage' && s.status !== "Pas d'œufs cage") return false;
+    return store.filter((s) => {
+
+      if (filterCage && !s.hasCageEggs) return false;
+      if (filterNoCage && s.hasCageEggs) return false;
+      
+
+      if (selectedEnseignes.length > 0 && !selectedEnseignes.includes(s.category)) {
+        return false;
+      }
+      
       return true;
     });
-  }, [selectedEnseigne, selectedStatus]);
+  }, [filterCage, filterNoCage, selectedEnseignes]);
+
 
   return (
-    <div className="flex flex-col gap-4 h-[50vh]">
-      {/* Filtres & légendes */}
-      <fieldset className="flex flex-wrap md:flex-row justify-start md:justify-center items-center gap-4">
-        <div className="flex flex-col gap-1">
-          <label className="font-bold">Enseigne</label>
-          <select
-            value={selectedEnseigne}
-            onChange={(e) => setSelectedEnseigne(e.target.value)}
-            className="border rounded px-2 py-1 text-sm"
-          >
-            <option value="all">Toutes les enseignes</option>
-            {enseignes.map((e) => (
-              <option key={e} value={e}>
-                {e.charAt(0).toUpperCase() + e.slice(1)}
-              </option>
-            ))}
-          </select>
-        </div>
-
-        <div className="flex flex-col gap-1">
-          <label className="font-bold">Présence d'oeuf</label>
-          <select
-            value={selectedStatus}
-            onChange={(e) => setSelectedStatus(e.target.value as 'all' | 'cage' | 'nocage')}
-            className="border rounded px-2 py-1 text-sm"
-          >
-            <option value="all">Tous les magasins</option>
-            <option value="cage">Présence d'œufs cage</option>
-            <option value="nocage">Pas d'œufs cage</option>
-          </select>
-        </div>
-
-        {/* Légende */}
-        <div className="flex flex-col gap-1 ">
-          <p className="font-bold">Légende</p>
-          <div className="flex items-center gap-2">
-            <span className="inline-block w-3 h-3 rounded-full bg-red-500" />
-            <p>Présence d'œufs cage</p>
-          </div>
-          <div className="flex items-center gap-2">
-            <span className="inline-block w-3 h-3 rounded-full bg-green-700" />
-            <p>Pas d'œufs cage</p>
-          </div>
-        </div>
-      </fieldset>
-
-      {/* Carte */}
-      <div
-        className="
-          w-full
-          max-w-[90vw]
-          h-[70vh]
-          md:h-[60vh]
-        "
+    <div className="relative p-section w-full h-[90dvh] md:h-[800px] overflow-hidden">
+      {/* Carte Leaflet */}
+      <MapContainer
+        center={[46.5, 2.5]}
+        zoom={6}
+        scrollWheelZoom={true}
+        className="w-full h-full z-0"
+        minZoom={5}
+        maxZoom={12}
       >
-        <MapContainer
-          center={[46.5, 2.5]}
-          zoom={5}
-          scrollWheelZoom={false}
-          className="w-full h-full"
-          minZoom={5}
-          maxZoom={10}
-          maxBounds={[
-            [51.5, -5.5],
-            [41, 9.8],
-          ]}
-          maxBoundsViscosity={1.0}
-        >
-          <TileLayer
-            url="https://{s}.tile.openstreetmap.fr/osmfr/{z}/{x}/{y}.png"
-            attribution="&copy; OpenStreetMap France, contributeurs OpenStreetMap"
-          />
+        <TileLayer
+          url="https://{s}.tile.openstreetmap.fr/osmfr/{z}/{x}/{y}.png"
+        
+        />
 
-          {filteredStores.map((s, i) => (
+        {/* Marqueurs */}
+        {filteredStores.map((s, i) => {
+          const color = s.hasCageEggs ? '#EF4444' : '#22C55E';
+          const status = s.hasCageEggs ? "Présence d'œufs cage" : "Pas d'œufs cage";
+          
+          return (
             <CircleMarker
-              key={i}
+              key={`${s.category}-${i}`}
               center={s.coords}
-              radius={8}
+              radius={9}
               pathOptions={{
-                fillColor: s.color,
-                fillOpacity: 1,
-                color: 'none',
+                fillColor: color,
+                fillOpacity: 0.9,
+                color: '#FFFFFF',
                 weight: 2,
               }}
             >
               <Popup>
-                <div>
-                  <h3>{s.name}</h3>
-                  <p>{s.address}</p>
-                  <p>{s.status}</p>
+                <div className="min-w-[200px]">
+                  <h3 className="font-bold text-lg mb-1">{s.name}</h3>
+                  <p className="text-sm text-gray-600 mb-2">{s.address}</p>
+                  <p 
+                    className="text-sm font-semibold"
+                    style={{ color }}
+                  >
+                    {status}
+                  </p>
                 </div>
               </Popup>
             </CircleMarker>
-          ))}
-        </MapContainer>
+          );
+        })}
+      </MapContainer>
+
+      {/* Encart de filtres - overlay sur la carte */}
+      <div className="absolute bottom-14 right-6 z-[2] bg-white p-6 max-w-[200px] ">
+        <p className="text-lg font-bold mb-4 text-gray-800">Filtres</p>
+        
+
+        {/* Filtre par statut */}
+        <div className="">
+          <div className="space-y-2">
+            <button
+              onClick={toggleCage}
+              className={`w-full px-4 py-2.5 rounded-lg text-caption font-medium transition-all flex items-center justify-center ${
+                filterCage
+                  ? 'bg-red-500 text-white'
+                  : 'bg-red-50 text-red-700 hover:bg-red-100'
+              }`}
+            >
+              <span>Présence d'œufs cage</span>
+              
+            </button>
+            <button
+              onClick={toggleNoCage}
+              className={`w-full px-4 py-2.5 rounded-lg text-caption font-medium transition-all flex items-center justify-center ${
+                filterNoCage
+                  ? 'bg-green-600 text-white shadow-md'
+                  : 'bg-green-50 text-green-700 hover:bg-green-100'
+              }`}
+            >
+              <span>Pas d'œufs cage</span>
+            </button>
+          </div>
+        </div>
+
+        <hr className='border border-pink-3 w-1/2 justify-self-center m-3'/>
+
+        {/* Filtre par enseigne */}
+        <div>
+          <div className="grid grid-cols-2 gap-2">
+            {/* Boutons enseignes avec sélection multiple */}
+            {enseignes.map((enseigne) => {
+              const isSelected = selectedEnseignes.includes(enseigne.id);
+              return (
+                <button
+                  key={enseigne.id}
+                  onClick={() => toggleEnseigne(enseigne.id)}
+                  className={`px-3 py-2.5 rounded-lg text-xs font-medium transition-all border-2 flex items-center justify-center gap-2 ${
+                    isSelected
+                      ? 'bg-blue-500 text-white border-blue-600 shadow-md'
+                      : 'bg-white text-gray-700 border-gray-200 hover:border-blue-400 hover:bg-blue-50'
+                  }`}
+                  title={enseigne.name}
+                >
+                  {/* Placeholder pour logo - carré coloré avec initiale */}
+                  <div className={`w-6 h-6 rounded flex items-center justify-center text-xs font-bold ${
+                    isSelected ? 'bg-white/20' : 'bg-gray-200'
+                  }`}>
+                    {enseigne.name.charAt(0)}
+                  </div>
+                  <span className="truncate">{enseigne.name}</span>
+                </button>
+              );
+            })}
+          </div>
+        </div>
       </div>
     </div>
   );
