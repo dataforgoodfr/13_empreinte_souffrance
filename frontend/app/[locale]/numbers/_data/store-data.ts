@@ -7,7 +7,7 @@ type Store = {
 };
 
 export const store: Store[] = [
-  // Carrefour - Mix
+
   {
     name: 'Carrefour Paris',
     coords: [48.8566, 2.3522],
@@ -30,7 +30,6 @@ export const store: Store[] = [
     hasCageEggs: true,
   },
   
-  // Auchan - Mix
   {
     name: 'Auchan Lille',
     coords: [50.6292, 3.0573],
@@ -53,7 +52,6 @@ export const store: Store[] = [
     hasCageEggs: true,
   },
   
-  // Lidl - Principalement sans cage
   {
     name: 'Lidl Nantes',
     coords: [47.2184, -1.5536],
@@ -76,7 +74,6 @@ export const store: Store[] = [
     hasCageEggs: true,
   },
   
-  // Leclerc - Mix
   {
     name: 'Leclerc Rennes',
     coords: [48.1173, -1.6778],
@@ -99,7 +96,6 @@ export const store: Store[] = [
     hasCageEggs: false,
   },
   
-  // Super U - Principalement avec cage
   {
     name: 'Super U',
     coords: [47.4784, -0.5632],
@@ -123,37 +119,58 @@ export const store: Store[] = [
   },
 ];
 
-// Configuration des enseignes avec logos (placeholders à remplacer)
+
 export type EnseigneConfig = {
   id: string;
   name: string;
-  logo: string; // URL ou chemin vers le logo
+  logo: string; 
 };
 
 export const enseignes: EnseigneConfig[] = [
   {
     id: 'carrefour',
     name: 'Carrefour',
-    logo: '/logos/carrefour.svg', // Placeholder - à remplacer
+    logo: '/logo/carrefour_logo.svg', 
   },
   {
     id: 'auchan',
     name: 'Auchan',
-    logo: '/logos/auchan.svg', // Placeholder - à remplacer
+    logo: '/logo/auchan_logo.svg',
   },
   {
     id: 'lidl',
     name: 'Lidl',
-    logo: '/logos/lidl.svg', // Placeholder - à remplacer
+    logo: '/logo/lidl_logo.svg', 
   },
   {
     id: 'leclerc',
     name: 'Leclerc',
-    logo: '/logos/leclerc.svg', // Placeholder - à remplacer
+    logo: '/logo/leclerc_logo.svg', 
   },
   {
     id: 'superu',
     name: 'Super U',
-    logo: '/logos/superu.svg', // Placeholder - à remplacer
+    logo: '/logo/U_logo.png',
   },
+    {
+    id: 'aldi',
+    name: 'Aldi',
+    logo: '/logo/aldi_logo.svg',
+  },
+      {
+    id: 'monoprix',
+    name: 'Monoprix',
+    logo: '/logo/monoprix_logo.svg',
+  },
+      {
+    id: 'casino',
+    name: 'Casino',
+    logo: '/logo/casino_logo.svg',
+  },
+      {
+    id: 'intermarche',
+    name: 'Intermarché',
+    logo: '/logo/intermarche_logo.svg',
+  },
+
 ];

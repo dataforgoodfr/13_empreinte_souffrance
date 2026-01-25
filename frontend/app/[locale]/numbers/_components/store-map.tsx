@@ -6,10 +6,10 @@ import 'leaflet/dist/leaflet.css';
 import { store, enseignes } from '../_data/store-data';
 
 export default function StoreMap() {
-  // Filtres toggle : statut (mutuellement exclusif)
+ 
   const [filterCage, setFilterCage] = useState(false);
   const [filterNoCage, setFilterNoCage] = useState(false);
-  
+
   // Filtres toggle : enseignes (sélection multiple)
   const [selectedEnseignes, setSelectedEnseignes] = useState<string[]>([]);
 
@@ -21,34 +21,27 @@ export default function StoreMap() {
 
   const toggleNoCage = () => {
     setFilterNoCage(!filterNoCage);
-    if (!filterNoCage) setFilterCage(false); 
+    if (!filterNoCage) setFilterCage(false);
   };
 
-  
   const toggleEnseigne = (enseigneId: string) => {
-    setSelectedEnseignes(prev =>
-      prev.includes(enseigneId)
-        ? prev.filter(id => id !== enseigneId)
-        : [...prev, enseigneId] 
+    setSelectedEnseignes((prev) =>
+      prev.includes(enseigneId) ? prev.filter((id) => id !== enseigneId) : [...prev, enseigneId]
     );
   };
 
-
   const filteredStores = useMemo(() => {
     return store.filter((s) => {
-
       if (filterCage && !s.hasCageEggs) return false;
       if (filterNoCage && s.hasCageEggs) return false;
-      
 
       if (selectedEnseignes.length > 0 && !selectedEnseignes.includes(s.category)) {
         return false;
       }
-      
+
       return true;
     });
   }, [filterCage, filterNoCage, selectedEnseignes]);
-
 
   return (
     <div className="relative p-section w-full h-[90dvh] md:h-[800px] overflow-hidden">
@@ -61,16 +54,13 @@ export default function StoreMap() {
         minZoom={5}
         maxZoom={12}
       >
-        <TileLayer
-          url="https://{s}.tile.openstreetmap.fr/osmfr/{z}/{x}/{y}.png"
-        
-        />
+        <TileLayer url="https://{s}.tile.openstreetmap.fr/osmfr/{z}/{x}/{y}.png" />
 
         {/* Marqueurs */}
         {filteredStores.map((s, i) => {
           const color = s.hasCageEggs ? '#EF4444' : '#22C55E';
           const status = s.hasCageEggs ? "Présence d'œufs cage" : "Pas d'œufs cage";
-          
+
           return (
             <CircleMarker
               key={`${s.category}-${i}`}
@@ -78,8 +68,8 @@ export default function StoreMap() {
               radius={9}
               pathOptions={{
                 fillColor: color,
-                fillOpacity: 0.9,
-                color: '#FFFFFF',
+                fillOpacity: 1,
+                color: '',
                 weight: 2,
               }}
             >
@@ -87,10 +77,7 @@ export default function StoreMap() {
                 <div className="min-w-[200px]">
                   <h3 className="font-bold text-lg mb-1">{s.name}</h3>
                   <p className="text-sm text-gray-600 mb-2">{s.address}</p>
-                  <p 
-                    className="text-sm font-semibold"
-                    style={{ color }}
-                  >
+                  <p className="text-sm font-semibold" style={{ color }}>
                     {status}
                   </p>
                 </div>
@@ -100,68 +87,66 @@ export default function StoreMap() {
         })}
       </MapContainer>
 
-      {/* Encart de filtres - overlay sur la carte */}
-      <div className="absolute bottom-14 right-6 z-[2] bg-white p-6 max-w-[200px] ">
-        <p className="text-lg font-bold mb-4 text-gray-800">Filtres</p>
-        
+      {/* Encart de filtres  */}
+      <div className="absolute bottom-16 left-10 z-[2] bg-white p-4 max-w-[400px] ">
+        <p className="text-lg font-bold mb-1 text-gray-800 justify-self-center ">Filtres</p>
 
-        {/* Filtre par statut */}
-        <div className="">
-          <div className="space-y-2">
-            <button
-              onClick={toggleCage}
-              className={`w-full px-4 py-2.5 rounded-lg text-caption font-medium transition-all flex items-center justify-center ${
-                filterCage
-                  ? 'bg-red-500 text-white'
-                  : 'bg-red-50 text-red-700 hover:bg-red-100'
-              }`}
-            >
-              <span>Présence d'œufs cage</span>
-              
-            </button>
-            <button
-              onClick={toggleNoCage}
-              className={`w-full px-4 py-2.5 rounded-lg text-caption font-medium transition-all flex items-center justify-center ${
-                filterNoCage
-                  ? 'bg-green-600 text-white shadow-md'
-                  : 'bg-green-50 text-green-700 hover:bg-green-100'
-              }`}
-            >
-              <span>Pas d'œufs cage</span>
-            </button>
+        <div className="flex flex-row">
+          {/* Filtre par statut */}
+          <div>
+            <div className="flex flex-col justify-evenly h-full">
+              <button
+                onClick={toggleCage}
+                title="Présence d'oeufs cage"
+                className={`w-9 px-2 py-1.5 transition-all flex items-center justify-center ${
+                  filterCage ? 'bg-red-200 shadow-md' : 'bg-red-50 hover:bg-red-100'
+                }`}
+              >
+                <img alt="free egg icon" src="/logo/map_filter_icon_caged_egg.svg" />
+              </button>
+              <button
+                onClick={toggleNoCage}
+                title="Pas d'oeufs cage"
+                className={`w-9 px-2 py-1.5 transition-all flex items-center justify-center ${
+                  filterNoCage ? 'bg-green-200 shadow-md' : 'bg-green-50 hover:bg-green-100'
+                }`}
+              >
+                <img alt="free egg icon" src="/logo/map_filter_icon_free_egg.svg" />
+              </button>
+            </div>
           </div>
-        </div>
 
-        <hr className='border border-pink-3 w-1/2 justify-self-center m-3'/>
+          <hr className="border border-pink-3 h-[110px] items-self-center m-3" />
 
-        {/* Filtre par enseigne */}
-        <div>
-          <div className="grid grid-cols-2 gap-2">
-            {/* Boutons enseignes avec sélection multiple */}
-            {enseignes.map((enseigne) => {
-              const isSelected = selectedEnseignes.includes(enseigne.id);
-              return (
-                <button
-                  key={enseigne.id}
-                  onClick={() => toggleEnseigne(enseigne.id)}
-                  className={`px-3 py-2.5 rounded-lg text-xs font-medium transition-all border-2 flex items-center justify-center gap-2 ${
-                    isSelected
-                      ? 'bg-blue-500 text-white border-blue-600 shadow-md'
-                      : 'bg-white text-gray-700 border-gray-200 hover:border-blue-400 hover:bg-blue-50'
-                  }`}
-                  title={enseigne.name}
-                >
-                  {/* Placeholder pour logo - carré coloré avec initiale */}
-                  <div className={`w-6 h-6 rounded flex items-center justify-center text-xs font-bold ${
-                    isSelected ? 'bg-white/20' : 'bg-gray-200'
-                  }`}>
-                    {enseigne.name.charAt(0)}
-                  </div>
-                  <span className="truncate">{enseigne.name}</span>
-                </button>
-              );
-            })}
+          {/* Filtre par enseigne */}
+          <div>
+            <div className="grid grid-cols-3 gap-2">
+
+              {enseignes.map((enseigne) => {
+                const isSelected = selectedEnseignes.includes(enseigne.id);
+                return (
+                  <button
+                    key={enseigne.id}
+                    onClick={() => toggleEnseigne(enseigne.id)}
+                    className={`py-1.5  transition-all border-2 flex items-center justify-center gap-2 ${
+                      isSelected
+                        ? '  border-blue-600 shadow-md'
+                        : '  border-gray-200 hover:border-blue-400 hover:bg-blue-50'
+                    }`}
+                    title={enseigne.name}
+                  >
+                    {/* Placeholder pour logo - carré coloré avec initiale */}
+                    <div
+                      className={`w-8 h-6 rounded flex items-center justify-center`}
+                    >
+                      <img alt="supermarket logo" src={enseigne.logo} />
+                    </div>
+                  </button>
+                );
+              })}
+            </div>
           </div>
+
         </div>
       </div>
     </div>
