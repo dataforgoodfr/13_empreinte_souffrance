@@ -1,6 +1,7 @@
 import GoFurtherSection from '../ui/_sections/go-further-section';
 import Header from '@/app/[locale]/numbers/_components/Header';
 import Supermarkets from '@/app/[locale]/numbers/_components/Supermarkets';
+import MapSection from './_components/MapSection';
 import Section from '@/app/[locale]/numbers/_components/Section';
 import CagedEggsGraph from '@/app/[locale]/numbers/_components/CagedEggs';
 import StoreMapClient from '@/app/[locale]/numbers/_components/store-map-client';
@@ -32,14 +33,14 @@ export default async function NumbersPage() {
 
         <hr className="border justify-self-center border-pink-3 w-full max-w-[250px] md:max-w-[620px]" />
         
-        <Section
+        <MapSection
           title={'PART D’OEUFS CAGE EN SUPERMARCHES'}
           text={
             'La cage occupait encore une part minoriaire mais signifcative en 2025. Le plein air est le mode délevage le plus répandu en supermarché. '
           }
         >
-        </Section>
           <StoreMapClient />
+        </MapSection>
      
       <GoFurtherSection />
     </>

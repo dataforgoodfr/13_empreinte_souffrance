@@ -6,7 +6,6 @@ import 'leaflet/dist/leaflet.css';
 import { store, enseignes } from '../_data/store-data';
 
 export default function StoreMap() {
- 
   const [filterCage, setFilterCage] = useState(false);
   const [filterNoCage, setFilterNoCage] = useState(false);
 
@@ -44,7 +43,7 @@ export default function StoreMap() {
   }, [filterCage, filterNoCage, selectedEnseignes]);
 
   return (
-    <div className="relative p-section w-full h-[90dvh] md:h-[800px] overflow-hidden">
+    <div className="relative w-full h-[90dvh] md:h-[800px] overflow-hidden">
       {/* Carte Leaflet */}
       <MapContainer
         center={[46.5, 2.5]}
@@ -54,7 +53,10 @@ export default function StoreMap() {
         minZoom={5}
         maxZoom={12}
       >
-        <TileLayer url="https://{s}.tile.openstreetmap.fr/osmfr/{z}/{x}/{y}.png" />
+        <TileLayer
+          url="https://{s}.tile.openstreetmap.fr/osmfr/{z}/{x}/{y}.png"
+          attribution="&copy; OpenStreetMap France"
+        />
 
         {/* Marqueurs */}
         {filteredStores.map((s, i) => {
@@ -88,7 +90,7 @@ export default function StoreMap() {
       </MapContainer>
 
       {/* Encart de filtres  */}
-      <div className="absolute bottom-16 left-10 z-[2] bg-white p-4 max-w-[400px] ">
+      <div className="absolute bottom-5 left-5 z-[2] bg-white p-4 max-w-[400px] ">
         <p className="text-lg font-bold mb-1 text-gray-800 justify-self-center ">Filtres</p>
 
         <div className="flex flex-row">
@@ -121,7 +123,6 @@ export default function StoreMap() {
           {/* Filtre par enseigne */}
           <div>
             <div className="grid grid-cols-3 gap-2">
-
               {enseignes.map((enseigne) => {
                 const isSelected = selectedEnseignes.includes(enseigne.id);
                 return (
@@ -131,14 +132,12 @@ export default function StoreMap() {
                     className={`py-1.5  transition-all border-2 flex items-center justify-center gap-2 ${
                       isSelected
                         ? '  border-blue-600 shadow-md'
-                        : '  border-gray-200 hover:border-blue-400 hover:bg-blue-50'
+                        : '  border-gray-200 hover:border-blue-400'
                     }`}
                     title={enseigne.name}
                   >
                     {/* Placeholder pour logo - carré coloré avec initiale */}
-                    <div
-                      className={`w-8 h-6 rounded flex items-center justify-center`}
-                    >
+                    <div className={`w-8 h-6 rounded flex items-center justify-center`}>
                       <img alt="supermarket logo" src={enseigne.logo} />
                     </div>
                   </button>
@@ -146,7 +145,6 @@ export default function StoreMap() {
               })}
             </div>
           </div>
-
         </div>
       </div>
     </div>

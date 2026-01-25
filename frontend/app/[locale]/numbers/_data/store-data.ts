@@ -145,7 +145,7 @@ export const enseignes: EnseigneConfig[] = [
   {
     id: 'leclerc',
     name: 'Leclerc',
-    logo: '/logo/leclerc_logo.svg', 
+    logo: '/logo/leclerc_logo.png', 
   },
   {
     id: 'superu',
@@ -170,7 +170,7 @@ export const enseignes: EnseigneConfig[] = [
       {
     id: 'intermarche',
     name: 'Intermarché',
-    logo: '/logo/intermarche_logo.svg',
+    logo: '/logo/intermarche_logo.png',
   },
 
 ];
