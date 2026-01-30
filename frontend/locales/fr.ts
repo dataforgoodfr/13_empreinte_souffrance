@@ -706,7 +706,7 @@ export default {
         'Anima existe pour réduire la souffrance des animaux de la façon la plus efficace possible. L’association mène une campagne nationale et européenne pour mettre un terme à l’élevage en cage des poules pondeuses. Anima est membre de la coalition européenne Anima International.',
       anima_link: 'www.animafrance.org',
       dataforgood_presentation:
-        "Data for Good est une ONG française dont le but est d'aider les projets d'intérêt général à se développer. Grâce à une communauté de plus de 4000 bénévoles compétents en technologie, une douzaine de projets sont soutenus et développés pendant plus de 3 mois.",
+        "Data For Good est une communauté de plus de 8000 bénévoles de la tech, qui se met au service d’associations d’intérêt général. En 15 ans, elle a co-developpé plus de 130 projets.",
       dataforgood_link: 'www.dataforgood.fr',
     },
     whyNameSection: {

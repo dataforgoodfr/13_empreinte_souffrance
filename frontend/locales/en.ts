@@ -694,7 +694,7 @@ export default {
         'Anima exists to reduce animal suffering as effectively as possible. The association is leading a national and European campaign to end the caged farming of laying hens. Anima is a member of the European coalition Anima International.',
       anima_link: 'www.animafrance.org',
       dataforgood_presentation:
-        'Data for Good is a French NGO whose goal is to help public interest projects grow. Thanks to a community of over 4,000 tech-savvy volunteers, a dozen projects are supported and developed for over three months.',
+        'Data For Good is a community of over 8,000 tech volunteers who dedicate their time to serving non-profit organizations. In 15 years, it has co-developed over 130 projects.',
       dataforgood_link: 'www.dataforgood.fr',
     },
     whyNameSection: {

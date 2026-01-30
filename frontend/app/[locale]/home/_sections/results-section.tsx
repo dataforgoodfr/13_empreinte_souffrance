@@ -85,11 +85,11 @@ export default async function ResultsSection() {
               flex-col rounded-md overflow-hidden
               bg-white max-w-screen-xl
 
-              w-[420px] lg:w-full
+              w-[320px] lg:w-full
               `}
             key={index}
           >
-            <div className="w-full  lg:w-1/2 p-5 flex-shrink-0">{infoContent}</div>
+            <div className="w-full lg:w-1/2 p-5 flex-shrink-0">{infoContent}</div>
             <div className="w-full lg:w-1/2 h-1/3 lg:h-full flex-shrink-0">
               <Image
                 width={500}
@@ -107,7 +107,7 @@ export default async function ResultsSection() {
           href={'/methodology'}
           className={`bg-white shadow-[0_4px_0_0_black] rounded-md
             cursor-pointer font-black text-brown text-sm tracking-widest
-            lg:w-full max-w-screen-xl w-[420px] p-4 m-4 text-center`}
+            lg:w-full max-w-screen-xl w-[320px] p-4 m-4 text-center`}
         >
           {t('Results.link')}
         </Link>
