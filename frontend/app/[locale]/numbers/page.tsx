@@ -5,6 +5,32 @@ import MapSection from './_components/MapSection';
 import Section from '@/app/[locale]/numbers/_components/Section';
 import CagedEggsGraph from '@/app/[locale]/numbers/_components/CagedEggs';
 import StoreMapClient from '@/app/[locale]/numbers/_components/store-map-client';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Les chiffres',
+  description: 'Découvrez les chiffres clés de l\'enquête sur les œufs de poules en cage : engagements des supermarchés, résultats de terrain et statistiques détaillées.',
+  keywords: [
+    'statistiques œufs cage',
+    'chiffres supermarchés',
+    'enquête terrain',
+    'données bien-être animal',
+  ],
+  openGraph: {
+    title: "Les chiffres - L'heure des comptes",
+    description: "Découvrez les chiffres clés de l'enquête sur les œufs de poules en cage : engagements des supermarchés, résultats de terrain et statistiques détaillées.",
+    images: ['/og-numbers.png'],
+  },
+  twitter: {
+    title: "Les chiffres - L'heure des comptes",
+    description: "Découvrez les chiffres clés de l'enquête sur les œufs de poules en cage : engagements des supermarchés, résultats de terrain et statistiques détaillées.",
+    images: ['/og-numbers.png'],
+  },
+  alternates: {
+    canonical: '/numbers',
+  },
+};
+
 
 export default async function NumbersPage() {
   return (

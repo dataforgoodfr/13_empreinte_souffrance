@@ -17,7 +17,26 @@ export const metadata: Metadata = {
   },
   description:
     'L’heure des comptes révèle si les supermarchés ont tenu leur promesse de ne plus vendre d’œufs de poules en cage, en s’appuyant sur une enquête d’Anima.',
-  robots: {
+  keywords: [
+    'œufs cage',
+    'bien-être animal',
+    'poules pondeuses',
+    'supermarchés',
+    'Anima',
+    'Data For Good',
+    'engagement',
+    'grandes surfaces',
+    'œufs plein air',
+  ],
+  authors: [
+    { name: 'Anima', url: 'https://animaasso.org' },
+    { name: 'Data For Good', url: 'https://dataforgood.fr' },
+  ],
+  creator: 'Anima x Data For Good',
+  publisher: 'Anima',
+  applicationName: "L'heure des comptes",
+  category: 'Social Impact',
+    robots: {
     index: true,
     follow: true,
   },
@@ -26,7 +45,6 @@ export const metadata: Metadata = {
     canonical: '/',
     languages: {
       fr: '/',
-      en: '/en',
     },
   },
 
@@ -36,14 +54,14 @@ export const metadata: Metadata = {
       'L’heure des comptes révèle si les supermarchés ont tenu leur promesse de ne plus vendre d’œufs de poules en cage, en s’appuyant sur une enquête d’Anima.',
     url: 'https://lheuredescomptes.org',
     siteName: 'L’heure des comptes',
-    locale: 'fr',
+    locale: 'fr_FR',
     type: 'website',
     images: [
       {
         url: '/og-image.png',
         width: 1200,
         height: 630,
-        alt: "page d'accueil du site",
+        alt: "L'heure des comptes - Enquête sur les œufs de poules en cage",
       },
     ],
   },
@@ -53,10 +71,13 @@ export const metadata: Metadata = {
     description:
       'L’heure des comptes révèle si les supermarchés ont tenu leur promesse de ne plus vendre d’œufs de poules en cage, en s’appuyant sur une enquête d’Anima.',
     images: ['/og-image.png'],
+    creator: '@anima_asso',
+    site: '@anima_asso',
   },
   icons: {
     icon: '/favicon/favicon.ico',
     shortcut: '/favicon/favicon.ico',
+    apple: '/favicon/apple-touch-icon.png',
   },
 };
 
