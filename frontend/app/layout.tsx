@@ -93,6 +93,7 @@ export default async function RootLayout({
 
   return (
     <html lang={locale}>
+      <meta name="google-site-verification" content="xCwzFREtdAsjCMRw-Xg_oG-8KdbMS_-oqFdXAZ_zVoM" />
       <body className={`antialiased text-black ${albertSans.variable}`}>{children}</body>
     </html>
   );
