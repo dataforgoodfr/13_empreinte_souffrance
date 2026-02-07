@@ -13,7 +13,7 @@ export const metadata: Metadata = {
   metadataBase: new URL('https://lheuredescomptes.org'),
   title: {
     default: 'L’heure des comptes - Anima x Data For Good',
-    template: '%s | L’heure des comptes - Anima x Data For Good',
+    template: 'L’heure des comptes - Anima x Data For Good',
   },
   description:
     'L’heure des comptes révèle si les supermarchés ont tenu leur promesse de ne plus vendre d’œufs de poules en cage, en s’appuyant sur une enquête d’Anima.',
