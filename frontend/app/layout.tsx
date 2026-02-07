@@ -84,15 +84,17 @@ export const metadata: Metadata = {
 export default async function RootLayout({
   params,
   children,
-}: {
-  params: Promise<{ locale: string }>;
+}: Readonly<{
+  params: Promise<{ locale?: string }>;
   children: ReactElement;
-}) {
+}>) {
   const { locale } = await params;
-  setStaticParamsLocale(locale);
+  if (locale) {
+    setStaticParamsLocale(locale);
+  }
 
   return (
-    <html lang={locale}>
+    <html lang={locale || 'fr'}>
       <meta name="google-site-verification" content="xCwzFREtdAsjCMRw-Xg_oG-8KdbMS_-oqFdXAZ_zVoM" />
       <body className={`antialiased text-black ${albertSans.variable}`}>{children}</body>
     </html>

@@ -36,8 +36,8 @@ export const enseignes: EnseigneConfig[] = [
     logo: '/logo/leclerc_logo.png',
   },
   {
-    id: 'superu',
-    name: 'Super U',
+    id: 'systemu',
+    name: 'Supermarché U',
     logo: '/logo/U_logo.png',
   },
   {
