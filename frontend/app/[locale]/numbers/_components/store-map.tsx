@@ -5,6 +5,8 @@ import { CircleMarker, MapContainer, Popup, TileLayer } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 import { store, enseignes } from '../_data/store-data';
 
+
+
 export default function StoreMap() {
   const [filterCage, setFilterCage] = useState(false);
   const [filterNoCage, setFilterNoCage] = useState(false);
@@ -42,6 +44,7 @@ export default function StoreMap() {
     });
   }, [filterCage, filterNoCage, selectedEnseignes]);
 
+
   return (
     <div className="relative w-full h-[90dvh] md:h-[800px] overflow-hidden">
       {/* Carte Leaflet */}
@@ -51,7 +54,7 @@ export default function StoreMap() {
         scrollWheelZoom={true}
         className="w-full h-full z-0"
         minZoom={5}
-        maxZoom={12}
+        maxZoom={18}
       >
         <TileLayer
           url="https://{s}.tile.openstreetmap.fr/osmfr/{z}/{x}/{y}.png"
@@ -60,11 +63,12 @@ export default function StoreMap() {
 
         {/* Marqueurs */}
         {filteredStores.map((s, i) => {
-          const color = s.hasCageEggs ? '#EF4444' : '#22C55E';
+          const color = s.hasCageEggs ? '#ff584b' : '#22C55E';
           const status = s.hasCageEggs ? "Présence d'œufs cage" : "Pas d'œufs cage";
+          
 
           return (
-            <CircleMarker
+           <CircleMarker
               key={`${s.category}-${i}`}
               center={s.coords}
               radius={9}
@@ -72,16 +76,27 @@ export default function StoreMap() {
                 fillColor: color,
                 fillOpacity: 1,
                 color: '',
-                weight: 2,
+                weight: 4,
               }}
             >
               <Popup>
-                <div className="min-w-[200px]">
-                  <h3 className="font-bold text-lg mb-1">{s.name}</h3>
-                  <p className="text-sm text-gray-600 mb-2">{s.address}</p>
-                  <p className="text-sm font-semibold" style={{ color }}>
+                <div className="min-w-[200px] flex flex-col items-start ">
+                  <h3 className="font-bold text-lg ">{s.name}</h3>
+                  <p className="text-sm text-gray-600 ">{s.address}</p>
+
+                  <p className="w-full text-sm font-semibold text-center" style={{ color }}>
                     {status}
                   </p>
+                  <div className='flex flex-row w-full justify-around items-center '>
+                    {s.nbRef === 0 ? "" : <p className=''>Nombre de référence: {s.nbRef}</p> }
+                    {s.urlImg === null ? (
+                      " "
+                    ) : (
+                      <a href={s.urlImg} target="_blanck">
+                        Photo
+                      </a>
+                    )}
+                  </div>
                 </div>
               </Popup>
             </CircleMarker>
@@ -104,7 +119,7 @@ export default function StoreMap() {
                   filterCage ? 'bg-red-200 shadow-md' : 'bg-red-50 hover:bg-red-100'
                 }`}
               >
-                <img alt="free egg icon" src="/logo/map_filter_icon_caged_egg.svg" />
+                <img alt="caged egg icon" src="/logo/red_ellipse.svg" />
               </button>
               <button
                 onClick={toggleNoCage}
@@ -113,7 +128,7 @@ export default function StoreMap() {
                   filterNoCage ? 'bg-green-200 shadow-md' : 'bg-green-50 hover:bg-green-100'
                 }`}
               >
-                <img alt="free egg icon" src="/logo/map_filter_icon_free_egg.svg" />
+                <img alt="free egg icon" src="/logo/green_ellipse.svg" />
               </button>
             </div>
           </div>
@@ -130,9 +145,7 @@ export default function StoreMap() {
                     key={enseigne.id}
                     onClick={() => toggleEnseigne(enseigne.id)}
                     className={`py-1.5  transition-all border-2 flex items-center justify-center gap-2 ${
-                      isSelected
-                        ? '  border-blue-600 shadow-md'
-                        : '  border-gray-200 hover:border-blue-400'
+                      isSelected ? '  border-blue-600 shadow-md' : '  border-gray-200 hover:border-blue-400'
                     }`}
                     title={enseigne.name}
                   >

@@ -14,6 +14,6 @@ export const metadata: Metadata = {
 /**
  * Minimal layout for embeddables
  */
-export default function EmbedLayout({ children }: { children: ReactNode }) {
+export default function EmbedLayout({ children }: Readonly<{ children: ReactNode }>) {
   return <div className="m-0 p-0 overflow-hidden">{children}</div>;
 }

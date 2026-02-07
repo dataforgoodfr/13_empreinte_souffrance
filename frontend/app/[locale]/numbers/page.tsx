@@ -42,7 +42,7 @@ export default async function NumbersPage() {
         <Supermarkets className="w-full h-full" />
       </Section>
 
-      <hr className="flex justify-self-center border border-pink-3 w-full max-w-[250px] md:max-w-[620px]" />
+      <hr className="border border-pink-3 w-full max-w-[250px] md:max-w-[620px] mx-auto" />
 
       <Section
         title={'SUPERMARCHES VENDANT ENCORE DES ŒUFS CAGE'}
@@ -53,15 +53,17 @@ export default async function NumbersPage() {
         <CagedEggsGraph />
       </Section>
 
-      <hr className="border justify-self-center border-pink-3 w-full max-w-[250px] md:max-w-[620px]" />
+      <hr className="border border-pink-3 w-full max-w-[250px] md:max-w-[620px] mx-auto" />
 
       <Section
-        title={'PART D’OEUFS CAGE EN SUPERMARCHES'}
+        title={"PART D'OEUFS CAGE EN SUPERMARCHES"}
         text={
           'La cage occupait encore une part minoriaire mais signifcative en 2025. Le plein air est le mode délevage le plus répandu en supermarché. '
         }
+        innerClassName=""
+        contentClassName="justify-end"
       >
-        <StoreMapClient />
+        <StoreMapClient/>
       </Section>
 
       <GoFurtherSection />

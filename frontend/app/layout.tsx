@@ -13,7 +13,7 @@ export const metadata: Metadata = {
   metadataBase: new URL('https://lheuredescomptes.org'),
   title: {
     default: 'L’heure des comptes - Anima x Data For Good',
-    template: '%s | L’heure des comptes - Anima x Data For Good',
+    template: 'L’heure des comptes - Anima x Data For Good',
   },
   description:
     'L’heure des comptes révèle si les supermarchés ont tenu leur promesse de ne plus vendre d’œufs de poules en cage, en s’appuyant sur une enquête d’Anima.',
@@ -84,15 +84,17 @@ export const metadata: Metadata = {
 export default async function RootLayout({
   params,
   children,
-}: {
+}: Readonly<{
   params: Promise<{ locale: string }>;
   children: ReactNode;
-}) {
+}>) {
   const { locale } = await params;
-  setStaticParamsLocale(locale);
+  if (locale) {
+    setStaticParamsLocale(locale);
+  }
 
   return (
-    <html lang={locale}>
+    <html lang={locale || 'fr'}>
       <meta name="google-site-verification" content="xCwzFREtdAsjCMRw-Xg_oG-8KdbMS_-oqFdXAZ_zVoM" />
       <body className={`antialiased text-black ${albertSans.variable}`}>{children}</body>
     </html>
