@@ -1540,7 +1540,7 @@ export const store: Store[] = [
   {
     name: 'Intermarché',
     coords: [47.2313111, 5.9943601],
-    category: 'intermarché',
+    category: 'intermarche',
     address: '110 rue de Dole, 25000 Besançon',
     hasCageEggs: false,
     nbRef: 0,
@@ -1550,7 +1550,7 @@ export const store: Store[] = [
   {
     name: 'Intermarché',
     coords: [47.217659, 5.968332999999999],
-    category: 'intermarché',
+    category: 'intermarche',
     address: '8 place René Cassin, 25000 Besançon',
     hasCageEggs: false,
     nbRef: 0,
@@ -1560,7 +1560,7 @@ export const store: Store[] = [
   {
     name: 'Intermarché',
     coords: [47.4557429, -0.5351808],
-    category: 'intermarché',
+    category: 'intermarche',
     address: '55 Bd Jacques Millot, 49000 Angers',
     hasCageEggs: false,
     nbRef: 0,
@@ -1570,7 +1570,7 @@ export const store: Store[] = [
   {
     name: 'Intermarché',
     coords: [47.179797, -1.5332409],
-    category: 'intermarché',
+    category: 'intermarche',
     address: '29 Rue de la Blordière, 44400 Rezé, France',
     hasCageEggs: false,
     nbRef: 0,
@@ -1580,7 +1580,7 @@ export const store: Store[] = [
   {
     name: 'Intermarché',
     coords: [47.1988667, -1.5200481],
-    category: 'intermarché',
+    category: 'intermarche',
     address: '5 BIS Rue du Lieutenant Auge, 44230 Saint-Sébastien-sur-Loire, France',
     hasCageEggs: false,
     nbRef: 0,
@@ -1590,7 +1590,7 @@ export const store: Store[] = [
   {
     name: 'Intermarché',
     coords: [45.7761588, 4.800471700000001],
-    category: 'intermarché',
+    category: 'intermarche',
     address: '68-70 rue Marietton 69009 LYON',
     hasCageEggs: false,
     nbRef: 0,
@@ -1599,7 +1599,7 @@ export const store: Store[] = [
   {
     name: 'Intermarché',
     coords: [45.764152, 4.871799],
-    category: 'intermarché',
+    category: 'intermarche',
     address: '95 rue magenta, Villeurbanne',
     hasCageEggs: false,
     nbRef: 0,
@@ -1609,7 +1609,7 @@ export const store: Store[] = [
   {
     name: 'Intermarché',
     coords: [48.859146, 2.9028299],
-    category: 'intermarché',
+    category: 'intermarche',
     address: 'Avenue de Villiers - 77580 Crécy-La-Chapelle',
     hasCageEggs: false,
     nbRef: 0,
@@ -1619,7 +1619,7 @@ export const store: Store[] = [
   {
     name: 'Intermarché',
     coords: [45.770985, 4.957600999999999],
-    category: 'intermarché',
+    category: 'intermarche',
     address: '209 avenue JJaurès 69 Décines',
     hasCageEggs: false,
     nbRef: 0,
@@ -1628,7 +1628,7 @@ export const store: Store[] = [
   {
     name: 'Intermarché',
     coords: [47.3054871, 5.0228671],
-    category: 'intermarché',
+    category: 'intermarche',
     address: '116 Av. Jean Jaurès, 21000 Dijon',
     hasCageEggs: false,
     nbRef: 0,
@@ -1638,7 +1638,7 @@ export const store: Store[] = [
   {
     name: 'Intermarché',
     coords: [47.8801832, 1.9341064],
-    category: 'intermarché',
+    category: 'intermarche',
     address: 'en Val, Rte de Saint-Cyr, 45650 Saint-Jean-le-Blanc',
     hasCageEggs: false,
     nbRef: 0,
@@ -1648,7 +1648,7 @@ export const store: Store[] = [
   {
     name: 'Intermarché',
     coords: [49.1609621, -0.3988343],
-    category: 'intermarché',
+    category: 'intermarche',
     address: 'ZAC des Longs Courts-14111 Louvigny',
     hasCageEggs: false,
     nbRef: 0,
@@ -1658,7 +1658,7 @@ export const store: Store[] = [
   {
     name: 'Intermarché',
     coords: [47.246712, -1.589885],
-    category: 'intermarché',
+    category: 'intermarche',
     address: '54 avenue de la ferriere 44700 Orvault ',
     hasCageEggs: false,
     nbRef: 0,
@@ -1668,7 +1668,7 @@ export const store: Store[] = [
   {
     name: 'Intermarché',
     coords: [48.877573, 2.750291],
-    category: 'intermarché',
+    category: 'intermarche',
     address: '1 Bd Charles de Gaulle, 77144 Montévrain',
     hasCageEggs: false,
     nbRef: 0,
@@ -1678,7 +1678,7 @@ export const store: Store[] = [
   {
     name: 'Intermarché',
     coords: [47.1832745, 5.8149007],
-    category: 'intermarché',
+    category: 'intermarche',
     address: '2 rue de Besançon - 25 Saint-Vit 25410',
     hasCageEggs: false,
     nbRef: 0,
@@ -1688,7 +1688,7 @@ export const store: Store[] = [
   {
     name: 'Intermarché',
     coords: [43.5360098, 1.4774625],
-    category: 'intermarché',
+    category: 'intermarche',
     address: '1 Rue Louis Braille 31520 Ramonville-Saint-Agne',
     hasCageEggs: true,
     nbRef: 1,
@@ -1698,7 +1698,7 @@ export const store: Store[] = [
   {
     name: 'Intermarché',
     coords: [45.7621377, 4.7787777],
-    category: 'intermarché',
+    category: 'intermarche',
     address: '6 promenade des tuileries 69160 Tassin-la-demi-lune',
     hasCageEggs: true,
     nbRef: 1,
@@ -1708,7 +1708,7 @@ export const store: Store[] = [
   {
     name: 'Intermarché',
     coords: [48.804162, 2.3636452],
-    category: 'intermarché',
+    category: 'intermarche',
     address: '38 avenue de Paris, 94800 Villejuif',
     hasCageEggs: true,
     nbRef: 1,
@@ -1718,7 +1718,7 @@ export const store: Store[] = [
   {
     name: 'Intermarché',
     coords: [48.6148253, 6.090766599999999],
-    category: 'intermarché',
+    category: 'intermarche',
     address: 'ZI Pasteur, 1137 Rue Pasteur, 54230 Neuves-Maisons',
     hasCageEggs: true,
     nbRef: 1,
@@ -1728,7 +1728,7 @@ export const store: Store[] = [
   {
     name: 'Intermarché',
     coords: [48.6788434, 6.1458436],
-    category: 'intermarché',
+    category: 'intermarche',
     address: "12 Av. de l'Europe, 54520 Laxou",
     hasCageEggs: true,
     nbRef: 1,
@@ -1738,7 +1738,7 @@ export const store: Store[] = [
   {
     name: 'Intermarché',
     coords: [48.668843, 6.207833],
-    category: 'intermarché',
+    category: 'intermarche',
     address: '113 Rue de la République, 54140 Jarville-la-Malgrange',
     hasCageEggs: true,
     nbRef: 1,
@@ -1748,7 +1748,7 @@ export const store: Store[] = [
   {
     name: 'Intermarché',
     coords: [47.216144, 5.943836],
-    category: 'intermarché',
+    category: 'intermarche',
     address: 'Rue Louis Aragon, 25000 Besançon',
     hasCageEggs: true,
     nbRef: 1,
@@ -1758,7 +1758,7 @@ export const store: Store[] = [
   {
     name: 'Intermarché',
     coords: [46.3395643, 2.581521],
-    category: 'intermarché',
+    category: 'intermarche',
     address: 'av Jules guesde 03100 montluçon ',
     hasCageEggs: true,
     nbRef: 1,
@@ -1768,7 +1768,7 @@ export const store: Store[] = [
   {
     name: 'Intermarché',
     coords: [46.227638, 2.213749],
-    category: 'intermarché',
+    category: 'intermarche',
     address: '21 boulevard Pierre Mendes France',
     hasCageEggs: true,
     nbRef: 3,
@@ -1778,7 +1778,7 @@ export const store: Store[] = [
   {
     name: 'Intermarché',
     coords: [47.452288, -0.5541659999999999],
-    category: 'intermarché',
+    category: 'intermarche',
     address: '172 Rue de Létanduère, 49000 Angers',
     hasCageEggs: true,
     nbRef: 2,
@@ -1788,7 +1788,7 @@ export const store: Store[] = [
   {
     name: 'Intermarché',
     coords: [50.6456698, 3.0983226],
-    category: 'intermarché',
+    category: 'intermarche',
     address: 'Rue Théodore Monod, 59370 Mons-en-Barœul',
     hasCageEggs: true,
     nbRef: 4,
@@ -1798,7 +1798,7 @@ export const store: Store[] = [
   {
     name: 'Intermarché',
     coords: [48.6044118, 7.707279099999999],
-    category: 'intermarché',
+    category: 'intermarche',
     address: '256 Rte de Mittelhausbergen, 67205 Oberhausbergen, France',
     hasCageEggs: true,
     nbRef: 1,
@@ -1808,7 +1808,7 @@ export const store: Store[] = [
   {
     name: 'Intermarché',
     coords: [50.418383, 2.928966],
-    category: 'intermarché',
+    category: 'intermarche',
     address: '49 Av. François Mitterrand, 62640 Montigny-en-Gohelle',
     hasCageEggs: true,
     nbRef: 4,
@@ -1818,7 +1818,7 @@ export const store: Store[] = [
   {
     name: 'Intermarché',
     coords: [44.0550024, 5.0538511],
-    category: 'intermarché',
+    category: 'intermarche',
     address: '80 Chem. de la Lègue, 84200 Carpentras',
     hasCageEggs: true,
     nbRef: 1,
@@ -1828,7 +1828,7 @@ export const store: Store[] = [
   {
     name: 'Intermarché',
     coords: [49.437945, 1.101165],
-    category: 'intermarché',
+    category: 'intermarche',
     address: 'Pl. Saint-Marc, 76000 Rouen',
     hasCageEggs: true,
     nbRef: 1,
@@ -1838,7 +1838,7 @@ export const store: Store[] = [
   {
     name: 'Intermarché',
     coords: [50.6581024, 3.0127724],
-    category: 'intermarché',
+    category: 'intermarche',
     address: "Parc d'activité des Conquérants, 9 Rue Gustave Eiffel, 59130 Lambersart",
     hasCageEggs: true,
     nbRef: 1,
@@ -1848,7 +1848,7 @@ export const store: Store[] = [
   {
     name: 'Intermarché',
     coords: [50.682476, 3.066666],
-    category: 'intermarché',
+    category: 'intermarche',
     address: 'ZAC du Haut, Rue des Moissons, 59520 Marquette-lez-Lille',
     hasCageEggs: true,
     nbRef: 4,
@@ -1858,7 +1858,7 @@ export const store: Store[] = [
   {
     name: 'Intermarché',
     coords: [47.2616952, 6.0350467],
-    category: 'intermarché',
+    category: 'intermarche',
     address: '73 boulevard Léon Blum, 25000 Besançon',
     hasCageEggs: false,
     nbRef: 0,
@@ -1868,7 +1868,7 @@ export const store: Store[] = [
   {
     name: 'Intermarché',
     coords: [44.1150923, 4.9004924],
-    category: 'intermarché',
+    category: 'intermarche',
     address: 'Chemin de Piolenc  ZI Jonquier',
     hasCageEggs: true,
     nbRef: 1,
@@ -1878,7 +1878,7 @@ export const store: Store[] = [
   {
     name: 'Intermarché',
     coords: [43.8276714, 5.0371159],
-    category: 'intermarché',
+    category: 'intermarche',
     address: '236 Allée des Temps Perdus\t84300\tCAVAILLON',
     hasCageEggs: true,
     nbRef: 1,
@@ -1888,7 +1888,7 @@ export const store: Store[] = [
   {
     name: 'Intermarché',
     coords: [44.6465124, -0.3221606],
-    category: 'intermarché',
+    category: 'intermarche',
     address: 'Le Clos du Pin, 33410 Béguey',
     hasCageEggs: false,
     nbRef: 0,
@@ -1898,7 +1898,7 @@ export const store: Store[] = [
   {
     name: 'Intermarché',
     coords: [46.5631777, 3.3182838],
-    category: 'intermarché',
+    category: 'intermarche',
     address: '16 Rte de Montilly, 03000 Moulins',
     hasCageEggs: false,
     nbRef: 0,
@@ -1908,7 +1908,7 @@ export const store: Store[] = [
   {
     name: 'Intermarché',
     coords: [47.244658, -1.53355],
-    category: 'intermarché',
+    category: 'intermarche',
     address: "Ctre cial Intermarché de l' Eraudière, 173 Rte de Saint-Joseph, 44300 Nantes ",
     hasCageEggs: false,
     nbRef: 0,
@@ -1917,7 +1917,7 @@ export const store: Store[] = [
   {
     name: 'Intermarché',
     coords: [50.0565833, 1.4170033],
-    category: 'intermarché',
+    category: 'intermarche',
     address: 'Rue Lavoisier 76260 EU',
     hasCageEggs: true,
     nbRef: 3,
@@ -1927,7 +1927,7 @@ export const store: Store[] = [
   {
     name: 'Intermarché',
     coords: [43.0787766, 0.1410719],
-    category: 'intermarché',
+    category: 'intermarche',
     address: '83 Av. de la Mongie, 65200 Pouzac',
     hasCageEggs: false,
     nbRef: 0,
@@ -1937,7 +1937,7 @@ export const store: Store[] = [
   {
     name: 'Intermarché',
     coords: [50.4817424, 3.2461624],
-    category: 'intermarché',
+    category: 'intermarche',
     address: 'Carrière Pierre Tockaert, 59310 Orchies',
     hasCageEggs: false,
     nbRef: 0,
@@ -1946,7 +1946,7 @@ export const store: Store[] = [
   {
     name: 'Intermarché',
     coords: [47.674625, 6.5164099],
-    category: 'intermarché',
+    category: 'intermarche',
     address: 'Rte de Belfort, 70200 Lure',
     hasCageEggs: false,
     nbRef: 0,
@@ -1955,7 +1955,7 @@ export const store: Store[] = [
   {
     name: 'Intermarché',
     coords: [44.5447211, -0.2552992],
-    category: 'intermarché',
+    category: 'intermarche',
     address: '46 Rue Jules Ferry, 33210 Langon',
     hasCageEggs: false,
     nbRef: 0,
@@ -1965,7 +1965,7 @@ export const store: Store[] = [
   {
     name: 'Intermarché',
     coords: [47.934325, 1.889729],
-    category: 'intermarché',
+    category: 'intermarche',
     address: 'ZAC de Vilepot, Rue Louis Aragon, 45770 Saran',
     hasCageEggs: false,
     nbRef: 0,
@@ -1975,7 +1975,7 @@ export const store: Store[] = [
   {
     name: 'Intermarché',
     coords: [48.86999700000001, 2.67528],
-    category: 'intermarché',
+    category: 'intermarche',
     address: 'La Courtillière, 4 Rue Lamartine, 77400 Saint-Thibault-des-Vignes',
     hasCageEggs: false,
     nbRef: 0,
@@ -1985,7 +1985,7 @@ export const store: Store[] = [
   {
     name: 'Intermarché',
     coords: [43.2932023, 0.5151131999999999],
-    category: 'intermarché',
+    category: 'intermarche',
     address: 'Rte de Toulouse, 65230 Castelnau-Magnoac',
     hasCageEggs: false,
     nbRef: 0,
@@ -1995,7 +1995,7 @@ export const store: Store[] = [
   {
     name: 'Intermarché',
     coords: [48.0859673, -1.6675129],
-    category: 'intermarché',
+    category: 'intermarche',
     address: '2 rue de Suisse 35200 Rennes',
     hasCageEggs: true,
     nbRef: 1,
@@ -2005,7 +2005,7 @@ export const store: Store[] = [
   {
     name: 'Intermarché',
     coords: [43.494198, 0.595613],
-    category: 'intermarché',
+    category: 'intermarche',
     address: 'Rue du Visconte, 32260 Seissan',
     hasCageEggs: true,
     nbRef: 2,
@@ -2015,7 +2015,7 @@ export const store: Store[] = [
   {
     name: 'Intermarché',
     coords: [43.111251, 0.35404],
-    category: 'intermarché',
+    category: 'intermarche',
     address: '3150, Cd 817, 65130 Capvern',
     hasCageEggs: true,
     nbRef: 3,
@@ -2025,7 +2025,7 @@ export const store: Store[] = [
   {
     name: 'Intermarché',
     coords: [49.10671199999999, -0.4942109],
-    category: 'intermarché',
+    category: 'intermarche',
     address: '14210 EVRECY Za Croix Boucher , 8 rue des Gallois',
     hasCageEggs: true,
     nbRef: 0,
@@ -2035,7 +2035,7 @@ export const store: Store[] = [
   {
     name: 'Intermarché',
     coords: [46.33198, 2.602203],
-    category: 'intermarché',
+    category: 'intermarche',
     address: 'rue pierre semard 03100 montluçon ',
     hasCageEggs: true,
     nbRef: 1,
@@ -2045,7 +2045,7 @@ export const store: Store[] = [
   {
     name: 'Intermarché',
     coords: [47.247474, 6.000369999999999],
-    category: 'intermarché',
+    category: 'intermarche',
     address: '3 Pl. Pierre de Coubertin, 25000 Besançon',
     hasCageEggs: false,
     nbRef: 0,
@@ -2054,7 +2054,7 @@ export const store: Store[] = [
   {
     name: 'Intermarché',
     coords: [45.454249, 4.383147999999999],
-    category: 'intermarché',
+    category: 'intermarche',
     address: '60 rue Bergson, 42000 Saint-Étienne ',
     hasCageEggs: false,
     nbRef: 0,
@@ -2063,7 +2063,7 @@ export const store: Store[] = [
   {
     name: 'Intermarché',
     coords: [48.8793254, 2.4140335],
-    category: 'intermarché',
+    category: 'intermarche',
     address: '91 rue de Paris, 9320 Les Lilas',
     hasCageEggs: true,
     nbRef: 1,
@@ -2073,7 +2073,7 @@ export const store: Store[] = [
   {
     name: 'Intermarché',
     coords: [43.6752544, 7.226817500000001],
-    category: 'intermarché',
+    category: 'intermarche',
     address: '2 Bd René Cassin, 06200 Nice',
     hasCageEggs: false,
     nbRef: 0,
