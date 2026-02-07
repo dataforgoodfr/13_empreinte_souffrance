@@ -4,4593 +4,3849 @@ type Store = {
   category: string;
   address: string;
   hasCageEggs: boolean;
-  nbRef: number,
-    urlImg: string | null ;
+  nbRef: number;
+  urlImg: string | null;
 };
 
+export type EnseigneConfig = {
+  id: string;
+  name: string;
+  logo: string;
+};
+
+export const enseignes: EnseigneConfig[] = [
+  {
+    id: 'carrefour',
+    name: 'Carrefour',
+    logo: '/logo/carrefour_logo.svg',
+  },
+  {
+    id: 'auchan',
+    name: 'Auchan',
+    logo: '/logo/auchan_logo.svg',
+  },
+  {
+    id: 'lidl',
+    name: 'Lidl',
+    logo: '/logo/lidl_logo.svg',
+  },
+  {
+    id: 'leclerc',
+    name: 'Leclerc',
+    logo: '/logo/leclerc_logo.png',
+  },
+  {
+    id: 'superu',
+    name: 'Super U',
+    logo: '/logo/U_logo.png',
+  },
+  {
+    id: 'aldi',
+    name: 'Aldi',
+    logo: '/logo/aldi_logo.svg',
+  },
+  {
+    id: 'monoprix',
+    name: 'Monoprix',
+    logo: '/logo/monoprix_logo.svg',
+  },
+  {
+    id: 'intermarche',
+    name: 'Intermarché',
+    logo: '/logo/intermarche_logo.png',
+  },
+];
+
 export const store: Store[] = [
- {
-    name: "ALDI",
-    coords: [
-      47.2184144,
-      5.9547642
-    ],
-    category: "aldi",
-    address: "18 rue René Char, 25000 Besançon",
+  {
+    name: 'ALDI',
+    coords: [47.2184144, 5.9547642],
+    category: 'aldi',
+    address: '18 rue René Char, 25000 Besançon',
     hasCageEggs: false,
     nbRef: 0,
-    urlImg: "https://storage.tally.so/private/20260113_105634.jpg?id=pJrZPV&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6InBKclpQViIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4Nn0.qUj0kQmR-2DBIoFKQXbFDA1KxHYD6JaLFu3aJhUPxJA&signature=c8ff601711338765106fdf1e6c602d413cb3a713be03ba992a0f96192cba24f1"
+    urlImg:
+      'https://storage.tally.so/private/20260113_105634.jpg?id=pJrZPV&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6InBKclpQViIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4Nn0.qUj0kQmR-2DBIoFKQXbFDA1KxHYD6JaLFu3aJhUPxJA&signature=c8ff601711338765106fdf1e6c602d413cb3a713be03ba992a0f96192cba24f1',
   },
   {
-    name: "ALDI",
-    coords: [
-      47.4787986,
-      -0.520416
-    ],
-    category: "aldi",
-    address: "8 bis Rue de la Croix Blanche, 49000 Angers",
+    name: 'ALDI',
+    coords: [47.4787986, -0.520416],
+    category: 'aldi',
+    address: '8 bis Rue de la Croix Blanche, 49000 Angers',
     hasCageEggs: false,
     nbRef: 0,
-    urlImg: "https://storage.tally.so/private/telechargement-78-.jpg?id=qJAJqk&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6InFKQUpxayIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4Nn0.RRBACNfueiHJlauLdwAll4zDX-gmiizCcpA62rN8lV4&signature=32f4d2b7ab1d468fb5daba349bef5573316663eaa3fc408d8dbebe360c80bcf7"
+    urlImg:
+      'https://storage.tally.so/private/telechargement-78-.jpg?id=qJAJqk&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6InFKQUpxayIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4Nn0.RRBACNfueiHJlauLdwAll4zDX-gmiizCcpA62rN8lV4&signature=32f4d2b7ab1d468fb5daba349bef5573316663eaa3fc408d8dbebe360c80bcf7',
   },
   {
-    name: "ALDI",
-    coords: [
-      47.2265753,
-      -1.5322311
-    ],
-    category: "aldi",
-    address: "19 Rue des Chalâtres, 44000 Nantes, France",
+    name: 'ALDI',
+    coords: [47.2265753, -1.5322311],
+    category: 'aldi',
+    address: '19 Rue des Chalâtres, 44000 Nantes, France',
     hasCageEggs: false,
     nbRef: 0,
-    urlImg: "https://storage.tally.so/private/telechargement-27-.jpg?id=86KGDr&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ijg2S0dEciIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4Nn0.u5lZy3Lz6l3EiJ9sE-mN8JsgHBoUdmiuH11r3aMY9Pg&signature=0cea972367607317e04c7f33a62968e6db63b8d471df59a30d8255b6ec0962de"
+    urlImg:
+      'https://storage.tally.so/private/telechargement-27-.jpg?id=86KGDr&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ijg2S0dEciIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4Nn0.u5lZy3Lz6l3EiJ9sE-mN8JsgHBoUdmiuH11r3aMY9Pg&signature=0cea972367607317e04c7f33a62968e6db63b8d471df59a30d8255b6ec0962de',
   },
   {
-    name: "ALDI",
-    coords: [
-      48.8396002,
-      2.4019424
-    ],
-    category: "aldi",
-    address: "16 rue Louis braille 75012 paris",
+    name: 'ALDI',
+    coords: [48.8396002, 2.4019424],
+    category: 'aldi',
+    address: '16 rue Louis braille 75012 paris',
     hasCageEggs: false,
     nbRef: 0,
-    urlImg: "https://storage.tally.so/private/20260117_103711.jpg?id=Vbl9O6&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IlZibDlPNiIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4Nn0.bKXf0ryKeu3Nus_ocZfztE9rxeEZ8aOVTjgc6ZvIsoU&signature=68f1d34b363a21c11051e8d9bcd543f985f14aa2be915869a2dde954d1c48e7e\nhttps://storage.tally.so/private/20260117_103716.jpg?id=2lkbGM&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjJsa2JHTSIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4Nn0.6BW8CloMq_X8v0V1DfCyh70PJ_bh5RKaIHUuV3nbcnM&signature=b238642a8364572b7f64386972c7f1502883c38ab085c51aef640c39588cc74d"
+    urlImg:
+      'https://storage.tally.so/private/20260117_103711.jpg?id=Vbl9O6&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IlZibDlPNiIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4Nn0.bKXf0ryKeu3Nus_ocZfztE9rxeEZ8aOVTjgc6ZvIsoU&signature=68f1d34b363a21c11051e8d9bcd543f985f14aa2be915869a2dde954d1c48e7e\nhttps://storage.tally.so/private/20260117_103716.jpg?id=2lkbGM&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjJsa2JHTSIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4Nn0.6BW8CloMq_X8v0V1DfCyh70PJ_bh5RKaIHUuV3nbcnM&signature=b238642a8364572b7f64386972c7f1502883c38ab085c51aef640c39588cc74d',
   },
   {
-    name: "ALDI",
-    coords: [
-      44.0320963,
-      5.0496622
-    ],
-    category: "aldi",
-    address: "1622 Chem. de Saint-Gens, 84200 Carpentras",
+    name: 'ALDI',
+    coords: [44.0320963, 5.0496622],
+    category: 'aldi',
+    address: '1622 Chem. de Saint-Gens, 84200 Carpentras',
     hasCageEggs: false,
     nbRef: 0,
-    urlImg: "https://storage.tally.so/private/20260117_110239.jpg?id=LaGvgl&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IkxhR3ZnbCIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4Nn0.Al8flluzGjv6J0xrxdDZ1i-JgzrbjtMwJ7JVqGyRHJk&signature=962d2128616ff641dd5f44fe58c8dbf08859ec13401a5f648a53aea1adaeb8ef"
+    urlImg:
+      'https://storage.tally.so/private/20260117_110239.jpg?id=LaGvgl&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IkxhR3ZnbCIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4Nn0.Al8flluzGjv6J0xrxdDZ1i-JgzrbjtMwJ7JVqGyRHJk&signature=962d2128616ff641dd5f44fe58c8dbf08859ec13401a5f648a53aea1adaeb8ef',
   },
   {
-    name: "ALDI",
-    coords: [
-      47.355677,
-      5.0298109
-    ],
-    category: "aldi",
-    address: "Rue des Prés Potets, 21121 Fontaine-lès-Dijon",
+    name: 'ALDI',
+    coords: [47.355677, 5.0298109],
+    category: 'aldi',
+    address: 'Rue des Prés Potets, 21121 Fontaine-lès-Dijon',
     hasCageEggs: false,
     nbRef: 0,
-    urlImg: "https://storage.tally.so/private/telechargement-2026-01-17T213559.631.jpg?id=vJ2PM8&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6InZKMlBNOCIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4NX0.7-5F7HFi_hJgoy9ydi4k6K9qEUNQNeh91Ve1wvfCTgc&signature=3510362e2c280496b695eaf4cb8d87caeb925d85d8e483851c487004fc3b1269"
+    urlImg:
+      'https://storage.tally.so/private/telechargement-2026-01-17T213559.631.jpg?id=vJ2PM8&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6InZKMlBNOCIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4NX0.7-5F7HFi_hJgoy9ydi4k6K9qEUNQNeh91Ve1wvfCTgc&signature=3510362e2c280496b695eaf4cb8d87caeb925d85d8e483851c487004fc3b1269',
   },
   {
-    name: "ALDI",
-    coords: [
-      47.9380015,
-      1.8922832
-    ],
-    category: "aldi",
-    address: "Rond-point de la Vallée, 9 All. de Bel air, 45770 Saran",
+    name: 'ALDI',
+    coords: [47.9380015, 1.8922832],
+    category: 'aldi',
+    address: 'Rond-point de la Vallée, 9 All. de Bel air, 45770 Saran',
     hasCageEggs: false,
     nbRef: 0,
-    urlImg: "https://storage.tally.so/private/telechargement-2026-01-17T225925.886.jpg?id=vJ2yYQ&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6InZKMnlZUSIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4NX0.LREmR6iRAtBdEKQ8-YxCDPGzD5vAFLQpP_-llavi3Z8&signature=2ff040c363a0ad7fc5ff4150b52fe48d88971c6f948c2b8a84757496b7c1b7f7"
+    urlImg:
+      'https://storage.tally.so/private/telechargement-2026-01-17T225925.886.jpg?id=vJ2yYQ&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6InZKMnlZUSIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4NX0.LREmR6iRAtBdEKQ8-YxCDPGzD5vAFLQpP_-llavi3Z8&signature=2ff040c363a0ad7fc5ff4150b52fe48d88971c6f948c2b8a84757496b7c1b7f7',
   },
   {
-    name: "ALDI",
-    coords: [
-      43.6048462,
-      1.442848
-    ],
-    category: "aldi",
-    address: "59 route de Toulouse",
+    name: 'ALDI',
+    coords: [43.6048462, 1.442848],
+    category: 'aldi',
+    address: '59 route de Toulouse',
     hasCageEggs: true,
     nbRef: 1,
-    urlImg: "https://storage.tally.so/private/IMG_0187.jpeg?id=AAZ46k&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IkFBWjQ2ayIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4Nn0.V9-tUPnrhS-pXN6DA_PH3FSk03ReU2UF-o1cuNfo9ng&signature=93c547c5050ece02bae4a9857e6c33ae5e514831e16ba8ac6f7f1aba620a970e"
+    urlImg:
+      'https://storage.tally.so/private/IMG_0187.jpeg?id=AAZ46k&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IkFBWjQ2ayIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4Nn0.V9-tUPnrhS-pXN6DA_PH3FSk03ReU2UF-o1cuNfo9ng&signature=93c547c5050ece02bae4a9857e6c33ae5e514831e16ba8ac6f7f1aba620a970e',
   },
   {
-    name: "ALDI",
-    coords: [
-      47.6400159,
-      3.0704856
-    ],
-    category: "aldi",
-    address: "Bd Max Pautrat Saint-fargeau 89170",
+    name: 'ALDI',
+    coords: [47.6400159, 3.0704856],
+    category: 'aldi',
+    address: 'Bd Max Pautrat Saint-fargeau 89170',
     hasCageEggs: true,
     nbRef: 1,
-    urlImg: "https://storage.tally.so/private/inbound6378807932798843967.jpg?id=eKdN6o&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImVLZE42byIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4Nn0.1mhtbEI4prBH7KRIfZ8aRFf0_hkE58qNRdQlB0086dw&signature=30594fde33333ef00347a384cb82aaf51321162ed297916244fa14d00ab995d6"
+    urlImg:
+      'https://storage.tally.so/private/inbound6378807932798843967.jpg?id=eKdN6o&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImVLZE42byIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4Nn0.1mhtbEI4prBH7KRIfZ8aRFf0_hkE58qNRdQlB0086dw&signature=30594fde33333ef00347a384cb82aaf51321162ed297916244fa14d00ab995d6',
   },
   {
-    name: "ALDI",
-    coords: [
-      50.337064,
-      3.0119927
-    ],
-    category: "aldi",
-    address: "720 Rue nationale, 62117 Brebières",
+    name: 'ALDI',
+    coords: [50.337064, 3.0119927],
+    category: 'aldi',
+    address: '720 Rue nationale, 62117 Brebières',
     hasCageEggs: true,
     nbRef: 1,
-    urlImg: "https://storage.tally.so/private/IMG_0B8093CD84FA-1.jpeg?id=2lNXVg&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjJsTlhWZyIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4Nn0.CyR3xiQW4lJKLL17wRiI5QIX4cxpk74MrW3wx1vwoco&signature=b22da940caa35e63c9ec673f5ce33407f2184c20edb986bb53b0f768df87b9a7"
+    urlImg:
+      'https://storage.tally.so/private/IMG_0B8093CD84FA-1.jpeg?id=2lNXVg&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjJsTlhWZyIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4Nn0.CyR3xiQW4lJKLL17wRiI5QIX4cxpk74MrW3wx1vwoco&signature=b22da940caa35e63c9ec673f5ce33407f2184c20edb986bb53b0f768df87b9a7',
   },
   {
-    name: "ALDI",
-    coords: [
-      47.2420795,
-      6.013739500000001
-    ],
-    category: "aldi",
-    address: "2 rue Voirin, 25000 Besançon",
+    name: 'ALDI',
+    coords: [47.2420795, 6.013739500000001],
+    category: 'aldi',
+    address: '2 rue Voirin, 25000 Besançon',
     hasCageEggs: false,
     nbRef: 0,
-    urlImg: "https://storage.tally.so/private/20260122_183820.jpg?id=zG18j0&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6InpHMThqMCIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTM2NDM0M30.3eXw05WObQrZxBKLLii8Tgl2blxCpkyPKlvhqN-s3ug&signature=b14d610c68412023ac85a52d03e40bc95dc8adbd2e552f34d690cfefb3d851fb"
+    urlImg:
+      'https://storage.tally.so/private/20260122_183820.jpg?id=zG18j0&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6InpHMThqMCIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTM2NDM0M30.3eXw05WObQrZxBKLLii8Tgl2blxCpkyPKlvhqN-s3ug&signature=b14d610c68412023ac85a52d03e40bc95dc8adbd2e552f34d690cfefb3d851fb',
   },
   {
-    name: "ALDI",
-    coords: [
-      50.46103979999999,
-      2.9413738
-    ],
-    category: "aldi",
-    address: "Rue Maurice Tilloy, 62440 Harnes",
+    name: 'ALDI',
+    coords: [50.46103979999999, 2.9413738],
+    category: 'aldi',
+    address: 'Rue Maurice Tilloy, 62440 Harnes',
     hasCageEggs: true,
     nbRef: 1,
-    urlImg: "https://storage.tally.so/private/IMG_4809.jpeg?id=Z1QxvV&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IloxUXh2ViIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTM2NDM0Mn0.eg4ZtLItrr40rw6aqJx26COl1HBiBiBOqkAh4lzxyds&signature=8a76de51d52942b67cdf1c0b71bd05644a57d1bef47d1e548c788c1f81d34675"
+    urlImg:
+      'https://storage.tally.so/private/IMG_4809.jpeg?id=Z1QxvV&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IloxUXh2ViIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTM2NDM0Mn0.eg4ZtLItrr40rw6aqJx26COl1HBiBiBOqkAh4lzxyds&signature=8a76de51d52942b67cdf1c0b71bd05644a57d1bef47d1e548c788c1f81d34675',
   },
   {
-    name: "ALDI",
-    coords: [
-      43.588187,
-      2.268825
-    ],
-    category: "aldi",
-    address: "Zone du Siala Castres, 81",
+    name: 'ALDI',
+    coords: [43.588187, 2.268825],
+    category: 'aldi',
+    address: 'Zone du Siala Castres, 81',
     hasCageEggs: false,
     nbRef: 0,
-    urlImg: "https://storage.tally.so/private/IMG_0939.jpeg?id=WK6rVk&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IldLNnJWayIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTY4MTAyOH0.6JcZEukJXdYo19SHxCR0iTF-xadY62uN19rjfSkOZ2g&signature=e19d9d9258e16794e5465e840c19020bff36db385a746f67b8de649d6af8f744"
+    urlImg:
+      'https://storage.tally.so/private/IMG_0939.jpeg?id=WK6rVk&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IldLNnJWayIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTY4MTAyOH0.6JcZEukJXdYo19SHxCR0iTF-xadY62uN19rjfSkOZ2g&signature=e19d9d9258e16794e5465e840c19020bff36db385a746f67b8de649d6af8f744',
   },
   {
-    name: "ALDI",
-    coords: [
-      43.0868531,
-      0.1357011
-    ],
-    category: "aldi",
-    address: "Av. de la Mongie, 65200 Pouzac",
+    name: 'ALDI',
+    coords: [43.0868531, 0.1357011],
+    category: 'aldi',
+    address: 'Av. de la Mongie, 65200 Pouzac',
     hasCageEggs: false,
     nbRef: 0,
-    urlImg: "https://storage.tally.so/private/Aldi-pouzac-1.jpg?id=d8RO6D&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImQ4Uk82RCIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTM2NDM0Mn0.vNglmlwL0puElnVC8L81InIvBkI9EZeo67qSh2ZCLag&signature=fa4a8c9ebf1d9a0ddc350344dba6ec6005b2346f9324a8d956532d4719be6c37"
+    urlImg:
+      'https://storage.tally.so/private/Aldi-pouzac-1.jpg?id=d8RO6D&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImQ4Uk82RCIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTM2NDM0Mn0.vNglmlwL0puElnVC8L81InIvBkI9EZeo67qSh2ZCLag&signature=fa4a8c9ebf1d9a0ddc350344dba6ec6005b2346f9324a8d956532d4719be6c37',
   },
   {
-    name: "ALDI",
-    coords: [
-      48.6843539,
-      6.2194935
-    ],
-    category: "aldi",
-    address: "Av. Eugène Pottier, 54510 Tomblaine",
+    name: 'ALDI',
+    coords: [48.6843539, 6.2194935],
+    category: 'aldi',
+    address: 'Av. Eugène Pottier, 54510 Tomblaine',
     hasCageEggs: false,
     nbRef: 0,
-    urlImg: null
+    urlImg: null,
   },
   {
-    name: "ALDI",
-    coords: [
-      48.71058619999999,
-      6.171769800000001
-    ],
-    category: "aldi",
-    address: "30 Rue Lafayette, 54320 Maxéville",
+    name: 'ALDI',
+    coords: [48.71058619999999, 6.171769800000001],
+    category: 'aldi',
+    address: '30 Rue Lafayette, 54320 Maxéville',
     hasCageEggs: false,
     nbRef: 0,
-    urlImg: null
+    urlImg: null,
   },
   {
-    name: "ALDI",
-    coords: [
-      48.6251202,
-      6.179693899999999
-    ],
-    category: "aldi",
-    address: "74 Rue du Franclos, 54710 Ludres",
+    name: 'ALDI',
+    coords: [48.6251202, 6.179693899999999],
+    category: 'aldi',
+    address: '74 Rue du Franclos, 54710 Ludres',
     hasCageEggs: false,
     nbRef: 0,
-    urlImg: null
+    urlImg: null,
   },
   {
-    name: "ALDI",
-    coords: [
-      48.6140992,
-      6.093148299999999
-    ],
-    category: "aldi",
-    address: "843 Rue Pasteur, 54230 Neuves-Maisons",
+    name: 'ALDI',
+    coords: [48.6140992, 6.093148299999999],
+    category: 'aldi',
+    address: '843 Rue Pasteur, 54230 Neuves-Maisons',
     hasCageEggs: false,
     nbRef: 0,
-    urlImg: null
+    urlImg: null,
   },
   {
-    name: "ALDI",
-    coords: [
-      48.5681688,
-      7.6881527
-    ],
-    category: "aldi",
+    name: 'ALDI',
+    coords: [48.5681688, 7.6881527],
+    category: 'aldi',
     address: "28 Rue d'Eckbolsheim, 67380 Lingolsheim, France",
     hasCageEggs: false,
     nbRef: 0,
-    urlImg: null
+    urlImg: null,
   },
   {
-    name: "ALDI",
-    coords: [
-      48.592443,
-      7.697552
-    ],
-    category: "aldi",
-    address: "1 Allée du Théâtre de Hautepierre, 67200 Strasbourg, France",
+    name: 'ALDI',
+    coords: [48.592443, 7.697552],
+    category: 'aldi',
+    address: '1 Allée du Théâtre de Hautepierre, 67200 Strasbourg, France',
     hasCageEggs: false,
     nbRef: 0,
-    urlImg: null
+    urlImg: null,
   },
   {
-    name: "ALDI",
-    coords: [
-      47.1654822,
-      -1.5432828
-    ],
-    category: "aldi",
-    address: "48 Rue Ernest Sauvestre, 44400 Rezé, France",
+    name: 'ALDI',
+    coords: [47.1654822, -1.5432828],
+    category: 'aldi',
+    address: '48 Rue Ernest Sauvestre, 44400 Rezé, France',
     hasCageEggs: false,
     nbRef: 0,
-    urlImg: "https://storage.tally.so/private/telechargement-4-.jpg?id=A4dxPB&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IkE0ZHhQQiIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4Nn0.vYQ7Cmtncj9vYLkrKD8Jp7GOSbWm_CL-O8w7319y_h0&signature=215cea46a854fb37c9a956b43777583b070d162fa41ffde4da9dc362bd33fcab"
+    urlImg:
+      'https://storage.tally.so/private/telechargement-4-.jpg?id=A4dxPB&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IkE0ZHhQQiIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4Nn0.vYQ7Cmtncj9vYLkrKD8Jp7GOSbWm_CL-O8w7319y_h0&signature=215cea46a854fb37c9a956b43777583b070d162fa41ffde4da9dc362bd33fcab',
   },
   {
-    name: "ALDI",
-    coords: [
-      47.2439592,
-      -1.6003568
-    ],
-    category: "aldi",
-    address: "277 Rte de Vannes, 44800 Saint-Herblain, France",
+    name: 'ALDI',
+    coords: [47.2439592, -1.6003568],
+    category: 'aldi',
+    address: '277 Rte de Vannes, 44800 Saint-Herblain, France',
     hasCageEggs: false,
     nbRef: 0,
-    urlImg: "https://storage.tally.so/private/telechargement-32-.jpg?id=aA60MZ&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImFBNjBNWiIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4Nn0.oXwC9Ogm3hw48ligNbXVsnegbF-a0WFieIK0XpYlus4&signature=e8219b8952c4e085519edd5a7b34c62bd408f30183f4605b3ced4865b7e5bc1a"
+    urlImg:
+      'https://storage.tally.so/private/telechargement-32-.jpg?id=aA60MZ&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImFBNjBNWiIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4Nn0.oXwC9Ogm3hw48ligNbXVsnegbF-a0WFieIK0XpYlus4&signature=e8219b8952c4e085519edd5a7b34c62bd408f30183f4605b3ced4865b7e5bc1a',
   },
   {
-    name: "ALDI",
-    coords: [
-      48.8675623,
-      2.6756039
-    ],
-    category: "aldi",
-    address: "7 Av. de la Courtillière, 77400 Saint-Thibault-des-Vignes",
+    name: 'ALDI',
+    coords: [48.8675623, 2.6756039],
+    category: 'aldi',
+    address: '7 Av. de la Courtillière, 77400 Saint-Thibault-des-Vignes',
     hasCageEggs: false,
     nbRef: 0,
-    urlImg: "https://storage.tally.so/private/telechargement-5-.jpeg?id=49keBY&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjQ5a2VCWSIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4NX0.2Qko6nJ_RHXkqzg4bTNmO30w8omukUGkeFngom_Yz-M&signature=82e876240309e94f79f39c8be01830bc34756d939b5b67816a548e585f39f0d1"
+    urlImg:
+      'https://storage.tally.so/private/telechargement-5-.jpeg?id=49keBY&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjQ5a2VCWSIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4NX0.2Qko6nJ_RHXkqzg4bTNmO30w8omukUGkeFngom_Yz-M&signature=82e876240309e94f79f39c8be01830bc34756d939b5b67816a548e585f39f0d1',
   },
   {
-    name: "ALDI",
-    coords: [
-      47.3128666,
-      5.0968734
-    ],
-    category: "aldi",
-    address: "ZAC des Charriers, Bd du Grand Marché, 21800 Quetigny",
+    name: 'ALDI',
+    coords: [47.3128666, 5.0968734],
+    category: 'aldi',
+    address: 'ZAC des Charriers, Bd du Grand Marché, 21800 Quetigny',
     hasCageEggs: false,
     nbRef: 0,
-    urlImg: "https://storage.tally.so/private/telechargement-2026-01-17T220156.931.jpg?id=Z1J2k5&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IloxSjJrNSIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4NX0.RxiSp8VwOSBESvPG-W5_xo8aQZuppRvPRzuH6FZRHEY&signature=e48ad76f50de6200d1f8de5804be434121dd61c8eada3770a56ab2779515af65"
+    urlImg:
+      'https://storage.tally.so/private/telechargement-2026-01-17T220156.931.jpg?id=Z1J2k5&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IloxSjJrNSIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4NX0.RxiSp8VwOSBESvPG-W5_xo8aQZuppRvPRzuH6FZRHEY&signature=e48ad76f50de6200d1f8de5804be434121dd61c8eada3770a56ab2779515af65',
   },
   {
-    name: "ALDI",
-    coords: [
-      47.2858489,
-      5.0178192
-    ],
-    category: "aldi",
-    address: "8 Rue Paul Langevin, 21300 Chenôve",
+    name: 'ALDI',
+    coords: [47.2858489, 5.0178192],
+    category: 'aldi',
+    address: '8 Rue Paul Langevin, 21300 Chenôve',
     hasCageEggs: false,
     nbRef: 0,
-    urlImg: "https://storage.tally.so/private/telechargement-2026-01-17T221224.379.jpg?id=rJEPjl&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6InJKRVBqbCIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4NX0.cwtIEgJE-TNVDtfOiHcWkDaRDb-BqTaOjWLKzJTuh3Y&signature=84fbd413aad24ca665d267cc6443113a5d7b5b44f069a3b26d2fda97efec2908"
+    urlImg:
+      'https://storage.tally.so/private/telechargement-2026-01-17T221224.379.jpg?id=rJEPjl&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6InJKRVBqbCIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4NX0.cwtIEgJE-TNVDtfOiHcWkDaRDb-BqTaOjWLKzJTuh3Y&signature=84fbd413aad24ca665d267cc6443113a5d7b5b44f069a3b26d2fda97efec2908',
   },
   {
-    name: "ALDI",
-    coords: [
-      47.8827393,
-      1.8989029
-    ],
-    category: "aldi",
-    address: "49 Rue des Chabassières, 45100 Orléans",
+    name: 'ALDI',
+    coords: [47.8827393, 1.8989029],
+    category: 'aldi',
+    address: '49 Rue des Chabassières, 45100 Orléans',
     hasCageEggs: false,
     nbRef: 0,
-    urlImg: "https://storage.tally.so/private/telechargement-2026-01-17T223052.324.jpg?id=Nb0odl&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ik5iMG9kbCIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4NX0.0cAUrywSCktttrIH9xRfxYJNguTT96Xz6uraNGEWSyE&signature=571efb779113f2a0e812a1db5b21b09ad6bbc59c79f0e5d710cc2a964051802a"
+    urlImg:
+      'https://storage.tally.so/private/telechargement-2026-01-17T223052.324.jpg?id=Nb0odl&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ik5iMG9kbCIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4NX0.0cAUrywSCktttrIH9xRfxYJNguTT96Xz6uraNGEWSyE&signature=571efb779113f2a0e812a1db5b21b09ad6bbc59c79f0e5d710cc2a964051802a',
   },
   {
-    name: "ALDI",
-    coords: [
-      48.853838,
-      2.763917
-    ],
-    category: "aldi",
-    address: "54 Av. de la Société des Nations, 77144 Montévrain",
+    name: 'ALDI',
+    coords: [48.853838, 2.763917],
+    category: 'aldi',
+    address: '54 Av. de la Société des Nations, 77144 Montévrain',
     hasCageEggs: true,
     nbRef: 1,
-    urlImg: "https://storage.tally.so/private/20260117_150551.jpg?id=EZ1yN2&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IkVaMXlOMiIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4NX0.qAVzlgTpm9SNoSjciUp1utFD-8BDj--Cs-do4M-uhyg&signature=7b7284208b6b121c2f33cc7fc836a9a8d5512c9ed62c98636a98dcc3a4b10e92"
+    urlImg:
+      'https://storage.tally.so/private/20260117_150551.jpg?id=EZ1yN2&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IkVaMXlOMiIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4NX0.qAVzlgTpm9SNoSjciUp1utFD-8BDj--Cs-do4M-uhyg&signature=7b7284208b6b121c2f33cc7fc836a9a8d5512c9ed62c98636a98dcc3a4b10e92',
   },
   {
-    name: "ALDI",
-    coords: [
-      48.8839553,
-      2.8463608
-    ],
-    category: "aldi",
-    address: "Rue de Paris, 77860 Saint-Germain-sur-Morin",
+    name: 'ALDI',
+    coords: [48.8839553, 2.8463608],
+    category: 'aldi',
+    address: 'Rue de Paris, 77860 Saint-Germain-sur-Morin',
     hasCageEggs: true,
     nbRef: 1,
-    urlImg: "https://storage.tally.so/private/telechargement-2026-01-17T204520.560.jpg?id=Nb0l9l&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ik5iMGw5bCIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4NX0.Sp8H-TBld7GD5pAiAYy9Ymgwf_zWOQEuPcpAGZTBqZ8&signature=620379e4491bd91d03a11eeef45785320758766a6735d1b3be96c181199cb228"
+    urlImg:
+      'https://storage.tally.so/private/telechargement-2026-01-17T204520.560.jpg?id=Nb0l9l&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ik5iMGw5bCIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4NX0.Sp8H-TBld7GD5pAiAYy9Ymgwf_zWOQEuPcpAGZTBqZ8&signature=620379e4491bd91d03a11eeef45785320758766a6735d1b3be96c181199cb228',
   },
   {
-    name: "ALDI",
-    coords: [
-      50.6441268,
-      3.0061984
-    ],
-    category: "aldi",
-    address: "17 Rue Lavoisier Lomme, 59160 Lille",
+    name: 'ALDI',
+    coords: [50.6441268, 3.0061984],
+    category: 'aldi',
+    address: '17 Rue Lavoisier Lomme, 59160 Lille',
     hasCageEggs: true,
     nbRef: 0,
-    urlImg: "https://storage.tally.so/private/IMG_CB924B9DC8AE-1.jpeg?id=6We91e&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZXZTkxZSIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4Nn0.tJwOR9-7rRffT3RT7ouLvPyr1mP3T5M2K6fuhlb5sTM&signature=46c6d5953d7914d86e63c1db5541bc14a849c5084dfa6944b2fae9a1a3031957"
+    urlImg:
+      'https://storage.tally.so/private/IMG_CB924B9DC8AE-1.jpeg?id=6We91e&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZXZTkxZSIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4Nn0.tJwOR9-7rRffT3RT7ouLvPyr1mP3T5M2K6fuhlb5sTM&signature=46c6d5953d7914d86e63c1db5541bc14a849c5084dfa6944b2fae9a1a3031957',
   },
   {
-    name: "ALDI",
-    coords: [
-      50.41937799999999,
-      2.87025
-    ],
-    category: "aldi",
-    address: "38 Rue Edouard Vaillant, 62430 Sallaumines",
+    name: 'ALDI',
+    coords: [50.41937799999999, 2.87025],
+    category: 'aldi',
+    address: '38 Rue Edouard Vaillant, 62430 Sallaumines',
     hasCageEggs: true,
     nbRef: 0,
-    urlImg: "https://storage.tally.so/private/IMG_347490121066-1.jpeg?id=gJMD2M&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImdKTUQyTSIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4Nn0.YERQE6FaNRLldF-7C4rAUYxZisgtv9y7NTS2co6YlAA&signature=32b1e19c82eb3746ff21956928934a06700221f909021a6a989116abe8e9eb8b"
+    urlImg:
+      'https://storage.tally.so/private/IMG_347490121066-1.jpeg?id=gJMD2M&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImdKTUQyTSIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4Nn0.YERQE6FaNRLldF-7C4rAUYxZisgtv9y7NTS2co6YlAA&signature=32b1e19c82eb3746ff21956928934a06700221f909021a6a989116abe8e9eb8b',
   },
   {
-    name: "Auchan",
-    coords: [
-      45.42337,
-      4.3949
-    ],
-    category: "auchan",
-    address: "Centre 2 1-7 Rue des Docteurs Charcot, 42100 Saint-Étienne",
+    name: 'Auchan',
+    coords: [45.42337, 4.3949],
+    category: 'auchan',
+    address: 'Centre 2 1-7 Rue des Docteurs Charcot, 42100 Saint-Étienne',
     hasCageEggs: false,
     nbRef: 0,
-    urlImg: "https://storage.tally.so/private/17679594256742453987459113634840.jpg?id=PvKpZ5&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IlB2S3BaNSIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4Nn0.GPjxpN47GnmN5mznYu8Yb54rhTb7fRYLdED7YVah49k&signature=ba0cc37d7b6a69cbd69000de1a1159e120682d88076f8c9d897720961bee27b0"
+    urlImg:
+      'https://storage.tally.so/private/17679594256742453987459113634840.jpg?id=PvKpZ5&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IlB2S3BaNSIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4Nn0.GPjxpN47GnmN5mznYu8Yb54rhTb7fRYLdED7YVah49k&signature=ba0cc37d7b6a69cbd69000de1a1159e120682d88076f8c9d897720961bee27b0',
   },
   {
-    name: "Auchan",
-    coords: [
-      43.92191,
-      4.86367
-    ],
-    category: "auchan",
-    address: "Mistral 7 - AVIGNON (84000)",
+    name: 'Auchan',
+    coords: [43.92191, 4.86367],
+    category: 'auchan',
+    address: 'Mistral 7 - AVIGNON (84000)',
     hasCageEggs: true,
     nbRef: 1,
-    urlImg: "https://storage.tally.so/private/Avignon-Auchamp-Mistral-7-10-01-26-boite.jpeg?id=9RXEpQ&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjlSWEVwUSIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4Nn0.ookvW6SDGgvzEAw-soRaNfWr_CGDZRcQQ_BrMi2OBGo&signature=0f89db0ac3a8f03b801aff7bbefeefc202caa3733e67cd3717702839fc58b349"
+    urlImg:
+      'https://storage.tally.so/private/Avignon-Auchamp-Mistral-7-10-01-26-boite.jpeg?id=9RXEpQ&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjlSWEVwUSIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4Nn0.ookvW6SDGgvzEAw-soRaNfWr_CGDZRcQQ_BrMi2OBGo&signature=0f89db0ac3a8f03b801aff7bbefeefc202caa3733e67cd3717702839fc58b349',
   },
   {
-    name: "Auchan",
-    coords: [
-      45.1915931,
-      0.6610655999999999
-    ],
-    category: "auchan",
+    name: 'Auchan',
+    coords: [45.1915931, 0.6610655999999999],
+    category: 'auchan',
     address: "4 avenue Louis Suder 24430 Marsac-sur-l'Isle",
     hasCageEggs: true,
     nbRef: 3,
-    urlImg: "https://storage.tally.so/private/IMG_20260106_134940.jpg?id=AARaDe&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IkFBUmFEZSIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4Nn0.dNhCpCHuucoDoLAMMOlN6M04sQEVg58NGg1tzRBxoyI&signature=c201209749a6484e8d4fc850c358ea1df77cfd891ecba1027b95484ea6f8f965"
+    urlImg:
+      'https://storage.tally.so/private/IMG_20260106_134940.jpg?id=AARaDe&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IkFBUmFEZSIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4Nn0.dNhCpCHuucoDoLAMMOlN6M04sQEVg58NGg1tzRBxoyI&signature=c201209749a6484e8d4fc850c358ea1df77cfd891ecba1027b95484ea6f8f965',
   },
   {
-    name: "Auchan",
-    coords: [
-      49.1083081,
-      6.207186999999999
-    ],
-    category: "auchan",
-    address: "141 Avenue De Strasbourg 57070 Metz",
+    name: 'Auchan',
+    coords: [49.1083081, 6.207186999999999],
+    category: 'auchan',
+    address: '141 Avenue De Strasbourg 57070 Metz',
     hasCageEggs: true,
     nbRef: 1,
-    urlImg: "https://storage.tally.so/private/signal-2026-01-06-175614.jpeg?id=yjAW10&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6InlqQVcxMCIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4Nn0.7LPVu1uygYsDclPJMaizIvocKHQnxZkw_6IBN80yENc&signature=4c9f2681549ef39d44e0eb71ab957625afd0f9c4a04c0480a9774534f3234904"
+    urlImg:
+      'https://storage.tally.so/private/signal-2026-01-06-175614.jpeg?id=yjAW10&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6InlqQVcxMCIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4Nn0.7LPVu1uygYsDclPJMaizIvocKHQnxZkw_6IBN80yENc&signature=4c9f2681549ef39d44e0eb71ab957625afd0f9c4a04c0480a9774534f3234904',
   },
   {
-    name: "Auchan",
-    coords: [
-      48.69143,
-      6.12634
-    ],
-    category: "auchan",
-    address: "Rue de la Sapinière, 54520 Laxou",
+    name: 'Auchan',
+    coords: [48.69143, 6.12634],
+    category: 'auchan',
+    address: 'Rue de la Sapinière, 54520 Laxou',
     hasCageEggs: true,
     nbRef: 3,
-    urlImg: "https://storage.tally.so/private/signal-2026-01-09-133655.jpeg?id=01X8zZ&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjAxWDh6WiIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4Nn0.ZiDa05tBgaITjrQV2gh60su9zSiQMJWkLW_2hVi1lm0&signature=1238bebb8f2e80a817484b3d9a4c18913a23f26f272133188eeb2763d8f9f59c"
+    urlImg:
+      'https://storage.tally.so/private/signal-2026-01-09-133655.jpeg?id=01X8zZ&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjAxWDh6WiIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4Nn0.ZiDa05tBgaITjrQV2gh60su9zSiQMJWkLW_2hVi1lm0&signature=1238bebb8f2e80a817484b3d9a4c18913a23f26f272133188eeb2763d8f9f59c',
   },
   {
-    name: "Auchan",
-    coords: [
-      48.68474,
-      6.221839999999999
-    ],
-    category: "auchan",
-    address: "Av. Eugène Pottier Galerie Auchan, 54510 Tomblaine",
+    name: 'Auchan',
+    coords: [48.68474, 6.221839999999999],
+    category: 'auchan',
+    address: 'Av. Eugène Pottier Galerie Auchan, 54510 Tomblaine',
     hasCageEggs: true,
     nbRef: 2,
-    urlImg: "https://storage.tally.so/private/signal-2026-01-09-134600.jpeg?id=KvbVWD&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ikt2YlZXRCIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4Nn0.J8r8A88dr8WIe3L-fAe8yPNwrPTGQmQJURct7oy4Fac&signature=26ac9cd5f09e5f93199a8caf15ea64e212ed17dbf6376dfe1317e494e0c9082b"
+    urlImg:
+      'https://storage.tally.so/private/signal-2026-01-09-134600.jpeg?id=KvbVWD&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ikt2YlZXRCIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4Nn0.J8r8A88dr8WIe3L-fAe8yPNwrPTGQmQJURct7oy4Fac&signature=26ac9cd5f09e5f93199a8caf15ea64e212ed17dbf6376dfe1317e494e0c9082b',
   },
   {
-    name: "Auchan",
-    coords: [
-      43.590071,
-      2.187146
-    ],
-    category: "auchan",
-    address: "10, Rue Albert Calmette 81100 Castres",
+    name: 'Auchan',
+    coords: [43.590071, 2.187146],
+    category: 'auchan',
+    address: '10, Rue Albert Calmette 81100 Castres',
     hasCageEggs: true,
     nbRef: 3,
-    urlImg: "https://storage.tally.so/private/IMG_0184.jpeg?id=BANjBQ&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IkJBTmpCUSIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4Nn0.afrSBL9Areqq0uSxqsUUvF5RigEE-pa0Qbng7xGmZqU&signature=7bac43881610f786f7c6b0c6496d0c3d65b6566f1c61127ad221dff429a24d51"
+    urlImg:
+      'https://storage.tally.so/private/IMG_0184.jpeg?id=BANjBQ&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IkJBTmpCUSIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4Nn0.afrSBL9Areqq0uSxqsUUvF5RigEE-pa0Qbng7xGmZqU&signature=7bac43881610f786f7c6b0c6496d0c3d65b6566f1c61127ad221dff429a24d51',
   },
   {
-    name: "Auchan",
-    coords: [
-      45.42310759999999,
-      4.394843400000001
-    ],
-    category: "auchan",
-    address: "Centre deux Saint Etienne ",
+    name: 'Auchan',
+    coords: [45.42310759999999, 4.394843400000001],
+    category: 'auchan',
+    address: 'Centre deux Saint Etienne ',
     hasCageEggs: true,
     nbRef: 1,
-    urlImg: "https://storage.tally.so/private/PXL_20260110_154723586.jpg?id=gYRLVN&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImdZUkxWTiIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4Nn0.z7KBPJ0pKyxFRTsgvKoTTDCaXxoi_vZysfgIK5Tb7Dc&signature=6b0a6cb4db535186811e9e7d15e51bdf7982412003e70d4072915674fca85863"
+    urlImg:
+      'https://storage.tally.so/private/PXL_20260110_154723586.jpg?id=gYRLVN&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImdZUkxWTiIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4Nn0.z7KBPJ0pKyxFRTsgvKoTTDCaXxoi_vZysfgIK5Tb7Dc&signature=6b0a6cb4db535186811e9e7d15e51bdf7982412003e70d4072915674fca85863',
   },
   {
-    name: "Auchan",
-    coords: [
-      49.1180872,
-      6.1769215
-    ],
-    category: "auchan",
-    address: "11b Place Du Forum 57000 Metz",
+    name: 'Auchan',
+    coords: [49.1180872, 6.1769215],
+    category: 'auchan',
+    address: '11b Place Du Forum 57000 Metz',
     hasCageEggs: true,
     nbRef: 1,
-    urlImg: "https://storage.tally.so/private/signal-2026-01-10-124403_002.jpeg?id=21MOJb&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjIxTU9KYiIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4Nn0.ZTOVjjWHSVjge3fpXe_7xpw7ypx4eO5U7yC9ZBe60yQ&signature=360f5a4b4db7c2af7791076b7a054aa3e25f425f3828057d6a33d4a850a56adc"
+    urlImg:
+      'https://storage.tally.so/private/signal-2026-01-10-124403_002.jpeg?id=21MOJb&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjIxTU9KYiIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4Nn0.ZTOVjjWHSVjge3fpXe_7xpw7ypx4eO5U7yC9ZBe60yQ&signature=360f5a4b4db7c2af7791076b7a054aa3e25f425f3828057d6a33d4a850a56adc',
   },
   {
-    name: "Auchan",
-    coords: [
-      43.98207000000001,
-      4.88002
-    ],
-    category: "auchan",
-    address: "Rn 542, 84130 Le Pontet",
+    name: 'Auchan',
+    coords: [43.98207000000001, 4.88002],
+    category: 'auchan',
+    address: 'Rn 542, 84130 Le Pontet',
     hasCageEggs: true,
     nbRef: 5,
-    urlImg: "https://storage.tally.so/private/20260110_153528.jpg?id=aKb5bE&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImFLYjViRSIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4Nn0.zQz4p17a290aKTNGzQRmml60pJotxYwWxeGD_433G7s&signature=e6d551241b7786d9ca87c1aa9a94dd962bb328f7042db84f76c0bfa13f108047"
+    urlImg:
+      'https://storage.tally.so/private/20260110_153528.jpg?id=aKb5bE&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImFLYjViRSIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4Nn0.zQz4p17a290aKTNGzQRmml60pJotxYwWxeGD_433G7s&signature=e6d551241b7786d9ca87c1aa9a94dd962bb328f7042db84f76c0bfa13f108047',
   },
   {
-    name: "Auchan",
-    coords: [
-      47.6412452,
-      6.916773300000001
-    ],
-    category: "auchan",
-    address: "bessoncourt",
+    name: 'Auchan',
+    coords: [47.6412452, 6.916773300000001],
+    category: 'auchan',
+    address: 'bessoncourt',
     hasCageEggs: true,
     nbRef: 3,
-    urlImg: "https://storage.tally.so/private/IMG_20260116_120252.jpg?id=Pb6Wz1&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IlBiNld6MSIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4Nn0.bGeJb5i8jEkLK6xt13hpxLduDfPUi8jNaFnY0H3Pnk0&signature=1ab79df016b8b3f1d2e6ecc7e9af7af9f0529353b1ef3151499e36ecb8296d7e"
+    urlImg:
+      'https://storage.tally.so/private/IMG_20260116_120252.jpg?id=Pb6Wz1&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IlBiNld6MSIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4Nn0.bGeJb5i8jEkLK6xt13hpxLduDfPUi8jNaFnY0H3Pnk0&signature=1ab79df016b8b3f1d2e6ecc7e9af7af9f0529353b1ef3151499e36ecb8296d7e',
   },
   {
-    name: "Auchan",
-    coords: [
-      47.8824561,
-      1.9026094
-    ],
-    category: "auchan",
+    name: 'Auchan',
+    coords: [47.8824561, 1.9026094],
+    category: 'auchan',
     address: "74 Rte d'Olivet, 45100 Orléans",
     hasCageEggs: true,
     nbRef: 1,
-    urlImg: "https://storage.tally.so/private/telechargement-2026-01-17T223205.183.jpg?id=bYOdzL&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImJZT2R6TCIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4NX0.QykgsUwXcrEap7067YQPWG_e1qB_fbuSzsHDML0SuEc&signature=625fa82791835192b0a1cfed4a8a626094eda4428115e48abe3b51e4d8c66520"
+    urlImg:
+      'https://storage.tally.so/private/telechargement-2026-01-17T223205.183.jpg?id=bYOdzL&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImJZT2R6TCIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4NX0.QykgsUwXcrEap7067YQPWG_e1qB_fbuSzsHDML0SuEc&signature=625fa82791835192b0a1cfed4a8a626094eda4428115e48abe3b51e4d8c66520',
   },
   {
-    name: "Auchan",
-    coords: [
-      43.512699,
-      2.376558
-    ],
-    category: "auchan",
-    address: "Aussillon Mazamet, 81",
+    name: 'Auchan',
+    coords: [43.512699, 2.376558],
+    category: 'auchan',
+    address: 'Aussillon Mazamet, 81',
     hasCageEggs: true,
     nbRef: 3,
-    urlImg: "https://storage.tally.so/private/IMG_0919.jpeg?id=LazYLl&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IkxhellMbCIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4Nn0.xQtIDIZ9tY_5Chq6azXC1U35w4JCsAVRlGrdoIt_mfg&signature=5458e93a17c3e8928a5692131dc80cb1404fe68b7306088fc59cadace44a84f2"
+    urlImg:
+      'https://storage.tally.so/private/IMG_0919.jpeg?id=LazYLl&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IkxhellMbCIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4Nn0.xQtIDIZ9tY_5Chq6azXC1U35w4JCsAVRlGrdoIt_mfg&signature=5458e93a17c3e8928a5692131dc80cb1404fe68b7306088fc59cadace44a84f2',
   },
   {
-    name: "Auchan",
-    coords: [
-      48.59164000000001,
-      7.69518
-    ],
-    category: "auchan",
-    address: "Cc Hautepierre, Pl. André Maurois, 67200 Strasbourg, France",
+    name: 'Auchan',
+    coords: [48.59164000000001, 7.69518],
+    category: 'auchan',
+    address: 'Cc Hautepierre, Pl. André Maurois, 67200 Strasbourg, France',
     hasCageEggs: true,
     nbRef: 2,
-    urlImg: "https://storage.tally.so/private/signal-2026-01-14-164616.jpeg?id=NbX9O0&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ik5iWDlPMCIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4Nn0.v39hmSp2iaI4HbpitTsb2Zz7ZlFOahXKdquaCclnBiI&signature=bc6926fbb7df7a5f03f0f194f7f41f68beb3cc4705454ad8a943c8fbc70de3ce"
+    urlImg:
+      'https://storage.tally.so/private/signal-2026-01-14-164616.jpeg?id=NbX9O0&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ik5iWDlPMCIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4Nn0.v39hmSp2iaI4HbpitTsb2Zz7ZlFOahXKdquaCclnBiI&signature=bc6926fbb7df7a5f03f0f194f7f41f68beb3cc4705454ad8a943c8fbc70de3ce',
   },
   {
-    name: "Auchan",
-    coords: [
-      50.400616,
-      2.831738
-    ],
-    category: "auchan",
-    address: "Bd Maurice Thorez, 62210 Avion",
+    name: 'Auchan',
+    coords: [50.400616, 2.831738],
+    category: 'auchan',
+    address: 'Bd Maurice Thorez, 62210 Avion',
     hasCageEggs: true,
     nbRef: 1,
-    urlImg: "https://storage.tally.so/private/PXL_20260110_154723586.jpg?id=gYRLVN&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImdZUkxWTiIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4Nn0.z7KBPJ0pKyxFRTsgvKoTTDCaXxoi_vZysfgIK5Tb7Dc&signature=6b0a6cb4db535186811e9e7d15e51bdf7982412003e70d4072915674fca85863"
+    urlImg:
+      'https://storage.tally.so/private/PXL_20260110_154723586.jpg?id=gYRLVN&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImdZUkxWTiIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4Nn0.z7KBPJ0pKyxFRTsgvKoTTDCaXxoi_vZysfgIK5Tb7Dc&signature=6b0a6cb4db535186811e9e7d15e51bdf7982412003e70d4072915674fca85863',
   },
   {
-    name: "Auchan",
-    coords: [
-      47.4685268,
-      -0.5238028
-    ],
-    category: "auchan",
-    address: "1 Rue du Grand Montréjeau, 49000 Angers",
+    name: 'Auchan',
+    coords: [47.4685268, -0.5238028],
+    category: 'auchan',
+    address: '1 Rue du Grand Montréjeau, 49000 Angers',
     hasCageEggs: true,
     nbRef: 4,
-    urlImg: "https://storage.tally.so/private/telechargement-76-.jpg?id=NbWb2N&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ik5iV2IyTiIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4Nn0.rPsEJpcINawt_kt8UKzSI2ItrcD2s5QE4iJYuv5-nq4&signature=c83895b724f8a9c2084d1633a2e53a7b061f76c3e7de7919255a9f1d1fba7ad4"
+    urlImg:
+      'https://storage.tally.so/private/telechargement-76-.jpg?id=NbWb2N&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ik5iV2IyTiIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4Nn0.rPsEJpcINawt_kt8UKzSI2ItrcD2s5QE4iJYuv5-nq4&signature=c83895b724f8a9c2084d1633a2e53a7b061f76c3e7de7919255a9f1d1fba7ad4',
   },
   {
-    name: "Auchan",
-    coords: [
-      47.52016390000001,
-      -0.6099083
-    ],
-    category: "auchan",
-    address: "Zi La Croix Cadeau, Rte nationale 162, 49240 Avrillé",
+    name: 'Auchan',
+    coords: [47.52016390000001, -0.6099083],
+    category: 'auchan',
+    address: 'Zi La Croix Cadeau, Rte nationale 162, 49240 Avrillé',
     hasCageEggs: true,
     nbRef: 3,
-    urlImg: "https://storage.tally.so/private/telechargement-97-.jpg?id=GqdqGO&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IkdxZHFHTyIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4Nn0.dUmhyGDrEMLjQv6O5uJ-O2J5DikiL3LdUtNLnzVpBiw&signature=0d7c8538bd24a8f3161009c78b4dbb20848bf8588285fe627d8faa03a14fa188"
+    urlImg:
+      'https://storage.tally.so/private/telechargement-97-.jpg?id=GqdqGO&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IkdxZHFHTyIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4Nn0.dUmhyGDrEMLjQv6O5uJ-O2J5DikiL3LdUtNLnzVpBiw&signature=0d7c8538bd24a8f3161009c78b4dbb20848bf8588285fe627d8faa03a14fa188',
   },
   {
-    name: "Auchan",
-    coords: [
-      47.1909,
-      -1.49421
-    ],
-    category: "auchan",
-    address: "2 Rue Pierre Mendès France, 44230 Saint-Sébastien-sur-Loire, France",
+    name: 'Auchan',
+    coords: [47.1909, -1.49421],
+    category: 'auchan',
+    address: '2 Rue Pierre Mendès France, 44230 Saint-Sébastien-sur-Loire, France',
     hasCageEggs: true,
     nbRef: 5,
-    urlImg: "https://storage.tally.so/private/telechargement-7-.jpg?id=7a2pv6&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjdhMnB2NiIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4Nn0.1AMgRfekO0JV8yCHxeQYJQi47j5me1FLu8Z_-7WuT6k&signature=3a1fbfb085093549b7084ae571633787111aa1086b17294797150928d928c57b"
+    urlImg:
+      'https://storage.tally.so/private/telechargement-7-.jpg?id=7a2pv6&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjdhMnB2NiIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4Nn0.1AMgRfekO0JV8yCHxeQYJQi47j5me1FLu8Z_-7WuT6k&signature=3a1fbfb085093549b7084ae571633787111aa1086b17294797150928d928c57b',
   },
   {
-    name: "Auchan",
-    coords: [
-      47.2475356,
-      -1.6081353
-    ],
-    category: "auchan",
-    address: "325 Rte de Vannes, 44800 Saint-Herblain, France",
+    name: 'Auchan',
+    coords: [47.2475356, -1.6081353],
+    category: 'auchan',
+    address: '325 Rte de Vannes, 44800 Saint-Herblain, France',
     hasCageEggs: true,
     nbRef: 3,
-    urlImg: "https://storage.tally.so/private/telechargement-39-.jpg?id=Nb60bW&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ik5iNjBiVyIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4Nn0.z9mEyS-b87WbgLgbQYAM8osvEVDaXNvW4g2AkjVtuVs&signature=2945c84a9ca9b468ee91e26b96e5a4c61b6aedee73f0603653a2130dea3d16fc"
+    urlImg:
+      'https://storage.tally.so/private/telechargement-39-.jpg?id=Nb60bW&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ik5iNjBiVyIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4Nn0.z9mEyS-b87WbgLgbQYAM8osvEVDaXNvW4g2AkjVtuVs&signature=2945c84a9ca9b468ee91e26b96e5a4c61b6aedee73f0603653a2130dea3d16fc',
   },
   {
-    name: "Auchan",
-    coords: [
-      43.1603074,
-      2.9824051
-    ],
-    category: "auchan",
-    address: "70 Rte de Perpignan, 11100 Narbonne",
+    name: 'Auchan',
+    coords: [43.1603074, 2.9824051],
+    category: 'auchan',
+    address: '70 Rte de Perpignan, 11100 Narbonne',
     hasCageEggs: true,
     nbRef: 2,
-    urlImg: "https://storage.tally.so/private/IMG_20260116_095855083.jpg?id=M6bZYg&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ik02YlpZZyIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4Nn0.oWRo449I9Fhd_TvItIL5J2r8nSl2D-y942YBXesr2cY&signature=8eb6bb5caa595a6d21895c62035cdb588bc3b68d8ae580a378fc1a9308ed0673"
+    urlImg:
+      'https://storage.tally.so/private/IMG_20260116_095855083.jpg?id=M6bZYg&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ik02YlpZZyIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4Nn0.oWRo449I9Fhd_TvItIL5J2r8nSl2D-y942YBXesr2cY&signature=8eb6bb5caa595a6d21895c62035cdb588bc3b68d8ae580a378fc1a9308ed0673',
   },
   {
-    name: "Auchan",
-    coords: [
-      45.72282389999999,
-      4.926425
-    ],
-    category: "auchan",
-    address: "Porte des alpes 69800 saint priest",
+    name: 'Auchan',
+    coords: [45.72282389999999, 4.926425],
+    category: 'auchan',
+    address: 'Porte des alpes 69800 saint priest',
     hasCageEggs: true,
     nbRef: 2,
-    urlImg: "https://storage.tally.so/private/20260116_153344.jpg?id=EZPqJo&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IkVaUHFKbyIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4Nn0.FPODOFCDOoYuVQk6fQQspcNMvjFPFaCXDBuS7YQijKg&signature=c3cd9cc795fbfde42fff28b13fc941c3ef9c7e3b7f9ab761f3a1e08a6645121a"
+    urlImg:
+      'https://storage.tally.so/private/20260116_153344.jpg?id=EZPqJo&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IkVaUHFKbyIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4Nn0.FPODOFCDOoYuVQk6fQQspcNMvjFPFaCXDBuS7YQijKg&signature=c3cd9cc795fbfde42fff28b13fc941c3ef9c7e3b7f9ab761f3a1e08a6645121a',
   },
   {
-    name: "Auchan",
-    coords: [
-      48.85570000000001,
-      2.77801
-    ],
-    category: "auchan",
-    address: "14 Cr du Danube, 77700 Serris",
+    name: 'Auchan',
+    coords: [48.85570000000001, 2.77801],
+    category: 'auchan',
+    address: '14 Cr du Danube, 77700 Serris',
     hasCageEggs: true,
     nbRef: 6,
-    urlImg: "https://storage.tally.so/private/telechargement-15-.jpeg?id=NbVe4Q&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ik5iVmU0USIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4NX0.96q-S7JQxqOeEHD-XlX6t_Fo1FTkmJ1zGoEM9KjM26U&signature=fd76c62a682fafedf0a8895ea1a8e5df669569d683d54bde5de1cea7ff9a0027"
+    urlImg:
+      'https://storage.tally.so/private/telechargement-15-.jpeg?id=NbVe4Q&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ik5iVmU0USIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4NX0.96q-S7JQxqOeEHD-XlX6t_Fo1FTkmJ1zGoEM9KjM26U&signature=fd76c62a682fafedf0a8895ea1a8e5df669569d683d54bde5de1cea7ff9a0027',
   },
   {
-    name: "Auchan",
-    coords: [
-      50.065117,
-      1.413334
-    ],
-    category: "auchan",
-    address: "Fond de Froideville, Rn 15, 80350 Mers-les-Bains ",
+    name: 'Auchan',
+    coords: [50.065117, 1.413334],
+    category: 'auchan',
+    address: 'Fond de Froideville, Rn 15, 80350 Mers-les-Bains ',
     hasCageEggs: true,
     nbRef: 4,
-    urlImg: "https://storage.tally.so/private/IMG_20260117_103854.jpg?id=EZ0zlN&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IkVaMHpsTiIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4NX0.pZO8gpOjd_3RH8yB2CK3EsxmraCS6WutoZp1MLb0wXI&signature=cbaafb1fa33381e9c81a05e54b0ed6cc8fa1671369fea88d9cea72f934ddf6e8"
+    urlImg:
+      'https://storage.tally.so/private/IMG_20260117_103854.jpg?id=EZ0zlN&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IkVaMHpsTiIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4NX0.pZO8gpOjd_3RH8yB2CK3EsxmraCS6WutoZp1MLb0wXI&signature=cbaafb1fa33381e9c81a05e54b0ed6cc8fa1671369fea88d9cea72f934ddf6e8',
   },
   {
-    name: "Auchan",
-    coords: [
-      48.9581987,
-      2.8600486
-    ],
-    category: "auchan",
-    address: "3 Av. Roland Moreno, 77124 Chauconin-Neufmontiers",
+    name: 'Auchan',
+    coords: [48.9581987, 2.8600486],
+    category: 'auchan',
+    address: '3 Av. Roland Moreno, 77124 Chauconin-Neufmontiers',
     hasCageEggs: true,
     nbRef: 4,
-    urlImg: "https://storage.tally.so/private/WhatsApp-Image-2026-01-17-at-20.56.44-3-.jpeg?id=jJxoDY&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImpKeG9EWSIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4NX0.G4gN8TifSZPMfEvyVwdy2mid9U-ZT3bEzOkFqRyUZDI&signature=74303593ee8b60888db9b48535f42eb3a4845c7af900eedd3a8ac80f7779fa4c"
+    urlImg:
+      'https://storage.tally.so/private/WhatsApp-Image-2026-01-17-at-20.56.44-3-.jpeg?id=jJxoDY&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImpKeG9EWSIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4NX0.G4gN8TifSZPMfEvyVwdy2mid9U-ZT3bEzOkFqRyUZDI&signature=74303593ee8b60888db9b48535f42eb3a4845c7af900eedd3a8ac80f7779fa4c',
   },
   {
-    name: "Auchan",
-    coords: [
-      47.90399,
-      1.86154
-    ],
-    category: "auchan",
-    address: "Av. Pierre Mendès France, 45140 Saint-Jean-de-la-Ruelle",
+    name: 'Auchan',
+    coords: [47.90399, 1.86154],
+    category: 'auchan',
+    address: 'Av. Pierre Mendès France, 45140 Saint-Jean-de-la-Ruelle',
     hasCageEggs: true,
     nbRef: 7,
-    urlImg: "https://storage.tally.so/private/telechargement-2026-01-17T222208.832.jpg?id=EZ0W0A&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IkVaMFcwQSIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4NX0.Z37br2VaczvtLQ0HsfBppfzBVgjbx5Ax5VLuyVGt2VU&signature=536cca71c52630bb6dd13e7c1f46b877ea4e8fe8f9a6ab8da63e4df71df9f457"
+    urlImg:
+      'https://storage.tally.so/private/telechargement-2026-01-17T222208.832.jpg?id=EZ0W0A&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IkVaMFcwQSIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4NX0.Z37br2VaczvtLQ0HsfBppfzBVgjbx5Ax5VLuyVGt2VU&signature=536cca71c52630bb6dd13e7c1f46b877ea4e8fe8f9a6ab8da63e4df71df9f457',
   },
   {
-    name: "Auchan",
-    coords: [
-      47.8668322,
-      1.9112856
-    ],
-    category: "auchan",
-    address: "600, Avenue De Verdun, Rn 20, 45160 Olivet",
+    name: 'Auchan',
+    coords: [47.8668322, 1.9112856],
+    category: 'auchan',
+    address: '600, Avenue De Verdun, Rn 20, 45160 Olivet',
     hasCageEggs: true,
     nbRef: 3,
-    urlImg: "https://storage.tally.so/private/telechargement-2026-01-17T224311.693.jpg?id=YJda6z&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IllKZGE2eiIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4NX0.42TTYC0GPcPhiQXkT0ihpC_MZCc4gliP0CAK-2x4KJ0&signature=1c7a1febc95c4fe4d9ee4515fb3cfe21e268145bc5a7989c926982c5d3671d9f"
+    urlImg:
+      'https://storage.tally.so/private/telechargement-2026-01-17T224311.693.jpg?id=YJda6z&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IllKZGE2eiIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4NX0.42TTYC0GPcPhiQXkT0ihpC_MZCc4gliP0CAK-2x4KJ0&signature=1c7a1febc95c4fe4d9ee4515fb3cfe21e268145bc5a7989c926982c5d3671d9f',
   },
   {
-    name: "Auchan",
-    coords: [
-      48.8521398,
-      2.4009755
-    ],
-    category: "auchan",
+    name: 'Auchan',
+    coords: [48.8521398, 2.4009755],
+    category: 'auchan',
     address: "35 rue d'Avron 75020 Paris",
     hasCageEggs: true,
     nbRef: 1,
-    urlImg: "https://storage.tally.so/private/20260117_180522.jpg?id=Z1JapV&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IloxSmFwViIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4NX0.fnERw1sOJ6oJ29KQOHfEqpQQ1bzoHGYXlWowVIZ0c4g&signature=cbe29e73ccf5e4d9e9812ffbfed303334fbaf65a9892dfaf5dab1b19942221f2"
+    urlImg:
+      'https://storage.tally.so/private/20260117_180522.jpg?id=Z1JapV&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IloxSmFwViIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4NX0.fnERw1sOJ6oJ29KQOHfEqpQQ1bzoHGYXlWowVIZ0c4g&signature=cbe29e73ccf5e4d9e9812ffbfed303334fbaf65a9892dfaf5dab1b19942221f2',
   },
   {
-    name: "Auchan",
-    coords: [
-      47.9053997,
-      1.9440007
-    ],
-    category: "auchan",
-    address: "15 Av. Charles Péguy, 45800 Saint-Jean-de-Braye",
+    name: 'Auchan',
+    coords: [47.9053997, 1.9440007],
+    category: 'auchan',
+    address: '15 Av. Charles Péguy, 45800 Saint-Jean-de-Braye',
     hasCageEggs: true,
     nbRef: 2,
-    urlImg: "https://storage.tally.so/private/telechargement-2026-01-17T225306.818.jpg?id=49jxaY&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjQ5anhhWSIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4NX0.RUmOJlSpPE_M3PK-wNMIQRr9k9nxgsMoekhDfdqAH58&signature=e23c3bd9747e741773505a2bf2f183d4e8c0481bdb6668a3ac180686efc4254b"
+    urlImg:
+      'https://storage.tally.so/private/telechargement-2026-01-17T225306.818.jpg?id=49jxaY&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjQ5anhhWSIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4NX0.RUmOJlSpPE_M3PK-wNMIQRr9k9nxgsMoekhDfdqAH58&signature=e23c3bd9747e741773505a2bf2f183d4e8c0481bdb6668a3ac180686efc4254b',
   },
   {
-    name: "Auchan",
-    coords: [
-      46.3375806,
-      2.5545991
-    ],
-    category: "auchan",
-    address: "av des martyres 03410 Domerat ",
+    name: 'Auchan',
+    coords: [46.3375806, 2.5545991],
+    category: 'auchan',
+    address: 'av des martyres 03410 Domerat ',
     hasCageEggs: true,
     nbRef: 2,
-    urlImg: "https://storage.tally.so/private/20260107_153915.jpg?id=Rv9Dbj&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IlJ2OURiaiIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4Nn0.EMPaadEzNdPBbB0ENdrPpTo_qoC4WMAPzOy7LkyS6pE&signature=0c1a4932a8f8236a407ace89897c77e824dfe47ae348fced9ff3dcbbd9da8216"
+    urlImg:
+      'https://storage.tally.so/private/20260107_153915.jpg?id=Rv9Dbj&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IlJ2OURiaiIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4Nn0.EMPaadEzNdPBbB0ENdrPpTo_qoC4WMAPzOy7LkyS6pE&signature=0c1a4932a8f8236a407ace89897c77e824dfe47ae348fced9ff3dcbbd9da8216',
   },
   {
-    name: "Auchan",
-    coords: [
-      49.0995952,
-      6.1617045
-    ],
-    category: "auchan",
-    address: "Rue du XXe corps 57000 Metz",
+    name: 'Auchan',
+    coords: [49.0995952, 6.1617045],
+    category: 'auchan',
+    address: 'Rue du XXe corps 57000 Metz',
     hasCageEggs: true,
     nbRef: 1,
-    urlImg: "https://storage.tally.so/private/17689351639684623129394878291830.jpg?id=JeVGY4&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IkplVkdZNCIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4NX0.xDFbueNXJYm22GXdZ7rZ1rHiuMyBQOg14-EamLrGXns&signature=8b2fef15fceb9bb00c704075afa168e606345c53c933fb40d9e7af0fc6d1413a"
+    urlImg:
+      'https://storage.tally.so/private/17689351639684623129394878291830.jpg?id=JeVGY4&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IkplVkdZNCIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4NX0.xDFbueNXJYm22GXdZ7rZ1rHiuMyBQOg14-EamLrGXns&signature=8b2fef15fceb9bb00c704075afa168e606345c53c933fb40d9e7af0fc6d1413a',
   },
   {
-    name: "Auchan",
-    coords: [
-      50.6319212,
-      2.9685452
-    ],
-    category: "auchan",
-    address: "Les Geants, Cc Auchan, Rte Nationale 352, 59320 Englos",
+    name: 'Auchan',
+    coords: [50.6319212, 2.9685452],
+    category: 'auchan',
+    address: 'Les Geants, Cc Auchan, Rte Nationale 352, 59320 Englos',
     hasCageEggs: true,
     nbRef: 1,
-    urlImg: "https://storage.tally.so/private/IMG_0E275E8F7DFE-1.jpeg?id=M6DPo0&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ik02RFBvMCIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4Nn0.dTrAdxCTosnG_mYfamQXCU_jpSWommoimlYV779FmYE&signature=8d30ef98de23d9824ce6a14314a1d3f60c32911eb720268e3b2d82fd48599cc1"
+    urlImg:
+      'https://storage.tally.so/private/IMG_0E275E8F7DFE-1.jpeg?id=M6DPo0&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ik02RFBvMCIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4Nn0.dTrAdxCTosnG_mYfamQXCU_jpSWommoimlYV779FmYE&signature=8d30ef98de23d9824ce6a14314a1d3f60c32911eb720268e3b2d82fd48599cc1',
   },
   {
-    name: "Auchan",
-    coords: [
-      50.41265,
-      2.97696
-    ],
-    category: "auchan",
-    address: "Aushopping Noyelles, Av. de la République, 62950 Noyelles-Godault, France",
+    name: 'Auchan',
+    coords: [50.41265, 2.97696],
+    category: 'auchan',
+    address: 'Aushopping Noyelles, Av. de la République, 62950 Noyelles-Godault, France',
     hasCageEggs: true,
     nbRef: 4,
-    urlImg: "https://storage.tally.so/private/IMG_996A506BD509-1.jpeg?id=A4Lzqk&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IkE0THpxayIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4Nn0.0Sj-cMylAyU3u1wiLVEb-fYJt5U1IkKysec3zoo1evk&signature=672c256fa0efe2b1a01260e46053910ff596188b41aa8dfd34a511a6dfa1f758"
+    urlImg:
+      'https://storage.tally.so/private/IMG_996A506BD509-1.jpeg?id=A4Lzqk&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IkE0THpxayIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4Nn0.0Sj-cMylAyU3u1wiLVEb-fYJt5U1IkKysec3zoo1evk&signature=672c256fa0efe2b1a01260e46053910ff596188b41aa8dfd34a511a6dfa1f758',
   },
   {
-    name: "Auchan",
-    coords: [
-      49.1568525,
-      -0.3971941
-    ],
-    category: "auchan",
-    address: "Route De Thury Harcourt, 14123 Fleury-Sur-Orne",
+    name: 'Auchan',
+    coords: [49.1568525, -0.3971941],
+    category: 'auchan',
+    address: 'Route De Thury Harcourt, 14123 Fleury-Sur-Orne',
     hasCageEggs: true,
     nbRef: 1,
-    urlImg: "https://storage.tally.so/private/IMG_6544.jpeg?id=2lBbbb&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjJsQmJiYiIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4Nn0.EIB1iLWm5m_1Iaf0Oa_q8x43lyCcADEMLQTd8IJyNSk&signature=9619c55e11ac2dc53236259d5520e00d2e5dc9797419704bec049e8a3a4506ed"
+    urlImg:
+      'https://storage.tally.so/private/IMG_6544.jpeg?id=2lBbbb&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjJsQmJiYiIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4Nn0.EIB1iLWm5m_1Iaf0Oa_q8x43lyCcADEMLQTd8IJyNSk&signature=9619c55e11ac2dc53236259d5520e00d2e5dc9797419704bec049e8a3a4506ed',
   },
   {
-    name: "Auchan",
-    coords: [
-      43.8366567,
-      5.052951699999999
-    ],
-    category: "auchan",
-    address: "204 Avenue des Taillades\t84300\tCAVAILLON",
+    name: 'Auchan',
+    coords: [43.8366567, 5.052951699999999],
+    category: 'auchan',
+    address: '204 Avenue des Taillades\t84300\tCAVAILLON',
     hasCageEggs: true,
     nbRef: 2,
-    urlImg: "https://storage.tally.so/private/signal-2026-01-23-161848.jpeg?id=49OLPO&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjQ5T0xQTyIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTM2NDM0M30.PMgazBLg-LnBcKLPDThiPAgq4TVF-N0IZXFu6UOfWGQ&signature=a05cec31d894b3ab56d97ebdb510b604797e93c389eb3393631e66fc12389697"
+    urlImg:
+      'https://storage.tally.so/private/signal-2026-01-23-161848.jpeg?id=49OLPO&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjQ5T0xQTyIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTM2NDM0M30.PMgazBLg-LnBcKLPDThiPAgq4TVF-N0IZXFu6UOfWGQ&signature=a05cec31d894b3ab56d97ebdb510b604797e93c389eb3393631e66fc12389697',
   },
   {
-    name: "Auchan",
-    coords: [
-      43.951532,
-      4.859761300000001
-    ],
-    category: "auchan",
-    address: "246 Route de Réalpanier\t84130\tLE PONTET",
+    name: 'Auchan',
+    coords: [43.951532, 4.859761300000001],
+    category: 'auchan',
+    address: '246 Route de Réalpanier\t84130\tLE PONTET',
     hasCageEggs: true,
     nbRef: 2,
-    urlImg: "https://storage.tally.so/private/signal-2026-01-23-164235.jpeg?id=gJzZ2D&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImdKeloyRCIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTM2NDM0M30.H63QpJLO6hLXLvpjBIbWg84JcT82xxCstNx0GiMVbE4&signature=82f1d1cde394a590ab4bd1203ece7dd3fd83e04155c39e87e61a10faa643d78b"
+    urlImg:
+      'https://storage.tally.so/private/signal-2026-01-23-164235.jpeg?id=gJzZ2D&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImdKeloyRCIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTM2NDM0M30.H63QpJLO6hLXLvpjBIbWg84JcT82xxCstNx0GiMVbE4&signature=82f1d1cde394a590ab4bd1203ece7dd3fd83e04155c39e87e61a10faa643d78b',
   },
   {
-    name: "Auchan",
-    coords: [
-      43.5488256,
-      3.9799375
-    ],
-    category: "auchan",
-    address: "Cc Mediterranee, Route De Carnon, 34470 Pérols",
+    name: 'Auchan',
+    coords: [43.5488256, 3.9799375],
+    category: 'auchan',
+    address: 'Cc Mediterranee, Route De Carnon, 34470 Pérols',
     hasCageEggs: true,
     nbRef: 4,
-    urlImg: "https://storage.tally.so/private/IMG_20260123_172705.jpg?id=JeoMvr&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ikplb012ciIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTM2NDM0Mn0.Jxcut0SvbgQVUiBiBiUfPD1U35eX9av5sh0H2nACXGs&signature=f629dd87f98eb10bf3299c7f81902a6d5428bfddb0d8bd8a66ff7db633c90137"
+    urlImg:
+      'https://storage.tally.so/private/IMG_20260123_172705.jpg?id=JeoMvr&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ikplb012ciIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTM2NDM0Mn0.Jxcut0SvbgQVUiBiBiUfPD1U35eX9av5sh0H2nACXGs&signature=f629dd87f98eb10bf3299c7f81902a6d5428bfddb0d8bd8a66ff7db633c90137',
   },
   {
-    name: "Auchan",
-    coords: [
-      47.1909,
-      -1.49421
-    ],
-    category: "auchan",
-    address: "2 Rue Pierre Mendès France, 44230 Saint-Sébastien-sur-Loire",
+    name: 'Auchan',
+    coords: [47.1909, -1.49421],
+    category: 'auchan',
+    address: '2 Rue Pierre Mendès France, 44230 Saint-Sébastien-sur-Loire',
     hasCageEggs: true,
     nbRef: 3,
-    urlImg: "https://storage.tally.so/private/20260124_171433.jpg?id=PbPxxe&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IlBiUHh4ZSIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTM2NDM0Mn0.5ClGWC2cbDxPMX109P5Pc6BiqoP4O87IypDaTbbosY0&signature=6771faa57e56e81a814a6f67446f40db4b09470f5cba55a7a23e6749fbdd5284"
+    urlImg:
+      'https://storage.tally.so/private/20260124_171433.jpg?id=PbPxxe&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IlBiUHh4ZSIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTM2NDM0Mn0.5ClGWC2cbDxPMX109P5Pc6BiqoP4O87IypDaTbbosY0&signature=6771faa57e56e81a814a6f67446f40db4b09470f5cba55a7a23e6749fbdd5284',
   },
   {
-    name: "Auchan",
-    coords: [
-      48.5826608,
-      7.7473796
-    ],
-    category: "auchan",
-    address: "47 rue des grandes arcades, 67000 Strasbourg",
+    name: 'Auchan',
+    coords: [48.5826608, 7.7473796],
+    category: 'auchan',
+    address: '47 rue des grandes arcades, 67000 Strasbourg',
     hasCageEggs: true,
     nbRef: 1,
-    urlImg: "https://storage.tally.so/private/20260127_111052.jpg?id=bYyJoZ&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImJZeUpvWiIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTY4MTAyOH0.qPTkYFIVIEQe9NWGw9AIkjV1z-bZEXkTve1GBoNBvpE&signature=d5c4ff2d8fb6bb59a3cde8cf3e4d5eca9e3365835758d6d1d2356c68ab0df1f4"
+    urlImg:
+      'https://storage.tally.so/private/20260127_111052.jpg?id=bYyJoZ&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImJZeUpvWiIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTY4MTAyOH0.qPTkYFIVIEQe9NWGw9AIkjV1z-bZEXkTve1GBoNBvpE&signature=d5c4ff2d8fb6bb59a3cde8cf3e4d5eca9e3365835758d6d1d2356c68ab0df1f4',
   },
   {
-    name: "Auchan",
-    coords: [
-      45.757799,
-      4.7810773
-    ],
-    category: "auchan",
-    address: "35 avenue Général Brosset 69160 TASSIN LA DEMI LUNE",
+    name: 'Auchan',
+    coords: [45.757799, 4.7810773],
+    category: 'auchan',
+    address: '35 avenue Général Brosset 69160 TASSIN LA DEMI LUNE',
     hasCageEggs: true,
     nbRef: 1,
-    urlImg: "https://storage.tally.so/private/auchan-oeuf-3-270126.jpg?id=9Rg5Ap&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjlSZzVBcCIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTY4MTAyOH0.LsvgJifLm0mg7Np9cBand37PYSM6e491RYzO0eyfBB4&signature=ce118939bee8b64be513535549f81b3b6c7db02f13e83caaf9ba46e5a3edda5a"
+    urlImg:
+      'https://storage.tally.so/private/auchan-oeuf-3-270126.jpg?id=9Rg5Ap&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjlSZzVBcCIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTY4MTAyOH0.LsvgJifLm0mg7Np9cBand37PYSM6e491RYzO0eyfBB4&signature=ce118939bee8b64be513535549f81b3b6c7db02f13e83caaf9ba46e5a3edda5a',
   },
   {
-    name: "Auchan",
-    coords: [
-      48.576059,
-      7.757242999999999
-    ],
-    category: "auchan",
-    address: "27 rue de Lausanne, 67000 Strasbourg",
+    name: 'Auchan',
+    coords: [48.576059, 7.757242999999999],
+    category: 'auchan',
+    address: '27 rue de Lausanne, 67000 Strasbourg',
     hasCageEggs: true,
     nbRef: 1,
-    urlImg: "https://storage.tally.so/private/20260128_114628.jpg?id=o5YjkV&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Im81WWprViIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTY4MTAyOH0.OKadYhqoX1vSHvsGzoTFaVmgKN_-IsWW01xICsZCOCw&signature=9c98284ce368146594951c5418c6a64ad3ef7a82401de7489cb3f31d7c79b5d6"
+    urlImg:
+      'https://storage.tally.so/private/20260128_114628.jpg?id=o5YjkV&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Im81WWprViIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTY4MTAyOH0.OKadYhqoX1vSHvsGzoTFaVmgKN_-IsWW01xICsZCOCw&signature=9c98284ce368146594951c5418c6a64ad3ef7a82401de7489cb3f31d7c79b5d6',
   },
   {
-    name: "Auchan",
-    coords: [
-      48.5777809,
-      7.7712318
-    ],
-    category: "auchan",
-    address: "8 rue de Leicester, 67000 Strasbourg",
+    name: 'Auchan',
+    coords: [48.5777809, 7.7712318],
+    category: 'auchan',
+    address: '8 rue de Leicester, 67000 Strasbourg',
     hasCageEggs: true,
     nbRef: 1,
-    urlImg: "https://storage.tally.so/private/20260128_161315.jpg?id=49Y2gB&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjQ5WTJnQiIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTY4MTAyOH0.YkMRqpMN3ykRAvHOomLwZCGMnsiwvQ1qFTtENs9DEk8&signature=272d645eef7a7e0ac8d98aa580002befea1a183d52f8eb5a18abb3cbbcadc450"
+    urlImg:
+      'https://storage.tally.so/private/20260128_161315.jpg?id=49Y2gB&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjQ5WTJnQiIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTY4MTAyOH0.YkMRqpMN3ykRAvHOomLwZCGMnsiwvQ1qFTtENs9DEk8&signature=272d645eef7a7e0ac8d98aa580002befea1a183d52f8eb5a18abb3cbbcadc450',
   },
   {
-    name: "Auchan",
-    coords: [
-      48.86558,
-      2.41509
-    ],
-    category: "auchan",
-    address: "28 avenue du Général de Gaulle, Bagnolet",
+    name: 'Auchan',
+    coords: [48.86558, 2.41509],
+    category: 'auchan',
+    address: '28 avenue du Général de Gaulle, Bagnolet',
     hasCageEggs: true,
     nbRef: 2,
-    urlImg: "https://storage.tally.so/private/inbound6654734334769783042.jpg?id=zG8qxM&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6InpHOHF4TSIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc3MDQ1NjU5M30.RWYJ6aOiKB6QBKqwWBMSZjj59djv1m6B9PKAzWvkvOs&signature=fdfb8ede6c3c52e9db94e4657c36550d67cbcab82345014d84911de29f737363"
+    urlImg:
+      'https://storage.tally.so/private/inbound6654734334769783042.jpg?id=zG8qxM&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6InpHOHF4TSIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc3MDQ1NjU5M30.RWYJ6aOiKB6QBKqwWBMSZjj59djv1m6B9PKAzWvkvOs&signature=fdfb8ede6c3c52e9db94e4657c36550d67cbcab82345014d84911de29f737363',
   },
   {
-    name: "Auchan",
-    coords: [
-      45.7076885,
-      4.9636955
-    ],
-    category: "auchan",
-    address: "Zac Du Champ Du Pont, 69800 Saint-Priest",
+    name: 'Auchan',
+    coords: [45.7076885, 4.9636955],
+    category: 'auchan',
+    address: 'Zac Du Champ Du Pont, 69800 Saint-Priest',
     hasCageEggs: true,
     nbRef: 2,
-    urlImg: "https://storage.tally.so/private/Oeufs-cage-Auchan-1.jpeg?id=aAL5yy&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImFBTDV5eSIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc3MDQ1NjU5M30.Y3v9upFXQsFS3o-W8Ub7YqVCskxvigt5c7XOdRF22Vk&signature=1bfc54c6dd487d993b0d237df5808ea8f7222341514ce7b159646a5776a85860"
+    urlImg:
+      'https://storage.tally.so/private/Oeufs-cage-Auchan-1.jpeg?id=aAL5yy&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImFBTDV5eSIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc3MDQ1NjU5M30.Y3v9upFXQsFS3o-W8Ub7YqVCskxvigt5c7XOdRF22Vk&signature=1bfc54c6dd487d993b0d237df5808ea8f7222341514ce7b159646a5776a85860',
   },
   {
-    name: "Auchan",
-    coords: [
-      45.7964534,
-      4.851136599999999
-    ],
-    category: "auchan",
-    address: "A place du marechal foch 69300 caluire",
+    name: 'Auchan',
+    coords: [45.7964534, 4.851136599999999],
+    category: 'auchan',
+    address: 'A place du marechal foch 69300 caluire',
     hasCageEggs: true,
     nbRef: 5,
-    urlImg: "https://storage.tally.so/private/IMG-20260131-WA0019.jpg?id=1Ne7Ll&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjFOZTdMbCIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc3MDQ1NjU5M30.M3Si1zNFYZeE2U1jXVyhBWy_xxScCa3pI1sWG4IdJS0&signature=e2eb6d2dbf96120212783be325ce7f2a3e026b1659bed58a08a92ea214c7bc08"
+    urlImg:
+      'https://storage.tally.so/private/IMG-20260131-WA0019.jpg?id=1Ne7Ll&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjFOZTdMbCIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc3MDQ1NjU5M30.M3Si1zNFYZeE2U1jXVyhBWy_xxScCa3pI1sWG4IdJS0&signature=e2eb6d2dbf96120212783be325ce7f2a3e026b1659bed58a08a92ea214c7bc08',
   },
   {
-    name: "Auchan",
-    coords: [
-      44.6858631,
-      -0.5174972999999999
-    ],
-    category: "auchan",
-    address: "1 À la Perrucade, 33650 La Brède",
+    name: 'Auchan',
+    coords: [44.6858631, -0.5174972999999999],
+    category: 'auchan',
+    address: '1 À la Perrucade, 33650 La Brède',
     hasCageEggs: true,
     nbRef: 3,
-    urlImg: "https://storage.tally.so/private/edc45c04-b144-4360-80e2-935d6675b650.jpg?id=qk4ke9&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6InFrNGtlOSIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc3MDQ1NjU5M30.C82x8xZ4EEYNYwsEThCQfrYLfI7tOuBEBeDAZclAZuc&signature=315cc2984e9c4666e803c67cc3305a02166601d03aa245b1d18d70193e133c70"
+    urlImg:
+      'https://storage.tally.so/private/edc45c04-b144-4360-80e2-935d6675b650.jpg?id=qk4ke9&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6InFrNGtlOSIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc3MDQ1NjU5M30.C82x8xZ4EEYNYwsEThCQfrYLfI7tOuBEBeDAZclAZuc&signature=315cc2984e9c4666e803c67cc3305a02166601d03aa245b1d18d70193e133c70',
   },
   {
-    name: "Auchan",
-    coords: [
-      45.82048,
-      4.76713
-    ],
-    category: "auchan",
-    address: "Auchan porte de Lyon dardilly",
+    name: 'Auchan',
+    coords: [45.82048, 4.76713],
+    category: 'auchan',
+    address: 'Auchan porte de Lyon dardilly',
     hasCageEggs: true,
     nbRef: 3,
-    urlImg: "https://storage.tally.so/private/image.jpg?id=aAb2Ev&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImFBYjJFdiIsImZvcm1JZCI6IlJHTU4wNCIsImlhdCI6MTc3MDQ1NjYwNn0.sgHlvgah_gMfIEHi6yilGVQzzQb4HCzZ82Ib7Ng5KbY&signature=fd29980a3d9a0f94f3eeea11b0d29355ad7db351c5b34b5b2f72552299eb0565"
+    urlImg:
+      'https://storage.tally.so/private/image.jpg?id=aAb2Ev&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImFBYjJFdiIsImZvcm1JZCI6IlJHTU4wNCIsImlhdCI6MTc3MDQ1NjYwNn0.sgHlvgah_gMfIEHi6yilGVQzzQb4HCzZ82Ib7Ng5KbY&signature=fd29980a3d9a0f94f3eeea11b0d29355ad7db351c5b34b5b2f72552299eb0565',
   },
   {
-    name: "Auchan",
-    coords: [
-      49.01492,
-      2.21981
-    ],
-    category: "auchan",
-    address: "50 rue Théroigne de Méricourt 95150 Taverny",
+    name: 'Auchan',
+    coords: [49.01492, 2.21981],
+    category: 'auchan',
+    address: '50 rue Théroigne de Méricourt 95150 Taverny',
     hasCageEggs: true,
     nbRef: 2,
-    urlImg: "https://storage.tally.so/private/IMG_20260206_121252.jpg?id=Aj2POD&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IkFqMlBPRCIsImZvcm1JZCI6IlJHTU4wNCIsImlhdCI6MTc3MDQ1NjYwNn0.9IXiHBi6WGy6HorNdCVzl_38ONPuI4nC99W07CT3E2E&signature=24ec47a87194aef18a099fe3dd3dab21cd75c8b75e1f015865887435505d4575"
+    urlImg:
+      'https://storage.tally.so/private/IMG_20260206_121252.jpg?id=Aj2POD&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IkFqMlBPRCIsImZvcm1JZCI6IlJHTU4wNCIsImlhdCI6MTc3MDQ1NjYwNn0.9IXiHBi6WGy6HorNdCVzl_38ONPuI4nC99W07CT3E2E&signature=24ec47a87194aef18a099fe3dd3dab21cd75c8b75e1f015865887435505d4575',
   },
   {
-    name: "Auchan",
-    coords: [
-      48.5778743,
-      7.705271000000001
-    ],
-    category: "auchan",
-    address: "121 Route des romains 67200 Strasbourg ",
+    name: 'Auchan',
+    coords: [48.5778743, 7.705271000000001],
+    category: 'auchan',
+    address: '121 Route des romains 67200 Strasbourg ',
     hasCageEggs: true,
     nbRef: 1,
-    urlImg: "https://storage.tally.so/private/IMG_20260203_162605.jpg?id=DZ20MR&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IkRaMjBNUiIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc3MDQ1NjU5M30.ZZmbVxI1ojpDRn8Qpr6ZpBn4MDApq12t4rIx7NUPd-I&signature=193b003e50239f7652f5a0cc499986b20907dfc0541c89cad184fcc3a4403d56"
+    urlImg:
+      'https://storage.tally.so/private/IMG_20260203_162605.jpg?id=DZ20MR&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IkRaMjBNUiIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc3MDQ1NjU5M30.ZZmbVxI1ojpDRn8Qpr6ZpBn4MDApq12t4rIx7NUPd-I&signature=193b003e50239f7652f5a0cc499986b20907dfc0541c89cad184fcc3a4403d56',
   },
   {
-    name: "Auchan",
-    coords: [
-      45.75356,
-      4.85774
-    ],
-    category: "auchan",
-    address: "87 avenue Felix faure 69003",
+    name: 'Auchan',
+    coords: [45.75356, 4.85774],
+    category: 'auchan',
+    address: '87 avenue Felix faure 69003',
     hasCageEggs: true,
     nbRef: 2,
-    urlImg: "https://storage.tally.so/private/IMG_20260206_151509.jpg?id=M7DxlM&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ik03RHhsTSIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc3MDQ1NjU5M30.pzw1puvL1cIcbrV_Bx_nA9x9n_JIfBZrGcKDN-Gf1mQ&signature=d2585d85f6ecee7cdc7afc7f1b6fac20ed095af8e0610969fa0e6b39c083904a"
+    urlImg:
+      'https://storage.tally.so/private/IMG_20260206_151509.jpg?id=M7DxlM&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ik03RHhsTSIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc3MDQ1NjU5M30.pzw1puvL1cIcbrV_Bx_nA9x9n_JIfBZrGcKDN-Gf1mQ&signature=d2585d85f6ecee7cdc7afc7f1b6fac20ed095af8e0610969fa0e6b39c083904a',
   },
   {
-    name: "Auchan",
-    coords: [
-      44.556944,
-      4.749496
-    ],
-    category: "auchan",
-    address: "26200 montelimar ",
+    name: 'Auchan',
+    coords: [44.556944, 4.749496],
+    category: 'auchan',
+    address: '26200 montelimar ',
     hasCageEggs: true,
     nbRef: 1,
-    urlImg: "https://storage.tally.so/private/20260131_094817.jpg?id=5eA5vo&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVlQTV2byIsImZvcm1JZCI6IlJHTU4wNCIsImlhdCI6MTc3MDQ1NjYwNn0.e2I-l2Zr1Kv8PkrJfgcjtyWR8bWKbZQcNtlzAyiJ4qA&signature=e8180e4af983b81956c5b7a93660005435c97aaac9cab972330b0a206e213ace"
+    urlImg:
+      'https://storage.tally.so/private/20260131_094817.jpg?id=5eA5vo&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVlQTV2byIsImZvcm1JZCI6IlJHTU4wNCIsImlhdCI6MTc3MDQ1NjYwNn0.e2I-l2Zr1Kv8PkrJfgcjtyWR8bWKbZQcNtlzAyiJ4qA&signature=e8180e4af983b81956c5b7a93660005435c97aaac9cab972330b0a206e213ace',
   },
   {
-    name: "Carrefour",
-    coords: [
-      47.2635088,
-      6.0640162
-    ],
-    category: "carrefour",
-    address: "Chemin de la Voie des Agasses, 25220 Chalezeule",
+    name: 'Carrefour',
+    coords: [47.2635088, 6.0640162],
+    category: 'carrefour',
+    address: 'Chemin de la Voie des Agasses, 25220 Chalezeule',
     hasCageEggs: false,
     nbRef: 0,
-    urlImg: "https://storage.tally.so/private/20260112_174056.jpg?id=rJDaov&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6InJKRGFvdiIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4Nn0.yK_P2fXpfNl4zMIXRTt80YphsXVu5ICWCqKh-Mh5oB0&signature=d35fbaabb16d08e4cb6d537361aac0a0aabafdc521d1ab0930e756095f924566"
+    urlImg:
+      'https://storage.tally.so/private/20260112_174056.jpg?id=rJDaov&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6InJKRGFvdiIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4Nn0.yK_P2fXpfNl4zMIXRTt80YphsXVu5ICWCqKh-Mh5oB0&signature=d35fbaabb16d08e4cb6d537361aac0a0aabafdc521d1ab0930e756095f924566',
   },
   {
-    name: "Carrefour",
-    coords: [
-      48.65300999999999,
-      7.72646
-    ],
-    category: "carrefour",
-    address: "RN 63, 67450 Mundolsheim, France",
+    name: 'Carrefour',
+    coords: [48.65300999999999, 7.72646],
+    category: 'carrefour',
+    address: 'RN 63, 67450 Mundolsheim, France',
     hasCageEggs: false,
     nbRef: 0,
-    urlImg: null
+    urlImg: null,
   },
   {
-    name: "Carrefour",
-    coords: [
-      47.7405076,
-      7.2927501
-    ],
-    category: "carrefour",
-    address: "258 Rue de Belfort, 68200 Mulhouse",
+    name: 'Carrefour',
+    coords: [47.7405076, 7.2927501],
+    category: 'carrefour',
+    address: '258 Rue de Belfort, 68200 Mulhouse',
     hasCageEggs: false,
     nbRef: 0,
-    urlImg: null
+    urlImg: null,
   },
   {
-    name: "Carrefour",
-    coords: [
-      50.4506281,
-      2.9406319
-    ],
-    category: "carrefour",
-    address: "Rn 319, 62710 Courrières",
+    name: 'Carrefour',
+    coords: [50.4506281, 2.9406319],
+    category: 'carrefour',
+    address: 'Rn 319, 62710 Courrières',
     hasCageEggs: false,
     nbRef: 0,
-    urlImg: "https://storage.tally.so/private/IMG_113F7FA60E14-1.jpeg?id=9RDBBX&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjlSREJCWCIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4Nn0.ig9bHWxaxsNBqvzeuRXDl6JjMDdUsCFGOoosOrfra2A&signature=49b294d08b40d9888d25700b1dd941987088905ebc85a9f8411a2236d086b762"
+    urlImg:
+      'https://storage.tally.so/private/IMG_113F7FA60E14-1.jpeg?id=9RDBBX&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjlSREJCWCIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4Nn0.ig9bHWxaxsNBqvzeuRXDl6JjMDdUsCFGOoosOrfra2A&signature=49b294d08b40d9888d25700b1dd941987088905ebc85a9f8411a2236d086b762',
   },
   {
-    name: "Carrefour",
-    coords: [
-      47.21412,
-      -1.55283
-    ],
-    category: "carrefour",
-    address: "27 Parv. Neptune, 44000 Nantes, France",
+    name: 'Carrefour',
+    coords: [47.21412, -1.55283],
+    category: 'carrefour',
+    address: '27 Parv. Neptune, 44000 Nantes, France',
     hasCageEggs: false,
     nbRef: 0,
-    urlImg: "https://storage.tally.so/private/WhatsApp-Image-2026-01-02-at-18.36.01-1-.jpeg?id=GqdQlj&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IkdxZFFsaiIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4Nn0.7svo2MIUE8tdKCinKt36VQdkUbRcL0cM81Y2VUfvrMM&signature=aa1231f7dadf8704d822fdf5f9e81b161a42e4369e06da068b01d5aef33ed3be"
+    urlImg:
+      'https://storage.tally.so/private/WhatsApp-Image-2026-01-02-at-18.36.01-1-.jpeg?id=GqdQlj&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IkdxZFFsaiIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4Nn0.7svo2MIUE8tdKCinKt36VQdkUbRcL0cM81Y2VUfvrMM&signature=aa1231f7dadf8704d822fdf5f9e81b161a42e4369e06da068b01d5aef33ed3be',
   },
   {
-    name: "Carrefour",
-    coords: [
-      47.063904,
-      5.460621
-    ],
-    category: "carrefour",
-    address: "Zone commerciale Choissey - 39 Dole ",
+    name: 'Carrefour',
+    coords: [47.063904, 5.460621],
+    category: 'carrefour',
+    address: 'Zone commerciale Choissey - 39 Dole ',
     hasCageEggs: false,
     nbRef: 0,
-    urlImg: "https://storage.tally.so/private/20260118_123054.jpg?id=KW0q5A&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IktXMHE1QSIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4NX0.CzjzkiS5cufiBC9f27cju67po2_dd4X21Jp_mnc3lqA&signature=7d1c2aa68856869b93651b14c77d5db88145594cb9fa4a08387f777e23abe656\nhttps://storage.tally.so/private/20260118_122807.jpg?id=d8P59A&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImQ4UDU5QSIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4NX0.XkJ0KHjxLrWHo5MtWFtVrnhTtNB9Kb98jzEn6D0-BLE&signature=073b47eaff7a7010b908c1b7b847a6ea1b7a3b6ce200039ffcfc976e0258ba5d"
+    urlImg:
+      'https://storage.tally.so/private/20260118_123054.jpg?id=KW0q5A&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IktXMHE1QSIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4NX0.CzjzkiS5cufiBC9f27cju67po2_dd4X21Jp_mnc3lqA&signature=7d1c2aa68856869b93651b14c77d5db88145594cb9fa4a08387f777e23abe656\nhttps://storage.tally.so/private/20260118_122807.jpg?id=d8P59A&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImQ4UDU5QSIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4NX0.XkJ0KHjxLrWHo5MtWFtVrnhTtNB9Kb98jzEn6D0-BLE&signature=073b47eaff7a7010b908c1b7b847a6ea1b7a3b6ce200039ffcfc976e0258ba5d',
   },
   {
-    name: "Carrefour",
-    coords: [
-      48.861538,
-      2.442264
-    ],
-    category: "carrefour",
-    address: "5 Rue Franklin, 93100 Montreuil",
+    name: 'Carrefour',
+    coords: [48.861538, 2.442264],
+    category: 'carrefour',
+    address: '5 Rue Franklin, 93100 Montreuil',
     hasCageEggs: false,
     nbRef: 0,
-    urlImg: "https://storage.tally.so/private/20260120_185813.jpg?id=X8RQeL&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ilg4UlFlTCIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4NX0.6ZV-gya4_P4ygPNuShXTAXy_41JOMqdJ9t-cCGhAdVk&signature=5e5f9e965f29baafae98d74c723636baccff150c965f8e8a99d4be0b4e7c96af"
+    urlImg:
+      'https://storage.tally.so/private/20260120_185813.jpg?id=X8RQeL&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ilg4UlFlTCIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4NX0.6ZV-gya4_P4ygPNuShXTAXy_41JOMqdJ9t-cCGhAdVk&signature=5e5f9e965f29baafae98d74c723636baccff150c965f8e8a99d4be0b4e7c96af',
   },
   {
-    name: "Carrefour",
-    coords: [
-      50.4613462,
-      2.8152134
-    ],
-    category: "carrefour",
-    address: "CC Lens 2, 347 Route De La Bassee, 62880 Vendin-Le-Vieil",
+    name: 'Carrefour',
+    coords: [50.4613462, 2.8152134],
+    category: 'carrefour',
+    address: 'CC Lens 2, 347 Route De La Bassee, 62880 Vendin-Le-Vieil',
     hasCageEggs: false,
     nbRef: 0,
-    urlImg: "https://storage.tally.so/private/IMG_C12D7C481C6B-1.jpeg?id=EZ5gaA&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IkVaNWdhQSIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4Nn0.fipM-AE6lXp3JM6JIrLyon_K4ekzdl-UHcr0iRRe4tI&signature=92d853dc5cc0fc6ce7fb2b71093f8a2a2cc50117f565ad06253237545a761c7a"
+    urlImg:
+      'https://storage.tally.so/private/IMG_C12D7C481C6B-1.jpeg?id=EZ5gaA&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IkVaNWdhQSIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4Nn0.fipM-AE6lXp3JM6JIrLyon_K4ekzdl-UHcr0iRRe4tI&signature=92d853dc5cc0fc6ce7fb2b71093f8a2a2cc50117f565ad06253237545a761c7a',
   },
   {
-    name: "Carrefour",
-    coords: [
-      50.3927543,
-      2.9093514
-    ],
-    category: "carrefour",
-    address: "Rue de Drocourt, 62320 Rouvroy",
+    name: 'Carrefour',
+    coords: [50.3927543, 2.9093514],
+    category: 'carrefour',
+    address: 'Rue de Drocourt, 62320 Rouvroy',
     hasCageEggs: false,
     nbRef: 0,
-    urlImg: "https://storage.tally.so/private/IMG_B7B4EF31B19A-1.jpeg?id=Ob5QPK&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ik9iNVFQSyIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4Nn0.pa6ytaNvzc08v4n9au-0UAv8cjJ_kfJr_TxcyOyj9IU&signature=3371d074a9e6bb4b564d911462cf13c713a46d06ab67ba62f883d9bece9eb93d"
+    urlImg:
+      'https://storage.tally.so/private/IMG_B7B4EF31B19A-1.jpeg?id=Ob5QPK&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ik9iNVFQSyIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4Nn0.pa6ytaNvzc08v4n9au-0UAv8cjJ_kfJr_TxcyOyj9IU&signature=3371d074a9e6bb4b564d911462cf13c713a46d06ab67ba62f883d9bece9eb93d',
   },
   {
-    name: "Carrefour",
-    coords: [
-      45.3073948,
-      3.3762435
-    ],
-    category: "carrefour",
-    address: "40 Route De Clermont Ferrand, 43100 Brioude",
+    name: 'Carrefour',
+    coords: [45.3073948, 3.3762435],
+    category: 'carrefour',
+    address: '40 Route De Clermont Ferrand, 43100 Brioude',
     hasCageEggs: false,
     nbRef: 0,
-    urlImg: null
+    urlImg: null,
   },
   {
-    name: "Carrefour",
-    coords: [
-      48.65233,
-      6.197997
-    ],
-    category: "carrefour",
-    address: "Rd 570, 54180 Heillecourt",
+    name: 'Carrefour',
+    coords: [48.65233, 6.197997],
+    category: 'carrefour',
+    address: 'Rd 570, 54180 Heillecourt',
     hasCageEggs: true,
     nbRef: 1,
-    urlImg: "https://storage.tally.so/private/carr.jpeg?id=bKPed2&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImJLUGVkMiIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4Nn0.vJUuA_wmMZpFklUfe6bzPMzw2zFV8OzIBNvkL5Lx1ew&signature=26cf149de7afe37fd1a5d8290360ba37f8f7abc5fe8c0ea91cb65475fa68ce24"
+    urlImg:
+      'https://storage.tally.so/private/carr.jpeg?id=bKPed2&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImJLUGVkMiIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4Nn0.vJUuA_wmMZpFklUfe6bzPMzw2zFV8OzIBNvkL5Lx1ew&signature=26cf149de7afe37fd1a5d8290360ba37f8f7abc5fe8c0ea91cb65475fa68ce24',
   },
   {
-    name: "Carrefour",
-    coords: [
-      48.7055006,
-      6.2455474
-    ],
-    category: "carrefour",
-    address: "Av. de Saulxures, 54270 Essey-lès-Nancy",
+    name: 'Carrefour',
+    coords: [48.7055006, 6.2455474],
+    category: 'carrefour',
+    address: 'Av. de Saulxures, 54270 Essey-lès-Nancy',
     hasCageEggs: true,
     nbRef: 1,
-    urlImg: "https://storage.tally.so/private/signal-2026-01-09-134259.jpeg?id=KvbVVA&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ikt2YlZWQSIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4Nn0.cJkHUuB3MBkCyPTuC4ojmb4jUIt59ydg_5fa9naE14E&signature=532a4cfb6dc7f9535327b5f5f0f88e2e3268ad6e169e12d73bbf65c2a7e09c3c"
+    urlImg:
+      'https://storage.tally.so/private/signal-2026-01-09-134259.jpeg?id=KvbVVA&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ikt2YlZWQSIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4Nn0.cJkHUuB3MBkCyPTuC4ojmb4jUIt59ydg_5fa9naE14E&signature=532a4cfb6dc7f9535327b5f5f0f88e2e3268ad6e169e12d73bbf65c2a7e09c3c',
   },
   {
-    name: "Carrefour",
-    coords: [
-      48.7829354,
-      2.3687275
-    ],
-    category: "carrefour",
-    address: "67-81 Av. de Stalingrad, 94800 Villejuif",
+    name: 'Carrefour',
+    coords: [48.7829354, 2.3687275],
+    category: 'carrefour',
+    address: '67-81 Av. de Stalingrad, 94800 Villejuif',
     hasCageEggs: true,
     nbRef: 1,
-    urlImg: "https://storage.tally.so/private/IMG_20260109_124745.jpg?id=JX7DL7&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IkpYN0RMNyIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4Nn0.6HMLVoebNzVYPB72UekBu-E3iz0GY9zUeKepHxPR7QQ&signature=1086987d5d4e483e5a363faea530f46c28f886cda32a20776af6f1b7fd8a16eb"
+    urlImg:
+      'https://storage.tally.so/private/IMG_20260109_124745.jpg?id=JX7DL7&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IkpYN0RMNyIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4Nn0.6HMLVoebNzVYPB72UekBu-E3iz0GY9zUeKepHxPR7QQ&signature=1086987d5d4e483e5a363faea530f46c28f886cda32a20776af6f1b7fd8a16eb',
   },
   {
-    name: "Carrefour",
-    coords: [
-      43.17865,
-      3.02614
-    ],
-    category: "carrefour",
-    address: "Av. Maître Hubert Mouly, 11100 Narbonne",
+    name: 'Carrefour',
+    coords: [43.17865, 3.02614],
+    category: 'carrefour',
+    address: 'Av. Maître Hubert Mouly, 11100 Narbonne',
     hasCageEggs: true,
     nbRef: 1,
-    urlImg: "https://storage.tally.so/private/IMG_20260113_094825474.jpg?id=M6XGYX&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ik02WEdZWCIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4Nn0.64-kOxnefNN7MqpEkUcMA-g0zfZi5myA1INupyZZKk0&signature=ecd29ca4e4a0c28d0b1c4fdd6972c70fa3a851331c6ba76dacff2bc633256458"
+    urlImg:
+      'https://storage.tally.so/private/IMG_20260113_094825474.jpg?id=M6XGYX&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ik02WEdZWCIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4Nn0.64-kOxnefNN7MqpEkUcMA-g0zfZi5myA1INupyZZKk0&signature=ecd29ca4e4a0c28d0b1c4fdd6972c70fa3a851331c6ba76dacff2bc633256458',
   },
   {
-    name: "Carrefour",
-    coords: [
-      47.9085234,
-      1.9056333
-    ],
-    category: "carrefour",
-    address: "3 Rue Saint-Yves, 45000 Orléans",
+    name: 'Carrefour',
+    coords: [47.9085234, 1.9056333],
+    category: 'carrefour',
+    address: '3 Rue Saint-Yves, 45000 Orléans',
     hasCageEggs: true,
     nbRef: 1,
-    urlImg: "https://storage.tally.so/private/IMG20260113101956.jpg?id=yoMgXW&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6InlvTWdYVyIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4Nn0.XgVk0J__YrGTutCkGVR5ptbW1Jt1_yEwOK08mMuBlGE&signature=03898e9c4b03f09485d6a6bf940cba04615cc89e81eab16a94674abe113dafe5"
+    urlImg:
+      'https://storage.tally.so/private/IMG20260113101956.jpg?id=yoMgXW&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6InlvTWdYVyIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4Nn0.XgVk0J__YrGTutCkGVR5ptbW1Jt1_yEwOK08mMuBlGE&signature=03898e9c4b03f09485d6a6bf940cba04615cc89e81eab16a94674abe113dafe5',
   },
   {
-    name: "Carrefour",
-    coords: [
-      43.92890999999999,
-      4.83661
-    ],
-    category: "carrefour",
-    address: "Cap-Sud AVIGNON (84000)",
+    name: 'Carrefour',
+    coords: [43.92890999999999, 4.83661],
+    category: 'carrefour',
+    address: 'Cap-Sud AVIGNON (84000)',
     hasCageEggs: true,
     nbRef: 1,
-    urlImg: "https://storage.tally.so/private/Carrefour-Avignon-Cap-Sud-le-10-01-26-boite.jpeg?id=bY98l7&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImJZOThsNyIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4Nn0.L4mvobUIdvLLSYDtt4AfaFPUoqz_OQgoZxONghiqFdY&signature=40e3c2a949af8480ff46ee7562940181bdb2f749f4f76e76c7a6a18fdc0f3735"
+    urlImg:
+      'https://storage.tally.so/private/Carrefour-Avignon-Cap-Sud-le-10-01-26-boite.jpeg?id=bY98l7&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImJZOThsNyIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4Nn0.L4mvobUIdvLLSYDtt4AfaFPUoqz_OQgoZxONghiqFdY&signature=40e3c2a949af8480ff46ee7562940181bdb2f749f4f76e76c7a6a18fdc0f3735',
   },
   {
-    name: "Carrefour",
-    coords: [
-      50.4205345,
-      2.773149
-    ],
-    category: "carrefour",
-    address: "Rue Marie Liétard, 62800 Liévin",
+    name: 'Carrefour',
+    coords: [50.4205345, 2.773149],
+    category: 'carrefour',
+    address: 'Rue Marie Liétard, 62800 Liévin',
     hasCageEggs: true,
     nbRef: 1,
-    urlImg: "https://storage.tally.so/private/IMG_3927FE646FC2-1.jpeg?id=Bjkzb1&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IkJqa3piMSIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4Nn0.Bu7japB4dpXmLM82of3-IUJ6TBltgVqdm7w3lXujkuM&signature=b87c1baffaf9fc2b1a06a7e06265744e8bf96de36a0da7c156055c65a9b2a54d"
+    urlImg:
+      'https://storage.tally.so/private/IMG_3927FE646FC2-1.jpeg?id=Bjkzb1&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IkJqa3piMSIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4Nn0.Bu7japB4dpXmLM82of3-IUJ6TBltgVqdm7w3lXujkuM&signature=b87c1baffaf9fc2b1a06a7e06265744e8bf96de36a0da7c156055c65a9b2a54d',
   },
   {
-    name: "Carrefour",
-    coords: [
-      47.46866,
-      -0.59577
-    ],
-    category: "carrefour",
-    address: "Centre Commercial Grand Maine, Rue du Grand Launay, 49000 Angers",
+    name: 'Carrefour',
+    coords: [47.46866, -0.59577],
+    category: 'carrefour',
+    address: 'Centre Commercial Grand Maine, Rue du Grand Launay, 49000 Angers',
     hasCageEggs: true,
     nbRef: 1,
-    urlImg: "https://storage.tally.so/private/telechargement-55-10-.jpg?id=Vb5bPE&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IlZiNWJQRSIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4Nn0.jgiJDFU9rGCfnY67Vr7te07CBZe4xEH1-bnpGKY3ICY&signature=a7f53392f902f82267bc803d813591c57e8e149a4b36bc821eb43afbe7390fcf"
+    urlImg:
+      'https://storage.tally.so/private/telechargement-55-10-.jpg?id=Vb5bPE&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IlZiNWJQRSIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4Nn0.jgiJDFU9rGCfnY67Vr7te07CBZe4xEH1-bnpGKY3ICY&signature=a7f53392f902f82267bc803d813591c57e8e149a4b36bc821eb43afbe7390fcf',
   },
   {
-    name: "Carrefour",
-    coords: [
-      47.48946,
-      -0.5418499999999999
-    ],
-    category: "carrefour",
-    address: "3 Bd Gaston Ramon, 49000 Angers",
+    name: 'Carrefour',
+    coords: [47.48946, -0.5418499999999999],
+    category: 'carrefour',
+    address: '3 Bd Gaston Ramon, 49000 Angers',
     hasCageEggs: true,
     nbRef: 3,
-    urlImg: "https://storage.tally.so/private/telechargement-85-.jpg?id=BjkjX4&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IkJqa2pYNCIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4Nn0.Hderys025k6VIGcGuJW3kxS95e3UMydfHUaU-ycTVkk&signature=bf2cb6a0a8d853800e8b4716e93db2e6250f5294d4ac8af622a2262766cdedbd"
+    urlImg:
+      'https://storage.tally.so/private/telechargement-85-.jpg?id=BjkjX4&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IkJqa2pYNCIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4Nn0.Hderys025k6VIGcGuJW3kxS95e3UMydfHUaU-ycTVkk&signature=bf2cb6a0a8d853800e8b4716e93db2e6250f5294d4ac8af622a2262766cdedbd',
   },
   {
-    name: "Carrefour",
-    coords: [
-      47.2577,
-      -1.51325
-    ],
-    category: "carrefour",
-    address: "Rte de Paris, 44300 Nantes, France",
+    name: 'Carrefour',
+    coords: [47.2577, -1.51325],
+    category: 'carrefour',
+    address: 'Rte de Paris, 44300 Nantes, France',
     hasCageEggs: true,
     nbRef: 1,
-    urlImg: "https://storage.tally.so/private/WhatsApp-Image-2026-01-02-at-18.31.53.jpeg?id=GqdQxZ&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IkdxZFF4WiIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4Nn0.vT8JvsUg2QrO-6pvNDelpjGyzKsERaIfkEYtHaKMYcM&signature=eb96c4b2b6f0679b2f279d8a64ad881075af8f6bbe2867f38d424090ccec6d05"
+    urlImg:
+      'https://storage.tally.so/private/WhatsApp-Image-2026-01-02-at-18.31.53.jpeg?id=GqdQxZ&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IkdxZFF4WiIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4Nn0.vT8JvsUg2QrO-6pvNDelpjGyzKsERaIfkEYtHaKMYcM&signature=eb96c4b2b6f0679b2f279d8a64ad881075af8f6bbe2867f38d424090ccec6d05',
   },
   {
-    name: "Carrefour",
-    coords: [
-      47.2352955,
-      -1.5831121
-    ],
-    category: "carrefour",
-    address: "Rond Point, Rte de Vannes, 44100 Nantes",
+    name: 'Carrefour',
+    coords: [47.2352955, -1.5831121],
+    category: 'carrefour',
+    address: 'Rond Point, Rte de Vannes, 44100 Nantes',
     hasCageEggs: true,
     nbRef: 2,
-    urlImg: "https://storage.tally.so/private/telechargement-31-.jpg?id=86K81O&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ijg2SzgxTyIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4Nn0.1bvyfJ_3AP9Gh74Mr1DF37veY76Esi5OXXVdcrUVIiE&signature=0eb569dacab9ee7a5d7ddb6db673a292ce040bd5cb56a3c54c2833ab740ed41f"
+    urlImg:
+      'https://storage.tally.so/private/telechargement-31-.jpg?id=86K81O&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ijg2SzgxTyIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4Nn0.1bvyfJ_3AP9Gh74Mr1DF37veY76Esi5OXXVdcrUVIiE&signature=0eb569dacab9ee7a5d7ddb6db673a292ce040bd5cb56a3c54c2833ab740ed41f',
   },
   {
-    name: "Carrefour",
-    coords: [
-      48.85063,
-      2.82029
-    ],
-    category: "carrefour",
+    name: 'Carrefour',
+    coords: [48.85063, 2.82029],
+    category: 'carrefour',
     address: "17 Pl. de l'Europe, 77700 Bailly-Romainvilliers",
     hasCageEggs: true,
     nbRef: 1,
-    urlImg: "https://storage.tally.so/private/WhatsApp-Image-2026-01-17-at-20.29.35.jpeg?id=WK0E5a&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IldLMEU1YSIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4NX0.xJYUGWNZvMT03aiFxXBYhh0zTLQPdiZotLeaitAIE7g&signature=eac43f38d077cedfa1eaca1cd951c98bda4156792d81ab504c34a482cd41b2c0"
+    urlImg:
+      'https://storage.tally.so/private/WhatsApp-Image-2026-01-17-at-20.29.35.jpeg?id=WK0E5a&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IldLMEU1YSIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4NX0.xJYUGWNZvMT03aiFxXBYhh0zTLQPdiZotLeaitAIE7g&signature=eac43f38d077cedfa1eaca1cd951c98bda4156792d81ab504c34a482cd41b2c0',
   },
   {
-    name: "Carrefour",
-    coords: [
-      48.9379844,
-      2.8800829
-    ],
-    category: "carrefour",
-    address: "Zac De La, Av. de la Foulée, 77100 Nanteuil-lès-Meaux",
+    name: 'Carrefour',
+    coords: [48.9379844, 2.8800829],
+    category: 'carrefour',
+    address: 'Zac De La, Av. de la Foulée, 77100 Nanteuil-lès-Meaux',
     hasCageEggs: true,
     nbRef: 1,
-    urlImg: "https://storage.tally.so/private/telechargement-2026-01-17T204744.198.jpg?id=Pb01Q5&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IlBiMDFRNSIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4NX0.Au6X1b-6TSv0NxGhCif92Vi1KlANwH-2MlU57WuwUkg&signature=378693830268ec2454e70ae68af92092127a649720d0f1f65fe6e13fa1b2f937"
+    urlImg:
+      'https://storage.tally.so/private/telechargement-2026-01-17T204744.198.jpg?id=Pb01Q5&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IlBiMDFRNSIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4NX0.Au6X1b-6TSv0NxGhCif92Vi1KlANwH-2MlU57WuwUkg&signature=378693830268ec2454e70ae68af92092127a649720d0f1f65fe6e13fa1b2f937',
   },
   {
-    name: "Carrefour",
-    coords: [
-      47.3038087,
-      5.1182747
-    ],
-    category: "carrefour",
-    address: "Rte de Dijon, 21800 Chevigny-Saint-Sauveur",
+    name: 'Carrefour',
+    coords: [47.3038087, 5.1182747],
+    category: 'carrefour',
+    address: 'Rte de Dijon, 21800 Chevigny-Saint-Sauveur',
     hasCageEggs: true,
     nbRef: 1,
-    urlImg: "https://storage.tally.so/private/telechargement-2026-01-17T215910.085.jpg?id=9Rl754&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjlSbDc1NCIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4NX0.cBXfiQ3FEGJE-l1UZ9hf_jaGfOSHP4m8PmRAsVHFm_8&signature=557d12f6e9850ffaf83114d24e933c4c8126cbd7788708f9896aab1636abb135"
+    urlImg:
+      'https://storage.tally.so/private/telechargement-2026-01-17T215910.085.jpg?id=9Rl754&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjlSbDc1NCIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4NX0.cBXfiQ3FEGJE-l1UZ9hf_jaGfOSHP4m8PmRAsVHFm_8&signature=557d12f6e9850ffaf83114d24e933c4c8126cbd7788708f9896aab1636abb135',
   },
   {
-    name: "Carrefour",
-    coords: [
-      47.31023,
-      5.103549999999999
-    ],
-    category: "carrefour",
-    address: "Av. de Bourgogne, 21800 Quetigny",
+    name: 'Carrefour',
+    coords: [47.31023, 5.103549999999999],
+    category: 'carrefour',
+    address: 'Av. de Bourgogne, 21800 Quetigny',
     hasCageEggs: true,
     nbRef: 1,
-    urlImg: "https://storage.tally.so/private/telechargement-2026-01-17T220035.448.jpg?id=WK08kL&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IldLMDhrTCIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4NX0.LSylC1J3knuwA-K1mQ75mmtmVYpPfHDhMga-kmrBq8g&signature=e1214237738722033e9e4e4973c904092ba216a087152eb7a6c5e115dda47c03"
+    urlImg:
+      'https://storage.tally.so/private/telechargement-2026-01-17T220035.448.jpg?id=WK08kL&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IldLMDhrTCIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4NX0.LSylC1J3knuwA-K1mQ75mmtmVYpPfHDhMga-kmrBq8g&signature=e1214237738722033e9e4e4973c904092ba216a087152eb7a6c5e115dda47c03',
   },
   {
-    name: "Carrefour",
-    coords: [
-      47.9007844,
-      1.8789853
-    ],
-    category: "carrefour",
-    address: "88 Rue du Faubourg Madeleine, 45000 Orléans",
+    name: 'Carrefour',
+    coords: [47.9007844, 1.8789853],
+    category: 'carrefour',
+    address: '88 Rue du Faubourg Madeleine, 45000 Orléans',
     hasCageEggs: true,
     nbRef: 2,
-    urlImg: "https://storage.tally.so/private/telechargement-2026-01-17T221911.723-Copie.jpg?id=EZ0WQL&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IkVaMFdRTCIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4NX0.CGCWGbJbd7e-3W9TFZVpQOGipTWrkakDdrcUTY1LBao&signature=c7238b3b29f916f5257292408cbe1354f85a53999160247e18ddc9c57bae16c1"
+    urlImg:
+      'https://storage.tally.so/private/telechargement-2026-01-17T221911.723-Copie.jpg?id=EZ0WQL&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IkVaMFdRTCIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4NX0.CGCWGbJbd7e-3W9TFZVpQOGipTWrkakDdrcUTY1LBao&signature=c7238b3b29f916f5257292408cbe1354f85a53999160247e18ddc9c57bae16c1',
   },
   {
-    name: "Carrefour",
-    coords: [
-      47.88727000000001,
-      1.89425
-    ],
-    category: "carrefour",
-    address: "43/45 Av. de Saint-Mesmin, 45100 Orléans",
+    name: 'Carrefour',
+    coords: [47.88727000000001, 1.89425],
+    category: 'carrefour',
+    address: '43/45 Av. de Saint-Mesmin, 45100 Orléans',
     hasCageEggs: true,
     nbRef: 2,
-    urlImg: "https://storage.tally.so/private/telechargement-2026-01-17T222939.256.jpg?id=lYRrYv&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImxZUnJZdiIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4NX0.JATGrRbOkUD02ScrkoaS0ajKKBx7N4TVVxKkxXsHrUo&signature=29a222b79680172fddb441f482486478da1756654b388dfd9133155d1ebf2792"
+    urlImg:
+      'https://storage.tally.so/private/telechargement-2026-01-17T222939.256.jpg?id=lYRrYv&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImxZUnJZdiIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4NX0.JATGrRbOkUD02ScrkoaS0ajKKBx7N4TVVxKkxXsHrUo&signature=29a222b79680172fddb441f482486478da1756654b388dfd9133155d1ebf2792',
   },
   {
-    name: "Carrefour",
-    coords: [
-      47.8914434,
-      1.9060037
-    ],
-    category: "carrefour",
+    name: 'Carrefour',
+    coords: [47.8914434, 1.9060037],
+    category: 'carrefour',
     address: "3 bis route D'Olivet, Rue St Marceau, 45100 Orléans",
     hasCageEggs: true,
     nbRef: 1,
-    urlImg: "https://storage.tally.so/private/telechargement-2026-01-17T223507.832.jpg?id=X8q0y4&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ilg4cTB5NCIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4NX0.6aVcIX6d_T3zuMbNZYugLcNbggpkrXmRVACPFSFphkc&signature=9a9134c78de8025b63f7a7745571dc0c5942cd4472dfc6909044a8387f13fb51"
+    urlImg:
+      'https://storage.tally.so/private/telechargement-2026-01-17T223507.832.jpg?id=X8q0y4&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ilg4cTB5NCIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4NX0.6aVcIX6d_T3zuMbNZYugLcNbggpkrXmRVACPFSFphkc&signature=9a9134c78de8025b63f7a7745571dc0c5942cd4472dfc6909044a8387f13fb51',
   },
   {
-    name: "Carrefour",
-    coords: [
-      48.83804370000001,
-      2.2884071
-    ],
-    category: "carrefour",
-    address: "283/285 Rue Lecourbe, 75015 Paris",
+    name: 'Carrefour',
+    coords: [48.83804370000001, 2.2884071],
+    category: 'carrefour',
+    address: '283/285 Rue Lecourbe, 75015 Paris',
     hasCageEggs: true,
     nbRef: 1,
-    urlImg: "https://storage.tally.so/private/telechargement-19-.jpeg?id=jJ0z7a&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImpKMHo3YSIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4NX0.76TlZaFWthIFFJl1s--9969mcB4VuZBq4TQKsAJExNo&signature=8ed3e81481b8808ef7b6d628486736957625b57228f879827ee6ef46a5464bae"
+    urlImg:
+      'https://storage.tally.so/private/telechargement-19-.jpeg?id=jJ0z7a&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImpKMHo3YSIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4NX0.76TlZaFWthIFFJl1s--9969mcB4VuZBq4TQKsAJExNo&signature=8ed3e81481b8808ef7b6d628486736957625b57228f879827ee6ef46a5464bae',
   },
   {
-    name: "Carrefour",
-    coords: [
-      46.346462,
-      2.601488
-    ],
-    category: "carrefour",
-    address: "211 quai ledru rollin 03100 montluçon ",
+    name: 'Carrefour',
+    coords: [46.346462, 2.601488],
+    category: 'carrefour',
+    address: '211 quai ledru rollin 03100 montluçon ',
     hasCageEggs: true,
     nbRef: 2,
-    urlImg: "https://storage.tally.so/private/20260107_163802.jpg?id=gYo9Ol&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImdZbzlPbCIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4Nn0.2OtlUsMh98t-pJ3Ow7pdT3AgF-rhJfh__zwPAfZAcr0&signature=6e801306134a9e0e1b576612d2ed2aa1459dbd66b2f7110495f630cc8c0eeaf7"
+    urlImg:
+      'https://storage.tally.so/private/20260107_163802.jpg?id=gYo9Ol&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImdZbzlPbCIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4Nn0.2OtlUsMh98t-pJ3Ow7pdT3AgF-rhJfh__zwPAfZAcr0&signature=6e801306134a9e0e1b576612d2ed2aa1459dbd66b2f7110495f630cc8c0eeaf7',
   },
   {
-    name: "Carrefour",
-    coords: [
-      44.8609468,
-      -0.6341506
-    ],
-    category: "carrefour",
-    address: "493 Av De Lattre De Tassigny, Cc Le Caillou, 33200, Bordeaux",
+    name: 'Carrefour',
+    coords: [44.8609468, -0.6341506],
+    category: 'carrefour',
+    address: '493 Av De Lattre De Tassigny, Cc Le Caillou, 33200, Bordeaux',
     hasCageEggs: true,
     nbRef: 1,
-    urlImg: "https://storage.tally.so/private/PhotoOeufsPoulesCage_CarrefourMarket_BordeauxDelattre.jpg?id=NMkLEQ&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ik5Na0xFUSIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4Nn0.sjgsdKId_Y2ZEeAzoTkQHjrsgU5Qwh3qZcwVQ9U4Jt0&signature=d38d6f6b728da273f32f378473b0bb7e40b380917e62e93c026fa3340d90ac15"
+    urlImg:
+      'https://storage.tally.so/private/PhotoOeufsPoulesCage_CarrefourMarket_BordeauxDelattre.jpg?id=NMkLEQ&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ik5Na0xFUSIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4Nn0.sjgsdKId_Y2ZEeAzoTkQHjrsgU5Qwh3qZcwVQ9U4Jt0&signature=d38d6f6b728da273f32f378473b0bb7e40b380917e62e93c026fa3340d90ac15',
   },
   {
-    name: "Carrefour",
-    coords: [
-      45.75938,
-      4.888059999999999
-    ],
-    category: "carrefour",
-    address: "Place Jules Grandclément 69100 Villeurbanne",
+    name: 'Carrefour',
+    coords: [45.75938, 4.888059999999999],
+    category: 'carrefour',
+    address: 'Place Jules Grandclément 69100 Villeurbanne',
     hasCageEggs: true,
     nbRef: 1,
-    urlImg: "https://storage.tally.so/private/carrefour-villeurbanne-oeufs3-janv-26-2.jpg?id=QvLXyp&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IlF2TFh5cCIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4Nn0.LhHyODtgRH8FxfJk8v-C8HhEOT5ogXRf2Ix4PXjF0f8&signature=2951a2404db36aa01603cfd7cd326a5a5d8ad3146fa31d094c9d1ff36b1d09d3"
+    urlImg:
+      'https://storage.tally.so/private/carrefour-villeurbanne-oeufs3-janv-26-2.jpg?id=QvLXyp&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IlF2TFh5cCIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4Nn0.LhHyODtgRH8FxfJk8v-C8HhEOT5ogXRf2Ix4PXjF0f8&signature=2951a2404db36aa01603cfd7cd326a5a5d8ad3146fa31d094c9d1ff36b1d09d3',
   },
   {
-    name: "Carrefour",
-    coords: [
-      43.62693,
-      1.4328
-    ],
-    category: "carrefour",
-    address: "83 Bd Silvio Trentin 31200 Toulouse",
+    name: 'Carrefour',
+    coords: [43.62693, 1.4328],
+    category: 'carrefour',
+    address: '83 Bd Silvio Trentin 31200 Toulouse',
     hasCageEggs: true,
     nbRef: 1,
-    urlImg: null
+    urlImg: null,
   },
   {
-    name: "Carrefour",
-    coords: [
-      49.6704124,
-      1.2838359
-    ],
-    category: "carrefour",
-    address: "Av. Emmanuel Brion, 76680 Saint-Saëns",
+    name: 'Carrefour',
+    coords: [49.6704124, 1.2838359],
+    category: 'carrefour',
+    address: 'Av. Emmanuel Brion, 76680 Saint-Saëns',
     hasCageEggs: true,
     nbRef: 1,
-    urlImg: "https://storage.tally.so/private/20260113_162709.jpg?id=e0e6Yx&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImUwZTZZeCIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4NX0.3F7hhpT_ja3w3q9rJjQAhUv1QZC4gn7SDhe_ZGsuUGc&signature=a4ec7a1785482b892a1f1a8aa41ff694107b4626a8a91ea00b0ec9342be7ddb9"
+    urlImg:
+      'https://storage.tally.so/private/20260113_162709.jpg?id=e0e6Yx&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImUwZTZZeCIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4NX0.3F7hhpT_ja3w3q9rJjQAhUv1QZC4gn7SDhe_ZGsuUGc&signature=a4ec7a1785482b892a1f1a8aa41ff694107b4626a8a91ea00b0ec9342be7ddb9',
   },
   {
-    name: "Carrefour",
-    coords: [
-      43.2278,
-      0.08833
-    ],
-    category: "carrefour",
-    address: "19 Pl. Germain Claverie 65000 Tarbes",
+    name: 'Carrefour',
+    coords: [43.2278, 0.08833],
+    category: 'carrefour',
+    address: '19 Pl. Germain Claverie 65000 Tarbes',
     hasCageEggs: true,
     nbRef: 1,
-    urlImg: "https://storage.tally.so/private/Carrefour-market-Tarbes-1.jpg?id=vJ0yPA&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6InZKMHlQQSIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4NX0.e0J8jWsQjVBtiahxMP_jtQy-F3QP6JXNh4UvLLf0uc8&signature=d8d5dbc1943b07f3b7c66fc7752075e7365b263d6f2cc374b4efc7e2fd217d25"
+    urlImg:
+      'https://storage.tally.so/private/Carrefour-market-Tarbes-1.jpg?id=vJ0yPA&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6InZKMHlQQSIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4NX0.e0J8jWsQjVBtiahxMP_jtQy-F3QP6JXNh4UvLLf0uc8&signature=d8d5dbc1943b07f3b7c66fc7752075e7365b263d6f2cc374b4efc7e2fd217d25',
   },
   {
-    name: "Carrefour",
-    coords: [
-      47.5043,
-      -0.58546
-    ],
-    category: "carrefour",
-    address: "Rue Pierre Mendès France, 49240 Avrillé",
+    name: 'Carrefour',
+    coords: [47.5043, -0.58546],
+    category: 'carrefour',
+    address: 'Rue Pierre Mendès France, 49240 Avrillé',
     hasCageEggs: true,
     nbRef: 1,
-    urlImg: "https://storage.tally.so/private/telechargement-92-.jpg?id=NbWbpG&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ik5iV2JwRyIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4Nn0.Ks9-xVzTJ9eixhCTRzv6SU6i6YXHl3H_ACU6Yfxka7I&signature=05111864714f60f11bf38fe90be2717d2ffaf83ed5a058b27a7899cf984f0f6f"
+    urlImg:
+      'https://storage.tally.so/private/telechargement-92-.jpg?id=NbWbpG&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ik5iV2JwRyIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4Nn0.Ks9-xVzTJ9eixhCTRzv6SU6i6YXHl3H_ACU6Yfxka7I&signature=05111864714f60f11bf38fe90be2717d2ffaf83ed5a058b27a7899cf984f0f6f',
   },
   {
-    name: "Carrefour",
-    coords: [
-      43.9404,
-      4.57451
-    ],
-    category: "carrefour",
-    address: "Remoulins 30210 ",
+    name: 'Carrefour',
+    coords: [43.9404, 4.57451],
+    category: 'carrefour',
+    address: 'Remoulins 30210 ',
     hasCageEggs: true,
     nbRef: 1,
-    urlImg: "https://storage.tally.so/private/IMG_20260109_172357.jpg?id=4A5pOO&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjRBNXBPTyIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4Nn0.zccn9JtAXSNJKOpdorz8jnNlSvyRwd3LcYA9aLlNJuA&signature=e55c11a22710f68086ac7e947cfc7bda45415979da5aa843197a90c98ecf78d4"
+    urlImg:
+      'https://storage.tally.so/private/IMG_20260109_172357.jpg?id=4A5pOO&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjRBNXBPTyIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4Nn0.zccn9JtAXSNJKOpdorz8jnNlSvyRwd3LcYA9aLlNJuA&signature=e55c11a22710f68086ac7e947cfc7bda45415979da5aa843197a90c98ecf78d4',
   },
   {
-    name: "Carrefour",
-    coords: [
-      44.82872,
-      -0.65605
-    ],
-    category: "carrefour",
-    address: "52 avenue de la Somme 33 700 Mérignac",
+    name: 'Carrefour',
+    coords: [44.82872, -0.65605],
+    category: 'carrefour',
+    address: '52 avenue de la Somme 33 700 Mérignac',
     hasCageEggs: true,
     nbRef: 1,
-    urlImg: "https://storage.tally.so/private/25adfe53-4e71-452b-b576-3ae74e747e03.jpg?id=VbZxAa&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IlZiWnhBYSIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4Nn0.WrZfvLw8a7fJPCcdAGl1SHo8ZSUIIH5JoIMVgtN51K4&signature=f95795ecb72ecc9b797a481a81c98d292ebebdeb37f2aaa1c4c7d879126112f6"
+    urlImg:
+      'https://storage.tally.so/private/25adfe53-4e71-452b-b576-3ae74e747e03.jpg?id=VbZxAa&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IlZiWnhBYSIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4Nn0.WrZfvLw8a7fJPCcdAGl1SHo8ZSUIIH5JoIMVgtN51K4&signature=f95795ecb72ecc9b797a481a81c98d292ebebdeb37f2aaa1c4c7d879126112f6',
   },
   {
-    name: "Carrefour",
-    coords: [
-      47.7702554,
-      -3.3985988
-    ],
-    category: "carrefour",
-    address: "All. du Manoir de Kerletu, 56100 Lorient",
+    name: 'Carrefour',
+    coords: [47.7702554, -3.3985988],
+    category: 'carrefour',
+    address: 'All. du Manoir de Kerletu, 56100 Lorient',
     hasCageEggs: true,
     nbRef: 1,
-    urlImg: "https://storage.tally.so/private/Carrefour-Keryado-Lorient.jpg?id=vJJlL0&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6InZKSmxMMCIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTM2NDM0M30.Eqo1rMllLxX_yLGkuWLjce5cqz_nzHw86drjqIgqRbs&signature=52f366d09315c3b51d956919945215a6a41e642255d1ebeca8964cc0de10380c"
+    urlImg:
+      'https://storage.tally.so/private/Carrefour-Keryado-Lorient.jpg?id=vJJlL0&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6InZKSmxMMCIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTM2NDM0M30.Eqo1rMllLxX_yLGkuWLjce5cqz_nzHw86drjqIgqRbs&signature=52f366d09315c3b51d956919945215a6a41e642255d1ebeca8964cc0de10380c',
   },
   {
-    name: "Carrefour",
-    coords: [
-      47.7754937,
-      -3.3404829
-    ],
-    category: "carrefour",
-    address: "78 Av. Ambroise Croizat 56600 Lanester",
+    name: 'Carrefour',
+    coords: [47.7754937, -3.3404829],
+    category: 'carrefour',
+    address: '78 Av. Ambroise Croizat 56600 Lanester',
     hasCageEggs: true,
     nbRef: 1,
-    urlImg: "https://storage.tally.so/private/Carrefour-Lanester-56.jpg?id=NbbzpQ&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ik5iYnpwUSIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTM2NDM0M30.TaP1awK09zoOuV4HWcvMQqB43a-LMPUtwVsk6uI317I&signature=be221acae428c614e9b3e77490274b12114f44f7493a1a4a4d327c4ebe144a6e\n"
+    urlImg:
+      'https://storage.tally.so/private/Carrefour-Lanester-56.jpg?id=NbbzpQ&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ik5iYnpwUSIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTM2NDM0M30.TaP1awK09zoOuV4HWcvMQqB43a-LMPUtwVsk6uI317I&signature=be221acae428c614e9b3e77490274b12114f44f7493a1a4a4d327c4ebe144a6e\n',
   },
   {
-    name: "Carrefour",
-    coords: [
-      44.12114100000001,
-      4.845422
-    ],
-    category: "carrefour",
-    address: "Zac du Coudoulet Chemine de la Palud\t84100\tORANGE",
+    name: 'Carrefour',
+    coords: [44.12114100000001, 4.845422],
+    category: 'carrefour',
+    address: 'Zac du Coudoulet Chemine de la Palud\t84100\tORANGE',
     hasCageEggs: true,
     nbRef: 2,
-    urlImg: "https://storage.tally.so/private/signal-2026-01-23-160801.jpeg?id=zGde8a&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6InpHZGU4YSIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTM2NDM0M30.e5dwnvqqw-015gptEg37tu6-GYQ9dSPAouerZnvY9Ss&signature=4b0987b8369ae437f5ac6dd37070b32184662063710e3f8498838069a1a727b8"
+    urlImg:
+      'https://storage.tally.so/private/signal-2026-01-23-160801.jpeg?id=zGde8a&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6InpHZGU4YSIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTM2NDM0M30.e5dwnvqqw-015gptEg37tu6-GYQ9dSPAouerZnvY9Ss&signature=4b0987b8369ae437f5ac6dd37070b32184662063710e3f8498838069a1a727b8',
   },
   {
-    name: "Carrefour",
-    coords: [
-      43.5547208,
-      1.5058391
-    ],
-    category: "carrefour",
-    address: "Impasse de la grande Bordé 31670 Labège ",
+    name: 'Carrefour',
+    coords: [43.5547208, 1.5058391],
+    category: 'carrefour',
+    address: 'Impasse de la grande Bordé 31670 Labège ',
     hasCageEggs: true,
     nbRef: 1,
-    urlImg: "https://storage.tally.so/private/IMG_20260123_162812.jpg?id=aAza2X&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImFBemEyWCIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTM2NDM0Mn0.zs_Gy_j_XTAq12ybsm2JG8WjXB6cprp_JVJTca3vDj8&signature=72ec6a636de8eaf4c606b1a794c62e00d3c82d7b65e4c1b01b6afe5ece423c48"
+    urlImg:
+      'https://storage.tally.so/private/IMG_20260123_162812.jpg?id=aAza2X&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImFBemEyWCIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTM2NDM0Mn0.zs_Gy_j_XTAq12ybsm2JG8WjXB6cprp_JVJTca3vDj8&signature=72ec6a636de8eaf4c606b1a794c62e00d3c82d7b65e4c1b01b6afe5ece423c48',
   },
   {
-    name: "Carrefour",
-    coords: [
-      46.3262855,
-      -0.4858333
-    ],
-    category: "carrefour",
+    name: 'Carrefour',
+    coords: [46.3262855, -0.4858333],
+    category: 'carrefour',
     address: "Boulevard de l'Atlantique. 79000 Niort",
     hasCageEggs: true,
     nbRef: 2,
-    urlImg: "https://storage.tally.so/private/5472D767-E38C-41AF-B89F-EB0F40CAA7E2_1_105_c.jpeg?id=ObVqlk&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ik9iVnFsayIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTM2NDM0Mn0.cCaNBbZUwbl-3pQcUPxBa0lVNIsK1HQT9MoOh6Hsb68&signature=f264fe8d9bbddfa8de303a87a606843fc66478e470f7c2528348e93a909c52f2"
+    urlImg:
+      'https://storage.tally.so/private/5472D767-E38C-41AF-B89F-EB0F40CAA7E2_1_105_c.jpeg?id=ObVqlk&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ik9iVnFsayIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTM2NDM0Mn0.cCaNBbZUwbl-3pQcUPxBa0lVNIsK1HQT9MoOh6Hsb68&signature=f264fe8d9bbddfa8de303a87a606843fc66478e470f7c2528348e93a909c52f2',
   },
   {
-    name: "Carrefour",
-    coords: [
-      45.7698018,
-      1.3311887
-    ],
-    category: "carrefour",
-    address: "Carrefour, Route Nationale 20, 87220 Boisseuil",
+    name: 'Carrefour',
+    coords: [45.7698018, 1.3311887],
+    category: 'carrefour',
+    address: 'Carrefour, Route Nationale 20, 87220 Boisseuil',
     hasCageEggs: true,
     nbRef: 1,
-    urlImg: "https://storage.tally.so/private/IMG_20260124_161349.jpg?id=QzEN28&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IlF6RU4yOCIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTM2NDM0Mn0.s3VOCWhvluaSRKQYBUdwWg7_hTRbfc9SnJpwR3uuaDU&signature=1ae10af6dc7e1f2ad163ef0bce820eb75577483e3444793d5a6c20f552ed76af"
+    urlImg:
+      'https://storage.tally.so/private/IMG_20260124_161349.jpg?id=QzEN28&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IlF6RU4yOCIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTM2NDM0Mn0.s3VOCWhvluaSRKQYBUdwWg7_hTRbfc9SnJpwR3uuaDU&signature=1ae10af6dc7e1f2ad163ef0bce820eb75577483e3444793d5a6c20f552ed76af',
   },
   {
-    name: "Carrefour",
-    coords: [
-      47.3562609,
-      5.05074
-    ],
-    category: "carrefour",
+    name: 'Carrefour',
+    coords: [47.3562609, 5.05074],
+    category: 'carrefour',
     address: "Centre Commercial De La Toison D'Or, Av. de Langres, 21000 Dijon",
     hasCageEggs: true,
     nbRef: 2,
-    urlImg: "https://storage.tally.so/private/20260124_154132.jpg?id=jJEOvx&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImpKRU92eCIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTM2NDM0Mn0.YugwBgo8bpam_qOoEJdPdwnT2jKMJGG-oQQi8byTwB8&signature=9abed01365f4a39b90c9504d307dc936926bb9a7bd3d0f15956ccc81d1a10405"
+    urlImg:
+      'https://storage.tally.so/private/20260124_154132.jpg?id=jJEOvx&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImpKRU92eCIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTM2NDM0Mn0.YugwBgo8bpam_qOoEJdPdwnT2jKMJGG-oQQi8byTwB8&signature=9abed01365f4a39b90c9504d307dc936926bb9a7bd3d0f15956ccc81d1a10405',
   },
   {
-    name: "Carrefour",
-    coords: [
-      50.6356792,
-      3.0703578
-    ],
-    category: "carrefour",
-    address: "1 centre commercial Euralille 59000 Lille",
+    name: 'Carrefour',
+    coords: [50.6356792, 3.0703578],
+    category: 'carrefour',
+    address: '1 centre commercial Euralille 59000 Lille',
     hasCageEggs: true,
     nbRef: 1,
-    urlImg: "https://storage.tally.so/private/IMG_4807.jpeg?id=Gq7Adj&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IkdxN0FkaiIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTM2NDM0Mn0.jrXwI51h4lXUkE1KPzOobkvw0wbN0wEIuboySchLcIY&signature=c1e8392dd9ab9d92af4388cc9ea33afe15bad0191db56268160a7d1c9589c030"
+    urlImg:
+      'https://storage.tally.so/private/IMG_4807.jpeg?id=Gq7Adj&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IkdxN0FkaiIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTM2NDM0Mn0.jrXwI51h4lXUkE1KPzOobkvw0wbN0wEIuboySchLcIY&signature=c1e8392dd9ab9d92af4388cc9ea33afe15bad0191db56268160a7d1c9589c030',
   },
   {
-    name: "Carrefour",
-    coords: [
-      43.067092,
-      0.151407
-    ],
-    category: "carrefour",
-    address: "26 Av. Geruzet 65200 Bagnères-de-Bigorre",
+    name: 'Carrefour',
+    coords: [43.067092, 0.151407],
+    category: 'carrefour',
+    address: '26 Av. Geruzet 65200 Bagnères-de-Bigorre',
     hasCageEggs: true,
     nbRef: 1,
-    urlImg: "https://storage.tally.so/private/Carrefour-market-Bagneres-1.jpg?id=xRRLL9&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6InhSUkxMOSIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTM2NDM0M30.PjC7veLTE5BjchbYAQcWqOagg9IAw3fKxiPBeAkDrZ0&signature=8b4761cd11f514fa1c0410d5f4feaecec57b28647f528f269be0ac58de7f4589"
+    urlImg:
+      'https://storage.tally.so/private/Carrefour-market-Bagneres-1.jpg?id=xRRLL9&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6InhSUkxMOSIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTM2NDM0M30.PjC7veLTE5BjchbYAQcWqOagg9IAw3fKxiPBeAkDrZ0&signature=8b4761cd11f514fa1c0410d5f4feaecec57b28647f528f269be0ac58de7f4589',
   },
   {
-    name: "Carrefour",
-    coords: [
-      43.9579443,
-      4.7740768
-    ],
-    category: "carrefour",
-    address: "6 Rue Balzac\t30133\tLES ANGLES",
+    name: 'Carrefour',
+    coords: [43.9579443, 4.7740768],
+    category: 'carrefour',
+    address: '6 Rue Balzac\t30133\tLES ANGLES',
     hasCageEggs: true,
     nbRef: 1,
-    urlImg: "https://storage.tally.so/private/signal-2026-01-23-162800.jpeg?id=9R4OzY&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjlSNE96WSIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTM2NDM0M30.tReY9XUXnj_G462v9ZKRIE6HdfcvKwX-YEp761KKlxQ&signature=2a48dc6538e705c8218df991cb71afd99910442253ef3ecb75b7cd4cb8bb315b"
+    urlImg:
+      'https://storage.tally.so/private/signal-2026-01-23-162800.jpeg?id=9R4OzY&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjlSNE96WSIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTM2NDM0M30.tReY9XUXnj_G462v9ZKRIE6HdfcvKwX-YEp761KKlxQ&signature=2a48dc6538e705c8218df991cb71afd99910442253ef3ecb75b7cd4cb8bb315b',
   },
   {
-    name: "Carrefour",
-    coords: [
-      43.8772694,
-      4.8497033
-    ],
-    category: "carrefour",
-    address: "29 Rue Sainte Anne\t13160\tCHATEAURENARD",
+    name: 'Carrefour',
+    coords: [43.8772694, 4.8497033],
+    category: 'carrefour',
+    address: '29 Rue Sainte Anne\t13160\tCHATEAURENARD',
     hasCageEggs: true,
     nbRef: 1,
-    urlImg: "https://storage.tally.so/private/signal-2026-01-23-164439.jpeg?id=Z1ezjo&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IloxZXpqbyIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTM2NDM0M30.X7RUHqQjVPcJW5iaa7o6xA79Bh8TuP09jAgmohkEpKQ&signature=3df0c1404a01a9a07093f8a2e84a3d0ca58d98041a32ba464cce3376fc51622f"
+    urlImg:
+      'https://storage.tally.so/private/signal-2026-01-23-164439.jpeg?id=Z1ezjo&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IloxZXpqbyIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTM2NDM0M30.X7RUHqQjVPcJW5iaa7o6xA79Bh8TuP09jAgmohkEpKQ&signature=3df0c1404a01a9a07093f8a2e84a3d0ca58d98041a32ba464cce3376fc51622f',
   },
   {
-    name: "Carrefour",
-    coords: [
-      47.62515,
-      6.17085
-    ],
-    category: "carrefour",
-    address: "Bd Président Kennedy, 70000 Vesoul",
+    name: 'Carrefour',
+    coords: [47.62515, 6.17085],
+    category: 'carrefour',
+    address: 'Bd Président Kennedy, 70000 Vesoul',
     hasCageEggs: false,
     nbRef: 0,
-    urlImg: null
+    urlImg: null,
   },
   {
-    name: "Carrefour",
-    coords: [
-      43.64962,
-      3.84198
-    ],
-    category: "carrefour",
-    address: "Rte de Ganges, 34980 Saint-Clément-de-Rivière",
+    name: 'Carrefour',
+    coords: [43.64962, 3.84198],
+    category: 'carrefour',
+    address: 'Rte de Ganges, 34980 Saint-Clément-de-Rivière',
     hasCageEggs: true,
     nbRef: 1,
-    urlImg: "https://storage.tally.so/private/IMG_20260127_161811.jpg?id=0ZgGEA&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjBaZ0dFQSIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTY4MTAyOH0.DNKI-DECHn7_7Y-pg2UDFZvTX6XZUA3nHUdp8jDtFVI&signature=d8904eddc1f81ef593d989e2efee97747a77e1a3e3ad375c17d077b075effc9b"
+    urlImg:
+      'https://storage.tally.so/private/IMG_20260127_161811.jpg?id=0ZgGEA&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjBaZ0dFQSIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTY4MTAyOH0.DNKI-DECHn7_7Y-pg2UDFZvTX6XZUA3nHUdp8jDtFVI&signature=d8904eddc1f81ef593d989e2efee97747a77e1a3e3ad375c17d077b075effc9b',
   },
   {
-    name: "Carrefour",
-    coords: [
-      48.6445449,
-      6.1762513
-    ],
-    category: "carrefour",
+    name: 'Carrefour',
+    coords: [48.6445449, 6.1762513],
+    category: 'carrefour',
     address: " Centre commercial Shop'in Houdemont",
     hasCageEggs: true,
     nbRef: 2,
-    urlImg: "https://storage.tally.so/private/1597.jpg?id=gJx12l&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImdKeDEybCIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTY4MTAyOH0.ib7z7fyLYQg7GfbeYLVBa07-ZXFgz06TXzWB6ysgFX0&signature=0377a65e1ab785f0bde7f5fce5dd61b1b31fc388fcbd49a9c14a2a7e79c839ff"
+    urlImg:
+      'https://storage.tally.so/private/1597.jpg?id=gJx12l&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImdKeDEybCIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTY4MTAyOH0.ib7z7fyLYQg7GfbeYLVBa07-ZXFgz06TXzWB6ysgFX0&signature=0377a65e1ab785f0bde7f5fce5dd61b1b31fc388fcbd49a9c14a2a7e79c839ff',
   },
   {
-    name: "Carrefour",
-    coords: [
-      48.1055084,
-      -1.6780658
-    ],
-    category: "carrefour",
+    name: 'Carrefour',
+    coords: [48.1055084, -1.6780658],
+    category: 'carrefour',
     address: "18 rue d'Isly, centre commercial 3 soleils, 35000 rennes",
     hasCageEggs: true,
     nbRef: 1,
-    urlImg: "https://storage.tally.so/private/signal-2026-01-28-181246.jpeg?id=Dxoa6R&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IkR4b2E2UiIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTY4MTAyOH0.ZUYUkYG4vhZPOr_CF6_bTKwP26jq92Ptck_f8lNTn80&signature=c1e528e6ad389e3c61278e9cfe2ea5da07ab5a19c2798fd1fc3206ce7cc52574"
+    urlImg:
+      'https://storage.tally.so/private/signal-2026-01-28-181246.jpeg?id=Dxoa6R&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IkR4b2E2UiIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTY4MTAyOH0.ZUYUkYG4vhZPOr_CF6_bTKwP26jq92Ptck_f8lNTn80&signature=c1e528e6ad389e3c61278e9cfe2ea5da07ab5a19c2798fd1fc3206ce7cc52574',
   },
   {
-    name: "Carrefour",
-    coords: [
-      49.16724689999999,
-      -0.3086207
-    ],
-    category: "carrefour",
+    name: 'Carrefour',
+    coords: [49.16724689999999, -0.3086207],
+    category: 'carrefour',
     address: "Zac L'etoile Bp 543, Cc Mondeville 2, 14120, Mondeville",
     hasCageEggs: true,
     nbRef: 1,
-    urlImg: "https://storage.tally.so/private/PXL_20260127_130857096.jpg?id=BjoQQ4&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IkJqb1FRNCIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTY4MTAyOH0.chn7qpi5TJJfFhoeq2MozGQq52zPq6eUE2eN69dTIc8&signature=958c212654d20d96a3560cb1c1f0b0ff6e7be55832697684afcb8de07b5e3579"
+    urlImg:
+      'https://storage.tally.so/private/PXL_20260127_130857096.jpg?id=BjoQQ4&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IkJqb1FRNCIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTY4MTAyOH0.chn7qpi5TJJfFhoeq2MozGQq52zPq6eUE2eN69dTIc8&signature=958c212654d20d96a3560cb1c1f0b0ff6e7be55832697684afcb8de07b5e3579',
   },
   {
-    name: "Carrefour",
-    coords: [
-      43.6482891,
-      3.9551578
-    ],
-    category: "carrefour",
-    address: "RN 113, 34920 le Crès ",
+    name: 'Carrefour',
+    coords: [43.6482891, 3.9551578],
+    category: 'carrefour',
+    address: 'RN 113, 34920 le Crès ',
     hasCageEggs: true,
     nbRef: 1,
-    urlImg: "https://storage.tally.so/private/IMG_7848.jpeg?id=rJ1YrR&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6InJKMVlyUiIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTY4MTAyOH0.1aIAmnSobruqKen7zYUNvz_UEw3fpxo2QVrDesz1PYE&signature=19a65c8b16a8074c5cf638a143ad894cb7bceabd26bea45b8704a1f2e2083ad1"
+    urlImg:
+      'https://storage.tally.so/private/IMG_7848.jpeg?id=rJ1YrR&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6InJKMVlyUiIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTY4MTAyOH0.1aIAmnSobruqKen7zYUNvz_UEw3fpxo2QVrDesz1PYE&signature=19a65c8b16a8074c5cf638a143ad894cb7bceabd26bea45b8704a1f2e2083ad1',
   },
   {
-    name: "Carrefour",
-    coords: [
-      45.341917,
-      4.805174
-    ],
-    category: "carrefour",
-    address: "165 N7, 38150 Salaise-sur-Sanne",
+    name: 'Carrefour',
+    coords: [45.341917, 4.805174],
+    category: 'carrefour',
+    address: '165 N7, 38150 Salaise-sur-Sanne',
     hasCageEggs: true,
     nbRef: 2,
-    urlImg: "https://storage.tally.so/private/20260128_123731.jpg?id=lYjv8W&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImxZanY4VyIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTY4MTAyOH0.G5VzYn-CP11jU8pckz4Sz2c2qHqlGFRxILqU0YobCz8&signature=87aee30b4e540311d17e8f6e32545e1f1a5cbec138d4625d2911df16dae6426c"
+    urlImg:
+      'https://storage.tally.so/private/20260128_123731.jpg?id=lYjv8W&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImxZanY4VyIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTY4MTAyOH0.G5VzYn-CP11jU8pckz4Sz2c2qHqlGFRxILqU0YobCz8&signature=87aee30b4e540311d17e8f6e32545e1f1a5cbec138d4625d2911df16dae6426c',
   },
   {
-    name: "Carrefour",
-    coords: [
-      42.701954,
-      2.9418899
-    ],
-    category: "carrefour",
-    address: "1, Ch. de la Roseraie, CC. Château Roussillon - 66000 Perpignan",
+    name: 'Carrefour',
+    coords: [42.701954, 2.9418899],
+    category: 'carrefour',
+    address: '1, Ch. de la Roseraie, CC. Château Roussillon - 66000 Perpignan',
     hasCageEggs: true,
     nbRef: 1,
-    urlImg: "https://storage.tally.so/private/20260128_094051.jpg?id=rJRpgL&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6InJKUnBnTCIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTY4MTAyOH0.inPf__UsBF4aKLBti8Wb5-FfYYDAsudYmr69gQuUpbc&signature=8c2328547abd046a834bcd096483eda2c2e6e9d96b7fc8090156c6a960886eff"
+    urlImg:
+      'https://storage.tally.so/private/20260128_094051.jpg?id=rJRpgL&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6InJKUnBnTCIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTY4MTAyOH0.inPf__UsBF4aKLBti8Wb5-FfYYDAsudYmr69gQuUpbc&signature=8c2328547abd046a834bcd096483eda2c2e6e9d96b7fc8090156c6a960886eff',
   },
   {
-    name: "Carrefour",
-    coords: [
-      48.0916073,
-      -1.6408146
-    ],
-    category: "carrefour",
-    address: "2 place du ronceray 35200 Rennes",
+    name: 'Carrefour',
+    coords: [48.0916073, -1.6408146],
+    category: 'carrefour',
+    address: '2 place du ronceray 35200 Rennes',
     hasCageEggs: true,
     nbRef: 1,
-    urlImg: "https://storage.tally.so/private/signal-2026-01-29-125117.jpeg?id=1NQdYM&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjFOUWRZTSIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc3MDQ1NjU5M30.PUEwq9E_ehY9ER3NeESLCcZ2bb4ocqs5EAM1jrl3OoM&signature=a112514f9e724b45ada3c759dd1c6c8d1820b7fe5c1b18f6a2968d36f603d1b7"
+    urlImg:
+      'https://storage.tally.so/private/signal-2026-01-29-125117.jpeg?id=1NQdYM&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjFOUWRZTSIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc3MDQ1NjU5M30.PUEwq9E_ehY9ER3NeESLCcZ2bb4ocqs5EAM1jrl3OoM&signature=a112514f9e724b45ada3c759dd1c6c8d1820b7fe5c1b18f6a2968d36f603d1b7',
   },
   {
-    name: "Carrefour",
-    coords: [
-      43.5895289,
-      3.8544441
-    ],
-    category: "carrefour",
-    address: "1742 Av. de Toulouse, 34070 Montpellier",
+    name: 'Carrefour',
+    coords: [43.5895289, 3.8544441],
+    category: 'carrefour',
+    address: '1742 Av. de Toulouse, 34070 Montpellier',
     hasCageEggs: true,
     nbRef: 1,
-    urlImg: "https://storage.tally.so/private/IMG_20260129_155902.jpg?id=1NoEkg&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjFOb0VrZyIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc3MDQ1NjU5M30.s011k7ayzFzqJkp0bEaR39FNtPV1YNvD2pRrSiBj1_Y&signature=115ee84c7589c18ae74557abd3bb307c6d1b72c2879300712d4834f598ef183c"
+    urlImg:
+      'https://storage.tally.so/private/IMG_20260129_155902.jpg?id=1NoEkg&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjFOb0VrZyIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc3MDQ1NjU5M30.s011k7ayzFzqJkp0bEaR39FNtPV1YNvD2pRrSiBj1_Y&signature=115ee84c7589c18ae74557abd3bb307c6d1b72c2879300712d4834f598ef183c',
   },
   {
-    name: "Carrefour",
-    coords: [
-      48.1213215,
-      -1.7112673
-    ],
-    category: "carrefour",
-    address: "50 cours du président JF Kennedy 35000 Rennes",
+    name: 'Carrefour',
+    coords: [48.1213215, -1.7112673],
+    category: 'carrefour',
+    address: '50 cours du président JF Kennedy 35000 Rennes',
     hasCageEggs: true,
     nbRef: 1,
-    urlImg: "https://storage.tally.so/private/signal-2026-02-01-083044_002.jpeg?id=vdGBvd&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6InZkR0J2ZCIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc3MDQ1NjU5M30.GoxjlhBclSv65PlDu6N3EHmZRNt2uzyK_PbYHZ_94yg&signature=038bfdddb9787adbb2dd09e8aebd7f06fe1062ad4fecc8c25eaf7bdb878114bc"
+    urlImg:
+      'https://storage.tally.so/private/signal-2026-02-01-083044_002.jpeg?id=vdGBvd&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6InZkR0J2ZCIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc3MDQ1NjU5M30.GoxjlhBclSv65PlDu6N3EHmZRNt2uzyK_PbYHZ_94yg&signature=038bfdddb9787adbb2dd09e8aebd7f06fe1062ad4fecc8c25eaf7bdb878114bc',
   },
   {
-    name: "Carrefour",
-    coords: [
-      51.01649,
-      2.37965
-    ],
-    category: "carrefour",
-    address: "Rue Jacquard 59210 Coudekerque-Branche",
+    name: 'Carrefour',
+    coords: [51.01649, 2.37965],
+    category: 'carrefour',
+    address: 'Rue Jacquard 59210 Coudekerque-Branche',
     hasCageEggs: true,
     nbRef: 1,
-    urlImg: "https://storage.tally.so/private/IMG_9013.jpeg?id=dkNe1q&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImRrTmUxcSIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc3MDQ1NjU5M30.vE25j8_LDnHfzPjs1PwoKP6UlM7PX1dTpmjCehLCrH8&signature=e191df86c5896ac5eccb980c881f7e56fa49a3680f4686d05c44e7eede287256"
+    urlImg:
+      'https://storage.tally.so/private/IMG_9013.jpeg?id=dkNe1q&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImRrTmUxcSIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc3MDQ1NjU5M30.vE25j8_LDnHfzPjs1PwoKP6UlM7PX1dTpmjCehLCrH8&signature=e191df86c5896ac5eccb980c881f7e56fa49a3680f4686d05c44e7eede287256',
   },
   {
-    name: "Carrefour",
-    coords: [
-      48.2819038,
-      4.0532845
-    ],
-    category: "carrefour",
-    address: " Av. Charles de Refuge, 10120 Saint-André-les-Vergers",
+    name: 'Carrefour',
+    coords: [48.2819038, 4.0532845],
+    category: 'carrefour',
+    address: ' Av. Charles de Refuge, 10120 Saint-André-les-Vergers',
     hasCageEggs: true,
     nbRef: 1,
-    urlImg: "https://storage.tally.so/private/IMG_20260131_124729.jpg?id=gJlPy1&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImdKbFB5MSIsImZvcm1JZCI6IlJHTU4wNCIsImlhdCI6MTc3MDQ1NjYwNn0.CU1b4xDVLeFa3hc5O3661fqgBgqHh-5b0k25QVPJvm8&signature=0640352064f38efdbcbcbf9f2fd090370fd6cd790798b363b1fa502c57301a7f"
+    urlImg:
+      'https://storage.tally.so/private/IMG_20260131_124729.jpg?id=gJlPy1&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImdKbFB5MSIsImZvcm1JZCI6IlJHTU4wNCIsImlhdCI6MTc3MDQ1NjYwNn0.CU1b4xDVLeFa3hc5O3661fqgBgqHh-5b0k25QVPJvm8&signature=0640352064f38efdbcbcbf9f2fd090370fd6cd790798b363b1fa502c57301a7f',
   },
   {
-    name: "Carrefour",
-    coords: [
-      47.8445276,
-      3.553732
-    ],
-    category: "carrefour",
-    address: "Centre commercial Les grandes Haies, 53 avenue de Paris, 89470 Monéteau (le même que le 24 janvier)",
+    name: 'Carrefour',
+    coords: [47.8445276, 3.553732],
+    category: 'carrefour',
+    address: 'Centre commercial Les grandes Haies, 53 avenue de Paris, 89470 Monéteau (le même que le 24 janvier)',
     hasCageEggs: true,
     nbRef: 1,
-    urlImg: "https://storage.tally.so/private/20260205_153746.jpg?id=qkLZy8&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6InFrTFp5OCIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc3MDQ1NjU5M30.cFX1KMJK5UaJ-XE74uP3VZdpwS73U7fezJZ-cemiQfo&signature=f14fbd7d719c3817b03ab6f48968ff925ef4176c59212f6dca8648c85c375a2f"
+    urlImg:
+      'https://storage.tally.so/private/20260205_153746.jpg?id=qkLZy8&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6InFrTFp5OCIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc3MDQ1NjU5M30.cFX1KMJK5UaJ-XE74uP3VZdpwS73U7fezJZ-cemiQfo&signature=f14fbd7d719c3817b03ab6f48968ff925ef4176c59212f6dca8648c85c375a2f',
   },
   {
-    name: "Carrefour",
-    coords: [
-      45.7621058,
-      4.8557052
-    ],
-    category: "carrefour",
-    address: "17 rue docteur bouchut 69003",
+    name: 'Carrefour',
+    coords: [45.7621058, 4.8557052],
+    category: 'carrefour',
+    address: '17 rue docteur bouchut 69003',
     hasCageEggs: true,
     nbRef: 1,
-    urlImg: "https://storage.tally.so/private/IMG_20260206_163642.jpg?id=RVd924&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IlJWZDkyNCIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc3MDQ1NjU5M30.LoS_904KaPRhAY8FsFytOLRoXustH1N3qKWJM_IjjRM&signature=f3b4247e0f973b8092720f22971aa70ed5bc2c00762fe6592952185a182b9301"
+    urlImg:
+      'https://storage.tally.so/private/IMG_20260206_163642.jpg?id=RVd924&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IlJWZDkyNCIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc3MDQ1NjU5M30.LoS_904KaPRhAY8FsFytOLRoXustH1N3qKWJM_IjjRM&signature=f3b4247e0f973b8092720f22971aa70ed5bc2c00762fe6592952185a182b9301',
   },
   {
-    name: "Carrefour",
-    coords: [
-      48.937059,
-      2.35956
-    ],
-    category: "carrefour",
-    address: "place du Caquet 93200 Saint-Denis ",
+    name: 'Carrefour',
+    coords: [48.937059, 2.35956],
+    category: 'carrefour',
+    address: 'place du Caquet 93200 Saint-Denis ',
     hasCageEggs: true,
     nbRef: 1,
-    urlImg: "https://storage.tally.so/private/20260130_174250.jpg?id=LarXEp&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IkxhclhFcCIsImZvcm1JZCI6IlJHTU4wNCIsImlhdCI6MTc3MDQ1NjYwNn0.aEJnux1Ty0blel-hNIB29NthgTwgZ-Vf0zyLoZ7mJjo&signature=a331345a4c75bf41e5a5ed3af6f4ccb1036fe06c8bf3d65b87cc8a9be9befcc2"
+    urlImg:
+      'https://storage.tally.so/private/20260130_174250.jpg?id=LarXEp&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IkxhclhFcCIsImZvcm1JZCI6IlJHTU4wNCIsImlhdCI6MTc3MDQ1NjYwNn0.aEJnux1Ty0blel-hNIB29NthgTwgZ-Vf0zyLoZ7mJjo&signature=a331345a4c75bf41e5a5ed3af6f4ccb1036fe06c8bf3d65b87cc8a9be9befcc2',
   },
   {
-    name: "Carrefour",
-    coords: [
-      48.8321136,
-      2.3623563
-    ],
-    category: "carrefour",
-    address: "165 rue nationale 75013",
+    name: 'Carrefour',
+    coords: [48.8321136, 2.3623563],
+    category: 'carrefour',
+    address: '165 rue nationale 75013',
     hasCageEggs: true,
     nbRef: 1,
-    urlImg: "https://storage.tally.so/private/17698040550698118539480427063595.jpg?id=zG5pGq&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6InpHNXBHcSIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc3MDQ1NjU5M30.lFto8fQ8WmRTpIrsogzssOo3nqvoQiTKIywHFVRqUjo&signature=0731912781d67f2b87c37f26ce12832acbaa151fa52bddd5fd94f80e368aee54"
+    urlImg:
+      'https://storage.tally.so/private/17698040550698118539480427063595.jpg?id=zG5pGq&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6InpHNXBHcSIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc3MDQ1NjU5M30.lFto8fQ8WmRTpIrsogzssOo3nqvoQiTKIywHFVRqUjo&signature=0731912781d67f2b87c37f26ce12832acbaa151fa52bddd5fd94f80e368aee54',
   },
   {
-    name: "Carrefour",
-    coords: [
-      48.87891,
-      2.41165
-    ],
-    category: "carrefour",
-    address: "5 av Faidherbe, le Pré Saint Gervais ",
+    name: 'Carrefour',
+    coords: [48.87891, 2.41165],
+    category: 'carrefour',
+    address: '5 av Faidherbe, le Pré Saint Gervais ',
     hasCageEggs: true,
     nbRef: 1,
-    urlImg: "https://storage.tally.so/private/IMG_20260205_195259.jpg?id=4pQdoA&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjRwUWRvQSIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc3MDQ1NjU5M30.QATTF7V9Dq3_R_tnly-oTj--T9lKOzCqRx-YRFSIBFs&signature=e92eb29d1e5cd0e0cbb68b345255d660762cb3934e79534be0919a5c1ec3640b"
+    urlImg:
+      'https://storage.tally.so/private/IMG_20260205_195259.jpg?id=4pQdoA&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjRwUWRvQSIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc3MDQ1NjU5M30.QATTF7V9Dq3_R_tnly-oTj--T9lKOzCqRx-YRFSIBFs&signature=e92eb29d1e5cd0e0cbb68b345255d660762cb3934e79534be0919a5c1ec3640b',
   },
   {
-    name: "Carrefour",
-    coords: [
-      48.6948047,
-      2.5050762
-    ],
-    category: "carrefour",
-    address: "3 Bd Charles De Gaulle, 91800, Brunoy",
+    name: 'Carrefour',
+    coords: [48.6948047, 2.5050762],
+    category: 'carrefour',
+    address: '3 Bd Charles De Gaulle, 91800, Brunoy',
     hasCageEggs: true,
     nbRef: 1,
-    urlImg: "https://storage.tally.so/private/IMG_4487.jpeg?id=qk58a8&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6InFrNThhOCIsImZvcm1JZCI6IlJHTU4wNCIsImlhdCI6MTc3MDQ1NjYwNn0.sxUm9UG_5buPhrPb-IiO1VfCVCdwJuGKG72WgsNEbEQ&signature=83982d1b3dd66c26a75117a4fa12894289b19dfdffebc69d835c8e59569e9efc"
+    urlImg:
+      'https://storage.tally.so/private/IMG_4487.jpeg?id=qk58a8&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6InFrNThhOCIsImZvcm1JZCI6IlJHTU4wNCIsImlhdCI6MTc3MDQ1NjYwNn0.sxUm9UG_5buPhrPb-IiO1VfCVCdwJuGKG72WgsNEbEQ&signature=83982d1b3dd66c26a75117a4fa12894289b19dfdffebc69d835c8e59569e9efc',
   },
   {
-    name: "Carrefour",
-    coords: [
-      50.29181999999999,
-      2.7864
-    ],
-    category: "carrefour",
-    address: "Rue des Rosati 62000 ARRAS",
+    name: 'Carrefour',
+    coords: [50.29181999999999, 2.7864],
+    category: 'carrefour',
+    address: 'Rue des Rosati 62000 ARRAS',
     hasCageEggs: false,
     nbRef: 0,
-    urlImg: "https://storage.tally.so/private/IMG_4872.jpeg?id=aAMRWW&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImFBTVJXVyIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc3MDQ1NjU5M30.2UR9AtNhZSIJszIyH6D7wxXNRYG41byPaGn9z4LpoUA&signature=c4dd0e2eb53f9871e1714a865f03af08bedd0ada3331a4e3b6e2e86f7f07fcd2"
+    urlImg:
+      'https://storage.tally.so/private/IMG_4872.jpeg?id=aAMRWW&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImFBTVJXVyIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc3MDQ1NjU5M30.2UR9AtNhZSIJszIyH6D7wxXNRYG41byPaGn9z4LpoUA&signature=c4dd0e2eb53f9871e1714a865f03af08bedd0ada3331a4e3b6e2e86f7f07fcd2',
   },
   {
-    name: "Intermarché",
-    coords: [
-      47.2313111,
-      5.9943601
-    ],
-    category: "intermarché",
-    address: "110 rue de Dole, 25000 Besançon",
+    name: 'Intermarché',
+    coords: [47.2313111, 5.9943601],
+    category: 'intermarché',
+    address: '110 rue de Dole, 25000 Besançon',
     hasCageEggs: false,
     nbRef: 0,
-    urlImg: "https://storage.tally.so/private/20260113_102531.jpg?id=zGjGBM&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6InpHakdCTSIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4Nn0.MSyX9EFfGtFmSnm0IKRVIm7GzptrM4320Qcc8p-mBJs&signature=2566b6436d67867015e5deb249cf92eafead8ecda290011bc9b67bb575950e0e"
+    urlImg:
+      'https://storage.tally.so/private/20260113_102531.jpg?id=zGjGBM&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6InpHakdCTSIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4Nn0.MSyX9EFfGtFmSnm0IKRVIm7GzptrM4320Qcc8p-mBJs&signature=2566b6436d67867015e5deb249cf92eafead8ecda290011bc9b67bb575950e0e',
   },
   {
-    name: "Intermarché",
-    coords: [
-      47.217659,
-      5.968332999999999
-    ],
-    category: "intermarché",
-    address: "8 place René Cassin, 25000 Besançon",
+    name: 'Intermarché',
+    coords: [47.217659, 5.968332999999999],
+    category: 'intermarché',
+    address: '8 place René Cassin, 25000 Besançon',
     hasCageEggs: false,
     nbRef: 0,
-    urlImg: "https://storage.tally.so/private/20260113_110959.jpg?id=o5EpE1&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Im81RXBFMSIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4Nn0.URyzbpCxLbFxGfFGRNEkAJIrND-xbNwM3Niw1ifOqFo&signature=23ee1d88d57d3374335cec4108691ab366a91ecd0f7ebd1bf6fe7e1552e80c10"
+    urlImg:
+      'https://storage.tally.so/private/20260113_110959.jpg?id=o5EpE1&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Im81RXBFMSIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4Nn0.URyzbpCxLbFxGfFGRNEkAJIrND-xbNwM3Niw1ifOqFo&signature=23ee1d88d57d3374335cec4108691ab366a91ecd0f7ebd1bf6fe7e1552e80c10',
   },
   {
-    name: "Intermarché",
-    coords: [
-      47.4557429,
-      -0.5351808
-    ],
-    category: "intermarché",
-    address: "55 Bd Jacques Millot, 49000 Angers",
+    name: 'Intermarché',
+    coords: [47.4557429, -0.5351808],
+    category: 'intermarché',
+    address: '55 Bd Jacques Millot, 49000 Angers',
     hasCageEggs: false,
     nbRef: 0,
-    urlImg: "https://storage.tally.so/private/telechargement-62-.jpg?id=yo9oog&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6InlvOW9vZyIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4Nn0.PtfwUccES8BRQLSCxGIbfUo4L4Tsmr3pFQjQ7raoOOQ&signature=fb19855b4902c1a55c921028f9492ea19191f4b5ac0e17c910a0ca1434e70ee2"
+    urlImg:
+      'https://storage.tally.so/private/telechargement-62-.jpg?id=yo9oog&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6InlvOW9vZyIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4Nn0.PtfwUccES8BRQLSCxGIbfUo4L4Tsmr3pFQjQ7raoOOQ&signature=fb19855b4902c1a55c921028f9492ea19191f4b5ac0e17c910a0ca1434e70ee2',
   },
   {
-    name: "Intermarché",
-    coords: [
-      47.179797,
-      -1.5332409
-    ],
-    category: "intermarché",
-    address: "29 Rue de la Blordière, 44400 Rezé, France",
+    name: 'Intermarché',
+    coords: [47.179797, -1.5332409],
+    category: 'intermarché',
+    address: '29 Rue de la Blordière, 44400 Rezé, France',
     hasCageEggs: false,
     nbRef: 0,
-    urlImg: "https://storage.tally.so/private/Carre_noir2.jpg?id=Vb08Oy&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IlZiMDhPeSIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4Nn0.Hw4lc-uogN4UjZmXqzUW2Pnh2y1wUtwTg1sgWt-XWY8&signature=f68a0f07adae16f1aae1012586e5058acda4c610377ebe3b7bf2028a6aa9f886"
+    urlImg:
+      'https://storage.tally.so/private/Carre_noir2.jpg?id=Vb08Oy&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IlZiMDhPeSIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4Nn0.Hw4lc-uogN4UjZmXqzUW2Pnh2y1wUtwTg1sgWt-XWY8&signature=f68a0f07adae16f1aae1012586e5058acda4c610377ebe3b7bf2028a6aa9f886',
   },
   {
-    name: "Intermarché",
-    coords: [
-      47.1988667,
-      -1.5200481
-    ],
-    category: "intermarché",
-    address: "5 BIS Rue du Lieutenant Auge, 44230 Saint-Sébastien-sur-Loire, France",
+    name: 'Intermarché',
+    coords: [47.1988667, -1.5200481],
+    category: 'intermarché',
+    address: '5 BIS Rue du Lieutenant Auge, 44230 Saint-Sébastien-sur-Loire, France',
     hasCageEggs: false,
     nbRef: 0,
-    urlImg: "https://storage.tally.so/private/Carre_noir2.jpg?id=qJdOpd&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6InFKZE9wZCIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4Nn0.o4-yVTkl_lcMoZjqPBsQX4g5GmEz7MyZ0fNHfpRz8U0&signature=143f5048067c2c795713b3a02e7f735b65041a8e6b1ac063e0488959f3a8795b"
+    urlImg:
+      'https://storage.tally.so/private/Carre_noir2.jpg?id=qJdOpd&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6InFKZE9wZCIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4Nn0.o4-yVTkl_lcMoZjqPBsQX4g5GmEz7MyZ0fNHfpRz8U0&signature=143f5048067c2c795713b3a02e7f735b65041a8e6b1ac063e0488959f3a8795b',
   },
   {
-    name: "Intermarché",
-    coords: [
-      45.7761588,
-      4.800471700000001
-    ],
-    category: "intermarché",
-    address: "68-70 rue Marietton 69009 LYON",
+    name: 'Intermarché',
+    coords: [45.7761588, 4.800471700000001],
+    category: 'intermarché',
+    address: '68-70 rue Marietton 69009 LYON',
     hasCageEggs: false,
     nbRef: 0,
-    urlImg: null
+    urlImg: null,
   },
   {
-    name: "Intermarché",
-    coords: [
-      45.764152,
-      4.871799
-    ],
-    category: "intermarché",
-    address: "95 rue magenta, Villeurbanne",
+    name: 'Intermarché',
+    coords: [45.764152, 4.871799],
+    category: 'intermarché',
+    address: '95 rue magenta, Villeurbanne',
     hasCageEggs: false,
     nbRef: 0,
-    urlImg: "https://storage.tally.so/private/20260117_162643.jpg?id=1NK8v4&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjFOSzh2NCIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4NX0.u_t3PxY9oep42-bMjHariUAt6YVkONH21T6d4_4IhU0&signature=605e301baa863ef85468272886dca1518e39391bd6bd3d4ffae0f13d39337906"
+    urlImg:
+      'https://storage.tally.so/private/20260117_162643.jpg?id=1NK8v4&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjFOSzh2NCIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4NX0.u_t3PxY9oep42-bMjHariUAt6YVkONH21T6d4_4IhU0&signature=605e301baa863ef85468272886dca1518e39391bd6bd3d4ffae0f13d39337906',
   },
   {
-    name: "Intermarché",
-    coords: [
-      48.859146,
-      2.9028299
-    ],
-    category: "intermarché",
-    address: "Avenue de Villiers - 77580 Crécy-La-Chapelle",
+    name: 'Intermarché',
+    coords: [48.859146, 2.9028299],
+    category: 'intermarché',
+    address: 'Avenue de Villiers - 77580 Crécy-La-Chapelle',
     hasCageEggs: false,
     nbRef: 0,
-    urlImg: "https://storage.tally.so/private/telechargement-100-.jpg?id=rJEaaN&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6InJKRWFhTiIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4NX0.xOB1-NVhIt3x5sTZQmTcVD0eiEwle_9IxfGKFMWc__c&signature=85b3c456d7d8b86ec4d72045a09290ea705d98206866d0f4806da0b5e296a2bf"
+    urlImg:
+      'https://storage.tally.so/private/telechargement-100-.jpg?id=rJEaaN&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6InJKRWFhTiIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4NX0.xOB1-NVhIt3x5sTZQmTcVD0eiEwle_9IxfGKFMWc__c&signature=85b3c456d7d8b86ec4d72045a09290ea705d98206866d0f4806da0b5e296a2bf',
   },
   {
-    name: "Intermarché",
-    coords: [
-      45.770985,
-      4.957600999999999
-    ],
-    category: "intermarché",
-    address: "209 avenue JJaurès 69 Décines",
+    name: 'Intermarché',
+    coords: [45.770985, 4.957600999999999],
+    category: 'intermarché',
+    address: '209 avenue JJaurès 69 Décines',
     hasCageEggs: false,
     nbRef: 0,
-    urlImg: null
+    urlImg: null,
   },
   {
-    name: "Intermarché",
-    coords: [
-      47.3054871,
-      5.0228671
-    ],
-    category: "intermarché",
-    address: "116 Av. Jean Jaurès, 21000 Dijon",
+    name: 'Intermarché',
+    coords: [47.3054871, 5.0228671],
+    category: 'intermarché',
+    address: '116 Av. Jean Jaurès, 21000 Dijon',
     hasCageEggs: false,
     nbRef: 0,
-    urlImg: "https://storage.tally.so/private/telechargement-2026-01-17T221607.464.jpg?id=0ZPOBZ&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjBaUE9CWiIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4NX0.u49CkhVEMhV5sdRM1uzdUDtp798aZG1W-aC_SXuDHc0&signature=eaed07a9f6ac3b7a842e3af4b25f26f4392c08c6f5a183d38a4c58612f791e64"
+    urlImg:
+      'https://storage.tally.so/private/telechargement-2026-01-17T221607.464.jpg?id=0ZPOBZ&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjBaUE9CWiIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4NX0.u49CkhVEMhV5sdRM1uzdUDtp798aZG1W-aC_SXuDHc0&signature=eaed07a9f6ac3b7a842e3af4b25f26f4392c08c6f5a183d38a4c58612f791e64',
   },
   {
-    name: "Intermarché",
-    coords: [
-      47.8801832,
-      1.9341064
-    ],
-    category: "intermarché",
-    address: "en Val, Rte de Saint-Cyr, 45650 Saint-Jean-le-Blanc",
+    name: 'Intermarché',
+    coords: [47.8801832, 1.9341064],
+    category: 'intermarché',
+    address: 'en Val, Rte de Saint-Cyr, 45650 Saint-Jean-le-Blanc',
     hasCageEggs: false,
     nbRef: 0,
-    urlImg: "https://storage.tally.so/private/telechargement.png?id=pJVOaP&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6InBKVk9hUCIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4NX0.sLvdQCqQcXBiUNThfBU7Y5H2c_ao7hJc_glB-A3hdcA&signature=ee57625c0bff4dfe5d4f6ebfe51e5d6a7374b1f277277c4b326311832eb80049"
+    urlImg:
+      'https://storage.tally.so/private/telechargement.png?id=pJVOaP&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6InBKVk9hUCIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4NX0.sLvdQCqQcXBiUNThfBU7Y5H2c_ao7hJc_glB-A3hdcA&signature=ee57625c0bff4dfe5d4f6ebfe51e5d6a7374b1f277277c4b326311832eb80049',
   },
   {
-    name: "Intermarché",
-    coords: [
-      49.1609621,
-      -0.3988343
-    ],
-    category: "intermarché",
-    address: "ZAC des Longs Courts-14111 Louvigny",
+    name: 'Intermarché',
+    coords: [49.1609621, -0.3988343],
+    category: 'intermarché',
+    address: 'ZAC des Longs Courts-14111 Louvigny',
     hasCageEggs: false,
     nbRef: 0,
-    urlImg: "https://storage.tally.so/private/IMG_6518.jpeg?id=Yp8YA6&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IllwOFlBNiIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4Nn0.gdDYSoYpE2jLQ7rnJDUv-MqZn99EAh5_gdJumEjUvqg&signature=6ccb025ad6b676cd644c4c6e227b97413f421a46cbcdf3e38420329e803a3cb3"
+    urlImg:
+      'https://storage.tally.so/private/IMG_6518.jpeg?id=Yp8YA6&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IllwOFlBNiIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4Nn0.gdDYSoYpE2jLQ7rnJDUv-MqZn99EAh5_gdJumEjUvqg&signature=6ccb025ad6b676cd644c4c6e227b97413f421a46cbcdf3e38420329e803a3cb3',
   },
   {
-    name: "Intermarché",
-    coords: [
-      47.246712,
-      -1.589885
-    ],
-    category: "intermarché",
-    address: "54 avenue de la ferriere 44700 Orvault ",
+    name: 'Intermarché',
+    coords: [47.246712, -1.589885],
+    category: 'intermarché',
+    address: '54 avenue de la ferriere 44700 Orvault ',
     hasCageEggs: false,
     nbRef: 0,
-    urlImg: "https://storage.tally.so/private/inbound2776248090852290462.jpg?id=Z1VQp0&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IloxVlFwMCIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4NX0.kc84V0UljIgOfcHrXrdLENyDHCRLkIUuJXNN_e0zFn4&signature=47ad5dc5b7a607cfd2bc9e9616821e702cd1feed45da1144eb1b748794f353b8"
+    urlImg:
+      'https://storage.tally.so/private/inbound2776248090852290462.jpg?id=Z1VQp0&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IloxVlFwMCIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4NX0.kc84V0UljIgOfcHrXrdLENyDHCRLkIUuJXNN_e0zFn4&signature=47ad5dc5b7a607cfd2bc9e9616821e702cd1feed45da1144eb1b748794f353b8',
   },
   {
-    name: "Intermarché",
-    coords: [
-      48.877573,
-      2.750291
-    ],
-    category: "intermarché",
-    address: "1 Bd Charles de Gaulle, 77144 Montévrain",
+    name: 'Intermarché',
+    coords: [48.877573, 2.750291],
+    category: 'intermarché',
+    address: '1 Bd Charles de Gaulle, 77144 Montévrain',
     hasCageEggs: false,
     nbRef: 0,
-    urlImg: "https://storage.tally.so/private/telechargement-7-.jpeg?id=A4J1Jk&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IkE0SjFKayIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4NX0.KBV4DNI-BA4Arvzv5gSuuFlDa4tlnn3s53gVgJbi21E&signature=96f3943a7c0d636aac03a3bb1c162c2fbfca7eff77436b8bd809a96a3569e79d"
+    urlImg:
+      'https://storage.tally.so/private/telechargement-7-.jpeg?id=A4J1Jk&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IkE0SjFKayIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4NX0.KBV4DNI-BA4Arvzv5gSuuFlDa4tlnn3s53gVgJbi21E&signature=96f3943a7c0d636aac03a3bb1c162c2fbfca7eff77436b8bd809a96a3569e79d',
   },
   {
-    name: "Intermarché",
-    coords: [
-      47.1832745,
-      5.8149007
-    ],
-    category: "intermarché",
-    address: "2 rue de Besançon - 25 Saint-Vit 25410",
+    name: 'Intermarché',
+    coords: [47.1832745, 5.8149007],
+    category: 'intermarché',
+    address: '2 rue de Besançon - 25 Saint-Vit 25410',
     hasCageEggs: false,
     nbRef: 0,
-    urlImg: "https://storage.tally.so/private/20260118_104057.jpg?id=YJdLgB&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IllKZExnQiIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4NX0.POxdY9nnBFxGSMajuxyppwE8gOBuQuFhr_FYokXl-vE&signature=015b55f1576009179b6f1e7d14be21b33062cdb154e470ed2ccbddc66f6140e1"
+    urlImg:
+      'https://storage.tally.so/private/20260118_104057.jpg?id=YJdLgB&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IllKZExnQiIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4NX0.POxdY9nnBFxGSMajuxyppwE8gOBuQuFhr_FYokXl-vE&signature=015b55f1576009179b6f1e7d14be21b33062cdb154e470ed2ccbddc66f6140e1',
   },
   {
-    name: "Intermarché",
-    coords: [
-      43.5360098,
-      1.4774625
-    ],
-    category: "intermarché",
-    address: "1 Rue Louis Braille 31520 Ramonville-Saint-Agne",
+    name: 'Intermarché',
+    coords: [43.5360098, 1.4774625],
+    category: 'intermarché',
+    address: '1 Rue Louis Braille 31520 Ramonville-Saint-Agne',
     hasCageEggs: true,
     nbRef: 1,
-    urlImg: "https://storage.tally.so/private/IMG_20260108_123936.jpg?id=kK2NgR&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImtLMk5nUiIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4Nn0.dADh-s9C0u8cZMB4hjPMsqhwkz_jKCGl0T53ht2n_xY&signature=fc9564e7fc5228953d3e80170a0f16e3c1d06af924340899c60408f1831cdc2d"
+    urlImg:
+      'https://storage.tally.so/private/IMG_20260108_123936.jpg?id=kK2NgR&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImtLMk5nUiIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4Nn0.dADh-s9C0u8cZMB4hjPMsqhwkz_jKCGl0T53ht2n_xY&signature=fc9564e7fc5228953d3e80170a0f16e3c1d06af924340899c60408f1831cdc2d',
   },
   {
-    name: "Intermarché",
-    coords: [
-      45.7621377,
-      4.7787777
-    ],
-    category: "intermarché",
-    address: "6 promenade des tuileries 69160 Tassin-la-demi-lune",
+    name: 'Intermarché',
+    coords: [45.7621377, 4.7787777],
+    category: 'intermarché',
+    address: '6 promenade des tuileries 69160 Tassin-la-demi-lune',
     hasCageEggs: true,
     nbRef: 1,
-    urlImg: "https://storage.tally.so/private/intermarche-oeuf-de-batterie-janv-26.jpg?id=58Jvkb&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjU4SnZrYiIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4Nn0.B0MOfuDcWgWuusKD7PuIW9QueWBaA_TqG0C9SthgWx0&signature=22dc078e31f5bc4c0ebd3d0333e5626a7b77313cb11f246da8cd1cdfec9cd4a8"
+    urlImg:
+      'https://storage.tally.so/private/intermarche-oeuf-de-batterie-janv-26.jpg?id=58Jvkb&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjU4SnZrYiIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4Nn0.B0MOfuDcWgWuusKD7PuIW9QueWBaA_TqG0C9SthgWx0&signature=22dc078e31f5bc4c0ebd3d0333e5626a7b77313cb11f246da8cd1cdfec9cd4a8',
   },
   {
-    name: "Intermarché",
-    coords: [
-      48.804162,
-      2.3636452
-    ],
-    category: "intermarché",
-    address: "38 avenue de Paris, 94800 Villejuif",
+    name: 'Intermarché',
+    coords: [48.804162, 2.3636452],
+    category: 'intermarché',
+    address: '38 avenue de Paris, 94800 Villejuif',
     hasCageEggs: true,
     nbRef: 1,
-    urlImg: "https://storage.tally.so/private/IMG_6760.jpeg?id=pRg8oE&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6InBSZzhvRSIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4Nn0.RbSAJ_GVipxQ3MjOe_gPe2MltUeMMC-m3qOOaaAn7Gg&signature=d25b5489b0c736b77ac5af3e1e69dc9745ac6741fb781873bb0cc2a0e8165a1f"
+    urlImg:
+      'https://storage.tally.so/private/IMG_6760.jpeg?id=pRg8oE&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6InBSZzhvRSIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4Nn0.RbSAJ_GVipxQ3MjOe_gPe2MltUeMMC-m3qOOaaAn7Gg&signature=d25b5489b0c736b77ac5af3e1e69dc9745ac6741fb781873bb0cc2a0e8165a1f',
   },
   {
-    name: "Intermarché",
-    coords: [
-      48.6148253,
-      6.090766599999999
-    ],
-    category: "intermarché",
-    address: "ZI Pasteur, 1137 Rue Pasteur, 54230 Neuves-Maisons",
+    name: 'Intermarché',
+    coords: [48.6148253, 6.090766599999999],
+    category: 'intermarché',
+    address: 'ZI Pasteur, 1137 Rue Pasteur, 54230 Neuves-Maisons',
     hasCageEggs: true,
     nbRef: 1,
-    urlImg: "https://storage.tally.so/private/INTER.jpeg?id=RvpoWd&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IlJ2cG9XZCIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4Nn0.OD1HhPFDiDE6kaxGY6PRDNJ11BHXlFxrGnsYQGrhYVA&signature=f722433c6be45620292b53fa9a770e60039e623e28b66ee542c2599aaf4983f1"
+    urlImg:
+      'https://storage.tally.so/private/INTER.jpeg?id=RvpoWd&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IlJ2cG9XZCIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4Nn0.OD1HhPFDiDE6kaxGY6PRDNJ11BHXlFxrGnsYQGrhYVA&signature=f722433c6be45620292b53fa9a770e60039e623e28b66ee542c2599aaf4983f1',
   },
   {
-    name: "Intermarché",
-    coords: [
-      48.6788434,
-      6.1458436
-    ],
-    category: "intermarché",
+    name: 'Intermarché',
+    coords: [48.6788434, 6.1458436],
+    category: 'intermarché',
     address: "12 Av. de l'Europe, 54520 Laxou",
     hasCageEggs: true,
     nbRef: 1,
-    urlImg: "https://storage.tally.so/private/signal-2026-01-09-133453.jpeg?id=4A57OX&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjRBNTdPWCIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4Nn0.QUgLtaxnSazCLLWVRkalHmLTFsb4nH8mBMVvQd93dCw&signature=1f0de5d3698c647e7460ff051d4c2d7d1c79d314c30653c3b780d0ffeacdd509"
+    urlImg:
+      'https://storage.tally.so/private/signal-2026-01-09-133453.jpeg?id=4A57OX&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjRBNTdPWCIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4Nn0.QUgLtaxnSazCLLWVRkalHmLTFsb4nH8mBMVvQd93dCw&signature=1f0de5d3698c647e7460ff051d4c2d7d1c79d314c30653c3b780d0ffeacdd509',
   },
   {
-    name: "Intermarché",
-    coords: [
-      48.668843,
-      6.207833
-    ],
-    category: "intermarché",
-    address: "113 Rue de la République, 54140 Jarville-la-Malgrange",
+    name: 'Intermarché',
+    coords: [48.668843, 6.207833],
+    category: 'intermarché',
+    address: '113 Rue de la République, 54140 Jarville-la-Malgrange',
     hasCageEggs: true,
     nbRef: 1,
-    urlImg: "https://storage.tally.so/private/signal-2026-01-09-135223.jpeg?id=Zv02WB&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ilp2MDJXQiIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4Nn0.x6cBCH75grDP1qTMXbWFC0kTQWk4SKWwI9UBvrc8uVE&signature=4481da26c31cb1f133893e9c8769ec246a4739abcc2537f2e5a34935766f0e3e"
+    urlImg:
+      'https://storage.tally.so/private/signal-2026-01-09-135223.jpeg?id=Zv02WB&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ilp2MDJXQiIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4Nn0.x6cBCH75grDP1qTMXbWFC0kTQWk4SKWwI9UBvrc8uVE&signature=4481da26c31cb1f133893e9c8769ec246a4739abcc2537f2e5a34935766f0e3e',
   },
   {
-    name: "Intermarché",
-    coords: [
-      47.216144,
-      5.943836
-    ],
-    category: "intermarché",
-    address: "Rue Louis Aragon, 25000 Besançon",
+    name: 'Intermarché',
+    coords: [47.216144, 5.943836],
+    category: 'intermarché',
+    address: 'Rue Louis Aragon, 25000 Besançon',
     hasCageEggs: true,
     nbRef: 1,
-    urlImg: "https://storage.tally.so/private/20260113_104540.jpg?id=Pbprk1&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IlBicHJrMSIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4Nn0.HqnnfOIotnrC5mvr1RD1K48pC-Sa_nK_htTmOUJhzDQ&signature=94ae959953456d324331a0ff44f6a748bdabc73cd69249145b56139882e0c275"
+    urlImg:
+      'https://storage.tally.so/private/20260113_104540.jpg?id=Pbprk1&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IlBicHJrMSIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4Nn0.HqnnfOIotnrC5mvr1RD1K48pC-Sa_nK_htTmOUJhzDQ&signature=94ae959953456d324331a0ff44f6a748bdabc73cd69249145b56139882e0c275',
   },
   {
-    name: "Intermarché",
-    coords: [
-      46.3395643,
-      2.581521
-    ],
-    category: "intermarché",
-    address: "av Jules guesde 03100 montluçon ",
+    name: 'Intermarché',
+    coords: [46.3395643, 2.581521],
+    category: 'intermarché',
+    address: 'av Jules guesde 03100 montluçon ',
     hasCageEggs: true,
     nbRef: 1,
-    urlImg: "https://storage.tally.so/private/20260107_152452.jpg?id=JX4OLX&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IkpYNE9MWCIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4Nn0.gy7zDDagq6Zd85vPLRcMiDuSi_sm79IkVuYqc0_X5YM&signature=14e68d8230940cc6bc09b53afe89f7e6777891ad8c32de6aa215c7e61a59bed6"
+    urlImg:
+      'https://storage.tally.so/private/20260107_152452.jpg?id=JX4OLX&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IkpYNE9MWCIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4Nn0.gy7zDDagq6Zd85vPLRcMiDuSi_sm79IkVuYqc0_X5YM&signature=14e68d8230940cc6bc09b53afe89f7e6777891ad8c32de6aa215c7e61a59bed6',
   },
   {
-    name: "Intermarché",
-    coords: [
-      46.227638,
-      2.213749
-    ],
-    category: "intermarché",
-    address: "21 boulevard Pierre Mendes France",
+    name: 'Intermarché',
+    coords: [46.227638, 2.213749],
+    category: 'intermarché',
+    address: '21 boulevard Pierre Mendes France',
     hasCageEggs: true,
     nbRef: 3,
-    urlImg: "https://storage.tally.so/private/IMG_0193.jpeg?id=WDyKqQ&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IldEeUtxUSIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4Nn0.roWjogvsngszhCVSBneipfkqrYx74n70K_sXOaEUBtM&signature=ffabd067f034ed021cc215821f3c5e4ac6e6284f5400d70c88fd48a64955031b"
+    urlImg:
+      'https://storage.tally.so/private/IMG_0193.jpeg?id=WDyKqQ&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IldEeUtxUSIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4Nn0.roWjogvsngszhCVSBneipfkqrYx74n70K_sXOaEUBtM&signature=ffabd067f034ed021cc215821f3c5e4ac6e6284f5400d70c88fd48a64955031b',
   },
   {
-    name: "Intermarché",
-    coords: [
-      47.452288,
-      -0.5541659999999999
-    ],
-    category: "intermarché",
-    address: "172 Rue de Létanduère, 49000 Angers",
+    name: 'Intermarché',
+    coords: [47.452288, -0.5541659999999999],
+    category: 'intermarché',
+    address: '172 Rue de Létanduère, 49000 Angers',
     hasCageEggs: true,
     nbRef: 2,
-    urlImg: "https://storage.tally.so/private/telechargement-58-.jpg?id=pJBJvq&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6InBKQkp2cSIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4Nn0.wMibH0CU09Pio5RCsxt2D0vzkh5RW0x65eMwg5hfeqM&signature=a40e7052db98f35fa9d931ae931e3351fabbbc53e07577c191d189a8043bd20d"
+    urlImg:
+      'https://storage.tally.so/private/telechargement-58-.jpg?id=pJBJvq&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6InBKQkp2cSIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4Nn0.wMibH0CU09Pio5RCsxt2D0vzkh5RW0x65eMwg5hfeqM&signature=a40e7052db98f35fa9d931ae931e3351fabbbc53e07577c191d189a8043bd20d',
   },
   {
-    name: "Intermarché",
-    coords: [
-      50.6456698,
-      3.0983226
-    ],
-    category: "intermarché",
-    address: "Rue Théodore Monod, 59370 Mons-en-Barœul",
+    name: 'Intermarché',
+    coords: [50.6456698, 3.0983226],
+    category: 'intermarché',
+    address: 'Rue Théodore Monod, 59370 Mons-en-Barœul',
     hasCageEggs: true,
     nbRef: 4,
-    urlImg: "https://storage.tally.so/private/IMG_5905.jpeg?id=xRj64v&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6InhSajY0diIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4Nn0.AGPM3DiYGCrx2BXtrPrz5-2WXjhjGQl3ndvweitY6pc&signature=e4ee20b9dc39961aaaee4f6bb820116ebf380f3f09237ad89b0d8babacbb8ee5"
+    urlImg:
+      'https://storage.tally.so/private/IMG_5905.jpeg?id=xRj64v&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6InhSajY0diIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4Nn0.AGPM3DiYGCrx2BXtrPrz5-2WXjhjGQl3ndvweitY6pc&signature=e4ee20b9dc39961aaaee4f6bb820116ebf380f3f09237ad89b0d8babacbb8ee5',
   },
   {
-    name: "Intermarché",
-    coords: [
-      48.6044118,
-      7.707279099999999
-    ],
-    category: "intermarché",
-    address: "256 Rte de Mittelhausbergen, 67205 Oberhausbergen, France",
+    name: 'Intermarché',
+    coords: [48.6044118, 7.707279099999999],
+    category: 'intermarché',
+    address: '256 Rte de Mittelhausbergen, 67205 Oberhausbergen, France',
     hasCageEggs: true,
     nbRef: 1,
-    urlImg: "https://storage.tally.so/private/signal-2026-01-14-164450.jpeg?id=86Lgjo&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ijg2TGdqbyIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4Nn0.0Yq_aCZvDAUlz760cOCt2tnDEdAy-15SXKr6v0bFA0c&signature=642feee123d617db4abee210c2f77f9901d6456108ef687027b6737bec20f179"
+    urlImg:
+      'https://storage.tally.so/private/signal-2026-01-14-164450.jpeg?id=86Lgjo&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ijg2TGdqbyIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4Nn0.0Yq_aCZvDAUlz760cOCt2tnDEdAy-15SXKr6v0bFA0c&signature=642feee123d617db4abee210c2f77f9901d6456108ef687027b6737bec20f179',
   },
   {
-    name: "Intermarché",
-    coords: [
-      50.418383,
-      2.928966
-    ],
-    category: "intermarché",
-    address: "49 Av. François Mitterrand, 62640 Montigny-en-Gohelle",
+    name: 'Intermarché',
+    coords: [50.418383, 2.928966],
+    category: 'intermarché',
+    address: '49 Av. François Mitterrand, 62640 Montigny-en-Gohelle',
     hasCageEggs: true,
     nbRef: 4,
-    urlImg: "https://storage.tally.so/private/IMG_73EF7AC80809-1.jpeg?id=kJ6bpo&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImtKNmJwbyIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4Nn0.x0wmGBWxDDYM6KuXO3-ck2_BhrGnAEeS-VjEtVsE0wk&signature=e5c2e220dc644fadd43ed0a944dec304d2f6281f46da41dedf41227ca4080809"
+    urlImg:
+      'https://storage.tally.so/private/IMG_73EF7AC80809-1.jpeg?id=kJ6bpo&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImtKNmJwbyIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4Nn0.x0wmGBWxDDYM6KuXO3-ck2_BhrGnAEeS-VjEtVsE0wk&signature=e5c2e220dc644fadd43ed0a944dec304d2f6281f46da41dedf41227ca4080809',
   },
   {
-    name: "Intermarché",
-    coords: [
-      44.0550024,
-      5.0538511
-    ],
-    category: "intermarché",
-    address: "80 Chem. de la Lègue, 84200 Carpentras",
+    name: 'Intermarché',
+    coords: [44.0550024, 5.0538511],
+    category: 'intermarché',
+    address: '80 Chem. de la Lègue, 84200 Carpentras',
     hasCageEggs: true,
     nbRef: 1,
-    urlImg: "https://storage.tally.so/private/20260117_183238.jpg?id=KW0Y2A&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IktXMFkyQSIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4NX0.Xe3lhWkjUUCPXimtv54WKVCFDjpRCjomLXMTwC-kAqU&signature=db851989b8847300b23706e3d9981f75ccd3cd32c54b335e21f4df573147f174"
+    urlImg:
+      'https://storage.tally.so/private/20260117_183238.jpg?id=KW0Y2A&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IktXMFkyQSIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4NX0.Xe3lhWkjUUCPXimtv54WKVCFDjpRCjomLXMTwC-kAqU&signature=db851989b8847300b23706e3d9981f75ccd3cd32c54b335e21f4df573147f174',
   },
   {
-    name: "Intermarché",
-    coords: [
-      49.437945,
-      1.101165
-    ],
-    category: "intermarché",
-    address: "Pl. Saint-Marc, 76000 Rouen",
+    name: 'Intermarché',
+    coords: [49.437945, 1.101165],
+    category: 'intermarché',
+    address: 'Pl. Saint-Marc, 76000 Rouen',
     hasCageEggs: true,
     nbRef: 1,
-    urlImg: "https://storage.tally.so/private/20260117_161913.jpg?id=aAG2Vb&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImFBRzJWYiIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4NX0.ogl9ilmbMcqSxYfO5hRmdoXSZ9kZXIqGMKj3zLHilxA&signature=b4ba987bf364d193dd6e6b1d4727aea3645ed12b521da01ea01cbf87db3dfbb4"
+    urlImg:
+      'https://storage.tally.so/private/20260117_161913.jpg?id=aAG2Vb&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImFBRzJWYiIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4NX0.ogl9ilmbMcqSxYfO5hRmdoXSZ9kZXIqGMKj3zLHilxA&signature=b4ba987bf364d193dd6e6b1d4727aea3645ed12b521da01ea01cbf87db3dfbb4',
   },
   {
-    name: "Intermarché",
-    coords: [
-      50.6581024,
-      3.0127724
-    ],
-    category: "intermarché",
+    name: 'Intermarché',
+    coords: [50.6581024, 3.0127724],
+    category: 'intermarché',
     address: "Parc d'activité des Conquérants, 9 Rue Gustave Eiffel, 59130 Lambersart",
     hasCageEggs: true,
     nbRef: 1,
-    urlImg: "https://storage.tally.so/private/IMG_74002AE1A53B-1.jpeg?id=aAeaby&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImFBZWFieSIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4Nn0.lwDhiK0v1_fRh44SnKrjOrfHd6kyM1TmTv3JCkewwmI&signature=d88f656bdf9191b3216e45e8fc33911cc424a18381d7971fee5dec95b6332597"
+    urlImg:
+      'https://storage.tally.so/private/IMG_74002AE1A53B-1.jpeg?id=aAeaby&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImFBZWFieSIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4Nn0.lwDhiK0v1_fRh44SnKrjOrfHd6kyM1TmTv3JCkewwmI&signature=d88f656bdf9191b3216e45e8fc33911cc424a18381d7971fee5dec95b6332597',
   },
   {
-    name: "Intermarché",
-    coords: [
-      50.682476,
-      3.066666
-    ],
-    category: "intermarché",
-    address: "ZAC du Haut, Rue des Moissons, 59520 Marquette-lez-Lille",
+    name: 'Intermarché',
+    coords: [50.682476, 3.066666],
+    category: 'intermarché',
+    address: 'ZAC du Haut, Rue des Moissons, 59520 Marquette-lez-Lille',
     hasCageEggs: true,
     nbRef: 4,
-    urlImg: "https://storage.tally.so/private/IMG_5888.jpeg?id=rJBY2N&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6InJKQlkyTiIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4Nn0.aHrqFaxXn8mx1JIiRMKI_VZ_fU8bf2qB4kdSIthptg0&signature=ec8c92e9357c97316e0b31ec7fdda9813e705270263b26039069f0e064da113d"
+    urlImg:
+      'https://storage.tally.so/private/IMG_5888.jpeg?id=rJBY2N&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6InJKQlkyTiIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4Nn0.aHrqFaxXn8mx1JIiRMKI_VZ_fU8bf2qB4kdSIthptg0&signature=ec8c92e9357c97316e0b31ec7fdda9813e705270263b26039069f0e064da113d',
   },
   {
-    name: "Intermarché",
-    coords: [
-      47.2616952,
-      6.0350467
-    ],
-    category: "intermarché",
-    address: "73 boulevard Léon Blum, 25000 Besançon",
+    name: 'Intermarché',
+    coords: [47.2616952, 6.0350467],
+    category: 'intermarché',
+    address: '73 boulevard Léon Blum, 25000 Besançon',
     hasCageEggs: false,
     nbRef: 0,
-    urlImg: "https://storage.tally.so/private/20260122_191730.jpg?id=PbGJe1&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IlBiR0plMSIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTM2NDM0M30.4wMnInEwKSH4g91-9Q10i0z0O0m4i-VQeLzIwWVAT2Q&signature=5b93b8fb8ee6c2b45963868fdec600c4983671055b9cc4a4bab13c73da44370c"
+    urlImg:
+      'https://storage.tally.so/private/20260122_191730.jpg?id=PbGJe1&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IlBiR0plMSIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTM2NDM0M30.4wMnInEwKSH4g91-9Q10i0z0O0m4i-VQeLzIwWVAT2Q&signature=5b93b8fb8ee6c2b45963868fdec600c4983671055b9cc4a4bab13c73da44370c',
   },
   {
-    name: "Intermarché",
-    coords: [
-      44.1150923,
-      4.9004924
-    ],
-    category: "intermarché",
-    address: "Chemin de Piolenc  ZI Jonquier",
+    name: 'Intermarché',
+    coords: [44.1150923, 4.9004924],
+    category: 'intermarché',
+    address: 'Chemin de Piolenc  ZI Jonquier',
     hasCageEggs: true,
     nbRef: 1,
-    urlImg: "https://storage.tally.so/private/signal-2026-01-23-155938.jpeg?id=BjeBX5&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IkJqZUJYNSIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTM2NDM0M30.lOvcyY1te2104LYLvaMtba1lAjIUa3jNhryIWQhaE5o&signature=d1c7130a34cbf9b88c7be9876314ac81de9dc777626d721a7bddb08002565dc4"
+    urlImg:
+      'https://storage.tally.so/private/signal-2026-01-23-155938.jpeg?id=BjeBX5&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IkJqZUJYNSIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTM2NDM0M30.lOvcyY1te2104LYLvaMtba1lAjIUa3jNhryIWQhaE5o&signature=d1c7130a34cbf9b88c7be9876314ac81de9dc777626d721a7bddb08002565dc4',
   },
   {
-    name: "Intermarché",
-    coords: [
-      43.8276714,
-      5.0371159
-    ],
-    category: "intermarché",
-    address: "236 Allée des Temps Perdus\t84300\tCAVAILLON",
+    name: 'Intermarché',
+    coords: [43.8276714, 5.0371159],
+    category: 'intermarché',
+    address: '236 Allée des Temps Perdus\t84300\tCAVAILLON',
     hasCageEggs: true,
     nbRef: 1,
-    urlImg: "https://storage.tally.so/private/signal-2026-01-23-161524.jpeg?id=Qz4dVX&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IlF6NGRWWCIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTM2NDM0M30.peYtlYXFqkZehCCSIt0itaUzQGzi-v59aZ-qFw_XOn8&signature=527dde470bb835351a8338b4d72b278589b6267e8c55d95ea0b1baf972d8e9bd"
+    urlImg:
+      'https://storage.tally.so/private/signal-2026-01-23-161524.jpeg?id=Qz4dVX&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IlF6NGRWWCIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTM2NDM0M30.peYtlYXFqkZehCCSIt0itaUzQGzi-v59aZ-qFw_XOn8&signature=527dde470bb835351a8338b4d72b278589b6267e8c55d95ea0b1baf972d8e9bd',
   },
   {
-    name: "Intermarché",
-    coords: [
-      44.6465124,
-      -0.3221606
-    ],
-    category: "intermarché",
-    address: "Le Clos du Pin, 33410 Béguey",
+    name: 'Intermarché',
+    coords: [44.6465124, -0.3221606],
+    category: 'intermarché',
+    address: 'Le Clos du Pin, 33410 Béguey',
     hasCageEggs: false,
     nbRef: 0,
-    urlImg: "https://storage.tally.so/private/ea3fb1d5-3b05-4129-b5ca-2c582dd9cbe6.jpg?id=Gq7GzL&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IkdxN0d6TCIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTM2NDM0Mn0.cvv9i8VBP9JDNUtbhjt1YMrivBgj5do91R-2rdj0KHU&signature=cff439ca0a20c68e0c9021b5d5b12a682f0425191b03b0919aa354c5a0e23bc6"
+    urlImg:
+      'https://storage.tally.so/private/ea3fb1d5-3b05-4129-b5ca-2c582dd9cbe6.jpg?id=Gq7GzL&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IkdxN0d6TCIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTM2NDM0Mn0.cvv9i8VBP9JDNUtbhjt1YMrivBgj5do91R-2rdj0KHU&signature=cff439ca0a20c68e0c9021b5d5b12a682f0425191b03b0919aa354c5a0e23bc6',
   },
   {
-    name: "Intermarché",
-    coords: [
-      46.5631777,
-      3.3182838
-    ],
-    category: "intermarché",
-    address: "16 Rte de Montilly, 03000 Moulins",
+    name: 'Intermarché',
+    coords: [46.5631777, 3.3182838],
+    category: 'intermarché',
+    address: '16 Rte de Montilly, 03000 Moulins',
     hasCageEggs: false,
     nbRef: 0,
-    urlImg: "https://storage.tally.so/private/20260124_131017.jpg?id=d8gQbA&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImQ4Z1FiQSIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTM2NDM0Mn0.ECNaSZSykhNeRqW833s2lXfNJi0FIesfrEeCYQixt6c&signature=74a2caf77f2e3a05141feef08f168c6ba04f621c4a3804c6ab44e62b3c2dec2a"
+    urlImg:
+      'https://storage.tally.so/private/20260124_131017.jpg?id=d8gQbA&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImQ4Z1FiQSIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTM2NDM0Mn0.ECNaSZSykhNeRqW833s2lXfNJi0FIesfrEeCYQixt6c&signature=74a2caf77f2e3a05141feef08f168c6ba04f621c4a3804c6ab44e62b3c2dec2a',
   },
   {
-    name: "Intermarché",
-    coords: [
-      47.244658,
-      -1.53355
-    ],
-    category: "intermarché",
+    name: 'Intermarché',
+    coords: [47.244658, -1.53355],
+    category: 'intermarché',
     address: "Ctre cial Intermarché de l' Eraudière, 173 Rte de Saint-Joseph, 44300 Nantes ",
     hasCageEggs: false,
     nbRef: 0,
-    urlImg: null
+    urlImg: null,
   },
   {
-    name: "Intermarché",
-    coords: [
-      50.0565833,
-      1.4170033
-    ],
-    category: "intermarché",
-    address: "Rue Lavoisier 76260 EU",
+    name: 'Intermarché',
+    coords: [50.0565833, 1.4170033],
+    category: 'intermarché',
+    address: 'Rue Lavoisier 76260 EU',
     hasCageEggs: true,
     nbRef: 3,
-    urlImg: "https://storage.tally.so/private/PXL_20260122_135552253.MP.jpg?id=o5vaOb&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Im81dmFPYiIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTM2NDM0M30.h5fAQGnvdJH8tXqi76q8DLPx7YqqmXrd3QE9TxpEoz8&signature=79531f54bdcfa69e0d23755bd9b68bad6b0f62665c6f7a27af98280fa1b582ae"
+    urlImg:
+      'https://storage.tally.so/private/PXL_20260122_135552253.MP.jpg?id=o5vaOb&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Im81dmFPYiIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTM2NDM0M30.h5fAQGnvdJH8tXqi76q8DLPx7YqqmXrd3QE9TxpEoz8&signature=79531f54bdcfa69e0d23755bd9b68bad6b0f62665c6f7a27af98280fa1b582ae',
   },
   {
-    name: "Intermarché",
-    coords: [
-      43.0787766,
-      0.1410719
-    ],
-    category: "intermarché",
-    address: "83 Av. de la Mongie, 65200 Pouzac",
+    name: 'Intermarché',
+    coords: [43.0787766, 0.1410719],
+    category: 'intermarché',
+    address: '83 Av. de la Mongie, 65200 Pouzac',
     hasCageEggs: false,
     nbRef: 0,
-    urlImg: "https://storage.tally.so/private/Intermarche-pouzac.jpg?id=WKZL9a&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IldLWkw5YSIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTM2NDM0Mn0.v76Cfu9tqoNZxAT3RbUr_pIHXffKF4qyEywbeC6LUWc&signature=0f08159f659c433b9994c8d664fdcacb25325ef64dfb1b9c351d1281f66bad46"
+    urlImg:
+      'https://storage.tally.so/private/Intermarche-pouzac.jpg?id=WKZL9a&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IldLWkw5YSIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTM2NDM0Mn0.v76Cfu9tqoNZxAT3RbUr_pIHXffKF4qyEywbeC6LUWc&signature=0f08159f659c433b9994c8d664fdcacb25325ef64dfb1b9c351d1281f66bad46',
   },
   {
-    name: "Intermarché",
-    coords: [
-      50.4817424,
-      3.2461624
-    ],
-    category: "intermarché",
-    address: "Carrière Pierre Tockaert, 59310 Orchies",
+    name: 'Intermarché',
+    coords: [50.4817424, 3.2461624],
+    category: 'intermarché',
+    address: 'Carrière Pierre Tockaert, 59310 Orchies',
     hasCageEggs: false,
     nbRef: 0,
-    urlImg: null
+    urlImg: null,
   },
   {
-    name: "Intermarché",
-    coords: [
-      47.674625,
-      6.5164099
-    ],
-    category: "intermarché",
-    address: "Rte de Belfort, 70200 Lure",
+    name: 'Intermarché',
+    coords: [47.674625, 6.5164099],
+    category: 'intermarché',
+    address: 'Rte de Belfort, 70200 Lure',
     hasCageEggs: false,
     nbRef: 0,
-    urlImg: null
+    urlImg: null,
   },
   {
-    name: "Intermarché",
-    coords: [
-      44.5447211,
-      -0.2552992
-    ],
-    category: "intermarché",
-    address: "46 Rue Jules Ferry, 33210 Langon",
+    name: 'Intermarché',
+    coords: [44.5447211, -0.2552992],
+    category: 'intermarché',
+    address: '46 Rue Jules Ferry, 33210 Langon',
     hasCageEggs: false,
     nbRef: 0,
-    urlImg: "https://storage.tally.so/private/a4e33069-b8af-47a6-a7d3-b6e8a04dd622.jpg?id=2lRWVA&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjJsUldWQSIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTM2NDM0Mn0.IG3zhhkPcTqIoIDQbJcdAEBh-sFYeE857tRQYXptAbc&signature=b323237fc4876eb12073b1794030b2574a11253cf2835e5dc1c4c15646f4df1e"
+    urlImg:
+      'https://storage.tally.so/private/a4e33069-b8af-47a6-a7d3-b6e8a04dd622.jpg?id=2lRWVA&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjJsUldWQSIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTM2NDM0Mn0.IG3zhhkPcTqIoIDQbJcdAEBh-sFYeE857tRQYXptAbc&signature=b323237fc4876eb12073b1794030b2574a11253cf2835e5dc1c4c15646f4df1e',
   },
   {
-    name: "Intermarché",
-    coords: [
-      47.934325,
-      1.889729
-    ],
-    category: "intermarché",
-    address: "ZAC de Vilepot, Rue Louis Aragon, 45770 Saran",
+    name: 'Intermarché',
+    coords: [47.934325, 1.889729],
+    category: 'intermarché',
+    address: 'ZAC de Vilepot, Rue Louis Aragon, 45770 Saran',
     hasCageEggs: false,
     nbRef: 0,
-    urlImg: "https://storage.tally.so/private/telechargement-2026-01-17T230233.801.jpg?id=5e21kM&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVlMjFrTSIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4NX0.H8eS4MzYuMmlnvLsnDkDjFlmv920n7CR60EY9PnJ-eE&signature=a0df7d799553ad35043d6ea7fc1a1882a0a8865a8da583360338744a8281888f"
+    urlImg:
+      'https://storage.tally.so/private/telechargement-2026-01-17T230233.801.jpg?id=5e21kM&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVlMjFrTSIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4NX0.H8eS4MzYuMmlnvLsnDkDjFlmv920n7CR60EY9PnJ-eE&signature=a0df7d799553ad35043d6ea7fc1a1882a0a8865a8da583360338744a8281888f',
   },
   {
-    name: "Intermarché",
-    coords: [
-      48.86999700000001,
-      2.67528
-    ],
-    category: "intermarché",
-    address: "La Courtillière, 4 Rue Lamartine, 77400 Saint-Thibault-des-Vignes",
+    name: 'Intermarché',
+    coords: [48.86999700000001, 2.67528],
+    category: 'intermarché',
+    address: 'La Courtillière, 4 Rue Lamartine, 77400 Saint-Thibault-des-Vignes',
     hasCageEggs: false,
     nbRef: 0,
-    urlImg: "https://storage.tally.so/private/telechargement-6-.jpeg?id=NbVG6B&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ik5iVkc2QiIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4NX0.cmKM-W7vTb888mYl1ZDmQJzLgQvHgB5lB4t3GmVIEw8&signature=0b6a9b6752d963c42e00bc591f0aeda0c6e95fc9fb356a3e05ed5174be55bb54"
+    urlImg:
+      'https://storage.tally.so/private/telechargement-6-.jpeg?id=NbVG6B&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ik5iVkc2QiIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4NX0.cmKM-W7vTb888mYl1ZDmQJzLgQvHgB5lB4t3GmVIEw8&signature=0b6a9b6752d963c42e00bc591f0aeda0c6e95fc9fb356a3e05ed5174be55bb54',
   },
   {
-    name: "Intermarché",
-    coords: [
-      43.2932023,
-      0.5151131999999999
-    ],
-    category: "intermarché",
-    address: "Rte de Toulouse, 65230 Castelnau-Magnoac",
+    name: 'Intermarché',
+    coords: [43.2932023, 0.5151131999999999],
+    category: 'intermarché',
+    address: 'Rte de Toulouse, 65230 Castelnau-Magnoac',
     hasCageEggs: false,
     nbRef: 0,
-    urlImg: "https://storage.tally.so/private/Intermarche-Castelnau_104006.jpg?id=o5Q8E5&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Im81UThFNSIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTY4MTAyOH0.QBHuyKZWSgsQ9VlWjYEeIYXXVHP1oPM7sZhRzZA_Lcc&signature=48cc1612518fe1e71b5b1b980769079058213d40f28f1816b1b8a0ee90a3fe25"
+    urlImg:
+      'https://storage.tally.so/private/Intermarche-Castelnau_104006.jpg?id=o5Q8E5&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Im81UThFNSIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTY4MTAyOH0.QBHuyKZWSgsQ9VlWjYEeIYXXVHP1oPM7sZhRzZA_Lcc&signature=48cc1612518fe1e71b5b1b980769079058213d40f28f1816b1b8a0ee90a3fe25',
   },
   {
-    name: "Intermarché",
-    coords: [
-      48.0859673,
-      -1.6675129
-    ],
-    category: "intermarché",
-    address: "2 rue de Suisse 35200 Rennes",
+    name: 'Intermarché',
+    coords: [48.0859673, -1.6675129],
+    category: 'intermarché',
+    address: '2 rue de Suisse 35200 Rennes',
     hasCageEggs: true,
     nbRef: 1,
-    urlImg: "https://storage.tally.so/private/signal-2026-01-28-110245.jpeg?id=86YM7o&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ijg2WU03byIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTY4MTAyOH0.YzLNK7zln-BStfk5KpoBKYfs35sOPgc2PHQx46rlsyM&signature=c6c5aa04f026f1f2cb3e763d5174c24ddee48c4f2e82e76726b6b7544e1f09a5"
+    urlImg:
+      'https://storage.tally.so/private/signal-2026-01-28-110245.jpeg?id=86YM7o&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ijg2WU03byIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTY4MTAyOH0.YzLNK7zln-BStfk5KpoBKYfs35sOPgc2PHQx46rlsyM&signature=c6c5aa04f026f1f2cb3e763d5174c24ddee48c4f2e82e76726b6b7544e1f09a5',
   },
   {
-    name: "Intermarché",
-    coords: [
-      43.494198,
-      0.595613
-    ],
-    category: "intermarché",
-    address: "Rue du Visconte, 32260 Seissan",
+    name: 'Intermarché',
+    coords: [43.494198, 0.595613],
+    category: 'intermarché',
+    address: 'Rue du Visconte, 32260 Seissan',
     hasCageEggs: true,
     nbRef: 2,
-    urlImg: "https://storage.tally.so/private/Intermarche-Seissan_112308.jpg?id=Rblqzj&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IlJibHF6aiIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTY4MTAyOH0.5ij6cMSsGMjA_rji2ri_rF66XTKFU4uEqmixOwb6A_U&signature=f05c16e66785093cc9e196e41e563c2f5527bb72b86de985cd822ce4976de15f"
+    urlImg:
+      'https://storage.tally.so/private/Intermarche-Seissan_112308.jpg?id=Rblqzj&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IlJibHF6aiIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTY4MTAyOH0.5ij6cMSsGMjA_rji2ri_rF66XTKFU4uEqmixOwb6A_U&signature=f05c16e66785093cc9e196e41e563c2f5527bb72b86de985cd822ce4976de15f',
   },
   {
-    name: "Intermarché",
-    coords: [
-      43.111251,
-      0.35404
-    ],
-    category: "intermarché",
-    address: "3150, Cd 817, 65130 Capvern",
+    name: 'Intermarché',
+    coords: [43.111251, 0.35404],
+    category: 'intermarché',
+    address: '3150, Cd 817, 65130 Capvern',
     hasCageEggs: true,
     nbRef: 3,
-    urlImg: "https://storage.tally.so/private/Intermarche-Capvern_095839.jpg?id=o5QNJV&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Im81UU5KViIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTY4MTAyOH0.CdFQtOKuoXPIKeb0MFRPaeMY4hJ9BTfOgocD_gC_IN0&signature=4c5513a2c615f0c8c4d49115880b752a0ca6652e7d48ec1171e9681eb74b834e"
+    urlImg:
+      'https://storage.tally.so/private/Intermarche-Capvern_095839.jpg?id=o5QNJV&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Im81UU5KViIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTY4MTAyOH0.CdFQtOKuoXPIKeb0MFRPaeMY4hJ9BTfOgocD_gC_IN0&signature=4c5513a2c615f0c8c4d49115880b752a0ca6652e7d48ec1171e9681eb74b834e',
   },
   {
-    name: "Intermarché",
-    coords: [
-      49.10671199999999,
-      -0.4942109
-    ],
-    category: "intermarché",
-    address: "14210 EVRECY Za Croix Boucher , 8 rue des Gallois",
+    name: 'Intermarché',
+    coords: [49.10671199999999, -0.4942109],
+    category: 'intermarché',
+    address: '14210 EVRECY Za Croix Boucher , 8 rue des Gallois',
     hasCageEggs: true,
     nbRef: 0,
-    urlImg: "https://storage.tally.so/private/OEUFS-CODE-2-ou-3-INTERMARCHE-d-EVRECY-banlieue-de-CAEN-.heic?id=49l87X&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjQ5bDg3WCIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc3MDQ1NjU5M30.yKfj7Uykc3NMjSQaWXc740yzbYfUk9lZ6NqlyUkCDtA&signature=f6a8896dc8d4147251c3107664152ea9e182f63a009e69ba78576ae432f79dc5"
+    urlImg:
+      'https://storage.tally.so/private/OEUFS-CODE-2-ou-3-INTERMARCHE-d-EVRECY-banlieue-de-CAEN-.heic?id=49l87X&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjQ5bDg3WCIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc3MDQ1NjU5M30.yKfj7Uykc3NMjSQaWXc740yzbYfUk9lZ6NqlyUkCDtA&signature=f6a8896dc8d4147251c3107664152ea9e182f63a009e69ba78576ae432f79dc5',
   },
   {
-    name: "Intermarché",
-    coords: [
-      46.33198,
-      2.602203
-    ],
-    category: "intermarché",
-    address: "rue pierre semard 03100 montluçon ",
+    name: 'Intermarché',
+    coords: [46.33198, 2.602203],
+    category: 'intermarché',
+    address: 'rue pierre semard 03100 montluçon ',
     hasCageEggs: true,
     nbRef: 1,
-    urlImg: "https://storage.tally.so/private/20260130_190901.jpg?id=jJVDyY&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImpKVkR5WSIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc3MDQ1NjU5M30.ObxUfJd9h-o_X0DP0jZhgPoV5-IZ-D-dyyDvfUU5D20&signature=8ba500a6143c2d2e0e3f9460ad04965532d0a468a4c91f9f674e4837f3b7c3d2"
+    urlImg:
+      'https://storage.tally.so/private/20260130_190901.jpg?id=jJVDyY&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImpKVkR5WSIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc3MDQ1NjU5M30.ObxUfJd9h-o_X0DP0jZhgPoV5-IZ-D-dyyDvfUU5D20&signature=8ba500a6143c2d2e0e3f9460ad04965532d0a468a4c91f9f674e4837f3b7c3d2',
   },
   {
-    name: "Intermarché",
-    coords: [
-      47.247474,
-      6.000369999999999
-    ],
-    category: "intermarché",
-    address: "3 Pl. Pierre de Coubertin, 25000 Besançon",
+    name: 'Intermarché',
+    coords: [47.247474, 6.000369999999999],
+    category: 'intermarché',
+    address: '3 Pl. Pierre de Coubertin, 25000 Besançon',
     hasCageEggs: false,
     nbRef: 0,
-    urlImg: null
+    urlImg: null,
   },
   {
-    name: "Intermarché",
-    coords: [
-      45.454249,
-      4.383147999999999
-    ],
-    category: "intermarché",
-    address: "60 rue Bergson, 42000 Saint-Étienne ",
+    name: 'Intermarché',
+    coords: [45.454249, 4.383147999999999],
+    category: 'intermarché',
+    address: '60 rue Bergson, 42000 Saint-Étienne ',
     hasCageEggs: false,
     nbRef: 0,
-    urlImg: null
+    urlImg: null,
   },
   {
-    name: "Intermarché",
-    coords: [
-      48.8793254,
-      2.4140335
-    ],
-    category: "intermarché",
-    address: "91 rue de Paris, 9320 Les Lilas",
+    name: 'Intermarché',
+    coords: [48.8793254, 2.4140335],
+    category: 'intermarché',
+    address: '91 rue de Paris, 9320 Les Lilas',
     hasCageEggs: true,
     nbRef: 1,
-    urlImg: "https://storage.tally.so/private/IMG_20260204_192204.jpg?id=qk4J2O&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6InFrNEoyTyIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc3MDQ1NjU5M30.bYvLj2SopEeI0JEtlUeyEDJcaLJhmHFmfGCg1O3R3og&signature=13bfa2aff404478fa452b85bc0beef716e06a1b14be999242fd4c4ef3462500f"
+    urlImg:
+      'https://storage.tally.so/private/IMG_20260204_192204.jpg?id=qk4J2O&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6InFrNEoyTyIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc3MDQ1NjU5M30.bYvLj2SopEeI0JEtlUeyEDJcaLJhmHFmfGCg1O3R3og&signature=13bfa2aff404478fa452b85bc0beef716e06a1b14be999242fd4c4ef3462500f',
   },
   {
-    name: "Intermarché",
-    coords: [
-      43.6752544,
-      7.226817500000001
-    ],
-    category: "intermarché",
-    address: "2 Bd René Cassin, 06200 Nice",
+    name: 'Intermarché',
+    coords: [43.6752544, 7.226817500000001],
+    category: 'intermarché',
+    address: '2 Bd René Cassin, 06200 Nice',
     hasCageEggs: false,
     nbRef: 0,
-    urlImg: null
+    urlImg: null,
   },
   {
-    name: "Leclerc",
-    coords: [
-      50.6341989,
-      3.0987133
-    ],
-    category: "leclerc",
-    address: "Lerclec Lille Fives, 94 Rue de Lannoy, 59800 Lille",
+    name: 'Leclerc',
+    coords: [50.6341989, 3.0987133],
+    category: 'leclerc',
+    address: 'Lerclec Lille Fives, 94 Rue de Lannoy, 59800 Lille',
     hasCageEggs: false,
     nbRef: 0,
-    urlImg: "https://storage.tally.so/private/IMG_5910.MOV?id=kJ9rxM&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImtKOXJ4TSIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4Nn0.8pIbhq2QxJPRDwKaKVuJkG6qqPPwGJt3AnoDGbfiNUw&signature=a7c9d566af7830f23b40acb8c25be98be4cb33089daf86096b5cbc5cce2e04cd"
+    urlImg:
+      'https://storage.tally.so/private/IMG_5910.MOV?id=kJ9rxM&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImtKOXJ4TSIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4Nn0.8pIbhq2QxJPRDwKaKVuJkG6qqPPwGJt3AnoDGbfiNUw&signature=a7c9d566af7830f23b40acb8c25be98be4cb33089daf86096b5cbc5cce2e04cd',
   },
   {
-    name: "Leclerc",
-    coords: [
-      50.6151462,
-      3.0481204
-    ],
-    category: "leclerc",
-    address: "Lillenium, 2 Rue du Faubourg des Postes, 59000 Lille",
+    name: 'Leclerc',
+    coords: [50.6151462, 3.0481204],
+    category: 'leclerc',
+    address: 'Lillenium, 2 Rue du Faubourg des Postes, 59000 Lille',
     hasCageEggs: false,
     nbRef: 0,
-    urlImg: "https://storage.tally.so/private/IMG_4EDD9AE5B21E-1.jpeg?id=9RXxv1&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjlSWHh2MSIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4Nn0.IYdtu4MIWSUYZcxySb9wjEsezNQyGL3FrJZ21eRq864&signature=be5c2750660009e1a88cc8a30134684d8c3ca2a86ac458beb2eff0dd242ed2f6"
+    urlImg:
+      'https://storage.tally.so/private/IMG_4EDD9AE5B21E-1.jpeg?id=9RXxv1&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjlSWHh2MSIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4Nn0.IYdtu4MIWSUYZcxySb9wjEsezNQyGL3FrJZ21eRq864&signature=be5c2750660009e1a88cc8a30134684d8c3ca2a86ac458beb2eff0dd242ed2f6',
   },
   {
-    name: "Leclerc",
-    coords: [
-      48.6105181,
-      7.7364992
-    ],
-    category: "leclerc",
-    address: "90 Rte du Général de Gaulle, 67300 Schiltigheim, France",
+    name: 'Leclerc',
+    coords: [48.6105181, 7.7364992],
+    category: 'leclerc',
+    address: '90 Rte du Général de Gaulle, 67300 Schiltigheim, France',
     hasCageEggs: false,
     nbRef: 0,
-    urlImg: null
+    urlImg: null,
   },
   {
-    name: "Leclerc",
-    coords: [
-      48.5738135,
-      7.756999699999999
-    ],
-    category: "leclerc",
-    address: "centre commercial Rivetoile, 1-3 Av. du Rhin Cs 70101, 67100 Strasbourg, France",
+    name: 'Leclerc',
+    coords: [48.5738135, 7.756999699999999],
+    category: 'leclerc',
+    address: 'centre commercial Rivetoile, 1-3 Av. du Rhin Cs 70101, 67100 Strasbourg, France',
     hasCageEggs: false,
     nbRef: 0,
-    urlImg: null
+    urlImg: null,
   },
   {
-    name: "Leclerc",
-    coords: [
-      47.3411834,
-      5.0682072
-    ],
-    category: "leclerc",
-    address: "Zae Cap Nord, 7 Rue de Cracovie, 21000 Dijon",
+    name: 'Leclerc',
+    coords: [47.3411834, 5.0682072],
+    category: 'leclerc',
+    address: 'Zae Cap Nord, 7 Rue de Cracovie, 21000 Dijon',
     hasCageEggs: false,
     nbRef: 0,
-    urlImg: "https://storage.tally.so/private/telechargement-2026-01-17T214014.961.jpg?id=A48Bvl&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IkE0OEJ2bCIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4NX0.Se7vkjhKHzZ0ly7o52O-3Y55VgIe_mGwSEKQzxrZ4a0&signature=1a3a3698d4f9d63c99b79c353691f14488466da70775e7927b0547511588dec1\n"
+    urlImg:
+      'https://storage.tally.so/private/telechargement-2026-01-17T214014.961.jpg?id=A48Bvl&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IkE0OEJ2bCIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4NX0.Se7vkjhKHzZ0ly7o52O-3Y55VgIe_mGwSEKQzxrZ4a0&signature=1a3a3698d4f9d63c99b79c353691f14488466da70775e7927b0547511588dec1\n',
   },
   {
-    name: "Leclerc",
-    coords: [
-      45.1896091,
-      0.7182331
-    ],
-    category: "leclerc",
-    address: "16 rue Clos Chassaing 24000 Périgueux",
+    name: 'Leclerc',
+    coords: [45.1896091, 0.7182331],
+    category: 'leclerc',
+    address: '16 rue Clos Chassaing 24000 Périgueux',
     hasCageEggs: true,
     nbRef: 1,
-    urlImg: "https://storage.tally.so/private/IMG_20260106_130831.jpg?id=JXjMx4&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IkpYak14NCIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4Nn0.5_cSSlvzM4IgCboWG1cdG-w38Ox0lHjdWgINh7XPxzA&signature=c1672d56ad35473f18d5dcecf572195cf7b842f2573b1edf35ea8610205ce209"
+    urlImg:
+      'https://storage.tally.so/private/IMG_20260106_130831.jpg?id=JXjMx4&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IkpYak14NCIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4Nn0.5_cSSlvzM4IgCboWG1cdG-w38Ox0lHjdWgINh7XPxzA&signature=c1672d56ad35473f18d5dcecf572195cf7b842f2573b1edf35ea8610205ce209',
   },
   {
-    name: "Leclerc",
-    coords: [
-      49.1064781,
-      6.182261599999999
-    ],
-    category: "leclerc",
-    address: "2 Rue des Messageries, 57000 Metz",
+    name: 'Leclerc',
+    coords: [49.1064781, 6.182261599999999],
+    category: 'leclerc',
+    address: '2 Rue des Messageries, 57000 Metz',
     hasCageEggs: true,
     nbRef: 1,
-    urlImg: "https://storage.tally.so/private/signal-2026-01-07-161955.jpeg?id=AAeVAD&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IkFBZVZBRCIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4Nn0.2O1jTgdaJlaqCBJ6yATnqMl1gq8xo4QgfeexkHQ-eWo&signature=3fdd55ef6f7368e2f78eefcbf00778436067e801b593186f41e068921ce23940"
+    urlImg:
+      'https://storage.tally.so/private/signal-2026-01-07-161955.jpeg?id=AAeVAD&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IkFBZVZBRCIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4Nn0.2O1jTgdaJlaqCBJ6yATnqMl1gq8xo4QgfeexkHQ-eWo&signature=3fdd55ef6f7368e2f78eefcbf00778436067e801b593186f41e068921ce23940',
   },
   {
-    name: "Leclerc",
-    coords: [
-      48.6532116,
-      6.1770952
-    ],
-    category: "leclerc",
-    address: "2 Rue Bernard Palissy, 54500 Vandœuvre-lès-Nancy",
+    name: 'Leclerc',
+    coords: [48.6532116, 6.1770952],
+    category: 'leclerc',
+    address: '2 Rue Bernard Palissy, 54500 Vandœuvre-lès-Nancy',
     hasCageEggs: true,
     nbRef: 1,
-    urlImg: "https://storage.tally.so/private/lv3.jpeg?id=eK4r7x&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImVLNHI3eCIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4Nn0.l1NiNr8lEX80ar-tFvhfM5VeW4wHm9pFnoW75qk03fs&signature=ddc423faa473cb2b4c8352f86d5e8e85361afac2505b62d3c76ef0c3c70959cf"
+    urlImg:
+      'https://storage.tally.so/private/lv3.jpeg?id=eK4r7x&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImVLNHI3eCIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4Nn0.l1NiNr8lEX80ar-tFvhfM5VeW4wHm9pFnoW75qk03fs&signature=ddc423faa473cb2b4c8352f86d5e8e85361afac2505b62d3c76ef0c3c70959cf',
   },
   {
-    name: "Leclerc",
-    coords: [
-      48.6952986,
-      6.1956126
-    ],
-    category: "leclerc",
-    address: "3 Prom. Emilie du Châtelet, 54000 Nancy",
+    name: 'Leclerc',
+    coords: [48.6952986, 6.1956126],
+    category: 'leclerc',
+    address: '3 Prom. Emilie du Châtelet, 54000 Nancy',
     hasCageEggs: true,
     nbRef: 2,
-    urlImg: "https://storage.tally.so/private/signal-2026-01-09-134027.jpeg?id=j5NodQ&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Imo1Tm9kUSIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4Nn0.ouUE7NCqmaw6Fbp4fnxCz6cg55_zZoaXbk6V8rGcLo4&signature=d6e38df5ec0832ed72c735691a39e67f7d190354058929ab5992857554984f02"
+    urlImg:
+      'https://storage.tally.so/private/signal-2026-01-09-134027.jpeg?id=j5NodQ&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Imo1Tm9kUSIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4Nn0.ouUE7NCqmaw6Fbp4fnxCz6cg55_zZoaXbk6V8rGcLo4&signature=d6e38df5ec0832ed72c735691a39e67f7d190354058929ab5992857554984f02',
   },
   {
-    name: "Leclerc",
-    coords: [
-      43.6212267,
-      2.2162237
-    ],
-    category: "leclerc",
-    address: "196 CHEMIN DE PLOMBIERE 81100 CASTRES",
+    name: 'Leclerc',
+    coords: [43.6212267, 2.2162237],
+    category: 'leclerc',
+    address: '196 CHEMIN DE PLOMBIERE 81100 CASTRES',
     hasCageEggs: true,
     nbRef: 4,
-    urlImg: "https://storage.tally.so/private/IMG_0181.jpeg?id=pRaRaV&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6InBSYVJhViIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4Nn0.E1nnusBa2cFCsRWmdq8Ceze0z82xdKg1cGNekK8KKjg&signature=c8184a4a7291f096eb808238104ede68f0ad8805ac6e4662e9a4012bb2c68d8b"
+    urlImg:
+      'https://storage.tally.so/private/IMG_0181.jpeg?id=pRaRaV&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6InBSYVJhViIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4Nn0.E1nnusBa2cFCsRWmdq8Ceze0z82xdKg1cGNekK8KKjg&signature=c8184a4a7291f096eb808238104ede68f0ad8805ac6e4662e9a4012bb2c68d8b',
   },
   {
-    name: "Leclerc",
-    coords: [
-      47.2618279,
-      -1.587857
-    ],
-    category: "leclerc",
-    address: " 1 Rue de la Conraie, 44700 Orvault",
+    name: 'Leclerc',
+    coords: [47.2618279, -1.587857],
+    category: 'leclerc',
+    address: ' 1 Rue de la Conraie, 44700 Orvault',
     hasCageEggs: true,
     nbRef: 2,
-    urlImg: "https://storage.tally.so/private/a5e45935-d691-422b-bb53-fc615e83b8a2.jpg?id=AAZQve&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IkFBWlF2ZSIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4Nn0.Kt3PNmhJmctWtuCi9tTGt__Ws_LMdSWFlC8RBnFCRtw&signature=1d721403032ba6adbaf35fd04942910e50c312e54d0a437f1389d8751f5266a4"
+    urlImg:
+      'https://storage.tally.so/private/a5e45935-d691-422b-bb53-fc615e83b8a2.jpg?id=AAZQve&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IkFBWlF2ZSIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4Nn0.Kt3PNmhJmctWtuCi9tTGt__Ws_LMdSWFlC8RBnFCRtw&signature=1d721403032ba6adbaf35fd04942910e50c312e54d0a437f1389d8751f5266a4',
   },
   {
-    name: "Leclerc",
-    coords: [
-      43.58838,
-      2.270774
-    ],
-    category: "leclerc",
-    address: "Zone du Siala, route de Mazamet, 81100 Castres",
+    name: 'Leclerc',
+    coords: [43.58838, 2.270774],
+    category: 'leclerc',
+    address: 'Zone du Siala, route de Mazamet, 81100 Castres',
     hasCageEggs: true,
     nbRef: 3,
-    urlImg: "https://storage.tally.so/private/IMG_0918.jpeg?id=jJaRW9&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImpKYVJXOSIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4Nn0.bMToOCPcY02GG5MTfZJ2qzB8OFBnIRRzL_5EyKS8hJ8&signature=d45b806eb55926abe9adc6ca3bc5229a21afa6a798d88943f0bdb40e8a1c83f3"
+    urlImg:
+      'https://storage.tally.so/private/IMG_0918.jpeg?id=jJaRW9&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImpKYVJXOSIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4Nn0.bMToOCPcY02GG5MTfZJ2qzB8OFBnIRRzL_5EyKS8hJ8&signature=d45b806eb55926abe9adc6ca3bc5229a21afa6a798d88943f0bdb40e8a1c83f3',
   },
   {
-    name: "Leclerc",
-    coords: [
-      46.1103647,
-      -0.741585
-    ],
-    category: "leclerc",
-    address: "12 rue Jean-Philippe Rameau. 17700 Surgères",
+    name: 'Leclerc',
+    coords: [46.1103647, -0.741585],
+    category: 'leclerc',
+    address: '12 rue Jean-Philippe Rameau. 17700 Surgères',
     hasCageEggs: true,
     nbRef: 3,
-    urlImg: "https://storage.tally.so/private/IMG_0350.jpeg?id=d8W5oK&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImQ4VzVvSyIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4Nn0.MNbAM5k8hrdD6vHRd9pLcjwyaIFrwR4PZ-kxFRNg1ek&signature=b6c09a8621a0490a0ca17f0838c1868645fb52cf62b39c373afb16b4a13de9a9"
+    urlImg:
+      'https://storage.tally.so/private/IMG_0350.jpeg?id=d8W5oK&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImQ4VzVvSyIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4Nn0.MNbAM5k8hrdD6vHRd9pLcjwyaIFrwR4PZ-kxFRNg1ek&signature=b6c09a8621a0490a0ca17f0838c1868645fb52cf62b39c373afb16b4a13de9a9',
   },
   {
-    name: "Leclerc",
-    coords: [
-      45.8965775,
-      0.9149875
-    ],
-    category: "leclerc",
+    name: 'Leclerc',
+    coords: [45.8965775, 0.9149875],
+    category: 'leclerc',
     address: "Leclerc, Avenue d'Oradour-sur-Glane 87200 Saint-Junien",
     hasCageEggs: true,
     nbRef: 4,
-    urlImg: "https://storage.tally.so/private/IMG_20260115_141348.jpg?id=bYd1q6&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImJZZDFxNiIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4Nn0.Xu0AUfva6TWSJfCZ15Sm0vMZD61d1XnGLSsJEEzl15Q&signature=3a366e40cf1b1765d93d59afb4036b732796024462a98cbe56dddbfbdf93e32e"
+    urlImg:
+      'https://storage.tally.so/private/IMG_20260115_141348.jpg?id=bYd1q6&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImJZZDFxNiIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4Nn0.Xu0AUfva6TWSJfCZ15Sm0vMZD61d1XnGLSsJEEzl15Q&signature=3a366e40cf1b1765d93d59afb4036b732796024462a98cbe56dddbfbdf93e32e',
   },
   {
-    name: "Leclerc",
-    coords: [
-      50.4064576,
-      2.7550441
-    ],
-    category: "leclerc",
-    address: "Rte de Souchez, 62143 Angres",
+    name: 'Leclerc',
+    coords: [50.4064576, 2.7550441],
+    category: 'leclerc',
+    address: 'Rte de Souchez, 62143 Angres',
     hasCageEggs: true,
     nbRef: 3,
-    urlImg: "https://storage.tally.so/private/Image-JPEG-4DA9-A9F8-D7-0.jpeg?id=A4L79z&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IkE0TDc5eiIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4Nn0.74KRodd4QKCt7X9V0Mr-8f5tioX7LkN8t3IRdRafqRk&signature=ce5b71476bd3e393080e3f173d16b295a6a7fbf457d951de720de929e84205f9"
+    urlImg:
+      'https://storage.tally.so/private/Image-JPEG-4DA9-A9F8-D7-0.jpeg?id=A4L79z&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IkE0TDc5eiIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4Nn0.74KRodd4QKCt7X9V0Mr-8f5tioX7LkN8t3IRdRafqRk&signature=ce5b71476bd3e393080e3f173d16b295a6a7fbf457d951de720de929e84205f9',
   },
   {
-    name: "Leclerc",
-    coords: [
-      50.4164092,
-      3.0253553
-    ],
-    category: "leclerc",
-    address: "Rue Louis Blanc, 62970 Courcelles-lès-Lens",
+    name: 'Leclerc',
+    coords: [50.4164092, 3.0253553],
+    category: 'leclerc',
+    address: 'Rue Louis Blanc, 62970 Courcelles-lès-Lens',
     hasCageEggs: true,
     nbRef: 5,
-    urlImg: "https://storage.tally.so/private/IMG_6EEF29EFA571-1.jpeg?id=zGDj18&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6InpHRGoxOCIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4Nn0.iRyElS88oLCR4PncRUtMrjR2ZgjwDx4HEMjNfSVUBsc&signature=d9fd681dcdc05d9549d5793f784ae9d06457f577e0fb30afd755ed3cb6e87546"
+    urlImg:
+      'https://storage.tally.so/private/IMG_6EEF29EFA571-1.jpeg?id=zGDj18&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6InpHRGoxOCIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4Nn0.iRyElS88oLCR4PncRUtMrjR2ZgjwDx4HEMjNfSVUBsc&signature=d9fd681dcdc05d9549d5793f784ae9d06457f577e0fb30afd755ed3cb6e87546',
   },
   {
-    name: "Leclerc",
-    coords: [
-      47.465173,
-      -0.6695042999999999
-    ],
-    category: "leclerc",
-    address: "54 Rue de la Liberté, 49070 Saint-Léger-de-Linières",
+    name: 'Leclerc',
+    coords: [47.465173, -0.6695042999999999],
+    category: 'leclerc',
+    address: '54 Rue de la Liberté, 49070 Saint-Léger-de-Linières',
     hasCageEggs: true,
     nbRef: 1,
-    urlImg: "https://storage.tally.so/private/telechargement-46-.jpg?id=Rb5bap&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IlJiNWJhcCIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4Nn0.PSmhEFVqAbNVZiGk-OrvtIirq5_yH02_YJOVMCEC2JE&signature=81398e250beee10c054db5990a3506e44bcd0e34e405588bdcb66e8103e7cba4"
+    urlImg:
+      'https://storage.tally.so/private/telechargement-46-.jpg?id=Rb5bap&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IlJiNWJhcCIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4Nn0.PSmhEFVqAbNVZiGk-OrvtIirq5_yH02_YJOVMCEC2JE&signature=81398e250beee10c054db5990a3506e44bcd0e34e405588bdcb66e8103e7cba4',
   },
   {
-    name: "Leclerc",
-    coords: [
-      47.4821787,
-      -0.5745074
-    ],
-    category: "leclerc",
-    address: "Bd Albert Camus, 49100 Angers",
+    name: 'Leclerc',
+    coords: [47.4821787, -0.5745074],
+    category: 'leclerc',
+    address: 'Bd Albert Camus, 49100 Angers',
     hasCageEggs: true,
     nbRef: 2,
-    urlImg: "https://storage.tally.so/private/telechargement-89-.jpg?id=0Z6Z49&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjBaNlo0OSIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4Nn0.SEVH7yaOJYt9azoW-iLZuB2P1v44nBFnk1zD7il4Qlk&signature=eddb35dde4bd1477503cec28ca16c81b518228d15756ec989fe85981214272a6"
+    urlImg:
+      'https://storage.tally.so/private/telechargement-89-.jpg?id=0Z6Z49&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjBaNlo0OSIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4Nn0.SEVH7yaOJYt9azoW-iLZuB2P1v44nBFnk1zD7il4Qlk&signature=eddb35dde4bd1477503cec28ca16c81b518228d15756ec989fe85981214272a6',
   },
   {
-    name: "Leclerc",
-    coords: [
-      47.193412,
-      -1.5718256
-    ],
-    category: "leclerc",
-    address: "1 rue Ordronneau route de Pornic 44400, Rezé, France",
+    name: 'Leclerc',
+    coords: [47.193412, -1.5718256],
+    category: 'leclerc',
+    address: '1 rue Ordronneau route de Pornic 44400, Rezé, France',
     hasCageEggs: true,
     nbRef: 4,
-    urlImg: "https://storage.tally.so/private/telechargement-21-.jpg?id=9RWl5X&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjlSV2w1WCIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4Nn0.M8XY2fMfgJgL9PZGM-K34bAurU0daZtjl1gwDEh7DrE&signature=9754ea57fdb910f4e9e29dad4e54a82f6f4cb7949d1a60d1bbc9b2ce9f50515b"
+    urlImg:
+      'https://storage.tally.so/private/telechargement-21-.jpg?id=9RWl5X&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjlSV2w1WCIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4Nn0.M8XY2fMfgJgL9PZGM-K34bAurU0daZtjl1gwDEh7DrE&signature=9754ea57fdb910f4e9e29dad4e54a82f6f4cb7949d1a60d1bbc9b2ce9f50515b',
   },
   {
-    name: "Leclerc",
-    coords: [
-      47.2488383,
-      -1.5158694
-    ],
-    category: "leclerc",
-    address: "Ccal Paridis, 14 Rte de Paris, 44300 Nantes, France",
+    name: 'Leclerc',
+    coords: [47.2488383, -1.5158694],
+    category: 'leclerc',
+    address: 'Ccal Paridis, 14 Rte de Paris, 44300 Nantes, France',
     hasCageEggs: true,
     nbRef: 3,
-    urlImg: "https://storage.tally.so/private/telechargement-41-.jpg?id=9RWOVV&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjlSV09WViIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4Nn0.ISS8fiV9vz299H-te2u7OVJIbg9QmwyQxxQ5bvRvRW0&signature=c9288872612590e43e6ee9f6bd8c2e56a6925d0d46c6dbbe39b3af735392f565"
+    urlImg:
+      'https://storage.tally.so/private/telechargement-41-.jpg?id=9RWOVV&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjlSV09WViIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4Nn0.ISS8fiV9vz299H-te2u7OVJIbg9QmwyQxxQ5bvRvRW0&signature=c9288872612590e43e6ee9f6bd8c2e56a6925d0d46c6dbbe39b3af735392f565',
   },
   {
-    name: "Leclerc",
-    coords: [
-      47.646836,
-      6.140302
-    ],
-    category: "leclerc",
+    name: 'Leclerc',
+    coords: [47.646836, 6.140302],
+    category: 'leclerc',
     address: "ZAC DE L'OASIS BP 80319\nPUSEY 70000",
     hasCageEggs: true,
     nbRef: 2,
-    urlImg: "https://storage.tally.so/private/IMG_20260116_150754.jpg?id=492XGk&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjQ5MlhHayIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4Nn0.X-r2vNtB4gX6RRt7Wk7GOwl5NsiN0ZZORmGMxlVN78U&signature=d5dcc6adef96ad31065bdff387d6c87f280e96aab90868682b6f22aed4b86f3d"
+    urlImg:
+      'https://storage.tally.so/private/IMG_20260116_150754.jpg?id=492XGk&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjQ5MlhHayIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4Nn0.X-r2vNtB4gX6RRt7Wk7GOwl5NsiN0ZZORmGMxlVN78U&signature=d5dcc6adef96ad31065bdff387d6c87f280e96aab90868682b6f22aed4b86f3d',
   },
   {
-    name: "Leclerc",
-    coords: [
-      47.1604463,
-      -1.5466518
-    ],
-    category: "leclerc",
-    address: "Galerie Océane, 10 Rdpt de la Corbinerie, 44400 Rezé",
+    name: 'Leclerc',
+    coords: [47.1604463, -1.5466518],
+    category: 'leclerc',
+    address: 'Galerie Océane, 10 Rdpt de la Corbinerie, 44400 Rezé',
     hasCageEggs: true,
     nbRef: 1,
-    urlImg: "https://storage.tally.so/private/20260116_172655.jpg?id=KWox7X&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IktXb3g3WCIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4Nn0.anjRLmWm882RLq0DnBrb2KlwBdTm_c4A0mDiESW0UNo&signature=d58461bb1fd5edee60afe2f900bf1ab36d2284395823d18d56e5a32601a95047"
+    urlImg:
+      'https://storage.tally.so/private/20260116_172655.jpg?id=KWox7X&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IktXb3g3WCIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4Nn0.anjRLmWm882RLq0DnBrb2KlwBdTm_c4A0mDiESW0UNo&signature=d58461bb1fd5edee60afe2f900bf1ab36d2284395823d18d56e5a32601a95047',
   },
   {
-    name: "Leclerc",
-    coords: [
-      48.853799,
-      2.756171
-    ],
-    category: "leclerc",
-    address: "Zac du Clos du Chêne, Rue du Clos Rose, 77144 Montévrain",
+    name: 'Leclerc',
+    coords: [48.853799, 2.756171],
+    category: 'leclerc',
+    address: 'Zac du Clos du Chêne, Rue du Clos Rose, 77144 Montévrain',
     hasCageEggs: true,
     nbRef: 1,
-    urlImg: "https://storage.tally.so/private/telechargement-8-.jpeg?id=A4J1e0&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IkE0SjFlMCIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4NX0.IT4YvvcfNlZ3daTffDdi5u6VlToa_TM7CcCVqKskGBo&signature=fd40386aaac6acab9668a27225cfb3c9f717b89ae9c53d1abf62fe76df213c82"
+    urlImg:
+      'https://storage.tally.so/private/telechargement-8-.jpeg?id=A4J1e0&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IkE0SjFlMCIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4NX0.IT4YvvcfNlZ3daTffDdi5u6VlToa_TM7CcCVqKskGBo&signature=fd40386aaac6acab9668a27225cfb3c9f717b89ae9c53d1abf62fe76df213c82',
   },
   {
-    name: "Leclerc",
-    coords: [
-      48.93747339999999,
-      2.8772266
-    ],
-    category: "leclerc",
-    address: "30 Mail de la Grande Haie, 77100 Mareuil-lès-Meaux",
+    name: 'Leclerc',
+    coords: [48.93747339999999, 2.8772266],
+    category: 'leclerc',
+    address: '30 Mail de la Grande Haie, 77100 Mareuil-lès-Meaux',
     hasCageEggs: true,
     nbRef: 3,
-    urlImg: "https://storage.tally.so/private/telechargement-2026-01-17T205026.925.jpg?id=e0EQWO&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImUwRVFXTyIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4NX0.U97gWCJkRSZnXqrCU3uzcHSxk8-G2knfRPA9_A6a5MQ&signature=50383a2561cd99a19759f410195eb684c2950894321b623a17e5342d5048d3a4"
+    urlImg:
+      'https://storage.tally.so/private/telechargement-2026-01-17T205026.925.jpg?id=e0EQWO&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImUwRVFXTyIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4NX0.U97gWCJkRSZnXqrCU3uzcHSxk8-G2knfRPA9_A6a5MQ&signature=50383a2561cd99a19759f410195eb684c2950894321b623a17e5342d5048d3a4',
   },
   {
-    name: "Leclerc",
-    coords: [
-      47.8422399,
-      1.9157413
-    ],
-    category: "leclerc",
+    name: 'Leclerc',
+    coords: [47.8422399, 1.9157413],
+    category: 'leclerc',
     address: "181 Rue d'Artois, 45160 Olivet",
     hasCageEggs: true,
     nbRef: 1,
-    urlImg: "https://storage.tally.so/private/telechargement-2026-01-17T223738.833.jpg?id=pJVO6V&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6InBKVk82ViIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4NX0.xjhgLSfzTXHZlqlkl5fFlmDTH9hiXuE1Q7WAdY7KMqM&signature=6a1e083c850f21cf34bf21c506ce8826fef0dc3601b23c5cf5c7a757bcd056d1"
+    urlImg:
+      'https://storage.tally.so/private/telechargement-2026-01-17T223738.833.jpg?id=pJVO6V&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6InBKVk82ViIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4NX0.xjhgLSfzTXHZlqlkl5fFlmDTH9hiXuE1Q7WAdY7KMqM&signature=6a1e083c850f21cf34bf21c506ce8826fef0dc3601b23c5cf5c7a757bcd056d1',
   },
   {
-    name: "Leclerc",
-    coords: [
-      47.9446404,
-      1.9195915
-    ],
-    category: "leclerc",
-    address: "10 Rue de Montaran, 45400 Fleury-les-Aubrais",
+    name: 'Leclerc',
+    coords: [47.9446404, 1.9195915],
+    category: 'leclerc',
+    address: '10 Rue de Montaran, 45400 Fleury-les-Aubrais',
     hasCageEggs: true,
     nbRef: 3,
-    urlImg: "https://storage.tally.so/private/telechargement-2026-01-17T225733.458.jpg?id=86eQLO&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ijg2ZVFMTyIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4NX0.RIMlMETv_CB3U6GfNbpoqgnHPBDd93r2yjZA1d7rzts&signature=644a6caecd6bfcad51ee45852793388dd80793dc03042c12504dc265de9a4bcc"
+    urlImg:
+      'https://storage.tally.so/private/telechargement-2026-01-17T225733.458.jpg?id=86eQLO&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ijg2ZVFMTyIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4NX0.RIMlMETv_CB3U6GfNbpoqgnHPBDd93r2yjZA1d7rzts&signature=644a6caecd6bfcad51ee45852793388dd80793dc03042c12504dc265de9a4bcc',
   },
   {
-    name: "Leclerc",
-    coords: [
-      47.083747,
-      5.488428
-    ],
-    category: "leclerc",
-    address: "Rue Gal Bethouard - 39 Dole ",
+    name: 'Leclerc',
+    coords: [47.083747, 5.488428],
+    category: 'leclerc',
+    address: 'Rue Gal Bethouard - 39 Dole ',
     hasCageEggs: true,
     nbRef: 2,
-    urlImg: "https://storage.tally.so/private/20260118_115417.jpg?id=EZ04bA&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IkVaMDRiQSIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4NX0.XT6S48IdQhHTsyxrdljz1SF8aQeDzoLp_iMWxor87cE&signature=f1f277f60ada0efb8ca8fce1c7d504b75538f4b5915f659d054ba3432e94ffca"
+    urlImg:
+      'https://storage.tally.so/private/20260118_115417.jpg?id=EZ04bA&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IkVaMDRiQSIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4NX0.XT6S48IdQhHTsyxrdljz1SF8aQeDzoLp_iMWxor87cE&signature=f1f277f60ada0efb8ca8fce1c7d504b75538f4b5915f659d054ba3432e94ffca',
   },
   {
-    name: "Leclerc",
-    coords: [
-      44.051566,
-      5.041231
-    ],
-    category: "leclerc",
-    address: "Bd Alfred Naquet Bp 30, 84200 Carpentras",
+    name: 'Leclerc',
+    coords: [44.051566, 5.041231],
+    category: 'leclerc',
+    address: 'Bd Alfred Naquet Bp 30, 84200 Carpentras',
     hasCageEggs: true,
     nbRef: 3,
-    urlImg: "https://storage.tally.so/private/20260119_095054.jpg?id=5evyAd&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVldnlBZCIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4NX0.-PV96kn8ds53OimQe9pXq118M8W6ufkwG9dzH01IYmg&signature=789134dcfecb343f1cba93a01328cc2b8e63f5d73519741bfa121887e2755398"
+    urlImg:
+      'https://storage.tally.so/private/20260119_095054.jpg?id=5evyAd&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVldnlBZCIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4NX0.-PV96kn8ds53OimQe9pXq118M8W6ufkwG9dzH01IYmg&signature=789134dcfecb343f1cba93a01328cc2b8e63f5d73519741bfa121887e2755398',
   },
   {
-    name: "Leclerc",
-    coords: [
-      46.56764769999999,
-      0.3576334
-    ],
-    category: "leclerc",
-    address: "93 Rte de Gençay, 86000 Poitiers ",
+    name: 'Leclerc',
+    coords: [46.56764769999999, 0.3576334],
+    category: 'leclerc',
+    address: '93 Rte de Gençay, 86000 Poitiers ',
     hasCageEggs: true,
     nbRef: 4,
-    urlImg: "https://storage.tally.so/private/20260120_201720.jpg?id=e0NP1O&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImUwTlAxTyIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4NX0.iaSrqOoPnu1YKEEdWHivi2JRt_8Ow9VrNekzk483vs8&signature=5e770ca8faa7d0c3248c82e027e994953a108053222337fb98786ac4b292899d"
+    urlImg:
+      'https://storage.tally.so/private/20260120_201720.jpg?id=e0NP1O&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImUwTlAxTyIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4NX0.iaSrqOoPnu1YKEEdWHivi2JRt_8Ow9VrNekzk483vs8&signature=5e770ca8faa7d0c3248c82e027e994953a108053222337fb98786ac4b292899d',
   },
   {
-    name: "Leclerc",
-    coords: [
-      47.628583,
-      6.86238
-    ],
-    category: "leclerc",
-    address: "Av du Général De Gaulle\nBELFORT 90008",
+    name: 'Leclerc',
+    coords: [47.628583, 6.86238],
+    category: 'leclerc',
+    address: 'Av du Général De Gaulle\nBELFORT 90008',
     hasCageEggs: true,
     nbRef: 1,
-    urlImg: "https://storage.tally.so/private/IMG_20260116_111118.jpg?id=Rb0rkv&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IlJiMHJrdiIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4Nn0.qlzWW6DgTWgOlRR4jDByynmfq1BLOJcgM075gC9evv0&signature=6daeb673ca528f8a1533c5ccc717841d8dd7ee77994077f6ac17af41abd89f11"
+    urlImg:
+      'https://storage.tally.so/private/IMG_20260116_111118.jpg?id=Rb0rkv&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IlJiMHJrdiIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4Nn0.qlzWW6DgTWgOlRR4jDByynmfq1BLOJcgM075gC9evv0&signature=6daeb673ca528f8a1533c5ccc717841d8dd7ee77994077f6ac17af41abd89f11',
   },
   {
-    name: "Leclerc",
-    coords: [
-      44.9179247,
-      4.8854564
-    ],
-    category: "leclerc",
-    address: "Avenue Victor Hugo - Valence ",
+    name: 'Leclerc',
+    coords: [44.9179247, 4.8854564],
+    category: 'leclerc',
+    address: 'Avenue Victor Hugo - Valence ',
     hasCageEggs: true,
     nbRef: 1,
-    urlImg: "https://storage.tally.so/private/IMG20260120181229.jpg?id=qJYqqg&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6InFKWXFxZyIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4NX0.YAq1C_RnfsmdXZKAXpG49_i12R2okDeTwOaPCAPMLj0&signature=1936e949b40edff9810885be8350e8f0eba6a397f5861887a7053da9bfebaeb7"
+    urlImg:
+      'https://storage.tally.so/private/IMG20260120181229.jpg?id=qJYqqg&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6InFKWXFxZyIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4NX0.YAq1C_RnfsmdXZKAXpG49_i12R2okDeTwOaPCAPMLj0&signature=1936e949b40edff9810885be8350e8f0eba6a397f5861887a7053da9bfebaeb7',
   },
   {
-    name: "Leclerc",
-    coords: [
-      48.6520392,
-      7.7517967
-    ],
-    category: "leclerc",
-    address: "11 Rue du Général de Gaulle, 67116 Reichstett, France",
+    name: 'Leclerc',
+    coords: [48.6520392, 7.7517967],
+    category: 'leclerc',
+    address: '11 Rue du Général de Gaulle, 67116 Reichstett, France',
     hasCageEggs: true,
     nbRef: 1,
-    urlImg: "https://storage.tally.so/private/signal-2026-01-14-163457.jpeg?id=M6aqyp&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ik02YXF5cCIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4Nn0.Zj3uACjAmUQdCXG_UlnpMh3b-d6jfcCbifgu-6TWV4M&signature=0a3d334d396723a05af56731cd0d59242cf66bacb1d07ed3dfd3bbf9978dc9ef"
+    urlImg:
+      'https://storage.tally.so/private/signal-2026-01-14-163457.jpeg?id=M6aqyp&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ik02YXF5cCIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4Nn0.Zj3uACjAmUQdCXG_UlnpMh3b-d6jfcCbifgu-6TWV4M&signature=0a3d334d396723a05af56731cd0d59242cf66bacb1d07ed3dfd3bbf9978dc9ef',
   },
   {
-    name: "Leclerc",
-    coords: [
-      47.616394,
-      6.1350381
-    ],
-    category: "leclerc",
-    address: "Rue albert Olivier 70000 Noidans les vesoul",
+    name: 'Leclerc',
+    coords: [47.616394, 6.1350381],
+    category: 'leclerc',
+    address: 'Rue albert Olivier 70000 Noidans les vesoul',
     hasCageEggs: true,
     nbRef: 1,
-    urlImg: "https://storage.tally.so/private/inbound4689304306868261609.jpg?id=bY8Wy1&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImJZOFd5MSIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4NX0.6UdygULbzwnlHxTTab9_qM5JMrakmRn3eGGLP25GGaQ&signature=3e993fb5a24d7e3734887a7b6982c22cabd754951005892cb21bf7e0769ac23b"
+    urlImg:
+      'https://storage.tally.so/private/inbound4689304306868261609.jpg?id=bY8Wy1&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImJZOFd5MSIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4NX0.6UdygULbzwnlHxTTab9_qM5JMrakmRn3eGGLP25GGaQ&signature=3e993fb5a24d7e3734887a7b6982c22cabd754951005892cb21bf7e0769ac23b',
   },
   {
-    name: "Leclerc",
-    coords: [
-      47.6833503,
-      6.5172377
-    ],
-    category: "leclerc",
-    address: "Zone des cloyes 70250 Lure ",
+    name: 'Leclerc',
+    coords: [47.6833503, 6.5172377],
+    category: 'leclerc',
+    address: 'Zone des cloyes 70250 Lure ',
     hasCageEggs: true,
     nbRef: 1,
-    urlImg: "https://storage.tally.so/private/IMG-20260113-WA0003.jpeg?id=EZ5xdA&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IkVaNXhkQSIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4Nn0.wuqC8PTlpy4yL4SZO_Sb_Gbya7XuR-L0zY-cWHTJEQo&signature=b48d89f2bf44bddfd451952a56244932a627e8bd4503cce4f9a2bf50b1bbca74"
+    urlImg:
+      'https://storage.tally.so/private/IMG-20260113-WA0003.jpeg?id=EZ5xdA&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IkVaNXhkQSIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4Nn0.wuqC8PTlpy4yL4SZO_Sb_Gbya7XuR-L0zY-cWHTJEQo&signature=b48d89f2bf44bddfd451952a56244932a627e8bd4503cce4f9a2bf50b1bbca74',
   },
   {
-    name: "Leclerc",
-    coords: [
-      44.5435854,
-      -0.254013
-    ],
-    category: "leclerc",
-    address: "Centre Commercial Moléon, 33210 Langon",
+    name: 'Leclerc',
+    coords: [44.5435854, -0.254013],
+    category: 'leclerc',
+    address: 'Centre Commercial Moléon, 33210 Langon',
     hasCageEggs: false,
     nbRef: 0,
-    urlImg: "https://storage.tally.so/private/c2211f41-c3f7-431c-a071-9a5b711b85de.jpg?id=LaorEj&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ikxhb3JFaiIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTM2NDM0Mn0.i6CSsVMoF-bo-N1HrwMQLj359VjczswokTfje2P_Ixs&signature=0434badd5c635e9c5e7c7ee9ecb23a156ccae9398efe3f0ea7eef4c682ab2d44"
+    urlImg:
+      'https://storage.tally.so/private/c2211f41-c3f7-431c-a071-9a5b711b85de.jpg?id=LaorEj&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ikxhb3JFaiIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTM2NDM0Mn0.i6CSsVMoF-bo-N1HrwMQLj359VjczswokTfje2P_Ixs&signature=0434badd5c635e9c5e7c7ee9ecb23a156ccae9398efe3f0ea7eef4c682ab2d44',
   },
   {
-    name: "Leclerc",
-    coords: [
-      45.6992665,
-      4.9202394
-    ],
-    category: "leclerc",
-    address: "18 Rue du Lyonnais, 69800 Saint-Priest, France",
+    name: 'Leclerc',
+    coords: [45.6992665, 4.9202394],
+    category: 'leclerc',
+    address: '18 Rue du Lyonnais, 69800 Saint-Priest, France',
     hasCageEggs: true,
     nbRef: 2,
-    urlImg: "https://storage.tally.so/private/20260124_180622.jpg?id=xR6Wjv&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6InhSNldqdiIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTM2NDM0Mn0.P-j37LTjvzy3rb9M8MR4mT3U1o84ABOHUvGA-XgjcvI&signature=79590b7abd0966291eebdba0dcc764cc475dec4f21b463765c9d66691c920340"
+    urlImg:
+      'https://storage.tally.so/private/20260124_180622.jpg?id=xR6Wjv&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6InhSNldqdiIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTM2NDM0Mn0.P-j37LTjvzy3rb9M8MR4mT3U1o84ABOHUvGA-XgjcvI&signature=79590b7abd0966291eebdba0dcc764cc475dec4f21b463765c9d66691c920340',
   },
   {
-    name: "Leclerc",
-    coords: [
-      47.1870945,
-      -1.4683624
-    ],
-    category: "leclerc",
-    address: "Rte de Clisson, 44115 Basse-Goulaine",
+    name: 'Leclerc',
+    coords: [47.1870945, -1.4683624],
+    category: 'leclerc',
+    address: 'Rte de Clisson, 44115 Basse-Goulaine',
     hasCageEggs: true,
     nbRef: 3,
-    urlImg: "https://storage.tally.so/private/20260124_125958.jpg?id=49GMBb&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjQ5R01CYiIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTM2NDM0Mn0.i3Dhg_osDKiVKmMIoZw7osazbf6goG9S3EqoG0hA2ZU&signature=e7282ca5b23c2aeeeeebe1d4e5956155d9fe0a42146c5922149950a44347f713"
+    urlImg:
+      'https://storage.tally.so/private/20260124_125958.jpg?id=49GMBb&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjQ5R01CYiIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTM2NDM0Mn0.i3Dhg_osDKiVKmMIoZw7osazbf6goG9S3EqoG0hA2ZU&signature=e7282ca5b23c2aeeeeebe1d4e5956155d9fe0a42146c5922149950a44347f713',
   },
   {
-    name: "Leclerc",
-    coords: [
-      48.99036719999999,
-      2.432149
-    ],
-    category: "leclerc",
-    address: "1 avenue Georges Pompidou, Grande Vallee C.C, 95500 Gonesse",
+    name: 'Leclerc',
+    coords: [48.99036719999999, 2.432149],
+    category: 'leclerc',
+    address: '1 avenue Georges Pompidou, Grande Vallee C.C, 95500 Gonesse',
     hasCageEggs: true,
     nbRef: 1,
-    urlImg: "https://storage.tally.so/private/20260120_180424.heic?id=xR0LLo&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6InhSMExMbyIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4NX0.Ka8jkh7-x4LTk1WI98fE5H1JRVGemVf9roOtPmS3kws&signature=2c271f5903ed863bc69a9b5651e4f3bb265f904f9296d5d13ff1cdf94ce486cd"
+    urlImg:
+      'https://storage.tally.so/private/20260120_180424.heic?id=xR0LLo&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6InhSMExMbyIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4NX0.Ka8jkh7-x4LTk1WI98fE5H1JRVGemVf9roOtPmS3kws&signature=2c271f5903ed863bc69a9b5651e4f3bb265f904f9296d5d13ff1cdf94ce486cd',
   },
   {
-    name: "Leclerc",
-    coords: [
-      43.7061273,
-      1.8173375
-    ],
-    category: "leclerc",
-    address: "38 avenue Jacques Besse, 81500 Lavaur",
+    name: 'Leclerc',
+    coords: [43.7061273, 1.8173375],
+    category: 'leclerc',
+    address: '38 avenue Jacques Besse, 81500 Lavaur',
     hasCageEggs: true,
     nbRef: 2,
-    urlImg: "https://storage.tally.so/private/WhatsApp-Image-2026-01-26-at-21.20.48.jpeg?id=5e50qP&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVlNTBxUCIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTY4MTAyOH0.7FnxKQPsajaa0Q3rWTRT5cn9UxdYl-GwfgwBHY_cC7M&signature=04fa133d7da94b8808d896d710c4dfe7a02366abc3a3137e212069dcf4f0c72b"
+    urlImg:
+      'https://storage.tally.so/private/WhatsApp-Image-2026-01-26-at-21.20.48.jpeg?id=5e50qP&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVlNTBxUCIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTY4MTAyOH0.7FnxKQPsajaa0Q3rWTRT5cn9UxdYl-GwfgwBHY_cC7M&signature=04fa133d7da94b8808d896d710c4dfe7a02366abc3a3137e212069dcf4f0c72b',
   },
   {
-    name: "Leclerc",
-    coords: [
-      43.9488347,
-      4.9027211
-    ],
-    category: "leclerc",
-    address: "1001 rue Clos, Rue de Folard, 84310 Morières-lès-Avignon, France",
+    name: 'Leclerc',
+    coords: [43.9488347, 4.9027211],
+    category: 'leclerc',
+    address: '1001 rue Clos, Rue de Folard, 84310 Morières-lès-Avignon, France',
     hasCageEggs: true,
     nbRef: 1,
-    urlImg: "https://storage.tally.so/private/signal-2026-01-28-091444.jpeg?id=49RGvo&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjQ5Ukd2byIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTY4MTAyOH0.JcXtjwtnnoSSjcZKyJ-lMDVyzHcjC_gY99xfxUwUQ4E&signature=8006aed5d07982e5df9390be0308bc5e8414ef23ebe12f3c7adafe18b19eae76"
+    urlImg:
+      'https://storage.tally.so/private/signal-2026-01-28-091444.jpeg?id=49RGvo&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjQ5Ukd2byIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTY4MTAyOH0.JcXtjwtnnoSSjcZKyJ-lMDVyzHcjC_gY99xfxUwUQ4E&signature=8006aed5d07982e5df9390be0308bc5e8414ef23ebe12f3c7adafe18b19eae76',
   },
   {
-    name: "Leclerc",
-    coords: [
-      43.6666046,
-      1.514161
-    ],
-    category: "leclerc",
-    address: "888 route d’albi, 31180 Rouffiac-Tolosan ",
+    name: 'Leclerc',
+    coords: [43.6666046, 1.514161],
+    category: 'leclerc',
+    address: '888 route d’albi, 31180 Rouffiac-Tolosan ',
     hasCageEggs: true,
     nbRef: 2,
-    urlImg: "https://storage.tally.so/private/20260128_185426.jpg?id=xR7bg9&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6InhSN2JnOSIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTY4MTAyOH0.LfGQM0NBARyvtMA_y1C81zTW6nJgOOJdIqrmoXUAQq8&signature=c9078f9e64436c4fefab33f65182a824cdf95683c1dd4a55454db0f016a496e4"
+    urlImg:
+      'https://storage.tally.so/private/20260128_185426.jpg?id=xR7bg9&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6InhSN2JnOSIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTY4MTAyOH0.LfGQM0NBARyvtMA_y1C81zTW6nJgOOJdIqrmoXUAQq8&signature=c9078f9e64436c4fefab33f65182a824cdf95683c1dd4a55454db0f016a496e4',
   },
   {
-    name: "Leclerc",
-    coords: [
-      47.8422399,
-      1.9157413
-    ],
-    category: "leclerc",
+    name: 'Leclerc',
+    coords: [47.8422399, 1.9157413],
+    category: 'leclerc',
     address: "181 Rue d'Artois, 45160 Olivet",
     hasCageEggs: true,
     nbRef: 2,
-    urlImg: "https://storage.tally.so/private/IMG20260130155412.jpg?id=vJ5lVl&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6InZKNWxWbCIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc3MDQ1NjU5M30.jJyaAd-Ur1wLDL-5Fpcq2rr6AANZpM6mTVVUL4xuw8I&signature=cf96d697b7f39ec17c229f4f85e1bf0a2258786609285f3f5d1d305eff6cd76f"
+    urlImg:
+      'https://storage.tally.so/private/IMG20260130155412.jpg?id=vJ5lVl&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6InZKNWxWbCIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc3MDQ1NjU5M30.jJyaAd-Ur1wLDL-5Fpcq2rr6AANZpM6mTVVUL4xuw8I&signature=cf96d697b7f39ec17c229f4f85e1bf0a2258786609285f3f5d1d305eff6cd76f',
   },
   {
-    name: "Leclerc",
-    coords: [
-      48.8983801,
-      2.3738552
-    ],
-    category: "leclerc",
-    address: "191 Bd Macdonald, 75019 Paris",
+    name: 'Leclerc',
+    coords: [48.8983801, 2.3738552],
+    category: 'leclerc',
+    address: '191 Bd Macdonald, 75019 Paris',
     hasCageEggs: true,
     nbRef: 1,
-    urlImg: "https://storage.tally.so/private/IMG-20260131-WA0004.jpg?id=DxGoA5&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IkR4R29BNSIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc3MDQ1NjU5M30.b6b6LyMnel7oAtRrhnslSt6mXLXXUqnWZnb8BGLlX00&signature=7c7a02fe3e82d6f40970f2115463fc3564ec65a15d7222f87666553deed6fe85"
+    urlImg:
+      'https://storage.tally.so/private/IMG-20260131-WA0004.jpg?id=DxGoA5&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IkR4R29BNSIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc3MDQ1NjU5M30.b6b6LyMnel7oAtRrhnslSt6mXLXXUqnWZnb8BGLlX00&signature=7c7a02fe3e82d6f40970f2115463fc3564ec65a15d7222f87666553deed6fe85',
   },
   {
-    name: "Leclerc",
-    coords: [
-      50.2806971,
-      2.7822246
-    ],
-    category: "leclerc",
-    address: "91 avenue Fernand Lobbedez 62000 Arras",
+    name: 'Leclerc',
+    coords: [50.2806971, 2.7822246],
+    category: 'leclerc',
+    address: '91 avenue Fernand Lobbedez 62000 Arras',
     hasCageEggs: true,
     nbRef: 2,
-    urlImg: "https://storage.tally.so/private/IMG_4879.jpeg?id=pJ2gz1&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6InBKMmd6MSIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc3MDQ1NjU5M30.sP-imxoQskuSihDI5lgR1Zgite8r2Vi-Ohgy2uXNK94&signature=483ca35558b78561d035ac8d83c98053923b3dcaa391ee9e31e850e409a4cdc0"
+    urlImg:
+      'https://storage.tally.so/private/IMG_4879.jpeg?id=pJ2gz1&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6InBKMmd6MSIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc3MDQ1NjU5M30.sP-imxoQskuSihDI5lgR1Zgite8r2Vi-Ohgy2uXNK94&signature=483ca35558b78561d035ac8d83c98053923b3dcaa391ee9e31e850e409a4cdc0',
   },
   {
-    name: "Leclerc",
-    coords: [
-      44.7468783,
-      -0.5905233
-    ],
-    category: "leclerc",
-    address: "100 Av. de Bordeaux, 33850 Léognan",
+    name: 'Leclerc',
+    coords: [44.7468783, -0.5905233],
+    category: 'leclerc',
+    address: '100 Av. de Bordeaux, 33850 Léognan',
     hasCageEggs: true,
     nbRef: 2,
-    urlImg: "https://storage.tally.so/private/45d92c84-f11b-4cc5-a4fb-0564eabc9c8b.jpg?id=Yx5xr6&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ill4NXhyNiIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc3MDQ1NjU5M30._DNVCrPbrxT88SQTwpEiNO76dj89DJCw9YzDtvzbpSU&signature=475baa68acd44126f567b9b0841021c2c394199674c7102ee74e000a47de21b5"
+    urlImg:
+      'https://storage.tally.so/private/45d92c84-f11b-4cc5-a4fb-0564eabc9c8b.jpg?id=Yx5xr6&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ill4NXhyNiIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc3MDQ1NjU5M30._DNVCrPbrxT88SQTwpEiNO76dj89DJCw9YzDtvzbpSU&signature=475baa68acd44126f567b9b0841021c2c394199674c7102ee74e000a47de21b5',
   },
   {
-    name: "Leclerc",
-    coords: [
-      50.0309996,
-      1.3982348
-    ],
-    category: "leclerc",
-    address: "D925 76260 Etalondes ",
+    name: 'Leclerc',
+    coords: [50.0309996, 1.3982348],
+    category: 'leclerc',
+    address: 'D925 76260 Etalondes ',
     hasCageEggs: true,
     nbRef: 1,
-    urlImg: "https://storage.tally.so/private/PXL_20260131_173917096.MP.jpg?id=vJZyP4&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6InZKWnlQNCIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc3MDQ1NjU5M30.5CjZ-nw2CrbAP3xW5guwYGXZDGUc_BJXGXfJLv6daD0&signature=f5df96b3bd28565af495fbe487f388956fa36503ac551d85e2e10c003be84c57"
+    urlImg:
+      'https://storage.tally.so/private/PXL_20260131_173917096.MP.jpg?id=vJZyP4&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6InZKWnlQNCIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc3MDQ1NjU5M30.5CjZ-nw2CrbAP3xW5guwYGXZDGUc_BJXGXfJLv6daD0&signature=f5df96b3bd28565af495fbe487f388956fa36503ac551d85e2e10c003be84c57',
   },
   {
-    name: "Leclerc",
-    coords: [
-      48.3922022,
-      -4.483961
-    ],
-    category: "leclerc",
-    address: "16 Rue de la 2ème Db, 29200 Brest",
+    name: 'Leclerc',
+    coords: [48.3922022, -4.483961],
+    category: 'leclerc',
+    address: '16 Rue de la 2ème Db, 29200 Brest',
     hasCageEggs: false,
     nbRef: 0,
-    urlImg: "https://storage.tally.so/private/telechargement-20-.jpeg?id=lYE9VX&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImxZRTlWWCIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc3MDQ1NjU5M30.W2eNB2Ktq-HfqzeTva0kosOKD6vKX905kcIWtr810gU&signature=45685c61917a3a9e93d6f45b6f83d97d8a71dd52b7b67c292a245bfd9ad2cb1e"
+    urlImg:
+      'https://storage.tally.so/private/telechargement-20-.jpeg?id=lYE9VX&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImxZRTlWWCIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc3MDQ1NjU5M30.W2eNB2Ktq-HfqzeTva0kosOKD6vKX905kcIWtr810gU&signature=45685c61917a3a9e93d6f45b6f83d97d8a71dd52b7b67c292a245bfd9ad2cb1e',
   },
   {
-    name: "Leclerc",
-    coords: [
-      48.4067173,
-      6.8576346
-    ],
-    category: "leclerc",
+    name: 'Leclerc',
+    coords: [48.4067173, 6.8576346],
+    category: 'leclerc',
     address: "40 Bis avenue 21ème BCP 88110 Raon L'Etape",
     hasCageEggs: false,
     nbRef: 0,
-    urlImg: "https://storage.tally.so/private/IMG_5356.jpeg?id=yoQ4N0&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6InlvUTROMCIsImZvcm1JZCI6IlJHTU4wNCIsImlhdCI6MTc3MDQ1NjYwNn0.n_f1MIMdWfbLe1sojTN0LDlrkPpAmJeQ4oxay5DFXUA&signature=a535cec23cbb8a3ba687695f27f16d28b8869eedf887c9d040f4053be11dec2c"
+    urlImg:
+      'https://storage.tally.so/private/IMG_5356.jpeg?id=yoQ4N0&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6InlvUTROMCIsImZvcm1JZCI6IlJHTU4wNCIsImlhdCI6MTc3MDQ1NjYwNn0.n_f1MIMdWfbLe1sojTN0LDlrkPpAmJeQ4oxay5DFXUA&signature=a535cec23cbb8a3ba687695f27f16d28b8869eedf887c9d040f4053be11dec2c',
   },
   {
-    name: "Lidl",
-    coords: [
-      48.8532835,
-      2.4055997
-    ],
-    category: "lidl",
-    address: "73 Rue des Pyrénées, 75020 Paris",
+    name: 'Lidl',
+    coords: [48.8532835, 2.4055997],
+    category: 'lidl',
+    address: '73 Rue des Pyrénées, 75020 Paris',
     hasCageEggs: true,
     nbRef: 1,
-    urlImg: "https://storage.tally.so/private/IMG-20260118-WA0009.jpg?id=Vb86pl&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IlZiODZwbCIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4NX0.cMS4MgeCt4npAy9uskLuEXQkBekn3lu24m2-7QjJZU8&signature=bcd52d7df1f2e4ad6f744479d28ddb1b03eeaf59ec9cb3b4632aa28cb04e7654"
+    urlImg:
+      'https://storage.tally.so/private/IMG-20260118-WA0009.jpg?id=Vb86pl&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IlZiODZwbCIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4NX0.cMS4MgeCt4npAy9uskLuEXQkBekn3lu24m2-7QjJZU8&signature=bcd52d7df1f2e4ad6f744479d28ddb1b03eeaf59ec9cb3b4632aa28cb04e7654',
   },
   {
-    name: "Lidl",
-    coords: [
-      44.8593348,
-      -0.6302500999999999
-    ],
-    category: "lidl",
-    address: "428-442 Av. du Maréchal de Lattre de Tassigny, 33200 Bordeaux",
+    name: 'Lidl',
+    coords: [44.8593348, -0.6302500999999999],
+    category: 'lidl',
+    address: '428-442 Av. du Maréchal de Lattre de Tassigny, 33200 Bordeaux',
     hasCageEggs: true,
     nbRef: 1,
-    urlImg: "https://storage.tally.so/private/PhotoOeufsPoulesCage_Lidl_BordeauxCauderan.jpg?id=vEZRMD&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6InZFWlJNRCIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4Nn0.9LDWnt1gzc3MbhtO4FEBKmP5NsHgaJ1BZdoSaVcGeeY&signature=d535ca0feb8eb5bea0ffddeabbb74fcf35b2d45e675d070df32297308f9dd57d"
+    urlImg:
+      'https://storage.tally.so/private/PhotoOeufsPoulesCage_Lidl_BordeauxCauderan.jpg?id=vEZRMD&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6InZFWlJNRCIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4Nn0.9LDWnt1gzc3MbhtO4FEBKmP5NsHgaJ1BZdoSaVcGeeY&signature=d535ca0feb8eb5bea0ffddeabbb74fcf35b2d45e675d070df32297308f9dd57d',
   },
   {
-    name: "Lidl",
-    coords: [
-      43.93934,
-      4.57315
-    ],
-    category: "lidl",
-    address: "89 Av. Geoffroy Perret, 30210 Remoulins, France",
+    name: 'Lidl',
+    coords: [43.93934, 4.57315],
+    category: 'lidl',
+    address: '89 Av. Geoffroy Perret, 30210 Remoulins, France',
     hasCageEggs: true,
     nbRef: 2,
-    urlImg: "https://storage.tally.so/private/IMG_20260109_173653.jpg?id=pRakKP&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6InBSYWtLUCIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4Nn0.Zwkmz-wnGiUs46XqPiRrJ5ut0uScxFnGNHpGUjLACAw&signature=35fce81b97e8dafc5d4690a38e590765e8d0cffc491da4c8d11d079fd35d31ba"
+    urlImg:
+      'https://storage.tally.so/private/IMG_20260109_173653.jpg?id=pRakKP&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6InBSYWtLUCIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4Nn0.Zwkmz-wnGiUs46XqPiRrJ5ut0uScxFnGNHpGUjLACAw&signature=35fce81b97e8dafc5d4690a38e590765e8d0cffc491da4c8d11d079fd35d31ba',
   },
   {
-    name: "Lidl",
-    coords: [
-      46.10829,
-      -0.76701
-    ],
-    category: "lidl",
-    address: "24 Av. François Mitterand. 17700 Surgères",
+    name: 'Lidl',
+    coords: [46.10829, -0.76701],
+    category: 'lidl',
+    address: '24 Av. François Mitterand. 17700 Surgères',
     hasCageEggs: true,
     nbRef: 1,
-    urlImg: "https://storage.tally.so/private/IMG_0343.jpeg?id=WKOvge&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IldLT3ZnZSIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4Nn0.1hhGSArlII97QCBGZ3V7QbFi2d4FU1qQFho_0aImhY4&signature=797754da424da006d36a761683d45d4f9d9f8ad92d243bb2469166097011f2e5"
+    urlImg:
+      'https://storage.tally.so/private/IMG_0343.jpeg?id=WKOvge&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IldLT3ZnZSIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4Nn0.1hhGSArlII97QCBGZ3V7QbFi2d4FU1qQFho_0aImhY4&signature=797754da424da006d36a761683d45d4f9d9f8ad92d243bb2469166097011f2e5',
   },
   {
-    name: "Lidl",
-    coords: [
-      48.6488448,
-      7.722382799999999
-    ],
-    category: "lidl",
-    address: "6 Rue des Mercuriales, 67450 Lampertheim, France",
+    name: 'Lidl',
+    coords: [48.6488448, 7.722382799999999],
+    category: 'lidl',
+    address: '6 Rue des Mercuriales, 67450 Lampertheim, France',
     hasCageEggs: true,
     nbRef: 2,
-    urlImg: "https://storage.tally.so/private/signal-2026-01-14-162837.jpeg?id=VbPAJa&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IlZiUEFKYSIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4Nn0.9vGrram_qJRS8JRhGSFtx3-QGz4VvH4HSNJjym5FLpY&signature=6a8ea4bfe9bb405a1536c54860c5a7b179dcb9ed6851be64040ef611e68ac734"
+    urlImg:
+      'https://storage.tally.so/private/signal-2026-01-14-162837.jpeg?id=VbPAJa&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IlZiUEFKYSIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4Nn0.9vGrram_qJRS8JRhGSFtx3-QGz4VvH4HSNJjym5FLpY&signature=6a8ea4bfe9bb405a1536c54860c5a7b179dcb9ed6851be64040ef611e68ac734',
   },
   {
-    name: "Lidl",
-    coords: [
-      48.63065899999999,
-      7.766227199999999
-    ],
-    category: "lidl",
+    name: 'Lidl',
+    coords: [48.63065899999999, 7.766227199999999],
+    category: 'lidl',
     address: "1 Av. de l'Énergie, 67800 Bischheim, France",
     hasCageEggs: true,
     nbRef: 2,
-    urlImg: "https://storage.tally.so/private/signal-2026-01-14-164020.jpeg?id=DxpEkZ&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IkR4cEVrWiIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4Nn0.Squ-lTJnspxFMZIXEenlgFPYNztb_Lwer1jSaVmPcWA&signature=af1a97bf7969f850fb71ec1c3334aad7ea8fb1f7f779c13fb87a072591843648"
+    urlImg:
+      'https://storage.tally.so/private/signal-2026-01-14-164020.jpeg?id=DxpEkZ&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IkR4cEVrWiIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4Nn0.Squ-lTJnspxFMZIXEenlgFPYNztb_Lwer1jSaVmPcWA&signature=af1a97bf7969f850fb71ec1c3334aad7ea8fb1f7f779c13fb87a072591843648',
   },
   {
-    name: "Lidl",
-    coords: [
-      48.6205143,
-      7.7313731
-    ],
-    category: "lidl",
-    address: "4A Rte de Brumath, 67800 Hœnheim, France",
+    name: 'Lidl',
+    coords: [48.6205143, 7.7313731],
+    category: 'lidl',
+    address: '4A Rte de Brumath, 67800 Hœnheim, France',
     hasCageEggs: true,
     nbRef: 1,
-    urlImg: "https://storage.tally.so/private/signal-2026-01-14-164204.jpeg?id=ObXeA7&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ik9iWGVBNyIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4Nn0.nfARqIeXILwfcc5iy6-TlsQTC9Bd2N1Ox4J4i5WSJH8&signature=e3e982a5a4337119a609fb1acf8fbee7ccf73924535b9fada981313a4b3b26c2"
+    urlImg:
+      'https://storage.tally.so/private/signal-2026-01-14-164204.jpeg?id=ObXeA7&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ik9iWGVBNyIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4Nn0.nfARqIeXILwfcc5iy6-TlsQTC9Bd2N1Ox4J4i5WSJH8&signature=e3e982a5a4337119a609fb1acf8fbee7ccf73924535b9fada981313a4b3b26c2',
   },
   {
-    name: "Lidl",
-    coords: [
-      48.6055186,
-      7.7053936
-    ],
-    category: "lidl",
+    name: 'Lidl',
+    coords: [48.6055186, 7.7053936],
+    category: 'lidl',
     address: "3 All. de l'Euro, 67205 Oberhausbergen, France",
     hasCageEggs: true,
     nbRef: 2,
-    urlImg: "https://storage.tally.so/private/signal-2026-01-14-164335.jpeg?id=86Lg8A&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ijg2TGc4QSIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4Nn0.xulpIX4gtqSmDe351a9kLXC6eLmozssR8ICCh4qxeZQ&signature=c4eedb86bbad5cc156fa96a184249934b65d467740df4c93bc73471d334ff789"
+    urlImg:
+      'https://storage.tally.so/private/signal-2026-01-14-164335.jpeg?id=86Lg8A&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ijg2TGc4QSIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4Nn0.xulpIX4gtqSmDe351a9kLXC6eLmozssR8ICCh4qxeZQ&signature=c4eedb86bbad5cc156fa96a184249934b65d467740df4c93bc73471d334ff789',
   },
   {
-    name: "Lidl",
-    coords: [
-      48.58958,
-      7.686299999999999
-    ],
-    category: "lidl",
-    address: "11 Rue Jean Monnet, 67201 Eckbolsheim, France",
+    name: 'Lidl',
+    coords: [48.58958, 7.686299999999999],
+    category: 'lidl',
+    address: '11 Rue Jean Monnet, 67201 Eckbolsheim, France',
     hasCageEggs: true,
     nbRef: 2,
-    urlImg: "https://storage.tally.so/private/signal-2026-01-14-164753.jpeg?id=86LggP&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ijg2TGdnUCIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4Nn0.zd2wbjlyhnuJ4Zv10xmGF-5SeZ4JRjHJMZo2uocrwW4&signature=d8a3703dbac00451faad09b2f741d214295286347434275cb7002541a2354cb4"
+    urlImg:
+      'https://storage.tally.so/private/signal-2026-01-14-164753.jpeg?id=86LggP&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ijg2TGdnUCIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4Nn0.zd2wbjlyhnuJ4Zv10xmGF-5SeZ4JRjHJMZo2uocrwW4&signature=d8a3703dbac00451faad09b2f741d214295286347434275cb7002541a2354cb4',
   },
   {
-    name: "Lidl",
-    coords: [
-      48.55687,
-      7.691669999999999
-    ],
-    category: "lidl",
-    address: "4 Rue Hannong, 67380 Lingolsheim, France",
+    name: 'Lidl',
+    coords: [48.55687, 7.691669999999999],
+    category: 'lidl',
+    address: '4 Rue Hannong, 67380 Lingolsheim, France',
     hasCageEggs: true,
     nbRef: 2,
-    urlImg: "https://storage.tally.so/private/signal-2026-01-14-165257.jpeg?id=86LVqk&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ijg2TFZxayIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4Nn0.pt2qlWn7EzI7r4F6aJJtcILEi-rOFBIXWq4Z2IyjiOU&signature=7690756dd235feef6b1d7f0f8f9b94f14e9836c5f9e5a3755e340dd701b3b93d"
+    urlImg:
+      'https://storage.tally.so/private/signal-2026-01-14-165257.jpeg?id=86LVqk&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ijg2TFZxayIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4Nn0.pt2qlWn7EzI7r4F6aJJtcILEi-rOFBIXWq4Z2IyjiOU&signature=7690756dd235feef6b1d7f0f8f9b94f14e9836c5f9e5a3755e340dd701b3b93d',
   },
   {
-    name: "Lidl",
-    coords: [
-      48.5539582,
-      7.742735599999999
-    ],
-    category: "lidl",
-    address: "8 Rue des Frères Eberts, 67100 Strasbourg, France",
+    name: 'Lidl',
+    coords: [48.5539582, 7.742735599999999],
+    category: 'lidl',
+    address: '8 Rue des Frères Eberts, 67100 Strasbourg, France',
     hasCageEggs: true,
     nbRef: 2,
-    urlImg: "https://storage.tally.so/private/signal-2026-01-14-165436.jpeg?id=GqpalL&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IkdxcGFsTCIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4Nn0.rHsEO_dBi4Mna2hy0FH0IHRM4bCVJ5LccNRaaYtct5k&signature=e9f61217d79207a3fa9687676865d2a2b991ae5c00aa39c6db1025b5a872bc90"
+    urlImg:
+      'https://storage.tally.so/private/signal-2026-01-14-165436.jpeg?id=GqpalL&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IkdxcGFsTCIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4Nn0.rHsEO_dBi4Mna2hy0FH0IHRM4bCVJ5LccNRaaYtct5k&signature=e9f61217d79207a3fa9687676865d2a2b991ae5c00aa39c6db1025b5a872bc90',
   },
   {
-    name: "Lidl",
-    coords: [
-      45.897269,
-      0.9167449999999998
-    ],
-    category: "lidl",
+    name: 'Lidl',
+    coords: [45.897269, 0.9167449999999998],
+    category: 'lidl',
     address: "LIDL, 24 avenue d'Oradour-sur-Glane 87200 Saint-Junien",
     hasCageEggs: true,
     nbRef: 1,
-    urlImg: "https://storage.tally.so/private/IMG_20260115_135008.jpg?id=NbovAO&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ik5ib3ZBTyIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4Nn0.FssOtHAEDLIew9XwfeDZzhf0rWPu_3bErAyfDamQUhA&signature=48127454b9ff279a5d7d7805a162f32439225ca0adebe8ce4d455748858f7cd1"
+    urlImg:
+      'https://storage.tally.so/private/IMG_20260115_135008.jpg?id=NbovAO&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ik5ib3ZBTyIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4Nn0.FssOtHAEDLIew9XwfeDZzhf0rWPu_3bErAyfDamQUhA&signature=48127454b9ff279a5d7d7805a162f32439225ca0adebe8ce4d455748858f7cd1',
   },
   {
-    name: "Lidl",
-    coords: [
-      48.3976698,
-      2.4211994
-    ],
-    category: "lidl",
-    address: "27 route du Chenet - 91490 Milly-la-Forêt ",
+    name: 'Lidl',
+    coords: [48.3976698, 2.4211994],
+    category: 'lidl',
+    address: '27 route du Chenet - 91490 Milly-la-Forêt ',
     hasCageEggs: true,
     nbRef: 2,
-    urlImg: "https://storage.tally.so/private/17684828377658816892662367341627.jpg?id=1NVYjb&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjFOVllqYiIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4Nn0.ZqMTQIBd2LUcv4CGlKHaRSrNY7Fw_BudN-ZkDlVdeaw&signature=234292e2d7abd4a3005412fb13ffdd9ea88d05fdcb2a3a535298d7b830ad5625"
+    urlImg:
+      'https://storage.tally.so/private/17684828377658816892662367341627.jpg?id=1NVYjb&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjFOVllqYiIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4Nn0.ZqMTQIBd2LUcv4CGlKHaRSrNY7Fw_BudN-ZkDlVdeaw&signature=234292e2d7abd4a3005412fb13ffdd9ea88d05fdcb2a3a535298d7b830ad5625',
   },
   {
-    name: "Lidl",
-    coords: [
-      50.4117654,
-      2.8285972
-    ],
-    category: "lidl",
-    address: "14 Rue du 4 Septembre, 62210 Avion",
+    name: 'Lidl',
+    coords: [50.4117654, 2.8285972],
+    category: 'lidl',
+    address: '14 Rue du 4 Septembre, 62210 Avion',
     hasCageEggs: true,
     nbRef: 1,
-    urlImg: "https://storage.tally.so/private/IMG_617270431F69-1.jpeg?id=Ob5Dqp&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ik9iNURxcCIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4Nn0.tekJXeDM9tE6dMMXTt9wkUvMJ0uQEs175ySUqtqK-hg&signature=0aa293e583eb0eb5587a1f4b2a47b45359f6f55c1eea866d79018b81becaf933"
+    urlImg:
+      'https://storage.tally.so/private/IMG_617270431F69-1.jpeg?id=Ob5Dqp&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ik9iNURxcCIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4Nn0.tekJXeDM9tE6dMMXTt9wkUvMJ0uQEs175ySUqtqK-hg&signature=0aa293e583eb0eb5587a1f4b2a47b45359f6f55c1eea866d79018b81becaf933',
   },
   {
-    name: "Lidl",
-    coords: [
-      50.41702,
-      2.97405
-    ],
-    category: "lidl",
-    address: "1004 Bd Albert Schweitzer, 62110 Hénin-Beaumont",
+    name: 'Lidl',
+    coords: [50.41702, 2.97405],
+    category: 'lidl',
+    address: '1004 Bd Albert Schweitzer, 62110 Hénin-Beaumont',
     hasCageEggs: true,
     nbRef: 1,
-    urlImg: "https://storage.tally.so/private/IMG_9DA5618E24AC-1.jpeg?id=A4LzBe&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IkE0THpCZSIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4Nn0.4XhcQ6846Kl3MD_eJCrgs0CX81yhk3LSrEM_XjTw7ag&signature=5590132cdb10cac11e02271e9e876d7a015a7506bd479cde013ba82ecc71f859"
+    urlImg:
+      'https://storage.tally.so/private/IMG_9DA5618E24AC-1.jpeg?id=A4LzBe&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IkE0THpCZSIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4Nn0.4XhcQ6846Kl3MD_eJCrgs0CX81yhk3LSrEM_XjTw7ag&signature=5590132cdb10cac11e02271e9e876d7a015a7506bd479cde013ba82ecc71f859',
   },
   {
-    name: "Lidl",
-    coords: [
-      50.41966000000001,
-      2.92976
-    ],
-    category: "lidl",
-    address: "15 Bd Salvador Allende, 62640 Montigny-en-Gohelle, France",
+    name: 'Lidl',
+    coords: [50.41966000000001, 2.92976],
+    category: 'lidl',
+    address: '15 Bd Salvador Allende, 62640 Montigny-en-Gohelle, France',
     hasCageEggs: true,
     nbRef: 1,
-    urlImg: "https://storage.tally.so/private/IMG_0C06C347B522-1.jpeg?id=WK5Ejv&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IldLNUVqdiIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4Nn0.Atv6F1qK4LrpGMI0Q-FXLZSIJNvYZ_rfGoZltBTg9X0&signature=1a4a2a8da9cb4b5dae7cf83e726fc4448bfd191f2f915a12faf56f115af856ef"
+    urlImg:
+      'https://storage.tally.so/private/IMG_0C06C347B522-1.jpeg?id=WK5Ejv&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IldLNUVqdiIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4Nn0.Atv6F1qK4LrpGMI0Q-FXLZSIJNvYZ_rfGoZltBTg9X0&signature=1a4a2a8da9cb4b5dae7cf83e726fc4448bfd191f2f915a12faf56f115af856ef',
   },
   {
-    name: "Lidl",
-    coords: [
-      47.47417,
-      -0.58504
-    ],
-    category: "lidl",
-    address: "56 Av. du Général Patton, 49000 Angers",
+    name: 'Lidl',
+    coords: [47.47417, -0.58504],
+    category: 'lidl',
+    address: '56 Av. du Général Patton, 49000 Angers',
     hasCageEggs: true,
     nbRef: 1,
-    urlImg: "https://storage.tally.so/private/telechargement-56-.jpg?id=pJBJa8&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6InBKQkphOCIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4Nn0.p-IJCfR2HgJkZPZ8j-KaiNK_DPAl4KFP3TJ3xya-fLE&signature=96621b32db2e97d65fe578692b1a03092839acbd20d2df71d9d07f1d44f50040"
+    urlImg:
+      'https://storage.tally.so/private/telechargement-56-.jpg?id=pJBJa8&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6InBKQkphOCIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4Nn0.p-IJCfR2HgJkZPZ8j-KaiNK_DPAl4KFP3TJ3xya-fLE&signature=96621b32db2e97d65fe578692b1a03092839acbd20d2df71d9d07f1d44f50040',
   },
   {
-    name: "Lidl",
-    coords: [
-      47.44504,
-      -0.50244
-    ],
-    category: "lidl",
-    address: "243 Rue Jean Jaurès, 49800 Trélazé",
+    name: 'Lidl',
+    coords: [47.44504, -0.50244],
+    category: 'lidl',
+    address: '243 Rue Jean Jaurès, 49800 Trélazé',
     hasCageEggs: true,
     nbRef: 1,
-    urlImg: "https://storage.tally.so/private/telechargement-67-.jpg?id=KWlWdX&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IktXbFdkWCIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4Nn0.LzSF6PWpc4pVvHVXqeAwqkZCYHhlbutzFSvrApEDRTE&signature=07bd425ece739f61df1ef38788ab826793d3e19dc65906cb2ec1064649c9fbe0"
+    urlImg:
+      'https://storage.tally.so/private/telechargement-67-.jpg?id=KWlWdX&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IktXbFdkWCIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4Nn0.LzSF6PWpc4pVvHVXqeAwqkZCYHhlbutzFSvrApEDRTE&signature=07bd425ece739f61df1ef38788ab826793d3e19dc65906cb2ec1064649c9fbe0',
   },
   {
-    name: "Lidl",
-    coords: [
-      47.18424,
-      -1.55991
-    ],
-    category: "lidl",
-    address: "All. du Lac de Grand Lieu, 44400 Rezé, France",
+    name: 'Lidl',
+    coords: [47.18424, -1.55991],
+    category: 'lidl',
+    address: 'All. du Lac de Grand Lieu, 44400 Rezé, France',
     hasCageEggs: true,
     nbRef: 1,
-    urlImg: "https://storage.tally.so/private/telechargement-16-.jpg?id=rJ6EXl&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6InJKNkVYbCIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4Nn0.mh5pUbZiESZLignedT5UNW7SsWGdHYI1PD-Eve2WKzI&signature=217151ac34cca48bf157cb5103abb1513bd110a9668bc87110e3a7f23ec30606"
+    urlImg:
+      'https://storage.tally.so/private/telechargement-16-.jpg?id=rJ6EXl&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6InJKNkVYbCIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4Nn0.mh5pUbZiESZLignedT5UNW7SsWGdHYI1PD-Eve2WKzI&signature=217151ac34cca48bf157cb5103abb1513bd110a9668bc87110e3a7f23ec30606',
   },
   {
-    name: "Lidl",
-    coords: [
-      47.2045,
-      -1.55444
-    ],
-    category: "lidl",
-    address: "10 Bd Victor Hugo, 44200 Nantes",
+    name: 'Lidl',
+    coords: [47.2045, -1.55444],
+    category: 'lidl',
+    address: '10 Bd Victor Hugo, 44200 Nantes',
     hasCageEggs: true,
     nbRef: 1,
-    urlImg: "https://storage.tally.so/private/telechargement-25-.jpg?id=BjXDxA&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IkJqWER4QSIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4Nn0.XMo50JlTvGLvvfCLwujxeHKET4W4cNAZ-vfn7NcvqlM&signature=caa9fabd401df7d151944861e3c5c56bcdc9858f340ff69a63ee0392f773b65f"
+    urlImg:
+      'https://storage.tally.so/private/telechargement-25-.jpg?id=BjXDxA&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IkJqWER4QSIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4Nn0.XMo50JlTvGLvvfCLwujxeHKET4W4cNAZ-vfn7NcvqlM&signature=caa9fabd401df7d151944861e3c5c56bcdc9858f340ff69a63ee0392f773b65f',
   },
   {
-    name: "Lidl",
-    coords: [
-      47.6010974,
-      6.8642812
-    ],
-    category: "lidl",
-    address: "Andelnans 90",
+    name: 'Lidl',
+    coords: [47.6010974, 6.8642812],
+    category: 'lidl',
+    address: 'Andelnans 90',
     hasCageEggs: true,
     nbRef: 2,
-    urlImg: "https://storage.tally.so/private/IMG_20260116_103643.jpg?id=Rb0VbJ&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IlJiMFZiSiIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4Nn0.VnSD0hlwTuDd8S3YEE9ryFgLd9QjDdvJEByTr4oT4Xo&signature=1cb8ab66c9d4c09083bc9c75da3892166620005c4c2499a228a31b7e44437493"
+    urlImg:
+      'https://storage.tally.so/private/IMG_20260116_103643.jpg?id=Rb0VbJ&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IlJiMFZiSiIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4Nn0.VnSD0hlwTuDd8S3YEE9ryFgLd9QjDdvJEByTr4oT4Xo&signature=1cb8ab66c9d4c09083bc9c75da3892166620005c4c2499a228a31b7e44437493',
   },
   {
-    name: "Lidl",
-    coords: [
-      44.03698,
-      5.05054
-    ],
-    category: "lidl",
-    address: "24 Av. Dwight Eisenhower, 84200 Carpentras",
+    name: 'Lidl',
+    coords: [44.03698, 5.05054],
+    category: 'lidl',
+    address: '24 Av. Dwight Eisenhower, 84200 Carpentras',
     hasCageEggs: true,
     nbRef: 2,
-    urlImg: "https://storage.tally.so/private/20260117_111916.jpg?id=6WkWlk&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZXa1dsayIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4NX0.zgxKF0ugWDpAvRxRFXnD05-7NfpXzbFvzyJm92mjBt8&signature=6885701bb8113ef9237ab4c7982acf9fa64ea68723624dc19bc25ce3fc3322f0"
+    urlImg:
+      'https://storage.tally.so/private/20260117_111916.jpg?id=6WkWlk&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZXa1dsayIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4NX0.zgxKF0ugWDpAvRxRFXnD05-7NfpXzbFvzyJm92mjBt8&signature=6885701bb8113ef9237ab4c7982acf9fa64ea68723624dc19bc25ce3fc3322f0',
   },
   {
-    name: "Lidl",
-    coords: [
-      48.84276,
-      2.38474
-    ],
-    category: "lidl",
-    address: "108 avenue daumesnil 75012 paris",
+    name: 'Lidl',
+    coords: [48.84276, 2.38474],
+    category: 'lidl',
+    address: '108 avenue daumesnil 75012 paris',
     hasCageEggs: true,
     nbRef: 1,
-    urlImg: "https://storage.tally.so/private/20260117_133150.jpg?id=9R1g6p&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjlSMWc2cCIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4NX0.3FSY4dPGCeKUvZUq3BUpPZ8UewP1_fZ7FpqwrdJYhr8&signature=3e5ba4a91d5d3abeb8d7e7eb259b09d28c85d624451f5b1a5fe55395131a2c8a"
+    urlImg:
+      'https://storage.tally.so/private/20260117_133150.jpg?id=9R1g6p&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjlSMWc2cCIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4NX0.3FSY4dPGCeKUvZUq3BUpPZ8UewP1_fZ7FpqwrdJYhr8&signature=3e5ba4a91d5d3abeb8d7e7eb259b09d28c85d624451f5b1a5fe55395131a2c8a',
   },
   {
-    name: "Lidl",
-    coords: [
-      48.8685066,
-      2.6763741
-    ],
-    category: "lidl",
-    address: "6 Av. de la Courtillière, 77400 Saint-Thibault-des-Vignes",
+    name: 'Lidl',
+    coords: [48.8685066, 2.6763741],
+    category: 'lidl',
+    address: '6 Av. de la Courtillière, 77400 Saint-Thibault-des-Vignes',
     hasCageEggs: true,
     nbRef: 2,
-    urlImg: "https://storage.tally.so/private/telechargement-2-.jpeg?id=Gq1W8Q&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IkdxMVc4USIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4NX0.WzKrbBzljvJ8I7qE7sz2tocpf-ffJce8WtdmQUuTyD0&signature=292a819221e2edec725aa59216c008588371a9d58d29cd31ad6f470c94f507a7"
+    urlImg:
+      'https://storage.tally.so/private/telechargement-2-.jpeg?id=Gq1W8Q&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IkdxMVc4USIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4NX0.WzKrbBzljvJ8I7qE7sz2tocpf-ffJce8WtdmQUuTyD0&signature=292a819221e2edec725aa59216c008588371a9d58d29cd31ad6f470c94f507a7',
   },
   {
-    name: "Lidl",
-    coords: [
-      48.8558526,
-      2.7526784
-    ],
-    category: "lidl",
-    address: "231 Ave du Chêne St Fiacre, 77600 Chanteloup-en-Brie",
+    name: 'Lidl',
+    coords: [48.8558526, 2.7526784],
+    category: 'lidl',
+    address: '231 Ave du Chêne St Fiacre, 77600 Chanteloup-en-Brie',
     hasCageEggs: true,
     nbRef: 1,
-    urlImg: "https://storage.tally.so/private/20260117_145434.jpg?id=xRQOL5&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6InhSUU9MNSIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4NX0.BamnNHD8YTohr8VA8JRvmpnGzvXMmsSoUY-lRw7w1KI&signature=088a8d9601206c24624ad3dca89af979fb2500dc75f984fc48b57a815e4d22fe"
+    urlImg:
+      'https://storage.tally.so/private/20260117_145434.jpg?id=xRQOL5&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6InhSUU9MNSIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4NX0.BamnNHD8YTohr8VA8JRvmpnGzvXMmsSoUY-lRw7w1KI&signature=088a8d9601206c24624ad3dca89af979fb2500dc75f984fc48b57a815e4d22fe',
   },
   {
-    name: "Lidl",
-    coords: [
-      48.85288,
-      2.77798
-    ],
-    category: "lidl",
-    address: "14 Cr du Danube, 77700 Serris",
+    name: 'Lidl',
+    coords: [48.85288, 2.77798],
+    category: 'lidl',
+    address: '14 Cr du Danube, 77700 Serris',
     hasCageEggs: true,
     nbRef: 2,
-    urlImg: "https://storage.tally.so/private/telechargement-9-.jpeg?id=kJAVYe&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImtKQVZZZSIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4NX0.Rc-RNRG8BldDkgS-8fdD1b3EUhga4XP6gTqUCPNHYNQ&signature=c191c9390f5ac3df33da63610a41fe0ab382000dbdb4d539ad21a5d5fc446145"
+    urlImg:
+      'https://storage.tally.so/private/telechargement-9-.jpeg?id=kJAVYe&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImtKQVZZZSIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4NX0.Rc-RNRG8BldDkgS-8fdD1b3EUhga4XP6gTqUCPNHYNQ&signature=c191c9390f5ac3df33da63610a41fe0ab382000dbdb4d539ad21a5d5fc446145',
   },
   {
-    name: "Lidl",
-    coords: [
-      47.3310477,
-      5.079640899999999
-    ],
-    category: "lidl",
-    address: "307 Rte de Gray, 21850 Saint-Apollinaire",
+    name: 'Lidl',
+    coords: [47.3310477, 5.079640899999999],
+    category: 'lidl',
+    address: '307 Rte de Gray, 21850 Saint-Apollinaire',
     hasCageEggs: true,
     nbRef: 1,
-    urlImg: "https://storage.tally.so/private/telechargement-2026-01-17T214221.922.jpg?id=0ZPe6A&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjBaUGU2QSIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4NX0.dVLJaL2OVVVsS38dcsx_zc2MPp1XJL_sdobya1K5itQ&signature=7808f34cfc1f99c835c6d79be9f911fd12fba45b271483e598b5bf4a1339af04"
+    urlImg:
+      'https://storage.tally.so/private/telechargement-2026-01-17T214221.922.jpg?id=0ZPe6A&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjBaUGU2QSIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4NX0.dVLJaL2OVVVsS38dcsx_zc2MPp1XJL_sdobya1K5itQ&signature=7808f34cfc1f99c835c6d79be9f911fd12fba45b271483e598b5bf4a1339af04',
   },
   {
-    name: "Lidl",
-    coords: [
-      47.6461721,
-      6.1405055
-    ],
-    category: "lidl",
+    name: 'Lidl',
+    coords: [47.6461721, 6.1405055],
+    category: 'lidl',
     address: "1 Rue de l'Oasis, Pusey 70000",
     hasCageEggs: true,
     nbRef: 1,
-    urlImg: "https://storage.tally.so/private/inbound4633066252418039431.jpg?id=WK08Wk&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IldLMDhXayIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4NX0.toog3u_YlRfu1SxO22lqlstFCNadyCuVnnE8_GJW9Wk&signature=bd9279227b6cbe2135d38df7fc40dd1f90d85d629aecc99d1f404738fa81cd59"
+    urlImg:
+      'https://storage.tally.so/private/inbound4633066252418039431.jpg?id=WK08Wk&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IldLMDhXayIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4NX0.toog3u_YlRfu1SxO22lqlstFCNadyCuVnnE8_GJW9Wk&signature=bd9279227b6cbe2135d38df7fc40dd1f90d85d629aecc99d1f404738fa81cd59',
   },
   {
-    name: "Lidl",
-    coords: [
-      47.9044439,
-      1.9342164
-    ],
-    category: "lidl",
-    address: "155-157 Rue du Faubourg de Bourgogne, 45800 Saint-Jean-de-Braye",
+    name: 'Lidl',
+    coords: [47.9044439, 1.9342164],
+    category: 'lidl',
+    address: '155-157 Rue du Faubourg de Bourgogne, 45800 Saint-Jean-de-Braye',
     hasCageEggs: true,
     nbRef: 1,
-    urlImg: "https://storage.tally.so/private/telechargement-2026-01-17T224855.144.jpg?id=jJxPdJ&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImpKeFBkSiIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4NX0.KUGzsoS1qNsDAZ8y9UCZHk3odgOCO7EiD7nW-NIs6Yw&signature=8e65a0d675ec10398e96385fddfa2e31be47e66d8d97854b80972717a4733be5"
+    urlImg:
+      'https://storage.tally.so/private/telechargement-2026-01-17T224855.144.jpg?id=jJxPdJ&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImpKeFBkSiIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4NX0.KUGzsoS1qNsDAZ8y9UCZHk3odgOCO7EiD7nW-NIs6Yw&signature=8e65a0d675ec10398e96385fddfa2e31be47e66d8d97854b80972717a4733be5',
   },
   {
-    name: "Lidl",
-    coords: [
-      47.2537775,
-      -1.5760621
-    ],
-    category: "lidl",
-    address: "78 route de Rennes 44300 nantes",
+    name: 'Lidl',
+    coords: [47.2537775, -1.5760621],
+    category: 'lidl',
+    address: '78 route de Rennes 44300 nantes',
     hasCageEggs: true,
     nbRef: 1,
-    urlImg: "https://storage.tally.so/private/IMG_20260117_095218.jpg?id=WKPEbL&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IldLUEViTCIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4NX0.Z8VQK8FqVvi7ewD96ZfqsKgl-Vh4X48nv7_Jcc1Y788&signature=5a895c3fc272ad6b8f830af70752cbbb4b1dd4ab94a10944bfd6cf6edbe2e56a"
+    urlImg:
+      'https://storage.tally.so/private/IMG_20260117_095218.jpg?id=WKPEbL&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IldLUEViTCIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4NX0.Z8VQK8FqVvi7ewD96ZfqsKgl-Vh4X48nv7_Jcc1Y788&signature=5a895c3fc272ad6b8f830af70752cbbb4b1dd4ab94a10944bfd6cf6edbe2e56a',
   },
   {
-    name: "Lidl",
-    coords: [
-      47.2643832,
-      6.062103899999999
-    ],
-    category: "lidl",
-    address: "1 rue des Valières - 25000 Besançon ",
+    name: 'Lidl',
+    coords: [47.2643832, 6.062103899999999],
+    category: 'lidl',
+    address: '1 rue des Valières - 25000 Besançon ',
     hasCageEggs: true,
     nbRef: 1,
-    urlImg: "https://storage.tally.so/private/20260112_180915.jpg?id=Je8NER&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IkplOE5FUiIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4NX0.bcTa0VH9UKlUQuNG6Cw_vqC9DHdLjRIzreckOVE6LI0&signature=f6e06ae608698027f462352f778e6a10ae95e3725ff03efd6291f5097eb53f41"
+    urlImg:
+      'https://storage.tally.so/private/20260112_180915.jpg?id=Je8NER&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IkplOE5FUiIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4NX0.bcTa0VH9UKlUQuNG6Cw_vqC9DHdLjRIzreckOVE6LI0&signature=f6e06ae608698027f462352f778e6a10ae95e3725ff03efd6291f5097eb53f41',
   },
   {
-    name: "Lidl",
-    coords: [
-      46.3319631,
-      2.6002336
-    ],
-    category: "lidl",
-    address: "12 r Pierre Sémard, 03100 Montluçon",
+    name: 'Lidl',
+    coords: [46.3319631, 2.6002336],
+    category: 'lidl',
+    address: '12 r Pierre Sémard, 03100 Montluçon',
     hasCageEggs: true,
     nbRef: 2,
-    urlImg: "https://storage.tally.so/private/20260107_150714.jpg?id=vE9PYd&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6InZFOVBZZCIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4Nn0.P4RkUR2UDYBZkDHkxY-2XiYAw5DUSODlSoLhhhqNlN8&signature=c4d8279a8ba5faf42b31f91b41f2cdfe13261cfabbd1a9759853944bbb9a6e2f"
+    urlImg:
+      'https://storage.tally.so/private/20260107_150714.jpg?id=vE9PYd&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6InZFOVBZZCIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4Nn0.P4RkUR2UDYBZkDHkxY-2XiYAw5DUSODlSoLhhhqNlN8&signature=c4d8279a8ba5faf42b31f91b41f2cdfe13261cfabbd1a9759853944bbb9a6e2f',
   },
   {
-    name: "Lidl",
-    coords: [
-      47.25516,
-      6.018599999999999
-    ],
-    category: "lidl",
-    address: "Boulevard Blum 25000 Besançon ",
+    name: 'Lidl',
+    coords: [47.25516, 6.018599999999999],
+    category: 'lidl',
+    address: 'Boulevard Blum 25000 Besançon ',
     hasCageEggs: true,
     nbRef: 1,
-    urlImg: "https://storage.tally.so/private/IMG_5726.jpeg?id=A4KOPe&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IkE0S09QZSIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4Nn0.sMtpV0uscaH9mHWseujR8Lk8mZXO-OKVPVeJKhiddWU&signature=9d757094486c57b351b53b430f1f5d177a903ec991e6b7721c7480bb7173a50b"
+    urlImg:
+      'https://storage.tally.so/private/IMG_5726.jpeg?id=A4KOPe&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IkE0S09QZSIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4Nn0.sMtpV0uscaH9mHWseujR8Lk8mZXO-OKVPVeJKhiddWU&signature=9d757094486c57b351b53b430f1f5d177a903ec991e6b7721c7480bb7173a50b',
   },
   {
-    name: "Lidl",
-    coords: [
-      47.640327,
-      6.912631999999999
-    ],
-    category: "lidl",
-    address: "8 Rue du Sarré, Bessoncourt 90160",
+    name: 'Lidl',
+    coords: [47.640327, 6.912631999999999],
+    category: 'lidl',
+    address: '8 Rue du Sarré, Bessoncourt 90160',
     hasCageEggs: true,
     nbRef: 2,
-    urlImg: "https://storage.tally.so/private/IMG_20260116_114941.jpg?id=yo6RWp&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6InlvNlJXcCIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4Nn0.ToFw9wAzYKdvz7b3vv1-GtWr38Wf7Ibwp2Uo4edNcFU&signature=7b924553d32ce3bc180185f548423cacd7fae04d28b998dbaee28fbbe06d0ef5"
+    urlImg:
+      'https://storage.tally.so/private/IMG_20260116_114941.jpg?id=yo6RWp&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6InlvNlJXcCIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4Nn0.ToFw9wAzYKdvz7b3vv1-GtWr38Wf7Ibwp2Uo4edNcFU&signature=7b924553d32ce3bc180185f548423cacd7fae04d28b998dbaee28fbbe06d0ef5',
   },
   {
-    name: "Lidl",
-    coords: [
-      43.5964542,
-      2.2649246
-    ],
-    category: "lidl",
-    address: "21 Chemin de Penchénéry, Castres 81100",
+    name: 'Lidl',
+    coords: [43.5964542, 2.2649246],
+    category: 'lidl',
+    address: '21 Chemin de Penchénéry, Castres 81100',
     hasCageEggs: true,
     nbRef: 1,
-    urlImg: "https://storage.tally.so/private/IMG_0922.jpeg?id=LazYOO&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IkxhellPTyIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4Nn0.ljL85tvWG_XYOqk2LAV8isIwExeUEHB3i_BTiIDskRg&signature=693670536d82c55db6b587f484aab225e8ac225854900452a49a917567378746"
+    urlImg:
+      'https://storage.tally.so/private/IMG_0922.jpeg?id=LazYOO&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IkxhellPTyIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4Nn0.ljL85tvWG_XYOqk2LAV8isIwExeUEHB3i_BTiIDskRg&signature=693670536d82c55db6b587f484aab225e8ac225854900452a49a917567378746',
   },
   {
-    name: "Lidl",
-    coords: [
-      47.2711117,
-      6.0282445
-    ],
-    category: "lidl",
+    name: 'Lidl',
+    coords: [47.2711117, 6.0282445],
+    category: 'lidl',
     address: "23 avenue du 60e régiment d'infanterie, 25000 Besançon",
     hasCageEggs: true,
     nbRef: 1,
-    urlImg: "https://storage.tally.so/private/20260122_185515.jpg?id=EZNoaB&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IkVaTm9hQiIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTM2NDM0M30.qQe-Zt-yVGw6aXoweDbfmXaMX3eL-qqoUt7Jm6G0gdA&signature=2dcd68a888c95c5694cfeeaeff9dc159506412dffe6367f30a4c8f9fab480862"
+    urlImg:
+      'https://storage.tally.so/private/20260122_185515.jpg?id=EZNoaB&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IkVaTm9hQiIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTM2NDM0M30.qQe-Zt-yVGw6aXoweDbfmXaMX3eL-qqoUt7Jm6G0gdA&signature=2dcd68a888c95c5694cfeeaeff9dc159506412dffe6367f30a4c8f9fab480862',
   },
   {
-    name: "Lidl",
-    coords: [
-      48.5734053,
-      7.752111299999999
-    ],
-    category: "lidl",
-    address: "8 Bd St Strasbourg 75010 Paris ",
+    name: 'Lidl',
+    coords: [48.5734053, 7.752111299999999],
+    category: 'lidl',
+    address: '8 Bd St Strasbourg 75010 Paris ',
     hasCageEggs: true,
     nbRef: 2,
-    urlImg: "https://storage.tally.so/private/IMG_20260122_140313.jpg?id=1NpQ1L&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjFOcFExTCIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTM2NDM0M30.N6_8XXCNgPDMMhWIjibj85-NWPNJDFS_0WR70lSFKLU&signature=67d242bbd8f67a07365bd513e9a793dec90b7ae41e87c5043237c71e7f1420c1"
+    urlImg:
+      'https://storage.tally.so/private/IMG_20260122_140313.jpg?id=1NpQ1L&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjFOcFExTCIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTM2NDM0M30.N6_8XXCNgPDMMhWIjibj85-NWPNJDFS_0WR70lSFKLU&signature=67d242bbd8f67a07365bd513e9a793dec90b7ae41e87c5043237c71e7f1420c1',
   },
   {
-    name: "Lidl",
-    coords: [
-      48.79667999999999,
-      2.13481
-    ],
-    category: "lidl",
-    address: "1 place Raymond Poincaré - 78000 - Versailles",
+    name: 'Lidl',
+    coords: [48.79667999999999, 2.13481],
+    category: 'lidl',
+    address: '1 place Raymond Poincaré - 78000 - Versailles',
     hasCageEggs: true,
     nbRef: 1,
-    urlImg: "https://storage.tally.so/private/LIDL-1.jpg?id=gJzMOJ&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImdKek1PSiIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTM2NDM0M30.QKQdJZDWqfos7RuSLKtleUXEUlVLjkoxdq7Zxho06Js&signature=1bb1c991dba879b3b417a7e6823062b4f3345f1fef80a126b4afc0990ba85e08"
+    urlImg:
+      'https://storage.tally.so/private/LIDL-1.jpg?id=gJzMOJ&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImdKek1PSiIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTM2NDM0M30.QKQdJZDWqfos7RuSLKtleUXEUlVLjkoxdq7Zxho06Js&signature=1bb1c991dba879b3b417a7e6823062b4f3345f1fef80a126b4afc0990ba85e08',
   },
   {
-    name: "Lidl",
-    coords: [
-      44.0799009,
-      4.9818403
-    ],
-    category: "lidl",
-    address: "18 Rte de Carpentras, 84260 Sarrians, France",
+    name: 'Lidl',
+    coords: [44.0799009, 4.9818403],
+    category: 'lidl',
+    address: '18 Rte de Carpentras, 84260 Sarrians, France',
     hasCageEggs: true,
     nbRef: 2,
-    urlImg: "https://storage.tally.so/private/l.jpeg?id=bYzk07&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImJZemswNyIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTM2NDM0M30.fGBE0xvDQHl6bJoiyUrbenpOl3j8jGBtIv3DRvOmTL4&signature=06b126db441b2bae4435e5b14f33293d80e17a9ddefe378533772f2894912ac9"
+    urlImg:
+      'https://storage.tally.so/private/l.jpeg?id=bYzk07&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImJZemswNyIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTM2NDM0M30.fGBE0xvDQHl6bJoiyUrbenpOl3j8jGBtIv3DRvOmTL4&signature=06b126db441b2bae4435e5b14f33293d80e17a9ddefe378533772f2894912ac9',
   },
   {
-    name: "Lidl",
-    coords: [
-      44.1186546,
-      4.841306599999999
-    ],
-    category: "lidl",
+    name: 'Lidl',
+    coords: [44.1186546, 4.841306599999999],
+    category: 'lidl',
     address: "4 Rue d'Autriche 84100\tORANGE",
     hasCageEggs: true,
     nbRef: 3,
-    urlImg: "https://storage.tally.so/private/signal-2026-01-23-160452.jpeg?id=9R4lxE&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjlSNGx4RSIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTM2NDM0M30.8R7DkmgO9QyWxPGddCQ_LE2MGaYIpwHBPBoV6BU-a2c&signature=3e0b9778a98a111db93a431bf4b861d79349abb08a411e55294172948d41c045"
+    urlImg:
+      'https://storage.tally.so/private/signal-2026-01-23-160452.jpeg?id=9R4lxE&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjlSNGx4RSIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTM2NDM0M30.8R7DkmgO9QyWxPGddCQ_LE2MGaYIpwHBPBoV6BU-a2c&signature=3e0b9778a98a111db93a431bf4b861d79349abb08a411e55294172948d41c045',
   },
   {
-    name: "Lidl",
-    coords: [
-      44.0159874,
-      4.8691015
-    ],
-    category: "lidl",
+    name: 'Lidl',
+    coords: [44.0159874, 4.8691015],
+    category: 'lidl',
     address: "937 Avenue d'Orange\t84370\tSORGUES",
     hasCageEggs: true,
     nbRef: 1,
-    urlImg: "https://storage.tally.so/private/signal-2026-01-23-162632.jpeg?id=0ZkLKy&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjBaa0xLeSIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTM2NDM0M30.BFo3tzZ5UVMq79RkwJJuwHmwByiH-6VhvD_LSquJlv4&signature=049d332d53d435d8bdbd7d7cf8b97a44ae0ccbc88697642940fbc5ff796d5f2c"
+    urlImg:
+      'https://storage.tally.so/private/signal-2026-01-23-162632.jpeg?id=0ZkLKy&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjBaa0xLeSIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTM2NDM0M30.BFo3tzZ5UVMq79RkwJJuwHmwByiH-6VhvD_LSquJlv4&signature=049d332d53d435d8bdbd7d7cf8b97a44ae0ccbc88697642940fbc5ff796d5f2c',
   },
   {
-    name: "Lidl",
-    coords: [
-      43.9496066,
-      4.7588042
-    ],
-    category: "lidl",
-    address: "380  Allée de Tavel\t30133\tLES ANGLES",
+    name: 'Lidl',
+    coords: [43.9496066, 4.7588042],
+    category: 'lidl',
+    address: '380  Allée de Tavel\t30133\tLES ANGLES',
     hasCageEggs: true,
     nbRef: 1,
-    urlImg: "https://storage.tally.so/private/signal-2026-01-23-163833.jpeg?id=7aEv59&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjdhRXY1OSIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTM2NDM0M30.MSC6xAC5OVDRArIa9nKH0IdkVglwwVLZwP2dhp65IeU&signature=636d05d3103a7be56b032281cd64c7a2ed3085beb399c09cee305983b14b7010"
+    urlImg:
+      'https://storage.tally.so/private/signal-2026-01-23-163833.jpeg?id=7aEv59&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjdhRXY1OSIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTM2NDM0M30.MSC6xAC5OVDRArIa9nKH0IdkVglwwVLZwP2dhp65IeU&signature=636d05d3103a7be56b032281cd64c7a2ed3085beb399c09cee305983b14b7010',
   },
   {
-    name: "Lidl",
-    coords: [
-      43.95521249999999,
-      4.9024015
-    ],
-    category: "lidl",
-    address: "50 Route de Morières\t84270\tVEDENE",
+    name: 'Lidl',
+    coords: [43.95521249999999, 4.9024015],
+    category: 'lidl',
+    address: '50 Route de Morières\t84270\tVEDENE',
     hasCageEggs: true,
     nbRef: 2,
-    urlImg: "https://storage.tally.so/private/signal-2026-01-23-164058.jpeg?id=gJzZ6J&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImdKelo2SiIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTM2NDM0M30.zGtENbH5ZMD_vd-OpRk-9ynWUaK3R12T1liwc47VrK4&signature=0d7f8ade7294096cdbc9bfa3fd3bed5f39eaaab9e82a04d489a1fc517045a726"
+    urlImg:
+      'https://storage.tally.so/private/signal-2026-01-23-164058.jpeg?id=gJzZ6J&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImdKelo2SiIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTM2NDM0M30.zGtENbH5ZMD_vd-OpRk-9ynWUaK3R12T1liwc47VrK4&signature=0d7f8ade7294096cdbc9bfa3fd3bed5f39eaaab9e82a04d489a1fc517045a726',
   },
   {
-    name: "Lidl",
-    coords: [
-      47.2428,
-      -1.52786
-    ],
-    category: "lidl",
-    address: "128 Bd Jules Verne, 44300 Nantes",
+    name: 'Lidl',
+    coords: [47.2428, -1.52786],
+    category: 'lidl',
+    address: '128 Bd Jules Verne, 44300 Nantes',
     hasCageEggs: true,
     nbRef: 1,
-    urlImg: null
+    urlImg: null,
   },
   {
-    name: "Lidl",
-    coords: [
-      45.80255,
-      1.1512
-    ],
-    category: "lidl",
-    address: "Lidl, 30 avenue Jean Rebier 87700 Aixe-sur-Vienne",
+    name: 'Lidl',
+    coords: [45.80255, 1.1512],
+    category: 'lidl',
+    address: 'Lidl, 30 avenue Jean Rebier 87700 Aixe-sur-Vienne',
     hasCageEggs: true,
     nbRef: 0,
-    urlImg: "https://storage.tally.so/private/IMG_20260124_183218.jpg?id=yo7QZp&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6InlvN1FacCIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTM2NDM0Mn0.if5x_mT0eCdRNrHs6SxWG4AdjELs1EtaVaLLlwEdb-4&signature=8fb297f59c72595cf937939de2e28533deaa623bcda0116fdf7a3303ec3ef22b"
+    urlImg:
+      'https://storage.tally.so/private/IMG_20260124_183218.jpg?id=yo7QZp&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6InlvN1FacCIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTM2NDM0Mn0.if5x_mT0eCdRNrHs6SxWG4AdjELs1EtaVaLLlwEdb-4&signature=8fb297f59c72595cf937939de2e28533deaa623bcda0116fdf7a3303ec3ef22b',
   },
   {
-    name: "Lidl",
-    coords: [
-      43.0868531,
-      0.1357011
-    ],
-    category: "lidl",
-    address: "lidl, Av. de la Mongie, 65200 Pouzac",
+    name: 'Lidl',
+    coords: [43.0868531, 0.1357011],
+    category: 'lidl',
+    address: 'lidl, Av. de la Mongie, 65200 Pouzac',
     hasCageEggs: true,
     nbRef: 1,
-    urlImg: "https://storage.tally.so/private/Lidl-pouzac-1.jpg?id=VbxKQE&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IlZieEtRRSIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTM2NDM0Mn0.GTdslZTO1aAVTxtdQrdutnCEW46JU_ui4jilZPrMLjc&signature=13cf516e67643bcab55ebf4c5624959eb47c633df9680e544c6e144fe87e0499"
+    urlImg:
+      'https://storage.tally.so/private/Lidl-pouzac-1.jpg?id=VbxKQE&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IlZieEtRRSIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTM2NDM0Mn0.GTdslZTO1aAVTxtdQrdutnCEW46JU_ui4jilZPrMLjc&signature=13cf516e67643bcab55ebf4c5624959eb47c633df9680e544c6e144fe87e0499',
   },
   {
-    name: "Lidl",
-    coords: [
-      43.1210709,
-      0.3853208
-    ],
-    category: "lidl",
-    address: "199 Bd Gén de Gaulle, 65300 Lannemezan",
+    name: 'Lidl',
+    coords: [43.1210709, 0.3853208],
+    category: 'lidl',
+    address: '199 Bd Gén de Gaulle, 65300 Lannemezan',
     hasCageEggs: true,
     nbRef: 1,
-    urlImg: "https://storage.tally.so/private/Lidl-Lannemezan_100953.jpg?id=GqyE8j&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IkdxeUU4aiIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTY4MTAyOH0.zhHuwBVPg-syZ9hEwlUpH0Tj84mlDGv9LV7Rf4bis3w&signature=815b08e4182962c987ad57d3fbf063561b5bc496befdbdc1c6319fcbae9185fa"
+    urlImg:
+      'https://storage.tally.so/private/Lidl-Lannemezan_100953.jpg?id=GqyE8j&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IkdxeUU4aiIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTY4MTAyOH0.zhHuwBVPg-syZ9hEwlUpH0Tj84mlDGv9LV7Rf4bis3w&signature=815b08e4182962c987ad57d3fbf063561b5bc496befdbdc1c6319fcbae9185fa',
   },
   {
-    name: "Lidl",
-    coords: [
-      48.8639282,
-      2.3783054
-    ],
-    category: "lidl",
-    address: "83 rue Saint Maur, Paris 75011",
+    name: 'Lidl',
+    coords: [48.8639282, 2.3783054],
+    category: 'lidl',
+    address: '83 rue Saint Maur, Paris 75011',
     hasCageEggs: true,
     nbRef: 1,
-    urlImg: "https://storage.tally.so/private/X8CCTI1JVYXP4651.jpg?id=bYM8g0&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImJZTThnMCIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTY4MTAyOH0.fXGA9sX_TQCf2J2pzfZu_VcP6acpVw6N_eCjy4RMHu4&signature=b6de949d45c47cfd51c5fe2ace6be5a600b78ac73adfe6fa0c23f57e8cbce9cf"
+    urlImg:
+      'https://storage.tally.so/private/X8CCTI1JVYXP4651.jpg?id=bYM8g0&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImJZTThnMCIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTY4MTAyOH0.fXGA9sX_TQCf2J2pzfZu_VcP6acpVw6N_eCjy4RMHu4&signature=b6de949d45c47cfd51c5fe2ace6be5a600b78ac73adfe6fa0c23f57e8cbce9cf',
   },
   {
-    name: "Lidl",
-    coords: [
-      43.61795,
-      3.84494
-    ],
-    category: "lidl",
-    address: "9 Pl. Corot, 34070 Montpellier",
+    name: 'Lidl',
+    coords: [43.61795, 3.84494],
+    category: 'lidl',
+    address: '9 Pl. Corot, 34070 Montpellier',
     hasCageEggs: true,
     nbRef: 1,
-    urlImg: "https://storage.tally.so/private/IMG_20260128_140534.jpg?id=o5Z5VP&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Im81WjVWUCIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTY4MTAyOH0.L61qbS-8kbG5nrhE8lyCM5PGE_Mj3FqAM3ALPS-joQo&signature=0635cdc12ab1e080dbfd8ef257cfdde6cb7793b7bb78068c30ebd98aa7a53096"
+    urlImg:
+      'https://storage.tally.so/private/IMG_20260128_140534.jpg?id=o5Z5VP&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Im81WjVWUCIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTY4MTAyOH0.L61qbS-8kbG5nrhE8lyCM5PGE_Mj3FqAM3ALPS-joQo&signature=0635cdc12ab1e080dbfd8ef257cfdde6cb7793b7bb78068c30ebd98aa7a53096',
   },
   {
-    name: "Lidl",
-    coords: [
-      48.10497549999999,
-      -1.7337612
-    ],
-    category: "lidl",
-    address: "169 route de Lorient, 35132 Vezin-le-Coquet",
+    name: 'Lidl',
+    coords: [48.10497549999999, -1.7337612],
+    category: 'lidl',
+    address: '169 route de Lorient, 35132 Vezin-le-Coquet',
     hasCageEggs: true,
     nbRef: 2,
-    urlImg: "https://storage.tally.so/private/signal-2026-01-28-143504.jpeg?id=o5ZzOe&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Im81WnpPZSIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTY4MTAyOH0.FVXeg6k3GxzYuCOzHVqr7PtP4scxXOkiMh4b5gsYvuU&signature=5a63ee7cb545a26411d1d34aca63e54de0e288d0fb207ca3bbfdc27afc10a706"
+    urlImg:
+      'https://storage.tally.so/private/signal-2026-01-28-143504.jpeg?id=o5ZzOe&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Im81WnpPZSIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTY4MTAyOH0.FVXeg6k3GxzYuCOzHVqr7PtP4scxXOkiMh4b5gsYvuU&signature=5a63ee7cb545a26411d1d34aca63e54de0e288d0fb207ca3bbfdc27afc10a706',
   },
   {
-    name: "Lidl",
-    coords: [
-      48.869787,
-      2.4677748
-    ],
-    category: "lidl",
-    address: "284 rue de Rosny, 93100 Montreuil",
+    name: 'Lidl',
+    coords: [48.869787, 2.4677748],
+    category: 'lidl',
+    address: '284 rue de Rosny, 93100 Montreuil',
     hasCageEggs: false,
     nbRef: 0,
-    urlImg: "https://storage.tally.so/private/S06L1R0HVSGKEYBR.jpg?id=X87gxY&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ilg4N2d4WSIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTY4MTAyOH0.UeoIABwTE_Jf20SX4HU7hMxLULGQGrGpT0g15U1DDGA&signature=67fd897ed00f1219adc0c6d36e5aadf65b13ecf7245617b345bc995471be7a71"
+    urlImg:
+      'https://storage.tally.so/private/S06L1R0HVSGKEYBR.jpg?id=X87gxY&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ilg4N2d4WSIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTY4MTAyOH0.UeoIABwTE_Jf20SX4HU7hMxLULGQGrGpT0g15U1DDGA&signature=67fd897ed00f1219adc0c6d36e5aadf65b13ecf7245617b345bc995471be7a71',
   },
   {
-    name: "Lidl",
-    coords: [
-      47.61364,
-      6.159149999999999
-    ],
-    category: "lidl",
-    address: "21 rue Pierre Curie",
+    name: 'Lidl',
+    coords: [47.61364, 6.159149999999999],
+    category: 'lidl',
+    address: '21 rue Pierre Curie',
     hasCageEggs: true,
     nbRef: 1,
-    urlImg: "https://storage.tally.so/private/inbound1728460136242698809.jpg?id=DxR4MZ&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IkR4UjRNWiIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc3MDQ1NjU5M30.0EJEXs7KqSLyi1OzkgjywJlYrwAaCsLEMlsaSQ-8Pn8&signature=a1ae3e4ef10d0353262a5235a70f4624cc581c5dae2e4d9b50e20ba573628b00"
+    urlImg:
+      'https://storage.tally.so/private/inbound1728460136242698809.jpg?id=DxR4MZ&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IkR4UjRNWiIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc3MDQ1NjU5M30.0EJEXs7KqSLyi1OzkgjywJlYrwAaCsLEMlsaSQ-8Pn8&signature=a1ae3e4ef10d0353262a5235a70f4624cc581c5dae2e4d9b50e20ba573628b00',
   },
   {
-    name: "Lidl",
-    coords: [
-      48.10998,
-      -1.688499
-    ],
-    category: "lidl",
-    address: "26 mail François Mitterand 35000 Rennes",
+    name: 'Lidl',
+    coords: [48.10998, -1.688499],
+    category: 'lidl',
+    address: '26 mail François Mitterand 35000 Rennes',
     hasCageEggs: true,
     nbRef: 1,
-    urlImg: "https://storage.tally.so/private/signal-2026-01-29-150953.jpeg?id=jJ86RY&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImpKODZSWSIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc3MDQ1NjU5M30.Lkz7r-IPFf8Sh4nndbkYPnvpCX-mmh0_3rF5BBlSShw&signature=436204a8585772b3720cae29cc24777c850816ce69582a7b3d323b0029d5eb5c"
+    urlImg:
+      'https://storage.tally.so/private/signal-2026-01-29-150953.jpeg?id=jJ86RY&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImpKODZSWSIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc3MDQ1NjU5M30.Lkz7r-IPFf8Sh4nndbkYPnvpCX-mmh0_3rF5BBlSShw&signature=436204a8585772b3720cae29cc24777c850816ce69582a7b3d323b0029d5eb5c',
   },
   {
-    name: "Lidl",
-    coords: [
-      48.11734209999999,
-      -1.7075198
-    ],
-    category: "lidl",
-    address: " place assia djebar 35000 Rennes",
+    name: 'Lidl',
+    coords: [48.11734209999999, -1.7075198],
+    category: 'lidl',
+    address: ' place assia djebar 35000 Rennes',
     hasCageEggs: true,
     nbRef: 1,
-    urlImg: "https://storage.tally.so/private/signal-2026-01-29-162336.jpeg?id=RbqMXK&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IlJicU1YSyIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc3MDQ1NjU5M30.zvRx2LWl6Xdfz0kX1d5vcuP0AapM5Epyg-VXLYF7YsI&signature=4cee037f1188ed6472b3316fa2e63e56f24399f576dfbacee57502cac32f9493"
+    urlImg:
+      'https://storage.tally.so/private/signal-2026-01-29-162336.jpeg?id=RbqMXK&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IlJicU1YSyIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc3MDQ1NjU5M30.zvRx2LWl6Xdfz0kX1d5vcuP0AapM5Epyg-VXLYF7YsI&signature=4cee037f1188ed6472b3316fa2e63e56f24399f576dfbacee57502cac32f9493',
   },
   {
-    name: "Lidl",
-    coords: [
-      48.57974470000001,
-      7.7147433
-    ],
-    category: "lidl",
-    address: "66 Route des romains 67200 Strasbourg ",
+    name: 'Lidl',
+    coords: [48.57974470000001, 7.7147433],
+    category: 'lidl',
+    address: '66 Route des romains 67200 Strasbourg ',
     hasCageEggs: true,
     nbRef: 1,
-    urlImg: "https://storage.tally.so/private/IMG_20260129_174034.jpg?id=lYkD6v&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImxZa0Q2diIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc3MDQ1NjU5M30.ba9se_ifw44Y8NQADPoPKPfOuYiAymcRLdgipIke3x4&signature=46ae60a7c8b777bc423ab1934e38b8e440e60dadfeceb103072f8483352bcbfb"
+    urlImg:
+      'https://storage.tally.so/private/IMG_20260129_174034.jpg?id=lYkD6v&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImxZa0Q2diIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc3MDQ1NjU5M30.ba9se_ifw44Y8NQADPoPKPfOuYiAymcRLdgipIke3x4&signature=46ae60a7c8b777bc423ab1934e38b8e440e60dadfeceb103072f8483352bcbfb',
   },
   {
-    name: "Lidl",
-    coords: [
-      44.64528,
-      4.36994
-    ],
-    category: "lidl",
-    address: "102 Rte nationale, 07200 Labégude",
+    name: 'Lidl',
+    coords: [44.64528, 4.36994],
+    category: 'lidl',
+    address: '102 Rte nationale, 07200 Labégude',
     hasCageEggs: true,
     nbRef: 2,
-    urlImg: "https://storage.tally.so/private/anima_oeufs_lidl_florence_dellerie_3B.jpeg?id=o5LGP1&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Im81TEdQMSIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc3MDQ1NjU5M30.B7_c5E6tv5Cvk_fqbjfiPnldUQANpvKDVCJ3XiALleA&signature=4ab51d8307d79284b4df0f233338be3fb7095a848be038d13aba1cecd80d33ef"
+    urlImg:
+      'https://storage.tally.so/private/anima_oeufs_lidl_florence_dellerie_3B.jpeg?id=o5LGP1&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Im81TEdQMSIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc3MDQ1NjU5M30.B7_c5E6tv5Cvk_fqbjfiPnldUQANpvKDVCJ3XiALleA&signature=4ab51d8307d79284b4df0f233338be3fb7095a848be038d13aba1cecd80d33ef',
   },
   {
-    name: "Lidl",
-    coords: [
-      50.29596799999999,
-      2.7967399
-    ],
-    category: "lidl",
-    address: "45 rue du général de Gaulle 62223 saint Laurent Blangy ",
+    name: 'Lidl',
+    coords: [50.29596799999999, 2.7967399],
+    category: 'lidl',
+    address: '45 rue du général de Gaulle 62223 saint Laurent Blangy ',
     hasCageEggs: true,
     nbRef: 1,
-    urlImg: "https://storage.tally.so/private/IMG_4875.jpeg?id=1NajrW&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjFOYWpyVyIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc3MDQ1NjU5M30.e2SLMSyCDmRAR6f8gaVnukHw0aMGO5qdYqCzuCPyQTc&signature=d4515e92353a9c9181250128e49e53229513991412f09c326c4f99bbc4139380"
+    urlImg:
+      'https://storage.tally.so/private/IMG_4875.jpeg?id=1NajrW&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjFOYWpyVyIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc3MDQ1NjU5M30.e2SLMSyCDmRAR6f8gaVnukHw0aMGO5qdYqCzuCPyQTc&signature=d4515e92353a9c9181250128e49e53229513991412f09c326c4f99bbc4139380',
   },
   {
-    name: "Monoprix",
-    coords: [
-      48.6756954,
-      6.1624637
-    ],
-    category: "monoprix",
-    address: "31 Bd de Baudricourt, 54600 Villers-lès-Nancy",
+    name: 'Monoprix',
+    coords: [48.6756954, 6.1624637],
+    category: 'monoprix',
+    address: '31 Bd de Baudricourt, 54600 Villers-lès-Nancy',
     hasCageEggs: false,
     nbRef: 0,
-    urlImg: "https://storage.tally.so/private/G-PA-PRI-DE-FOTOOOOOO.png?id=QvL09Y&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IlF2TDA5WSIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4Nn0.6K0_c_t3o9RUGdg1eumbAxJPYIslOP-boCdnXwJrx7g&signature=82eeaeb8d990d84eae78ef9fd0bd5130f311b335dea660f0852ade560be38287"
+    urlImg:
+      'https://storage.tally.so/private/G-PA-PRI-DE-FOTOOOOOO.png?id=QvL09Y&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IlF2TDA5WSIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4Nn0.6K0_c_t3o9RUGdg1eumbAxJPYIslOP-boCdnXwJrx7g&signature=82eeaeb8d990d84eae78ef9fd0bd5130f311b335dea660f0852ade560be38287',
   },
   {
-    name: "Monoprix",
-    coords: [
-      43.4914216,
-      -1.4763129
-    ],
-    category: "monoprix",
-    address: "8-12 Rue orbe, Bayonne ",
+    name: 'Monoprix',
+    coords: [43.4914216, -1.4763129],
+    category: 'monoprix',
+    address: '8-12 Rue orbe, Bayonne ',
     hasCageEggs: false,
     nbRef: 0,
-    urlImg: "https://storage.tally.so/private/IMG_9549.jpeg?id=xRXWOd&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6InhSWFdPZCIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4Nn0.2sBoo1QyYqsE3fuCQBrV4R2Mwrpuc3agJ_PDPLvXfKE&signature=24a0d72bdb5c7b9e63cccc91414ebb592e3e72bc6aa29e16a2275020270dc54e"
+    urlImg:
+      'https://storage.tally.so/private/IMG_9549.jpeg?id=xRXWOd&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6InhSWFdPZCIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4Nn0.2sBoo1QyYqsE3fuCQBrV4R2Mwrpuc3agJ_PDPLvXfKE&signature=24a0d72bdb5c7b9e63cccc91414ebb592e3e72bc6aa29e16a2275020270dc54e',
   },
   {
-    name: "Monoprix",
-    coords: [
-      48.87813449999999,
-      2.2954077
-    ],
-    category: "monoprix",
-    address: "25 Av. des Ternes, 75017 Paris",
+    name: 'Monoprix',
+    coords: [48.87813449999999, 2.2954077],
+    category: 'monoprix',
+    address: '25 Av. des Ternes, 75017 Paris',
     hasCageEggs: false,
     nbRef: 0,
-    urlImg: "https://storage.tally.so/private/IMG_20260112_125724.jpg?id=o5EDYx&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Im81RURZeCIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4Nn0.p8GWhgkND9evqs1udjy5RwPUg6GFIwDEtyIexbm2wAY&signature=3caa0a6736921eab2fa3ad6e19e4c128c881cbda157c63cf434207e5eaecc04b"
+    urlImg:
+      'https://storage.tally.so/private/IMG_20260112_125724.jpg?id=o5EDYx&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Im81RURZeCIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4Nn0.p8GWhgkND9evqs1udjy5RwPUg6GFIwDEtyIexbm2wAY&signature=3caa0a6736921eab2fa3ad6e19e4c128c881cbda157c63cf434207e5eaecc04b',
   },
   {
-    name: "Monoprix",
-    coords: [
-      48.8139524,
-      7.788650100000001
-    ],
-    category: "monoprix",
-    address: "2 Rue Georges Clemenceau, 67500 Haguenau",
+    name: 'Monoprix',
+    coords: [48.8139524, 7.788650100000001],
+    category: 'monoprix',
+    address: '2 Rue Georges Clemenceau, 67500 Haguenau',
     hasCageEggs: false,
     nbRef: 0,
-    urlImg: "https://storage.tally.so/private/image.jpg?id=yoYqpx&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6InlvWXFweCIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4Nn0.GHwcW7CtQHApTPDH34bDAcPIF3a77eqgTiB-NOcDRNY&signature=c1bbf48601653c1a08fe3efe8f79940838025e8a4507b856a8da34b4f379d1f7"
+    urlImg:
+      'https://storage.tally.so/private/image.jpg?id=yoYqpx&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6InlvWXFweCIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4Nn0.GHwcW7CtQHApTPDH34bDAcPIF3a77eqgTiB-NOcDRNY&signature=c1bbf48601653c1a08fe3efe8f79940838025e8a4507b856a8da34b4f379d1f7',
   },
   {
-    name: "Monoprix",
-    coords: [
-      47.471756,
-      -0.5542204
-    ],
-    category: "monoprix",
-    address: "5 Pl. de la République, 49100 Angers",
+    name: 'Monoprix',
+    coords: [47.471756, -0.5542204],
+    category: 'monoprix',
+    address: '5 Pl. de la République, 49100 Angers',
     hasCageEggs: false,
     nbRef: 0,
-    urlImg: "https://storage.tally.so/private/telechargement-88-.jpg?id=kJ6Jp6&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImtKNkpwNiIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4Nn0.Sjg8Ai2vYxqwrURw2DEtdN7mNW2YehycW7mKWGXHLTQ&signature=2116c427ea4d447ddac8b3f5853e01b3db24371ce237a32ae80f1d8cdf95a5c2"
+    urlImg:
+      'https://storage.tally.so/private/telechargement-88-.jpg?id=kJ6Jp6&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImtKNkpwNiIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4Nn0.Sjg8Ai2vYxqwrURw2DEtdN7mNW2YehycW7mKWGXHLTQ&signature=2116c427ea4d447ddac8b3f5853e01b3db24371ce237a32ae80f1d8cdf95a5c2',
   },
   {
-    name: "Monoprix",
-    coords: [
-      47.2162134,
-      -1.553766
-    ],
-    category: "monoprix",
-    address: "2-20 Rue de la Marne, 44000 Nantes, France",
+    name: 'Monoprix',
+    coords: [47.2162134, -1.553766],
+    category: 'monoprix',
+    address: '2-20 Rue de la Marne, 44000 Nantes, France',
     hasCageEggs: false,
     nbRef: 0,
-    urlImg: "https://storage.tally.so/private/telechargement-28-.jpg?id=Bjk2K5&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IkJqazJLNSIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4Nn0.9AHkL0uy8hBjRTXOvrvpDFf5KU3KWkvdzOX9x7Zoo4k&signature=14603e2a185d4a7931fc3bf33c05aa80e339f5259f4b61b18cdc26445e333caf"
+    urlImg:
+      'https://storage.tally.so/private/telechargement-28-.jpg?id=Bjk2K5&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IkJqazJLNSIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4Nn0.9AHkL0uy8hBjRTXOvrvpDFf5KU3KWkvdzOX9x7Zoo4k&signature=14603e2a185d4a7931fc3bf33c05aa80e339f5259f4b61b18cdc26445e333caf',
   },
   {
-    name: "Monoprix",
-    coords: [
-      47.2158469,
-      -1.5597726
-    ],
-    category: "monoprix",
-    address: "2 Rue du Calvaire, 44000 Nantes",
+    name: 'Monoprix',
+    coords: [47.2158469, -1.5597726],
+    category: 'monoprix',
+    address: '2 Rue du Calvaire, 44000 Nantes',
     hasCageEggs: false,
     nbRef: 0,
-    urlImg: "https://storage.tally.so/private/telechargement-29-.jpg?id=Z1NYo0&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IloxTllvMCIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4Nn0.7u9JPgn3J5c1_hZ8fiJk6hRINCRqECly3UXIkN8vr6M&signature=57f2415da075265cd40abfdfafd7e8d39fdd83e2418e145dd4ee7e43896d350d"
+    urlImg:
+      'https://storage.tally.so/private/telechargement-29-.jpg?id=Z1NYo0&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IloxTllvMCIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4Nn0.7u9JPgn3J5c1_hZ8fiJk6hRINCRqECly3UXIkN8vr6M&signature=57f2415da075265cd40abfdfafd7e8d39fdd83e2418e145dd4ee7e43896d350d',
   },
   {
-    name: "Monoprix",
-    coords: [
-      45.7632296,
-      4.835993
-    ],
-    category: "monoprix",
-    address: "27 Rue de la République, 69002 Lyon",
+    name: 'Monoprix',
+    coords: [45.7632296, 4.835993],
+    category: 'monoprix',
+    address: '27 Rue de la République, 69002 Lyon',
     hasCageEggs: false,
     nbRef: 0,
-    urlImg: "https://storage.tally.so/private/20260116_123126.jpg?id=Vb0kYv&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IlZiMGtZdiIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4Nn0.G-I1uItHGg8HIdn2tH3bAl5X8dVsIRQlwn0wLRCmznU&signature=9c03fa70af59ac8653b4a6f23896b9e6005135e0088c68e94c137678ac2d9bcc"
+    urlImg:
+      'https://storage.tally.so/private/20260116_123126.jpg?id=Vb0kYv&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IlZiMGtZdiIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4Nn0.G-I1uItHGg8HIdn2tH3bAl5X8dVsIRQlwn0wLRCmznU&signature=9c03fa70af59ac8653b4a6f23896b9e6005135e0088c68e94c137678ac2d9bcc',
   },
   {
-    name: "Monoprix",
-    coords: [
-      48.838579,
-      2.3900213
-    ],
-    category: "monoprix",
-    address: "215 rue de Charenton",
+    name: 'Monoprix',
+    coords: [48.838579, 2.3900213],
+    category: 'monoprix',
+    address: '215 rue de Charenton',
     hasCageEggs: false,
     nbRef: 0,
-    urlImg: "https://storage.tally.so/private/20260117_095536.jpg?id=2lkJEe&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjJsa0pFZSIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4Nn0.34BmdNHQdwsq71wZMJ5ihkksjbRKVUSDCVO7G5yRROk&signature=2d8bf34d68f5f2a75c333cd61482f60219cfaa8f2d29a8169e4b9875d6b3e60b"
+    urlImg:
+      'https://storage.tally.so/private/20260117_095536.jpg?id=2lkJEe&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjJsa0pFZSIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4Nn0.34BmdNHQdwsq71wZMJ5ihkksjbRKVUSDCVO7G5yRROk&signature=2d8bf34d68f5f2a75c333cd61482f60219cfaa8f2d29a8169e4b9875d6b3e60b',
   },
   {
-    name: "Monoprix",
-    coords: [
-      48.8095444,
-      2.1899978
-    ],
-    category: "monoprix",
-    address: "1383 avenue Roger salengro 92370 chaville",
+    name: 'Monoprix',
+    coords: [48.8095444, 2.1899978],
+    category: 'monoprix',
+    address: '1383 avenue Roger salengro 92370 chaville',
     hasCageEggs: false,
     nbRef: 0,
-    urlImg: "https://storage.tally.so/private/20260117_145228.jpg?id=NbV1pQ&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ik5iVjFwUSIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4NX0.B2aDP9K4wNW4nTQWzLovMrN8Nk63RwNlhwq8wrr9sPc&signature=a31977c021a725679f3c956a1c830e0e54f7788c9b3210f8f4942f65229c1501"
+    urlImg:
+      'https://storage.tally.so/private/20260117_145228.jpg?id=NbV1pQ&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ik5iVjFwUSIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4NX0.B2aDP9K4wNW4nTQWzLovMrN8Nk63RwNlhwq8wrr9sPc&signature=a31977c021a725679f3c956a1c830e0e54f7788c9b3210f8f4942f65229c1501',
   },
   {
-    name: "Monoprix",
-    coords: [
-      47.32091399999999,
-      5.038007299999999
-    ],
-    category: "monoprix",
-    address: "11-13 Rue Piron, 21000 Dijon",
+    name: 'Monoprix',
+    coords: [47.32091399999999, 5.038007299999999],
+    category: 'monoprix',
+    address: '11-13 Rue Piron, 21000 Dijon',
     hasCageEggs: false,
     nbRef: 0,
-    urlImg: "https://storage.tally.so/private/telechargement-2026-01-17T212609.022.jpg?id=Vb8POy&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IlZiOFBPeSIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4NX0.mYSuE7lZW_l2UHi_o4DhBEEQxlbWgrAakT48sysx0Xo&signature=7d188d1c8406f661c453bf5953db52fa558d91f4dcbb531552df341cb732b50b"
+    urlImg:
+      'https://storage.tally.so/private/telechargement-2026-01-17T212609.022.jpg?id=Vb8POy&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IlZiOFBPeSIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4NX0.mYSuE7lZW_l2UHi_o4DhBEEQxlbWgrAakT48sysx0Xo&signature=7d188d1c8406f661c453bf5953db52fa558d91f4dcbb531552df341cb732b50b',
   },
   {
-    name: "Monoprix",
-    coords: [
-      48.8495359,
-      2.3993961
-    ],
-    category: "monoprix",
-    address: "20 Boulevard de Charonne, 75020 Paris",
+    name: 'Monoprix',
+    coords: [48.8495359, 2.3993961],
+    category: 'monoprix',
+    address: '20 Boulevard de Charonne, 75020 Paris',
     hasCageEggs: false,
     nbRef: 0,
-    urlImg: "https://storage.tally.so/private/IMG_20260117_182502.jpg?id=Ob0D8k&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ik9iMEQ4ayIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4NX0.MQWBFTFgpEcCepeXFTRv88kabjAoOSmutvlYoC_DV28&signature=6a6c101510c5da98364a7c109373507294b7333552bf742e96bbfb1c7f1c6718"
+    urlImg:
+      'https://storage.tally.so/private/IMG_20260117_182502.jpg?id=Ob0D8k&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ik9iMEQ4ayIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4NX0.MQWBFTFgpEcCepeXFTRv88kabjAoOSmutvlYoC_DV28&signature=6a6c101510c5da98364a7c109373507294b7333552bf742e96bbfb1c7f1c6718',
   },
   {
-    name: "Monoprix",
-    coords: [
-      45.7748565,
-      4.805207999999999
-    ],
-    category: "monoprix",
-    address: "Valmy - 2 rue sergent Michel Berthet 69009",
+    name: 'Monoprix',
+    coords: [45.7748565, 4.805207999999999],
+    category: 'monoprix',
+    address: 'Valmy - 2 rue sergent Michel Berthet 69009',
     hasCageEggs: false,
     nbRef: 0,
-    urlImg: null
+    urlImg: null,
   },
   {
-    name: "Monoprix",
-    coords: [
-      48.84135029999999,
-      2.2877435
-    ],
-    category: "monoprix",
-    address: "105 Rue de la Convention, 75015 Paris",
+    name: 'Monoprix',
+    coords: [48.84135029999999, 2.2877435],
+    category: 'monoprix',
+    address: '105 Rue de la Convention, 75015 Paris',
     hasCageEggs: false,
     nbRef: 0,
-    urlImg: null
+    urlImg: null,
   },
   {
-    name: "Monoprix",
-    coords: [
-      47.2390215,
-      6.0213372
-    ],
-    category: "monoprix",
-    address: "10-12 grande rue, 25000 Besançon",
+    name: 'Monoprix',
+    coords: [47.2390215, 6.0213372],
+    category: 'monoprix',
+    address: '10-12 grande rue, 25000 Besançon',
     hasCageEggs: false,
     nbRef: 0,
-    urlImg: null
+    urlImg: null,
   },
   {
-    name: "Monoprix",
-    coords: [
-      45.183416,
-      0.7183459999999999
-    ],
-    category: "monoprix",
-    address: "10 place Bugeaud 24000 Périgueux",
+    name: 'Monoprix',
+    coords: [45.183416, 0.7183459999999999],
+    category: 'monoprix',
+    address: '10 place Bugeaud 24000 Périgueux',
     hasCageEggs: false,
     nbRef: 0,
-    urlImg: null
+    urlImg: null,
   },
   {
-    name: "Monoprix",
-    coords: [
-      43.6051074,
-      2.2407727
-    ],
-    category: "monoprix",
-    address: "2 rue Sabatier 81100 castres ",
+    name: 'Monoprix',
+    coords: [43.6051074, 2.2407727],
+    category: 'monoprix',
+    address: '2 rue Sabatier 81100 castres ',
     hasCageEggs: false,
     nbRef: 0,
-    urlImg: null
+    urlImg: null,
   },
   {
-    name: "Monoprix",
-    coords: [
-      43.2319071,
-      0.07799529999999999
-    ],
-    category: "monoprix",
-    address: "3 Rue Desaix 65000 Tarbes",
+    name: 'Monoprix',
+    coords: [43.2319071, 0.07799529999999999],
+    category: 'monoprix',
+    address: '3 Rue Desaix 65000 Tarbes',
     hasCageEggs: false,
     nbRef: 0,
-    urlImg: "https://storage.tally.so/private/Monoprix-Tarbes.jpg?id=5eegWE&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVlZWdXRSIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTM2NDM0M30.o9UdQ5InvnwQS6-a-dAVa1Kv1iUyNWy6SDKHul0VmJs&signature=7275b2a2fd173e7c5d4861d529c2effe3faac468dc0ad7a9c547fbd13efe6c10"
+    urlImg:
+      'https://storage.tally.so/private/Monoprix-Tarbes.jpg?id=5eegWE&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVlZWdXRSIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTM2NDM0M30.o9UdQ5InvnwQS6-a-dAVa1Kv1iUyNWy6SDKHul0VmJs&signature=7275b2a2fd173e7c5d4861d529c2effe3faac468dc0ad7a9c547fbd13efe6c10',
   },
   {
-    name: "Monoprix",
-    coords: [
-      43.94601369999999,
-      4.8055081
-    ],
-    category: "monoprix",
-    address: "24 Rue République\t84000\tAVIGNON",
+    name: 'Monoprix',
+    coords: [43.94601369999999, 4.8055081],
+    category: 'monoprix',
+    address: '24 Rue République\t84000\tAVIGNON',
     hasCageEggs: false,
     nbRef: 0,
-    urlImg: null
+    urlImg: null,
   },
   {
-    name: "Monoprix",
-    coords: [
-      48.8040992,
-      2.1312583
-    ],
-    category: "monoprix",
-    address: "5 rue Georges Clémenceau - 78000 Versailles",
+    name: 'Monoprix',
+    coords: [48.8040992, 2.1312583],
+    category: 'monoprix',
+    address: '5 rue Georges Clémenceau - 78000 Versailles',
     hasCageEggs: false,
     nbRef: 0,
-    urlImg: "https://storage.tally.so/private/MONOPRIX-3.jpg?id=DxaArl&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IkR4YUFybCIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTM2NDM0M30.NNPtQ57wx5OuqUwaTgBmayN48XCkdkOhKXHih58Omr4&signature=275aa124db47cb65fc19363e1a6f1c46b4ac754e6020f51ce96964638127a45a"
+    urlImg:
+      'https://storage.tally.so/private/MONOPRIX-3.jpg?id=DxaArl&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IkR4YUFybCIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTM2NDM0M30.NNPtQ57wx5OuqUwaTgBmayN48XCkdkOhKXHih58Omr4&signature=275aa124db47cb65fc19363e1a6f1c46b4ac754e6020f51ce96964638127a45a',
   },
   {
-    name: "Monoprix",
-    coords: [
-      46.5645134,
-      3.3296171
-    ],
-    category: "monoprix",
+    name: 'Monoprix',
+    coords: [46.5645134, 3.3296171],
+    category: 'monoprix',
     address: "Rue d'Allier, 03000 Moulins",
     hasCageEggs: false,
     nbRef: 0,
-    urlImg: "https://storage.tally.so/private/20260124_134809.jpg?id=o5glD1&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Im81Z2xEMSIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTM2NDM0Mn0.TGABxihMwozj1uZgDhAa1SGHnUo3umn1zYkauxWFzog&signature=db8965b3cdf61bd62ad93f33606464af74f81dd076b1892a66d620a37dac69f6"
+    urlImg:
+      'https://storage.tally.so/private/20260124_134809.jpg?id=o5glD1&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Im81Z2xEMSIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTM2NDM0Mn0.TGABxihMwozj1uZgDhAa1SGHnUo3umn1zYkauxWFzog&signature=db8965b3cdf61bd62ad93f33606464af74f81dd076b1892a66d620a37dac69f6',
   },
   {
-    name: "Monoprix",
-    coords: [
-      45.7621058,
-      4.8557052
-    ],
-    category: "monoprix",
-    address: "17 rue bouchut lyon",
+    name: 'Monoprix',
+    coords: [45.7621058, 4.8557052],
+    category: 'monoprix',
+    address: '17 rue bouchut lyon',
     hasCageEggs: false,
     nbRef: 0,
-    urlImg: "https://storage.tally.so/private/IMG_6104.jpeg?id=49GZN5&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjQ5R1pONSIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTM2NDM0Mn0.7ztWFVZA4vrzBpANF-Mfjy_idLrCZzr7ds9ldR_F2X8&signature=14200ee713f0bcbf8b8601bce80f5afd50c2fdfc1f596be7c873924db4bbf8f7"
+    urlImg:
+      'https://storage.tally.so/private/IMG_6104.jpeg?id=49GZN5&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjQ5R1pONSIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTM2NDM0Mn0.7ztWFVZA4vrzBpANF-Mfjy_idLrCZzr7ds9ldR_F2X8&signature=14200ee713f0bcbf8b8601bce80f5afd50c2fdfc1f596be7c873924db4bbf8f7',
   },
   {
-    name: "Monoprix",
-    coords: [
-      45.7761081,
-      4.8300867
-    ],
-    category: "monoprix",
-    address: "Rue de Cuire Lyon 4",
+    name: 'Monoprix',
+    coords: [45.7761081, 4.8300867],
+    category: 'monoprix',
+    address: 'Rue de Cuire Lyon 4',
     hasCageEggs: false,
     nbRef: 0,
-    urlImg: "https://storage.tally.so/private/IMG_20260128_110759.jpg?id=WKXaRN&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IldLWGFSTiIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTY4MTAyOH0.NU28BlG2LR4QEBqZB4yB6UzOkSgR_IBFPjdI6rIhkU0&signature=ded1fb2e6a79d88566ef642e6fd737bfd0a793125728e1f42e4e6b8cc214bd8b"
+    urlImg:
+      'https://storage.tally.so/private/IMG_20260128_110759.jpg?id=WKXaRN&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IldLWGFSTiIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTY4MTAyOH0.NU28BlG2LR4QEBqZB4yB6UzOkSgR_IBFPjdI6rIhkU0&signature=ded1fb2e6a79d88566ef642e6fd737bfd0a793125728e1f42e4e6b8cc214bd8b',
   },
   {
-    name: "Monoprix",
-    coords: [
-      48.1050009,
-      -1.6814542
-    ],
-    category: "monoprix",
-    address: "Bd colombier 35000 Rennes",
+    name: 'Monoprix',
+    coords: [48.1050009, -1.6814542],
+    category: 'monoprix',
+    address: 'Bd colombier 35000 Rennes',
     hasCageEggs: false,
     nbRef: 0,
-    urlImg: "https://storage.tally.so/private/20260128_175959.jpg?id=qJqYbk&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6InFKcVliayIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTY4MTAyOH0.e5jJc3VqGmbovYlQVHTeTZeSKUJMzhPE_8TI-uUF2CI&signature=610cc571237fef50e45c4813da3033ee8ab32f4e3c53dbf761bca6acf0fe3ca2"
+    urlImg:
+      'https://storage.tally.so/private/20260128_175959.jpg?id=qJqYbk&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6InFKcVliayIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTY4MTAyOH0.e5jJc3VqGmbovYlQVHTeTZeSKUJMzhPE_8TI-uUF2CI&signature=610cc571237fef50e45c4813da3033ee8ab32f4e3c53dbf761bca6acf0fe3ca2',
   },
   {
-    name: "Monoprix",
-    coords: [
-      48.838579,
-      2.3900213
-    ],
-    category: "monoprix",
-    address: "215 Rue de Charenton, 75012 Paris, France",
+    name: 'Monoprix',
+    coords: [48.838579, 2.3900213],
+    category: 'monoprix',
+    address: '215 Rue de Charenton, 75012 Paris, France',
     hasCageEggs: true,
     nbRef: 1,
-    urlImg: "https://storage.tally.so/private/2026-01-1610.18.591913118820993652082.jpg?id=Je6XWr&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IkplNlhXciIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4Nn0.LBCai1d8cMM6zA75vfLOzA1xr049QLFeYe-yciPqLqc&signature=ddb05ff2ae1672614f5c7ca867be94d08a09fb3377ecd5a4bc9b04a20fa8e1a4\n"
+    urlImg:
+      'https://storage.tally.so/private/2026-01-1610.18.591913118820993652082.jpg?id=Je6XWr&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IkplNlhXciIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4Nn0.LBCai1d8cMM6zA75vfLOzA1xr049QLFeYe-yciPqLqc&signature=ddb05ff2ae1672614f5c7ca867be94d08a09fb3377ecd5a4bc9b04a20fa8e1a4\n',
   },
   {
-    name: "Monoprix",
-    coords: [
-      48.802375,
-      2.2637301
-    ],
-    category: "monoprix",
-    address: "27 Rue Paul Vaillant Couturier, 92140 Clamart",
+    name: 'Monoprix',
+    coords: [48.802375, 2.2637301],
+    category: 'monoprix',
+    address: '27 Rue Paul Vaillant Couturier, 92140 Clamart',
     hasCageEggs: true,
     nbRef: 1,
-    urlImg: "https://storage.tally.so/private/IMG-20260124-WA0021.jpeg?id=aAkN5b&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImFBa041YiIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTM2NDM0Mn0.CTfTi266SGSeYrmRRNqiZgWAPdvvnPIWAiRm0dw9t3M&signature=c6926d84e10817b05bcac4de99afa4bd5c82d144980e3ad3b4523e1819247805"
+    urlImg:
+      'https://storage.tally.so/private/IMG-20260124-WA0021.jpeg?id=aAkN5b&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImFBa041YiIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTM2NDM0Mn0.CTfTi266SGSeYrmRRNqiZgWAPdvvnPIWAiRm0dw9t3M&signature=c6926d84e10817b05bcac4de99afa4bd5c82d144980e3ad3b4523e1819247805',
   },
   {
-    name: "Monoprix",
-    coords: [
-      43.7052038,
-      7.2642611
-    ],
-    category: "monoprix",
-    address: "1 Av. Thiers, 06000 Nice",
+    name: 'Monoprix',
+    coords: [43.7052038, 7.2642611],
+    category: 'monoprix',
+    address: '1 Av. Thiers, 06000 Nice',
     hasCageEggs: false,
     nbRef: 0,
-    urlImg: "https://storage.tally.so/private/IMG_20260201_181240.jpg?id=bYo7G6&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImJZbzdHNiIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc3MDQ1NjU5M30.75UOpHGVoXz6rs4HHT4WRAvc-Syuuvnp2DAolOGpZjY&signature=df6998cf661f03736fdc3bd691c80be4a51fd27f97cd1f324c1248207994bc1d"
+    urlImg:
+      'https://storage.tally.so/private/IMG_20260201_181240.jpg?id=bYo7G6&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImJZbzdHNiIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc3MDQ1NjU5M30.75UOpHGVoXz6rs4HHT4WRAvc-Syuuvnp2DAolOGpZjY&signature=df6998cf661f03736fdc3bd691c80be4a51fd27f97cd1f324c1248207994bc1d',
   },
   {
-    name: "Monoprix",
-    coords: [
-      48.687696,
-      6.1815228
-    ],
-    category: "monoprix",
-    address: "Centre Commercial Saint Sébastien, 54000 Nancy, France",
+    name: 'Monoprix',
+    coords: [48.687696, 6.1815228],
+    category: 'monoprix',
+    address: 'Centre Commercial Saint Sébastien, 54000 Nancy, France',
     hasCageEggs: false,
     nbRef: 0,
-    urlImg: "https://storage.tally.so/private/IMG_8595.jpg?id=JWKX0Y&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IkpXS1gwWSIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc3MDQ1NjU5M30.EPjrmwd1oXWWeZJxpKO5IX5fmV-Tf5XCQlgrs4bN6iw&signature=01f568d2443e5c810dabb3bb9151e69c1297e4ed25dc63a7ccdb594cccf0ef83"
+    urlImg:
+      'https://storage.tally.so/private/IMG_8595.jpg?id=JWKX0Y&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IkpXS1gwWSIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc3MDQ1NjU5M30.EPjrmwd1oXWWeZJxpKO5IX5fmV-Tf5XCQlgrs4bN6iw&signature=01f568d2443e5c810dabb3bb9151e69c1297e4ed25dc63a7ccdb594cccf0ef83',
   },
   {
-    name: "Monoprix",
-    coords: [
-      50.288704,
-      2.7782151
-    ],
-    category: "monoprix",
-    address: "30 rue Gambetta 62000 Arras",
+    name: 'Monoprix',
+    coords: [50.288704, 2.7782151],
+    category: 'monoprix',
+    address: '30 rue Gambetta 62000 Arras',
     hasCageEggs: false,
     nbRef: 0,
-    urlImg: "https://storage.tally.so/private/IMG_4877.jpeg?id=DxGLDj&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IkR4R0xEaiIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc3MDQ1NjU5M30.NhDiIo1hLe1cW4pFiNnz5_6XwWv1UK5UfAFMWzsP4XE&signature=4770593983370df05b8de1de30fd192ead98db1158caddb7b1d1c5c415c54a91"
+    urlImg:
+      'https://storage.tally.so/private/IMG_4877.jpeg?id=DxGLDj&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IkR4R0xEaiIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc3MDQ1NjU5M30.NhDiIo1hLe1cW4pFiNnz5_6XwWv1UK5UfAFMWzsP4XE&signature=4770593983370df05b8de1de30fd192ead98db1158caddb7b1d1c5c415c54a91',
   },
   {
-    name: "Hyper U ",
-    coords: [
-      43.452497,
-      5.864004
-    ],
-    category: "systemu",
+    name: 'Hyper U ',
+    coords: [43.452497, 5.864004],
+    category: 'systemu',
     address: "Route d'Aix ",
     hasCageEggs: true,
     nbRef: 1,
-    urlImg: "https://storage.tally.so/private/IMG20260116155214.jpg?id=WKAPlL&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IldLQVBsTCIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4Nn0.pvSmOHjnX_haDvxOr_sc1jYPSug2BCXgrAYXshOzGI8&signature=f30ea243d64b4465cf311c13bc8ef58facb145d3b73350134f9a672ef63ab862"
+    urlImg:
+      'https://storage.tally.so/private/IMG20260116155214.jpg?id=WKAPlL&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IldLQVBsTCIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4Nn0.pvSmOHjnX_haDvxOr_sc1jYPSug2BCXgrAYXshOzGI8&signature=f30ea243d64b4465cf311c13bc8ef58facb145d3b73350134f9a672ef63ab862',
   },
   {
-    name: "Hyper U",
-    coords: [
-      45.89786,
-      0.92092
-    ],
-    category: "systemu",
-    address: "Avenue Nelson Mandela 87200 Saint-Junien",
+    name: 'Hyper U',
+    coords: [45.89786, 0.92092],
+    category: 'systemu',
+    address: 'Avenue Nelson Mandela 87200 Saint-Junien',
     hasCageEggs: true,
     nbRef: 2,
-    urlImg: "https://storage.tally.so/private/IMG_20260115_131506.jpg?id=d8d1No&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImQ4ZDFObyIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4Nn0.nYEkwXAyOWtvzTSJ-luvVvr0TYUk4Pq4O-_ajE2MsaY&signature=9a724bb6258a25df81be698a3fd036afe630d0045f627fe5911b841f702da97a"
+    urlImg:
+      'https://storage.tally.so/private/IMG_20260115_131506.jpg?id=d8d1No&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImQ4ZDFObyIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4Nn0.nYEkwXAyOWtvzTSJ-luvVvr0TYUk4Pq4O-_ajE2MsaY&signature=9a724bb6258a25df81be698a3fd036afe630d0045f627fe5911b841f702da97a',
   },
   {
-    name: "Hyper U",
-    coords: [
-      50.33184000000001,
-      3.00045
-    ],
-    category: "systemu",
-    address: "Rue de Brebières, 62490 Vitry-en-Artois",
+    name: 'Hyper U',
+    coords: [50.33184000000001, 3.00045],
+    category: 'systemu',
+    address: 'Rue de Brebières, 62490 Vitry-en-Artois',
     hasCageEggs: true,
     nbRef: 5,
-    urlImg: "https://storage.tally.so/private/IMG_4EF980E3C62D-1.jpeg?id=gJMa64&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImdKTWE2NCIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4Nn0.uPJOrGzeQstl02IgA9gq3yury5nnva3iWUcNJZF-QK8&signature=35a2ec7d0f2c999eac05c9f9d3450375fa13a47649816292760d5f692576011d"
+    urlImg:
+      'https://storage.tally.so/private/IMG_4EF980E3C62D-1.jpeg?id=gJMa64&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImdKTWE2NCIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4Nn0.uPJOrGzeQstl02IgA9gq3yury5nnva3iWUcNJZF-QK8&signature=35a2ec7d0f2c999eac05c9f9d3450375fa13a47649816292760d5f692576011d',
   },
   {
-    name: "Hyper U",
-    coords: [
-      50.3089096,
-      2.9506585
-    ],
-    category: "systemu",
-    address: "Rue Maréchal Foch, 62118 Biache-Saint-Vaast",
+    name: 'Hyper U',
+    coords: [50.3089096, 2.9506585],
+    category: 'systemu',
+    address: 'Rue Maréchal Foch, 62118 Biache-Saint-Vaast',
     hasCageEggs: true,
     nbRef: 4,
-    urlImg: "https://storage.tally.so/private/IMG_6C8C7D5C0342-1.jpeg?id=jJQZNx&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImpKUVpOeCIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4Nn0.vVfpz9lnR8iXKxvHC6j1XPz8JrDG6kUr7CjI3k9roj0&signature=304de1c5a2a03a37dfc1b72efdbf3790b96e0cc55112727f811638e6439022d8"
+    urlImg:
+      'https://storage.tally.so/private/IMG_6C8C7D5C0342-1.jpeg?id=jJQZNx&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImpKUVpOeCIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4Nn0.vVfpz9lnR8iXKxvHC6j1XPz8JrDG6kUr7CjI3k9roj0&signature=304de1c5a2a03a37dfc1b72efdbf3790b96e0cc55112727f811638e6439022d8',
   },
   {
-    name: "Super U",
-    coords: [
-      44.0092866,
-      5.068444899999999
-    ],
-    category: "systemu",
-    address: "Le Castellas Ouest, 1050 Route De Mazan, 84200 Carpentras",
+    name: 'Super U',
+    coords: [44.0092866, 5.068444899999999],
+    category: 'systemu',
+    address: 'Le Castellas Ouest, 1050 Route De Mazan, 84200 Carpentras',
     hasCageEggs: true,
     nbRef: 2,
-    urlImg: "https://storage.tally.so/private/inbound5265697141032598886.jpg?id=gYKyaP&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImdZS3lhUCIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4Nn0.WOTLvTx3zeKNF9UOgeAJsNGXF9WB_g8TEHl80ZxENwM&signature=1d5438a651a481a0171cb82dea87d43fe5e918d1bbc9b5b4c4a3e9eaedc43b67"
+    urlImg:
+      'https://storage.tally.so/private/inbound5265697141032598886.jpg?id=gYKyaP&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImdZS3lhUCIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4Nn0.WOTLvTx3zeKNF9UOgeAJsNGXF9WB_g8TEHl80ZxENwM&signature=1d5438a651a481a0171cb82dea87d43fe5e918d1bbc9b5b4c4a3e9eaedc43b67',
   },
   {
-    name: "Super U",
-    coords: [
-      45.87139,
-      -0.66943
-    ],
-    category: "systemu",
-    address: "2 rue fond boulet 17350 saint savinien",
+    name: 'Super U',
+    coords: [45.87139, -0.66943],
+    category: 'systemu',
+    address: '2 rue fond boulet 17350 saint savinien',
     hasCageEggs: true,
     nbRef: 1,
-    urlImg: "https://storage.tally.so/private/IMG_3674.jpeg?id=gYR7jM&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImdZUjdqTSIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4Nn0.tUkXtasTPO_WvvyOwGQs5fbZ1zfnge8RwgpJQ2Jl-Zc&signature=f3ac88562c2b67f85fb31f24d75337afc5f183d4ef24530cc46c1313808c36b6"
+    urlImg:
+      'https://storage.tally.so/private/IMG_3674.jpeg?id=gYR7jM&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImdZUjdqTSIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4Nn0.tUkXtasTPO_WvvyOwGQs5fbZ1zfnge8RwgpJQ2Jl-Zc&signature=f3ac88562c2b67f85fb31f24d75337afc5f183d4ef24530cc46c1313808c36b6',
   },
   {
-    name: "Super U",
-    coords: [
-      50.6670062,
-      3.0370222
-    ],
-    category: "systemu",
-    address: "10 Rue Bernard Ruyant 10, 59110 La Madeleine",
+    name: 'Super U',
+    coords: [50.6670062, 3.0370222],
+    category: 'systemu',
+    address: '10 Rue Bernard Ruyant 10, 59110 La Madeleine',
     hasCageEggs: true,
     nbRef: 4,
-    urlImg: "https://storage.tally.so/private/IMG_1D59F6209139-1.jpeg?id=7abE72&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjdhYkU3MiIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4Nn0.6gfJDW2snwuwNs20h7bgHSE1va94AoTWhxD3fmzwN1g&signature=52277bac4cf24a4a7e14e338843f1f648011553c94eaa842d06a68fb1a6d5b1b"
+    urlImg:
+      'https://storage.tally.so/private/IMG_1D59F6209139-1.jpeg?id=7abE72&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjdhYkU3MiIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4Nn0.6gfJDW2snwuwNs20h7bgHSE1va94AoTWhxD3fmzwN1g&signature=52277bac4cf24a4a7e14e338843f1f648011553c94eaa842d06a68fb1a6d5b1b',
   },
   {
-    name: "Super U",
-    coords: [
-      48.8865042,
-      2.1560081
-    ],
-    category: "systemu",
-    address: "5 Pl. Maurice Berteaux, 78400 Chatou",
+    name: 'Super U',
+    coords: [48.8865042, 2.1560081],
+    category: 'systemu',
+    address: '5 Pl. Maurice Berteaux, 78400 Chatou',
     hasCageEggs: true,
     nbRef: 1,
-    urlImg: "https://storage.tally.so/private/IMG_20260114_102734.jpg?id=5e9BNd&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVlOUJOZCIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4Nn0.2qP16rPl7Pnz4VjADVS8HaRrJGXDADvd9N0GnM_QMOw&signature=c7ba020b70f7e60e9ef28d626baeee4b87a258e5b193004454b171285e442cc3"
+    urlImg:
+      'https://storage.tally.so/private/IMG_20260114_102734.jpg?id=5e9BNd&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVlOUJOZCIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4Nn0.2qP16rPl7Pnz4VjADVS8HaRrJGXDADvd9N0GnM_QMOw&signature=c7ba020b70f7e60e9ef28d626baeee4b87a258e5b193004454b171285e442cc3',
   },
   {
-    name: "Super U",
-    coords: [
-      47.6685384,
-      6.8434973
-    ],
-    category: "systemu",
-    address: "30 rue de turenne Valdoie",
+    name: 'Super U',
+    coords: [47.6685384, 6.8434973],
+    category: 'systemu',
+    address: '30 rue de turenne Valdoie',
     hasCageEggs: true,
     nbRef: 1,
-    urlImg: "https://storage.tally.so/private/IMG_20260114_135041.jpg?id=497ErX&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjQ5N0VyWCIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4Nn0.w53DMxhZqbhfNaUL5y6ZXYpQo2Km5dXduDIs-byvv7Q&signature=afb8d8a07a4ab522072aff53a789dd85478f6ec2cdd26f938e14d4a7dee4ccd0"
+    urlImg:
+      'https://storage.tally.so/private/IMG_20260114_135041.jpg?id=497ErX&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjQ5N0VyWCIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4Nn0.w53DMxhZqbhfNaUL5y6ZXYpQo2Km5dXduDIs-byvv7Q&signature=afb8d8a07a4ab522072aff53a789dd85478f6ec2cdd26f938e14d4a7dee4ccd0',
   },
   {
-    name: "Super U",
-    coords: [
-      48.6303225,
-      7.7622969
-    ],
-    category: "systemu",
-    address: "13 Rte de la Wantzenau, 67800 Hœnheim, France",
+    name: 'Super U',
+    coords: [48.6303225, 7.7622969],
+    category: 'systemu',
+    address: '13 Rte de la Wantzenau, 67800 Hœnheim, France',
     hasCageEggs: true,
     nbRef: 2,
-    urlImg: "https://storage.tally.so/private/signal-2026-01-14-163754.jpeg?id=QzRWLl&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IlF6UldMbCIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4Nn0.J33nIIQoKyleQkKLDrwKYLWYPL0fi2h4VMXc8n8q_nw&signature=11ff6a4a3fb4613024530c8b46773054b592965e354deeabab4390a4a7013c00"
+    urlImg:
+      'https://storage.tally.so/private/signal-2026-01-14-163754.jpeg?id=QzRWLl&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IlF6UldMbCIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4Nn0.J33nIIQoKyleQkKLDrwKYLWYPL0fi2h4VMXc8n8q_nw&signature=11ff6a4a3fb4613024530c8b46773054b592965e354deeabab4390a4a7013c00',
   },
   {
-    name: "Super U",
-    coords: [
-      48.59048,
-      7.671076
-    ],
-    category: "systemu",
-    address: "1A Rue Hans Arp, 67202 Wolfisheim, France",
+    name: 'Super U',
+    coords: [48.59048, 7.671076],
+    category: 'systemu',
+    address: '1A Rue Hans Arp, 67202 Wolfisheim, France',
     hasCageEggs: true,
     nbRef: 2,
-    urlImg: "https://storage.tally.so/private/signal-2026-01-14-164925.jpeg?id=gJqxld&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImdKcXhsZCIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4Nn0.5YAp25xf0LJj3Ng5OAwq9cAOg6IOO11vvr3OLuOVL2o&signature=e1efd2dfe0136817c855cd2c1ebe076621ddc729f2c260e044d63210f5dc1e70"
+    urlImg:
+      'https://storage.tally.so/private/signal-2026-01-14-164925.jpeg?id=gJqxld&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImdKcXhsZCIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4Nn0.5YAp25xf0LJj3Ng5OAwq9cAOg6IOO11vvr3OLuOVL2o&signature=e1efd2dfe0136817c855cd2c1ebe076621ddc729f2c260e044d63210f5dc1e70',
   },
   {
-    name: "Super U",
-    coords: [
-      48.56321639999999,
-      7.6907549
-    ],
-    category: "systemu",
+    name: 'Super U',
+    coords: [48.56321639999999, 7.6907549],
+    category: 'systemu',
     address: "Rue des Sports, Rue d'Eckbolsheim, 67380 Lingolsheim, France",
     hasCageEggs: true,
     nbRef: 1,
-    urlImg: "https://storage.tally.so/private/signal-2026-01-14-165142.jpeg?id=JelZ5Y&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IkplbFo1WSIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4Nn0.rmpPatgppLWnXkT1SY_Ns8GaL6lSD8MPHRxvgXPfAwM&signature=73a939fa22d1c984d467d6906ccf373f0685f2fc4e029b6169c05ed563827f2e"
+    urlImg:
+      'https://storage.tally.so/private/signal-2026-01-14-165142.jpeg?id=JelZ5Y&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IkplbFo1WSIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4Nn0.rmpPatgppLWnXkT1SY_Ns8GaL6lSD8MPHRxvgXPfAwM&signature=73a939fa22d1c984d467d6906ccf373f0685f2fc4e029b6169c05ed563827f2e',
   },
   {
-    name: "Super U",
-    coords: [
-      48.8117087,
-      2.2717178
-    ],
-    category: "systemu",
-    address: "14 rue de Vanves, 92140 Clamart",
+    name: 'Super U',
+    coords: [48.8117087, 2.2717178],
+    category: 'systemu',
+    address: '14 rue de Vanves, 92140 Clamart',
     hasCageEggs: true,
     nbRef: 1,
-    urlImg: "https://storage.tally.so/private/IMG_20260114_194815.jpg?id=7aNqB9&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjdhTnFCOSIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4Nn0.O3gBzGleJC91nGMLryAMltSE791TrvS17Ho6IEexqwA&signature=8cc2ebd912d251f0f8e16a92fee64bb3609b3270a4bbc2d00b3166cd7f49e715"
+    urlImg:
+      'https://storage.tally.so/private/IMG_20260114_194815.jpg?id=7aNqB9&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjdhTnFCOSIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4Nn0.O3gBzGleJC91nGMLryAMltSE791TrvS17Ho6IEexqwA&signature=8cc2ebd912d251f0f8e16a92fee64bb3609b3270a4bbc2d00b3166cd7f49e715',
   },
   {
-    name: "Super U",
-    coords: [
-      47.2081658,
-      6.1067028
-    ],
-    category: "systemu",
-    address: "Rue Chenau Blond - 25660 SAÔNE ",
+    name: 'Super U',
+    coords: [47.2081658, 6.1067028],
+    category: 'systemu',
+    address: 'Rue Chenau Blond - 25660 SAÔNE ',
     hasCageEggs: true,
     nbRef: 1,
-    urlImg: "https://storage.tally.so/private/20260115_151546.jpg?id=6W2e8e&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZXMmU4ZSIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4Nn0.zMhn5Qh62fxscc--_7nUf9kofkK3PdehCAJIRtj6-Ks&signature=968cb2d53e071799b26a979d8bb659f44a1bfb4f66cf575316872b6223acab21"
+    urlImg:
+      'https://storage.tally.so/private/20260115_151546.jpg?id=6W2e8e&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZXMmU4ZSIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4Nn0.zMhn5Qh62fxscc--_7nUf9kofkK3PdehCAJIRtj6-Ks&signature=968cb2d53e071799b26a979d8bb659f44a1bfb4f66cf575316872b6223acab21',
   },
   {
-    name: "Super U",
-    coords: [
-      46.3159679,
-      -0.5546361
-    ],
-    category: "systemu",
-    address: "455 Av. du Marais Poitevin. 79460 Magné",
+    name: 'Super U',
+    coords: [46.3159679, -0.5546361],
+    category: 'systemu',
+    address: '455 Av. du Marais Poitevin. 79460 Magné',
     hasCageEggs: true,
     nbRef: 3,
-    urlImg: "https://storage.tally.so/private/IMG_0367.jpeg?id=qJAd59&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6InFKQWQ1OSIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4Nn0.jUK-IY04iNZ6J_SoC3I4gulltoQ-IffyS9pa80rTwcg&signature=19b7466ea0396cbcadb435006583289e208a40580ed56964868473ba8c245678"
+    urlImg:
+      'https://storage.tally.so/private/IMG_0367.jpeg?id=qJAd59&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6InFKQWQ1OSIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4Nn0.jUK-IY04iNZ6J_SoC3I4gulltoQ-IffyS9pa80rTwcg&signature=19b7466ea0396cbcadb435006583289e208a40580ed56964868473ba8c245678',
   },
   {
-    name: "Super U",
-    coords: [
-      47.4724954,
-      -0.6246067
-    ],
-    category: "systemu",
-    address: "Rue du Bourg de Paille, 49070 Beaucouzé",
+    name: 'Super U',
+    coords: [47.4724954, -0.6246067],
+    category: 'systemu',
+    address: 'Rue du Bourg de Paille, 49070 Beaucouzé',
     hasCageEggs: true,
     nbRef: 4,
-    urlImg: "https://storage.tally.so/private/telechargement-49-.jpg?id=Dxdxzp&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IkR4ZHh6cCIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4Nn0.zCdlmXrO1lt3XDG7Knj8cjBhRb3zAdqJF8VIToU0Zl8&signature=a0ec6946718ce26c3cc279a5ecccd54f101e011172de112b880e79b44ddf2271"
+    urlImg:
+      'https://storage.tally.so/private/telechargement-49-.jpg?id=Dxdxzp&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IkR4ZHh6cCIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4Nn0.zCdlmXrO1lt3XDG7Knj8cjBhRb3zAdqJF8VIToU0Zl8&signature=a0ec6946718ce26c3cc279a5ecccd54f101e011172de112b880e79b44ddf2271',
   },
   {
-    name: "Super U",
-    coords: [
-      47.4846544,
-      -0.5115687
-    ],
-    category: "systemu",
+    name: 'Super U',
+    coords: [47.4846544, -0.5115687],
+    category: 'systemu',
     address: "Ctre Cial SUPER U, 360 Rue Haute des Banchais, 49124 Saint-Barthélemy-d'Anjou",
     hasCageEggs: true,
     nbRef: 2,
-    urlImg: "https://storage.tally.so/private/telechargement-80-.jpg?id=JeAe2X&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IkplQWUyWCIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4Nn0.gIo3bHub0MVuzfTVDk6QOMR2k4m0mycAWTwfbscGu_0&signature=809a1825311a638282e5c6f8ee26297a4e14d65b58213bd377bae963ed5d05ac"
+    urlImg:
+      'https://storage.tally.so/private/telechargement-80-.jpg?id=JeAe2X&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IkplQWUyWCIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4Nn0.gIo3bHub0MVuzfTVDk6QOMR2k4m0mycAWTwfbscGu_0&signature=809a1825311a638282e5c6f8ee26297a4e14d65b58213bd377bae963ed5d05ac',
   },
   {
-    name: "Super U",
-    coords: [
-      47.44771,
-      -0.50922
-    ],
-    category: "systemu",
-    address: "220 Av. Mendès France, 49800 Trélazé",
+    name: 'Super U',
+    coords: [47.44771, -0.50922],
+    category: 'systemu',
+    address: '220 Av. Mendès France, 49800 Trélazé',
     hasCageEggs: true,
     nbRef: 2,
-    urlImg: "https://storage.tally.so/private/telechargement-66-.jpg?id=2lNlkM&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjJsTmxrTSIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4Nn0.JdzJ6yJe2f__aKtvw-HLwJWFZGWJRQbNP73Y8GlM8B0&signature=7cad4ba59dd9ab48af2cb4dc2253ba1075ef32eb2940e386c36960acd2da1b0c"
+    urlImg:
+      'https://storage.tally.so/private/telechargement-66-.jpg?id=2lNlkM&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjJsTmxrTSIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4Nn0.JdzJ6yJe2f__aKtvw-HLwJWFZGWJRQbNP73Y8GlM8B0&signature=7cad4ba59dd9ab48af2cb4dc2253ba1075ef32eb2940e386c36960acd2da1b0c',
   },
   {
-    name: "Super U",
-    coords: [
-      47.4518368,
-      -0.5265666
-    ],
-    category: "systemu",
-    address: "6 Square Louis Jouvet, Les Justices C C, 49000 Angers",
+    name: 'Super U',
+    coords: [47.4518368, -0.5265666],
+    category: 'systemu',
+    address: '6 Square Louis Jouvet, Les Justices C C, 49000 Angers',
     hasCageEggs: true,
     nbRef: 1,
-    urlImg: "https://storage.tally.so/private/telechargement-63-.jpg?id=49x91Y&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjQ5eDkxWSIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4Nn0.y0t5Aw0t1D3iyRqiII55GTwy1j-yu7X2OJ2ebkFJtMc&signature=c4808cc7fadeefcf03101f5f44eb94f536732eb9280a8fdd30042d8d94639f1e"
+    urlImg:
+      'https://storage.tally.so/private/telechargement-63-.jpg?id=49x91Y&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjQ5eDkxWSIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4Nn0.y0t5Aw0t1D3iyRqiII55GTwy1j-yu7X2OJ2ebkFJtMc&signature=c4808cc7fadeefcf03101f5f44eb94f536732eb9280a8fdd30042d8d94639f1e',
   },
   {
-    name: "Super U",
-    coords: [
-      47.1944469,
-      -1.5301434
-    ],
-    category: "systemu",
-    address: "75 Boulevard Joliot Curie, 44200 Nantes",
+    name: 'Super U',
+    coords: [47.1944469, -1.5301434],
+    category: 'systemu',
+    address: '75 Boulevard Joliot Curie, 44200 Nantes',
     hasCageEggs: true,
     nbRef: 2,
-    urlImg: "https://storage.tally.so/private/telechargement-15-.jpg?id=M6z7d8&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ik02ejdkOCIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4Nn0.t2-LgeDJBb2ta6xNkTBSp4r9Ysbn4kSG1efng1mTM3M&signature=ff9570b45888a52aba4e0a9d0225b567cf4ad81709b08e3b9d5a475d7a437dcc"
+    urlImg:
+      'https://storage.tally.so/private/telechargement-15-.jpg?id=M6z7d8&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ik02ejdkOCIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4Nn0.t2-LgeDJBb2ta6xNkTBSp4r9Ysbn4kSG1efng1mTM3M&signature=ff9570b45888a52aba4e0a9d0225b567cf4ad81709b08e3b9d5a475d7a437dcc',
   },
   {
-    name: "Super U",
-    coords: [
-      47.17749,
-      -1.558808
-    ],
-    category: "systemu",
-    address: "22 Rue de la Galarnière, 44400 Rezé, France",
+    name: 'Super U',
+    coords: [47.17749, -1.558808],
+    category: 'systemu',
+    address: '22 Rue de la Galarnière, 44400 Rezé, France',
     hasCageEggs: true,
     nbRef: 3,
-    urlImg: "https://storage.tally.so/private/telechargement-19-.jpg?id=Vb087M&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IlZiMDg3TSIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4Nn0.Of88f_9gwPxIN0ok7nlPGESXvAg2EbeKB6_vn-vfGuI&signature=01b1d1a618d276799ec7551c048594c4aa2dbcb09df379a97bcf5868da135015"
+    urlImg:
+      'https://storage.tally.so/private/telechargement-19-.jpg?id=Vb087M&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IlZiMDg3TSIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4Nn0.Of88f_9gwPxIN0ok7nlPGESXvAg2EbeKB6_vn-vfGuI&signature=01b1d1a618d276799ec7551c048594c4aa2dbcb09df379a97bcf5868da135015',
   },
   {
-    name: "Super U",
-    coords: [
-      47.209255,
-      -1.509907
-    ],
-    category: "systemu",
-    address: "Super U, 80 Boulevard des Pas Enchantés, 44230 Saint-Sébastien-sur-Loire, France",
+    name: 'Super U',
+    coords: [47.209255, -1.509907],
+    category: 'systemu',
+    address: 'Super U, 80 Boulevard des Pas Enchantés, 44230 Saint-Sébastien-sur-Loire, France',
     hasCageEggs: true,
     nbRef: 1,
-    urlImg: "https://storage.tally.so/private/telechargement-13-.jpg?id=Vb0VBN&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IlZiMFZCTiIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4Nn0.Gjq3wwVeTBKcB4LK468BDc3w4_8_8nzAnFw_59_Yauc&signature=d38cbf09025b479168b203f057f354e3ca193f7fadc2ba5779d21c9d80aa2b2a"
+    urlImg:
+      'https://storage.tally.so/private/telechargement-13-.jpg?id=Vb0VBN&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IlZiMFZCTiIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4Nn0.Gjq3wwVeTBKcB4LK468BDc3w4_8_8nzAnFw_59_Yauc&signature=d38cbf09025b479168b203f057f354e3ca193f7fadc2ba5779d21c9d80aa2b2a',
   },
   {
-    name: "Super U",
-    coords: [
-      47.22401,
-      -1.530006
-    ],
-    category: "systemu",
-    address: "66 Bd Ernest Dalby, 44000 Nantes, France",
+    name: 'Super U',
+    coords: [47.22401, -1.530006],
+    category: 'systemu',
+    address: '66 Bd Ernest Dalby, 44000 Nantes, France',
     hasCageEggs: true,
     nbRef: 1,
-    urlImg: "https://storage.tally.so/private/telechargement-26-1-.jpg?id=Vb0NKE&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IlZiME5LRSIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4Nn0.PTpvAwwXgCaWWR3C2Cqf0kUSvCuC1aE8QTHQYqa611w&signature=e095e9927c9ef8c2b01a1b75011c63f5c5f7ef1e100c7bf926da6480c93d24d0"
+    urlImg:
+      'https://storage.tally.so/private/telechargement-26-1-.jpg?id=Vb0NKE&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IlZiME5LRSIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4Nn0.PTpvAwwXgCaWWR3C2Cqf0kUSvCuC1aE8QTHQYqa611w&signature=e095e9927c9ef8c2b01a1b75011c63f5c5f7ef1e100c7bf926da6480c93d24d0',
   },
   {
-    name: "Super U",
-    coords: [
-      48.87257,
-      2.87178
-    ],
-    category: "systemu",
-    address: "61 Avenue De L Ensoleillee  77860 COUILLY PONT AUX DAMES",
+    name: 'Super U',
+    coords: [48.87257, 2.87178],
+    category: 'systemu',
+    address: '61 Avenue De L Ensoleillee  77860 COUILLY PONT AUX DAMES',
     hasCageEggs: true,
     nbRef: 3,
-    urlImg: "https://storage.tally.so/private/telechargement-2026-01-17T204022.019.jpg?id=M65NMl&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ik02NU5NbCIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4NX0.AMc5ejxC6Xpc91YvXQgIpSEWydUhKX8U66PH9-J_W68&signature=40be2db8489bed274afeb40e9e83a41afb931817a668faa01e51772f34718750"
+    urlImg:
+      'https://storage.tally.so/private/telechargement-2026-01-17T204022.019.jpg?id=M65NMl&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ik02NU5NbCIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4NX0.AMc5ejxC6Xpc91YvXQgIpSEWydUhKX8U66PH9-J_W68&signature=40be2db8489bed274afeb40e9e83a41afb931817a668faa01e51772f34718750',
   },
   {
-    name: "Super U",
-    coords: [
-      47.3377043,
-      5.015418899999999
-    ],
-    category: "systemu",
-    address: "Super U, 33 Rue des Arandes, 21240 Talant",
+    name: 'Super U',
+    coords: [47.3377043, 5.015418899999999],
+    category: 'systemu',
+    address: 'Super U, 33 Rue des Arandes, 21240 Talant',
     hasCageEggs: true,
     nbRef: 1,
-    urlImg: "https://storage.tally.so/private/WhatsApp-Image-2026-01-17-at-21.30.10.jpeg?id=1NE4qW&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjFORTRxVyIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4NX0.9hUJHpWHcJriDwk6LAPIZ5QuzegzRElviQmM7WB4N7c&signature=7915e34a992fbf7d93f4f7eab915effd568ca9a2d3f5d33f15bcd82c5cd00e1c"
+    urlImg:
+      'https://storage.tally.so/private/WhatsApp-Image-2026-01-17-at-21.30.10.jpeg?id=1NE4qW&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjFORTRxVyIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4NX0.9hUJHpWHcJriDwk6LAPIZ5QuzegzRElviQmM7WB4N7c&signature=7915e34a992fbf7d93f4f7eab915effd568ca9a2d3f5d33f15bcd82c5cd00e1c',
   },
   {
-    name: "Super U",
-    coords: [
-      47.2918783,
-      5.0990305
-    ],
-    category: "systemu",
-    address: "Rte de Chevigny, 21800 Sennecey-lès-Dijon",
+    name: 'Super U',
+    coords: [47.2918783, 5.0990305],
+    category: 'systemu',
+    address: 'Rte de Chevigny, 21800 Sennecey-lès-Dijon',
     hasCageEggs: true,
     nbRef: 1,
-    urlImg: "https://storage.tally.so/private/telechargement-2026-01-17T215117.312.jpg?id=2lrK1L&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjJscksxTCIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4NX0.7emjl4k8h0dV3FDVrJT6Ah0ZGdmVa2JKE1NBhYRtolU&signature=d863e5fd09e8347b447a4f8637aeb045b91158f5fa2c1e11a84e141515c10205"
+    urlImg:
+      'https://storage.tally.so/private/telechargement-2026-01-17T215117.312.jpg?id=2lrK1L&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjJscksxTCIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4NX0.7emjl4k8h0dV3FDVrJT6Ah0ZGdmVa2JKE1NBhYRtolU&signature=d863e5fd09e8347b447a4f8637aeb045b91158f5fa2c1e11a84e141515c10205',
   },
   {
-    name: "Super U",
-    coords: [
-      47.2852021,
-      5.0089228
-    ],
-    category: "systemu",
-    address: "37 Av. du 14 Juillet, 21300 Chenôve",
+    name: 'Super U',
+    coords: [47.2852021, 5.0089228],
+    category: 'systemu',
+    address: '37 Av. du 14 Juillet, 21300 Chenôve',
     hasCageEggs: true,
     nbRef: 1,
-    urlImg: "https://storage.tally.so/private/telechargement-2026-01-17T221344.634.jpg?id=aAGdOq&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImFBR2RPcSIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4NX0.cR-MLY0nNKY2bw1_bsv5qkuaeSDhF2_CY0JnLUouhS4&signature=4ee5bd389dc30e03c673625865034ada1380a99e4b7447c83d9f4276ce6687be"
+    urlImg:
+      'https://storage.tally.so/private/telechargement-2026-01-17T221344.634.jpg?id=aAGdOq&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImFBR2RPcSIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4NX0.cR-MLY0nNKY2bw1_bsv5qkuaeSDhF2_CY0JnLUouhS4&signature=4ee5bd389dc30e03c673625865034ada1380a99e4b7447c83d9f4276ce6687be',
   },
   {
-    name: "Super U",
-    coords: [
-      47.88239979999999,
-      1.8631273
-    ],
-    category: "systemu",
-    address: "3 Av. du Traité de Rome, 45750 Saint-Pryvé-Saint-Mesmin",
+    name: 'Super U',
+    coords: [47.88239979999999, 1.8631273],
+    category: 'systemu',
+    address: '3 Av. du Traité de Rome, 45750 Saint-Pryvé-Saint-Mesmin',
     hasCageEggs: true,
     nbRef: 2,
-    urlImg: "https://storage.tally.so/private/telechargement-2026-01-17T222416.945.jpg?id=xRZY2k&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6InhSWlkyayIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4NX0.SNmSUOdsrZS0UZ9hu1O0L-exBeVBFlJCcphQ4gRsXk8&signature=db64b924311d9f292d2b64d99fd5465ebac297a644167a748f1351166c19a95c"
+    urlImg:
+      'https://storage.tally.so/private/telechargement-2026-01-17T222416.945.jpg?id=xRZY2k&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6InhSWlkyayIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4NX0.SNmSUOdsrZS0UZ9hu1O0L-exBeVBFlJCcphQ4gRsXk8&signature=db64b924311d9f292d2b64d99fd5465ebac297a644167a748f1351166c19a95c',
   },
   {
-    name: "Super U",
-    coords: [
-      47.2576044,
-      5.928425
-    ],
-    category: "systemu",
+    name: 'Super U',
+    coords: [47.2576044, 5.928425],
+    category: 'systemu',
     address: "ZA les Salines - rue d'Emagny - 25115 Pouilley les Vignes",
     hasCageEggs: true,
     nbRef: 1,
-    urlImg: "https://storage.tally.so/private/oeufs-cage-2.jpg?id=jJxyJ9&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImpKeHlKOSIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4NX0.jxZ7JNTjFHk8y6WKCzR3hDOE0vjalJJqNiwhjcgxTmE&signature=7c2fd16359e480e5fe372d01521f37f7875c29d47865de2892790dedb8ed5a13"
+    urlImg:
+      'https://storage.tally.so/private/oeufs-cage-2.jpg?id=jJxyJ9&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImpKeHlKOSIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4NX0.jxZ7JNTjFHk8y6WKCzR3hDOE0vjalJJqNiwhjcgxTmE&signature=7c2fd16359e480e5fe372d01521f37f7875c29d47865de2892790dedb8ed5a13',
   },
   {
-    name: "Super U",
-    coords: [
-      42.62551,
-      2.42732
-    ],
-    category: "systemu",
-    address: "Route D Eus Cc La Grande Rocade 66500 PRADES",
+    name: 'Super U',
+    coords: [42.62551, 2.42732],
+    category: 'systemu',
+    address: 'Route D Eus Cc La Grande Rocade 66500 PRADES',
     hasCageEggs: true,
     nbRef: 2,
-    urlImg: "https://storage.tally.so/private/IMG_0577.jpeg?id=5eG2GZ&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVlRzJHWiIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4NX0.aHBzIeFLKDUSgaDV5ApyODbRVyo3Oy6iMSDbReCdeRs&signature=7749c80e56479c3ae769c59006f7144c77e67ae0a266f603fce54fe149fc5c73"
+    urlImg:
+      'https://storage.tally.so/private/IMG_0577.jpeg?id=5eG2GZ&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVlRzJHWiIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4NX0.aHBzIeFLKDUSgaDV5ApyODbRVyo3Oy6iMSDbReCdeRs&signature=7749c80e56479c3ae769c59006f7144c77e67ae0a266f603fce54fe149fc5c73',
   },
   {
-    name: "Super U",
-    coords: [
-      44.5281017,
-      0.10038
-    ],
-    category: "systemu",
-    address: "Lieu dit Beylard, 31 Route de Bordeaux, 47180 Sainte-Bazeille, France",
+    name: 'Super U',
+    coords: [44.5281017, 0.10038],
+    category: 'systemu',
+    address: 'Lieu dit Beylard, 31 Route de Bordeaux, 47180 Sainte-Bazeille, France',
     hasCageEggs: true,
     nbRef: 1,
-    urlImg: "https://storage.tally.so/private/7357e233-3272-498f-b04e-05f877eae19c.jpeg?id=aADEqv&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImFBREVxdiIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4NX0.GLedrN5d9ageVfVb4vVk0frDUDzzFCGqusqFFqkGMzE&signature=13af0662413f4f5a81a01ccc0a24752bde1c827d799a8588eab5a2efc2817667"
+    urlImg:
+      'https://storage.tally.so/private/7357e233-3272-498f-b04e-05f877eae19c.jpeg?id=aADEqv&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImFBREVxdiIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4NX0.GLedrN5d9ageVfVb4vVk0frDUDzzFCGqusqFFqkGMzE&signature=13af0662413f4f5a81a01ccc0a24752bde1c827d799a8588eab5a2efc2817667',
   },
   {
-    name: "Super U",
-    coords: [
-      46.9228303,
-      5.8854345
-    ],
-    category: "systemu",
-    address: "33 route de champagnole 39110 Salins-les-Bains ",
+    name: 'Super U',
+    coords: [46.9228303, 5.8854345],
+    category: 'systemu',
+    address: '33 route de champagnole 39110 Salins-les-Bains ',
     hasCageEggs: true,
     nbRef: 1,
-    urlImg: "https://storage.tally.so/private/20260120_154923.jpg?id=RbZRXv&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IlJiWlJYdiIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4NX0.HBfGrCw6LGp7OMacEk7Zfb4Mcx08mHwyIPKtkgB5fmU&signature=3dc626d7383843b0b4e77670e1cc26b33d452f0b3de857c6bbe97045c4a2e0ec"
+    urlImg:
+      'https://storage.tally.so/private/20260120_154923.jpg?id=RbZRXv&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IlJiWlJYdiIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4NX0.HBfGrCw6LGp7OMacEk7Zfb4Mcx08mHwyIPKtkgB5fmU&signature=3dc626d7383843b0b4e77670e1cc26b33d452f0b3de857c6bbe97045c4a2e0ec',
   },
   {
-    name: "Super U",
-    coords: [
-      48.7092898,
-      6.1758253
-    ],
-    category: "systemu",
-    address: "Av. de la Meurthe, 54320 Maxéville",
+    name: 'Super U',
+    coords: [48.7092898, 6.1758253],
+    category: 'systemu',
+    address: 'Av. de la Meurthe, 54320 Maxéville',
     hasCageEggs: true,
     nbRef: 2,
-    urlImg: "https://storage.tally.so/private/signal-2026-01-09-133848.jpeg?id=Rvpo9v&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IlJ2cG85diIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4Nn0.Nkr50IuNqUSS4egfzrpzVnE993bbjVpzDfsTYAyS-nA&signature=066aad1b07ddf7701484addf5b5c1124d1d09c2d581fa4bcb0b7af5784ea5756"
+    urlImg:
+      'https://storage.tally.so/private/signal-2026-01-09-133848.jpeg?id=Rvpo9v&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IlJ2cG85diIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTAyODg4Nn0.Nkr50IuNqUSS4egfzrpzVnE993bbjVpzDfsTYAyS-nA&signature=066aad1b07ddf7701484addf5b5c1124d1d09c2d581fa4bcb0b7af5784ea5756',
   },
   {
-    name: "Super U",
-    coords: [
-      46.9099126,
-      5.7696714
-    ],
-    category: "systemu",
-    address: "11 route de Besançon 39600 Arbois",
+    name: 'Super U',
+    coords: [46.9099126, 5.7696714],
+    category: 'systemu',
+    address: '11 route de Besançon 39600 Arbois',
     hasCageEggs: false,
     nbRef: 0,
-    urlImg: "https://storage.tally.so/private/20260123_184156.jpg?id=xR6N05&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6InhSNk4wNSIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTM2NDM0Mn0.V8ah9raF3wZ44ZzAYrgDdsInSBllDluvfd94AvQZW4g&signature=dd6ec47a947b6592bf9aa6b6fe09e67a6f3747d1bd5e56df3774c68c67d050da"
+    urlImg:
+      'https://storage.tally.so/private/20260123_184156.jpg?id=xR6N05&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6InhSNk4wNSIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTM2NDM0Mn0.V8ah9raF3wZ44ZzAYrgDdsInSBllDluvfd94AvQZW4g&signature=dd6ec47a947b6592bf9aa6b6fe09e67a6f3747d1bd5e56df3774c68c67d050da',
   },
   {
-    name: "Super U",
-    coords: [
-      43.5732956,
-      7.089858599999999
-    ],
-    category: "systemu",
-    address: "10 rue du jardin secret 06160 Antibes ",
+    name: 'Super U',
+    coords: [43.5732956, 7.089858599999999],
+    category: 'systemu',
+    address: '10 rue du jardin secret 06160 Antibes ',
     hasCageEggs: true,
     nbRef: 3,
-    urlImg: "https://storage.tally.so/private/IMG_20260117_172719.jpg?id=Z1151a&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IloxMTUxYSIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTM2NDM0M30.nd8yg8FrXZVe4L_q_Q-BgizyDrIEsEDeJjpVPl_wSBg&signature=29dcea232d5666f3d83440c4ec00bbebc2e5c4291026431e7c764eaf294d1781"
+    urlImg:
+      'https://storage.tally.so/private/IMG_20260117_172719.jpg?id=Z1151a&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IloxMTUxYSIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTM2NDM0M30.nd8yg8FrXZVe4L_q_Q-BgizyDrIEsEDeJjpVPl_wSBg&signature=29dcea232d5666f3d83440c4ec00bbebc2e5c4291026431e7c764eaf294d1781',
   },
   {
-    name: "Super U",
-    coords: [
-      43.83696,
-      5.04467
-    ],
-    category: "systemu",
-    address: "6 Avenue René Coty\t84300\tCAVAILLON",
+    name: 'Super U',
+    coords: [43.83696, 5.04467],
+    category: 'systemu',
+    address: '6 Avenue René Coty\t84300\tCAVAILLON',
     hasCageEggs: true,
     nbRef: 1,
-    urlImg: "https://storage.tally.so/private/signal-2026-01-23-161651.jpeg?id=JeoL0o&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ikplb0wwbyIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTM2NDM0M30.eLreRmV0qzgfyqKg8An0wVghU6SXcHiMhYyy2Z8p05Q&signature=c40cf73359bfdf66629ad7dd899b662255e955aa2a97bf4be7ad5959da02d883"
+    urlImg:
+      'https://storage.tally.so/private/signal-2026-01-23-161651.jpeg?id=JeoL0o&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ikplb0wwbyIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTM2NDM0M30.eLreRmV0qzgfyqKg8An0wVghU6SXcHiMhYyy2Z8p05Q&signature=c40cf73359bfdf66629ad7dd899b662255e955aa2a97bf4be7ad5959da02d883',
   },
   {
-    name: "Super U",
-    coords: [
-      43.9242461,
-      5.0631321
-    ],
-    category: "systemu",
+    name: 'Super U',
+    coords: [43.9242461, 5.0631321],
+    category: 'systemu',
     address: "82 Chem. des Espélugues, 84800 L'Isle-sur-la-Sorgue, France",
     hasCageEggs: true,
     nbRef: 1,
-    urlImg: "https://storage.tally.so/private/signal-2026-01-23-161321.jpeg?id=d8zlED&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImQ4emxFRCIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTM2NDM0M30.ABvHaBjB4aCWTuzFEtERxdoNq-W8HZ2bWdCeR3Q1ciQ&signature=d9f247a602e8dc9798f41d675e90a56d6b5aef87452ce0938438ab465243abd4"
+    urlImg:
+      'https://storage.tally.so/private/signal-2026-01-23-161321.jpeg?id=d8zlED&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImQ4emxFRCIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTM2NDM0M30.ABvHaBjB4aCWTuzFEtERxdoNq-W8HZ2bWdCeR3Q1ciQ&signature=d9f247a602e8dc9798f41d675e90a56d6b5aef87452ce0938438ab465243abd4',
   },
   {
-    name: "Super U",
-    coords: [
-      44.026524,
-      4.969564999999999
-    ],
-    category: "systemu",
-    address: "288 Place du Foirail\t84170\tMONTEUX",
+    name: 'Super U',
+    coords: [44.026524, 4.969564999999999],
+    category: 'systemu',
+    address: '288 Place du Foirail\t84170\tMONTEUX',
     hasCageEggs: true,
     nbRef: 2,
-    urlImg: "https://storage.tally.so/private/signal-2026-01-23-162113.jpeg?id=0ZkLGQ&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjBaa0xHUSIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTM2NDM0M30.KXMFl-nCoJBhBMr1SOPifKufwx7XjzyjYER76wRL0PQ&signature=431942700a0ec54fe975b03cf597e12836ed51599417525921b98982d8712de7"
+    urlImg:
+      'https://storage.tally.so/private/signal-2026-01-23-162113.jpeg?id=0ZkLGQ&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjBaa0xHUSIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTM2NDM0M30.KXMFl-nCoJBhBMr1SOPifKufwx7XjzyjYER76wRL0PQ&signature=431942700a0ec54fe975b03cf597e12836ed51599417525921b98982d8712de7',
   },
   {
-    name: "Super U",
-    coords: [
-      49.14993,
-      -0.35075
-    ],
-    category: "systemu",
-    address: "Zac Du Hoguet, 54 Av. Jean Vilar, 14123 Ifs",
+    name: 'Super U',
+    coords: [49.14993, -0.35075],
+    category: 'systemu',
+    address: 'Zac Du Hoguet, 54 Av. Jean Vilar, 14123 Ifs',
     hasCageEggs: false,
     nbRef: 0,
-    urlImg: "https://drive.google.com/file/d/1WN7XWF17MKyiPrCyRSsLZ3FUFhGpOxXg/view?usp=drive_link"
+    urlImg: 'https://drive.google.com/file/d/1WN7XWF17MKyiPrCyRSsLZ3FUFhGpOxXg/view?usp=drive_link',
   },
   {
-    name: "Super U",
-    coords: [
-      44.65541,
-      -0.3663
-    ],
-    category: "systemu",
-    address: "Centre commercial Super U, Cr du Mal Foch, 33720 Podensac",
+    name: 'Super U',
+    coords: [44.65541, -0.3663],
+    category: 'systemu',
+    address: 'Centre commercial Super U, Cr du Mal Foch, 33720 Podensac',
     hasCageEggs: true,
     nbRef: 1,
-    urlImg: "https://storage.tally.so/private/c81d3ae0-4487-445c-99b2-d3152f290847.jpg?id=QzaElG&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IlF6YUVsRyIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTY4MTAyOH0.XTm7btvWS96U7f9K8wB3lS7cy2HGXMopK-GGtaZnn98&signature=e355266e1a43f102f459b4ac58e53d0205986783c050bf5aa256773426d167b7"
+    urlImg:
+      'https://storage.tally.so/private/c81d3ae0-4487-445c-99b2-d3152f290847.jpg?id=QzaElG&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IlF6YUVsRyIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTY4MTAyOH0.XTm7btvWS96U7f9K8wB3lS7cy2HGXMopK-GGtaZnn98&signature=e355266e1a43f102f459b4ac58e53d0205986783c050bf5aa256773426d167b7',
   },
   {
-    name: "Super U",
-    coords: [
-      48.091286,
-      -1.67967
-    ],
-    category: "systemu",
+    name: 'Super U',
+    coords: [48.091286, -1.67967],
+    category: 'systemu',
     address: "7 boulevard de l'Yser, 35200 Rennes",
     hasCageEggs: true,
     nbRef: 1,
-    urlImg: "https://storage.tally.so/private/signal-2026-01-28-155219.jpeg?id=GqVb4e&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IkdxVmI0ZSIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTY4MTAyOH0.MSQX7_taQ4BkIdqtsoAhQYyfxRgFdPRcXi6j1YRoUoc&signature=f1863e292dd21d6a170c50de8088dc2bdc4a78269cac9b7cfdb95a6b90655591"
+    urlImg:
+      'https://storage.tally.so/private/signal-2026-01-28-155219.jpeg?id=GqVb4e&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IkdxVmI0ZSIsImZvcm1JZCI6Ik9ENExYOCIsImlhdCI6MTc2OTY4MTAyOH0.MSQX7_taQ4BkIdqtsoAhQYyfxRgFdPRcXi6j1YRoUoc&signature=f1863e292dd21d6a170c50de8088dc2bdc4a78269cac9b7cfdb95a6b90655591',
   },
   {
-    name: "Super U",
-    coords: [
-      43.9299358,
-      3.7072178
-    ],
-    category: "systemu",
-    address: "Quartier Des Calquieres  34190 GANGES",
+    name: 'Super U',
+    coords: [43.9299358, 3.7072178],
+    category: 'systemu',
+    address: 'Quartier Des Calquieres  34190 GANGES',
     hasCageEggs: true,
     nbRef: 2,
-    urlImg: "https://storage.tally.so/private/Screenshot-2026-01-31-at-09-32-40-Oeufs-frais-de-poules-elevees-en-cage-Boite-de-10-Super-U-Hyper-U-U-Express-www.coursesu.com.png?id=NbZOpQ&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ik5iWk9wUSIsImZvcm1JZCI6IlJHTU4wNCIsImlhdCI6MTc3MDQ1NjYwNn0._M7a5fjRk-zFrZEyzcVungzESpiWtsbLW0GHwNh7HWI&signature=63d6061dc614bf95f301283dc7e1fb77f3031b7f8dec49be0763e5c75ab58d19"
+    urlImg:
+      'https://storage.tally.so/private/Screenshot-2026-01-31-at-09-32-40-Oeufs-frais-de-poules-elevees-en-cage-Boite-de-10-Super-U-Hyper-U-U-Express-www.coursesu.com.png?id=NbZOpQ&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ik5iWk9wUSIsImZvcm1JZCI6IlJHTU4wNCIsImlhdCI6MTc3MDQ1NjYwNn0._M7a5fjRk-zFrZEyzcVungzESpiWtsbLW0GHwNh7HWI&signature=63d6061dc614bf95f301283dc7e1fb77f3031b7f8dec49be0763e5c75ab58d19',
   },
   {
-    name: "Hyper U ",
-    coords: [
-      43.62759,
-      3.429495
-    ],
-    category: "systemu",
-    address: "Centre Commercial Grand Axe   La Madeleine Centre Cial  34800 CLERMONT L HERAULT",
+    name: 'Hyper U ',
+    coords: [43.62759, 3.429495],
+    category: 'systemu',
+    address: 'Centre Commercial Grand Axe   La Madeleine Centre Cial  34800 CLERMONT L HERAULT',
     hasCageEggs: true,
     nbRef: 1,
-    urlImg: "https://storage.tally.so/private/Screenshot-2026-01-31-at-09-18-53-Oeufs-frais-Plateau-de-30-Super-U-Hyper-U-U-Express-www.coursesu.com.png?id=gJozNO&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImdKb3pOTyIsImZvcm1JZCI6IlJHTU4wNCIsImlhdCI6MTc3MDQ1NjYwNn0.j6r-Bpl5qrqb2iqELVWJYeCmPtWeP6VoZqnZG_bOI64&signature=b6a2eb15b4c77389306032bd23c2527d667ade355684e7b09cf6ae078527f534"
+    urlImg:
+      'https://storage.tally.so/private/Screenshot-2026-01-31-at-09-18-53-Oeufs-frais-Plateau-de-30-Super-U-Hyper-U-U-Express-www.coursesu.com.png?id=gJozNO&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImdKb3pOTyIsImZvcm1JZCI6IlJHTU4wNCIsImlhdCI6MTc3MDQ1NjYwNn0.j6r-Bpl5qrqb2iqELVWJYeCmPtWeP6VoZqnZG_bOI64&signature=b6a2eb15b4c77389306032bd23c2527d667ade355684e7b09cf6ae078527f534',
   },
   {
-    name: "Super U",
-    coords: [
-      47.33441999999999,
-      -0.23158
-    ],
-    category: "systemu",
-    address: "49350 Gennes val de loire",
+    name: 'Super U',
+    coords: [47.33441999999999, -0.23158],
+    category: 'systemu',
+    address: '49350 Gennes val de loire',
     hasCageEggs: true,
     nbRef: 3,
-    urlImg: "https://storage.tally.so/private/20260131_175747.jpg?id=496x0r&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjQ5NngwciIsImZvcm1JZCI6IlJHTU4wNCIsImlhdCI6MTc3MDQ1NjYwNn0.ZW0byGGkpdC1pMiDVMsic6tZhddjx4gUCDpEZ0apPqE&signature=45cf8678e69b8591d6d8026d5d887da8f3589599c739fa116ec3673f9a5acc61"
-  }
-]
+    urlImg:
+      'https://storage.tally.so/private/20260131_175747.jpg?id=496x0r&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjQ5NngwciIsImZvcm1JZCI6IlJHTU4wNCIsImlhdCI6MTc3MDQ1NjYwNn0.ZW0byGGkpdC1pMiDVMsic6tZhddjx4gUCDpEZ0apPqE&signature=45cf8678e69b8591d6d8026d5d887da8f3589599c739fa116ec3673f9a5acc61',
+  },
+];
