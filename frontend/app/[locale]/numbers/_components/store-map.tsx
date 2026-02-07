@@ -1,36 +1,11 @@
 'use client';
 
 import { useMemo, useState } from 'react';
-import { Marker, MapContainer, Popup, TileLayer } from 'react-leaflet';
-import L from 'leaflet';
+import { CircleMarker, MapContainer, Popup, TileLayer } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 import { store, enseignes } from '../_data/store-data';
 
-function createMarkerIcon(logoSrc: string, hasCageEggs: boolean) {
-  const borderColor = hasCageEggs ? '#ff584b' : '#22C55E';
-  return L.divIcon({
-    className: '',
-    iconSize: [36, 36],
-    iconAnchor: [18, 18],
-    popupAnchor: [0, -20],
-    html: `
-      <div style="
-        width: 36px;
-        height: 36px;
-        border-radius: 50%;
-        border: 3px solid ${borderColor};
-        background: white;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        box-shadow: 0 2px 6px rgba(0,0,0,0.3);
-        overflow: hidden;
-      ">
-        <img src="${hasCageEggs === true ? "/logo/map_icon_eggs.png": "/logo/map_icon_noeggs.svg"}" style="width: 22px; height: 22px; object-fit: contain;" />
-      </div>
-    `,
-  });
-}
+
 
 export default function StoreMap() {
   const [filterCage, setFilterCage] = useState(false);
@@ -90,14 +65,19 @@ export default function StoreMap() {
         {filteredStores.map((s, i) => {
           const color = s.hasCageEggs ? '#ff584b' : '#22C55E';
           const status = s.hasCageEggs ? "Présence d'œufs cage" : "Pas d'œufs cage";
-          const enseigne = enseignes.find((e) => e.id === s.category);
-          const icon = createMarkerIcon(enseigne?.logo || '', s.hasCageEggs);
+          
 
           return (
-            <Marker
+           <CircleMarker
               key={`${s.category}-${i}`}
-              position={s.coords}
-              icon={icon}
+              center={s.coords}
+              radius={9}
+              pathOptions={{
+                fillColor: color,
+                fillOpacity: 1,
+                color: '',
+                weight: 4,
+              }}
             >
               <Popup>
                 <div className="min-w-[200px] flex flex-col items-start ">
@@ -119,7 +99,7 @@ export default function StoreMap() {
                   </div>
                 </div>
               </Popup>
-            </Marker>
+            </CircleMarker>
           );
         })}
       </MapContainer>
@@ -139,7 +119,7 @@ export default function StoreMap() {
                   filterCage ? 'bg-red-200 shadow-md' : 'bg-red-50 hover:bg-red-100'
                 }`}
               >
-                <img alt="free egg icon" src="/logo/map_filter_icon_caged_egg.svg" />
+                <img alt="caged egg icon" src="/logo/red_ellipse.svg" />
               </button>
               <button
                 onClick={toggleNoCage}
@@ -148,7 +128,7 @@ export default function StoreMap() {
                   filterNoCage ? 'bg-green-200 shadow-md' : 'bg-green-50 hover:bg-green-100'
                 }`}
               >
-                <img alt="free egg icon" src="/logo/map_filter_icon_free_egg.svg" />
+                <img alt="free egg icon" src="/logo/green_ellipse.svg" />
               </button>
             </div>
           </div>

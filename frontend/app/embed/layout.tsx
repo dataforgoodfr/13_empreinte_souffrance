@@ -1,14 +1,19 @@
 import type { Metadata } from 'next';
-import 'leaflet/dist/leaflet.css';
+import { ReactNode } from 'react';
 
 export const metadata: Metadata = {
-  title: 'Store Map Embed',
+  title: "Carte des supermarchés - L'heure des comptes",
+  description:
+    "Carte interactive des supermarchés vendant des œufs de poules en cage en France.",
+  robots: {
+    index: false,
+    follow: false,
+  },
 };
 
-export default function EmbedLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
-  return <>{children}</>;
+/**
+ * Minimal layout for embeddables
+ */
+export default function EmbedLayout({ children }: Readonly<{ children: ReactNode }>) {
+  return <div className="m-0 p-0 overflow-hidden">{children}</div>;
 }

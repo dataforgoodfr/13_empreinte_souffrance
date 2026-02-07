@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import './globals.css';
-import { ReactElement } from 'react';
+import { ReactNode } from 'react';
 import { setStaticParamsLocale } from 'next-international/server';
 import { Albert_Sans } from 'next/font/google';
 
@@ -85,8 +85,8 @@ export default async function RootLayout({
   params,
   children,
 }: Readonly<{
-  params: Promise<{ locale?: string }>;
-  children: ReactElement;
+  params: Promise<{ locale: string }>;
+  children: ReactNode;
 }>) {
   const { locale } = await params;
   if (locale) {
