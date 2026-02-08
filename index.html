@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -44,7 +44,7 @@
     .service-badge.up { background: #dcfce7; color: #166534; }
     .service-badge.down { background: #fee2e2; color: #991b1b; }
 
-    /* ── Uptime bar (90 days) ── */
+    /* ── Uptime bar ── */
     .uptime-bar { display: flex; gap: 1.5px; height: 28px; }
     .uptime-bar .day { flex: 1; border-radius: 2px; min-width: 2px; position: relative; cursor: default; }
     .uptime-bar .day.up { background: #22c55e; }
@@ -91,24 +91,24 @@
   <div class="container">
     <header>
       <h1><a href="https://lheuredescomptes.org">L'heure des comptes</a></h1>
-      <p>Page de statut des services</p>
+      <p>Service status page</p>
     </header>
 
-    <div id="overall" class="overall-status loading">Chargement...</div>
+    <div id="overall" class="overall-status loading">Loading...</div>
     <div id="last-updated" class="last-updated"></div>
 
     <div id="stats-grid" class="stats-grid"></div>
 
     <div class="tabs" id="tabs">
-      <button class="tab active" data-range="90">90 jours</button>
-      <button class="tab" data-range="30">30 jours</button>
-      <button class="tab" data-range="7">7 jours</button>
+      <button class="tab active" data-range="90">90 days</button>
+      <button class="tab" data-range="30">30 days</button>
+      <button class="tab" data-range="7">7 days</button>
     </div>
 
     <div id="services"></div>
 
     <div id="incidents-section" class="incidents-section">
-      <h2>Incidents récents</h2>
+      <h2>Recent incidents</h2>
       <div id="incidents"></div>
     </div>
 
@@ -131,13 +131,13 @@
         const resp = await fetch('data/status.json');
         DATA = await resp.json();
       } catch {
-        document.getElementById('overall').textContent = 'Impossible de charger les données';
+        document.getElementById('overall').textContent = 'Unable to load status data';
         return;
       }
 
       if (DATA.lastUpdated) {
         document.getElementById('last-updated').textContent =
-          'Dernière vérification : ' + new Date(DATA.lastUpdated).toLocaleString('fr-FR');
+          'Last checked: ' + new Date(DATA.lastUpdated).toLocaleString('en-GB');
       }
 
       render();
@@ -186,7 +186,7 @@
 
         // Uptime bar
         const barsHTML = padded.map(d => {
-          let cls = 'none', tooltip = d.date || 'Pas de données';
+          let cls = 'none', tooltip = d.date || 'No data';
           if (d.uptime >= 99.5) { cls = 'up'; tooltip += ' — 100%'; }
           else if (d.uptime >= 0) { cls = d.uptime === 0 ? 'down' : 'partial'; tooltip += ' — ' + d.uptime.toFixed(1) + '%'; }
           return `<div class="day ${cls}" data-tooltip="${tooltip}" style="height:28px"></div>`;
@@ -198,12 +198,12 @@
           <div class="service">
             <div class="service-header">
               <span class="service-name">${site.name}</span>
-              <span class="service-badge ${isUp ? 'up' : 'down'}">${isUp ? 'Opérationnel' : 'Hors service'}</span>
+              <span class="service-badge ${isUp ? 'up' : 'down'}">${isUp ? 'Operational' : 'Down'}</span>
             </div>
             <div class="uptime-bar">${barsHTML}</div>
             <div class="service-stats">
-              <span>${RANGE} derniers jours</span>
-              <span>${avgUptime.toFixed(2)}% disponibilité · ${avgResp} ms moy.</span>
+              <span>Last ${RANGE} days</span>
+              <span>${avgUptime.toFixed(2)}% uptime · ${avgResp} ms avg</span>
             </div>
             <div class="chart-container">
               <canvas id="${chartId}"></canvas>
@@ -219,7 +219,7 @@
           const chartDays = sliced.filter(d => d.responseTime > 0);
           const labels = chartDays.map(d => {
             const parts = d.date.split('-');
-            return parts[2] + '/' + parts[1];
+            return parts[1] + '/' + parts[2];
           });
           const values = chartDays.map(d => Math.round(d.responseTime));
 
@@ -228,7 +228,7 @@
             data: {
               labels,
               datasets: [{
-                label: 'Temps de réponse (ms)',
+                label: 'Response time (ms)',
                 data: values,
                 borderColor: '#6366f1',
                 backgroundColor: 'rgba(99, 102, 241, 0.08)',
@@ -279,8 +279,8 @@
       // Overall banner
       const overall = document.getElementById('overall');
       overall.textContent = allUp
-        ? 'Tous les systèmes sont opérationnels'
-        : 'Certains services rencontrent des problèmes';
+        ? 'All systems operational'
+        : 'Some services are experiencing issues';
       overall.className = 'overall-status ' + (allUp ? 'all-up' : 'some-down');
 
       // Stats cards
@@ -290,15 +290,15 @@
       statsEl.innerHTML = `
         <div class="stat-card">
           <div class="stat-value green">${globalUptime}%</div>
-          <div class="stat-label">Disponibilité (${RANGE}j)</div>
+          <div class="stat-label">Uptime (${RANGE}d)</div>
         </div>
         <div class="stat-card">
           <div class="stat-value blue">${globalResp} ms</div>
-          <div class="stat-label">Temps de réponse moy.</div>
+          <div class="stat-label">Avg. response time</div>
         </div>
         <div class="stat-card">
           <div class="stat-value ${totalIncidents > 0 ? 'red' : 'green'}">${totalIncidents}</div>
-          <div class="stat-label">Jours avec incidents</div>
+          <div class="stat-label">Days with incidents</div>
         </div>
       `;
     }
@@ -325,16 +325,16 @@
       const recent = incidents.slice(0, 10);
 
       if (recent.length === 0) {
-        el.innerHTML = '<div class="no-incidents">Aucun incident récent</div>';
+        el.innerHTML = '<div class="no-incidents">No recent incidents — all systems have been stable</div>';
         return;
       }
 
       el.innerHTML = recent.map(inc => {
         const parts = inc.date.split('-');
-        const dateStr = parts[2] + '/' + parts[1] + '/' + parts[0];
+        const dateStr = parts[1] + '/' + parts[2] + '/' + parts[0];
         const detail = inc.uptime === 0
-          ? 'Service indisponible toute la journée'
-          : `Disponibilité réduite : ${inc.uptime.toFixed(1)}%`;
+          ? 'Service was unavailable all day'
+          : `Degraded availability: ${inc.uptime.toFixed(1)}%`;
         return `
           <div class="incident ${inc.uptime > 0 ? 'resolved' : ''}">
             <div class="incident-header">
