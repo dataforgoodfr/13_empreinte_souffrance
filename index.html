@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Status — L'heure des comptes</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+      background: #f8f9fa;
+      color: #242233;
+      padding: 2rem 1rem;
+    }
+
+    .container {
+      max-width: 720px;
+      margin: 0 auto;
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+
+    header h1 {
+      font-size: 1.5rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.02em;
+      margin-bottom: 0.25rem;
+    }
+
+    header h1 a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    header p {
+      font-size: 0.85rem;
+      color: #666;
+    }
+
+    .overall-status {
+      text-align: center;
+      padding: 1.25rem;
+      border-radius: 8px;
+      font-weight: 700;
+      font-size: 1rem;
+      margin-bottom: 2rem;
+    }
+
+    .overall-status.all-up {
+      background: #dcfce7;
+      color: #166534;
+    }
+
+    .overall-status.some-down {
+      background: #fee2e2;
+      color: #991b1b;
+    }
+
+    .overall-status.loading {
+      background: #f3f4f6;
+      color: #666;
+    }
+
+    .service {
+      background: #fff;
+      border-radius: 8px;
+      padding: 1rem 1.25rem;
+      margin-bottom: 0.75rem;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+    }
+
+    .service-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.75rem;
+    }
+
+    .service-name {
+      font-weight: 600;
+      font-size: 0.95rem;
+    }
+
+    .service-badge {
+      font-size: 0.75rem;
+      font-weight: 600;
+      padding: 0.2rem 0.6rem;
+      border-radius: 999px;
+    }
+
+    .service-badge.up { background: #dcfce7; color: #166534; }
+    .service-badge.down { background: #fee2e2; color: #991b1b; }
+    .service-badge.unknown { background: #f3f4f6; color: #666; }
+
+    .uptime-bar {
+      display: flex;
+      gap: 1.5px;
+      height: 28px;
+      align-items: flex-end;
+    }
+
+    .uptime-bar .day {
+      flex: 1;
+      border-radius: 2px;
+      min-width: 2px;
+      position: relative;
+      cursor: default;
+    }
+
+    .uptime-bar .day.up { background: #22c55e; }
+    .uptime-bar .day.down { background: #ef4444; }
+    .uptime-bar .day.partial { background: #f59e0b; }
+    .uptime-bar .day.none { background: #e5e7eb; }
+
+    .uptime-bar .day:hover::after {
+      content: attr(data-tooltip);
+      position: absolute;
+      bottom: 110%;
+      left: 50%;
+      transform: translateX(-50%);
+      background: #242233;
+      color: #fff;
+      font-size: 0.7rem;
+      padding: 0.25rem 0.5rem;
+      border-radius: 4px;
+      white-space: nowrap;
+      z-index: 10;
+      pointer-events: none;
+    }
+
+    .service-stats {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.75rem;
+      color: #999;
+      margin-top: 0.35rem;
+    }
+
+    .response-time {
+      font-size: 0.75rem;
+      color: #999;
+      margin-top: 0.5rem;
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 2.5rem;
+      font-size: 0.8rem;
+      color: #999;
+    }
+
+    footer a { color: #666; }
+
+    .last-updated {
+      text-align: center;
+      font-size: 0.75rem;
+      color: #aaa;
+      margin-bottom: 1.5rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1><a href="https://lheuredescomptes.org">L'heure des comptes</a></h1>
+      <p>Page de statut des services</p>
+    </header>
+
+    <div id="overall" class="overall-status loading">Chargement...</div>
+    <div id="last-updated" class="last-updated"></div>
+    <div id="services"></div>
+
+    <footer>
+      <p>
+        <a href="https://lheuredescomptes.org" target="_blank">L'heure des comptes</a>
+        — <a href="https://animaasso.org" target="_blank">Anima</a>
+        &times; <a href="https://dataforgood.fr" target="_blank">Data For Good</a>
+      </p>
+    </footer>
+  </div>
+
+  <script>
+    const DAYS_TO_SHOW = 90;
+
+    async function load() {
+      let data;
+      try {
+        const resp = await fetch('data/status.json');
+        data = await resp.json();
+      } catch {
+        document.getElementById('overall').textContent = 'Impossible de charger les données';
+        return;
+      }
+
+      const overall = document.getElementById('overall');
+      const servicesEl = document.getElementById('services');
+      const lastUpdated = document.getElementById('last-updated');
+
+      if (data.lastUpdated) {
+        const d = new Date(data.lastUpdated);
+        lastUpdated.textContent = 'Dernière mise à jour : ' + d.toLocaleString('fr-FR');
+      }
+
+      let allUp = true;
+
+      for (const site of data.sites) {
+        const isUp = site.currentStatus === 'up';
+        if (!isUp) allUp = false;
+
+        const days = site.days || [];
+        const last90 = days.slice(-DAYS_TO_SHOW);
+
+        // Pad to DAYS_TO_SHOW
+        while (last90.length < DAYS_TO_SHOW) {
+          last90.unshift({ date: '', uptime: -1 });
+        }
+
+        // Compute overall uptime %
+        const withData = days.filter(d => d.uptime >= 0);
+        const avgUptime = withData.length > 0
+          ? (withData.reduce((s, d) => s + d.uptime, 0) / withData.length).toFixed(2)
+          : '—';
+
+        // Compute avg response time
+        const withResp = days.filter(d => d.responseTime > 0);
+        const avgResp = withResp.length > 0
+          ? Math.round(withResp.reduce((s, d) => s + d.responseTime, 0) / withResp.length)
+          : null;
+
+        const barsHTML = last90.map(d => {
+          let cls = 'none';
+          let tooltip = d.date || 'Pas de données';
+          if (d.uptime >= 99.5) { cls = 'up'; tooltip += ' — 100%'; }
+          else if (d.uptime >= 0) { cls = d.uptime === 0 ? 'down' : 'partial'; tooltip += ' — ' + d.uptime.toFixed(1) + '%'; }
+          return '<div class="day ' + cls + '" data-tooltip="' + tooltip + '" style="height:28px"></div>';
+        }).join('');
+
+        servicesEl.innerHTML += `
+          <div class="service">
+            <div class="service-header">
+              <span class="service-name">${site.name}</span>
+              <span class="service-badge ${isUp ? 'up' : 'down'}">${isUp ? 'Opérationnel' : 'Hors service'}</span>
+            </div>
+            <div class="uptime-bar">${barsHTML}</div>
+            <div class="service-stats">
+              <span>${DAYS_TO_SHOW} derniers jours</span>
+              <span>${avgUptime}% de disponibilité${avgResp ? ' · ' + avgResp + ' ms' : ''}</span>
+            </div>
+          </div>
+        `;
+      }
+
+      overall.textContent = allUp
+        ? 'Tous les systèmes sont opérationnels'
+        : 'Certains services rencontrent des problèmes';
+      overall.className = 'overall-status ' + (allUp ? 'all-up' : 'some-down');
+    }
+
+    load();
+  </script>
+</body>
+</html>
