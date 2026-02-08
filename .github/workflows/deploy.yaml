@@ -72,10 +72,106 @@ jobs:
           else
             echo "DEPLOY_URL=${{ github.ref_name }}.staging.lheuredescomptes.org" >> $GITHUB_ENV
           fi
-      - run: docker stack deploy -c docker-compose.prod.yaml --with-registry-auth lheuredescomptes-${{ github.ref_name }}
+      # Start continuous health monitoring BEFORE deploy
+      # Polls every 5s and logs every response to a file.
+      - name: Start health monitor
+        run: |
+          echo "Starting continuous health monitor on https://${{ env.DEPLOY_URL }}..."
+          (
+            while true; do
+              TIMESTAMP=$(date -u +"%H:%M:%S")
+              FRONT=$(curl -s -o /dev/null -w "%{http_code}" --max-time 10 "https://${{ env.DEPLOY_URL }}" || echo "000")
+              API=$(curl -s -o /dev/null -w "%{http_code}" --max-time 10 "https://api.${{ env.DEPLOY_URL }}/health" || echo "000")
+              echo "$TIMESTAMP frontend=$FRONT api=$API" >> /tmp/health.log
+              sleep 5
+            done
+          ) &
+          echo $! > /tmp/health_monitor.pid
+          # Let it collect a few pre-deploy samples
+          sleep 15
+
+      - name: Deploy to swarm
+        run: docker stack deploy -c docker-compose.prod.yaml --with-registry-auth lheuredescomptes-${{ github.ref_name }}
         env:
           DEPLOY_URL: ${{ env.DEPLOY_URL }}
           TRAEFIK_ROUTER_NAME: lheuredescomptes-${{ github.ref_name }}
           STAGE_NAME: ${{ github.ref_name }}
+          DOCKER_HOST: ssh://debian@lheuredescomptes.org
+
+      - name: Wait for rolling update
+        run: sleep 120
+
+      - name: Stop health monitor and check results
+        run: |
+          kill $(cat /tmp/health_monitor.pid) 2>/dev/null || true
+          echo ""
+          echo "========== Health check log =========="
+          cat /tmp/health.log
+          echo "======================================"
+          echo ""
+
+          TOTAL=$(wc -l < /tmp/health.log)
+          FRONT_FAIL=$(awk '{split($2,a,"="); if (a[2] < 200 || a[2] >= 400) print}' /tmp/health.log | wc -l)
+          API_FAIL=$(awk '{split($3,a,"="); if (a[2] < 200 || a[2] >= 400) print}' /tmp/health.log | wc -l)
+
+          # Check if the LAST checks are healthy (= service recovered)
+          LAST_LINE=$(tail -1 /tmp/health.log)
+          LAST_FRONT=$(echo "$LAST_LINE" | awk '{split($2,a,"="); print a[2]}')
+          LAST_API=$(echo "$LAST_LINE" | awk '{split($3,a,"="); print a[2]}')
+          LAST_OK="true"
+          if [ "$LAST_FRONT" -lt 200 ] || [ "$LAST_FRONT" -ge 400 ] || [ "$LAST_API" -lt 200 ] || [ "$LAST_API" -ge 400 ]; then
+            LAST_OK="false"
+          fi
+
+          echo "Total checks: $TOTAL"
+          echo "Frontend failures: $FRONT_FAIL"
+          echo "API failures: $API_FAIL"
+          echo "Last check healthy: $LAST_OK"
+          echo ""
+
+          if [ "$FRONT_FAIL" -gt 0 ] || [ "$API_FAIL" -gt 0 ]; then
+            echo "⚠️  Downtime detected during deployment!"
+            echo ""
+            echo "Failed checks:"
+            awk '{
+              split($2,f,"="); split($3,a,"=");
+              if (f[2] < 200 || f[2] >= 400 || a[2] < 200 || a[2] >= 400) print "  " $0
+            }' /tmp/health.log
+
+            if [ "$LAST_OK" = "false" ]; then
+              echo ""
+              echo "❌ Service is STILL DOWN — triggering rollback!"
+              echo "NEEDS_ROLLBACK=true" >> $GITHUB_ENV
+              exit 1
+            else
+              echo ""
+              echo "⚠️  Brief downtime occurred but service recovered. No rollback needed."
+              exit 0
+            fi
+          fi
+
+          echo "✅ Zero downtime — all $TOTAL checks passed"
+
+      - name: Rollback on complete failure
+        if: failure() && env.NEEDS_ROLLBACK == 'true'
+        run: |
+          echo "Rolling back frontend and backend..."
+          docker service rollback lheuredescomptes-${{ github.ref_name }}_frontend || true
+          docker service rollback lheuredescomptes-${{ github.ref_name }}_backend || true
+          echo "Rollback triggered. Waiting 30s for services to stabilize..."
+          sleep 30
+
+          # Verify rollback worked
+          FRONT=$(curl -s -o /dev/null -w "%{http_code}" --max-time 10 "https://${{ env.DEPLOY_URL }}" || echo "000")
+          API=$(curl -s -o /dev/null -w "%{http_code}" --max-time 10 "https://api.${{ env.DEPLOY_URL }}/health" || echo "000")
+          echo "Post-rollback: frontend=$FRONT api=$API"
+
+          if [ "$FRONT" -ge 200 ] && [ "$FRONT" -lt 400 ] && [ "$API" -ge 200 ] && [ "$API" -lt 400 ]; then
+            echo "✅ Rollback successful — services restored"
+          else
+            echo "❌ Rollback may have failed — manual intervention needed!"
+          fi
+          exit 1
+        env:
           DOCKER_HOST: ssh://debian@lheuredescomptes.org
 

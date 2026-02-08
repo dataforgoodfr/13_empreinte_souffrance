@@ -14,6 +14,18 @@ services:
         - "traefik.http.routers.dashboard.service=api@internal"
         - "traefik.http.routers.dashboard.tls.certresolver=wildcardresolver"
         - "traefik.http.services.traefik.loadbalancer.server.port=8080"
+        - "traefik.http.routers.http-catchall.rule=HostRegexp(`.+`)"
+        - "traefik.http.routers.http-catchall.entrypoints=web"
+        - "traefik.http.routers.http-catchall.middlewares=redirect-to-https"
+        - "traefik.http.middlewares.redirect-to-https.redirectscheme.scheme=https"
+        - "traefik.http.middlewares.redirect-to-https.redirectscheme.permanent=true"
+        - "traefik.http.routers.www-redirect.rule=Host(`www.${DOMAIN}`)"
+        - "traefik.http.routers.www-redirect.entrypoints=websecure"
+        - "traefik.http.routers.www-redirect.tls=true"
+        - "traefik.http.routers.www-redirect.middlewares=redirect-www-to-naked"
+        - "traefik.http.middlewares.redirect-www-to-naked.redirectregex.regex=^https://www\\.(.+)"
+        - "traefik.http.middlewares.redirect-www-to-naked.redirectregex.replacement=https://$${1}"
+        - "traefik.http.middlewares.redirect-www-to-naked.redirectregex.permanent=true"
     environment:
       - INFOMANIAK_ACCESS_TOKEN=${INFOMANIAK_ACCESS_TOKEN}
     command:
@@ -28,6 +40,9 @@ services:
       - "--certificatesresolvers.wildcardresolver.acme.dnschallenge.provider=infomaniak"
       - "--certificatesresolvers.wildcardresolver.acme.dnschallenge.delaybeforecheck=60"
       - "--certificatesresolvers.wildcardresolver.acme.certificatesduration=720"
+      - "--entrypoints.websecure.http.tls.certresolver=wildcardresolver"
+      - "--entrypoints.websecure.http.tls.domains[0].main=lheuredescomptes.org"
+      - "--entrypoints.websecure.http.tls.domains[0].sans=*.lheuredescomptes.org"
       - "--api.dashboard=true"
     volumes:
       - traefik-certificates:/certificates

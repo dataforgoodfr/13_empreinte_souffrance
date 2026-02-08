@@ -39,6 +39,9 @@ RUN npm run build
 # Production image, copy all the files and run next
 FROM base AS runner
 
+# Install wget for healthcheck
+RUN apk add --no-cache wget
+
 # Add non-root user
 RUN addgroup --system --gid 1001 nodejs
 RUN adduser --system --uid 1001 nextjs

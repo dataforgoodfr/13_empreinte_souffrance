@@ -1,0 +1,140 @@
+name: Uptime check
+
+# View results: https://github.com/dataforgoodfr/13_empreinte_souffrance/actions/workflows/uptime.yaml
+# Status page:  https://dataforgoodfr.github.io/13_empreinte_souffrance/
+
+on:
+  schedule:
+    - cron: "*/5 * * * *" # Every 5 minutes
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  uptime:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check all sites
+        run: |
+          SITES='[
+            {"name": "L'\''heure des comptes", "url": "https://lheuredescomptes.org"},
+            {"name": "API", "url": "https://api.lheuredescomptes.org/health"},
+            {"name": "Carte interactive (embed)", "url": "https://lheuredescomptes.org/embed/store-map"}
+          ]'
+
+          echo "$SITES" | jq -c '.[]' | while read -r site; do
+            NAME=$(echo "$site" | jq -r '.name')
+            URL=$(echo "$site" | jq -r '.url')
+
+            # Measure server processing time only (exclude DNS + TCP + TLS network latency)
+            # time_starttransfer = first byte received (includes network)
+            # time_appconnect   = TLS handshake done (pure network overhead)
+            # Difference = actual server processing time
+            RESULT=$(curl -s -o /dev/null -w "%{http_code}|%{time_appconnect}|%{time_starttransfer}" --max-time 15 "$URL" || echo "000|0|0")
+            STATUS=$(echo "$RESULT" | cut -d'|' -f1)
+            TLS_DONE=$(echo "$RESULT" | cut -d'|' -f2)
+            FIRST_BYTE=$(echo "$RESULT" | cut -d'|' -f3)
+            RESPONSE_MS=$(echo "$TLS_DONE $FIRST_BYTE" | awk '{printf "%d", ($2 - $1) * 1000}')
+
+            if [ "$STATUS" -ge 200 ] && [ "$STATUS" -lt 400 ]; then
+              echo "✅ $NAME ($URL): HTTP $STATUS — ${RESPONSE_MS}ms server time"
+              echo "$NAME|up|$STATUS|$RESPONSE_MS" >> /tmp/results.txt
+            else
+              echo "❌ $NAME ($URL): HTTP $STATUS — ${RESPONSE_MS}ms server time"
+              echo "$NAME|down|$STATUS|$RESPONSE_MS" >> /tmp/results.txt
+            fi
+          done
+
+      - name: Checkout gh-pages branch
+        uses: actions/checkout@v4
+        with:
+          ref: gh-pages
+          path: gh-pages
+
+      - name: Update status data
+        run: |
+          mkdir -p gh-pages/data
+          DATA_FILE="gh-pages/data/status.json"
+          TODAY=$(date -u +"%Y-%m-%d")
+          NOW=$(date -u +"%Y-%m-%dT%H:%M:%SZ")
+
+          # Initialize status.json if it doesn't exist
+          if [ ! -f "$DATA_FILE" ]; then
+            echo '{"lastUpdated":"","sites":[]}' > "$DATA_FILE"
+          fi
+
+          # Process each result
+          while IFS='|' read -r NAME STATUS CODE RESPONSE_MS; do
+            # Check if site already exists in JSON
+            EXISTS=$(jq --arg name "$NAME" '.sites | map(.name) | index($name)' "$DATA_FILE")
+
+            if [ "$EXISTS" = "null" ]; then
+              # Add new site
+              jq --arg name "$NAME" --arg status "$STATUS" \
+                '.sites += [{"name": $name, "currentStatus": $status, "days": []}]' \
+                "$DATA_FILE" > /tmp/updated.json && mv /tmp/updated.json "$DATA_FILE"
+            fi
+
+            # Update current status
+            jq --arg name "$NAME" --arg status "$STATUS" \
+              '(.sites[] | select(.name == $name)).currentStatus = $status' \
+              "$DATA_FILE" > /tmp/updated.json && mv /tmp/updated.json "$DATA_FILE"
+
+            # Update today's entry in the days array
+            # Each day stores: total checks, successful checks, sum of response times
+            SITE_INDEX=$(jq --arg name "$NAME" '.sites | to_entries[] | select(.value.name == $name) | .key' "$DATA_FILE")
+            DAY_EXISTS=$(jq --arg date "$TODAY" --argjson idx "$SITE_INDEX" \
+              '.sites[$idx].days | map(.date) | index($date)' "$DATA_FILE")
+
+            IS_UP=0
+            [ "$STATUS" = "up" ] && IS_UP=1
+
+            if [ "$DAY_EXISTS" = "null" ]; then
+              # Create today's entry
+              jq --arg date "$TODAY" --argjson idx "$SITE_INDEX" \
+                --argjson ok "$IS_UP" --argjson resp "$RESPONSE_MS" \
+                '.sites[$idx].days += [{"date": $date, "total": 1, "ok": $ok, "responseTimeSum": $resp, "uptime": ($ok * 100), "responseTime": $resp}]' \
+                "$DATA_FILE" > /tmp/updated.json && mv /tmp/updated.json "$DATA_FILE"
+            else
+              # Update today's entry
+              jq --arg date "$TODAY" --argjson idx "$SITE_INDEX" \
+                --argjson ok "$IS_UP" --argjson resp "$RESPONSE_MS" \
+                '(.sites[$idx].days[] | select(.date == $date)) |=
+                  (.total += 1 | .ok += $ok | .responseTimeSum += $resp |
+                   .uptime = ((.ok / .total) * 100) |
+                   .responseTime = (.responseTimeSum / .total))' \
+                "$DATA_FILE" > /tmp/updated.json && mv /tmp/updated.json "$DATA_FILE"
+            fi
+
+            # Keep only last 90 days
+            jq --argjson idx "$SITE_INDEX" \
+              '.sites[$idx].days = (.sites[$idx].days | .[-90:])' \
+              "$DATA_FILE" > /tmp/updated.json && mv /tmp/updated.json "$DATA_FILE"
+
+          done < /tmp/results.txt
+
+          # Update timestamp
+          jq --arg now "$NOW" '.lastUpdated = $now' "$DATA_FILE" > /tmp/updated.json && mv /tmp/updated.json "$DATA_FILE"
+
+      - name: Push to gh-pages
+        run: |
+          cd gh-pages
+          git config user.name "Uptime Bot"
+          git config user.email "uptime@lheuredescomptes.org"
+          git add -A
+          git diff --cached --quiet && echo "No changes" && exit 0
+          git commit -m "Update status — $(date -u +"%Y-%m-%d %H:%M UTC")"
+          git push
+
+      - name: Fail if any site is down
+        run: |
+          if grep -q "|down|" /tmp/results.txt; then
+            echo ""
+            echo "❌ One or more sites are DOWN:"
+            grep "|down|" /tmp/results.txt | while IFS='|' read -r NAME STATUS CODE RESP; do
+              echo "  $NAME: HTTP $CODE"
+            done
+            exit 1
+          fi
+          echo "✅ All sites are up"

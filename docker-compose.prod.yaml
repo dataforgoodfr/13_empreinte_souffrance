@@ -4,23 +4,69 @@ services:
     networks:
       - traefik-public
     deploy:
+      replicas: 2
+      update_config:
+        parallelism: 1
+        delay: 10s
+        failure_action: rollback
+        order: start-first
+      rollback_config:
+        parallelism: 1
+        delay: 5s
+      restart_policy:
+        condition: on-failure
+        delay: 5s
+        max_attempts: 3
+        window: 120s
       labels:
         - "traefik.enable=true"
         - "traefik.http.routers.`${TRAEFIK_ROUTER_NAME}`.rule=Host(`${DEPLOY_URL}`)"
         - "traefik.http.routers.`${TRAEFIK_ROUTER_NAME}`.entrypoints=websecure"
         - "traefik.http.routers.`${TRAEFIK_ROUTER_NAME}`.tls.certresolver=wildcardresolver"
         - "traefik.http.services.`${TRAEFIK_ROUTER_NAME}`.loadbalancer.server.port=3000"
+        - "traefik.http.services.`${TRAEFIK_ROUTER_NAME}`.loadbalancer.healthcheck.path=/"
+        - "traefik.http.services.`${TRAEFIK_ROUTER_NAME}`.loadbalancer.healthcheck.interval=5s"
+        - "traefik.http.services.`${TRAEFIK_ROUTER_NAME}`.loadbalancer.healthcheck.timeout=3s"
+    healthcheck:
+      test: ["CMD", "wget", "--no-verbose", "--tries=1", "--spider", "http://localhost:3000/"]
+      interval: 5s
+      timeout: 5s
+      retries: 12
+      start_period: 5s
   backend:
     image: lheuredescomptes.org:5000/admin/lheuredescomptes_backend:${STAGE_NAME}
     networks:
       - traefik-public
     deploy:
+      replicas: 2
+      update_config:
+        parallelism: 1
+        delay: 10s
+        failure_action: rollback
+        order: start-first
+      rollback_config:
+        parallelism: 1
+        delay: 5s
+      restart_policy:
+        condition: on-failure
+        delay: 5s
+        max_attempts: 3
+        window: 120s
       labels:
         - "traefik.enable=true"
         - "traefik.http.routers.`${TRAEFIK_ROUTER_NAME}`-api.rule=Host(`api.${DEPLOY_URL}`)"
         - "traefik.http.routers.`${TRAEFIK_ROUTER_NAME}`-api.entrypoints=websecure"
         - "traefik.http.routers.`${TRAEFIK_ROUTER_NAME}`-api.tls.certresolver=wildcardresolver"
         - "traefik.http.services.`${TRAEFIK_ROUTER_NAME}`-api.loadbalancer.server.port=8000"
+        - "traefik.http.services.`${TRAEFIK_ROUTER_NAME}`-api.loadbalancer.healthcheck.path=/health"
+        - "traefik.http.services.`${TRAEFIK_ROUTER_NAME}`-api.loadbalancer.healthcheck.interval=5s"
+        - "traefik.http.services.`${TRAEFIK_ROUTER_NAME}`-api.loadbalancer.healthcheck.timeout=3s"
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:8000/health').read()"]
+      interval: 5s
+      timeout: 5s
+      retries: 12
+      start_period: 5s
 networks:
   traefik-public:
     external: true

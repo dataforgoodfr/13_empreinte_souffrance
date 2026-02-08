@@ -35,6 +35,13 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+# Health check endpoint for Docker healthcheck
+@app.get("/health", tags=["Health"])
+async def health_check():
+    """Health check endpoint for load balancers and container orchestration."""
+    return {"status": "healthy"}
+
+
 # Include API routes
 app.include_router(off_router, prefix="/off/v1", tags=["Open Food Facts"])
 
