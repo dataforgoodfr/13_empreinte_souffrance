@@ -1,0 +1,45 @@
+name: Deploy status page
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'status-page/**'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout main
+        uses: actions/checkout@v4
+
+      - name: Checkout gh-pages
+        uses: actions/checkout@v4
+        with:
+          ref: gh-pages
+          path: gh-pages
+
+      - name: Copy status page files
+        run: |
+          # Keep existing data directory
+          cp -r status-page/* gh-pages/
+          # Ensure data dir exists
+          mkdir -p gh-pages/data
+          # Create initial status.json if missing
+          if [ ! -f gh-pages/data/status.json ]; then
+            echo '{"lastUpdated":"","sites":[]}' > gh-pages/data/status.json
+          fi
+
+      - name: Push to gh-pages
+        run: |
+          cd gh-pages
+          git config user.name "Uptime Bot"
+          git config user.email "uptime@lheuredescomptes.org"
+          git add -A
+          git diff --cached --quiet && echo "No changes" && exit 0
+          git commit -m "Update status page template"
+          git push

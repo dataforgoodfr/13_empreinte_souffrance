@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Status — L'heure des comptes</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: system-ui, sans-serif; background: #f8f9fa; color: #333; padding: 2rem 1rem; max-width: 640px; margin: 0 auto; }
+    a { color: inherit; }
+    h1 { font-size: 1.4rem; text-align: center; margin-bottom: 0.25rem; }
+    .sub { text-align: center; font-size: 0.8rem; color: #999; margin-bottom: 1.5rem; }
+    #status { text-align: center; padding: 1rem; border-radius: 8px; font-weight: 700; margin-bottom: 1.5rem; background: #f3f4f6; color: #666; }
+    .up { background: #dcfce7; color: #166534; }
+    .down { background: #fee2e2; color: #991b1b; }
+    .card { background: #fff; border-radius: 8px; padding: 1rem; margin-bottom: 0.75rem; box-shadow: 0 1px 2px rgba(0,0,0,0.05); }
+    .card-head { display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem; font-size: 0.9rem; }
+    .card-head strong { font-weight: 700; }
+    .badge { font-size: 0.7rem; font-weight: 600; padding: 0.15rem 0.5rem; border-radius: 99px; }
+    .bar { display: flex; gap: 1px; height: 24px; }
+    .bar div { flex: 1; border-radius: 2px; min-width: 2px; position: relative; }
+    .bar .g { background: #22c55e; }
+    .bar .r { background: #ef4444; }
+    .bar .y { background: #f59e0b; }
+    .bar .e { background: #e5e7eb; }
+    .bar div:hover::after { content: attr(title); position: absolute; bottom: 110%; left: 50%; transform: translateX(-50%); background: #333; color: #fff; font-size: 0.6rem; padding: 2px 6px; border-radius: 3px; white-space: nowrap; pointer-events: none; }
+    .stats { display: flex; justify-content: space-between; font-size: 0.7rem; color: #aaa; margin-top: 0.3rem; }
+  </style>
+</head>
+<body>
+  <h1><a href="https://lheuredescomptes.org">L'heure des comptes</a></h1>
+  <p class="sub" id="updated">Status</p>
+  <div id="status">Loading...</div>
+  <div id="services"></div>
+  <script>
+    fetch('data/status.json').then(r => r.json()).then(data => {
+      if (data.lastUpdated)
+        document.getElementById('updated').textContent = 'Last checked: ' + new Date(data.lastUpdated).toLocaleString('en-GB');
+
+      let allUp = true;
+      let html = '';
+
+      for (const s of data.sites) {
+        if (s.currentStatus !== 'up') allUp = false;
+        const days = s.days || [];
+        const pad = days.slice(-90);
+        while (pad.length < 90) pad.unshift(null);
+
+        const ok = days.filter(d => d.uptime >= 0);
+        const pct = ok.length ? (ok.reduce((a, d) => a + d.uptime, 0) / ok.length).toFixed(2) : '—';
+        const rt = days.filter(d => d.responseTime > 0);
+        const ms = rt.length ? Math.round(rt.reduce((a, d) => a + d.responseTime, 0) / rt.length) : null;
+
+        const bars = pad.map(d => {
+          if (!d) return '<div class="e" title="No data"></div>';
+          const t = d.date + ' — ' + (d.uptime >= 99.5 ? '100%' : d.uptime.toFixed(1) + '%');
+          const c = d.uptime >= 99.5 ? 'g' : d.uptime === 0 ? 'r' : 'y';
+          return `<div class="${c}" title="${t}"></div>`;
+        }).join('');
+
+        const badge = s.currentStatus === 'up';
+        html += `<div class="card">
+          <div class="card-head"><strong>${s.name}</strong><span class="badge ${badge ? 'up' : 'down'}">${badge ? 'OK' : 'Down'}</span></div>
+          <div class="bar">${bars}</div>
+          <div class="stats"><span>90 days</span><span>${pct}%${ms ? ' · ' + ms + 'ms' : ''}</span></div>
+        </div>`;
+      }
+
+      document.getElementById('services').innerHTML = html;
+      const el = document.getElementById('status');
+      el.textContent = allUp ? 'All systems operational' : 'Some services are experiencing issues';
+      el.className = allUp ? 'up' : 'down';
+    }).catch(() => {
+      document.getElementById('status').textContent = 'Unable to load data';
+    });
+  </script>
+</body>
+</html>
