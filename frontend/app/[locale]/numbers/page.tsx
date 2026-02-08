@@ -62,8 +62,9 @@ export default async function NumbersPage() {
         }
         innerClassName=""
         contentClassName="justify-end"
+        anchorName={'carte'}
       >
-        <StoreMapClient/>
+        <StoreMapClient />
       </Section>
 
       <GoFurtherSection />
