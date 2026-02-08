@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Status — L'heure des comptes</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4/dist/chart.umd.min.js"></script>
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
 
@@ -14,154 +15,76 @@
       padding: 2rem 1rem;
     }
 
-    .container {
-      max-width: 720px;
-      margin: 0 auto;
-    }
+    .container { max-width: 780px; margin: 0 auto; }
 
-    header {
-      text-align: center;
-      margin-bottom: 2rem;
-    }
+    /* ── Header ── */
+    header { text-align: center; margin-bottom: 2rem; }
+    header h1 { font-size: 1.5rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.02em; margin-bottom: 0.25rem; }
+    header h1 a { color: inherit; text-decoration: none; }
+    header p { font-size: 0.85rem; color: #666; }
 
-    header h1 {
-      font-size: 1.5rem;
-      font-weight: 800;
-      text-transform: uppercase;
-      letter-spacing: 0.02em;
-      margin-bottom: 0.25rem;
-    }
+    /* ── Overall banner ── */
+    .overall-status { text-align: center; padding: 1.25rem; border-radius: 10px; font-weight: 700; font-size: 1rem; margin-bottom: 0.5rem; }
+    .overall-status.all-up { background: #dcfce7; color: #166534; }
+    .overall-status.some-down { background: #fee2e2; color: #991b1b; }
+    .overall-status.loading { background: #f3f4f6; color: #666; }
+    .last-updated { text-align: center; font-size: 0.75rem; color: #aaa; margin-bottom: 2rem; }
 
-    header h1 a {
-      color: inherit;
-      text-decoration: none;
-    }
+    /* ── Tabs ── */
+    .tabs { display: flex; gap: 0.5rem; margin-bottom: 1.5rem; justify-content: center; }
+    .tab { padding: 0.4rem 1rem; border-radius: 999px; border: 1px solid #ddd; background: #fff; font-size: 0.8rem; cursor: pointer; font-weight: 500; transition: all 0.15s; }
+    .tab:hover { border-color: #aaa; }
+    .tab.active { background: #242233; color: #fff; border-color: #242233; }
 
-    header p {
-      font-size: 0.85rem;
-      color: #666;
-    }
-
-    .overall-status {
-      text-align: center;
-      padding: 1.25rem;
-      border-radius: 8px;
-      font-weight: 700;
-      font-size: 1rem;
-      margin-bottom: 2rem;
-    }
-
-    .overall-status.all-up {
-      background: #dcfce7;
-      color: #166534;
-    }
-
-    .overall-status.some-down {
-      background: #fee2e2;
-      color: #991b1b;
-    }
-
-    .overall-status.loading {
-      background: #f3f4f6;
-      color: #666;
-    }
-
-    .service {
-      background: #fff;
-      border-radius: 8px;
-      padding: 1rem 1.25rem;
-      margin-bottom: 0.75rem;
-      box-shadow: 0 1px 3px rgba(0,0,0,0.06);
-    }
-
-    .service-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 0.75rem;
-    }
-
-    .service-name {
-      font-weight: 600;
-      font-size: 0.95rem;
-    }
-
-    .service-badge {
-      font-size: 0.75rem;
-      font-weight: 600;
-      padding: 0.2rem 0.6rem;
-      border-radius: 999px;
-    }
-
+    /* ── Service card ── */
+    .service { background: #fff; border-radius: 10px; padding: 1.25rem; margin-bottom: 1rem; box-shadow: 0 1px 3px rgba(0,0,0,0.06); }
+    .service-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem; }
+    .service-name { font-weight: 700; font-size: 0.95rem; }
+    .service-badge { font-size: 0.7rem; font-weight: 600; padding: 0.2rem 0.65rem; border-radius: 999px; }
     .service-badge.up { background: #dcfce7; color: #166534; }
     .service-badge.down { background: #fee2e2; color: #991b1b; }
-    .service-badge.unknown { background: #f3f4f6; color: #666; }
 
-    .uptime-bar {
-      display: flex;
-      gap: 1.5px;
-      height: 28px;
-      align-items: flex-end;
-    }
-
-    .uptime-bar .day {
-      flex: 1;
-      border-radius: 2px;
-      min-width: 2px;
-      position: relative;
-      cursor: default;
-    }
-
+    /* ── Uptime bar (90 days) ── */
+    .uptime-bar { display: flex; gap: 1.5px; height: 28px; }
+    .uptime-bar .day { flex: 1; border-radius: 2px; min-width: 2px; position: relative; cursor: default; }
     .uptime-bar .day.up { background: #22c55e; }
     .uptime-bar .day.down { background: #ef4444; }
     .uptime-bar .day.partial { background: #f59e0b; }
     .uptime-bar .day.none { background: #e5e7eb; }
-
     .uptime-bar .day:hover::after {
       content: attr(data-tooltip);
-      position: absolute;
-      bottom: 110%;
-      left: 50%;
-      transform: translateX(-50%);
-      background: #242233;
-      color: #fff;
-      font-size: 0.7rem;
-      padding: 0.25rem 0.5rem;
-      border-radius: 4px;
-      white-space: nowrap;
-      z-index: 10;
-      pointer-events: none;
+      position: absolute; bottom: 115%; left: 50%; transform: translateX(-50%);
+      background: #242233; color: #fff; font-size: 0.65rem; padding: 0.2rem 0.45rem;
+      border-radius: 4px; white-space: nowrap; z-index: 10; pointer-events: none;
     }
+    .service-stats { display: flex; justify-content: space-between; font-size: 0.75rem; color: #999; margin-top: 0.4rem; }
 
-    .service-stats {
-      display: flex;
-      justify-content: space-between;
-      font-size: 0.75rem;
-      color: #999;
-      margin-top: 0.35rem;
-    }
+    /* ── Response time chart ── */
+    .chart-container { margin-top: 0.75rem; height: 120px; position: relative; }
 
-    .response-time {
-      font-size: 0.75rem;
-      color: #999;
-      margin-top: 0.5rem;
-    }
+    /* ── Incidents ── */
+    .incidents-section { margin-top: 2rem; }
+    .incidents-section h2 { font-size: 1rem; font-weight: 700; margin-bottom: 1rem; text-transform: uppercase; letter-spacing: 0.03em; }
+    .incident { background: #fff; border-left: 4px solid #ef4444; border-radius: 0 8px 8px 0; padding: 0.75rem 1rem; margin-bottom: 0.5rem; box-shadow: 0 1px 3px rgba(0,0,0,0.06); }
+    .incident.resolved { border-left-color: #22c55e; }
+    .incident-header { display: flex; justify-content: space-between; align-items: center; }
+    .incident-name { font-weight: 600; font-size: 0.85rem; }
+    .incident-date { font-size: 0.7rem; color: #999; }
+    .incident-detail { font-size: 0.75rem; color: #666; margin-top: 0.25rem; }
+    .no-incidents { text-align: center; color: #999; font-size: 0.85rem; padding: 1rem; }
 
-    footer {
-      text-align: center;
-      margin-top: 2.5rem;
-      font-size: 0.8rem;
-      color: #999;
-    }
+    /* ── Overall stats cards ── */
+    .stats-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.75rem; margin-bottom: 2rem; }
+    .stat-card { background: #fff; border-radius: 10px; padding: 1rem; text-align: center; box-shadow: 0 1px 3px rgba(0,0,0,0.06); }
+    .stat-value { font-size: 1.5rem; font-weight: 800; }
+    .stat-value.green { color: #16a34a; }
+    .stat-value.red { color: #dc2626; }
+    .stat-value.blue { color: #2563eb; }
+    .stat-label { font-size: 0.7rem; color: #999; margin-top: 0.2rem; text-transform: uppercase; letter-spacing: 0.04em; }
 
+    /* ── Footer ── */
+    footer { text-align: center; margin-top: 2.5rem; font-size: 0.8rem; color: #999; }
     footer a { color: #666; }
-
-    .last-updated {
-      text-align: center;
-      font-size: 0.75rem;
-      color: #aaa;
-      margin-bottom: 1.5rem;
-    }
   </style>
 </head>
 <body>
@@ -173,7 +96,21 @@
 
     <div id="overall" class="overall-status loading">Chargement...</div>
     <div id="last-updated" class="last-updated"></div>
+
+    <div id="stats-grid" class="stats-grid"></div>
+
+    <div class="tabs" id="tabs">
+      <button class="tab active" data-range="90">90 jours</button>
+      <button class="tab" data-range="30">30 jours</button>
+      <button class="tab" data-range="7">7 jours</button>
+    </div>
+
     <div id="services"></div>
+
+    <div id="incidents-section" class="incidents-section">
+      <h2>Incidents récents</h2>
+      <div id="incidents"></div>
+    </div>
 
     <footer>
       <p>
@@ -185,60 +122,77 @@
   </div>
 
   <script>
-    const DAYS_TO_SHOW = 90;
+    let DATA = null;
+    let RANGE = 90;
+    const charts = {};
 
     async function load() {
-      let data;
       try {
         const resp = await fetch('data/status.json');
-        data = await resp.json();
+        DATA = await resp.json();
       } catch {
         document.getElementById('overall').textContent = 'Impossible de charger les données';
         return;
       }
 
-      const overall = document.getElementById('overall');
-      const servicesEl = document.getElementById('services');
-      const lastUpdated = document.getElementById('last-updated');
-
-      if (data.lastUpdated) {
-        const d = new Date(data.lastUpdated);
-        lastUpdated.textContent = 'Dernière mise à jour : ' + d.toLocaleString('fr-FR');
+      if (DATA.lastUpdated) {
+        document.getElementById('last-updated').textContent =
+          'Dernière vérification : ' + new Date(DATA.lastUpdated).toLocaleString('fr-FR');
       }
 
-      let allUp = true;
+      render();
+      renderIncidents();
+    }
 
-      for (const site of data.sites) {
+    function render() {
+      const servicesEl = document.getElementById('services');
+      const statsEl = document.getElementById('stats-grid');
+      servicesEl.innerHTML = '';
+      statsEl.innerHTML = '';
+
+      // Destroy old charts
+      Object.values(charts).forEach(c => c.destroy());
+      Object.keys(charts).forEach(k => delete charts[k]);
+
+      let allUp = true;
+      let totalUptime = 0;
+      let totalResp = 0;
+      let siteCount = 0;
+      let totalIncidents = 0;
+
+      for (const site of DATA.sites) {
         const isUp = site.currentStatus === 'up';
         if (!isUp) allUp = false;
 
         const days = site.days || [];
-        const last90 = days.slice(-DAYS_TO_SHOW);
+        const sliced = days.slice(-RANGE);
 
-        // Pad to DAYS_TO_SHOW
-        while (last90.length < DAYS_TO_SHOW) {
-          last90.unshift({ date: '', uptime: -1 });
-        }
+        // Pad to RANGE
+        const padded = [...sliced];
+        while (padded.length < RANGE) padded.unshift({ date: '', uptime: -1, responseTime: 0 });
 
-        // Compute overall uptime %
-        const withData = days.filter(d => d.uptime >= 0);
+        // Stats
+        const withData = sliced.filter(d => d.uptime >= 0);
         const avgUptime = withData.length > 0
-          ? (withData.reduce((s, d) => s + d.uptime, 0) / withData.length).toFixed(2)
-          : '—';
-
-        // Compute avg response time
-        const withResp = days.filter(d => d.responseTime > 0);
+          ? withData.reduce((s, d) => s + d.uptime, 0) / withData.length : 0;
+        const withResp = sliced.filter(d => d.responseTime > 0);
         const avgResp = withResp.length > 0
-          ? Math.round(withResp.reduce((s, d) => s + d.responseTime, 0) / withResp.length)
-          : null;
+          ? Math.round(withResp.reduce((s, d) => s + d.responseTime, 0) / withResp.length) : 0;
 
-        const barsHTML = last90.map(d => {
-          let cls = 'none';
-          let tooltip = d.date || 'Pas de données';
+        totalUptime += avgUptime;
+        totalResp += avgResp;
+        siteCount++;
+        totalIncidents += sliced.filter(d => d.uptime >= 0 && d.uptime < 100).length;
+
+        // Uptime bar
+        const barsHTML = padded.map(d => {
+          let cls = 'none', tooltip = d.date || 'Pas de données';
           if (d.uptime >= 99.5) { cls = 'up'; tooltip += ' — 100%'; }
           else if (d.uptime >= 0) { cls = d.uptime === 0 ? 'down' : 'partial'; tooltip += ' — ' + d.uptime.toFixed(1) + '%'; }
-          return '<div class="day ' + cls + '" data-tooltip="' + tooltip + '" style="height:28px"></div>';
+          return `<div class="day ${cls}" data-tooltip="${tooltip}" style="height:28px"></div>`;
         }).join('');
+
+        const chartId = 'chart-' + site.name.replace(/[^a-zA-Z0-9]/g, '-');
 
         servicesEl.innerHTML += `
           <div class="service">
@@ -248,18 +202,159 @@
             </div>
             <div class="uptime-bar">${barsHTML}</div>
             <div class="service-stats">
-              <span>${DAYS_TO_SHOW} derniers jours</span>
-              <span>${avgUptime}% de disponibilité${avgResp ? ' · ' + avgResp + ' ms' : ''}</span>
+              <span>${RANGE} derniers jours</span>
+              <span>${avgUptime.toFixed(2)}% disponibilité · ${avgResp} ms moy.</span>
+            </div>
+            <div class="chart-container">
+              <canvas id="${chartId}"></canvas>
             </div>
           </div>
         `;
+
+        // Build chart after DOM is ready
+        requestAnimationFrame(() => {
+          const ctx = document.getElementById(chartId);
+          if (!ctx) return;
+
+          const chartDays = sliced.filter(d => d.responseTime > 0);
+          const labels = chartDays.map(d => {
+            const parts = d.date.split('-');
+            return parts[2] + '/' + parts[1];
+          });
+          const values = chartDays.map(d => Math.round(d.responseTime));
+
+          charts[chartId] = new Chart(ctx, {
+            type: 'line',
+            data: {
+              labels,
+              datasets: [{
+                label: 'Temps de réponse (ms)',
+                data: values,
+                borderColor: '#6366f1',
+                backgroundColor: 'rgba(99, 102, 241, 0.08)',
+                borderWidth: 1.5,
+                fill: true,
+                tension: 0.35,
+                pointRadius: 0,
+                pointHitRadius: 8,
+                pointHoverRadius: 4,
+                pointHoverBackgroundColor: '#6366f1',
+              }]
+            },
+            options: {
+              responsive: true,
+              maintainAspectRatio: false,
+              interaction: { intersect: false, mode: 'index' },
+              plugins: {
+                legend: { display: false },
+                tooltip: {
+                  backgroundColor: '#242233',
+                  titleFont: { size: 11 },
+                  bodyFont: { size: 11 },
+                  padding: 8,
+                  cornerRadius: 6,
+                  callbacks: {
+                    label: ctx => ctx.parsed.y + ' ms'
+                  }
+                }
+              },
+              scales: {
+                x: {
+                  grid: { display: false },
+                  ticks: { font: { size: 10 }, color: '#bbb', maxTicksLimit: 8 },
+                  border: { display: false }
+                },
+                y: {
+                  grid: { color: '#f0f0f0' },
+                  ticks: { font: { size: 10 }, color: '#bbb', callback: v => v + ' ms' },
+                  border: { display: false },
+                  beginAtZero: true
+                }
+              }
+            }
+          });
+        });
       }
 
+      // Overall banner
+      const overall = document.getElementById('overall');
       overall.textContent = allUp
         ? 'Tous les systèmes sont opérationnels'
         : 'Certains services rencontrent des problèmes';
       overall.className = 'overall-status ' + (allUp ? 'all-up' : 'some-down');
+
+      // Stats cards
+      const globalUptime = siteCount > 0 ? (totalUptime / siteCount).toFixed(2) : '—';
+      const globalResp = siteCount > 0 ? Math.round(totalResp / siteCount) : '—';
+
+      statsEl.innerHTML = `
+        <div class="stat-card">
+          <div class="stat-value green">${globalUptime}%</div>
+          <div class="stat-label">Disponibilité (${RANGE}j)</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-value blue">${globalResp} ms</div>
+          <div class="stat-label">Temps de réponse moy.</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-value ${totalIncidents > 0 ? 'red' : 'green'}">${totalIncidents}</div>
+          <div class="stat-label">Jours avec incidents</div>
+        </div>
+      `;
     }
+
+    function renderIncidents() {
+      const el = document.getElementById('incidents');
+      const incidents = [];
+
+      for (const site of DATA.sites) {
+        for (const day of (site.days || [])) {
+          if (day.uptime >= 0 && day.uptime < 100) {
+            incidents.push({
+              name: site.name,
+              date: day.date,
+              uptime: day.uptime,
+              resolved: day.uptime > 0
+            });
+          }
+        }
+      }
+
+      // Sort most recent first, keep last 10
+      incidents.sort((a, b) => b.date.localeCompare(a.date));
+      const recent = incidents.slice(0, 10);
+
+      if (recent.length === 0) {
+        el.innerHTML = '<div class="no-incidents">Aucun incident récent</div>';
+        return;
+      }
+
+      el.innerHTML = recent.map(inc => {
+        const parts = inc.date.split('-');
+        const dateStr = parts[2] + '/' + parts[1] + '/' + parts[0];
+        const detail = inc.uptime === 0
+          ? 'Service indisponible toute la journée'
+          : `Disponibilité réduite : ${inc.uptime.toFixed(1)}%`;
+        return `
+          <div class="incident ${inc.uptime > 0 ? 'resolved' : ''}">
+            <div class="incident-header">
+              <span class="incident-name">${inc.name}</span>
+              <span class="incident-date">${dateStr}</span>
+            </div>
+            <div class="incident-detail">${detail}</div>
+          </div>
+        `;
+      }).join('');
+    }
+
+    // Tab switching
+    document.getElementById('tabs').addEventListener('click', e => {
+      if (!e.target.classList.contains('tab')) return;
+      document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+      e.target.classList.add('active');
+      RANGE = parseInt(e.target.dataset.range);
+      if (DATA) render();
+    });
 
     load();
   </script>
