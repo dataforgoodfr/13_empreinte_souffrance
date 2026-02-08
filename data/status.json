@@ -1,1 +1,47 @@
-{"lastUpdated":"","sites":[]}
+{
+  "lastUpdated": "2026-02-08T11:51:27Z",
+  "sites": [
+    {
+      "name": "L'heure des comptes",
+      "currentStatus": "up",
+      "days": [
+        {
+          "date": "2026-02-08",
+          "total": 1,
+          "ok": 1,
+          "responseTimeSum": 800,
+          "uptime": 100,
+          "responseTime": 800
+        }
+      ]
+    },
+    {
+      "name": "API",
+      "currentStatus": "up",
+      "days": [
+        {
+          "date": "2026-02-08",
+          "total": 1,
+          "ok": 1,
+          "responseTimeSum": 685,
+          "uptime": 100,
+          "responseTime": 685
+        }
+      ]
+    },
+    {
+      "name": "Carte interactive (embed)",
+      "currentStatus": "up",
+      "days": [
+        {
+          "date": "2026-02-08",
+          "total": 1,
+          "ok": 1,
+          "responseTimeSum": 890,
+          "uptime": 100,
+          "responseTime": 890
+        }
+      ]
+    }
+  ]
+}
