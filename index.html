@@ -6,127 +6,77 @@
   <title>Status — L'heure des comptes</title>
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; background: #f8f9fa; color: #242233; padding: 2rem 1rem; }
-    .container { max-width: 640px; margin: 0 auto; }
-
-    header { text-align: center; margin-bottom: 2rem; }
-    header h1 { font-size: 1.5rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.02em; margin-bottom: 0.25rem; }
-    header h1 a { color: inherit; text-decoration: none; }
-    header p { font-size: 0.85rem; color: #666; }
-
-    .overall-status { text-align: center; padding: 1.25rem; border-radius: 10px; font-weight: 700; font-size: 1rem; margin-bottom: 0.5rem; }
-    .overall-status.all-up { background: #dcfce7; color: #166534; }
-    .overall-status.some-down { background: #fee2e2; color: #991b1b; }
-    .overall-status.loading { background: #f3f4f6; color: #666; }
-    .last-updated { text-align: center; font-size: 0.75rem; color: #aaa; margin-bottom: 2rem; }
-
-    .service { background: #fff; border-radius: 10px; padding: 1.25rem; margin-bottom: 0.75rem; box-shadow: 0 1px 3px rgba(0,0,0,0.06); }
-    .service-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem; }
-    .service-name { font-weight: 700; font-size: 0.95rem; }
-    .badge { font-size: 0.7rem; font-weight: 600; padding: 0.2rem 0.65rem; border-radius: 999px; }
-    .badge.up { background: #dcfce7; color: #166534; }
-    .badge.down { background: #fee2e2; color: #991b1b; }
-
-    .uptime-bar { display: flex; gap: 1.5px; height: 28px; }
-    .uptime-bar .day { flex: 1; border-radius: 2px; min-width: 2px; cursor: default; position: relative; }
-    .uptime-bar .day.up { background: #22c55e; }
-    .uptime-bar .day.down { background: #ef4444; }
-    .uptime-bar .day.partial { background: #f59e0b; }
-    .uptime-bar .day.none { background: #e5e7eb; }
-    .uptime-bar .day:hover::after {
-      content: attr(data-tooltip);
-      position: absolute; bottom: 115%; left: 50%; transform: translateX(-50%);
-      background: #242233; color: #fff; font-size: 0.65rem; padding: 0.2rem 0.45rem;
-      border-radius: 4px; white-space: nowrap; z-index: 10; pointer-events: none;
-    }
-
-    .service-stats { display: flex; justify-content: space-between; font-size: 0.75rem; color: #999; margin-top: 0.4rem; }
-
-    footer { text-align: center; margin-top: 2.5rem; font-size: 0.8rem; color: #999; }
-    footer a { color: #666; }
+    body { font-family: system-ui, sans-serif; background: #f8f9fa; color: #333; padding: 2rem 1rem; }
+    a { color: inherit; }
+    h1 { font-size: 1.4rem; text-align: center; margin-bottom: 0.25rem; }
+    .sub { text-align: center; font-size: 0.8rem; color: #999; margin-bottom: 1.5rem; }
+    #status { text-align: center; padding: 1rem; border-radius: 8px; font-weight: 700; margin-bottom: 1.5rem; background: #f3f4f6; color: #666; }
+    .up { background: #dcfce7; color: #166534; }
+    .down { background: #fee2e2; color: #991b1b; }
+    .card { background: #fff; border-radius: 8px; padding: 1rem; margin-bottom: 0.75rem; box-shadow: 0 1px 2px rgba(0,0,0,0.05); }
+    .card-head { display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem; font-size: 0.9rem; }
+    .card-head strong { font-weight: 700; }
+    .badge { font-size: 0.7rem; font-weight: 600; padding: 0.15rem 0.5rem; border-radius: 99px; }
+    .bar { display: flex; gap: 1px; height: 24px; }
+    .bar div { flex: 1; border-radius: 2px; min-width: 2px; position: relative; }
+    .bar .g { background: #22c55e; }
+    .bar .r { background: #ef4444; }
+    .bar .y { background: #f59e0b; }
+    .bar .e { background: #e5e7eb; }
+    .bar div:hover::after { content: attr(title); position: absolute; bottom: 110%; left: 50%; transform: translateX(-50%); background: #333; color: #fff; font-size: 0.6rem; padding: 2px 6px; border-radius: 3px; white-space: nowrap; pointer-events: none; }
+    .stats { display: flex; justify-content: space-between; font-size: 0.7rem; color: #aaa; margin-top: 0.3rem; }
+    footer { text-align: center; margin-top: 2rem; font-size: 0.75rem; color: #aaa; }
   </style>
 </head>
 <body>
-  <div class="container">
-    <header>
-      <h1><a href="https://lheuredescomptes.org">L'heure des comptes</a></h1>
-      <p>Service status</p>
-    </header>
-
-    <div id="overall" class="overall-status loading">Loading...</div>
-    <div id="last-updated" class="last-updated"></div>
-    <div id="services"></div>
-
-    <footer>
-      <a href="https://lheuredescomptes.org" target="_blank">L'heure des comptes</a>
-      — <a href="https://animaasso.org" target="_blank">Anima</a>
-      &times; <a href="https://dataforgood.fr" target="_blank">Data For Good</a>
-    </footer>
-  </div>
-
+  <h1><a href="https://lheuredescomptes.org">L'heure des comptes</a></h1>
+  <p class="sub" id="updated">Status</p>
+  <div id="status">Loading...</div>
+  <div id="services"></div>
+  <footer>
+    <a href="https://animaasso.org">Anima</a> &times; <a href="https://dataforgood.fr">Data For Good</a>
+  </footer>
   <script>
-    const DAYS = 90;
+    fetch('data/status.json').then(r => r.json()).then(data => {
+      if (data.lastUpdated)
+        document.getElementById('updated').textContent = 'Last checked: ' + new Date(data.lastUpdated).toLocaleString('en-GB');
 
-    async function load() {
-      let data;
-      try {
-        const resp = await fetch('data/status.json');
-        data = await resp.json();
-      } catch {
-        document.getElementById('overall').textContent = 'Unable to load status data';
-        return;
-      }
-
-      if (data.lastUpdated) {
-        document.getElementById('last-updated').textContent =
-          'Last checked: ' + new Date(data.lastUpdated).toLocaleString('en-GB');
-      }
-
-      const servicesEl = document.getElementById('services');
       let allUp = true;
+      let html = '';
 
-      for (const site of data.sites) {
-        const isUp = site.currentStatus === 'up';
-        if (!isUp) allUp = false;
+      for (const s of data.sites) {
+        if (s.currentStatus !== 'up') allUp = false;
+        const days = s.days || [];
+        const pad = days.slice(-90);
+        while (pad.length < 90) pad.unshift(null);
 
-        const days = site.days || [];
-        const padded = days.slice(-DAYS);
-        while (padded.length < DAYS) padded.unshift({ date: '', uptime: -1 });
+        const ok = days.filter(d => d.uptime >= 0);
+        const pct = ok.length ? (ok.reduce((a, d) => a + d.uptime, 0) / ok.length).toFixed(2) : '—';
+        const rt = days.filter(d => d.responseTime > 0);
+        const ms = rt.length ? Math.round(rt.reduce((a, d) => a + d.responseTime, 0) / rt.length) : null;
 
-        const withData = days.filter(d => d.uptime >= 0);
-        const uptime = withData.length > 0
-          ? (withData.reduce((s, d) => s + d.uptime, 0) / withData.length).toFixed(2) : '—';
-        const withResp = days.filter(d => d.responseTime > 0);
-        const resp = withResp.length > 0
-          ? Math.round(withResp.reduce((s, d) => s + d.responseTime, 0) / withResp.length) : null;
-
-        const bars = padded.map(d => {
-          let cls = 'none', tip = d.date || 'No data';
-          if (d.uptime >= 99.5) { cls = 'up'; tip += ' — 100%'; }
-          else if (d.uptime >= 0) { cls = d.uptime === 0 ? 'down' : 'partial'; tip += ' — ' + d.uptime.toFixed(1) + '%'; }
-          return `<div class="day ${cls}" data-tooltip="${tip}"></div>`;
+        const bars = pad.map(d => {
+          if (!d) return '<div class="e" title="No data"></div>';
+          const t = d.date + ' — ' + (d.uptime >= 99.5 ? '100%' : d.uptime.toFixed(1) + '%');
+          const c = d.uptime >= 99.5 ? 'g' : d.uptime === 0 ? 'r' : 'y';
+          return `<div class="${c}" title="${t}"></div>`;
         }).join('');
 
-        servicesEl.innerHTML += `
-          <div class="service">
-            <div class="service-header">
-              <span class="service-name">${site.name}</span>
-              <span class="badge ${isUp ? 'up' : 'down'}">${isUp ? 'Operational' : 'Down'}</span>
-            </div>
-            <div class="uptime-bar">${bars}</div>
-            <div class="service-stats">
-              <span>Last ${DAYS} days</span>
-              <span>${uptime}% uptime${resp ? ' · ' + resp + ' ms' : ''}</span>
-            </div>
-          </div>`;
+        const badge = s.currentStatus === 'up';
+        html += `<div class="card">
+          <div class="card-head"><strong>${s.name}</strong><span class="badge ${badge ? 'up' : 'down'}">${badge ? 'OK' : 'Down'}</span></div>
+          <div class="bar">${bars}</div>
+          <div class="stats"><span>90 days</span><span>${pct}%${ms ? ' · ' + ms + 'ms' : ''}</span></div>
+        </div>`;
       }
 
-      const overall = document.getElementById('overall');
-      overall.textContent = allUp ? 'All systems operational' : 'Some services are experiencing issues';
-      overall.className = 'overall-status ' + (allUp ? 'all-up' : 'some-down');
-    }
-
-    load();
+      document.getElementById('services').innerHTML = html;
+      const el = document.getElementById('status');
+      el.textContent = allUp ? 'All systems operational' : 'Some services are experiencing issues';
+      el.className = allUp ? 'up' : 'down';
+    }).catch(() => {
+      document.getElementById('status').textContent = 'Unable to load data';
+    });
   </script>
 </body>
 </html>
