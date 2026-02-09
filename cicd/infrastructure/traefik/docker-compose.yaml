@@ -43,6 +43,8 @@ services:
       - "--entrypoints.websecure.http.tls.certresolver=wildcardresolver"
       - "--entrypoints.websecure.http.tls.domains[0].main=lheuredescomptes.org"
       - "--entrypoints.websecure.http.tls.domains[0].sans=*.lheuredescomptes.org"
+      - "--entrypoints.websecure.http.tls.domains[1].main=staging.lheuredescomptes.org"
+      - "--entrypoints.websecure.http.tls.domains[1].sans=*.staging.lheuredescomptes.org"
       - "--api.dashboard=true"
     volumes:
       - traefik-certificates:/certificates
