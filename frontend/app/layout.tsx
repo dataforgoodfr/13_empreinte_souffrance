@@ -36,7 +36,7 @@ export const metadata: Metadata = {
   publisher: 'Anima',
   applicationName: "L'heure des comptes",
   category: 'Social Impact',
-    robots: {
+  robots: {
     index: true,
     follow: true,
   },
@@ -85,7 +85,7 @@ export default async function RootLayout({
   params,
   children,
 }: Readonly<{
-  params: Promise<{ locale: string }>;
+  params: Promise<{ locale?: string }>;
   children: ReactNode;
 }>) {
   const { locale } = await params;
