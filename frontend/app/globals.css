@@ -417,6 +417,15 @@ h5 {
   filter: none;
 }
 
+/* Sharp black stroke variant: crisp outline via CSS variable --marker-stroke-w */
+.egg-marker--stroke svg,
+.egg-marker--stroke img {
+  filter: drop-shadow(var(--marker-stroke-w, 0.4px) 0 0 rgba(0, 0, 0, 0.8))
+    drop-shadow(calc(-1 * var(--marker-stroke-w, 0.4px)) 0 0 rgba(0, 0, 0, 0.8))
+    drop-shadow(0 var(--marker-stroke-w, 0.4px) 0 rgba(0, 0, 0, 0.8))
+    drop-shadow(0 calc(-1 * var(--marker-stroke-w, 0.4px)) 0 rgba(0, 0, 0, 0.8));
+}
+
 [id] {
   scroll-margin-top: 70px;
 }

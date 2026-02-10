@@ -1,15 +1,23 @@
 'use client';
 
 import { useState } from 'react';
-import type { MapColors, MarkerStyle } from '../types';
+import type { MapColors, MarkerStyle, OutlineMode } from '../types';
 import { COLORS } from '../types';
 import clsx from 'clsx';
+
+/* ─── MapSettingsPanel — closable config popup (top-right gear icon) ───── */
 
 const STYLE_OPTIONS: { id: MarkerStyle; label: string }[] = [
   { id: 'circle', label: 'Cercles' },
   { id: 'illustrated', label: 'Illustrés' },
   { id: 'illustrated-noborder', label: 'Sans contour' },
   { id: 'illustrated-mixed', label: 'Inversé' },
+];
+
+const OUTLINE_OPTIONS: { id: OutlineMode; label: string }[] = [
+  { id: 'none', label: 'Aucun' },
+  { id: 'stroke', label: 'Contour noir' },
+  { id: 'shadow', label: 'Halo (ombre)' },
 ];
 
 const ILLUSTRATED_ICONS = {
@@ -20,6 +28,8 @@ const ILLUSTRATED_ICONS = {
   cageInverted: '/logo/marker_cage_egg_inverted.svg',
   freeInverted: '/logo/marker_free_egg_inverted.svg',
 } as const;
+
+/* ── Style previews ────────────────────────────────────────────────────── */
 
 function ImgPair({ cage, free }: { cage: string; free: string }) {
   return (
@@ -58,6 +68,8 @@ function StylePreview({ style, colors }: { style: MarkerStyle; colors: MapColors
   }
 }
 
+/* ── Reusable sub-components ───────────────────────────────────────────── */
+
 function SectionLabel({ children }: { children: string }) {
   return <p className="text-[9px] uppercase tracking-widest text-gray-400 font-bold px-2.5 pt-2.5 pb-1">{children}</p>;
 }
@@ -80,6 +92,8 @@ function GearIcon() {
   );
 }
 
+/* ═══ Main component ═══════════════════════════════════════════════════ */
+
 type MapSettingsPanelProps = {
   currentStyle: MarkerStyle;
   // eslint-disable-next-line no-unused-vars
@@ -87,9 +101,12 @@ type MapSettingsPanelProps = {
   markerSize: number;
   // eslint-disable-next-line no-unused-vars
   onChangeMarkerSize: (size: number) => void;
-  showOutline: boolean;
+  outlineMode: OutlineMode;
   // eslint-disable-next-line no-unused-vars
-  onToggleOutline: (show: boolean) => void;
+  onChangeOutlineMode: (mode: OutlineMode) => void;
+  strokeWidth: number;
+  // eslint-disable-next-line no-unused-vars
+  onChangeStrokeWidth: (width: number) => void;
   zoomScale: number;
   // eslint-disable-next-line no-unused-vars
   onChangeZoomScale: (scale: number) => void;
@@ -101,8 +118,10 @@ export default function MapSettingsPanel({
   onChangeStyle,
   markerSize,
   onChangeMarkerSize,
-  showOutline,
-  onToggleOutline,
+  outlineMode,
+  onChangeOutlineMode,
+  strokeWidth,
+  onChangeStrokeWidth,
   zoomScale,
   onChangeZoomScale,
   colors = COLORS,
@@ -111,6 +130,7 @@ export default function MapSettingsPanel({
 
   return (
     <div className="absolute top-3 right-3 z-[2]">
+      {/* ── Toggle button ──────────────────────────────────────────────── */}
       <button
         onClick={() => setOpen((o) => !o)}
         title="Paramètres de la carte"
@@ -126,8 +146,10 @@ export default function MapSettingsPanel({
         <GearIcon />
       </button>
 
+      {/* ── Settings panel ─────────────────────────────────────────────── */}
       {open && (
         <div className="absolute top-10 right-0 mt-1 w-[210px] bg-white/95 backdrop-blur-md rounded-xl shadow-xl border border-gray-100 overflow-hidden">
+          {/* ── Header ──────────────────────────────────────────────────── */}
           <div className="flex items-center justify-between px-3 pt-2.5 pb-1">
             <p className="text-[11px] font-bold text-gray-700">Paramètres</p>
             <button
@@ -141,6 +163,7 @@ export default function MapSettingsPanel({
             </button>
           </div>
 
+          {/* ═══ Marker style ══════════════════════════════════════════════ */}
           <SectionLabel>Marqueurs</SectionLabel>
           <div className="px-2 pb-1.5 flex flex-col gap-0.5">
             {STYLE_OPTIONS.map(({ id, label }) => {
@@ -172,28 +195,58 @@ export default function MapSettingsPanel({
 
           <Divider />
 
-          <div className="px-2.5 py-2 flex items-center justify-between">
-            <span className="text-[11px] font-medium text-gray-600">Contours</span>
-            <button
-              onClick={() => onToggleOutline(!showOutline)}
-              className={clsx(
-                'relative w-8 h-[18px] rounded-full transition-colors duration-200 cursor-pointer',
-                showOutline ? 'bg-gray-800' : 'bg-gray-300'
-              )}
-              role="switch"
-              aria-checked={showOutline}
-            >
-              <span
-                className={clsx(
-                  'absolute top-[2px] w-[14px] h-[14px] rounded-full bg-white shadow-sm transition-transform duration-200',
-                  showOutline ? 'translate-x-[16px]' : 'translate-x-[2px]'
-                )}
-              />
-            </button>
+          {/* ═══ Outline mode ══════════════════════════════════════════════ */}
+          <SectionLabel>Contour</SectionLabel>
+          <div className="px-2 pb-1.5 flex flex-col gap-0.5">
+            {OUTLINE_OPTIONS.map(({ id, label }) => {
+              const isActive = outlineMode === id;
+              return (
+                <button
+                  key={id}
+                  onClick={() => onChangeOutlineMode(id)}
+                  className={clsx(
+                    'flex items-center gap-2 w-full px-2 py-1 rounded-lg',
+                    'text-left text-[11px] font-medium transition-all duration-150 cursor-pointer select-none',
+                    isActive ? 'bg-gray-100 text-gray-900' : 'text-gray-500 hover:bg-gray-50 hover:text-gray-700'
+                  )}
+                >
+                  <span
+                    className={clsx(
+                      'w-3 h-3 rounded-full border-[1.5px] shrink-0 flex items-center justify-center',
+                      isActive ? 'border-gray-700' : 'border-gray-300'
+                    )}
+                  >
+                    {isActive && <span className="w-1.5 h-1.5 rounded-full bg-gray-700" />}
+                  </span>
+                  <span>{label}</span>
+                </button>
+              );
+            })}
           </div>
+
+          {/* ── Stroke width slider (only when mode = stroke) ──────────── */}
+          {outlineMode === 'stroke' && (
+            <div className="px-2.5 pb-1.5 pt-0.5">
+              <div className="flex items-center gap-2">
+                <input
+                  type="range"
+                  min={0}
+                  max={1}
+                  step={0.1}
+                  value={strokeWidth}
+                  onChange={(e) => onChangeStrokeWidth(Number(e.target.value))}
+                  className="flex-1 h-1 accent-gray-700 cursor-pointer"
+                />
+                <span className="text-[10px] font-mono font-semibold text-gray-500 w-[30px] text-right">
+                  {strokeWidth.toFixed(1)}
+                </span>
+              </div>
+            </div>
+          )}
 
           <Divider />
 
+          {/* ═══ Marker size ═══════════════════════════════════════════════ */}
           <SectionLabel>Taille</SectionLabel>
           <div className="px-2.5 pb-2">
             <div className="flex items-center gap-2">
@@ -214,6 +267,7 @@ export default function MapSettingsPanel({
 
           <Divider />
 
+          {/* ═══ Zoom scaling ══════════════════════════════════════════════ */}
           <SectionLabel>Zoom adaptatif</SectionLabel>
           <div className="px-2.5 pb-2">
             <div className="flex items-center gap-2">
