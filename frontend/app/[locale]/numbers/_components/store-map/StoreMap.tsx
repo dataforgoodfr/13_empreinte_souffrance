@@ -35,7 +35,6 @@ export default function StoreMap({
     selectedEnseigne,
     markerStyle,
     markerSize,
-    markerOpacity,
     showOutline,
     zoomScale,
     filteredStores,
@@ -43,7 +42,6 @@ export default function StoreMap({
     toggleEnseigne,
     setMarkerStyle,
     setMarkerSize,
-    setMarkerOpacity,
     setShowOutline,
     setZoomScale,
   } = useStoreMapFilters(storeData);
@@ -63,8 +61,8 @@ export default function StoreMap({
   }, [currentZoom, zoomScale]);
 
   const icons = useMemo(
-    () => createIconPairForStyle(markerStyle, markerSize, markerOpacity, showOutline, COLORS),
-    [markerStyle, markerSize, markerOpacity, showOutline]
+    () => createIconPairForStyle(markerStyle, markerSize, showOutline, COLORS),
+    [markerStyle, markerSize, showOutline]
   );
 
   return (
@@ -94,7 +92,7 @@ export default function StoreMap({
 
         {filteredStores.map((s, i) => (
           <EggMarker
-            key={`${s.category}-${i}-${markerStyle}-${markerSize}-${markerOpacity}-${showOutline}`}
+            key={`${s.category}-${i}-${markerStyle}-${markerSize}-${showOutline}`}
             store={s}
             cageIcon={icons.cage}
             freeIcon={icons.free}
@@ -107,8 +105,6 @@ export default function StoreMap({
         onChangeStyle={setMarkerStyle}
         markerSize={markerSize}
         onChangeMarkerSize={setMarkerSize}
-        markerOpacity={markerOpacity}
-        onChangeMarkerOpacity={setMarkerOpacity}
         showOutline={showOutline}
         onToggleOutline={setShowOutline}
         zoomScale={zoomScale}

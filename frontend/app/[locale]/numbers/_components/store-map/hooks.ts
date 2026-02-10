@@ -1,14 +1,13 @@
 import { useCallback, useMemo, useState } from 'react';
 import type { CageFilterValue, FilterState, MarkerStyle, Store } from './types';
-import { DEFAULT_MARKER_OPACITY, DEFAULT_MARKER_SIZE, DEFAULT_SHOW_OUTLINE, DEFAULT_ZOOM_SCALE } from './types';
+import { DEFAULT_MARKER_SIZE, DEFAULT_SHOW_OUTLINE, DEFAULT_ZOOM_SCALE } from './types';
 
 export function useStoreMapFilters(stores: Store[]) {
   const [cageFilter, setCageFilter] = useState<CageFilterValue>('all');
   const [selectedEnseigne, setSelectedEnseigne] = useState<string | null>(null);
 
-  const [markerStyle, setMarkerStyle] = useState<MarkerStyle>('illustrated');
+  const [markerStyle, setMarkerStyle] = useState<MarkerStyle>('circle');
   const [markerSize, setMarkerSize] = useState(DEFAULT_MARKER_SIZE);
-  const [markerOpacity, setMarkerOpacity] = useState(DEFAULT_MARKER_OPACITY);
   const [showOutline, setShowOutline] = useState(DEFAULT_SHOW_OUTLINE);
   const [zoomScale, setZoomScale] = useState(DEFAULT_ZOOM_SCALE);
 
@@ -38,8 +37,8 @@ export function useStoreMapFilters(stores: Store[]) {
   }, [stores, selectedEnseigne]);
 
   const filterState: FilterState = useMemo(
-    () => ({ cageFilter, selectedEnseigne, markerStyle, markerSize, markerOpacity, showOutline, zoomScale }),
-    [cageFilter, selectedEnseigne, markerStyle, markerSize, markerOpacity, showOutline, zoomScale]
+    () => ({ cageFilter, selectedEnseigne, markerStyle, markerSize, showOutline, zoomScale }),
+    [cageFilter, selectedEnseigne, markerStyle, markerSize, showOutline, zoomScale]
   );
 
   return {
@@ -47,7 +46,6 @@ export function useStoreMapFilters(stores: Store[]) {
     selectedEnseigne,
     markerStyle,
     markerSize,
-    markerOpacity,
     showOutline,
     zoomScale,
     filterState,
@@ -57,7 +55,6 @@ export function useStoreMapFilters(stores: Store[]) {
     toggleEnseigne,
     setMarkerStyle,
     setMarkerSize,
-    setMarkerOpacity,
     setShowOutline,
     setZoomScale,
   };

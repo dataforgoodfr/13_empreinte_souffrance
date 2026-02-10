@@ -6,13 +6,10 @@ import { COLORS } from '../types';
 import clsx from 'clsx';
 
 const STYLE_OPTIONS: { id: MarkerStyle; label: string }[] = [
+  { id: 'circle', label: 'Cercles' },
   { id: 'illustrated', label: 'Illustrés' },
   { id: 'illustrated-noborder', label: 'Sans contour' },
-  { id: 'illustrated-inverted', label: 'Inversés' },
-  { id: 'illustrated-mixed', label: 'Mixte' },
-  { id: 'illustrated-mixed2', label: 'Mixte 2' },
-  { id: 'egg', label: 'Œufs unis' },
-  { id: 'circle', label: 'Cercles' },
+  { id: 'illustrated-mixed', label: 'Inversé' },
 ];
 
 const ILLUSTRATED_ICONS = {
@@ -29,25 +26,6 @@ function ImgPair({ cage, free }: { cage: string; free: string }) {
     <span className="inline-flex items-end gap-1">
       <img src={cage} alt="" className="w-[16px] h-[20px]" />
       <img src={free} alt="" className="w-[16px] h-[20px]" />
-    </span>
-  );
-}
-
-function SvgEggPair({ colors }: { colors: MapColors }) {
-  const egg = (fill: string, stroke: string) => (
-    <svg width="14" height="18" viewBox="0 0 20 26" xmlns="http://www.w3.org/2000/svg">
-      <path
-        d="M10 0.5C15.52 0.5 19.5 9.07 19.5 15.77C19.5 22.47 15.52 25.5 10 25.5C4.48 25.5 0.5 22.47 0.5 15.77C0.5 9.07 4.48 0.5 10 0.5Z"
-        fill={fill}
-        stroke={stroke}
-        strokeWidth="1"
-      />
-    </svg>
-  );
-  return (
-    <span className="inline-flex items-end gap-1">
-      {egg(colors.cage, colors.cageStroke)}
-      {egg(colors.noCage, colors.noCageStroke)}
     </span>
   );
 }
@@ -69,20 +47,14 @@ function SvgCirclePair({ colors }: { colors: MapColors }) {
 function StylePreview({ style, colors }: { style: MarkerStyle; colors: MapColors }) {
   const I = ILLUSTRATED_ICONS;
   switch (style) {
+    case 'circle':
+      return <SvgCirclePair colors={colors} />;
     case 'illustrated':
       return <ImgPair cage={I.cage} free={I.free} />;
     case 'illustrated-noborder':
       return <ImgPair cage={I.cageNoBorder} free={I.freeNoBorder} />;
-    case 'illustrated-inverted':
-      return <ImgPair cage={I.cageInverted} free={I.freeInverted} />;
     case 'illustrated-mixed':
-      return <ImgPair cage={I.cageInverted} free={I.freeNoBorder} />;
-    case 'illustrated-mixed2':
       return <ImgPair cage={I.cageInverted} free={I.freeInverted} />;
-    case 'egg':
-      return <SvgEggPair colors={colors} />;
-    case 'circle':
-      return <SvgCirclePair colors={colors} />;
   }
 }
 
@@ -115,9 +87,6 @@ type MapSettingsPanelProps = {
   markerSize: number;
   // eslint-disable-next-line no-unused-vars
   onChangeMarkerSize: (size: number) => void;
-  markerOpacity: number;
-  // eslint-disable-next-line no-unused-vars
-  onChangeMarkerOpacity: (opacity: number) => void;
   showOutline: boolean;
   // eslint-disable-next-line no-unused-vars
   onToggleOutline: (show: boolean) => void;
@@ -132,8 +101,6 @@ export default function MapSettingsPanel({
   onChangeStyle,
   markerSize,
   onChangeMarkerSize,
-  markerOpacity,
-  onChangeMarkerOpacity,
   showOutline,
   onToggleOutline,
   zoomScale,
@@ -158,6 +125,7 @@ export default function MapSettingsPanel({
       >
         <GearIcon />
       </button>
+
       {open && (
         <div className="absolute top-10 right-0 mt-1 w-[210px] bg-white/95 backdrop-blur-md rounded-xl shadow-xl border border-gray-100 overflow-hidden">
           <div className="flex items-center justify-between px-3 pt-2.5 pb-1">
@@ -240,26 +208,6 @@ export default function MapSettingsPanel({
               />
               <span className="text-[10px] font-mono font-semibold text-gray-500 w-[30px] text-right">
                 {markerSize}px
-              </span>
-            </div>
-          </div>
-
-          <Divider />
-
-          <SectionLabel>Opacité</SectionLabel>
-          <div className="px-2.5 pb-2">
-            <div className="flex items-center gap-2">
-              <input
-                type="range"
-                min={20}
-                max={100}
-                step={5}
-                value={Math.round(markerOpacity * 100)}
-                onChange={(e) => onChangeMarkerOpacity(Number(e.target.value) / 100)}
-                className="flex-1 h-1 accent-gray-700 cursor-pointer"
-              />
-              <span className="text-[10px] font-mono font-semibold text-gray-500 w-[30px] text-right">
-                {Math.round(markerOpacity * 100)}%
               </span>
             </div>
           </div>

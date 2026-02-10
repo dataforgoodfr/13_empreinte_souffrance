@@ -14,21 +14,13 @@ export type { EnseigneConfig };
 
 export type CageFilterValue = 'all' | 'cage' | 'noCage';
 
-export type MarkerStyle =
-  | 'egg'
-  | 'circle'
-  | 'illustrated'
-  | 'illustrated-noborder'
-  | 'illustrated-inverted'
-  | 'illustrated-mixed'
-  | 'illustrated-mixed2';
+export type MarkerStyle = 'circle' | 'illustrated' | 'illustrated-noborder' | 'illustrated-mixed';
 
 export type FilterState = {
   cageFilter: CageFilterValue;
   selectedEnseigne: string | null;
   markerStyle: MarkerStyle;
   markerSize: number;
-  markerOpacity: number;
   showOutline: boolean;
   zoomScale: number;
 };
@@ -47,7 +39,6 @@ export const COLORS: MapColors = {
   noCageStroke: '#1a9e48',
 };
 
-export const DEFAULT_MARKER_SIZE = 36;
-export const DEFAULT_MARKER_OPACITY = 1.0;
+export const DEFAULT_MARKER_SIZE = 27;
 export const DEFAULT_SHOW_OUTLINE = false;
-export const DEFAULT_ZOOM_SCALE = 0;
+export const DEFAULT_ZOOM_SCALE = 0.25;
