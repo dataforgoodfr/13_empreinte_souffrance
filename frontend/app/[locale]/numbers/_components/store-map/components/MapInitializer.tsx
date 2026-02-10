@@ -3,19 +3,12 @@
 import { useEffect } from 'react';
 import { useMap } from 'react-leaflet';
 
-/* Bounding box of metropolitan France (approximate). */
-const FRANCE_BOUNDS: [[number, number], [number, number]] = [
-  [41.3, -5.2],
-  [51.1, 9.6],
-];
-
-/* smaller for mobile */
-const FRANCE_BOUNDS_TIGHT: [[number, number], [number, number]] = [
-  [42.3, -3.5],
-  [50.5, 8.5],
-];
+/* Centre of metropolitan France. */
+const FRANCE_CENTER: [number, number] = [46.6, 2.5];
 
 const SMALL_SCREEN = 480;
+const DESKTOP_ZOOM = 5.7;
+const MOBILE_ZOOM = 6;
 
 export default function MapInitializer() {
   const map = useMap();
@@ -23,11 +16,8 @@ export default function MapInitializer() {
   useEffect(() => {
     map.invalidateSize();
 
-    const isSmall = window.innerWidth < SMALL_SCREEN;
-    const bounds = isSmall ? FRANCE_BOUNDS_TIGHT : FRANCE_BOUNDS;
-    const padding: [number, number] = isSmall ? [10, 5] : [20, 20];
-
-    map.fitBounds(bounds, { animate: false, padding, maxZoom: 18 });
+    const zoom = window.innerWidth < SMALL_SCREEN ? MOBILE_ZOOM : DESKTOP_ZOOM;
+    map.setView(FRANCE_CENTER, zoom, { animate: false });
   }, [map]);
 
   return null;
