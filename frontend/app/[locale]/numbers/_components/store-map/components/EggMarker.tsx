@@ -1,5 +1,6 @@
 'use client';
 
+import { memo } from 'react';
 import { Marker, Popup } from 'react-leaflet';
 import type { DivIcon } from 'leaflet';
 import type { MapColors, Store } from '../types';
@@ -13,7 +14,7 @@ type EggMarkerProps = {
   colors?: MapColors;
 };
 
-export default function EggMarker({ store, cageIcon, freeIcon, colors = COLORS }: EggMarkerProps) {
+export default memo(function EggMarker({ store, cageIcon, freeIcon, colors = COLORS }: EggMarkerProps) {
   return (
     <Marker position={store.coords} icon={store.hasCageEggs ? cageIcon : freeIcon}>
       <Popup>
@@ -21,4 +22,4 @@ export default function EggMarker({ store, cageIcon, freeIcon, colors = COLORS }
       </Popup>
     </Marker>
   );
-}
+});

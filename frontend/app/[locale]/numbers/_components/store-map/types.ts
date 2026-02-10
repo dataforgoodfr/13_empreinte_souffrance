@@ -16,12 +16,15 @@ export type CageFilterValue = 'all' | 'cage' | 'noCage';
 
 export type MarkerStyle = 'circle' | 'illustrated' | 'illustrated-noborder' | 'illustrated-mixed';
 
+export type OutlineMode = 'none' | 'stroke' | 'shadow';
+
 export type FilterState = {
   cageFilter: CageFilterValue;
   selectedEnseigne: string | null;
   markerStyle: MarkerStyle;
   markerSize: number;
-  showOutline: boolean;
+  outlineMode: OutlineMode;
+  strokeWidth: number;
   zoomScale: number;
 };
 
@@ -39,6 +42,7 @@ export const COLORS: MapColors = {
   noCageStroke: '#1a9e48',
 };
 
-export const DEFAULT_MARKER_SIZE = 27;
-export const DEFAULT_SHOW_OUTLINE = false;
+export const DEFAULT_MARKER_SIZE = 30;
+export const DEFAULT_OUTLINE_MODE: OutlineMode = 'none';
+export const DEFAULT_STROKE_WIDTH = 0.4;
 export const DEFAULT_ZOOM_SCALE = 0.25;

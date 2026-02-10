@@ -1,12 +1,13 @@
 'use client';
 
-import { useCallback, useMemo, useState } from 'react';
+import { useCallback, useMemo, useRef, useState } from 'react';
 import { MapContainer, TileLayer } from 'react-leaflet';
+import type { LatLngBounds } from 'leaflet';
 import 'leaflet/dist/leaflet.css';
 import clsx from 'clsx';
 
 import { enseignes as defaultEnseignes, store as defaultStores } from '../../_data/store-data';
-import type { EnseigneConfig, Store } from './types';
+import type { EnseigneConfig, MarkerStyle, OutlineMode, Store } from './types';
 import { COLORS } from './types';
 import { createIconPairForStyle } from './icons';
 import { useStoreMapFilters } from './hooks';
@@ -15,6 +16,14 @@ import { EggMarker, MapFilterPanel, MapInitializer, MapSettingsPanel, MapZoomTra
 type StoreMapProps = {
   stores?: Store[];
   enseignes?: EnseigneConfig[];
+  /** Override the initial marker style (default: 'illustrated'). */
+  initialStyle?: MarkerStyle;
+  /** Override the initial marker size in px (default: 30). */
+  initialSize?: number;
+  /** Override the initial outline mode: 'none' | 'stroke' | 'shadow' (default: 'none'). */
+  initialOutlineMode?: OutlineMode;
+  /** Override the initial zoom-adaptive scale 0–1 (default: 0.25). */
+  initialZoomScale?: number;
   heightClassName?: string;
   className?: string;
 };
@@ -24,6 +33,10 @@ const REF_ZOOM = 6;
 export default function StoreMap({
   stores,
   enseignes,
+  initialStyle,
+  initialSize,
+  initialOutlineMode,
+  initialZoomScale,
   heightClassName = 'h-[85dvh] md:h-[560px]',
   className,
 }: StoreMapProps) {
@@ -35,19 +48,43 @@ export default function StoreMap({
     selectedEnseigne,
     markerStyle,
     markerSize,
-    showOutline,
+    outlineMode,
+    strokeWidth,
     zoomScale,
     filteredStores,
     toggleCageFilter,
     toggleEnseigne,
     setMarkerStyle,
     setMarkerSize,
-    setShowOutline,
+    setOutlineMode,
+    setStrokeWidth,
     setZoomScale,
-  } = useStoreMapFilters(storeData);
+  } = useStoreMapFilters(storeData, {
+    style: initialStyle,
+    size: initialSize,
+    outlineMode: initialOutlineMode,
+    zoomScale: initialZoomScale,
+  });
 
   const [currentZoom, setCurrentZoom] = useState(5.5);
   const onZoomChange = useCallback((z: number) => setCurrentZoom(z), []);
+
+  /* ── Bounds-based culling — only render markers visible on screen ───── */
+  const boundsRef = useRef<LatLngBounds | null>(null);
+  const [boundsVersion, setBoundsVersion] = useState(0);
+  const onBoundsChange = useCallback((b: LatLngBounds) => {
+    boundsRef.current = b;
+    setBoundsVersion((v) => v + 1);
+  }, []);
+
+  const visibleStores = useMemo(() => {
+    const bounds = boundsRef.current;
+    if (!bounds) return filteredStores;
+    // Pad bounds ~10% so markers near the edge don't pop in/out abruptly
+    const padded = bounds.pad(0.1);
+    return filteredStores.filter((s) => padded.contains(s.coords));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [filteredStores, boundsVersion]);
 
   /*
    * CSS scale factor applied via `--marker-zoom-scale` custom property.
@@ -61,8 +98,8 @@ export default function StoreMap({
   }, [currentZoom, zoomScale]);
 
   const icons = useMemo(
-    () => createIconPairForStyle(markerStyle, markerSize, showOutline, COLORS),
-    [markerStyle, markerSize, showOutline]
+    () => createIconPairForStyle(markerStyle, markerSize, outlineMode, COLORS, strokeWidth),
+    [markerStyle, markerSize, outlineMode, strokeWidth]
   );
 
   return (
@@ -72,7 +109,7 @@ export default function StoreMap({
         heightClassName,
         className
       )}
-      style={{ '--marker-zoom-scale': zoomCssScale } as React.CSSProperties}
+      style={{ '--marker-zoom-scale': zoomCssScale, '--marker-stroke-w': `${strokeWidth}px` } as React.CSSProperties}
     >
       <MapContainer
         center={[46.8, 2.5]}
@@ -83,16 +120,16 @@ export default function StoreMap({
         maxZoom={18}
       >
         <MapInitializer />
-        <MapZoomTracker onZoomChange={onZoomChange} />
+        <MapZoomTracker onZoomChange={onZoomChange} onBoundsChange={onBoundsChange} />
 
         <TileLayer
           url="https://{s}.tile.openstreetmap.fr/osmfr/{z}/{x}/{y}.png"
           attribution="&copy; OpenStreetMap France"
         />
 
-        {filteredStores.map((s, i) => (
+        {visibleStores.map((s, i) => (
           <EggMarker
-            key={`${s.category}-${i}-${markerStyle}-${markerSize}-${showOutline}`}
+            key={`${s.category}-${i}-${markerStyle}-${markerSize}-${outlineMode}-${strokeWidth}`}
             store={s}
             cageIcon={icons.cage}
             freeIcon={icons.free}
@@ -105,8 +142,10 @@ export default function StoreMap({
         onChangeStyle={setMarkerStyle}
         markerSize={markerSize}
         onChangeMarkerSize={setMarkerSize}
-        showOutline={showOutline}
-        onToggleOutline={setShowOutline}
+        outlineMode={outlineMode}
+        onChangeOutlineMode={setOutlineMode}
+        strokeWidth={strokeWidth}
+        onChangeStrokeWidth={setStrokeWidth}
         zoomScale={zoomScale}
         onChangeZoomScale={setZoomScale}
       />

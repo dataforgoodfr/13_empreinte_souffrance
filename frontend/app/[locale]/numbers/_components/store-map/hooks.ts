@@ -1,15 +1,24 @@
 import { useCallback, useMemo, useState } from 'react';
-import type { CageFilterValue, FilterState, MarkerStyle, Store } from './types';
-import { DEFAULT_MARKER_SIZE, DEFAULT_SHOW_OUTLINE, DEFAULT_ZOOM_SCALE } from './types';
+import type { CageFilterValue, FilterState, MarkerStyle, OutlineMode, Store } from './types';
+import { DEFAULT_MARKER_SIZE, DEFAULT_OUTLINE_MODE, DEFAULT_STROKE_WIDTH, DEFAULT_ZOOM_SCALE } from './types';
 
-export function useStoreMapFilters(stores: Store[]) {
+type InitialSettings = {
+  style?: MarkerStyle;
+  size?: number;
+  outlineMode?: OutlineMode;
+  strokeWidth?: number;
+  zoomScale?: number;
+};
+
+export function useStoreMapFilters(stores: Store[], initial?: InitialSettings) {
   const [cageFilter, setCageFilter] = useState<CageFilterValue>('all');
   const [selectedEnseigne, setSelectedEnseigne] = useState<string | null>(null);
 
-  const [markerStyle, setMarkerStyle] = useState<MarkerStyle>('circle');
-  const [markerSize, setMarkerSize] = useState(DEFAULT_MARKER_SIZE);
-  const [showOutline, setShowOutline] = useState(DEFAULT_SHOW_OUTLINE);
-  const [zoomScale, setZoomScale] = useState(DEFAULT_ZOOM_SCALE);
+  const [markerStyle, setMarkerStyle] = useState<MarkerStyle>(initial?.style ?? 'illustrated');
+  const [markerSize, setMarkerSize] = useState(initial?.size ?? DEFAULT_MARKER_SIZE);
+  const [outlineMode, setOutlineMode] = useState<OutlineMode>(initial?.outlineMode ?? DEFAULT_OUTLINE_MODE);
+  const [strokeWidth, setStrokeWidth] = useState(initial?.strokeWidth ?? DEFAULT_STROKE_WIDTH);
+  const [zoomScale, setZoomScale] = useState(initial?.zoomScale ?? DEFAULT_ZOOM_SCALE);
 
   const toggleCageFilter = useCallback((value: CageFilterValue) => {
     setCageFilter((prev) => (prev === value ? 'all' : value));
@@ -37,8 +46,8 @@ export function useStoreMapFilters(stores: Store[]) {
   }, [stores, selectedEnseigne]);
 
   const filterState: FilterState = useMemo(
-    () => ({ cageFilter, selectedEnseigne, markerStyle, markerSize, showOutline, zoomScale }),
-    [cageFilter, selectedEnseigne, markerStyle, markerSize, showOutline, zoomScale]
+    () => ({ cageFilter, selectedEnseigne, markerStyle, markerSize, outlineMode, strokeWidth, zoomScale }),
+    [cageFilter, selectedEnseigne, markerStyle, markerSize, outlineMode, strokeWidth, zoomScale]
   );
 
   return {
@@ -46,7 +55,8 @@ export function useStoreMapFilters(stores: Store[]) {
     selectedEnseigne,
     markerStyle,
     markerSize,
-    showOutline,
+    outlineMode,
+    strokeWidth,
     zoomScale,
     filterState,
     filteredStores,
@@ -55,7 +65,8 @@ export function useStoreMapFilters(stores: Store[]) {
     toggleEnseigne,
     setMarkerStyle,
     setMarkerSize,
-    setShowOutline,
+    setOutlineMode,
+    setStrokeWidth,
     setZoomScale,
   };
 }
