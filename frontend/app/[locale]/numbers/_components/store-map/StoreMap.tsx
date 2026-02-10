@@ -113,8 +113,10 @@ export default function StoreMap({
     >
       <MapContainer
         center={[46.8, 2.5]}
-        zoom={5.5}
+        zoom={6}
         scrollWheelZoom={true}
+        zoomSnap={0.5}
+        zoomDelta={0.5}
         className="w-full h-full z-0"
         minZoom={4}
         maxZoom={18}
