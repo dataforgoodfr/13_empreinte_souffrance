@@ -16,7 +16,7 @@ export default async function ProgressSection() {
         <div className="w-full md:5/6 lg:w-4/6 flex flex-col gap-7">
           <ContentWithImageSection
             text_heading={t('ProgressSection.more_than_80_percent_without_cage')}
-            text_content={t('ProgressSection.from_70_percent_in_2015_to_less_than_20_percent')}
+            text_content={t('ProgressSection.a_decade_of_improvement')}
             image_url="progress_bluegraph.svg"
             image_description={''} //TODO
             image_position="left"
@@ -30,8 +30,8 @@ export default async function ProgressSection() {
           />
           <ContentWithImageSection
             text_heading={t('ProgressSection.no_transparency_for_ingredients')}
-            text_content={t('ProgressSection.only_35_percent_display_no_caged_eggs')}
-            image_url="progress_bakery.jpg"
+            text_content={t('ProgressSection.lack_of_transparency')}
+            image_url="progress_bakery.svg"
             image_description={''} //TODO
             image_position="left"
           />

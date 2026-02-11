@@ -31,14 +31,7 @@ export default async function ResultsSection() {
           [
             {
               infoContent: (
-                <InfoContent
-                  superTitle={t('Results.sectionList.first.superTitle')}
-                  title={t('Results.sectionList.first.title')}
-                  source={{
-                    url: t('Results.sectionList.first.source.url'),
-                    name: t('Results.sectionList.first.source.name'),
-                  }}
-                >
+                <InfoContent title={t('Results.sectionList.first.title')}>
                   {t('Results.sectionList.first.text')}
                 </InfoContent>
               ),
@@ -46,14 +39,7 @@ export default async function ResultsSection() {
             },
             {
               infoContent: (
-                <InfoContent
-                  superTitle={t('Results.sectionList.second.superTitle')}
-                  title={t('Results.sectionList.second.title')}
-                  source={{
-                    url: t('Results.sectionList.second.source.url'),
-                    name: t('Results.sectionList.second.source.name'),
-                  }}
-                >
+                <InfoContent title={t('Results.sectionList.second.title')}>
                   {t('Results.sectionList.second.text')}
                 </InfoContent>
               ),
@@ -61,14 +47,7 @@ export default async function ResultsSection() {
             },
             {
               infoContent: (
-                <InfoContent
-                  superTitle={t('Results.sectionList.third.superTitle')}
-                  title={t('Results.sectionList.third.title')}
-                  source={{
-                    url: t('Results.sectionList.third.source.url'),
-                    name: t('Results.sectionList.third.source.name'),
-                  }}
-                >
+                <InfoContent title={t('Results.sectionList.third.title')}>
                   {t('Results.sectionList.third.text')}
                 </InfoContent>
               ),
