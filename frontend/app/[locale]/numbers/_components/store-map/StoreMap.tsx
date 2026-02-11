@@ -11,7 +11,7 @@ import type { EnseigneConfig, MarkerStyle, OutlineMode, Store } from './types';
 import { COLORS } from './types';
 import { createIconPairForStyle } from './icons';
 import { useStoreMapFilters } from './hooks';
-import { EggMarker, MapFilterPanel, MapInitializer, MapSettingsPanel, MapZoomTracker } from './components';
+import { EggMarker, MapFilterPanel, MapInitializer, MapZoomTracker } from './components';
 
 type StoreMapProps = {
   stores?: Store[];
@@ -54,11 +54,6 @@ export default function StoreMap({
     filteredStores,
     toggleCageFilter,
     toggleEnseigne,
-    setMarkerStyle,
-    setMarkerSize,
-    setOutlineMode,
-    setStrokeWidth,
-    setZoomScale,
   } = useStoreMapFilters(storeData, {
     style: initialStyle,
     size: initialSize,
@@ -138,19 +133,6 @@ export default function StoreMap({
           />
         ))}
       </MapContainer>
-
-      <MapSettingsPanel
-        currentStyle={markerStyle}
-        onChangeStyle={setMarkerStyle}
-        markerSize={markerSize}
-        onChangeMarkerSize={setMarkerSize}
-        outlineMode={outlineMode}
-        onChangeOutlineMode={setOutlineMode}
-        strokeWidth={strokeWidth}
-        onChangeStrokeWidth={setStrokeWidth}
-        zoomScale={zoomScale}
-        onChangeZoomScale={setZoomScale}
-      />
 
       <MapFilterPanel
         cageFilter={cageFilter}
