@@ -77,15 +77,16 @@ export default {
   ProgressSection: {
     title: 'des progrès mais encore beaucoup d\'œufs cage "invisibles"',
     display_dashboard: 'voir les chiffres',
-    more_than_80_percent_without_cage: 'plus de 80% des œufs vendus sont hors cage',
-    from_70_percent_in_2015_to_less_than_20_percent:
-      "De 70% d'œufs cages en magasin en 2015, nous sommes maintenant passés à moins de 20%. Monoprix et Carrefour ont tenu leur engagement.",
+    more_than_80_percent_without_cage: 'Plus de 80% des œufs vendus sont hors cage (Plein air, Sol, Bio)',
+    a_decade_of_improvement:
+      "En une décennie, la part d'œufs cage dans nos rayons a chuté, passant de plus de 50 % en 2016 à moins de 20 % aujourd’hui.",
     most_supermarkets_still_sell_caged_eggs: 'la plupart des supermarchés vendent encore des œufs cage',
     survey_results_2026:
-      'Une enquête menée dans 500 magasins en janvier 2026 montre que Leclerc, Coopérative U, Intermarché, Franprix, Lidl et Aldi continuent de commercialiser des oeufs cage.',
-    no_transparency_for_ingredients: 'pas de transparence sur les œufs ingrédients',
-    only_35_percent_display_no_caged_eggs:
-      'Une grande enquête menée en magasins montre que seulement 35% des gâteaux, brioches, pâtes fraîches affichent des œufs hors cage dans leurs ingrédients.',
+      'Une enquête dans plusieurs centaines de supermarchés montre que plus de 70 % continuent de vendre des œufs cage, régulièrement dans des boîtes n’indiquant pas clairement le mode d’élevage.',
+    no_transparency_for_ingredients:
+      'On trouve toujours des œufs cage cachés dans les brioches, gâteaux et autres produits',
+    lack_of_transparency:
+      'Malgré les engagements des enseignes et de réels progrès chez certaines, une part significative de produits de marques distributeurs contiennent encore des œufs cage ou n’indiquent pas le mode d’élevage des œufs.',
   },
 
   WFIArticle: {
@@ -150,7 +151,7 @@ export default {
       second: {
         superTitle: 'Les privations imposées à une poule en cage lui font subir',
         title: '7000 HEURES DE SOUFFRANCE PSYCHOLOGIQUE',
-        text: 'Les poules en cages sont privées de leurs besoins essentiels : se déplacer, faire un nid, gratter le sol, se percher ou prendre des bains de poussière.',
+        text: "C'est ce qu'endure une poule en cage privée de ses besoins essentiels toute sa vie : se déplacer, faire un nid, gratter le sol, se percher ou prendre des bains de poussière.",
         source: {
           url: '/numbers',
           name: 'voir les chiffres',
@@ -159,14 +160,14 @@ export default {
       third: {
         superTitle: 'Pour chaque poule, mettre fin aux cages entraîne une',
         title: 'RÉDUCTION DE 93% DE LA SOUFFRANCE PSYCHOLOGIQUE',
-        text: "Les entreprises peuvent changer la vie de millions de poules en tenant leur promesse : ne plus vendre d'œufs cage.",
+        text: "C'est ce que permet la fin des cages pour chaque poule. Les entreprises peuvent changer la vie de millions d'entre elles en tenant leur promesse : ne plus vendre d'œufs cage.",
         source: {
           url: '/numbers',
           name: 'voir les chiffres',
         },
       },
     },
-    link: 'DÉCOUVRIR LA MÉTHODOLOGIE EN DÉTAIL',
+    link: "DÉCOUVRIR LE VÉCU D'UNE POULE EN  CAGE",
   },
 
   SufferingCausesSection: {
@@ -706,7 +707,7 @@ export default {
         'Anima existe pour réduire la souffrance des animaux de la façon la plus efficace possible. L’association mène une campagne nationale et européenne pour mettre un terme à l’élevage en cage des poules pondeuses. Anima est membre de la coalition européenne Anima International.',
       anima_link: 'www.animafrance.org',
       dataforgood_presentation:
-        "Data For Good est une communauté de plus de 8000 bénévoles de la tech, qui se met au service d’associations d’intérêt général. En 15 ans, elle a co-developpé plus de 130 projets.",
+        'Data For Good est une communauté de plus de 8000 bénévoles de la tech, qui se met au service d’associations d’intérêt général. En 15 ans, elle a co-developpé plus de 130 projets.',
       dataforgood_link: 'www.dataforgood.fr',
     },
     whyNameSection: {

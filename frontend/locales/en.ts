@@ -66,7 +66,7 @@ export default {
     title: 'progress made, but still many “invisible” caged eggs',
     display_dashboard: 'view the dashboard',
     more_than_80_percent_without_cage: 'more than 80% of eggs sold are cage-free',
-    from_70_percent_in_2015_to_less_than_20_percent:
+    a_decade_of_improvement:
       'From 70% caged eggs in stores in 2015, we are now down to less than 20%. Monoprix and Carrefour have kept their commitment.',
     most_supermarkets_still_sell_caged_eggs: 'most supermarkets still sell caged eggs',
     survey_results_2026:
@@ -689,7 +689,7 @@ export default {
   aboutPage: {
     association_presentation_section: {
       title:
-        'L\'Heure des Comptes is the result of a collaboration between Anima and Data for Good, two non-profit associations.',
+        "L'Heure des Comptes is the result of a collaboration between Anima and Data for Good, two non-profit associations.",
       anima_presentation:
         'Anima exists to reduce animal suffering as effectively as possible. The association is leading a national and European campaign to end the caged farming of laying hens. Anima is a member of the European coalition Anima International.',
       anima_link: 'www.animafrance.org',
