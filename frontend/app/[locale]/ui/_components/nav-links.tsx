@@ -45,6 +45,9 @@ export default function NavLinks({ links, isVertical: passedIsVertical }: Props)
           </Link>
         );
       })}
+      <Link href="#GoFurtherSection" className="brown-button">
+        J'agis pour les poules
+      </Link>
     </nav>
   );
 }
