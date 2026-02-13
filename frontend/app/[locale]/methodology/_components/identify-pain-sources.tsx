@@ -119,7 +119,7 @@ export default async function IdentifyPainSources() {
           <figure className="md:w-1/3 flex flex-col items-center gap-2">
             <img
               className="w-[330px] h-[220px] rounded-[10px] object-cover"
-              src="/method-details/lesions.svg"
+              src="/method-details/lesions.png"
               alt={t('MethodologyPage.method_details_section.section_img_2.img_3.alt')}
             />
             <figcaption>

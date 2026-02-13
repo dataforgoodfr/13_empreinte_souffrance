@@ -5,7 +5,7 @@ export default async function IntroductionSection() {
   const t = await getI18n();
 
   return (
-    <section className="bg-violet p-section flex justify-center font-medium">
+    <section className="bg-violet text-brown p-section flex justify-center font-medium">
       <div className="max-w-contain ">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 ">
           <article className="flex flex-col gap-3">

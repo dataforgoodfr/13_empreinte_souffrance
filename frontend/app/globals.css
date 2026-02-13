@@ -345,6 +345,35 @@ h5 {
   transition: all ease-in-out;
 }
 
+.brown-button {
+  padding: 16px 24px 16px 24px;
+  background-color: var(--color-brown);
+  border: solid, 2px, var(--color-brown);
+  box-shadow: 0 5px 0 0 black;
+  font-size: var(--text-CTA);
+  color: var(--color-pink-1);
+  border-radius: 10px;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  font-family:
+    Albert Sans,
+    sans-serif;
+  font-weight: 900;
+  line-height: 100%;
+  font-style: normal;
+  text-transform: uppercase;
+  letter-spacing: 9%;
+  cursor: pointer;
+}
+
+.brown-button:hover {
+  background-color: var(--color-pink-3);
+  box-shadow: 0 5px 0 0 black;
+  border: solid, 2px, var(--color-pink-3);
+  transition: all ease-in-out;
+}
+
 /* overwrite some leaflet classes */
 
 .leaflet-popup-content-wrapper {
