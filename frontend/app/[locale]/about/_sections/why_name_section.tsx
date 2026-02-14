@@ -1,5 +1,5 @@
 import { getScopedI18n } from '@/locales/server';
-import SectionTitle from '../../home/_components/section-title';
+import Image from 'next/image';
 
 export default async function WhyNameSection() {
   const scopedT = await getScopedI18n('aboutPage.whyNameSection');
@@ -7,14 +7,17 @@ export default async function WhyNameSection() {
   return (
     <section className="p-section flex justify-center bg-violet text-black">
       <div className="max-w-contain ">
-        <figure className="flex flex-col items-center gap-6">
-          <SectionTitle
-            image_path="/full-bars_egg.svg"
-            image_alt="icon of an egg behind bars"
-            title={scopedT('why_welfare_footprint_title').toUpperCase()}
+        <figure className="flex flex-row items-center">
+          <Image
+            src="/full-bars_egg.svg"
+            width={800}
+            height={800}
+            alt={'icon of an egg behind bars'}
+            className=" mb-0 md:mb-0 min-w-2/5"
           />
 
-          <figcaption className="flex flex-col items-center gap-6 max-w-[650px]">
+          <figcaption className="flex flex-col items-start gap-6 min-w-[3/5]">
+            <h3>{scopedT('why_welfare_footprint_title').toUpperCase()}</h3>
             <div className="flex flex-col gap-3">
               <p>{scopedT('why_welfare_footprint_description.main_description')}</p>
               <p>{scopedT('why_welfare_footprint_description.goals')}</p>
