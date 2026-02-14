@@ -259,7 +259,7 @@ export default {
     contact_us: 'Contactez-nous',
     all_rights_reserved: 'Tous droits réservés',
     graphics: 'Graphisme :',
-    rights: ' © 2025 Empreinte Souffrance et Data for Good',
+    rights: ' © 2025 Anima et Data for Good',
     by: 'Un projet de :',
     and: 'et',
     donate: 'JE DONNE',
