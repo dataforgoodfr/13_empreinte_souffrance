@@ -3,6 +3,7 @@ import WhyNameSection from './_sections/why_name_section';
 import AssociationPresentationSection from './_sections/association-presentation-section';
 import GoFurtherSection from '../ui/_sections/go-further-section';
 import { Metadata } from 'next';
+import SourceSection from './_sections/source-section';
 
 export const metadata: Metadata = {
   title: 'À propos',
@@ -29,6 +30,7 @@ export default async function About() {
       <AssociationPresentationSection />
       <WhyNameSection />
       <ThankingSection />
+      <SourceSection/>
       <GoFurtherSection />
     </>
   );
