@@ -24,6 +24,8 @@
   --text-h5-desktop: 12px;
   --text-numbers-desktop: 100px;
 
+
+  
   /* Font-size Mobile */
   --text-h1: 32px;
   --text-h2: 26px;
@@ -457,4 +459,9 @@ h5 {
 
 [id] {
   scroll-margin-top: 70px;
+}
+
+.bg-numbers{
+  background:radial-gradient(50% 50% at 50% 90%, #FF8688 15%, #FFC3C3 85%);
+
 }

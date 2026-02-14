@@ -14,7 +14,7 @@ export default async function Section({ className, innerClassName, contentClassN
   return (
     <div className={`w-full p-section flex flex-row justify-center items-center ${className ?? ''}`} id={anchorName}>
       <div className={`w-full min-h-[80dvh] flex flex-col lg:flex-row gap-8 items-center justify-center ${innerClassName ?? 'max-w-6xl'}`}>
-        <div className="w-full lg:w-2/5">
+        <div className="w-full lg:w-2/4">
           <h3 className="text-2xl font-bold mb-4">{title}</h3>
           <p className="">{text}</p>
         </div>
