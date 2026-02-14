@@ -7,7 +7,7 @@ export default async function WhyNameSection() {
   return (
     <section className="p-section flex justify-center bg-violet text-black">
       <div className="max-w-contain ">
-        <figure className="flex flex-row items-center">
+        <figure className="flex flex-col md:flex-row items-center">
           <Image
             src="/full-bars_egg.svg"
             width={800}
