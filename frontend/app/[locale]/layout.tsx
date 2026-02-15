@@ -18,10 +18,12 @@ export default async function Layout({
 
   return (
     <>
-      <header className="sticky top-0 z-5 w-full flex flex-row items-center justify-between">
+      <header className="fixed top-0 z-50 w-full flex flex-row items-center justify-between">
         <Navbar />
       </header>
-      <I18nProviderClient locale={locale}>{children}</I18nProviderClient>
+      <div className="pt-16">
+        <I18nProviderClient locale={locale}>{children}</I18nProviderClient>
+      </div>
       <footer>
         <Footer />
       </footer>
