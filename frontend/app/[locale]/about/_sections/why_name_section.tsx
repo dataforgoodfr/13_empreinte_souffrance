@@ -17,7 +17,11 @@ export default async function WhyNameSection() {
           />
 
           <figcaption className="flex flex-col items-start gap-6 min-w-[3/5]">
-            <h3>{scopedT('why_welfare_footprint_title').toUpperCase()}</h3>
+            <h3 className="text-center w-full">
+              POURQUOI
+              <br />
+              "L'HEURE DES COMPTES" ?
+            </h3>
             <div className="flex flex-col gap-3">
               <p>{scopedT('why_welfare_footprint_description.main_description')}</p>
               <p>{scopedT('why_welfare_footprint_description.goals')}</p>
