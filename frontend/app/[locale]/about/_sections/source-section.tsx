@@ -95,7 +95,7 @@ export default async function SourceSection() {
               qu'en ouvrant la boîte et en consultant le code imprimé directement sur les œufs.
             </p>
             <p>
-              Non-conformité probable : D'autres boîtes indiquent le code 3 sur l'emballage san;s mentionner
+              Non-conformité probable : D'autres boîtes indiquent le code 3 sur l'emballage sans mentionner
               explicitement « élevage en cage » en toutes lettres, ce qui est pourtant obligatoire
             </p>
             <p>Un signalement sera transmis à la DGCCRF concernant les cas de non-conformité majeure.</p>
