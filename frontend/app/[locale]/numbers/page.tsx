@@ -44,11 +44,12 @@ export default async function NumbersPage() {
         text={
           '73 % des supermarchés vendent encore des œufs de poules en cage. C’est l’enseignement principal d’une enquête nationale menée par plus de 100 personnes dans 386 supermarchés en janvier.'
         }
-        className="!px-1 md:!px-8"
+        className="!px-1 md:!px-8 flex flex-col"
         innerClassName=""
         contentClassName="justify-end"
         anchorName={'carte'}
       >
+
         <StoreMapClient />
       </Section>
 
@@ -72,12 +73,15 @@ export default async function NumbersPage() {
         text={
           <>
             Sur les 25 références marque distributeur analysées chez toutes les enseignes, ce sont Lidl, Leclerc,
-            Monoprix, ALDI et Lidl qui vendent le plus de références avec des œufs 100% hors cage (<a
+            Monoprix, ALDI et Lidl qui vendent le plus de références avec des œufs 100% hors cage (
+            <a
               className="underline"
               target="_blank"
               href="https://drive.google.com/file/d/1Il1NsI1qQdP806HkiL7V87lOeMbPc9ZB/view"
             >
-              exemple chez ALDI</a>). Beaucoup d'œufs sont utilisés sous forme d'ingrédient dans les produits vendus en grande surface. Les
+              exemple chez ALDI
+            </a>
+            ). Beaucoup d'œufs sont utilisés sous forme d'ingrédient dans les produits vendus en grande surface. Les
             supermarchés se sont engagés à ne plus utiliser d'œufs cage dans leurs marques distributeur à partir du 1er
             janvier 2026.
           </>
@@ -173,7 +177,8 @@ export default async function NumbersPage() {
               href="https://www.ouest-france.fr/europe/allemagne/son-tour-aldi-promet-den-finir-avec-les-oeufs-de-batterie-4402574"
             >
               et ALDI,{' '}
-            </a>pour 2026.'
+            </a>
+            pour 2026.'
           </>
         }
       >
