@@ -5,7 +5,7 @@ type Props = {
   innerClassName?: string;
   contentClassName?: string;
   title: string;
-  text: string;
+  text: ReactNode;
   anchorName?: string;
   children?: ReactNode;
 };

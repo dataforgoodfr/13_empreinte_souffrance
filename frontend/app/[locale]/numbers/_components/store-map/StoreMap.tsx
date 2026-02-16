@@ -12,6 +12,7 @@ import { COLORS } from './types';
 import { createIconPairForStyle } from './icons';
 import { useStoreMapFilters } from './hooks';
 import { EggMarker, MapFilterPanel, MapInitializer, MapZoomTracker } from './components';
+import LinkActions from '../LinkActions';
 
 type StoreMapProps = {
   stores?: Store[];
@@ -98,9 +99,15 @@ export default function StoreMap({
   );
 
   return (
+    <section className={clsx(
+        'relative w-full flex flex-col gap-6 overflow-hidden',
+        heightClassName,
+        className
+      )}>
+
     <div
       className={clsx(
-        'relative w-full overflow-hidden shadow-lg border border-gray-200/60 rounded-2xl',
+        'relative w-full overflow-hidden rounded-2xl',
         heightClassName,
         className
       )}
@@ -142,5 +149,11 @@ export default function StoreMap({
         onToggleEnseigne={toggleEnseigne}
       />
     </div>
+          <LinkActions
+            externalUrl="/about/#proportion_cake_caged_eggs"
+            downloadImageUrl="/dashboard/proportion_cake_caged_eggs.png"
+            downloadEmbedUrl='https://docs.google.com/document/d/1r7ZIIDlfh0XAzFT-wohE_YzmuVWC_cNSGNGbCq6LP1k/edit?tab=t.0'
+          />
+        </section>
   );
 }

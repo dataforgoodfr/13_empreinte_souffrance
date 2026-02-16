@@ -75,14 +75,14 @@ export default {
   },
 
   ProgressSection: {
-    title: 'des progrès mais encore beaucoup d\'œufs cage "invisibles"',
+    title: "des progrès mais encore beaucoup d'œufs cage «invisibles»",
     display_dashboard: 'voir les chiffres',
     more_than_80_percent_without_cage: 'Plus de 80% des œufs vendus sont hors cage (Plein air, Sol, Bio)',
     a_decade_of_improvement:
       "En une décennie, la part d'œufs cage dans nos rayons a chuté, passant de plus de 50 % en 2016 à moins de 20 % aujourd’hui.",
-    most_supermarkets_still_sell_caged_eggs: 'la plupart des supermarchés vendent encore des œufs cage',
+    most_supermarkets_still_sell_caged_eggs: 'PLUS DE 70% DES SUPERMARCHÉS VENDENT ENCORE DES ŒUFS CAGE',
     survey_results_2026:
-      'Une enquête dans plusieurs centaines de supermarchés montre que plus de 70 % continuent de vendre des œufs cage, régulièrement dans des boîtes n’indiquant pas clairement le mode d’élevage.',
+      'Une enquête dans plusieurs centaines de supermarchés montre que 73% d’entre eux continuent de vendre des œufs cage, régulièrement dans des boîtes n’indiquant pas clairement le mode d’élevage.',
     no_transparency_for_ingredients:
       'On trouve toujours des œufs cage cachés dans les brioches, gâteaux et autres produits',
     lack_of_transparency:
@@ -142,7 +142,7 @@ export default {
       first: {
         superTitle: "Derrière chaque boîte d'œufs cage se cachent",
         title: "DES DIZAINES D'HEURES DE SOUFFRANCE",
-        text: "C'est le prix payé par les poules enfermées en cage toute leur vie pour pondre.",
+        text: "C'est le prix payé par une poule enfermée en cage pour pondre 6 œufs.",
         source: {
           url: '/numbers',
           name: 'voir les chiffres',
@@ -707,7 +707,7 @@ export default {
         'Anima existe pour réduire la souffrance des animaux de la façon la plus efficace possible. L’association mène une campagne nationale et européenne pour mettre un terme à l’élevage en cage des poules pondeuses. Anima est membre de la coalition européenne Anima International.',
       anima_link: 'www.animafrance.org',
       dataforgood_presentation:
-        'Data For Good est une communauté de plus de 8000 bénévoles de la tech, qui se met au service d’associations d’intérêt général. En 15 ans, elle a co-developpé plus de 130 projets.',
+        'Data For Good est une communauté de plus de 8000 bénévoles de la tech, qui co-construisent des projets d’intérêt général avec des associations qui luttent pour la justice sociale, l’environnement et la démocratie.',
       dataforgood_link: 'www.dataforgood.fr',
     },
     whyNameSection: {
@@ -723,7 +723,7 @@ export default {
       },
     },
     thanking_section:
-      'Ce projet a pu voir le jour grâce aux bénévoles qui ont travaillé pendant plusieurs mois sur la conception du site et de la campagne. Anima et Data for Good leur en sont profondément reconnaissants. Merci Laurent Basara, Luc Berton, Théo Degorre, Marie Groshens, Mathis Dupuy, Julien Deniaud, Adrien Jérôme, Adelia Khasanova, Paul Pajot, Axelle Playoust-Braure, Justine Tellier, Anaïs Valentin, Myriam Duval, Tom Francés.',
+      'Ce projet a pu voir le jour grâce aux bénévoles qui ont travaillé pendant plusieurs mois sur la conception du site et de la campagne. Anima et Data for Good leur en sont profondément reconnaissants. Merci Laurent Basara, Luc Berton, Théo Degorre, Marie Groshens, Mathis Dupuy, Julien Deniaud, Adrien Jérôme, Adelia Khasanova, Paul Pajot, Axelle Playoust-Braure, Justine Tellier, Anaïs Valentin, Myriam Duval, Tom Francés, Nour Salhi, Victor Sicard et Justine Audemard.',
   },
 
   //*___________ NUMBERS PAGE __________________
