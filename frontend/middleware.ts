@@ -8,7 +8,7 @@ const I18nMiddleware = createI18nMiddleware({
   urlMappingStrategy: 'rewriteDefault',
 });
 
-const RELEASE_DATE = new Date(process.env.NEXT_PUBLIC_RELEASE_DATE || '2025-02-18T10:00:00.000Z');
+const RELEASE_DATE = new Date(process.env.NEXT_PUBLIC_RELEASE_DATE || '2026-02-18T10:00:00.000Z');
 const SECRET_KEY = process.env.RELEASE_SECRET_KEY || '621fe232-753e-4b73-86d7-5f31bed3951d';
 const ACCESS_COOKIE = 'team_access';
 
