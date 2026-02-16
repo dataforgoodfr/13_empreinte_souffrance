@@ -152,7 +152,7 @@ export default function StoreMap({
           <LinkActions
             externalUrl="/about/#proportion_cake_caged_eggs"
             downloadImageUrl="/dashboard/proportion_cake_caged_eggs.png"
-            downloadEmbedUrl='https://lheuredescomptes.org/embed/store-map'
+            downloadEmbedUrl='https://docs.google.com/document/d/1r7ZIIDlfh0XAzFT-wohE_YzmuVWC_cNSGNGbCq6LP1k/edit?tab=t.0'
           />
         </section>
   );
