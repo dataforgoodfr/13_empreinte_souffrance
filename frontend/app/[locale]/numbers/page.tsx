@@ -40,7 +40,7 @@ export default async function NumbersPage() {
 
       {/* Carte des supermarchés */}
       <Section
-        title={"PART D'OEUFS CAGE EN SUPERMARCHES"}
+        title={"Carte des supermarchés vendant encore des œufs cage"}
         text={
           '73 % des supermarchés vendent encore des œufs de poules en cage. C’est l’enseignement principal d’une enquête nationale menée par plus de 100 personnes dans 386 supermarchés en janvier.'
         }
