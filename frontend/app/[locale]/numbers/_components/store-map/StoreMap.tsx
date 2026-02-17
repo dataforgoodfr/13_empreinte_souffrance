@@ -99,61 +99,51 @@ export default function StoreMap({
   );
 
   return (
-    <section className={clsx(
-        'relative w-full flex flex-col gap-6 overflow-hidden',
-        heightClassName,
-        className
-      )}>
-
-    <div
-      className={clsx(
-        'relative w-full overflow-hidden rounded-2xl',
-        heightClassName,
-        className
-      )}
-      style={{ '--marker-zoom-scale': zoomCssScale, '--marker-stroke-w': `${strokeWidth}px` } as React.CSSProperties}
-    >
-      <MapContainer
-        center={[46.8, 2.5]}
-        zoom={6}
-        scrollWheelZoom={true}
-        zoomSnap={0.5}
-        zoomDelta={0.5}
-        className="w-full h-full z-0"
-        minZoom={4}
-        maxZoom={18}
+    <section className={clsx('relative w-full flex flex-col gap-6 overflow-hidden', heightClassName, className)}>
+      <div
+        className={clsx('relative w-full overflow-hidden rounded-2xl', heightClassName, className)}
+        style={{ '--marker-zoom-scale': zoomCssScale, '--marker-stroke-w': `${strokeWidth}px` } as React.CSSProperties}
       >
-        <MapInitializer />
-        <MapZoomTracker onZoomChange={onZoomChange} onBoundsChange={onBoundsChange} />
+        <MapContainer
+          center={[46.8, 2.5]}
+          zoom={6}
+          scrollWheelZoom={true}
+          zoomSnap={0.5}
+          zoomDelta={0.5}
+          className="w-full h-full z-0"
+          minZoom={4}
+          maxZoom={18}
+        >
+          <MapInitializer />
+          <MapZoomTracker onZoomChange={onZoomChange} onBoundsChange={onBoundsChange} />
 
-        <TileLayer
-          url="https://{s}.tile.openstreetmap.fr/osmfr/{z}/{x}/{y}.png"
-          attribution="&copy; OpenStreetMap France"
+          <TileLayer
+            url="https://{s}.tile.openstreetmap.fr/osmfr/{z}/{x}/{y}.png"
+            attribution="&copy; OpenStreetMap France"
+          />
+
+          {visibleStores.map((s, i) => (
+            <EggMarker
+              key={`${s.category}-${i}-${markerStyle}-${markerSize}-${outlineMode}-${strokeWidth}`}
+              store={s}
+              cageIcon={icons.cage}
+              freeIcon={icons.free}
+            />
+          ))}
+        </MapContainer>
+
+        <MapFilterPanel
+          cageFilter={cageFilter}
+          selectedEnseigne={selectedEnseigne}
+          enseigneList={enseigneData}
+          onToggleCage={toggleCageFilter}
+          onToggleEnseigne={toggleEnseigne}
         />
-
-        {visibleStores.map((s, i) => (
-          <EggMarker
-            key={`${s.category}-${i}-${markerStyle}-${markerSize}-${outlineMode}-${strokeWidth}`}
-            store={s}
-            cageIcon={icons.cage}
-            freeIcon={icons.free}
-          />
-        ))}
-      </MapContainer>
-
-      <MapFilterPanel
-        cageFilter={cageFilter}
-        selectedEnseigne={selectedEnseigne}
-        enseigneList={enseigneData}
-        onToggleCage={toggleCageFilter}
-        onToggleEnseigne={toggleEnseigne}
+      </div>
+      <LinkActions
+        externalUrl="/about/#proportion_market_visited"
+        downloadEmbedUrl="https://docs.google.com/document/d/1r7ZIIDlfh0XAzFT-wohE_YzmuVWC_cNSGNGbCq6LP1k/edit?tab=t.0"
       />
-    </div>
-          <LinkActions
-            externalUrl="/about/#proportion_cake_caged_eggs"
-            downloadImageUrl="/dashboard/proportion_cake_caged_eggs.png"
-            downloadEmbedUrl='https://docs.google.com/document/d/1r7ZIIDlfh0XAzFT-wohE_YzmuVWC_cNSGNGbCq6LP1k/edit?tab=t.0'
-          />
-        </section>
+    </section>
   );
 }
