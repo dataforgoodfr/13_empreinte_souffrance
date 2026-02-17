@@ -2,7 +2,7 @@
 
 type Props = {
   externalUrl: string;
-  downloadImageUrl: string;
+  downloadImageUrl?: string;
   downloadEmbedUrl?: string;
 };
 
@@ -16,13 +16,15 @@ export default function LinkActions({ externalUrl, downloadImageUrl, downloadEmb
       >
         Voir la source
       </a>
-      <a
-        href={downloadImageUrl}
-        download
-        className="px-4 py-2 underline bg-grey/80 text-black hover:bg-black/70 hover:text-white transition w-1/2 cursor-pointer"
-      >
-        Télécharger l'image
-      </a>
+      {downloadImageUrl && (
+        <a
+          href={downloadImageUrl}
+          download
+          className="px-4 py-2 underline bg-grey/80 text-black hover:bg-black/70 hover:text-white transition w-1/2 cursor-pointer"
+        >
+          Télécharger l'image
+        </a>
+      )}
       {downloadEmbedUrl && (
         <a
           href={downloadEmbedUrl}
