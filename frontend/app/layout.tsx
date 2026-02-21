@@ -74,11 +74,6 @@ export const metadata: Metadata = {
     creator: '@anima_asso',
     site: '@anima_asso',
   },
-  icons: {
-    icon: '/favicon/favicon.ico',
-    shortcut: '/favicon/favicon.ico',
-    apple: '/favicon/apple-touch-icon.png',
-  },
 };
 
 export default async function RootLayout({

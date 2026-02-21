@@ -17,7 +17,7 @@ export default async function WhyNameSection() {
           />
 
           <figcaption className="flex flex-col items-start gap-6 min-w-[3/5]">
-            <h3 className="text-center w-full">
+            <h3 className="text-left w-full">
               POURQUOI
               <br />
               "L'HEURE DES COMPTES" ?
