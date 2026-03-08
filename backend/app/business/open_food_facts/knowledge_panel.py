@@ -1,7 +1,9 @@
 import logging
+from pathlib import Path
 from typing import Callable, List
 
 import httpx
+from bs4 import BeautifulSoup
 from pydantic import HttpUrl, ValidationError
 
 from app.business.open_food_facts.pain_report_calculator import PainReportCalculator
@@ -209,14 +211,14 @@ class KnowledgePanelGenerator:
         if self.pain_reports == []:
             detailed_panels = []
         else:
-            detailed_panels = ["intensities_definitions"]
+            detailed_panels = ["project_panel"]
 
         # root panel depending on pain report data and detailed panels
         panels = {"root": self._create_root_panel(detailed_panels)}
 
         # build detailed panels that where defined
         for panel_name, panel_creator in [
-            ("intensities_definitions", self._create_intensities_definitions_panel),
+            ("project_panel", self._create_project_panel),
         ]:
             if panel_name in detailed_panels:
                 panels.update({panel_name: panel_creator()})
@@ -289,11 +291,45 @@ class KnowledgePanelGenerator:
         """
         Creates a panel from the html file"""
 
-        html_path = "html_template/about_the_project_panel.html"
+        html_path = Path(__file__).resolve().parent / "html_templates" / "about_the_project_panel.html"
 
-        
+        html_content = self._import_html_body(html_path)
+        elements = [self._get_text_element(html_content)]
 
+        return Panel(
+            elements=elements,
+            level="info",
+            title_element=TitleElement(
+                name="suffering-footprint",
+                title="En savoir plus sur l'Empreinte Souffrance",
+            ),
+            topics=["suffering-footprint"],
+        )
 
+    @staticmethod
+    def _import_html_body(path: Path) -> str:
+        """
+        Import the html body from a given path
+        """
+
+        with open(path, "r", encoding="utf-8") as f:
+            html_content = f.read()
+
+        soup = BeautifulSoup(html_content, "html.parser")
+        body = soup.body
+
+        return body.decode_contents() if body else ""
+
+    def _replace_html_body(self, obj, html_content=None):
+        """replaces {html_body} in all strings in json object
+        with body_content extracted from knowledge_panel.html"""
+        if isinstance(obj, dict):
+            return {k: self._replace_html_body(v) for k, v in obj.items()}
+        elif isinstance(obj, list):
+            return [self._replace_html_body(v) for v in obj]
+        elif isinstance(obj, str):
+            return obj.replace("{html_body}", html_content)
+        return obj
 
     def _create_intensities_definitions_panel(self) -> Panel:
         """
