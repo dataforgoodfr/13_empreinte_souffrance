@@ -452,9 +452,8 @@ class KnowledgePanelGenerator:
         if seconds <= 0:
             return self.text_manager.get_text(DurationTexts.ZERO_SECOND)
 
-        minutes, sec = divmod(seconds, 60)
-        hours, minutes = divmod(minutes, 60)
-        days, hours = divmod(hours, 24)
+        days, hours, minutes, sec = self._round_duration(seconds)
+
         parts = []
 
         if days:
@@ -489,6 +488,46 @@ class KnowledgePanelGenerator:
                 DurationTexts.SECOND_SINGULAR, DurationTexts.SECOND_PLURAL, 0
             ).format(0)
         )
+
+    def _round_duration(self, seconds: int) -> tuple[int, int, int, int]:
+        """
+        Round the duration for better readability in the panels.
+            - If the duration is more than 1 minute, we round to 10 seconds
+            - If the duration is more than 2 minutes, we round to minutes
+            - If the duration is more than 1 hour, we round to 10 minutes
+            - If the duration is more than 2 hours, we round to hours
+            - If the duration is more than 2 days, we round to days
+        """
+        minutes, sec = divmod(seconds, 60)
+        hours, minutes = divmod(minutes, 60)
+        days, hours = divmod(hours, 24)
+
+        # round if duration is more than 2 days
+        if days >= 2:
+            return round(seconds / 86400), 0, 0, 0
+
+        # round if duration is more than 1 day
+        if days >= 1:
+            return days, round((seconds - days * 86400) / 3600), 0, 0
+
+        # round if duration is more than 2 hours
+        if hours >= 2:
+            return days, hours, 0, 0
+
+        # round if duration is more than 1 hour
+        if hours >= 1:
+            return days, hours, round((seconds - hours * 3600 - days * 86400) / 600) * 10, 0
+
+        # round if duration is more than 2 minutes
+        if minutes >= 2:
+            return days, hours, minutes, 0
+
+        # round if duration is more than 1 minute
+        if minutes >= 1:
+            return days, hours, minutes, round(sec / 10) * 10
+
+        else:
+            return days, hours, minutes, sec
 
     def _generate_animal_pain_html(self, animal_pain_report: AnimalPainReport, pain_type: PainType) -> str:
         """
