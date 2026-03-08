@@ -64,40 +64,62 @@ class PainReportCalculator:
         else:
             return ProductType(is_mixed=True, animal_types=animal_types)
 
-    def get_pain_report(self) -> PainReport:
+    def get_pain_reports(self) -> List[PainReport]:
         """
         Generate a pain report based on breeding types and quantities.
-
         The report is organized by animal type, with each animal having
         a list of pain levels categorized by pain type (physical/psychological)
         and breeding type information.
 
+        Since we cannot computed mixed products for now, we only parse the registered
+        animal type, its quantity, and its breeding types (possibly multiple or None).
+        Pain levels are only computed when breeding type and quantity are available, but a report
+        is generated for each animal type even when pain levels cannot be computed, to be able to
+        display partial information and error messages in the knowledge panel when information is missing.
+
         Returns:
             A complete pain report, with error messages for animals as an option
         """
-        animal_reports = []
 
-        # Process each animal type and its breeding type
-        # If unable to compute animal pain report, add error message to animal report
-        for animal_type, breeding_type_and_quantity in self.breeding_types_and_quantities.items():
-            try:
-                pain_levels = self._generate_pain_levels_for_animal(animal_type, breeding_type_and_quantity)
-            except MissingBreedingTypeOrQuantityError:
-                pain_levels = []
+        pain_reports = []
 
-            animal_report = AnimalPainReport(
-                animal_type=animal_type,
-                pain_levels=pain_levels,
-                breeding_type_and_quantity=breeding_type_and_quantity,
+        if self.product_type.is_mixed:
+            # not managed
+            return [
+                PainReport(
+                    animals=[],
+                    product_name=self.product_data.product_name,
+                    product_image_url=self.product_data.image_url,
+                )
+            ]
+
+        else:
+            animal_type = list(self.product_type.animal_types)[0]
+
+            breeding_types_and_quantity = self.breeding_types_and_quantities.get(
+                animal_type, [BreedingTypeAndQuantity(breeding_type=None, quantity=None)]
             )
 
-            animal_reports.append(animal_report)
+            # compute a pain_report for each breeding type found, possibly none
+            for breeding_type_and_quantity in breeding_types_and_quantity:
+                try:
+                    pain_levels = self._generate_pain_levels_for_animal(animal_type, breeding_type_and_quantity)
+                except MissingBreedingTypeOrQuantityError:
+                    pain_levels = []
 
-        return PainReport(
-            animals=animal_reports,
-            product_name=self.product_data.product_name,
-            product_image_url=self.product_data.image_url,
-        )
+                animal_report = AnimalPainReport(
+                    animal_type=animal_type,
+                    pain_levels=pain_levels,
+                    breeding_type_and_quantity=breeding_type_and_quantity,
+                )
+                pain_report = PainReport(
+                    animals=[animal_report],
+                    product_name=self.product_data.product_name,
+                    product_image_url=self.product_data.image_url,
+                )
+                pain_reports.append(pain_report)
+
+        return pain_reports
 
     def _generate_pain_levels_for_animal(
         self, animal_type: AnimalType, breeding_type: BreedingTypeAndQuantity
@@ -150,36 +172,48 @@ class PainReportCalculator:
 
         return pain_levels
 
-    def _get_breeding_types_and_quantities(self) -> dict[AnimalType, BreedingTypeAndQuantity]:
+    def _get_breeding_types_and_quantities(self) -> dict[AnimalType, list[BreedingTypeAndQuantity]]:
         """
         Gets the breeding types and quantity from separate methods.
 
         Returns:
             A dictionary mapping animal types to BreedingTypeAndQuantity
-            objects  or an error containing
-            the missing information for an animal type that was though identified.
+            objects whether full or partial information is available
+            if multiple breeding types are found for a same animal type, we return multiple BreedingTypeAndQuantity
+            with the same quantity but different breeding types, to be used when managing multiple product batches
+            if no breeding type is found for an animal type, we return a BreedingTypeAndQuantity with breeding_type
+            set to None
         """
 
         breeding_types_by_animal = self.breeding_types
         quantity_by_animal = self.quantities
 
-        breeding_types_and_quantities = dict[AnimalType, BreedingTypeAndQuantity]()
+        breeding_types_and_quantities: dict[AnimalType, list[BreedingTypeAndQuantity]] = {}
 
         for animal_type in self.product_type.animal_types:
-            breeding_type = breeding_types_by_animal[animal_type]
+            breeding_types = breeding_types_by_animal[animal_type]
             quantity = quantity_by_animal[animal_type]
-            breeding_types_and_quantities[animal_type] = BreedingTypeAndQuantity(
-                breeding_type=breeding_type, quantity=quantity
+            breeding_types_and_quantities[animal_type] = (
+                [
+                    BreedingTypeAndQuantity(breeding_type=breeding_type, quantity=quantity)
+                    for breeding_type in breeding_types
+                ]
+                if breeding_types
+                else [BreedingTypeAndQuantity(breeding_type=None, quantity=quantity)]
             )
 
         return breeding_types_and_quantities
 
-    def _get_breeding_types(self) -> dict[AnimalType, BreedingType | None]:
+    def _get_breeding_types(self) -> dict[AnimalType, list[BreedingType]]:
         """
         Compute the breeding types from product data.
         Returns:
-            A dictionary mapping animal types to BreedingType | None
+            A dictionary mapping animal types to a list of BreedingType
               objects with detected breeding types
+            Unkown breeding type is represented by an empty list
+            A identified breeding type is the normal case, and the list will contain one element
+            When the breeding type depends on the product batche, the list will contain
+            all the breeding types found for the different batches
         """
         if self.product_type.is_mixed:
             return BreedingTypeCalculator(self.product_data, self.product_type).get_breeding_types_by_animal()
@@ -189,10 +223,10 @@ class PainReportCalculator:
                 animal_type = list(self.product_type.animal_types)[0]
             except IndexError:
                 raise IndexError("Issue with product type : no animal types found but not mixed")
-            breeding_type = BreedingTypeCalculator(self.product_data, self.product_type).get_breeding_type(
+            breeding_types = BreedingTypeCalculator(self.product_data, self.product_type).get_breeding_types(
                 animal_type=animal_type
             )
-            return {animal_type: breeding_type}
+            return {animal_type: breeding_types}
 
     def _get_quantities(self) -> dict[AnimalType, ProductQuantity | None]:
         """

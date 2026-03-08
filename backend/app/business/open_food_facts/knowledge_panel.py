@@ -1,5 +1,5 @@
 import logging
-from typing import Callable
+from typing import Callable, List
 
 import httpx
 from pydantic import HttpUrl, ValidationError
@@ -137,16 +137,16 @@ async def get_data_from_off_search_a_licious(barcode: str, locale: str) -> Produ
     return product_data
 
 
-async def get_pain_report(barcode: str, locale: str) -> PainReport:
+async def get_pain_reports(barcode: str, locale: str) -> List[PainReport]:
     """
-    Compute the pain report for a product based on its barcode.
+    Compute the pain reports list for a product based on its barcode
 
     Args:
         barcode: The product barcode
         locale: alpha2 locale (fr, en...)
 
     Returns:
-        The PainReport
+        A list of PainReport objects
     """
     # Get the product data
     product_data = await get_data_from_off_v3(barcode, locale)
@@ -155,24 +155,24 @@ async def get_pain_report(barcode: str, locale: str) -> PainReport:
     calculator = PainReportCalculator(product_data)
 
     # Generate and return the pain report
-    return calculator.get_pain_report()
+    return calculator.get_pain_reports()
 
 
 def get_knowledge_panel_response(
-    pain_report: PainReport, translator: tuple[Callable, Callable]
+    pain_reports: List[PainReport], translator: tuple[Callable, Callable]
 ) -> KnowledgePanelResponse:
     """
     Create a complete knowledge panel response with all panels related to suffering footprint.
 
     Args:
-        pain_report: The pain report containing all animal data and pain durations
+        pain_reports: A list of pain reports containing all animal data and pain durations
         translator: The translation function to use for i18n
 
     Returns:
         A complete KnowledgePanelResponse containing root panel, intensity definitions,
         physical pain data and psychological pain data
     """
-    panel_generator = KnowledgePanelGenerator(pain_report, translator)
+    panel_generator = KnowledgePanelGenerator(pain_reports, translator)
     return panel_generator.get_response()
 
 
@@ -181,15 +181,18 @@ class KnowledgePanelGenerator:
     Class responsible for generating knowledge panel responses based on pain reports.
     """
 
-    def __init__(self, pain_report: PainReport, translator: tuple[Callable, Callable]):
+    def __init__(self, pain_reports: List[PainReport], translator: tuple[Callable, Callable]):
         """
         Initialize the generator with a pain report and translator.
 
         Args:
-            pain_report: The pain report containing animal data and pain durations
+            pain_reports: A list of pain reports containing animal data and pain durations,
+                managing the case of multiple results depending on product batches
             translator: The translation function to use for i18n
         """
-        self.pain_report = pain_report
+        # Use the first report or an empty one if no reports
+        # to be modified when managing multiple reports depending on product batches
+        self.pain_report = pain_reports[0] if pain_reports else PainReport(product_image_url=None, product_name=None)
         self.text_manager = PanelTextManager(translator)
         self._ = translator[0]
         self._n = translator[1]
@@ -202,7 +205,7 @@ class KnowledgePanelGenerator:
             A complete KnowledgePanelResponse with all necessary panels
         """
         # Defining which detailed panels are to be displayed
-        if self.pain_report.animals and any(animal.pain_levels for animal in self.pain_report.animals):
+        if self.pain_report != PainReport(product_image_url=None, product_name=None):
             detailed_panels = ["intensities_definitions", "physical_pain", "psychological_pain"]
         else:
             detailed_panels = []

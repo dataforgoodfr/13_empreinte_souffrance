@@ -143,9 +143,9 @@ def test_get_breeding_types_and_quantities(
     # product_data fixture contains the `en:cage-chicken-eggs` tag
     assert AnimalType.LAYING_HEN in result
     item = result[AnimalType.LAYING_HEN]
-    assert isinstance(item, BreedingTypeAndQuantity)
-    assert item.breeding_type == expected_breeding_types
-    assert item.quantity == EggQuantity(count=4, total_weight=230)
+    assert isinstance(item[0], BreedingTypeAndQuantity)
+    assert item[0].breeding_type == expected_breeding_types
+    assert item[0].quantity == EggQuantity(count=4, total_weight=230)
 
 
 def test_get_breeding_types(sample_product_data: ProductData):
@@ -153,7 +153,7 @@ def test_get_breeding_types(sample_product_data: ProductData):
     calculator = PainReportCalculator(sample_product_data)
     result = calculator._get_breeding_types()
     assert AnimalType.LAYING_HEN in result
-    assert result[AnimalType.LAYING_HEN] == LayingHenBreedingType.FURNISHED_CAGE
+    assert result[AnimalType.LAYING_HEN] == [LayingHenBreedingType.FURNISHED_CAGE]
 
 
 def test_generate_pain_levels_for_type(sample_product_data: ProductData):
@@ -202,11 +202,13 @@ def test_generate_pain_levels_for_type_missing_quantity(sample_product_data: Pro
         calculator._generate_pain_levels_for_pain_type(AnimalType.LAYING_HEN, breeding_type, PainType.PHYSICAL)
 
 
-def test_get_pain_report(sample_product_data: ProductData):
-    """Test generating pain report for sample product data"""
+def test_get_pain_reports(sample_product_data: ProductData):
+    """Test generating pain reports for sample product data"""
 
     calculator = PainReportCalculator(sample_product_data)
-    pain_report = calculator.get_pain_report()
+    pain_reports = calculator.get_pain_reports()
+    assert len(pain_reports) > 0
+    pain_report = pain_reports[0]
 
     # Verify that the pain report contains the expected animal type
     assert len(pain_report.animals) > 0
@@ -222,7 +224,9 @@ def test_get_pain_report_missing_quantity(sample_product_data: ProductData):
     sample_product_data.product_quantity = None
 
     calculator = PainReportCalculator(sample_product_data)
-    pain_report = calculator.get_pain_report()
+    pain_reports = calculator.get_pain_reports()
+    assert len(pain_reports) > 0
+    pain_report = pain_reports[0]
 
     # Verify that the pain report contains the expected animal type
     assert len(pain_report.animals) > 0
@@ -257,7 +261,7 @@ def test_knowledge_panel_generator(
     translator = I18N().get_translator(locale="en")
 
     # Create generator and test individual methods
-    generator = KnowledgePanelGenerator(pain_report, translator)
+    generator = KnowledgePanelGenerator([pain_report], translator)
 
     # Test root panel
     root_panel = generator._create_root_panel(["intensities_definitions", "physical_pain", "psychological_pain"])
@@ -309,7 +313,7 @@ def test_knowledge_panel_generator_missing_quantity(pain_report_missing_quantity
     translator = I18N().get_translator(locale="en")
 
     # Create generator and test individual methods
-    generator = KnowledgePanelGenerator(pain_report_missing_quantity, translator)
+    generator = KnowledgePanelGenerator([pain_report_missing_quantity], translator)
 
     # Test root panel
     root_panel = generator._create_root_panel([])
@@ -326,7 +330,10 @@ def test_knowledge_panel_generator_missing_quantity(pain_report_missing_quantity
 
     # Test complete response
     response = generator.get_response()
-    assert list(response.panels.keys()) == ["root"]
+    assert "root" in list(response.panels.keys())
+    assert "physical_pain" in list(response.panels.keys())
+    assert "psychological_pain" in list(response.panels.keys())
+    assert "intensities_definitions" in list(response.panels.keys())
 
 
 @pytest.mark.parametrize(
@@ -339,7 +346,7 @@ def test_get_knowledge_panel_response(pain_report):
     translator = I18N().get_translator(locale="en")
 
     # Generate knowledge panel response using the function
-    response = get_knowledge_panel_response(pain_report, translator)
+    response = get_knowledge_panel_response([pain_report], translator)
 
     # Verify response structure
     assert "root" in response.panels
@@ -357,12 +364,18 @@ def test_get_knowledge_panel_response_missing_quantity(pain_report_missing_quant
     """Test that only root panel is generated when quantity is missing"""
     translator = I18N().get_translator(locale="en")
 
-    response = get_knowledge_panel_response(pain_report_missing_quantity, translator)
+    response = get_knowledge_panel_response([pain_report_missing_quantity], translator)
 
-    # On attend uniquement "root" dans les panels
-    assert list(response.panels.keys()) == ["root"]
-    assert hasattr(response.panels["root"], "elements")
-    assert hasattr(response.panels["root"], "title_element")
+    # Verify response structure
+    assert "root" in response.panels
+    assert "physical_pain" in response.panels
+    assert "psychological_pain" in response.panels
+    assert "intensities_definitions" in response.panels
+
+    # Verify each panel has the required fields
+    for panel in response.panels.values():
+        assert hasattr(panel, "elements")
+        assert hasattr(panel, "title_element")
 
 
 @pytest.mark.parametrize(
