@@ -192,6 +192,7 @@ class KnowledgePanelGenerator:
         """
         # Use the first report or an empty one if no reports
         # to be modified when managing multiple reports depending on product batches
+        self.pain_reports = pain_reports
         self.pain_report = pain_reports[0] if pain_reports else PainReport(product_image_url=None, product_name=None)
         self.text_manager = PanelTextManager(translator)
         self._ = translator[0]
@@ -205,10 +206,10 @@ class KnowledgePanelGenerator:
             A complete KnowledgePanelResponse with all necessary panels
         """
         # Defining which detailed panels are to be displayed
-        if self.pain_report != PainReport(product_image_url=None, product_name=None):
-            detailed_panels = ["intensities_definitions", "physical_pain", "psychological_pain"]
-        else:
+        if self.pain_reports == []:
             detailed_panels = []
+        else:
+            detailed_panels = ["intensities_definitions"]
 
         # root panel depending on pain report data and detailed panels
         panels = {"root": self._create_root_panel(detailed_panels)}
@@ -216,8 +217,6 @@ class KnowledgePanelGenerator:
         # build detailed panels that where defined
         for panel_name, panel_creator in [
             ("intensities_definitions", self._create_intensities_definitions_panel),
-            ("physical_pain", self._create_physical_pain_panel),
-            ("psychological_pain", self._create_psychological_pain_panel),
         ]:
             if panel_name in detailed_panels:
                 panels.update({panel_name: panel_creator()})
@@ -232,14 +231,14 @@ class KnowledgePanelGenerator:
 
     def _create_root_panel(self, detailed_panels: list[str]) -> Panel:
         """
-        Create the root panel showing general information about the suffering footprint.
-
-        This panel includes an explanation of the suffering footprint, the breeding
-        type and animal product quantity information, and links to the other panels.
-        It handles different cases of pain report data to display appropriate messages.
+        Create the root panel showing :
+            - the product identification
+            - pain levels
+        It is built from html file depending on the identification case (no information,
+        full information, multiple breedings...)
 
         Returns:
-            A panel with general information and links to detailed panels
+            A panel with product data and pain levels
         """
         animals = self.pain_report.animals
 
@@ -285,6 +284,16 @@ class KnowledgePanelGenerator:
             ),
             topics=["suffering-footprint"],
         )
+
+    def _create_project_panel(self) -> Panel:
+        """
+        Creates a panel from the html file"""
+
+        html_path = "html_template/about_the_project_panel.html"
+
+        
+
+
 
     def _create_intensities_definitions_panel(self) -> Panel:
         """
