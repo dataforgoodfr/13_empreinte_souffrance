@@ -320,41 +320,18 @@ class KnowledgePanelGenerator:
 
         return body.decode_contents() if body else ""
 
-    def _replace_html_body(self, obj, html_content=None):
-        """replaces {html_body} in all strings in json object
-        with body_content extracted from knowledge_panel.html"""
+    @staticmethod
+    def _replace_html_body(obj, html_content=None):
+        """replaces {html_body} in all strings in json object"""
         if isinstance(obj, dict):
-            return {k: self._replace_html_body(v) for k, v in obj.items()}
+            return {k: KnowledgePanelGenerator._replace_html_body(v, html_content) for k, v in obj.items()}
         elif isinstance(obj, list):
-            return [self._replace_html_body(v) for v in obj]
+            return [KnowledgePanelGenerator._replace_html_body(v, html_content) for v in obj]
         elif isinstance(obj, str):
             return obj.replace("{html_body}", html_content)
         return obj
+    
 
-    def _create_intensities_definitions_panel(self) -> Panel:
-        """
-        Create a panel explaining the different pain intensity levels.
-
-        This panel provides detailed definitions for each pain intensity level:
-        Agonie (Excruciating), Souffrance (Disabling), Douleur (Hurtful), and Inconfort (Annoying).
-        The definitions help users understand the severity of each level.
-
-        Returns:
-            A panel with definitions for each pain intensity level
-        """
-        return Panel(
-            elements=[
-                self._get_text_element(self.text_manager.get_text(IntensityDefinitionTexts.ANNOYING_DEFINITION)),
-                self._get_text_element(self.text_manager.get_text(IntensityDefinitionTexts.HURTFUL_DEFINITION)),
-                self._get_text_element(self.text_manager.get_text(IntensityDefinitionTexts.DISABLING_DEFINITION)),
-                self._get_text_element(self.text_manager.get_text(IntensityDefinitionTexts.EXCRUCIATING_DEFINITION)),
-            ],
-            level="info",
-            title_element=TitleElement(
-                title=self.text_manager.get_text(IntensityDefinitionTexts.PANEL_TITLE),
-            ),
-            topics=["suffering-footprint"],
-        )
 
     def _get_animal_pain_for_panel(self, animal_type: AnimalType, pain_type: PainType) -> Element | None:
         """
