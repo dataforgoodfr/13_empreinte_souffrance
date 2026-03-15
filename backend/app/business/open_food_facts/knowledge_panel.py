@@ -4,6 +4,7 @@ from typing import Callable, List
 
 import httpx
 from bs4 import BeautifulSoup
+from jinja2 import Environment, FileSystemLoader
 from pydantic import HttpUrl, ValidationError
 
 from app.business.open_food_facts.pain_report_calculator import PainReportCalculator
@@ -12,7 +13,6 @@ from app.enums.open_food_facts.enums import AnimalType, PainType
 from app.enums.open_food_facts.panel_texts import (
     AnimalInfoTexts,
     DurationTexts,
-    IntensityDefinitionTexts,
     PanelTextManager,
     PhysicalPainTexts,
     PsychologicalPainTexts,
@@ -54,12 +54,17 @@ async def get_data_from_off_v3(barcode: str, locale: str) -> ProductData:
     product_name_with_locale = f"product_name_{locale}"
 
     try:
-        async with httpx.AsyncClient() as client:
+        async with httpx.AsyncClient(
+            headers={"User-Agent": "my-app/1.0"},
+            follow_redirects=True,
+            timeout=20.0,
+        ) as client:
             response = await client.get(url)
-            response.raise_for_status()  # Raise exception for 4XX/5XX responses
+            response.raise_for_status()
             json_response = response.json()
+
     except Exception as e:
-        logger.warning(f"Can't get product data from OFF API: {barcode}")
+        logger.warning(f"OFF API error: {type(e).__name__}: {e}")
         raise ResourceNotFoundException(f"Can't get product data from OFF API: {barcode}") from e
 
     if product := json_response.get("product"):
@@ -117,7 +122,7 @@ async def get_data_from_off_search_a_licious(barcode: str, locale: str) -> Produ
             response.raise_for_status()  # Raise exception for 4XX/5XX responses
             json_response = response.json()
     except Exception as e:
-        logger.warning(f"Can't get product data from OFF API: {barcode}")
+        logger.warning(f"Can't get product data from OFF search-a-licious API: {barcode}")
         raise ResourceNotFoundException(f"Can't get product data from OFF API: {barcode}") from e
 
     hits = json_response.get("hits")
@@ -199,6 +204,9 @@ class KnowledgePanelGenerator:
         self.text_manager = PanelTextManager(translator)
         self._ = translator[0]
         self._n = translator[1]
+        self.env = Environment(
+            loader=FileSystemLoader(Path(__file__).resolve().parent / "html_templates"), autoescape=True
+        )
 
     def get_response(self) -> KnowledgePanelResponse:
         """
@@ -245,10 +253,9 @@ class KnowledgePanelGenerator:
         animals = self.pain_report.animals
 
         # Initialize the panel with generic information message about the project
-        elements = [
-            self._get_text_element(self.text_manager.get_text(RootPanelTexts.WELFARE_FOOTPRINT_INTRO)),
-            self._get_text_element(self.text_manager.get_text(RootPanelTexts.WELFARE_FOOTPRINT_UNIQUENESS)),
-        ]
+        elements = []
+
+        elements += self._create_no_fresh_egg_element()
 
         # If all animal pain reports contain no pain levels, add a missing data message
         if all(not animal.pain_levels for animal in animals):
@@ -256,15 +263,9 @@ class KnowledgePanelGenerator:
 
         # If pain levels are available, add a message explaining suffering is based on breeding type and quantity
         else:
-            elements.append(self._get_text_element(self.text_manager.get_text(RootPanelTexts.DATA_BASED_ON)))
-
-        # Add breeding type and quantity from each animal pain report aven if not avalable
-        for animal in animals:
-            elements.append(
-                self._get_text_element(
-                    self._get_breeding_type_and_quantity_html(animal.animal_type, animal.breeding_type_and_quantity)
-                )
-            )
+            # Add breeding type and quantity from each animal pain report aven if not avalable
+            for animal in animals:
+                elements += self._create_footprint_element(animal.animal_type, animal.breeding_type_and_quantity)
 
         # Build detailed panels if existing
         for detailed_panel in detailed_panels:
@@ -306,6 +307,53 @@ class KnowledgePanelGenerator:
             topics=["suffering-footprint"],
         )
 
+    def _create_no_fresh_egg_element(self) -> List[Element]:
+        """
+        Creates a panel from the html file
+        """
+
+        html_path = Path(__file__).resolve().parent / "html_templates" / "root_panel_no_fresh_egg.html"
+
+        html_content = self._import_html_body(html_path)
+        elements = [self._get_text_element(html_content)]
+
+        return elements
+
+    def _create_footprint_element(
+        self, animal_type: AnimalType, breeding_type_and_quantity: BreedingTypeAndQuantity
+    ) -> List[Element]:
+        """
+        Creates a panel from the html file
+        """
+        breeding_type = breeding_type_and_quantity.breeding_type
+        quantity = breeding_type_and_quantity.quantity
+
+        if animal_type != AnimalType.LAYING_HEN or not breeding_type or not quantity:
+            return []
+
+        else:
+            pain_levels = self.pain_reports[0].animals[0].pain_levels
+
+            context = {
+                "breeeding_type_text": breeding_type.translated_name(self._),
+                "quantity_text": quantity.translated_display(
+                    _=self._,
+                    text_manager=self.text_manager,
+                    quantity_texts=QuantityTexts,
+                ),
+            }
+
+            for pain_level in pain_levels:
+                key = f"{pain_level.pain_type.name.lower()}_pain_{pain_level.pain_intensity.name.lower()}"
+                context[key] = self._format_duration(pain_level.seconds_in_pain)
+
+            template = self.env.get_template("root_panel_complete.html")
+            html = template.render(**context)
+
+            elements = [self._get_text_element(html)]
+
+            return elements
+
     @staticmethod
     def _import_html_body(path: Path) -> str:
         """
@@ -330,8 +378,6 @@ class KnowledgePanelGenerator:
         elif isinstance(obj, str):
             return obj.replace("{html_body}", html_content)
         return obj
-    
-
 
     def _get_animal_pain_for_panel(self, animal_type: AnimalType, pain_type: PainType) -> Element | None:
         """

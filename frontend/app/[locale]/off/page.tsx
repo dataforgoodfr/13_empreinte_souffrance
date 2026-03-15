@@ -59,7 +59,7 @@ export default function KnowledgePanel() {
   const [expandedPanels, setExpandedPanels] = useState<Record<string, boolean>>({});
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [error, setError] = useState<string | null>(null);
-  const locale = useCurrentLocale() as 'fr' | 'en';
+  const locale = useCurrentLocale() as 'en';
   const t = useI18n();
 
   const barcodes = [
@@ -149,7 +149,7 @@ export default function KnowledgePanel() {
     setProductName(null);
     setProductImageUrl(null);
     try {
-      const response = await fetch(`http://127.0.0.1:8000/off/v1/knowledge-panel/${barcode}?lang=${locale}`);
+      const response = await fetch(`http://127.0.0.1:8000/off/v1/knowledge-panel/${barcode}?lang=en`);
 
       if (response.status === 404) {
         setError(t('KnowledgePanel.productNotFound'));

@@ -14,11 +14,11 @@ class LayingHenBreedingType(StrEnum):
     def translated_name(self, _: Callable) -> str:
         """Return the human-readable name for this breeding type"""
         mappings = {
-            "cage": _("Cage"),
-            "conventional_cage": _("Conventional cage"),
-            "furnished_cage": _("Furnished cage"),
-            "barn": _("Barn"),
-            "free_range": _("Free range"),
+            "cage": _("Caged hen"),
+            "conventional_cage": _("Battery hen"),
+            "furnished_cage": _("Caged hen"),
+            "barn": _("Barn hen"),
+            "free_range": _("Free range hen"),
         }
         return mappings.get(self.value, self.value)
 
@@ -117,7 +117,7 @@ class EggCaliber(StrEnum):
 
     def translated_name(self, _: Callable) -> str:
         """Return the human-readable caliber"""
-        mappings = {"small": _("Small"), "medium": _("Medium"), "large": _("Large"), "extra_large": _("Extra Large")}
+        mappings = {"small": _("small"), "medium": _("medium"), "large": _("large"), "extra_large": _("extra large")}
         return mappings.get(self.value, self.value)
 
 
