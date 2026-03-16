@@ -28,7 +28,8 @@ class QuantityTexts(Enum):
 
     EGG_SINGULAR = "{} egg"
     EGG_PLURAL = "{} eggs"
-    CALIBER = "{} caliber"
+    EGGS_WITH_CALIBER_SINGULAR = "{count} {caliber} caliber egg"
+    EGGS_WITH_CALIBER_PLURAL = "{count} {caliber} caliber eggs"
 
 
 class PanelTextManager:

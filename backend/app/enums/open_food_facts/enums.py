@@ -180,23 +180,22 @@ class EggQuantity:
         return cls(count=count, total_weight=total_weight, caliber=caliber)
 
     def translated_display(self, _: Callable, text_manager, quantity_texts) -> str:
-        """Return the human-readable egg quantity
-        Args:
-            text_manager: TextManager instance managing translations with plurals
-            quantity_texts: QuantityTexts enum
-            _: translation function
+        """Return the human-readable egg quantity."""
 
-        Returns:
-            str: Translated human-readable egg quantity eg. "12 Eggs - Large Caliber" or "12 Eggs"
-        """
-        quantity_text = text_manager.get_plural_text(
-            quantity_texts.EGG_SINGULAR, quantity_texts.EGG_PLURAL, self.count
-        ).format(self.count)
         if self.caliber:
-            quantity_text += " - " + text_manager.get_text(quantity_texts.CALIBER).format(
-                self.caliber.translated_name(_)
+            return text_manager.get_plural_text(
+                quantity_texts.EGGS_WITH_CALIBER_SINGULAR.value,
+                quantity_texts.EGGS_WITH_CALIBER_PLURAL.value,
+                self.count,
+            ).format(
+                count=self.count,
+                caliber=self.caliber.translated_name(_),
             )
-        return quantity_text
+        return text_manager.get_plural_text(
+            quantity_texts.EGG_SINGULAR,
+            quantity_texts.EGG_PLURAL,
+            self.count,
+        ).format(self.count)
 
 
 ProductQuantity: TypeAlias = EggQuantity
