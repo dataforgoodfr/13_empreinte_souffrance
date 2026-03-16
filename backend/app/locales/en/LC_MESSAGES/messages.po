@@ -84,16 +84,16 @@ msgstr ""
 
 
 #, python-brace-format
-msgid "{count} {caliber} caliber egg"
-msgid_plural "{count} {caliber} caliber eggs"
-msgstr[0] "{count} {caliber} caliber egg"
-msgstr[1] "{count} {caliber} caliber eggs"
+msgid "{count} {caliber} caliber egg contains on average"
+msgid_plural "{count} {caliber} caliber eggs contain on average"
+msgstr[0] "{count} {caliber} caliber egg contains on average"
+msgstr[1] "{count} {caliber} caliber eggs contain on average"
 
 #, python-brace-format
-msgid "{} egg"
-msgid_plural "{} eggs"
-msgstr[0] "{} egg"
-msgstr[1] "{} eggs"
+msgid "{} egg contains on average"
+msgid_plural "{} eggs contain on average"
+msgstr[0] "{} egg contains on average"
+msgstr[1] "{} eggs contain on average"
 
 msgid "small"
 msgstr ""

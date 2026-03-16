@@ -184,8 +184,8 @@ class EggQuantity:
 
         if self.caliber:
             return text_manager.get_plural_text(
-                quantity_texts.EGGS_WITH_CALIBER_SINGULAR.value,
-                quantity_texts.EGGS_WITH_CALIBER_PLURAL.value,
+                quantity_texts.EGGS_WITH_CALIBER_SINGULAR,
+                quantity_texts.EGGS_WITH_CALIBER_PLURAL,
                 self.count,
             ).format(
                 count=self.count,

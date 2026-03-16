@@ -23,13 +23,13 @@ class DurationTexts(Enum):
     SECOND_PLURAL = "{} seconds"
 
 
-class QuantityTexts(Enum):
+class QuantityTexts(str, Enum):
     """Texts for quantity formatting"""
 
-    EGG_SINGULAR = "{} egg"
-    EGG_PLURAL = "{} eggs"
-    EGGS_WITH_CALIBER_SINGULAR = "{count} {caliber} caliber egg"
-    EGGS_WITH_CALIBER_PLURAL = "{count} {caliber} caliber eggs"
+    EGG_SINGULAR = "{} egg contains on average"
+    EGG_PLURAL = "{} eggs contain on average"
+    EGGS_WITH_CALIBER_SINGULAR = "{count} {caliber} caliber egg contains on average"
+    EGGS_WITH_CALIBER_PLURAL = "{count} {caliber} caliber eggs contain on average"
 
 
 class PanelTextManager:
