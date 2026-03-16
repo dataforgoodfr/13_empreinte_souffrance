@@ -59,7 +59,7 @@ export default function KnowledgePanel() {
   const [expandedPanels, setExpandedPanels] = useState<Record<string, boolean>>({});
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [error, setError] = useState<string | null>(null);
-  const locale = useCurrentLocale() as 'fr' | 'en';
+  const locale = useCurrentLocale() as 'en';
   const t = useI18n();
 
   const barcodes = [
@@ -68,6 +68,7 @@ export default function KnowledgePanel() {
     '2000000124898', // cage eggs from usa
     '8003636004529', // no specific category
     '3560071098278', // both en:free-range-chicken-eggs AND en:cage-chicken-eggs
+    '5400210535388', // both free-range and barn no quantity
     '3270190205685', // free-range chicken eggs from France
     '0605388714565', // no specific category
     '50326686', // cage chicken eggs from UK
@@ -93,6 +94,7 @@ export default function KnowledgePanel() {
     '2000000124898': 'Cage eggs from USA',
     '8003636004529': 'Sans quantité',
     '3560071098278': 'Free-range & cage chicken eggs',
+    '5400210535388': 'both free-range and barn no quantity',
     '3270190205685': 'Free-range chicken eggs from France',
     '0605388714565': "Medium grade A eggs - sans mode d'elevage",
     '50326686': 'Cage chicken eggs from UK',
@@ -149,7 +151,7 @@ export default function KnowledgePanel() {
     setProductName(null);
     setProductImageUrl(null);
     try {
-      const response = await fetch(`http://127.0.0.1:8000/off/v1/knowledge-panel/${barcode}?lang=${locale}`);
+      const response = await fetch(`http://127.0.0.1:8000/off/v1/knowledge-panel/${barcode}?lang=en`);
 
       if (response.status === 404) {
         setError(t('KnowledgePanel.productNotFound'));

@@ -120,7 +120,7 @@ class AnimalInfoTexts(Enum):
 class DurationTexts(Enum):
     """Texts for duration formatting"""
 
-    ZERO_SECOND = "0 second"
+    ZERO_SECOND = " -"
     DAY_SINGULAR = "{} day"
     DAY_PLURAL = "{} days"
     HOUR_SINGULAR = "{} hour"
@@ -134,9 +134,9 @@ class DurationTexts(Enum):
 class QuantityTexts(Enum):
     """Texts for quantity formatting"""
 
-    EGG_SINGULAR = "{} Egg"
-    EGG_PLURAL = "{} Eggs"
-    CALIBER = "{} Caliber"
+    EGG_SINGULAR = "{} egg"
+    EGG_PLURAL = "{} eggs"
+    CALIBER = "{} caliber"
 
 
 class PanelTextManager:

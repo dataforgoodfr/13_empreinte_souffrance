@@ -271,13 +271,17 @@ class PainReportCalculator:
         breeding_type = breeding_type_and_quantity.breeding_type
         quantity = breeding_type_and_quantity.quantity
 
-        if breeding_type is None or quantity is None:
+        if breeding_type is None:
             raise MissingBreedingTypeOrQuantityError()
 
         if animal_type == AnimalType.LAYING_HEN:
             try:
-                caliber = quantity.caliber or EggCaliber.AVERAGE
-                count = quantity.count
+                if quantity:
+                    caliber = quantity.caliber or EggCaliber.AVERAGE
+                    count = quantity.count
+                else:
+                    caliber = EggCaliber.AVERAGE
+                    count = 1
 
                 # Get the time in pain per egg for this combination of parameters
                 # Default to 0 if any level in the hierarchy is missing

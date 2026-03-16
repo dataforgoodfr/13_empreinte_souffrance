@@ -14,13 +14,40 @@ class LayingHenBreedingType(StrEnum):
     def translated_name(self, _: Callable) -> str:
         """Return the human-readable name for this breeding type"""
         mappings = {
-            "cage": _("Cage"),
-            "conventional_cage": _("Conventional cage"),
-            "furnished_cage": _("Furnished cage"),
-            "barn": _("Barn"),
-            "free_range": _("Free range"),
+            "cage": _("Caged hen"),
+            "conventional_cage": _("Battery hen"),
+            "furnished_cage": _("Caged hen"),
+            "barn": _("Barn hen"),
+            "free_range": _("Free range hen"),
         }
         return mappings.get(self.value, self.value)
+
+    def icon_url(self) -> Optional[str]:
+        return {
+            "cage": "kp/cage_icon.svg",
+            "conventional_cage": "/kp/conventional_cage_icon.svg",
+            "furnished_cage": "/kp/cage_icon.svg",
+            "barn": "/kp/barn_icon.svg",
+            "free_range": "/kp/free_range_icon.svg",
+        }.get(self.value)
+
+    def color(self) -> Optional[str]:
+        return {
+            "cage": "#be2F21",
+            "conventional_cage": "#730a00",
+            "furnished_cage": "#be2F21",
+            "barn": "#ef7D19",
+            "free_range": "#333333",
+        }.get(self.value)
+
+    def code(self) -> Optional[str]:
+        return {
+            "cage": "3",
+            "conventional_cage": "3",
+            "furnished_cage": "3",
+            "barn": "2",
+            "free_range": "0/1",
+        }.get(self.value)
 
 
 class BroilerChickenBreedingType(StrEnum):
@@ -34,7 +61,7 @@ class BroilerChickenBreedingType(StrEnum):
         return mappings.get(self.value, self.value)
 
 
-BreedingType: TypeAlias = LayingHenBreedingType | BroilerChickenBreedingType
+BreedingType: TypeAlias = LayingHenBreedingType
 
 
 class AnimalType(StrEnum):
@@ -117,7 +144,7 @@ class EggCaliber(StrEnum):
 
     def translated_name(self, _: Callable) -> str:
         """Return the human-readable caliber"""
-        mappings = {"small": _("Small"), "medium": _("Medium"), "large": _("Large"), "extra_large": _("Extra Large")}
+        mappings = {"small": _("small"), "medium": _("medium"), "large": _("large"), "extra_large": _("extra large")}
         return mappings.get(self.value, self.value)
 
 
