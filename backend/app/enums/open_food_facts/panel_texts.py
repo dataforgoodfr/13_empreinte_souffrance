@@ -2,6 +2,13 @@ from enum import Enum
 from typing import Callable
 
 
+class RootPanelTexts(Enum):
+    """Texts for the main knowledge panel"""
+
+    PANEL_TITLE = "Welfare footprint"
+    PANEL_SUBTITLE = "What is the welfare footprint?"
+
+
 class DurationTexts(Enum):
     """Texts for duration formatting"""
 

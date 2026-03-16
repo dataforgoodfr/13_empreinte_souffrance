@@ -196,7 +196,6 @@ class KnowledgePanelGenerator:
         # Use the first report or an empty one if no reports
         # to be modified when managing multiple reports depending on product batches
         self.pain_reports = pain_reports
-        self.pain_report = pain_reports[0] if pain_reports else PainReport(product_image_url=None, product_name=None)
         self.text_manager = PanelTextManager(translator)
         self._ = translator[0]
         self._n = translator[1]
@@ -230,8 +229,8 @@ class KnowledgePanelGenerator:
         return KnowledgePanelResponse(
             panels=panels,
             product=ProductInfo(
-                image_url=self.pain_report.product_image_url,
-                name=self.pain_report.product_name,
+                image_url=self.pain_reports[0].product_image_url,
+                name=self.pain_reports[0].product_name,
             ),
         )
 
@@ -246,7 +245,7 @@ class KnowledgePanelGenerator:
         Returns:
             A panel with product data and pain levels
         """
-        animal_pain_reports = self.pain_report.animals
+        animal_pain_reports = self.pain_reports
 
         # Initialize the panel with generic information message about the project
         elements = []
@@ -254,7 +253,7 @@ class KnowledgePanelGenerator:
         if len(self.pain_reports) > 1:
             # multiple breeding stypes but no quantity
             if self.pain_reports[0].animals[0].breeding_type_and_quantity.quantity is None:
-                elements += self._create_no_quantity_element()
+                elements += self._create_element_from_html("no_quantity.html")
 
                 mock_animal_pain_reports = self.pain_reports.copy()
 
@@ -270,7 +269,7 @@ class KnowledgePanelGenerator:
 
         elif len(self.pain_reports) == 1 and self.pain_reports[0].animals[0].animal_type == AnimalType.LAYING_HEN:
             # Add breeding type and quantity from each animal pain report even if not avalable
-            for animal_pain_report in animal_pain_reports:
+            for animal_pain_report in animal_pain_reports[0].animals:
                 if (
                     animal_pain_report.pain_levels
                     and animal_pain_report.breeding_type_and_quantity.quantity
@@ -279,19 +278,19 @@ class KnowledgePanelGenerator:
                     elements += self._create_egg_footprint_element(animal_pain_report)
 
                 elif animal_pain_report.breeding_type_and_quantity.quantity is None:
-                    elements += self._create_no_quantity_element()
+                    elements += self._create_element_from_html("no_quantity.html")
 
                     if animal_pain_report.breeding_type_and_quantity.breeding_type is None:
-                        elements += self._create_no_breeding_type_element()
+                        elements += self._create_element_from_html("no_breeding_type.html")
                     else:
                         mock_animal_pain_report = animal_pain_report.copy()
                         mock_animal_pain_report.breeding_type_and_quantity.quantity = EggQuantity.from_count(1)
                         elements += self._create_egg_footprint_element(mock_animal_pain_report)
 
                 elif animal_pain_report.breeding_type_and_quantity.breeding_type is None:
-                    elements += self._create_no_breeding_type_element()
+                    elements += self._create_element_from_html("no_breeding_type.html")
         else:
-            elements += self._create_no_fresh_egg_element()
+            elements += self._create_element_from_html("no_fresh_egg.html")
 
         # Build detailed panels if existing
         for detailed_panel in detailed_panels:
@@ -318,7 +317,7 @@ class KnowledgePanelGenerator:
         """
         Creates a panel from the html file"""
 
-        html_path = Path(__file__).resolve().parent / "html_templates" / "about_the_project_panel.html"
+        html_path = Path(__file__).resolve().parent / "html_templates" / "about_the_project.html"
 
         html_content = self._import_html_body(html_path)
         elements = [self._get_text_element(html_content)]
@@ -333,41 +332,14 @@ class KnowledgePanelGenerator:
             topics=["suffering-footprint"],
         )
 
-    def _create_no_fresh_egg_element(self) -> List[Element]:
+    def _create_element_from_html(self, html_file: str) -> List[Element]:
         """
         Creates a panel from the html file
         """
-
-        html_path = Path(__file__).resolve().parent / "html_templates" / "root_panel_no_fresh_egg.html"
-
-        html_content = self._import_html_body(html_path)
-        elements = [self._get_text_element(html_content)]
-
-        return elements
-
-    def _create_no_quantity_element(self) -> List[Element]:
-        """
-        Creates a panel from the html file
-        """
-
-        html_path = Path(__file__).resolve().parent / "html_templates" / "root_panel_no_quantity.html"
+        html_path = Path(__file__).resolve().parent / "html_templates" / html_file
 
         html_content = self._import_html_body(html_path)
-        elements = [self._get_text_element(html_content)]
-
-        return elements
-
-    def _create_no_breeding_type_element(self) -> List[Element]:
-        """
-        Creates a panel from the html file
-        """
-
-        html_path = Path(__file__).resolve().parent / "html_templates" / "root_panel_no_breeding.html"
-
-        html_content = self._import_html_body(html_path)
-        elements = [self._get_text_element(html_content)]
-
-        return elements
+        return [self._get_text_element(html_content)]
 
     def _create_egg_footprint_element(self, animal_pain_report: AnimalPainReport) -> List[Element]:
         """
@@ -400,7 +372,7 @@ class KnowledgePanelGenerator:
                 key = f"{pain_level.pain_type.name.lower()}_pain_{pain_level.pain_intensity.name.lower()}"
                 context[key] = self._format_duration(pain_level.seconds_in_pain)
 
-            template = self.env.get_template("root_panel_complete.html")
+            template = self.env.get_template("complete_footprint.html")
             html = template.render(**context)
 
             elements = [self._get_text_element(html)]
@@ -437,7 +409,7 @@ class KnowledgePanelGenerator:
                 key = f"{pain_level.pain_type.name.lower()}_pain_{pain_level.pain_intensity.name.lower()}"
                 context[key] = self._format_duration(pain_level.seconds_in_pain)
 
-            template = self.env.get_template("root_panel_complete_with_code.html")
+            template = self.env.get_template("complete_footprint_with_code.html")
             html = template.render(**context)
 
             elements = [self._get_text_element(html)]
@@ -449,7 +421,7 @@ class KnowledgePanelGenerator:
         Creates a panel from the html file
         """
 
-        html_path = Path(__file__).resolve().parent / "html_templates" / "root_panel_multiple_breedings.html"
+        html_path = Path(__file__).resolve().parent / "html_templates" / "multiple_breeding_types.html"
 
         html_content = self._import_html_body(html_path)
         elements = [self._get_text_element(html_content)]
