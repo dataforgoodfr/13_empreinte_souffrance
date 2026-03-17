@@ -5,7 +5,7 @@
 import { useState, useEffect, ChangeEvent, FormEvent } from 'react';
 import './knowledge_panel.css';
 import Image from 'next/image';
-import { useI18n, useCurrentLocale } from '../../../locales/client';
+import { useI18n } from '../../../locales/client';
 import { useRouter } from 'next/navigation';
 
 type TextElement = {
