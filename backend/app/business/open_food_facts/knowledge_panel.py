@@ -7,7 +7,7 @@ from jinja2 import Environment, FileSystemLoader
 from pydantic import HttpUrl, ValidationError
 
 from app.business.open_food_facts.pain_report_calculator import PainReportCalculator
-from app.config.exceptions import ResourceNotFoundException
+from app.config.exceptions import EggButNotFreshEgg, ResourceNotFoundException
 from app.enums.open_food_facts.enums import AnimalType, EggQuantity
 from app.enums.open_food_facts.panel_texts import (
     DurationTexts,
@@ -153,11 +153,18 @@ async def get_pain_reports(barcode: str, locale: str) -> List[PainReport]:
     # Get the product data
     product_data = await get_data_from_off_v3(barcode, locale)
 
-    # Create calculator with the retrieved data
-    calculator = PainReportCalculator(product_data)
+    try:
+        # Create calculator with the retrieved data
+        calculator = PainReportCalculator(product_data)
+
+    except EggButNotFreshEgg as e:
+        return [PainReport(product_name=e.product_name, product_image_url=e.image_url)]
 
     # Generate and return the pain report
-    return calculator.get_pain_reports()
+    # For no fresh chicken eggs return empty list to display a specific knowledge panel
+    pain_reports = calculator.get_pain_reports()
+
+    return pain_reports
 
 
 def get_knowledge_panel_response(
@@ -211,10 +218,8 @@ class KnowledgePanelGenerator:
             A complete KnowledgePanelResponse with all necessary panels
         """
         # Defining which detailed panels are to be displayed
-        if self.pain_reports == []:
-            detailed_panels = []
-        else:
-            detailed_panels = ["project_panel"]
+
+        detailed_panels = ["project_panel"]
 
         # root panel depending on pain report data and detailed panels
         panels = {"root": self._create_root_panel(detailed_panels)}
@@ -250,7 +255,10 @@ class KnowledgePanelGenerator:
         # Initialize the panel with generic information message about the project
         elements = []
 
-        if len(self.pain_reports) > 1:
+        if len(self.pain_reports) == 1 and self.pain_reports[0].animal_pain_reports == []:
+            elements += self._create_element_from_html("no_fresh_egg.html")
+
+        elif len(self.pain_reports) > 1:
             # multiple breeding stypes but no quantity
             if self.pain_reports[0].animal_pain_reports[0].breeding_type_and_quantity.quantity is None:
                 elements += self._create_element_from_html("no_quantity.html")
@@ -292,8 +300,6 @@ class KnowledgePanelGenerator:
 
                 elif animal_pain_report.breeding_type_and_quantity.breeding_type is None:
                     elements += self._create_element_from_html("no_breeding_type.html")
-        else:
-            elements += self._create_element_from_html("no_fresh_egg.html")
 
         # Build detailed panels if existing
         for detailed_panel in detailed_panels:
