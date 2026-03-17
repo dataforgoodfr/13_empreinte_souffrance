@@ -1,6 +1,6 @@
 import re
 
-from app.config.exceptions import ResourceNotFoundException
+from app.config.exceptions import EggButNotFreshEgg, ResourceNotFoundException
 from app.enums.open_food_facts.enums import AnimalType
 from app.enums.open_food_facts.product_type_enums import ProductTypePatternRepository
 from app.schemas.open_food_facts.external import ProductData
@@ -25,8 +25,13 @@ def get_product_type(product_data: ProductData) -> ProductType:
             if animal_type == AnimalType.LAYING_HEN:
                 if is_fresh_chicken_egg(product_data):
                     animal_types.add(animal_type)
+
+                # temp fix to display specific information for this kind of product
+                else:
+                    raise EggButNotFreshEgg(product_name=product_data.product_name, image_url=product_data.image_url)
             else:
                 animal_types.add(animal_type)
+
     if not animal_types:
         raise ResourceNotFoundException("No animal types found in product data")
     elif len(animal_types) == 1:
