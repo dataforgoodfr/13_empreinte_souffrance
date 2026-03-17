@@ -252,24 +252,27 @@ class KnowledgePanelGenerator:
 
         if len(self.pain_reports) > 1:
             # multiple breeding stypes but no quantity
-            if self.pain_reports[0].animals[0].breeding_type_and_quantity.quantity is None:
+            if self.pain_reports[0].animal_pain_reports[0].breeding_type_and_quantity.quantity is None:
                 elements += self._create_element_from_html("no_quantity.html")
 
                 mock_animal_pain_reports = self.pain_reports.copy()
 
                 for i in range(len(self.pain_reports)):
-                    mock_animal_pain_reports[i].animals[0].breeding_type_and_quantity.quantity = EggQuantity.from_count(
-                        1
-                    )
+                    mock_animal_pain_reports[i].animal_pain_reports[
+                        0
+                    ].breeding_type_and_quantity.quantity = EggQuantity.from_count(1)
 
                 elements += self._create_multiple_breedings_element(mock_animal_pain_reports)
 
             else:
                 elements += self._create_multiple_breedings_element(self.pain_reports)
 
-        elif len(self.pain_reports) == 1 and self.pain_reports[0].animals[0].animal_type == AnimalType.LAYING_HEN:
+        elif (
+            len(self.pain_reports) == 1
+            and self.pain_reports[0].animal_pain_reports[0].animal_type == AnimalType.LAYING_HEN
+        ):
             # Add breeding type and quantity from each animal pain report even if not avalable
-            for animal_pain_report in animal_pain_reports[0].animals:
+            for animal_pain_report in animal_pain_reports[0].animal_pain_reports:
                 if (
                     animal_pain_report.pain_levels
                     and animal_pain_report.breeding_type_and_quantity.quantity
@@ -382,15 +385,15 @@ class KnowledgePanelGenerator:
         """
         Creates a panel from the html file
         """
-        animal_type = pain_report.animals[0].animal_type
-        breeding_type = pain_report.animals[0].breeding_type_and_quantity.breeding_type
-        quantity = pain_report.animals[0].breeding_type_and_quantity.quantity
+        animal_type = pain_report.animal_pain_reports[0].animal_type
+        breeding_type = pain_report.animal_pain_reports[0].breeding_type_and_quantity.breeding_type
+        quantity = pain_report.animal_pain_reports[0].breeding_type_and_quantity.quantity
 
         if animal_type != AnimalType.LAYING_HEN or not breeding_type or not quantity:
             return []
 
         else:
-            pain_levels = pain_report.animals[0].pain_levels
+            pain_levels = pain_report.animal_pain_reports[0].pain_levels
 
             context = {
                 "breeding_type_code": breeding_type.code(),

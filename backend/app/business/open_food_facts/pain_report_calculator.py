@@ -87,7 +87,7 @@ class PainReportCalculator:
             # not managed
             return [
                 PainReport(
-                    animals=[],
+                    animal_pain_reports=[],
                     product_name=self.product_data.product_name,
                     product_image_url=self.product_data.image_url,
                 )
@@ -113,7 +113,7 @@ class PainReportCalculator:
                     breeding_type_and_quantity=breeding_type_and_quantity,
                 )
                 pain_report = PainReport(
-                    animals=[animal_report],
+                    animal_pain_reports=[animal_report],
                     product_name=self.product_data.product_name,
                     product_image_url=self.product_data.image_url,
                 )
