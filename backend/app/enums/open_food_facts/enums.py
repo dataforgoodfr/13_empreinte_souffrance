@@ -18,7 +18,7 @@ class LayingHenBreedingType(StrEnum):
             "conventional_cage": _("Battery hen"),
             "furnished_cage": _("Caged hen"),
             "barn": _("Barn hen"),
-            "free_range": _("Free range hen"),
+            "free_range": _("Free-range hen"),
         }
         return mappings.get(self.value, self.value)
 

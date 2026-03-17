@@ -3,7 +3,6 @@ from pathlib import Path
 from typing import Callable, List
 
 import httpx
-from bs4 import BeautifulSoup
 from jinja2 import Environment, FileSystemLoader
 from pydantic import HttpUrl, ValidationError
 
@@ -162,7 +161,7 @@ async def get_pain_reports(barcode: str, locale: str) -> List[PainReport]:
 
 
 def get_knowledge_panel_response(
-    pain_reports: List[PainReport], translator: tuple[Callable, Callable]
+    pain_reports: List[PainReport], translator: tuple[Callable, Callable], locale: str
 ) -> KnowledgePanelResponse:
     """
     Create a complete knowledge panel response with all panels related to suffering footprint.
@@ -175,7 +174,7 @@ def get_knowledge_panel_response(
         A complete KnowledgePanelResponse containing root panel, intensity definitions,
         physical pain data and psychological pain data
     """
-    panel_generator = KnowledgePanelGenerator(pain_reports, translator)
+    panel_generator = KnowledgePanelGenerator(pain_reports, locale, translator)
     return panel_generator.get_response()
 
 
@@ -184,7 +183,7 @@ class KnowledgePanelGenerator:
     Class responsible for generating knowledge panel responses based on pain reports.
     """
 
-    def __init__(self, pain_reports: List[PainReport], translator: tuple[Callable, Callable]):
+    def __init__(self, pain_reports: List[PainReport], locale: str, translator: tuple[Callable, Callable]):
         """
         Initialize the generator with a pain report and translator.
 
@@ -199,6 +198,7 @@ class KnowledgePanelGenerator:
         self.text_manager = PanelTextManager(translator)
         self._ = translator[0]
         self._n = translator[1]
+        self.locale = locale
         self.env = Environment(
             loader=FileSystemLoader(Path(__file__).resolve().parent / "html_templates"), autoescape=True
         )
@@ -317,9 +317,9 @@ class KnowledgePanelGenerator:
         """
         Creates a panel from the html file"""
 
-        html_path = Path(__file__).resolve().parent / "html_templates" / "about_the_project.html"
+        template = self.env.get_template(f"{self.locale}/about_the_project.html")
+        html_content = template.render()
 
-        html_content = self._import_html_body(html_path)
         elements = [self._get_text_element(html_content)]
 
         return Panel(
@@ -336,9 +336,8 @@ class KnowledgePanelGenerator:
         """
         Creates a panel from the html file
         """
-        html_path = Path(__file__).resolve().parent / "html_templates" / html_file
-
-        html_content = self._import_html_body(html_path)
+        template = self.env.get_template(f"{self.locale}/{html_file}")
+        html_content = template.render()
         return [self._get_text_element(html_content)]
 
     def _create_egg_footprint_element(self, animal_pain_report: AnimalPainReport) -> List[Element]:
@@ -372,7 +371,7 @@ class KnowledgePanelGenerator:
                 key = f"{pain_level.pain_type.name.lower()}_pain_{pain_level.pain_intensity.name.lower()}"
                 context[key] = self._format_duration(pain_level.seconds_in_pain)
 
-            template = self.env.get_template("complete_footprint.html")
+            template = self.env.get_template(f"{self.locale}/complete_footprint.html")
             html = template.render(**context)
 
             elements = [self._get_text_element(html)]
@@ -409,7 +408,7 @@ class KnowledgePanelGenerator:
                 key = f"{pain_level.pain_type.name.lower()}_pain_{pain_level.pain_intensity.name.lower()}"
                 context[key] = self._format_duration(pain_level.seconds_in_pain)
 
-            template = self.env.get_template("complete_footprint_with_code.html")
+            template = self.env.get_template(f"{self.locale}/complete_footprint_with_code.html")
             html = template.render(**context)
 
             elements = [self._get_text_element(html)]
@@ -421,40 +420,13 @@ class KnowledgePanelGenerator:
         Creates a panel from the html file
         """
 
-        html_path = Path(__file__).resolve().parent / "html_templates" / "multiple_breeding_types.html"
-
-        html_content = self._import_html_body(html_path)
-        elements = [self._get_text_element(html_content)]
+        template = self.env.get_template(f"{self.locale}/multiple_breeding_types.html")
+        elements = [self._get_text_element(template.render())]
 
         for pain_report in pain_reports:
             elements.extend(self._create_egg_footprint_with_code_element(pain_report))
 
         return elements
-
-    @staticmethod
-    def _import_html_body(path: Path) -> str:
-        """
-        Import the html body from a given path
-        """
-
-        with open(path, "r", encoding="utf-8") as f:
-            html_content = f.read()
-
-        soup = BeautifulSoup(html_content, "html.parser")
-        body = soup.body
-
-        return body.decode_contents() if body else ""
-
-    @staticmethod
-    def _replace_html_body(obj, html_content=None):
-        """replaces {html_body} in all strings in json object"""
-        if isinstance(obj, dict):
-            return {k: KnowledgePanelGenerator._replace_html_body(v, html_content) for k, v in obj.items()}
-        elif isinstance(obj, list):
-            return [KnowledgePanelGenerator._replace_html_body(v, html_content) for v in obj]
-        elif isinstance(obj, str):
-            return obj.replace("{html_body}", html_content)
-        return obj
 
     def _get_text_element(self, text: str) -> Element:
         """

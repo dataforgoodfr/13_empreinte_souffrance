@@ -60,7 +60,7 @@ export default function KnowledgePanel() {
   const [expandedPanels, setExpandedPanels] = useState<Record<string, boolean>>({});
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [error, setError] = useState<string | null>(null);
-  const [selectedLanguage, setSelectedLanguage] = useState<'fr' | 'en'>('en');
+  const [selectedLanguage, setSelectedLanguage] = useState<'fr' | 'en'>('fr');
   const t = useI18n();
   const router = useRouter();
 
