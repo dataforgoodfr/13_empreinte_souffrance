@@ -90,3 +90,8 @@ class KnowledgePanelResponse(BaseModel):
 
     panels: Dict[str, Panel]
     product: ProductInfo
+
+
+class KnowledgePanelBatchResponse(BaseModel):
+    panels: Dict[str, KnowledgePanelResponse] = {}
+    errors: Dict[str, str] = {}

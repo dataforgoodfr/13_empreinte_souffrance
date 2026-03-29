@@ -1,11 +1,11 @@
-from fastapi import APIRouter, Response
+from fastapi import APIRouter, Query, Response
 from starlette.requests import Request
 
-from app.business.open_food_facts.knowledge_panel import get_knowledge_panel_response, get_pain_report
+from app.business.open_food_facts.knowledge_panel import get_knowledge_panel_response, get_pain_report, get_pain_reports
 from app.config.cache import knowledge_panel_cache
 from app.config.exceptions import ExternalServiceException, ResourceNotFoundException
 from app.config.logging import setup_logging
-from app.schemas.open_food_facts.internal import KnowledgePanelResponse
+from app.schemas.open_food_facts.internal import KnowledgePanelBatchResponse, KnowledgePanelResponse
 
 router = APIRouter()
 logger = setup_logging()
@@ -19,7 +19,7 @@ logger = setup_logging()
 )
 async def knowledge_panel(request: Request, barcode: str):
     """
-    API endpoint to return knowledge panel details.
+    API endpoint to return knowledge panel details for a single product.
     Handles both GET and HEAD methods.
 
     Args:
@@ -59,3 +59,60 @@ async def knowledge_panel(request: Request, barcode: str):
         return Response(status_code=200)
 
     return response
+
+
+@router.get(
+    "/knowledge-panels",
+    response_model=KnowledgePanelBatchResponse,
+    response_model_exclude_none=True,
+)
+async def knowledge_panels_batch(
+    request: Request,
+    barcodes: str = Query(..., description="Comma-separated list of product barcodes"),
+):
+    """
+    API endpoint to return knowledge panels for multiple products in a single call.
+    Processes all barcodes in parallel. Failures on individual barcodes are reported
+    in the 'errors' field without affecting the other results.
+
+    Args:
+        request: The request object.
+        barcodes: Comma-separated barcodes, e.g. "3017620422003,3228857000166"
+
+    Returns:
+        KnowledgePanelBatchResponse with 'panels' (successes) and 'errors' (failures)
+    """
+    locale = request.state.locale
+    barcode_list = [b.strip() for b in barcodes.split(",") if b.strip()]
+
+    logger.info(f"Getting knowledge panels for {len(barcode_list)} products (locale: {locale})")
+
+    # Separate barcodes into cached and to-fetch
+    panels: dict = {}
+    errors: dict = {}
+    barcodes_to_fetch = []
+
+    for barcode in barcode_list:
+        cache_key = f"knowledge_panel:{barcode}:{locale}"
+        cached = knowledge_panel_cache.get(cache_key)
+        if cached is not None:
+            logger.info(f"Returning cached knowledge panel for product {barcode} (locale: {locale})")
+            panels[barcode] = cached
+        else:
+            barcodes_to_fetch.append(barcode)
+
+    # Fetch remaining barcodes in parallel
+    if barcodes_to_fetch:
+        pain_reports = await get_pain_reports(barcodes=barcodes_to_fetch, locale=locale)
+
+        for barcode, result in pain_reports.items():
+            if isinstance(result, BaseException):
+                logger.warning(f"Failed to get pain report for product {barcode}: {result}")
+                errors[barcode] = str(result)
+            else:
+                response = get_knowledge_panel_response(pain_report=result, translator=request.state.translator)
+                cache_key = f"knowledge_panel:{barcode}:{locale}"
+                knowledge_panel_cache.set(cache_key, response, ttl_seconds=86400)
+                panels[barcode] = response
+
+    return KnowledgePanelBatchResponse(panels=panels, errors=errors)
