@@ -25,7 +25,7 @@ from app.business.open_food_facts.knowledge_panel import (
 from app.business.open_food_facts.pain_report_calculator import PainReportCalculator
 from app.business.open_food_facts.product_type_calculator import get_product_type
 from app.business.open_food_facts.unit_pain_loader import UnitPainLoader
-from app.config.exceptions import EggButNotFreshEgg, MissingBreedingTypeOrQuantityError, ResourceNotFoundException
+from app.config.exceptions import EggButNotFreshEgg, MissingBreedingType, ResourceNotFoundException
 from app.config.i18n import I18N
 from app.enums.open_food_facts.enums import AnimalType, EggQuantity, LayingHenBreedingType, PainIntensity, PainType
 from app.schemas.open_food_facts.external import ProductData
@@ -198,7 +198,7 @@ def test_generate_pain_levels_for_type_missing_quantity(
     calculator = PainReportCalculator(sample_product_data)
 
     # Verify that the absence of quantity triggers an exception
-    with pytest.raises(MissingBreedingTypeOrQuantityError):
+    with pytest.raises(MissingBreedingType):
         calculator._generate_pain_levels_for_pain_type(AnimalType.LAYING_HEN, missing_breeding_type, PainType.PHYSICAL)
 
 
