@@ -1,3 +1,4 @@
+import asyncio
 import logging
 from typing import Callable, List
 
@@ -175,6 +176,24 @@ def get_generator(
         )
 
     raise ResourceNotFoundException(f"Unsupported product type: {product_type}")
+
+
+async def get_pain_reports_batch(barcodes: list[str], locale: str) -> dict[str, PainReport | BaseException]:
+    """
+    Compute pain reports for multiple products in parallel.
+
+    Each barcode is processed independently — a failure on one does not affect the others.
+
+    Args:
+        barcodes: List of product barcodes
+        locale: alpha2 locale (fr, en...)
+
+    Returns:
+        A dict mapping each barcode to either a PainReport or an Exception
+    """
+    tasks = [get_pain_reports(barcode=barcode, locale=locale) for barcode in barcodes]
+    results = await asyncio.gather(*tasks, return_exceptions=True)
+    return {barcode: result for barcode, result in zip(barcodes, results)}
 
 
 def get_knowledge_panel_response(
