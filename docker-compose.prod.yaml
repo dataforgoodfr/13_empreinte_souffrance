@@ -67,6 +67,8 @@ services:
       timeout: 5s
       retries: 12
       start_period: 5s
+    environment:
+      KP_IMAGES_BASE_URL: https://${DEPLOY_URL}/kp
 networks:
   traefik-public:
     external: true

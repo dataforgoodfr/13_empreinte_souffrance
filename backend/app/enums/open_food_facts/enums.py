@@ -24,11 +24,11 @@ class LayingHenBreedingType(StrEnum):
 
     def icon_url(self) -> Optional[str]:
         return {
-            "cage": "kp/cage_icon.svg",
-            "conventional_cage": "/kp/conventional_cage_icon.svg",
-            "furnished_cage": "/kp/cage_icon.svg",
-            "barn": "/kp/barn_icon.svg",
-            "free_range": "/kp/free_range_icon.svg",
+            "cage": "cage_icon.svg",
+            "conventional_cage": "conventional_cage_icon.svg",
+            "furnished_cage": "cage_icon.svg",
+            "barn": "barn_icon.svg",
+            "free_range": "free_range_icon.svg",
         }.get(self.value)
 
     def color(self) -> Optional[str]:

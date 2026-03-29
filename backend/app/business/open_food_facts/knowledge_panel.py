@@ -1,4 +1,5 @@
 import logging
+import os
 from pathlib import Path
 from typing import Callable, List
 
@@ -209,6 +210,7 @@ class KnowledgePanelGenerator:
         self.env = Environment(
             loader=FileSystemLoader(Path(__file__).resolve().parent / "html_templates"), autoescape=True
         )
+        self.kp_images_base_url = os.getenv("KP_IMAGES_BASE_URL", "http://localhost:3000/kp")
 
     def get_response(self) -> KnowledgePanelResponse:
         """
@@ -334,7 +336,7 @@ class KnowledgePanelGenerator:
         Creates a panel from the html file"""
 
         template = self.env.get_template(f"{self.locale}/about_the_project.html")
-        html_content = template.render()
+        html_content = template.render(kp_images_base_url=self.kp_images_base_url)
 
         elements = [self._get_text_element(html_content)]
 
@@ -353,7 +355,7 @@ class KnowledgePanelGenerator:
         Creates a panel from the html file
         """
         template = self.env.get_template(f"{self.locale}/{html_file}")
-        html_content = template.render()
+        html_content = template.render(kp_images_base_url=self.kp_images_base_url)
         return [self._get_text_element(html_content)]
 
     def _create_egg_footprint_element(self, animal_pain_report: AnimalPainReport) -> List[Element]:
@@ -381,6 +383,7 @@ class KnowledgePanelGenerator:
                     text_manager=self.text_manager,
                     quantity_texts=QuantityTexts,
                 ),
+                "kp_images_base_url": self.kp_images_base_url,
             }
 
             for pain_level in animal_pain_report.pain_levels:
@@ -418,6 +421,7 @@ class KnowledgePanelGenerator:
                     text_manager=self.text_manager,
                     quantity_texts=QuantityTexts,
                 ),
+                "kp_images_base_url": self.kp_images_base_url,
             }
 
             for pain_level in pain_levels:
@@ -437,7 +441,7 @@ class KnowledgePanelGenerator:
         """
 
         template = self.env.get_template(f"{self.locale}/multiple_breeding_types.html")
-        elements = [self._get_text_element(template.render())]
+        elements = [self._get_text_element(template.render(kp_images_base_url=self.kp_images_base_url))]
 
         for pain_report in pain_reports:
             elements.extend(self._create_egg_footprint_with_code_element(pain_report))
