@@ -8,7 +8,6 @@ from starlette.testclient import TestClient
 
 from app.enums.open_food_facts.enums import (
     AnimalType,
-    BroilerChickenBreedingType,
     EggQuantity,
     LayingHenBreedingType,
     PainIntensity,
@@ -16,7 +15,13 @@ from app.enums.open_food_facts.enums import (
 )
 from app.main import app
 from app.schemas.open_food_facts.external import ProductData
-from app.schemas.open_food_facts.internal import AnimalPainReport, BreedingTypeAndQuantity, PainLevelData, PainReport
+from app.schemas.open_food_facts.internal import (
+    AnimalPainReport,
+    BreedingTypeAndQuantity,
+    PainLevelData,
+    PainReport,
+    ProductType,
+)
 
 
 @pytest_asyncio.fixture
@@ -113,6 +118,15 @@ def laying_hen_breeding_type() -> BreedingTypeAndQuantity:
 
 
 @pytest.fixture
+def missing_breeding_type() -> BreedingTypeAndQuantity:
+    """
+    Fixture that provides a sample BreedingTypeAndQuantity with a missing breeding type.
+    """
+    quantity = EggQuantity(count=4, total_weight=230)
+    return BreedingTypeAndQuantity(breeding_type=None, quantity=quantity)
+
+
+@pytest.fixture
 def pain_levels() -> List[PainLevelData]:
     """
     Fixture that provides a list of PainLevelData objects for all pain types and intensities.
@@ -143,15 +157,15 @@ def animal_pain_report(laying_hen_breeding_type, pain_levels) -> AnimalPainRepor
 
 
 @pytest.fixture
-def animal_pain_report_missing_quantity() -> AnimalPainReport:
+def animal_pain_report_missing_quantity(pain_levels) -> AnimalPainReport:
     """
     Fixture that provides a sample AnimalPainReport for a laying hen with missing quantity.
     """
     return AnimalPainReport(
-        animal_type=AnimalType.BROILER_CHICKEN,
-        pain_levels=[],
+        animal_type=AnimalType.LAYING_HEN,
+        pain_levels=pain_levels,
         breeding_type_and_quantity=BreedingTypeAndQuantity(
-            breeding_type=BroilerChickenBreedingType.FREE_RANGE,
+            breeding_type=LayingHenBreedingType.FREE_RANGE,
             quantity=None,
         ),
     )
@@ -164,9 +178,10 @@ def pain_report(animal_pain_report) -> PainReport:
     with complete information.
     """
     return PainReport(
-        animals=[animal_pain_report],
+        animal_pain_reports=[animal_pain_report],
         product_name="Fake product name",
         product_image_url=HttpUrl("https://example.com/image.jpg"),
+        product_type=ProductType(is_mixed=False, animal_types={AnimalType.LAYING_HEN}),
     )
 
 
@@ -174,9 +189,10 @@ def pain_report(animal_pain_report) -> PainReport:
 def pain_report_missing_quantity(animal_pain_report_missing_quantity) -> PainReport:
     """Fixture that provides a sample PainReport that is returned for one animal with missing quantity."""
     return PainReport(
-        animals=[animal_pain_report_missing_quantity],
+        animal_pain_reports=[animal_pain_report_missing_quantity],
         product_name="Fake product name",
         product_image_url=HttpUrl("https://example.com/image.jpg"),
+        product_type=ProductType(is_mixed=False, animal_types={AnimalType.LAYING_HEN}),
     )
 
 
@@ -187,9 +203,10 @@ def pain_report_with_two_animals(animal_pain_report, animal_pain_report_missing_
     and one animal with missing quantity.
     """
     return PainReport(
-        animals=[animal_pain_report, animal_pain_report_missing_quantity],
+        animal_pain_reports=[animal_pain_report, animal_pain_report_missing_quantity],
         product_name="Fake product name",
         product_image_url=HttpUrl("https://example.com/image.jpg"),
+        product_type=ProductType(is_mixed=False, animal_types={AnimalType.LAYING_HEN}),
     )
 
 
