@@ -89,6 +89,8 @@ export default function KnowledgePanel() {
     '78742330808',
     '5051140152901',
     '3560071227241',
+    '0030561400018',
+
   ];
 
   const barcodeNames: { [key: string]: string } = {
@@ -115,6 +117,7 @@ export default function KnowledgePanel() {
     '78742330808': '"1 egg" dans quantity',
     '5051140152901': '12 large - calibre trouvé',
     '3560071227241': '6 moyens - calibre trouvé',
+    '0030561400018' : 'pickled eggs',
   };
 
   useEffect(() => {

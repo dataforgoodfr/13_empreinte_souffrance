@@ -4,7 +4,7 @@ from app.config.exceptions import EggButNotFreshEgg, ResourceNotFoundException
 from app.enums.open_food_facts.enums import AnimalType
 from app.enums.open_food_facts.product_type_enums import ProductTypePatternRepository
 from app.schemas.open_food_facts.external import ProductData
-from app.schemas.open_food_facts.internal import ProductType
+from app.schemas.open_food_facts.internal import PainReport, ProductType
 
 
 def get_product_type(product_data: ProductData) -> ProductType:
@@ -28,7 +28,13 @@ def get_product_type(product_data: ProductData) -> ProductType:
 
                 # temp fix to display specific information for this kind of product
                 else:
-                    raise EggButNotFreshEgg(product_name=product_data.product_name, image_url=product_data.image_url)
+                    raise EggButNotFreshEgg(
+                        pain_report=PainReport(
+                            product_name=product_data.product_name,
+                            product_image_url=product_data.image_url,
+                            product_type=ProductType(is_mixed=False, animal_types={AnimalType.LAYING_HEN}),
+                        )
+                    )
             else:
                 animal_types.add(animal_type)
 

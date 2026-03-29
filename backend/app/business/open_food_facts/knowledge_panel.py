@@ -24,6 +24,7 @@ from app.schemas.open_food_facts.internal import (
     Panel,
     PanelElement,
     ProductInfo,
+    ProductType,
     TextElement,
     TitleElement,
 )
@@ -158,8 +159,7 @@ async def get_pain_reports(barcode: str, locale: str) -> List[PainReport]:
         calculator = PainReportCalculator(product_data)
 
     except EggButNotFreshEgg as e:
-        return [PainReport(product_name=e.product_name, product_image_url=e.image_url)]
-
+        return [e.pain_report]
     # Generate and return the pain report
     # For no fresh chicken eggs return empty list to display a specific knowledge panel
     pain_reports = calculator.get_pain_reports()
@@ -219,6 +219,12 @@ class KnowledgePanelGenerator:
         """
         # Defining which detailed panels are to be displayed
 
+        # No result if the product is no egg
+        if len(self.pain_reports) > 0 and self.pain_reports[0].product_type != ProductType(
+            is_mixed=False, animal_types={AnimalType.LAYING_HEN}
+        ):
+            raise ResourceNotFoundException(f"Product {self.pain_reports[0].product_name} is not a laying hen")
+
         detailed_panels = ["project_panel"]
 
         # root panel depending on pain report data and detailed panels
@@ -255,6 +261,7 @@ class KnowledgePanelGenerator:
         # Initialize the panel with generic information message about the project
         elements = []
 
+        #
         if len(self.pain_reports) == 1 and self.pain_reports[0].animal_pain_reports == []:
             elements += self._create_element_from_html("no_fresh_egg.html")
 

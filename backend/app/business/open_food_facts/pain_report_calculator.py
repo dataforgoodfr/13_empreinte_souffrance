@@ -90,6 +90,7 @@ class PainReportCalculator:
                     animal_pain_reports=[],
                     product_name=self.product_data.product_name,
                     product_image_url=self.product_data.image_url,
+                    product_type=self.product_type,
                 )
             ]
 
@@ -116,6 +117,7 @@ class PainReportCalculator:
                     animal_pain_reports=[animal_report],
                     product_name=self.product_data.product_name,
                     product_image_url=self.product_data.image_url,
+                    product_type=self.product_type,
                 )
                 pain_reports.append(pain_report)
 

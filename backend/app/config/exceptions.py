@@ -5,7 +5,7 @@ Defines custom exceptions and utilities for consistent error handling.
 
 import logging
 
-from pydantic import HttpUrl
+from app.schemas.open_food_facts.internal import PainReport
 
 logger = logging.getLogger("app")
 
@@ -52,10 +52,7 @@ class MissingBreedingTypeOrQuantityError(Exception):
 
 
 class EggButNotFreshEgg(Exception):
-    def __init__(
-        self, product_name: str | None = None, image_url: HttpUrl | None = None, message: str = "Egg but not fresh egg"
-    ):
-        self.product_name = product_name
-        self.image_url = image_url
+    def __init__(self, pain_report: PainReport, message: str = "Egg but not fresh egg"):
         self.message = message
+        self.pain_report = pain_report
         super().__init__(message)
