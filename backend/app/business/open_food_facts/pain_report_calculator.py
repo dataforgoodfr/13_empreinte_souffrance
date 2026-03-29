@@ -4,7 +4,7 @@ from app.business.open_food_facts.breeding_type_calculator import BreedingTypeCa
 from app.business.open_food_facts.product_type_calculator import get_product_type
 from app.business.open_food_facts.quantity_calculator import QuantityCalculator
 from app.business.open_food_facts.unit_pain_loader import PAIN_PER_EGG_IN_SECONDS
-from app.config.exceptions import MissingBreedingTypeOrQuantityError, ResourceNotFoundException
+from app.config.exceptions import MissingBreedingType, ResourceNotFoundException
 from app.enums.open_food_facts.enums import (
     AnimalType,
     EggCaliber,
@@ -105,7 +105,7 @@ class PainReportCalculator:
             for breeding_type_and_quantity in breeding_types_and_quantity:
                 try:
                     pain_levels = self._generate_pain_levels_for_animal(animal_type, breeding_type_and_quantity)
-                except MissingBreedingTypeOrQuantityError:
+                except MissingBreedingType:
                     pain_levels = []
 
                 animal_report = AnimalPainReport(
@@ -274,7 +274,7 @@ class PainReportCalculator:
         quantity = breeding_type_and_quantity.quantity
 
         if breeding_type is None:
-            raise MissingBreedingTypeOrQuantityError()
+            raise MissingBreedingType()
 
         if animal_type == AnimalType.LAYING_HEN:
             try:
