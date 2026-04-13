@@ -254,7 +254,7 @@ def test_get_pain_report_missing_quantity(sample_product_data: ProductData):
 def test_knowledge_panel_generator(
     pain_report: PainReport, product_name_for_test: str | None, expected_knowledge_panel_product_name: str | None
 ):
-    """Test the EggEggKnowledgePanelGenerator with different pain_report fixtures and product names"""
+    """Test the EggKnowledgePanelGenerator with different pain_report fixtures and product names"""
 
     pain_report = pain_report.model_copy(update={"product_name": product_name_for_test})
 
