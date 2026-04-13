@@ -12,12 +12,12 @@ from app.business.open_food_facts.breeding_type_calculator import (
     get_cage_regex,
     get_free_range_regex,
 )
+from app.business.open_food_facts.egg_knowledge_panel_generator import EggKnowledgePanelGenerator
 from app.business.open_food_facts.egg_quantity_calculator import (
     EggCaliber,
     EggQuantityCalculator,
 )
 from app.business.open_food_facts.knowledge_panel import (
-    KnowledgePanelGenerator,
     get_data_from_off_search_a_licious,
     get_data_from_off_v3,
     get_knowledge_panel_response,
@@ -254,14 +254,14 @@ def test_get_pain_report_missing_quantity(sample_product_data: ProductData):
 def test_knowledge_panel_generator(
     pain_report: PainReport, product_name_for_test: str | None, expected_knowledge_panel_product_name: str | None
 ):
-    """Test the KnowledgePanelGenerator with different pain_report fixtures and product names"""
+    """Test the EggEggKnowledgePanelGenerator with different pain_report fixtures and product names"""
 
     pain_report = pain_report.model_copy(update={"product_name": product_name_for_test})
 
     translator = I18N().get_translator(locale="en")
 
     # Create generator and test individual methods
-    generator = KnowledgePanelGenerator(pain_reports=[pain_report], locale="en", translator=translator)
+    generator = EggKnowledgePanelGenerator(pain_reports=[pain_report], locale="en", translator=translator)
 
     # Test root panel
     root_panel = generator._create_root_panel(["project_panel"])
@@ -292,11 +292,13 @@ def test_knowledge_panel_generator(
 
 
 def test_knowledge_panel_generator_missing_quantity(pain_report_missing_quantity: PainReport):
-    """Test the KnowledgePanelGenerator class with a pain report missing quantity"""
+    """Test the EggKnowledgePanelGenerator class with a pain report missing quantity"""
     translator = I18N().get_translator(locale="en")
 
     # Create generator and test individual methods
-    generator = KnowledgePanelGenerator(pain_reports=[pain_report_missing_quantity], locale="en", translator=translator)
+    generator = EggKnowledgePanelGenerator(
+        pain_reports=[pain_report_missing_quantity], locale="en", translator=translator
+    )
 
     # Test root panel
     root_panel = generator._create_root_panel([])
