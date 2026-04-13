@@ -5,7 +5,8 @@
 import { useState, useEffect, ChangeEvent, FormEvent } from 'react';
 import './knowledge_panel.css';
 import Image from 'next/image';
-import { useI18n, useCurrentLocale } from '../../../locales/client';
+import { useI18n } from '../../../locales/client';
+import { useRouter } from 'next/navigation';
 
 type TextElement = {
   html: string;
@@ -59,8 +60,9 @@ export default function KnowledgePanel() {
   const [expandedPanels, setExpandedPanels] = useState<Record<string, boolean>>({});
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [error, setError] = useState<string | null>(null);
-  const locale = useCurrentLocale() as 'fr' | 'en';
+  const [selectedLanguage, setSelectedLanguage] = useState<'fr' | 'en'>('fr');
   const t = useI18n();
+  const router = useRouter();
 
   const barcodes = [
     'custom',
@@ -68,6 +70,7 @@ export default function KnowledgePanel() {
     '2000000124898', // cage eggs from usa
     '8003636004529', // no specific category
     '3560071098278', // both en:free-range-chicken-eggs AND en:cage-chicken-eggs
+    '5400210535388', // both free-range and barn no quantity
     '3270190205685', // free-range chicken eggs from France
     '0605388714565', // no specific category
     '50326686', // cage chicken eggs from UK
@@ -86,6 +89,8 @@ export default function KnowledgePanel() {
     '78742330808',
     '5051140152901',
     '3560071227241',
+    '0030561400018',
+
   ];
 
   const barcodeNames: { [key: string]: string } = {
@@ -93,6 +98,7 @@ export default function KnowledgePanel() {
     '2000000124898': 'Cage eggs from USA',
     '8003636004529': 'Sans quantité',
     '3560071098278': 'Free-range & cage chicken eggs',
+    '5400210535388': 'both free-range and barn no quantity',
     '3270190205685': 'Free-range chicken eggs from France',
     '0605388714565': "Medium grade A eggs - sans mode d'elevage",
     '50326686': 'Cage chicken eggs from UK',
@@ -111,6 +117,7 @@ export default function KnowledgePanel() {
     '78742330808': '"1 egg" dans quantity',
     '5051140152901': '12 large - calibre trouvé',
     '3560071227241': '6 moyens - calibre trouvé',
+    '0030561400018' : 'pickled eggs',
   };
 
   useEffect(() => {
@@ -118,7 +125,7 @@ export default function KnowledgePanel() {
       fetchKnowledgePanelData(selectedBarcode);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [selectedBarcode, locale]);
+  }, [selectedBarcode, selectedLanguage]);
 
   const handleBarcodeChange = (e: ChangeEvent<HTMLSelectElement>) => {
     const value = e.target.value;
@@ -149,7 +156,7 @@ export default function KnowledgePanel() {
     setProductName(null);
     setProductImageUrl(null);
     try {
-      const response = await fetch(`http://127.0.0.1:8000/off/v1/knowledge-panel/${barcode}?lang=${locale}`);
+      const response = await fetch(`http://127.0.0.1:8000/off/v1/knowledge-panel/${barcode}?lang=${selectedLanguage}`);
 
       if (response.status === 404) {
         setError(t('KnowledgePanel.productNotFound'));
@@ -254,6 +261,23 @@ export default function KnowledgePanel() {
     <div className="container mx-auto p-4 max-w-4xl">
       <h1 className="text-2xl font-bold mb-6">{t('KnowledgePanel.title')}</h1>
 
+      {/* Sélecteur de langue */}
+      <div className="mb-4">
+        <select
+          value={selectedLanguage}
+          onChange={(e) => {
+            const newLang = e.target.value as 'fr' | 'en';
+            setSelectedLanguage(newLang);
+            router.push(`?lang=${newLang}`);
+          }}
+          className="p-2 border rounded focus:outline-none focus:ring-2 focus:ring-orange-200"
+        >
+          <option value="fr">Français</option>
+          <option value="en">English</option>
+        </select>
+      </div>
+
+      {/* Sélecteur de code-barres */}
       <div className="mb-8 p-4 bg-gray-50 rounded-lg">
         <h2 className="text-lg font-semibold mb-3">{t('KnowledgePanel.selectBarcode')}</h2>
 

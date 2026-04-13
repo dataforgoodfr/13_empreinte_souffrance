@@ -5,6 +5,8 @@ Defines custom exceptions and utilities for consistent error handling.
 
 import logging
 
+from app.schemas.open_food_facts.internal import PainReport
+
 logger = logging.getLogger("app")
 
 
@@ -41,9 +43,16 @@ class ExternalServiceException(BaseAppException):
     default_message = "External service error"
 
 
-class MissingBreedingTypeOrQuantityError(Exception):
-    """Exception raised when breeding type or quantity is missing for an animal product
+class MissingBreedingType(Exception):
+    """Exception raised when breeding type is missing for an animal product
     Catched in PainReportCalculator to return empty pain levels
     and generate specific knowledge panel."""
 
-    default_message = "Missing breeding type or quantity for animal product."
+    default_message = "Missing breeding type for animal product."
+
+
+class EggButNotFreshEgg(Exception):
+    def __init__(self, pain_report: PainReport, message: str = "Egg but not fresh egg"):
+        self.message = message
+        self.pain_report = pain_report
+        super().__init__(message)

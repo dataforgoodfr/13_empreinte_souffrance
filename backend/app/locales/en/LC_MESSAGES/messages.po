@@ -18,109 +18,6 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.17.0\n"
 
-msgid ""
-"The <a href='https://empreinte-souffrance.org/'>Welfare Footprint</a> is "
-"calculated based on research from the <a "
-"href='https://welfarefootprint.org/'>Welfare Footprint Institute</a> "
-"which developed a scientifically rigorous methodology for assessing and "
-"quantifying animal welfare in food production systems."
-msgstr ""
-
-msgid ""
-"It is unique in providing a comprehensive, biologically meaningful "
-"measure of the time animals spend in pain of varying intensities."
-msgstr ""
-
-msgid ""
-"The time in pain and details shown below are based on the following data "
-"(provided by the Open Food Facts community)"
-msgstr ""
-
-msgid ""
-"The time in pain could not be calculated for this product due to missing data "
-"in the Open Food Facts product description. You can contribute to the Open Food "
-"Facts community and help us calculate time in pain by filling in the missing information."
-msgstr ""
-
-msgid "This product does not contain any animal product supported by the Welfare footprint."
-msgstr ""
-
-
-msgid "What is the welfare footprint?"
-msgstr ""
-
-msgid "Welfare footprint"
-msgstr ""
-
-msgid ""
-"<b>Annoying</b>: Noticeable discomfort that can be ignored. Does not "
-"interfere with daily activities or motivated behaviors (exploration, "
-"comfort, maintenance). No visible expressions of pain or physiological "
-"disturbances."
-msgstr ""
-
-msgid ""
-"<b>Hurtful</b>: Persistent pain with the possibility of brief moments of "
-"forgetting during distractions. Reduces the frequency of motivated "
-"behaviors and partially alters functional capabilities, while allowing "
-"essential activities to be carried out."
-msgstr ""
-
-msgid ""
-"<b>Disabling</b>: Constant pain that takes priority over most behaviors. "
-"Prevents positive well-being and drastically alters activity level. "
-"Requires stronger painkillers and causes inattention to the environment."
-msgstr ""
-
-msgid ""
-"<b>Excruciating</b>: Extreme unbearable pain, even briefly. In humans, "
-"this would mark the threshold of suffering below which many people choose"
-" to end their lives rather than endure it. Triggers involuntary "
-"manifestations (screams, tremors, extreme agitation) and cannot be "
-"relieved."
-msgstr ""
-
-msgid "Intensity categories definitions"
-msgstr ""
-
-msgid ""
-"<b>Physical pain</b> includes all bodily suffering experienced by "
-"animals: fractures, wounds, diseases, breathing difficulties, etc."
-msgstr ""
-
-msgid ""
-"The durations below represent the suffering time caused by the production"
-" of animal-derived ingredients in this product:"
-msgstr ""
-
-msgid ""
-"You can find more details about the different types of physical suffering"
-" <a href='https://empreinte-souffrance.org/'>on our website</a>."
-msgstr ""
-
-msgid "Physical pain"
-msgstr ""
-
-msgid ""
-"<b>Psychological pain</b> includes mental suffering experienced by "
-"animals: stress, anxiety, inability to express natural behaviors, etc."
-msgstr ""
-
-msgid ""
-"You can find more details about the different types of psychological "
-"suffering <a href='https://empreinte-souffrance.org/'>on our website</a>."
-msgstr ""
-
-msgid "Psychological pain"
-msgstr ""
-
-#, python-brace-format
-msgid ""
-"<b>{animal_name} :</b><ul><li>Production system: "
-"<b>{breeding_type}</b></li><li>Quantity in the product: "
-"<b>{weight}g</b></li></ul>"
-msgstr ""
-
 #, python-brace-format
 msgid "{} day"
 msgid_plural "{} days"
@@ -181,27 +78,39 @@ msgstr ""
 msgid "Psychological"
 msgstr ""
 
-msgid "Not found"
-msgstr ""
+#, python-brace-format
+msgid "{count} {caliber} caliber egg contains on average"
+msgid_plural "{count} {caliber} caliber eggs contain on average"
+msgstr[0] "{count} {caliber} caliber egg contains on average"
+msgstr[1] "{count} {caliber} caliber eggs contain on average"
 
 #, python-brace-format
-msgid "{} Egg"
-msgid_plural "{} Eggs"
-msgstr[0] "{} Egg"
-msgstr[1] "{} Eggs"
+msgid "{} egg contains on average"
+msgid_plural "{} eggs contain on average"
+msgstr[0] "{} egg contains on average"
+msgstr[1] "{} eggs contain on average"
 
-#, python-brace-format
-msgid "{} Caliber"
+msgid "small"
 msgstr ""
 
-msgid "Small"
+msgid "medium"
 msgstr ""
 
-msgid "Medium"
+msgid "large"
 msgstr ""
 
-msgid "Large"
+msgid "extra large"
 msgstr ""
 
-msgid "Extra Large"
+
+msgid "Caged hen"
+msgstr ""
+
+msgid "Battery hen"
+msgstr ""
+
+msgid "Barn hen"
+msgstr ""
+
+msgid "Free-range hen"
 msgstr ""
