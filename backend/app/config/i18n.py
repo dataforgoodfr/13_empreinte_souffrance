@@ -1,4 +1,5 @@
 import gettext
+from functools import lru_cache
 from pathlib import Path
 from typing import Callable
 
@@ -39,5 +40,6 @@ class I18N:
         get_i18n.cache_clear()
 
 
+@lru_cache()
 def get_i18n():
     return I18N()
