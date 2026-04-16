@@ -25,7 +25,7 @@ class SimpleCache:
         self._cache: dict[str, CacheEntry] = {}
         self._lock = Lock()
 
-    def _generate_key(self, *args, **kwargs) -> str:
+    def _generate_key(self, *args: Any, **kwargs: Any) -> str:
         """Generate a cache key from arguments."""
         key_data = {"args": args, "kwargs": kwargs}
         return json.dumps(key_data, sort_keys=True, default=str)
@@ -43,10 +43,11 @@ class SimpleCache:
 
             return entry.data
 
-    def set(self, key: str, value: Any, ttl_seconds: int = 3600) -> None:
+    def set(self, key: str, value: Any, ttl_seconds: int = 3600) -> Optional[Any]:
         """Set a value in cache with TTL."""
         with self._lock:
             self._cache[key] = CacheEntry(data=value, timestamp=time.time(), ttl_seconds=ttl_seconds)
+        return None
 
     def delete(self, key: str) -> bool:
         """Delete a key from cache. Returns True if key existed."""
