@@ -1,11 +1,11 @@
 import logging
 from typing import Callable, List
 
-import httpx
 from pydantic import HttpUrl, ValidationError
 
 from app.business.open_food_facts.pain_report_calculator import PainReportCalculator
 from app.config.exceptions import ResourceNotFoundException
+from app.config.http_client import get_with_retry
 from app.enums.open_food_facts.enums import AnimalType, PainType
 from app.enums.open_food_facts.panel_texts import (
     AnimalInfoTexts,
@@ -52,10 +52,9 @@ async def get_data_from_off_v3(barcode: str, locale: str) -> ProductData:
     product_name_with_locale = f"product_name_{locale}"
 
     try:
-        async with httpx.AsyncClient() as client:
-            response = await client.get(url)
-            response.raise_for_status()  # Raise exception for 4XX/5XX responses
-            json_response = response.json()
+        response = await get_with_retry(url)
+        response.raise_for_status()  # Raise exception for 4XX/5XX responses
+        json_response = response.json()
     except Exception as e:
         logger.warning(f"Can't get product data from OFF API: {barcode}")
         raise ResourceNotFoundException(f"Can't get product data from OFF API: {barcode}") from e
@@ -110,10 +109,9 @@ async def get_data_from_off_search_a_licious(barcode: str, locale: str) -> Produ
     params = {"q": f"code:{barcode}", "fields": ",".join(tags)}
 
     try:
-        async with httpx.AsyncClient() as client:
-            response = await client.get(url, params=params)
-            response.raise_for_status()  # Raise exception for 4XX/5XX responses
-            json_response = response.json()
+        response = await get_with_retry(url, params=params)
+        response.raise_for_status()  # Raise exception for 4XX/5XX responses
+        json_response = response.json()
     except Exception as e:
         logger.warning(f"Can't get product data from OFF API: {barcode}")
         raise ResourceNotFoundException(f"Can't get product data from OFF API: {barcode}") from e

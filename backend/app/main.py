@@ -3,6 +3,7 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
 from app.api.open_food_facts.routes import router as off_router
+from app.config.http_client import close_http_client
 from app.config.logging import setup_logging
 from app.config.middlewares import (
     GlobalExceptionMiddleware,
@@ -35,6 +36,7 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+
 # Health check endpoint for Docker healthcheck
 @app.get("/health", tags=["Health"])
 async def health_check():
@@ -44,6 +46,12 @@ async def health_check():
 
 # Include API routes
 app.include_router(off_router, prefix="/off/v1", tags=["Open Food Facts"])
+
+
+# close connections
+@app.on_event("shutdown")
+async def shutdown_event():
+    await close_http_client()
 
 
 # Go in the app folder and run the server with: uvicorn main:app --reload
