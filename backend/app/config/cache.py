@@ -21,7 +21,7 @@ class SimpleCache:
     Thread-safe for concurrent access.
     """
 
-    def __init__(self):
+    def __init__(self) -> None:
         self._cache: dict[str, CacheEntry] = {}
         self._lock = Lock()
 
@@ -29,6 +29,8 @@ class SimpleCache:
         """Generate a cache key from arguments."""
         key_data = {"args": args, "kwargs": kwargs}
         return json.dumps(key_data, sort_keys=True, default=str)
+
+        return None
 
     def get(self, key: str) -> Optional[Any]:
         """Get a value from cache if it exists and is not expired."""
