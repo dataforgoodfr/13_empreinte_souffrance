@@ -117,7 +117,7 @@ async def test_get_data_from_off_http_call_exception(get_data_from_off_function:
     """Test when the OFF API returns an HTTP error"""
     barcode = "111111111"
 
-    with patch("httpx.AsyncClient.__aenter__", side_effect=httpx.ReadTimeout("Network error")):
+    with patch("app.config.http_client.client.get", side_effect=httpx.ReadTimeout("Network error")):
         with pytest.raises(ResourceNotFoundException, match=f"Can't get product data from OFF API: {barcode}"):
             await get_data_from_off_function(barcode, locale="en")
 
