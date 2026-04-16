@@ -45,8 +45,7 @@ async def get_with_retry(
             if attempt < retries - 1:
                 await asyncio.sleep(base_delay * (2**attempt))
 
-    if last_exception is not None:
-        raise last_exception
+    raise last_exception or RuntimeError("Retry failed without exception")
 
 
 async def close_http_client():
