@@ -62,32 +62,31 @@ async def knowledge_panel(request: Request, barcode: str):
 
 
 @router.get(
-    "/knowledge-panels",
+    "/knowledge-panel/",
     response_model=KnowledgePanelBatchResponse,
     response_model_exclude_none=True,
 )
 async def knowledge_panels_batch(
     request: Request,
-    barcodes: str = Query(..., description="Comma-separated list of product barcodes"),
+    code: str = Query(..., description="Comma-separated list of product barcodes"),
 ):
     """
-    API endpoint to return knowledge panels for multiple products in a single call.
+    API endpoint to return knowledge panels for one or several products in a single call.
     Processes all barcodes in parallel. Failures on individual barcodes are reported
     in the 'errors' field without affecting the other results.
 
     Args:
         request: The request object.
-        barcodes: Comma-separated barcodes, e.g. "3017620422003,3228857000166"
+        code: Comma-separated barcodes, e.g. "3017620422003" or "3017620422003,3228857000166"
 
     Returns:
         KnowledgePanelBatchResponse with 'panels' (successes) and 'errors' (failures)
     """
     locale = request.state.locale
-    barcode_list = [b.strip() for b in barcodes.split(",") if b.strip()]
+    barcode_list = [b.strip() for b in code.split(",") if b.strip()]
 
     logger.info(f"Getting knowledge panels for {len(barcode_list)} products (locale: {locale})")
 
-    # Separate barcodes into cached and to-fetch
     panels: dict = {}
     errors: dict = {}
     barcodes_to_fetch = []
@@ -101,7 +100,6 @@ async def knowledge_panels_batch(
         else:
             barcodes_to_fetch.append(barcode)
 
-    # Fetch remaining barcodes in parallel
     if barcodes_to_fetch:
         pain_reports = await get_pain_reports(barcodes=barcodes_to_fetch, locale=locale)
 

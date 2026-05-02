@@ -148,3 +148,111 @@ async def test_knowledge_panel_cache_different_barcodes(async_client: AsyncClien
 
         # Verify no additional API call was made (cache hit)
         assert instance.get.call_count == calls_after_second
+
+
+@pytest.mark.asyncio
+async def test_knowledge_panels_batch_single_barcode(async_client: AsyncClient, sample_product_data: ProductData):
+    """Test the batch endpoint with a single barcode"""
+    knowledge_panel_cache.clear()
+
+    mock_response_data = {"product": sample_product_data}
+    mock_response = AsyncMock()
+    mock_response.json = MagicMock(return_value=mock_response_data)
+    mock_response.raise_for_status = Mock(return_value=None)
+
+    with patch("app.business.open_food_facts.knowledge_panel.httpx.AsyncClient") as mock_http_client:
+        instance = mock_http_client.return_value.__aenter__.return_value
+        instance.get.return_value = mock_response
+        response = await async_client.get("/off/v1/knowledge-panel/?code=123456789")
+
+    assert response.status_code == 200
+    response_data = response.json()
+    assert "panels" in response_data
+    assert "errors" in response_data
+    assert "123456789" in response_data["panels"]
+    assert response_data["errors"] == {}
+
+
+@pytest.mark.asyncio
+async def test_knowledge_panels_batch_multiple_barcodes(async_client: AsyncClient, sample_product_data: ProductData):
+    """Test the batch endpoint with multiple barcodes"""
+    knowledge_panel_cache.clear()
+
+    mock_response_data = {"product": sample_product_data}
+    mock_response = AsyncMock()
+    mock_response.json = MagicMock(return_value=mock_response_data)
+    mock_response.raise_for_status = Mock(return_value=None)
+
+    with patch("app.business.open_food_facts.knowledge_panel.httpx.AsyncClient") as mock_http_client:
+        instance = mock_http_client.return_value.__aenter__.return_value
+        instance.get.return_value = mock_response
+        response = await async_client.get("/off/v1/knowledge-panel/?code=111111111,222222222,333333333")
+
+    assert response.status_code == 200
+    response_data = response.json()
+    assert len(response_data["panels"]) == 3
+    assert "111111111" in response_data["panels"]
+    assert "222222222" in response_data["panels"]
+    assert "333333333" in response_data["panels"]
+    assert response_data["errors"] == {}
+
+
+@pytest.mark.asyncio
+async def test_knowledge_panels_batch_partial_failure(async_client: AsyncClient, sample_product_data: ProductData):
+    """Test that a failure on one barcode does not affect the others"""
+    knowledge_panel_cache.clear()
+
+    success_response = AsyncMock()
+    success_response.json = MagicMock(return_value={"product": sample_product_data})
+    success_response.raise_for_status = Mock(return_value=None)
+
+    error_response = AsyncMock()
+    error_response.json = MagicMock(return_value={})  # No "product" key triggers ResourceNotFoundException
+    error_response.raise_for_status = Mock(return_value=None)
+
+    # Return success for first barcode, error for second
+    responses_by_barcode = {
+        "111111111": success_response,
+        "999999999": error_response,
+    }
+
+    async def mock_get(url, *args, **kwargs):
+        for barcode, resp in responses_by_barcode.items():
+            if barcode in url:
+                return resp
+        return error_response
+
+    with patch("app.business.open_food_facts.knowledge_panel.httpx.AsyncClient") as mock_http_client:
+        instance = mock_http_client.return_value.__aenter__.return_value
+        instance.get.side_effect = mock_get
+        response = await async_client.get("/off/v1/knowledge-panel/?code=111111111,999999999")
+
+    assert response.status_code == 200
+    response_data = response.json()
+    assert "111111111" in response_data["panels"]
+    assert "999999999" in response_data["errors"]
+
+
+@pytest.mark.asyncio
+async def test_knowledge_panels_batch_uses_cache(async_client: AsyncClient, sample_product_data: ProductData):
+    """Test that the batch endpoint reuses cache from previous calls"""
+    knowledge_panel_cache.clear()
+
+    mock_response_data = {"product": sample_product_data}
+    mock_response = AsyncMock()
+    mock_response.json = MagicMock(return_value=mock_response_data)
+    mock_response.raise_for_status = Mock(return_value=None)
+
+    with patch("app.business.open_food_facts.knowledge_panel.httpx.AsyncClient") as mock_http_client:
+        instance = mock_http_client.return_value.__aenter__.return_value
+        instance.get.return_value = mock_response
+
+        # First call - cache miss for both
+        response1 = await async_client.get("/off/v1/knowledge-panel/?code=111111111,222222222")
+        assert response1.status_code == 200
+        calls_after_first = instance.get.call_count
+
+        # Second call - cache hit for both, no new API calls expected
+        response2 = await async_client.get("/off/v1/knowledge-panel/?code=111111111,222222222")
+        assert response2.status_code == 200
+        assert instance.get.call_count == calls_after_first
