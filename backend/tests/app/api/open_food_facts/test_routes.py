@@ -145,7 +145,7 @@ async def test_knowledge_panel_cache_different_barcodes(async_client: AsyncClien
         assert response1_cached.status_code == 200
 
         # Verify no additional API call was made (cache hit)
-        assert instance.get.call_count == calls_after_second
+        assert mock_get.call_count == calls_after_second
 
 
 @pytest.mark.asyncio
@@ -158,9 +158,11 @@ async def test_knowledge_panels_batch_single_barcode(async_client: AsyncClient, 
     mock_response.json = MagicMock(return_value=mock_response_data)
     mock_response.raise_for_status = Mock(return_value=None)
 
-    with patch("app.business.open_food_facts.knowledge_panel.httpx.AsyncClient") as mock_http_client:
-        instance = mock_http_client.return_value.__aenter__.return_value
-        instance.get.return_value = mock_response
+    with patch(
+        "app.business.open_food_facts.knowledge_panel.get_with_retry",
+        new_callable=AsyncMock,
+    ) as mock_get:
+        mock_get.return_value = mock_response
         response = await async_client.get("/off/v1/knowledge-panel/?code=123456789")
 
     assert response.status_code == 200
@@ -181,9 +183,11 @@ async def test_knowledge_panels_batch_multiple_barcodes(async_client: AsyncClien
     mock_response.json = MagicMock(return_value=mock_response_data)
     mock_response.raise_for_status = Mock(return_value=None)
 
-    with patch("app.business.open_food_facts.knowledge_panel.httpx.AsyncClient") as mock_http_client:
-        instance = mock_http_client.return_value.__aenter__.return_value
-        instance.get.return_value = mock_response
+    with patch(
+        "app.business.open_food_facts.knowledge_panel.get_with_retry",
+        new_callable=AsyncMock,
+    ) as mock_get:
+        mock_get.return_value = mock_response
         response = await async_client.get("/off/v1/knowledge-panel/?code=111111111,222222222,333333333")
 
     assert response.status_code == 200
@@ -220,9 +224,11 @@ async def test_knowledge_panels_batch_partial_failure(async_client: AsyncClient,
                 return resp
         return error_response
 
-    with patch("app.business.open_food_facts.knowledge_panel.httpx.AsyncClient") as mock_http_client:
-        instance = mock_http_client.return_value.__aenter__.return_value
-        instance.get.side_effect = mock_get
+    with patch(
+        "app.business.open_food_facts.knowledge_panel.get_with_retry",
+        new_callable=AsyncMock,
+    ) as mock_get_retry:
+        mock_get_retry.side_effect = mock_get
         response = await async_client.get("/off/v1/knowledge-panel/?code=111111111,999999999")
 
     assert response.status_code == 200
@@ -241,16 +247,18 @@ async def test_knowledge_panels_batch_uses_cache(async_client: AsyncClient, samp
     mock_response.json = MagicMock(return_value=mock_response_data)
     mock_response.raise_for_status = Mock(return_value=None)
 
-    with patch("app.business.open_food_facts.knowledge_panel.httpx.AsyncClient") as mock_http_client:
-        instance = mock_http_client.return_value.__aenter__.return_value
-        instance.get.return_value = mock_response
+    with patch(
+        "app.business.open_food_facts.knowledge_panel.get_with_retry",
+        new_callable=AsyncMock,
+    ) as mock_get:
+        mock_get.return_value = mock_response
 
         # First call - cache miss for both
         response1 = await async_client.get("/off/v1/knowledge-panel/?code=111111111,222222222")
         assert response1.status_code == 200
-        calls_after_first = instance.get.call_count
+        calls_after_first = mock_get.call_count
 
         # Second call - cache hit for both, no new API calls expected
         response2 = await async_client.get("/off/v1/knowledge-panel/?code=111111111,222222222")
         assert response2.status_code == 200
-        assert instance.get.call_count == calls_after_first
+        assert mock_get.call_count == calls_after_first
