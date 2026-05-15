@@ -1,7 +1,11 @@
 from fastapi import APIRouter, Query, Response
 from starlette.requests import Request
 
-from app.business.open_food_facts.knowledge_panel import get_knowledge_panel_response, get_pain_reports, get_pain_reports_batch
+from app.business.open_food_facts.knowledge_panel import (
+    get_knowledge_panel_response,
+    get_pain_reports,
+    get_pain_reports_batch,
+)
 from app.config.cache import knowledge_panel_cache
 from app.config.exceptions import ExternalServiceException, ResourceNotFoundException
 from app.config.logging import setup_logging
@@ -110,7 +114,9 @@ async def knowledge_panels_batch(
                 logger.warning(f"Failed to get pain report for product {barcode}: {result}")
                 errors[barcode] = str(result)
             else:
-                response = get_knowledge_panel_response(pain_report=result, translator=request.state.translator)
+                response = get_knowledge_panel_response(
+                    pain_reports=result, translator=request.state.translator, locale=locale
+                )
                 cache_key = f"knowledge_panel:{barcode}:{locale}"
                 knowledge_panel_cache.set(cache_key, response, ttl_seconds=86400)
                 panels[barcode] = response

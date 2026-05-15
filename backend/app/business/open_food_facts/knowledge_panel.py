@@ -2,14 +2,12 @@ import asyncio
 import logging
 from typing import Callable, List
 
-import httpx
 from pydantic import ValidationError
 
 from app.business.open_food_facts.egg_knowledge_panel_generator import EggKnowledgePanelGenerator
 from app.business.open_food_facts.pain_report_calculator import PainReportCalculator
 from app.config.exceptions import EggButNotFreshEgg, ResourceNotFoundException
 from app.config.http_client import get_with_retry
-
 from app.enums.open_food_facts.enums import AnimalType
 from app.schemas.open_food_facts.external import ProductData, ProductResponse, ProductResponseSearchALicious
 from app.schemas.open_food_facts.internal import (
@@ -178,7 +176,7 @@ def get_generator(
     raise ResourceNotFoundException(f"Unsupported product type: {product_type}")
 
 
-async def get_pain_reports_batch(barcodes: list[str], locale: str) -> dict[str, PainReport | BaseException]:
+async def get_pain_reports_batch(barcodes: list[str], locale: str) -> dict[str, list[PainReport] | BaseException]:
     """
     Compute pain reports for multiple products in parallel.
 
