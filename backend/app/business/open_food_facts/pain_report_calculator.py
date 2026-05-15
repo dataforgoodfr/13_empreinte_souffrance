@@ -4,7 +4,7 @@ from app.business.open_food_facts.breeding_type_calculator import BreedingTypeCa
 from app.business.open_food_facts.product_type_calculator import get_product_type
 from app.business.open_food_facts.quantity_calculator import QuantityCalculator
 from app.business.open_food_facts.unit_pain_loader import PAIN_PER_EGG_IN_SECONDS
-from app.config.exceptions import MissingBreedingTypeOrQuantityError, ResourceNotFoundException
+from app.config.exceptions import MissingBreedingType, ResourceNotFoundException
 from app.enums.open_food_facts.enums import (
     AnimalType,
     EggCaliber,
@@ -87,9 +87,10 @@ class PainReportCalculator:
             # not managed
             return [
                 PainReport(
-                    animals=[],
+                    animal_pain_reports=[],
                     product_name=self.product_data.product_name,
                     product_image_url=self.product_data.image_url,
+                    product_type=self.product_type,
                 )
             ]
 
@@ -104,7 +105,7 @@ class PainReportCalculator:
             for breeding_type_and_quantity in breeding_types_and_quantity:
                 try:
                     pain_levels = self._generate_pain_levels_for_animal(animal_type, breeding_type_and_quantity)
-                except MissingBreedingTypeOrQuantityError:
+                except MissingBreedingType:
                     pain_levels = []
 
                 animal_report = AnimalPainReport(
@@ -113,9 +114,10 @@ class PainReportCalculator:
                     breeding_type_and_quantity=breeding_type_and_quantity,
                 )
                 pain_report = PainReport(
-                    animals=[animal_report],
+                    animal_pain_reports=[animal_report],
                     product_name=self.product_data.product_name,
                     product_image_url=self.product_data.image_url,
+                    product_type=self.product_type,
                 )
                 pain_reports.append(pain_report)
 
@@ -271,13 +273,17 @@ class PainReportCalculator:
         breeding_type = breeding_type_and_quantity.breeding_type
         quantity = breeding_type_and_quantity.quantity
 
-        if breeding_type is None or quantity is None:
-            raise MissingBreedingTypeOrQuantityError()
+        if breeding_type is None:
+            raise MissingBreedingType()
 
         if animal_type == AnimalType.LAYING_HEN:
             try:
-                caliber = quantity.caliber or EggCaliber.AVERAGE
-                count = quantity.count
+                if quantity:
+                    caliber = quantity.caliber or EggCaliber.AVERAGE
+                    count = quantity.count
+                else:
+                    caliber = EggCaliber.AVERAGE
+                    count = 1
 
                 # Get the time in pain per egg for this combination of parameters
                 # Default to 0 if any level in the hierarchy is missing

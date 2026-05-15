@@ -2,33 +2,17 @@ import logging
 from typing import Callable, List
 
 import httpx
-from pydantic import HttpUrl, ValidationError
+from pydantic import ValidationError
 
+from app.business.open_food_facts.egg_knowledge_panel_generator import EggKnowledgePanelGenerator
 from app.business.open_food_facts.pain_report_calculator import PainReportCalculator
-from app.config.exceptions import ResourceNotFoundException
-from app.enums.open_food_facts.enums import AnimalType, PainType
-from app.enums.open_food_facts.panel_texts import (
-    AnimalInfoTexts,
-    DurationTexts,
-    IntensityDefinitionTexts,
-    PanelTextManager,
-    PhysicalPainTexts,
-    PsychologicalPainTexts,
-    QuantityTexts,
-    RootPanelTexts,
-)
+from app.config.exceptions import EggButNotFreshEgg, ResourceNotFoundException
+from app.enums.open_food_facts.enums import AnimalType
 from app.schemas.open_food_facts.external import ProductData, ProductResponse, ProductResponseSearchALicious
 from app.schemas.open_food_facts.internal import (
-    AnimalPainReport,
-    BreedingTypeAndQuantity,
-    Element,
     KnowledgePanelResponse,
     PainReport,
-    Panel,
-    PanelElement,
-    ProductInfo,
-    TextElement,
-    TitleElement,
+    ProductType,
 )
 
 logger = logging.getLogger("app")
@@ -52,12 +36,17 @@ async def get_data_from_off_v3(barcode: str, locale: str) -> ProductData:
     product_name_with_locale = f"product_name_{locale}"
 
     try:
-        async with httpx.AsyncClient() as client:
+        async with httpx.AsyncClient(
+            headers={"User-Agent": "my-app/1.0"},
+            follow_redirects=True,
+            timeout=20.0,
+        ) as client:
             response = await client.get(url)
-            response.raise_for_status()  # Raise exception for 4XX/5XX responses
+            response.raise_for_status()
             json_response = response.json()
+
     except Exception as e:
-        logger.warning(f"Can't get product data from OFF API: {barcode}")
+        logger.warning(f"OFF API error: {type(e).__name__}: {e}")
         raise ResourceNotFoundException(f"Can't get product data from OFF API: {barcode}") from e
 
     if product := json_response.get("product"):
@@ -115,7 +104,7 @@ async def get_data_from_off_search_a_licious(barcode: str, locale: str) -> Produ
             response.raise_for_status()  # Raise exception for 4XX/5XX responses
             json_response = response.json()
     except Exception as e:
-        logger.warning(f"Can't get product data from OFF API: {barcode}")
+        logger.warning(f"Can't get product data from OFF search-a-licious API: {barcode}")
         raise ResourceNotFoundException(f"Can't get product data from OFF API: {barcode}") from e
 
     hits = json_response.get("hits")
@@ -151,15 +140,50 @@ async def get_pain_reports(barcode: str, locale: str) -> List[PainReport]:
     # Get the product data
     product_data = await get_data_from_off_v3(barcode, locale)
 
-    # Create calculator with the retrieved data
-    calculator = PainReportCalculator(product_data)
+    try:
+        # Create calculator with the retrieved data
+        calculator = PainReportCalculator(product_data)
 
+    except EggButNotFreshEgg as e:
+        return [e.pain_report]
     # Generate and return the pain report
-    return calculator.get_pain_reports()
+    # For no fresh chicken eggs return empty list to display a specific knowledge panel
+    pain_reports = calculator.get_pain_reports()
+
+    return pain_reports
+
+
+def resolve_product_type(pain_reports: List[PainReport]) -> ProductType:
+    """
+    Determine the product type from pain reports.
+    """
+    if not pain_reports:
+        raise ResourceNotFoundException("No pain reports")
+
+    product_type = pain_reports[0].product_type
+
+    return product_type
+
+
+def get_generator(
+    pain_reports: List[PainReport], product_type: ProductType, locale: str, translator: tuple[Callable, Callable]
+):
+    """
+    Return the appropriate generator depending on product type.
+    """
+
+    if product_type.is_mixed is False and AnimalType.LAYING_HEN in product_type.animal_types:
+        return EggKnowledgePanelGenerator(
+            pain_reports=pain_reports,
+            locale=locale,
+            translator=translator,
+        )
+
+    raise ResourceNotFoundException(f"Unsupported product type: {product_type}")
 
 
 def get_knowledge_panel_response(
-    pain_reports: List[PainReport], translator: tuple[Callable, Callable]
+    pain_reports: List[PainReport], translator: tuple[Callable, Callable], locale: str
 ) -> KnowledgePanelResponse:
     """
     Create a complete knowledge panel response with all panels related to suffering footprint.
@@ -172,395 +196,8 @@ def get_knowledge_panel_response(
         A complete KnowledgePanelResponse containing root panel, intensity definitions,
         physical pain data and psychological pain data
     """
-    panel_generator = KnowledgePanelGenerator(pain_reports, translator)
+
+    product_type = resolve_product_type(pain_reports)
+    panel_generator = get_generator(pain_reports, product_type, locale, translator)
+
     return panel_generator.get_response()
-
-
-class KnowledgePanelGenerator:
-    """
-    Class responsible for generating knowledge panel responses based on pain reports.
-    """
-
-    def __init__(self, pain_reports: List[PainReport], translator: tuple[Callable, Callable]):
-        """
-        Initialize the generator with a pain report and translator.
-
-        Args:
-            pain_reports: A list of pain reports containing animal data and pain durations,
-                managing the case of multiple results depending on product batches
-            translator: The translation function to use for i18n
-        """
-        # Use the first report or an empty one if no reports
-        # to be modified when managing multiple reports depending on product batches
-        self.pain_report = pain_reports[0] if pain_reports else PainReport(product_image_url=None, product_name=None)
-        self.text_manager = PanelTextManager(translator)
-        self._ = translator[0]
-        self._n = translator[1]
-
-    def get_response(self) -> KnowledgePanelResponse:
-        """
-        Create a complete knowledge panel response with all suffering footprint panels.
-        Includes detailed panels only if pain data is available.
-        Returns:
-            A complete KnowledgePanelResponse with all necessary panels
-        """
-        # Defining which detailed panels are to be displayed
-        if self.pain_report != PainReport(product_image_url=None, product_name=None):
-            detailed_panels = ["intensities_definitions", "physical_pain", "psychological_pain"]
-        else:
-            detailed_panels = []
-
-        # root panel depending on pain report data and detailed panels
-        panels = {"root": self._create_root_panel(detailed_panels)}
-
-        # build detailed panels that where defined
-        for panel_name, panel_creator in [
-            ("intensities_definitions", self._create_intensities_definitions_panel),
-            ("physical_pain", self._create_physical_pain_panel),
-            ("psychological_pain", self._create_psychological_pain_panel),
-        ]:
-            if panel_name in detailed_panels:
-                panels.update({panel_name: panel_creator()})
-
-        return KnowledgePanelResponse(
-            panels=panels,
-            product=ProductInfo(
-                image_url=self.pain_report.product_image_url,
-                name=self.pain_report.product_name,
-            ),
-        )
-
-    def _create_root_panel(self, detailed_panels: list[str]) -> Panel:
-        """
-        Create the root panel showing general information about the suffering footprint.
-
-        This panel includes an explanation of the suffering footprint, the breeding
-        type and animal product quantity information, and links to the other panels.
-        It handles different cases of pain report data to display appropriate messages.
-
-        Returns:
-            A panel with general information and links to detailed panels
-        """
-        animals = self.pain_report.animals
-
-        # Initialize the panel with generic information message about the project
-        elements = [
-            self._get_text_element(self.text_manager.get_text(RootPanelTexts.WELFARE_FOOTPRINT_INTRO)),
-            self._get_text_element(self.text_manager.get_text(RootPanelTexts.WELFARE_FOOTPRINT_UNIQUENESS)),
-        ]
-
-        # If all animal pain reports contain no pain levels, add a missing data message
-        if all(not animal.pain_levels for animal in animals):
-            elements.append(self._get_text_element(self.text_manager.get_text(RootPanelTexts.MISSING_DATA)))
-
-        # If pain levels are available, add a message explaining suffering is based on breeding type and quantity
-        else:
-            elements.append(self._get_text_element(self.text_manager.get_text(RootPanelTexts.DATA_BASED_ON)))
-
-        # Add breeding type and quantity from each animal pain report aven if not avalable
-        for animal in animals:
-            elements.append(
-                self._get_text_element(
-                    self._get_breeding_type_and_quantity_html(animal.animal_type, animal.breeding_type_and_quantity)
-                )
-            )
-
-        # Build detailed panels if existing
-        for detailed_panel in detailed_panels:
-            elements.extend(
-                [
-                    Element(element_type="panel", panel_element=PanelElement(panel_id=detailed_panel)),
-                ]
-            )
-
-        # Create and return the root panel
-        return Panel(
-            elements=elements,
-            level="info",
-            title_element=TitleElement(
-                icon_url=HttpUrl("https://iili.io/3o05WOX.png"),
-                name="suffering-footprint",
-                subtitle=self.text_manager.get_text(RootPanelTexts.PANEL_SUBTITLE),
-                title=self.text_manager.get_text(RootPanelTexts.PANEL_TITLE),
-            ),
-            topics=["suffering-footprint"],
-        )
-
-    def _create_intensities_definitions_panel(self) -> Panel:
-        """
-        Create a panel explaining the different pain intensity levels.
-
-        This panel provides detailed definitions for each pain intensity level:
-        Agonie (Excruciating), Souffrance (Disabling), Douleur (Hurtful), and Inconfort (Annoying).
-        The definitions help users understand the severity of each level.
-
-        Returns:
-            A panel with definitions for each pain intensity level
-        """
-        return Panel(
-            elements=[
-                self._get_text_element(self.text_manager.get_text(IntensityDefinitionTexts.ANNOYING_DEFINITION)),
-                self._get_text_element(self.text_manager.get_text(IntensityDefinitionTexts.HURTFUL_DEFINITION)),
-                self._get_text_element(self.text_manager.get_text(IntensityDefinitionTexts.DISABLING_DEFINITION)),
-                self._get_text_element(self.text_manager.get_text(IntensityDefinitionTexts.EXCRUCIATING_DEFINITION)),
-            ],
-            level="info",
-            title_element=TitleElement(
-                title=self.text_manager.get_text(IntensityDefinitionTexts.PANEL_TITLE),
-            ),
-            topics=["suffering-footprint"],
-        )
-
-    def _get_animal_pain_for_panel(self, animal_type: AnimalType, pain_type: PainType) -> Element | None:
-        """
-        Create a text element with pain information for a specific animal and pain type.
-
-        Args:
-            animal_type: The animal type to filter for
-            pain_type: The type of pain to display (physical or psychological)
-
-        Returns:
-            A text element with the formatted HTML, or None if the animal has no data
-        """
-        # Find the animal in the pain report
-        animal_data = next((animal for animal in self.pain_report.animals if animal.animal_type == animal_type), None)
-
-        if not animal_data:
-            return None
-
-        # Generate HTML for this animal
-        animal_html = self._generate_animal_pain_html(animal_pain_report=animal_data, pain_type=pain_type)
-
-        # Return the text element
-        return self._get_text_element(animal_html)
-
-    def _create_physical_pain_panel(self) -> Panel:
-        """
-        Create a panel displaying physical pain information by animal type.
-
-        Returns:
-            A panel with physical pain information organized by animal
-        """
-        elements = [
-            self._get_text_element(self.text_manager.get_text(PhysicalPainTexts.DEFINITION)),
-            self._get_text_element(self.text_manager.get_text(PhysicalPainTexts.DURATION_EXPLANATION)),
-        ]
-
-        # Add each animal from the pain report
-        for animal in self.pain_report.animals:
-            animal_element = self._get_animal_pain_for_panel(animal.animal_type, PainType.PHYSICAL)
-            if animal_element:
-                elements.append(animal_element)
-
-        # Add footer
-        elements.append(self._get_text_element(self.text_manager.get_text(PhysicalPainTexts.MORE_DETAILS)))
-
-        return Panel(
-            elements=elements,
-            level="info",
-            title_element=TitleElement(
-                name="physical-pain",
-                title=self.text_manager.get_text(PhysicalPainTexts.PANEL_TITLE),
-            ),
-            topics=["suffering-footprint"],
-        )
-
-    def _create_psychological_pain_panel(self) -> Panel:
-        """
-        Create a panel displaying psychological pain information by animal type.
-        """
-        elements = [
-            self._get_text_element(self.text_manager.get_text(PsychologicalPainTexts.DEFINITION)),
-            self._get_text_element(self.text_manager.get_text(PsychologicalPainTexts.DURATION_EXPLANATION)),
-        ]
-
-        # Add each animal from the pain report
-        for animal in self.pain_report.animals:
-            animal_element = self._get_animal_pain_for_panel(animal.animal_type, PainType.PSYCHOLOGICAL)
-            if animal_element:
-                elements.append(animal_element)
-
-        # Add footer
-        elements.append(self._get_text_element(self.text_manager.get_text(PsychologicalPainTexts.MORE_DETAILS)))
-
-        return Panel(
-            elements=elements,
-            level="info",
-            title_element=TitleElement(
-                name="psychological-pain",
-                title=self.text_manager.get_text(PsychologicalPainTexts.PANEL_TITLE),
-            ),
-            topics=["suffering-footprint"],
-        )
-
-    def _get_text_element(self, text: str) -> Element:
-        """
-        Create a text element with HTML content for use in a panel.
-
-        Args:
-            text: The HTML content as a string
-
-        Returns:
-            An Element object with the text content properly wrapped
-        """
-        return Element(element_type="text", text_element=TextElement(html=text))
-
-    def _get_breeding_type_and_quantity_html(
-        self, animal_type: AnimalType, breeding_type_and_quantity: BreedingTypeAndQuantity
-    ) -> str:
-        """
-        Format animal type, breeding type and product quantity information as HTML,
-        using display methods defined for each object in enums
-
-        Args:
-            animal_type: The type of animal
-            breeding_type_and_quantity: The breeding type and quantity information
-              that can contain None information
-
-        Returns: a formatted HTML string, eg. for laying hens :
-            'Animal type : Laying hen'
-            'Production system: Furnished cage' (or 'Not found')
-            'Quantity of egg in the product: 12 Eggs - Large Caliber'
-              (or 'Not found')
-        """
-        breeding_type = breeding_type_and_quantity.breeding_type
-        quantity = breeding_type_and_quantity.quantity
-
-        if breeding_type:
-            breeding_type_text = breeding_type.translated_name(self._)
-        else:
-            breeding_type_text = self.text_manager.get_text(AnimalInfoTexts.NOT_FOUND)
-
-        if quantity:
-            quantity_text = quantity.translated_display(
-                _=self._, text_manager=self.text_manager, quantity_texts=QuantityTexts
-            )
-        else:
-            quantity_text = self.text_manager.get_text(AnimalInfoTexts.NOT_FOUND)
-
-        return self.text_manager.format_text(
-            AnimalInfoTexts.ANIMAL_INFO_TEMPLATE,
-            animal_name=animal_type.translated_name(self._),
-            breeding_type=breeding_type_text,
-            quantity=quantity_text,
-        )
-
-    def _format_duration(self, seconds: int) -> str:
-        """
-        Format a duration in seconds into a human-readable string.
-        """
-        if seconds <= 0:
-            return self.text_manager.get_text(DurationTexts.ZERO_SECOND)
-
-        days, hours, minutes, sec = self._round_duration(seconds)
-
-        parts = []
-
-        if days:
-            parts.append(
-                self.text_manager.get_plural_text(DurationTexts.DAY_SINGULAR, DurationTexts.DAY_PLURAL, days).format(
-                    days
-                )
-            )
-        if hours:
-            parts.append(
-                self.text_manager.get_plural_text(DurationTexts.HOUR_SINGULAR, DurationTexts.HOUR_PLURAL, hours).format(
-                    hours
-                )
-            )
-        if minutes:
-            parts.append(
-                self.text_manager.get_plural_text(
-                    DurationTexts.MINUTE_SINGULAR, DurationTexts.MINUTE_PLURAL, minutes
-                ).format(minutes)
-            )
-        if sec:
-            parts.append(
-                self.text_manager.get_plural_text(
-                    DurationTexts.SECOND_SINGULAR, DurationTexts.SECOND_PLURAL, sec
-                ).format(sec)
-            )
-
-        return (
-            " ".join(parts)
-            if parts
-            else self.text_manager.get_plural_text(
-                DurationTexts.SECOND_SINGULAR, DurationTexts.SECOND_PLURAL, 0
-            ).format(0)
-        )
-
-    def _round_duration(self, seconds: int) -> tuple[int, int, int, int]:
-        """
-        Round the duration for better readability in the panels.
-            - If the duration is more than 1 minute, we round to 10 seconds
-            - If the duration is more than 2 minutes, we round to minutes
-            - If the duration is more than 1 hour, we round to 10 minutes
-            - If the duration is more than 2 hours, we round to hours
-            - If the duration is more than 2 days, we round to days
-        """
-        minutes, sec = divmod(seconds, 60)
-        hours, minutes = divmod(minutes, 60)
-        days, hours = divmod(hours, 24)
-
-        # round if duration is more than 2 days
-        if days >= 2:
-            return round(seconds / 86400), 0, 0, 0
-
-        # round if duration is more than 1 day
-        if days >= 1:
-            return days, round((seconds - days * 86400) / 3600), 0, 0
-
-        # round if duration is more than 2 hours
-        if hours >= 2:
-            return days, hours, 0, 0
-
-        # round if duration is more than 1 hour
-        if hours >= 1:
-            return days, hours, round((seconds - hours * 3600 - days * 86400) / 600) * 10, 0
-
-        # round if duration is more than 2 minutes
-        if minutes >= 2:
-            return days, hours, minutes, 0
-
-        # round if duration is more than 1 minute
-        if minutes >= 1:
-            return days, hours, minutes, round(sec / 10) * 10
-
-        else:
-            return days, hours, minutes, sec
-
-    def _generate_animal_pain_html(self, animal_pain_report: AnimalPainReport, pain_type: PainType) -> str:
-        """
-        Generate HTML for a single animal's pain levels of a specific type.
-
-        Args:
-            animal_pain_report: The animal pain report containing all pain data
-            pain_type: Type of pain to filter by (physical or psychological)
-
-        Returns:
-            HTML string for this animal's pain levels
-        """
-        # Get the pain levels for this pain_type for this animal (sorted by intensity)
-        pain_levels = animal_pain_report.get_pain_levels_by_type(pain_type)
-
-        # If no pain of this type, return empty string
-        if not pain_levels:
-            return ""
-
-        # Start with animal name and breeding type
-        animal_type = animal_pain_report.animal_type
-        breeding_type = animal_pain_report.breeding_type_and_quantity.breeding_type
-        if not breeding_type:
-            raise ValueError("Missing breeding type while generating HTML for animal pain report")
-        html_parts = [f"<b>{animal_type.translated_name(self._)} - {breeding_type.translated_name(self._)}</b>"]
-
-        # Add pain levels in standardized order
-        html_parts.append("<ul>")
-        for pain_level_data in pain_levels:
-            intensity_label = pain_level_data.pain_intensity.translated_name(self._)
-            duration = self._format_duration(pain_level_data.seconds_in_pain)
-
-            html_parts.append(f"<li><b>{intensity_label}</b> : {duration}</li>")
-        html_parts.append("</ul>")
-
-        return "".join(html_parts)

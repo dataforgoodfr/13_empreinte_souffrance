@@ -50,7 +50,9 @@ async def knowledge_panel(request: Request, barcode: str):
         # Will be handled by the middleware, no need for additional processing here
         raise
 
-    response = get_knowledge_panel_response(pain_reports=pain_reports, translator=request.state.translator)
+    response = get_knowledge_panel_response(
+        pain_reports=pain_reports, locale=locale, translator=request.state.translator
+    )
 
     # Cache the response for 1 day (86400 seconds)
     knowledge_panel_cache.set(cache_key, response, ttl_seconds=86400)

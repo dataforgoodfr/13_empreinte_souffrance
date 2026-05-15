@@ -44,9 +44,10 @@ class AnimalPainReport(BaseModel):
 
 
 class PainReport(BaseModel):
-    animals: List[AnimalPainReport] = []
+    animal_pain_reports: List[AnimalPainReport] = []
     product_name: str | None
     product_image_url: HttpUrl | None = None
+    product_type: ProductType
 
 
 # Knowledge panel response models
