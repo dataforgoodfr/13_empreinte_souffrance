@@ -7,6 +7,8 @@ from pydantic import ValidationError
 from app.business.open_food_facts.egg_knowledge_panel_generator import EggKnowledgePanelGenerator
 from app.business.open_food_facts.pain_report_calculator import PainReportCalculator
 from app.config.exceptions import EggButNotFreshEgg, ResourceNotFoundException
+from app.config.http_client import get_with_retry
+
 from app.enums.open_food_facts.enums import AnimalType
 from app.schemas.open_food_facts.external import ProductData, ProductResponse, ProductResponseSearchALicious
 from app.schemas.open_food_facts.internal import (
@@ -36,15 +38,9 @@ async def get_data_from_off_v3(barcode: str, locale: str) -> ProductData:
     product_name_with_locale = f"product_name_{locale}"
 
     try:
-        async with httpx.AsyncClient(
-            headers={"User-Agent": "my-app/1.0"},
-            follow_redirects=True,
-            timeout=20.0,
-        ) as client:
-            response = await client.get(url)
-            response.raise_for_status()
-            json_response = response.json()
-
+        response = await get_with_retry(url)
+        response.raise_for_status()  # Raise exception for 4XX/5XX responses
+        json_response = response.json()
     except Exception as e:
         logger.warning(f"OFF API error: {type(e).__name__}: {e}")
         raise ResourceNotFoundException(f"Can't get product data from OFF API: {barcode}") from e
@@ -99,10 +95,9 @@ async def get_data_from_off_search_a_licious(barcode: str, locale: str) -> Produ
     params = {"q": f"code:{barcode}", "fields": ",".join(tags)}
 
     try:
-        async with httpx.AsyncClient() as client:
-            response = await client.get(url, params=params)
-            response.raise_for_status()  # Raise exception for 4XX/5XX responses
-            json_response = response.json()
+        response = await get_with_retry(url, params=params)
+        response.raise_for_status()  # Raise exception for 4XX/5XX responses
+        json_response = response.json()
     except Exception as e:
         logger.warning(f"Can't get product data from OFF search-a-licious API: {barcode}")
         raise ResourceNotFoundException(f"Can't get product data from OFF API: {barcode}") from e

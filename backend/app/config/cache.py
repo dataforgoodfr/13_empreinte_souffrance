@@ -21,7 +21,7 @@ class SimpleCache:
     Thread-safe for concurrent access.
     """
 
-    def __init__(self):
+    def __init__(self) -> None:
         self._cache: dict[str, CacheEntry] = {}
         self._lock = Lock()
 
