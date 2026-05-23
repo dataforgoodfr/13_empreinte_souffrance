@@ -1,13 +1,15 @@
+import ArrowDown from '@/app/[locale]/ui/_logo/ArrowDown';
 import { getI18n } from '@/locales/server';
 import Image from 'next/image';
-import ArrowDown from '@/app/[locale]/ui/_logo/ArrowDown';
 import SectionTitle from '../_components/section-title';
+import PressWithLogos from '../_components/press-with-logos';
 
 export default async function HeroPressSection() {
   const t = await getI18n();
 
   return (
     <header className="relative flex flex-col items-center justify-between w-full overflow-hidden bg-gradient-to-b from-pink-2 to-pink-3">
+      <PressWithLogos />
       <SectionTitle
         image_path="/full-bars_egg.svg"
         image_alt="egg shaped logo with a hen behind bars"
