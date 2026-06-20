@@ -109,14 +109,17 @@ class EggKnowledgePanelGenerator:
     Class responsible for generating knowledge panel responses based on pain reports.
     """
 
-    def __init__(self, pain_reports: List[PainReport], locale: str, translator: tuple[Callable, Callable]):
+    def __init__(
+        self, pain_reports: List[PainReport], locale: str, translator: tuple[Callable, Callable], version: int
+    ):
         self.pain_reports = pain_reports
         self.text_manager = PanelTextManager(translator)
         self._, self._n = translator
         self.locale = locale
+        self.version = version
 
         self.env = Environment(
-            loader=FileSystemLoader(Path(__file__).resolve().parent / "html_templates"),
+            loader=FileSystemLoader(Path(__file__).resolve().parent / "html_templates" / str(version)),
             autoescape=True,
         )
 

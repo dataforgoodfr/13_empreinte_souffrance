@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+        html {
+            font-size: 14px;
+        }
+        </style>
+    </head>
+    <body>
+
+<div style="width:100%;                    padding:0;                    box-sizing:border-box;                    font-family:Public Sans, Helvetica, Roboto, Arial, sans-serif;                    color:#222">            <!-- Header: cage icon + title -->
+	<div style="display:flex;                        font-size:1.14rem;                        padding:1rem;                        box-sizing:border-box">
+		<div style="flex:0 0 auto; margin-right:1rem;">
+			<img src="{{ kp_images_base_url }}/{{ breeding_type_icon }}" alt="bt_icon" style="height:5rem;">
+		</div>
+			{{ breeeding_type_text }}<br/>
+			{{ quantity_text }}
+	</div>
+</div>
+
+
+
+<ul>
+	<li>Souffrance physique<ul>
+		<li>Souffrance extrême : <strong>{{ physical_pain_excruciating }}</strong></li>
+		<li>Souffrance : <strong>{{ physical_pain_disabling }}</strong></li>
+		<li>Douleur : <strong>{{ physical_pain_hurtful }}</strong></li>
+		<li>Inconfort : <strong>{{ physical_pain_annoying }}</strong></li>
+	</ul></li>
+	<li>Souffrance psychologique<ul>
+		<li>Souffrance extrême : <strong>{{ psychological_pain_excruciating }}</strong></li>
+		<li>Souffrance : <strong>{{ psychological_pain_disabling }}</strong></li>
+		<li>Douleur : <strong>{{ psychological_pain_hurtful }}</strong></li>
+		<li>Inconfort : <strong>{{ psychological_pain_annoying }}</strong></li>
+	</ul></li>
+</ul>
+
+
+
+    </body>
+</html>

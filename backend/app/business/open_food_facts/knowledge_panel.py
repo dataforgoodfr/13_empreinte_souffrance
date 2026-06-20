@@ -171,6 +171,7 @@ def get_generator(
             pain_reports=pain_reports,
             locale=locale,
             translator=translator,
+            version=1,
         )
 
     raise ResourceNotFoundException(f"Unsupported product type: {product_type}")
