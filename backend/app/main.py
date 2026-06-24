@@ -2,7 +2,8 @@ import uvicorn
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
-from app.api.open_food_facts.routes import router as off_router
+from app.api.open_food_facts.routes import router_v1 as off_router_v1
+from app.api.open_food_facts.routes import router_v2 as off_router_v2
 from app.config.http_client import close_http_client
 from app.config.logging import setup_logging
 from app.config.middlewares import (
@@ -45,7 +46,8 @@ async def health_check():
 
 
 # Include API routes
-app.include_router(off_router, prefix="/off/v1", tags=["Open Food Facts"])
+app.include_router(off_router_v1, prefix="/off/v1", tags=["Open Food Facts"])
+app.include_router(off_router_v2, prefix="/off/v2", tags=["Open Food Facts v2"])
 
 
 # close connections

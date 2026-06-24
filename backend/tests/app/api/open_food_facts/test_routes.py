@@ -163,7 +163,7 @@ async def test_knowledge_panels_batch_single_barcode(async_client: AsyncClient, 
         new_callable=AsyncMock,
     ) as mock_get:
         mock_get.return_value = mock_response
-        response = await async_client.get("/off/v1/knowledge-panel/?code=123456789")
+        response = await async_client.get("/off/v2/knowledge-panel/?code=123456789")
 
     assert response.status_code == 200
     response_data = response.json()
@@ -188,7 +188,7 @@ async def test_knowledge_panels_batch_multiple_barcodes(async_client: AsyncClien
         new_callable=AsyncMock,
     ) as mock_get:
         mock_get.return_value = mock_response
-        response = await async_client.get("/off/v1/knowledge-panel/?code=111111111,222222222,333333333")
+        response = await async_client.get("/off/v2/knowledge-panel/?code=111111111,222222222,333333333")
 
     assert response.status_code == 200
     response_data = response.json()
@@ -229,7 +229,7 @@ async def test_knowledge_panels_batch_partial_failure(async_client: AsyncClient,
         new_callable=AsyncMock,
     ) as mock_get_retry:
         mock_get_retry.side_effect = mock_get
-        response = await async_client.get("/off/v1/knowledge-panel/?code=111111111,999999999")
+        response = await async_client.get("/off/v2/knowledge-panel/?code=111111111,999999999")
 
     assert response.status_code == 200
     response_data = response.json()
@@ -254,11 +254,11 @@ async def test_knowledge_panels_batch_uses_cache(async_client: AsyncClient, samp
         mock_get.return_value = mock_response
 
         # First call - cache miss for both
-        response1 = await async_client.get("/off/v1/knowledge-panel/?code=111111111,222222222")
+        response1 = await async_client.get("/off/v2/knowledge-panel/?code=111111111,222222222")
         assert response1.status_code == 200
         calls_after_first = mock_get.call_count
 
         # Second call - cache hit for both, no new API calls expected
-        response2 = await async_client.get("/off/v1/knowledge-panel/?code=111111111,222222222")
+        response2 = await async_client.get("/off/v2/knowledge-panel/?code=111111111,222222222")
         assert response2.status_code == 200
         assert mock_get.call_count == calls_after_first

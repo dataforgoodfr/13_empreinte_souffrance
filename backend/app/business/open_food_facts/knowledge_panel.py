@@ -160,7 +160,11 @@ def resolve_product_type(pain_reports: List[PainReport]) -> ProductType:
 
 
 def get_generator(
-    pain_reports: List[PainReport], product_type: ProductType, locale: str, translator: tuple[Callable, Callable]
+    pain_reports: List[PainReport],
+    product_type: ProductType,
+    locale: str,
+    translator: tuple[Callable, Callable],
+    version: int,
 ):
     """
     Return the appropriate generator depending on product type.
@@ -171,7 +175,7 @@ def get_generator(
             pain_reports=pain_reports,
             locale=locale,
             translator=translator,
-            version=1,
+            version=version,
         )
 
     raise ResourceNotFoundException(f"Unsupported product type: {product_type}")
@@ -196,7 +200,7 @@ async def get_pain_reports_batch(barcodes: list[str], locale: str) -> dict[str, 
 
 
 def get_knowledge_panel_response(
-    pain_reports: List[PainReport], translator: tuple[Callable, Callable], locale: str
+    pain_reports: List[PainReport], translator: tuple[Callable, Callable], locale: str, version: int
 ) -> KnowledgePanelResponse:
     """
     Create a complete knowledge panel response with all panels related to suffering footprint.
@@ -204,6 +208,8 @@ def get_knowledge_panel_response(
     Args:
         pain_reports: A list of pain reports containing all animal data and pain durations
         translator: The translation function to use for i18n
+        locale: alpha2 locale (fr, en...)
+        version: The knowledge panel version (1 = web, 2 = mobile)
 
     Returns:
         A complete KnowledgePanelResponse containing root panel, intensity definitions,
@@ -211,6 +217,6 @@ def get_knowledge_panel_response(
     """
 
     product_type = resolve_product_type(pain_reports)
-    panel_generator = get_generator(pain_reports, product_type, locale, translator)
+    panel_generator = get_generator(pain_reports, product_type, locale, translator, version)
 
     return panel_generator.get_response()

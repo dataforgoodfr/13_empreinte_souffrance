@@ -11,11 +11,16 @@ from app.config.exceptions import ExternalServiceException, ResourceNotFoundExce
 from app.config.logging import setup_logging
 from app.schemas.open_food_facts.internal import KnowledgePanelBatchResponse, KnowledgePanelResponse
 
-router = APIRouter()
 logger = setup_logging()
 
+# v1 router for single product, web integration
+router_v1 = APIRouter()
 
-@router.api_route(
+# v2 router for batch, mobile integration
+router_v2 = APIRouter()
+
+
+@router_v1.api_route(
     "/knowledge-panel/{barcode}",
     methods=["GET", "HEAD"],
     response_model=KnowledgePanelResponse,
@@ -23,7 +28,7 @@ logger = setup_logging()
 )
 async def knowledge_panel(request: Request, barcode: str):
     """
-    API endpoint to return knowledge panel details for a single product.
+    API endpoint to return knowledge panel details for a single product (v1, web).
     Handles both GET and HEAD methods.
 
     Args:
@@ -34,7 +39,7 @@ async def knowledge_panel(request: Request, barcode: str):
         KnowledgePanelResponse: The knowledge panel response.
     """
     locale = request.state.locale
-    cache_key = f"knowledge_panel:{barcode}:{locale}"
+    cache_key = f"knowledge_panel:v1:{barcode}:{locale}"
 
     # Try to get from cache first
     cached_response = knowledge_panel_cache.get(cache_key)
@@ -55,7 +60,7 @@ async def knowledge_panel(request: Request, barcode: str):
         raise
 
     response = get_knowledge_panel_response(
-        pain_reports=pain_reports, locale=locale, translator=request.state.translator
+        pain_reports=pain_reports, locale=locale, translator=request.state.translator, version=1
     )
 
     # Cache the response for 1 day (86400 seconds)
@@ -67,7 +72,7 @@ async def knowledge_panel(request: Request, barcode: str):
     return response
 
 
-@router.get(
+@router_v2.get(
     "/knowledge-panel/",
     response_model=KnowledgePanelBatchResponse,
     response_model_exclude_none=True,
@@ -77,7 +82,7 @@ async def knowledge_panels_batch(
     code: str = Query(..., description="Comma-separated list of product barcodes"),
 ):
     """
-    API endpoint to return knowledge panels for one or several products in a single call.
+    API endpoint to return knowledge panels for one or several products in a single call (v2, mobile).
     Processes all barcodes in parallel. Failures on individual barcodes are reported
     in the 'errors' field without affecting the other results.
 
@@ -98,7 +103,7 @@ async def knowledge_panels_batch(
     barcodes_to_fetch = []
 
     for barcode in barcode_list:
-        cache_key = f"knowledge_panel:{barcode}:{locale}"
+        cache_key = f"knowledge_panel:v2:{barcode}:{locale}"
         cached = knowledge_panel_cache.get(cache_key)
         if cached is not None:
             logger.info(f"Returning cached knowledge panel for product {barcode} (locale: {locale})")
@@ -115,9 +120,9 @@ async def knowledge_panels_batch(
                 errors[barcode] = str(result)
             else:
                 response = get_knowledge_panel_response(
-                    pain_reports=result, translator=request.state.translator, locale=locale
+                    pain_reports=result, translator=request.state.translator, locale=locale, version=2
                 )
-                cache_key = f"knowledge_panel:{barcode}:{locale}"
+                cache_key = f"knowledge_panel:v2:{barcode}:{locale}"
                 knowledge_panel_cache.set(cache_key, response, ttl_seconds=86400)
                 panels[barcode] = response
 
