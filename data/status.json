@@ -1,18 +1,10 @@
 {
-  "lastUpdated": "2026-07-20T23:48:42Z",
+  "lastUpdated": "2026-07-21T00:11:18Z",
   "sites": [
     {
       "name": "L'heure des comptes",
       "currentStatus": "up",
       "days": [
-        {
-          "date": "2026-04-22",
-          "total": 44,
-          "ok": 44,
-          "responseTimeSum": 6979,
-          "uptime": 100,
-          "responseTime": 158.61363636363637
-        },
         {
           "date": "2026-04-23",
           "total": 42,
@@ -724,6 +716,14 @@
           "responseTimeSum": 5470,
           "uptime": 100,
           "responseTime": 165.75757575757575
+        },
+        {
+          "date": "2026-07-21",
+          "total": 1,
+          "ok": 1,
+          "responseTimeSum": 123,
+          "uptime": 100,
+          "responseTime": 123
         }
       ]
     },
@@ -731,14 +731,6 @@
       "name": "API",
       "currentStatus": "up",
       "days": [
-        {
-          "date": "2026-04-22",
-          "total": 44,
-          "ok": 44,
-          "responseTimeSum": 5390,
-          "uptime": 100,
-          "responseTime": 122.5
-        },
         {
           "date": "2026-04-23",
           "total": 42,
@@ -1450,6 +1442,14 @@
           "responseTimeSum": 4344,
           "uptime": 100,
           "responseTime": 131.63636363636363
+        },
+        {
+          "date": "2026-07-21",
+          "total": 1,
+          "ok": 1,
+          "responseTimeSum": 101,
+          "uptime": 100,
+          "responseTime": 101
         }
       ]
     },
@@ -1457,14 +1457,6 @@
       "name": "Carte interactive (embed)",
       "currentStatus": "up",
       "days": [
-        {
-          "date": "2026-04-22",
-          "total": 44,
-          "ok": 44,
-          "responseTimeSum": 5551,
-          "uptime": 100,
-          "responseTime": 126.1590909090909
-        },
         {
           "date": "2026-04-23",
           "total": 42,
@@ -2176,6 +2168,14 @@
           "responseTimeSum": 4423,
           "uptime": 100,
           "responseTime": 134.03030303030303
+        },
+        {
+          "date": "2026-07-21",
+          "total": 1,
+          "ok": 1,
+          "responseTimeSum": 101,
+          "uptime": 100,
+          "responseTime": 101
         }
       ]
     }
