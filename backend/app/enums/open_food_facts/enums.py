@@ -70,10 +70,13 @@ class AnimalType(StrEnum):
 
     @property
     def categories_tags(self) -> str:
-        return {
+        result = {
             "laying_hen": "en:eggs",
             "broiler_chicken": "en:chickens",
-        }.get(self.value) or (_ for _ in ()).throw(ValueError(f"Unknown animal type: {self.value}"))
+        }.get(self.value)
+        if result is None:
+            raise ValueError(f"Unknown animal type: {self.value}")
+        return result
 
     @property
     def is_computed(self) -> bool:
@@ -109,7 +112,7 @@ class PainIntensity(StrEnum):
 
     @classmethod
     def get_intensity_order(cls) -> list["PainIntensity"]:
-        """Return the order of pain intensities from most to least severe."""
+        """Return the order of pain intensities from least to most severe."""
         return [cls.ANNOYING, cls.HURTFUL, cls.DISABLING, cls.EXCRUCIATING]
 
 
