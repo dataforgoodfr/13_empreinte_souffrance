@@ -70,6 +70,10 @@ class TitleElement(BaseModel):
     subtitle: str | None = None
     name: str | None = None
     icon_url: HttpUrl | None = None
+    grade: str | None = None
+    type: str | None = None
+    icon_color_from_evaluation: bool | None = None
+    icon_size: str | None = None
 
 
 class Panel(BaseModel):

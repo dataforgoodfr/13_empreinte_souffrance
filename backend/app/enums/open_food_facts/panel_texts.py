@@ -5,8 +5,8 @@ from typing import Callable
 class RootPanelTexts(Enum):
     """Texts for the main knowledge panel"""
 
-    PANEL_TITLE = "Welfare footprint"
-    PANEL_SUBTITLE = "What is the welfare footprint?"
+    PANEL_TITLE = "Caged hen eggs"
+    PANEL_SUBTITLE = "10 days of suffering in 10 medium eggs"
 
 
 class DurationTexts(Enum):
@@ -24,12 +24,25 @@ class DurationTexts(Enum):
 
 
 class QuantityTexts(str, Enum):
-    """Texts for quantity formatting"""
+    """Texts for quantity formatting used as global panel subtitle"""
 
     EGG_SINGULAR = "{} egg contains on average"
     EGG_PLURAL = "{} eggs contain on average"
     EGGS_WITH_CALIBER_SINGULAR = "{count} {caliber} caliber egg contains on average"
     EGGS_WITH_CALIBER_PLURAL = "{count} {caliber} caliber eggs contain on average"
+
+
+class FootprintTexts(str, Enum):
+    """Texts for footprint summary"""
+
+    NOT_COMPUTED = "not computed"
+    DEPENDS = "depends on the product batch"
+    SECOND = "''"
+    MINUTE = "'"
+    HOUR = "h"
+    DAY = "d"
+
+    SEPARATOR = " + "
 
 
 class PanelTextManager:

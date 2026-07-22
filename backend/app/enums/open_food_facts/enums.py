@@ -31,6 +31,11 @@ class LayingHenBreedingType(StrEnum):
             "free_range": "free_range_icon.svg",
         }.get(self.value)
 
+    def black_icon_url(self) -> str:
+        if self.value == "free_range":
+            return "free_range_icon_black.svg"
+        return "cage_icon_black.svg"
+
     def color(self) -> Optional[str]:
         return {
             "cage": "#be2F21",

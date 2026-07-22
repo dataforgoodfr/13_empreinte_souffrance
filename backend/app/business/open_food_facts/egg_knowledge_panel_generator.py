@@ -6,7 +6,7 @@ from typing import Callable, List
 from jinja2 import Environment, FileSystemLoader
 from pydantic import HttpUrl
 
-from app.enums.open_food_facts.enums import AnimalType, EggQuantity
+from app.enums.open_food_facts.enums import AnimalType, EggQuantity, LayingHenBreedingType
 from app.enums.open_food_facts.panel_texts import (
     DurationTexts,
     PanelTextManager,
@@ -181,10 +181,12 @@ class EggKnowledgePanelGenerator:
             elements=elements,
             level="info",
             title_element=TitleElement(
-                icon_url=HttpUrl("https://iili.io/3o05WOX.png"),
+                icon_url=HttpUrl(self.kp_images_base_url + "/" + LayingHenBreedingType.CAGE.black_icon_url()),
                 name="suffering-footprint",
                 subtitle=self.text_manager.get_text(RootPanelTexts.PANEL_SUBTITLE),
                 title=self.text_manager.get_text(RootPanelTexts.PANEL_TITLE),
+                grade="e",
+                icon_color_from_evaluation=True,
             ),
             topics=["suffering-footprint"],
         )
