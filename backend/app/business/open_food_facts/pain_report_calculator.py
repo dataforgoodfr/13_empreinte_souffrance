@@ -4,7 +4,7 @@ from app.business.open_food_facts.breeding_type_calculator import BreedingTypeCa
 from app.business.open_food_facts.product_type_calculator import get_product_type
 from app.business.open_food_facts.quantity_calculator import QuantityCalculator
 from app.business.open_food_facts.unit_pain_loader import PAIN_PER_EGG_IN_SECONDS
-from app.config.exceptions import MissingBreedingType, ResourceNotFoundException
+from app.config.exceptions import MissingBreedingType
 from app.enums.open_food_facts.enums import (
     AnimalType,
     EggCaliber,
@@ -19,7 +19,6 @@ from app.schemas.open_food_facts.internal import (
     BreedingTypeAndQuantity,
     PainLevelData,
     PainReport,
-    ProductType,
 )
 
 
@@ -40,29 +39,6 @@ class PainReportCalculator:
         self.breeding_types = self._get_breeding_types()
         self.quantities = self._get_quantities()
         self.breeding_types_and_quantities = self._get_breeding_types_and_quantities()
-
-    def _get_product_type(self) -> ProductType:
-        """
-        Determine the product type based on the product data.
-        checks if the product is mixed or single animal type,
-        and identifies the animal types present.
-        Returns:
-            ProductType instance indicating if the product is mixed and the set of animal types.
-        """
-        animal_types = set()
-        for animal_type in AnimalType:
-            if (
-                animal_type.is_computed
-                and self.product_data.categories_tags
-                and animal_type.categories_tags in self.product_data.categories_tags
-            ):
-                animal_types.add(animal_type)
-        if not animal_types:
-            raise ResourceNotFoundException("No animal types found in product data")
-        elif len(animal_types) == 1:
-            return ProductType(is_mixed=False, animal_types=animal_types)
-        else:
-            return ProductType(is_mixed=True, animal_types=animal_types)
 
     def get_pain_reports(self) -> List[PainReport]:
         """
@@ -223,8 +199,8 @@ class PainReportCalculator:
         else:
             try:
                 animal_type = list(self.product_type.animal_types)[0]
-            except IndexError:
-                raise IndexError("Issue with product type : no animal types found but not mixed")
+            except IndexError as err:
+                raise IndexError("Issue with product type : no animal types found but not mixed") from err
             breeding_types = BreedingTypeCalculator(self.product_data, self.product_type).get_breeding_types(
                 animal_type=animal_type
             )
