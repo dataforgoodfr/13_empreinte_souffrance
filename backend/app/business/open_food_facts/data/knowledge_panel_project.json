@@ -22,7 +22,7 @@
         "title": "Poule élevée en cage",
         "subtitle": "10 oeufs moyens contienne 2 jours de souffrance",
         "name": "suffering-footprint",
-        "icon_url": "https://lheuredescomptes.org/logo_ES_alpha.svg",
+        "icon_url": "https://lheuredescomptes.org/kp/hdc_logo.svg",
         "icon_color_from_evaluation": true
       },
       "topics": [
@@ -113,27 +113,10 @@
         {
           "element_type": "text",
           "text_element": {
-            "html": "L'\u003Ca href='https://empreinte-souffrance.org/'\u003EEmpreinte Souffrance\u003C/a\u003E est calculée sur la base des recherches du \u003Ca href='https://welfarefootprint.org/'\u003EWelfare Footprint Institute\u003C/a\u003E qui a développé une méthodologie scientifiquement rigoureuse pour évaluer et quantifier le bien-être animal dans les systèmes de production alimentaire."
+            "html": "{html_body_project}"
           }
-        },
-        {
-          "element_type": "text",
-          "text_element": {
-            "html": "Elle est unique en ce qu’elle fournit une mesure complète et biologiquement significative du temps que les animaux passent à souffrir, à des degrés de douleur variables."
-          }
-        },
-        {
-          "element_type": "text",
-          "text_element": {
-            "html": "\u003Ca href='https://lheuredescomptes.org/'\u003EL'Heure des Comptes\u003C/a\u003E est une opération menée par l'assocation \u003Ca href='https://animafrance.org/'\u003EAnima\u003C/a\u003E visant à sensibiliser les consommateurs à la souffrance animale générée par les produis qu'ils achètent, et à mettre les professionnels face à leurs engagements d'amélioration des conditions d'élevage, et notamment celui de ne plus vendre d'oeufs en cage en supermarché au 1er janvier 2026."
-          }
-        },
-        {
-          "element_type": "text",
-          "text_element": {
-            "html": "Ce knowledge panel a été créé dans le cadre de l'opération grâce à une collaboration avec l'association \u003Ca href='https://dataforgood.fr/'\u003EData For Good\u003C/a\u003E."
-          }
-        }      ],
+        }
+      ],
       "level": "info",
       "title_element": {
           "title": "Les acteurs du projet",

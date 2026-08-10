@@ -201,6 +201,8 @@ def get_knowledge_panel_response(
             return obj.replace("{html_body}", html_content)
         return obj
 
+
+
     json_path = Path(__file__).resolve().parent / "data" / "knowledge_panel_project.json"
     with open(json_path, "r", encoding="utf-8") as f:
         raw_knowledge_panel =  json.load(f)
@@ -211,9 +213,29 @@ def get_knowledge_panel_response(
 
     knowledge_panel = replace_html_body(raw_knowledge_panel)
 
+
+
+    def replace_html_body_project(obj):
+        ''' replaces {html_body} in all strings in json object
+        with body_content extracted from knowledge_panel.html '''
+        if isinstance(obj, dict):
+            return {k: replace_html_body_project(v) for k, v in obj.items()}
+        elif isinstance(obj, list):
+            return [replace_html_body_project(v) for v in obj]
+        elif isinstance(obj, str):
+            return obj.replace("{html_body_project}", html_content_project)
+        return obj
+    
+    html_content_project = import_html_body(Path(__file__).resolve().parent / "data" / "about_the_project_panel.html")
+
+    knowledge_panel = replace_html_body_project(knowledge_panel)
+
     knowledge_panel_json = JSONResponse(content=knowledge_panel)
 
     return knowledge_panel_json
+
+
+
 
 
 class KnowledgePanelGenerator:
