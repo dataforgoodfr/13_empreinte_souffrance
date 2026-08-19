@@ -2,7 +2,7 @@ import re
 
 from app.config.exceptions import EggButNotFreshEgg, ResourceNotFoundException
 from app.enums.open_food_facts.enums import AnimalType
-from app.enums.open_food_facts.product_type_enums import ProductTypePatternRepository
+from app.enums.open_food_facts.patterns.product_type_patterns import ProductTypePatternRepository
 from app.schemas.open_food_facts.external import ProductData
 from app.schemas.open_food_facts.internal import PainReport, ProductType
 

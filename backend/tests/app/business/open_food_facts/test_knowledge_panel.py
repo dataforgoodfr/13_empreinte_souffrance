@@ -6,25 +6,25 @@ from unittest.mock import AsyncMock, MagicMock, Mock, patch
 import httpx
 import pytest
 
-from app.business.open_food_facts.breeding_type_calculator import (
+from app.business.open_food_facts.calculators.breeding_type_calculator import (
     BreedingTypeCalculator,
     get_barn_regex,
     get_cage_regex,
     get_free_range_regex,
 )
-from app.business.open_food_facts.egg_knowledge_panel_generator import EggKnowledgePanelGenerator
-from app.business.open_food_facts.egg_quantity_calculator import (
+from app.business.open_food_facts.calculators.egg_quantity_calculator import (
     EggCaliber,
     EggQuantityCalculator,
 )
-from app.business.open_food_facts.knowledge_panel import (
+from app.business.open_food_facts.calculators.pain_report_calculator import PainReportCalculator
+from app.business.open_food_facts.calculators.product_type_calculator import get_product_type
+from app.business.open_food_facts.calculators.unit_pain_loader import UnitPainLoader
+from app.business.open_food_facts.knowledge_panel_service import (
     get_data_from_off_search_a_licious,
     get_data_from_off_v3,
     get_knowledge_panel_response,
 )
-from app.business.open_food_facts.pain_report_calculator import PainReportCalculator
-from app.business.open_food_facts.product_type_calculator import get_product_type
-from app.business.open_food_facts.unit_pain_loader import UnitPainLoader
+from app.business.open_food_facts.panel_renderer.generator import EggKnowledgePanelGenerator
 from app.config.exceptions import EggButNotFreshEgg, MissingBreedingType, ResourceNotFoundException
 from app.config.i18n import I18N
 from app.enums.open_food_facts.enums import AnimalType, EggQuantity, LayingHenBreedingType, PainIntensity, PainType

@@ -1,7 +1,7 @@
 from fastapi import APIRouter, Query, Response
 from starlette.requests import Request
 
-from app.business.open_food_facts.knowledge_panel import (
+from app.business.open_food_facts.knowledge_panel_service import (
     get_knowledge_panel_response,
     get_pain_reports,
     get_pain_reports_batch,

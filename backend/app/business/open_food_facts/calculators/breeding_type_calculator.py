@@ -2,13 +2,13 @@ import re
 import unicodedata
 from typing import Dict, List
 
-from app.enums.open_food_facts.breeding_type_enums import (
+from app.enums.open_food_facts.enums import AnimalType, BreedingType, LayingHenBreedingType
+from app.enums.open_food_facts.patterns.breeding_type_patterns import (
     BreedingTypesPatternRepository,
     get_barn_regex,
     get_cage_regex,
     get_free_range_regex,
 )
-from app.enums.open_food_facts.enums import AnimalType, BreedingType, LayingHenBreedingType
 from app.schemas.open_food_facts.external import ProductData
 from app.schemas.open_food_facts.internal import ProductType
 
