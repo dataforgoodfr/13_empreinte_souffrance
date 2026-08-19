@@ -1,8 +1,8 @@
 import re
 from typing import List
 
-from app.enums.open_food_facts.egg_quantity_enums import EggQuantityPatternRepository
 from app.enums.open_food_facts.enums import EggCaliber, EggQuantity
+from app.enums.open_food_facts.patterns.egg_quantity_patterns import EggQuantityPatternRepository
 from app.schemas.open_food_facts.external import ProductData
 
 

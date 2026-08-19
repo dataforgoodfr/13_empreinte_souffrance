@@ -1,4 +1,4 @@
-from app.business.open_food_facts.egg_quantity_calculator import EggQuantityCalculator
+from app.business.open_food_facts.calculators.egg_quantity_calculator import EggQuantityCalculator
 from app.enums.open_food_facts.enums import ProductQuantity
 from app.schemas.open_food_facts.external import ProductData
 from app.schemas.open_food_facts.internal import AnimalType, ProductType

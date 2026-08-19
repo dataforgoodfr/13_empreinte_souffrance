@@ -4,8 +4,8 @@ from typing import Callable, List
 
 from pydantic import ValidationError
 
-from app.business.open_food_facts.egg_knowledge_panel_generator import EggKnowledgePanelGenerator
-from app.business.open_food_facts.pain_report_calculator import PainReportCalculator
+from app.business.open_food_facts.calculators.pain_report_calculator import PainReportCalculator
+from app.business.open_food_facts.panel_renderer.generator import EggKnowledgePanelGenerator
 from app.config.exceptions import EggButNotFreshEgg, ResourceNotFoundException
 from app.config.http_client import get_with_retry
 from app.enums.open_food_facts.enums import AnimalType

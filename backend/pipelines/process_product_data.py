@@ -6,7 +6,7 @@ from typing import Tuple
 import pandas as pd
 import plotly.express as px
 
-from app.business.open_food_facts import pain_report_calculator
+from app.business.open_food_facts.calculators import pain_report_calculator
 from app.config.exceptions import EggButNotFreshEgg, ResourceNotFoundException
 from app.schemas.open_food_facts.external import ProductData
 from app.schemas.open_food_facts.internal import AnimalType

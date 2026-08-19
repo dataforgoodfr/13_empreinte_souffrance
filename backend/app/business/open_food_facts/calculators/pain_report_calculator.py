@@ -1,9 +1,9 @@
 from typing import List
 
-from app.business.open_food_facts.breeding_type_calculator import BreedingTypeCalculator
-from app.business.open_food_facts.product_type_calculator import get_product_type
-from app.business.open_food_facts.quantity_calculator import QuantityCalculator
-from app.business.open_food_facts.unit_pain_loader import PAIN_PER_EGG_IN_SECONDS
+from app.business.open_food_facts.calculators.breeding_type_calculator import BreedingTypeCalculator
+from app.business.open_food_facts.calculators.product_type_calculator import get_product_type
+from app.business.open_food_facts.calculators.quantity_calculator import QuantityCalculator
+from app.business.open_food_facts.calculators.unit_pain_loader import PAIN_PER_EGG_IN_SECONDS
 from app.config.exceptions import MissingBreedingType, ResourceNotFoundException
 from app.enums.open_food_facts.enums import (
     AnimalType,

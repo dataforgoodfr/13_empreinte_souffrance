@@ -6,13 +6,13 @@ from typing import Callable, List
 from jinja2 import Environment, FileSystemLoader
 from pydantic import HttpUrl
 
-from app.enums.open_food_facts.enums import AnimalType, EggQuantity
-from app.enums.open_food_facts.panel_texts import (
+from app.enums.open_food_facts.content.panel_texts import (
     DurationTexts,
     PanelTextManager,
     QuantityTexts,
     RootPanelTexts,
 )
+from app.enums.open_food_facts.enums import AnimalType, EggQuantity
 from app.schemas.open_food_facts.internal import (
     AnimalPainReport,
     Element,

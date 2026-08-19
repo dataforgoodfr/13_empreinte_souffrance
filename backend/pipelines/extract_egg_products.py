@@ -12,7 +12,7 @@ import numpy as np
 import pandas as pd
 import requests
 
-from app.enums.open_food_facts.product_type_enums import ProductTypePatternRepository
+from app.enums.open_food_facts.patterns.product_type_patterns import ProductTypePatternRepository
 
 
 class Config:
