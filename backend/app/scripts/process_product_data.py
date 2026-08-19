@@ -7,7 +7,7 @@ import pandas as pd
 import plotly.express as px
 
 from app.business.open_food_facts import pain_report_calculator
-from app.config.exceptions import ResourceNotFoundException
+from app.config.exceptions import EggButNotFreshEgg, ResourceNotFoundException
 from app.schemas.open_food_facts.external import ProductData
 from app.schemas.open_food_facts.internal import AnimalType
 
@@ -162,7 +162,7 @@ def row_to_breeding_type_and_quantity(row) -> Tuple[int, str, str]:
         report = pain_report_calculator.PainReportCalculator(product_data)
         quantities = report._get_quantities()
         breeding_types = report._get_breeding_types()
-    except ResourceNotFoundException:
+    except (ResourceNotFoundException, EggButNotFreshEgg):
         return (EggConsts.COUNT_NOT_MANAGED, EggConsts.CALIBER_NOT_MANAGED, EggConsts.BREEDING_NOT_MANAGED)
 
     quantity = quantities.get(AnimalType.LAYING_HEN)
@@ -176,10 +176,8 @@ def row_to_breeding_type_and_quantity(row) -> Tuple[int, str, str]:
     breeding_type = breeding_types.get(AnimalType.LAYING_HEN)
     if not breeding_type:
         breeding = EggConsts.BREEDING_NOT_COMPUTED
-    elif isinstance(breeding_type, str):
-        breeding = breeding_type
     else:
-        breeding = breeding_type.breeding_type.value
+        breeding = ", ".join(bt.value for bt in breeding_type)
 
     return egg_count, caliber, breeding
 
