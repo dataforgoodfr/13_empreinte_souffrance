@@ -21,6 +21,7 @@ from app.schemas.open_food_facts.internal import (
     PainLevelData,
     PainReport,
     ProductType,
+    Scenario,
 )
 
 
@@ -174,11 +175,11 @@ def animal_pain_report_missing_quantity(pain_levels) -> AnimalPainReport:
 @pytest.fixture
 def pain_report(animal_pain_report) -> PainReport:
     """
-    Fixture that provides a sample PainReport that is returned for one animal
+    Fixture that provides a sample PainReport with a single scenario, for one animal
     with complete information.
     """
     return PainReport(
-        animal_pain_reports=[animal_pain_report],
+        scenarios=[Scenario(animal_pain_reports=[animal_pain_report])],
         product_name="Fake product name",
         product_image_url=HttpUrl("https://example.com/image.jpg"),
         product_type=ProductType(is_mixed=False, animal_types={AnimalType.LAYING_HEN}),
@@ -187,9 +188,9 @@ def pain_report(animal_pain_report) -> PainReport:
 
 @pytest.fixture
 def pain_report_missing_quantity(animal_pain_report_missing_quantity) -> PainReport:
-    """Fixture that provides a sample PainReport that is returned for one animal with missing quantity."""
+    """Fixture that provides a sample PainReport with a single scenario, for one animal with missing quantity."""
     return PainReport(
-        animal_pain_reports=[animal_pain_report_missing_quantity],
+        scenarios=[Scenario(animal_pain_reports=[animal_pain_report_missing_quantity])],
         product_name="Fake product name",
         product_image_url=HttpUrl("https://example.com/image.jpg"),
         product_type=ProductType(is_mixed=False, animal_types={AnimalType.LAYING_HEN}),
@@ -199,11 +200,11 @@ def pain_report_missing_quantity(animal_pain_report_missing_quantity) -> PainRep
 @pytest.fixture
 def pain_report_with_two_animals(animal_pain_report, animal_pain_report_missing_quantity) -> PainReport:
     """
-    Fixture that provides a sample PainReport that is returned for one animal with complete information
-    and one animal with missing quantity.
+    Fixture that provides a sample PainReport with a single scenario containing two animals:
+    one with complete information and one with missing quantity.
     """
     return PainReport(
-        animal_pain_reports=[animal_pain_report, animal_pain_report_missing_quantity],
+        scenarios=[Scenario(animal_pain_reports=[animal_pain_report, animal_pain_report_missing_quantity])],
         product_name="Fake product name",
         product_image_url=HttpUrl("https://example.com/image.jpg"),
         product_type=ProductType(is_mixed=False, animal_types={AnimalType.LAYING_HEN}),

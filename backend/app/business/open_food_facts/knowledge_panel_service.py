@@ -1,6 +1,6 @@
 import asyncio
 import logging
-from typing import Callable, List
+from typing import Callable
 
 from pydantic import ValidationError
 
@@ -120,16 +120,17 @@ async def get_data_from_off_search_a_licious(barcode: str, locale: str) -> Produ
     return product_data
 
 
-async def get_pain_reports(barcode: str, locale: str) -> List[PainReport]:
+async def get_pain_reports(barcode: str, locale: str) -> PainReport:
     """
-    Compute the pain reports list for a product based on its barcode
+    Compute the pain report for a product based on its barcode
 
     Args:
         barcode: The product barcode
         locale: alpha2 locale (fr, en...)
 
     Returns:
-        A list of PainReport objects
+        A PainReport, whose `scenarios` list may be empty when no pain data
+        could be computed (e.g. no fresh egg found), to display a specific knowledge panel
     """
     # Get the product data
     product_data = await get_data_from_off_v3(barcode, locale)
@@ -139,28 +140,13 @@ async def get_pain_reports(barcode: str, locale: str) -> List[PainReport]:
         calculator = PainReportCalculator(product_data)
 
     except EggButNotFreshEgg as e:
-        return [e.pain_report]
-    # Generate and return the pain report
-    # For no fresh chicken eggs return empty list to display a specific knowledge panel
-    pain_reports = calculator.get_pain_reports()
+        return e.pain_report
 
-    return pain_reports
-
-
-def resolve_product_type(pain_reports: List[PainReport]) -> ProductType:
-    """
-    Determine the product type from pain reports.
-    """
-    if not pain_reports:
-        raise ResourceNotFoundException("No pain reports")
-
-    product_type = pain_reports[0].product_type
-
-    return product_type
+    return calculator.get_pain_reports()
 
 
 def get_generator(
-    pain_reports: List[PainReport], product_type: ProductType, locale: str, translator: tuple[Callable, Callable]
+    pain_report: PainReport, product_type: ProductType, locale: str, translator: tuple[Callable, Callable]
 ):
     """
     Return the appropriate generator depending on product type.
@@ -168,7 +154,7 @@ def get_generator(
 
     if product_type.is_mixed is False and AnimalType.LAYING_HEN in product_type.animal_types:
         return EggKnowledgePanelGenerator(
-            pain_reports=pain_reports,
+            pain_report=pain_report,
             locale=locale,
             translator=translator,
         )
@@ -176,7 +162,7 @@ def get_generator(
     raise ResourceNotFoundException(f"Unsupported product type: {product_type}")
 
 
-async def get_pain_reports_batch(barcodes: list[str], locale: str) -> dict[str, list[PainReport] | BaseException]:
+async def get_pain_reports_batch(barcodes: list[str], locale: str) -> dict[str, PainReport | BaseException]:
     """
     Compute pain reports for multiple products in parallel.
 
@@ -195,13 +181,13 @@ async def get_pain_reports_batch(barcodes: list[str], locale: str) -> dict[str, 
 
 
 def get_knowledge_panel_response(
-    pain_reports: List[PainReport], translator: tuple[Callable, Callable], locale: str
+    pain_report: PainReport, translator: tuple[Callable, Callable], locale: str
 ) -> KnowledgePanelResponse:
     """
     Create a complete knowledge panel response with all panels related to suffering footprint.
 
     Args:
-        pain_reports: A list of pain reports containing all animal data and pain durations
+        pain_report: The pain report containing all animal data and pain durations
         translator: The translation function to use for i18n
 
     Returns:
@@ -209,7 +195,6 @@ def get_knowledge_panel_response(
         physical pain data and psychological pain data
     """
 
-    product_type = resolve_product_type(pain_reports)
-    panel_generator = get_generator(pain_reports, product_type, locale, translator)
+    panel_generator = get_generator(pain_report, pain_report.product_type, locale, translator)
 
     return panel_generator.get_response()

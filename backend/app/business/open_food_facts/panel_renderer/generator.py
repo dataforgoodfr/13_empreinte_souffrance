@@ -21,6 +21,7 @@ from app.schemas.open_food_facts.internal import (
     Panel,
     PanelElement,
     ProductInfo,
+    Scenario,
     TextElement,
     TitleElement,
 )
@@ -109,8 +110,8 @@ class EggKnowledgePanelGenerator:
     Class responsible for generating knowledge panel responses based on pain reports.
     """
 
-    def __init__(self, pain_reports: List[PainReport], locale: str, translator: tuple[Callable, Callable]):
-        self.pain_reports = pain_reports
+    def __init__(self, pain_report: PainReport, locale: str, translator: tuple[Callable, Callable]):
+        self.pain_report = pain_report
         self.text_manager = PanelTextManager(translator)
         self._, self._n = translator
         self.locale = locale
@@ -144,8 +145,8 @@ class EggKnowledgePanelGenerator:
         return KnowledgePanelResponse(
             panels=panels,
             product=ProductInfo(
-                image_url=self.pain_reports[0].product_image_url,
-                name=self.pain_reports[0].product_name,
+                image_url=self.pain_report.product_image_url,
+                name=self.pain_report.product_name,
             ),
         )
 
@@ -160,20 +161,24 @@ class EggKnowledgePanelGenerator:
         Returns:
             A panel with product data and pain levels
         """
-        reports = self.pain_reports
+        scenarios = self.pain_report.scenarios
         elements = []
 
-        # First case : no pain report
-        if len(reports) == 1 and not reports[0].animal_pain_reports:
+        # First case : no scenario (product type not identified, or not managed).
+        # `scenarios` is empty when PainReportCalculator short-circuits a mixed product,
+        # or when EggButNotFreshEgg builds a PainReport with no scenario at all (relying
+        # on the default `scenarios=[]`); a single scenario with no animal report is the
+        # other, equivalent way to express "nothing could be computed".
+        if not scenarios or (len(scenarios) == 1 and not scenarios[0].animal_pain_reports):
             elements += self._create_element_from_html("no_fresh_egg.html")
 
-        # Second case : multiple pain reports
-        elif len(reports) > 1:
-            elements += self._handle_multiple_breedings(reports)
+        # Second case : several scenarios (breeding type/quantity varies by batch)
+        elif len(scenarios) > 1:
+            elements += self._handle_multiple_breedings(scenarios)
 
-        # Third case : single pain report
-        elif len(reports) == 1 and reports[0].animal_pain_reports[0].animal_type == AnimalType.LAYING_HEN:
-            elements += self._handle_single_breeding(reports[0].animal_pain_reports[0])
+        # Third case : single scenario
+        elif len(scenarios) == 1 and scenarios[0].animal_pain_reports[0].animal_type == AnimalType.LAYING_HEN:
+            elements += self._handle_single_breeding(scenarios[0].animal_pain_reports[0])
 
         elements += self._build_detailed_panels(detailed_panels)
 
@@ -189,24 +194,24 @@ class EggKnowledgePanelGenerator:
             topics=["suffering-footprint"],
         )
 
-    def _handle_multiple_breedings(self, reports: List[PainReport]) -> List[Element]:
+    def _handle_multiple_breedings(self, scenarios: List[Scenario]) -> List[Element]:
         """
-        Handle multiple breeding types case.
+        Handle multiple scenarios case (breeding type or quantity varies by batch).
         """
         elements = []
-        btq = reports[0].animal_pain_reports[0].breeding_type_and_quantity
+        btq = scenarios[0].animal_pain_reports[0].breeding_type_and_quantity
 
-        # Missing quantity -> mock reports with quantity 1
+        # Missing quantity -> mock scenarios with quantity 1
         if btq.quantity is None:
             elements += self._create_element_from_html("no_quantity.html")
 
-            mock_reports = reports.copy()
-            for r in mock_reports:
-                r.animal_pain_reports[0].breeding_type_and_quantity.quantity = EggQuantity.from_count(1)
+            mock_scenarios = scenarios.copy()
+            for s in mock_scenarios:
+                s.animal_pain_reports[0].breeding_type_and_quantity.quantity = EggQuantity.from_count(1)
 
-            reports = mock_reports
+            scenarios = mock_scenarios
 
-        elements += self._create_multiple_breedings_element(reports)
+        elements += self._create_multiple_breedings_element(scenarios)
         return elements
 
     def _handle_single_breeding(self, apr: AnimalPainReport) -> List[Element]:
@@ -265,16 +270,16 @@ class EggKnowledgePanelGenerator:
 
         return [self._get_text_element(html)]
 
-    def _create_multiple_breedings_element(self, pain_reports: List[PainReport]) -> List[Element]:
+    def _create_multiple_breedings_element(self, scenarios: List[Scenario]) -> List[Element]:
         elements = [self._get_text_element(self.renderer.render("multiple_breeding_types.html"))]
 
-        for report in pain_reports:
-            elements.extend(self._create_egg_footprint_with_code_element(report))
+        for scenario in scenarios:
+            elements.extend(self._create_egg_footprint_with_code_element(scenario))
 
         return elements
 
-    def _create_egg_footprint_with_code_element(self, pain_report: PainReport):
-        apr = pain_report.animal_pain_reports[0]
+    def _create_egg_footprint_with_code_element(self, scenario: Scenario):
+        apr = scenario.animal_pain_reports[0]
         btq = apr.breeding_type_and_quantity
 
         if apr.animal_type != AnimalType.LAYING_HEN or not btq.breeding_type or not btq.quantity:

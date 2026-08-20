@@ -20,6 +20,7 @@ from app.schemas.open_food_facts.internal import (
     PainLevelData,
     PainReport,
     ProductType,
+    Scenario,
 )
 
 
@@ -64,64 +65,58 @@ class PainReportCalculator:
         else:
             return ProductType(is_mixed=True, animal_types=animal_types)
 
-    def get_pain_reports(self) -> List[PainReport]:
+    def get_pain_reports(self) -> PainReport:
         """
-        Generate a pain report based on breeding types and quantities.
-        The report is organized by animal type, with each animal having
-        a list of pain levels categorized by pain type (physical/psychological)
-        and breeding type information.
+        Generate the pain report for the product, based on breeding types and quantities.
+        A pain report carries the product identification once, and a list of scenarios:
+        one scenario per (breeding type, quantity) combination found for the product's animal(s).
 
-        Since we cannot computed mixed products for now, we only parse the registered
+        Since we cannot compute mixed products for now, we only parse the registered
         animal type, its quantity, and its breeding types (possibly multiple or None).
-        Pain levels are only computed when breeding type and quantity are available, but a report
-        is generated for each animal type even when pain levels cannot be computed, to be able to
+        Pain levels are only computed when breeding type and quantity are available, but a scenario
+        is generated for the animal type even when pain levels cannot be computed, to be able to
         display partial information and error messages in the knowledge panel when information is missing.
 
         Returns:
             A complete pain report, with error messages for animals as an option
         """
 
-        pain_reports = []
-
         if self.product_type.is_mixed:
             # not managed
-            return [
-                PainReport(
-                    animal_pain_reports=[],
-                    product_name=self.product_data.product_name,
-                    product_image_url=self.product_data.image_url,
-                    product_type=self.product_type,
-                )
-            ]
-
-        else:
-            animal_type = list(self.product_type.animal_types)[0]
-
-            breeding_types_and_quantity = self.breeding_types_and_quantities.get(
-                animal_type, [BreedingTypeAndQuantity(breeding_type=None, quantity=None)]
+            return PainReport(
+                scenarios=[],
+                product_name=self.product_data.product_name,
+                product_image_url=self.product_data.image_url,
+                product_type=self.product_type,
             )
 
-            # compute a pain_report for each breeding type found, possibly none
-            for breeding_type_and_quantity in breeding_types_and_quantity:
-                try:
-                    pain_levels = self._generate_pain_levels_for_animal(animal_type, breeding_type_and_quantity)
-                except MissingBreedingType:
-                    pain_levels = []
+        animal_type = list(self.product_type.animal_types)[0]
 
-                animal_report = AnimalPainReport(
-                    animal_type=animal_type,
-                    pain_levels=pain_levels,
-                    breeding_type_and_quantity=breeding_type_and_quantity,
-                )
-                pain_report = PainReport(
-                    animal_pain_reports=[animal_report],
-                    product_name=self.product_data.product_name,
-                    product_image_url=self.product_data.image_url,
-                    product_type=self.product_type,
-                )
-                pain_reports.append(pain_report)
+        breeding_types_and_quantity = self.breeding_types_and_quantities.get(
+            animal_type, [BreedingTypeAndQuantity(breeding_type=None, quantity=None)]
+        )
 
-        return pain_reports
+        # compute a scenario for each breeding type found, possibly none
+        scenarios = []
+        for breeding_type_and_quantity in breeding_types_and_quantity:
+            try:
+                pain_levels = self._generate_pain_levels_for_animal(animal_type, breeding_type_and_quantity)
+            except MissingBreedingType:
+                pain_levels = []
+
+            animal_report = AnimalPainReport(
+                animal_type=animal_type,
+                pain_levels=pain_levels,
+                breeding_type_and_quantity=breeding_type_and_quantity,
+            )
+            scenarios.append(Scenario(animal_pain_reports=[animal_report]))
+
+        return PainReport(
+            scenarios=scenarios,
+            product_name=self.product_data.product_name,
+            product_image_url=self.product_data.image_url,
+            product_type=self.product_type,
+        )
 
     def _generate_pain_levels_for_animal(
         self, animal_type: AnimalType, breeding_type: BreedingTypeAndQuantity

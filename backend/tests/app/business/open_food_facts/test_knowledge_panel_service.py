@@ -110,7 +110,7 @@ def test_get_knowledge_panel_response(pain_report):
     translator = I18N().get_translator(locale="en")
 
     # Generate knowledge panel response using the function
-    response = get_knowledge_panel_response(pain_reports=[pain_report], locale="en", translator=translator)
+    response = get_knowledge_panel_response(pain_report=pain_report, locale="en", translator=translator)
 
     # Verify response structure
     assert "root" in response.panels
@@ -127,7 +127,7 @@ def test_get_knowledge_panel_response_missing_quantity(pain_report_missing_quant
     translator = I18N().get_translator(locale="en")
 
     response = get_knowledge_panel_response(
-        pain_reports=[pain_report_missing_quantity], locale="en", translator=translator
+        pain_report=pain_report_missing_quantity, locale="en", translator=translator
     )
 
     # Verify response structure
