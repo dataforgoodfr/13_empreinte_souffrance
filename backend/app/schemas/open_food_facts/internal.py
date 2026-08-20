@@ -43,8 +43,18 @@ class AnimalPainReport(BaseModel):
         )
 
 
+class Scenario(BaseModel):
+    """
+    A fixed combination of (breeding type, quantity) for every animal computed in the product,
+    at the same time. Most products have exactly one scenario. Several scenarios appear only
+    when breeding type or quantity varies from one batch to another for the same barcode.
+    """
+
+    animal_pain_reports: List[AnimalPainReport]
+
+
 class PainReport(BaseModel):
-    animal_pain_reports: List[AnimalPainReport] = []
+    scenarios: List[Scenario] = []
     product_name: str | None
     product_image_url: HttpUrl | None = None
     product_type: ProductType

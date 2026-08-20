@@ -88,19 +88,19 @@ def test_generate_pain_levels_for_type_missing_quantity(
 
 
 def test_get_pain_reports(sample_product_data: ProductData):
-    """Test generating pain reports for sample product data"""
+    """Test generating a pain report for sample product data"""
 
     calculator = PainReportCalculator(sample_product_data)
-    pain_reports = calculator.get_pain_reports()
-    assert len(pain_reports) > 0
-    pain_report = pain_reports[0]
+    pain_report = calculator.get_pain_reports()
+    assert len(pain_report.scenarios) > 0
+    scenario = pain_report.scenarios[0]
 
-    # Verify that the pain report contains the expected animal type
-    assert len(pain_report.animal_pain_reports) > 0
-    assert (pain_report.animal_pain_reports[0]).animal_type == AnimalType.LAYING_HEN
+    # Verify that the scenario contains the expected animal type
+    assert len(scenario.animal_pain_reports) > 0
+    assert (scenario.animal_pain_reports[0]).animal_type == AnimalType.LAYING_HEN
 
     # Verify that pain levels are generated
-    assert len((pain_report.animal_pain_reports[0]).pain_levels) > 0
+    assert len((scenario.animal_pain_reports[0]).pain_levels) > 0
 
 
 def test_get_pain_report_missing_quantity(sample_product_data: ProductData):
@@ -109,13 +109,13 @@ def test_get_pain_report_missing_quantity(sample_product_data: ProductData):
     sample_product_data.product_quantity = None
 
     calculator = PainReportCalculator(sample_product_data)
-    pain_reports = calculator.get_pain_reports()
-    assert len(pain_reports) > 0
-    pain_report = pain_reports[0]
+    pain_report = calculator.get_pain_reports()
+    assert len(pain_report.scenarios) > 0
+    scenario = pain_report.scenarios[0]
 
-    # Verify that the pain report contains the expected animal type
-    assert len(pain_report.animal_pain_reports) > 0
-    assert pain_report.animal_pain_reports[0].animal_type == AnimalType.LAYING_HEN
+    # Verify that the scenario contains the expected animal type
+    assert len(scenario.animal_pain_reports) > 0
+    assert scenario.animal_pain_reports[0].animal_type == AnimalType.LAYING_HEN
 
     # Verify that pain levels are still given (for one egg)
-    assert len(pain_report.animal_pain_reports[0].pain_levels) == 8
+    assert len(scenario.animal_pain_reports[0].pain_levels) == 8

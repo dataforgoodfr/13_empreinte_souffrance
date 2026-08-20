@@ -49,14 +49,12 @@ async def knowledge_panel(request: Request, barcode: str):
     logger.info(f"Getting knowledge panel for product {barcode} (locale: {locale})")
 
     try:
-        pain_reports = await get_pain_reports(barcode=barcode, locale=locale)
+        pain_report = await get_pain_reports(barcode=barcode, locale=locale)
     except (ResourceNotFoundException, ExternalServiceException):
         # Will be handled by the middleware, no need for additional processing here
         raise
 
-    response = get_knowledge_panel_response(
-        pain_reports=pain_reports, locale=locale, translator=request.state.translator
-    )
+    response = get_knowledge_panel_response(pain_report=pain_report, locale=locale, translator=request.state.translator)
 
     # Cache the response for 1 day (86400 seconds)
     knowledge_panel_cache.set(cache_key, response, ttl_seconds=86400)
@@ -107,15 +105,15 @@ async def knowledge_panels_batch(
             barcodes_to_fetch.append(barcode)
 
     if barcodes_to_fetch:
-        pain_reports = await get_pain_reports_batch(barcodes=barcodes_to_fetch, locale=locale)
+        pain_reports_by_barcode = await get_pain_reports_batch(barcodes=barcodes_to_fetch, locale=locale)
 
-        for barcode, result in pain_reports.items():
+        for barcode, result in pain_reports_by_barcode.items():
             if isinstance(result, BaseException):
                 logger.warning(f"Failed to get pain report for product {barcode}: {result}")
                 errors[barcode] = str(result)
             else:
                 response = get_knowledge_panel_response(
-                    pain_reports=result, translator=request.state.translator, locale=locale
+                    pain_report=result, translator=request.state.translator, locale=locale
                 )
                 cache_key = f"knowledge_panel:{barcode}:{locale}"
                 knowledge_panel_cache.set(cache_key, response, ttl_seconds=86400)

@@ -30,7 +30,7 @@ def test_knowledge_panel_generator(
     translator = I18N().get_translator(locale="en")
 
     # Create generator and test individual methods
-    generator = EggKnowledgePanelGenerator(pain_reports=[pain_report], locale="en", translator=translator)
+    generator = EggKnowledgePanelGenerator(pain_report=pain_report, locale="en", translator=translator)
 
     # Test root panel
     root_panel = generator._create_root_panel(["project_panel"])
@@ -65,9 +65,7 @@ def test_knowledge_panel_generator_missing_quantity(pain_report_missing_quantity
     translator = I18N().get_translator(locale="en")
 
     # Create generator and test individual methods
-    generator = EggKnowledgePanelGenerator(
-        pain_reports=[pain_report_missing_quantity], locale="en", translator=translator
-    )
+    generator = EggKnowledgePanelGenerator(pain_report=pain_report_missing_quantity, locale="en", translator=translator)
 
     # Test root panel
     root_panel = generator._create_root_panel([])
