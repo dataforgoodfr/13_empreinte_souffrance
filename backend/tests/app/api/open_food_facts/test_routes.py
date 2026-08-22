@@ -51,7 +51,7 @@ async def test_knowledge_panel_cache_miss_then_hit(async_client: AsyncClient, sa
     mock_response_data = {"product": sample_product_data}
     mock_response = AsyncMock()
     mock_response.json = MagicMock(return_value=mock_response_data)
-    mock_response.raise_for_status = AsyncMock(return_value=None)
+    mock_response.raise_for_status = Mock(return_value=None)
 
     with patch(
         "app.business.open_food_facts.knowledge_panel_service.get_with_retry", new_callable=AsyncMock
@@ -87,7 +87,7 @@ async def test_knowledge_panel_cache_different_locales(async_client: AsyncClient
     mock_response_data = {"product": sample_product_data}
     mock_response = AsyncMock()
     mock_response.json = MagicMock(return_value=mock_response_data)
-    mock_response.raise_for_status = AsyncMock(return_value=None)
+    mock_response.raise_for_status = Mock(return_value=None)
 
     with patch(
         "app.business.open_food_facts.knowledge_panel_service.get_with_retry", new_callable=AsyncMock
@@ -127,7 +127,7 @@ async def test_knowledge_panel_cache_different_barcodes(async_client: AsyncClien
     mock_response_data = {"product": sample_product_data}
     mock_response = AsyncMock()
     mock_response.json = MagicMock(return_value=mock_response_data)
-    mock_response.raise_for_status = AsyncMock(return_value=None)
+    mock_response.raise_for_status = Mock(return_value=None)
 
     with patch(
         "app.business.open_food_facts.knowledge_panel_service.get_with_retry", new_callable=AsyncMock

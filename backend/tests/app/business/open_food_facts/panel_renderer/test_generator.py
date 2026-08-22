@@ -85,3 +85,24 @@ def test_knowledge_panel_generator_missing_quantity(pain_report_missing_quantity
     response = generator.get_response()
     assert "root" in list(response.panels.keys())
     assert "project_panel" in list(response.panels.keys())
+
+
+def test_knowledge_panel_generator_missing_quantity_does_not_mutate_original_pain_report(
+    pain_report_missing_quantity: PainReport,
+):
+    """
+    Regression test: rendering a panel for a report with a missing quantity builds an
+    internal mock with a placeholder quantity (so pain can still be calculated for display).
+    That mock must be a deep copy - building it must never mutate the original
+    AnimalPainReport's breeding_type_and_quantity.quantity, which has to stay None.
+    """
+    original_quantity = (
+        pain_report_missing_quantity.scenarios[0].animal_pain_reports[0].breeding_type_and_quantity.quantity
+    )
+    assert original_quantity is None
+
+    translator = I18N().get_translator(locale="en")
+    generator = EggKnowledgePanelGenerator(pain_report=pain_report_missing_quantity, locale="en", translator=translator)
+    generator.get_response()
+
+    assert pain_report_missing_quantity.scenarios[0].animal_pain_reports[0].breeding_type_and_quantity.quantity is None

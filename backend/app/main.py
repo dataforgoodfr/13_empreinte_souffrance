@@ -1,3 +1,5 @@
+from contextlib import asynccontextmanager
+
 import uvicorn
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
@@ -14,10 +16,18 @@ from app.config.middlewares import (
 setup_logging()
 
 
+@asynccontextmanager
+async def lifespan(app: FastAPI):
+    yield
+    # close connections
+    await close_http_client()
+
+
 # Create FastAPI app
 app = FastAPI(
     title="Suffering Footprint API",
     description="API for calculating and displaying the suffering footprint of food products",
+    lifespan=lifespan,
 )
 
 
@@ -46,12 +56,6 @@ async def health_check():
 
 # Include API routes
 app.include_router(off_router, prefix="/off/v1", tags=["Open Food Facts"])
-
-
-# close connections
-@app.on_event("shutdown")
-async def shutdown_event():
-    await close_http_client()
 
 
 # Go in the app folder and run the server with: uvicorn main:app --reload
