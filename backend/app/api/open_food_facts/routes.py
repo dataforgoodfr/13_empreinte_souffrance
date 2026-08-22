@@ -87,7 +87,9 @@ async def knowledge_panels_batch(
         KnowledgePanelBatchResponse with 'panels' (successes) and 'errors' (failures)
     """
     locale = request.state.locale
-    barcode_list = [b.strip() for b in code.split(",") if b.strip()]
+    # dict.fromkeys(...) dedupes while preserving order; a repeated barcode must not
+    # trigger a redundant OFF fetch nor a duplicate cache write.
+    barcode_list = list(dict.fromkeys(b.strip() for b in code.split(",") if b.strip()))
 
     logger.info(f"Getting knowledge panels for {len(barcode_list)} products (locale: {locale})")
 
