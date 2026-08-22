@@ -293,3 +293,107 @@ async def test_knowledge_panels_batch_deduplicates_repeated_barcode(
     assert response.status_code == 200
     assert list(response.json()["panels"].keys()) == ["111111111"]
     assert mock_get.call_count == 1
+
+
+@pytest.mark.asyncio
+async def test_knowledge_panel_head_request_returns_no_body(
+    async_client: AsyncClient, sample_product_data: ProductData
+):
+    """Test that a HEAD request returns a 200 with an empty body, on a cache miss"""
+    knowledge_panel_cache.clear()
+
+    mock_response_data = {"product": sample_product_data}
+    mock_response = AsyncMock()
+    mock_response.json = MagicMock(return_value=mock_response_data)
+    mock_response.raise_for_status = Mock(return_value=None)
+
+    with patch(
+        "app.business.open_food_facts.knowledge_panel_service.get_with_retry", new_callable=AsyncMock
+    ) as mock_get:
+        mock_get.return_value = mock_response
+        response = await async_client.head("/off/v1/knowledge-panel/123456789")
+
+    assert response.status_code == 200
+    assert response.content == b""
+
+
+@pytest.mark.asyncio
+async def test_knowledge_panel_head_request_returns_no_body_on_cache_hit(
+    async_client: AsyncClient, sample_product_data: ProductData
+):
+    """Test that a HEAD request also returns an empty body when served from cache"""
+    knowledge_panel_cache.clear()
+
+    mock_response_data = {"product": sample_product_data}
+    mock_response = AsyncMock()
+    mock_response.json = MagicMock(return_value=mock_response_data)
+    mock_response.raise_for_status = Mock(return_value=None)
+
+    with patch(
+        "app.business.open_food_facts.knowledge_panel_service.get_with_retry", new_callable=AsyncMock
+    ) as mock_get:
+        mock_get.return_value = mock_response
+        # Warm the cache with a GET first
+        await async_client.get("/off/v1/knowledge-panel/123456789")
+
+        response = await async_client.head("/off/v1/knowledge-panel/123456789")
+
+    assert response.status_code == 200
+    assert response.content == b""
+
+
+@pytest.mark.asyncio
+async def test_knowledge_panels_batch_with_empty_code_param_returns_empty_result(async_client: AsyncClient):
+    """Test that an empty 'code' query param yields empty panels/errors instead of erroring out"""
+    knowledge_panel_cache.clear()
+
+    response = await async_client.get("/off/v1/knowledge-panel/?code=")
+
+    assert response.status_code == 200
+    body = response.json()
+    assert body["panels"] == {}
+    assert body["errors"] == {}
+
+
+@pytest.mark.asyncio
+async def test_knowledge_panels_batch_ignores_blank_entries_between_commas(
+    async_client: AsyncClient, sample_product_data: ProductData
+):
+    """Test that stray commas/whitespace in the 'code' param don't produce spurious barcodes"""
+    knowledge_panel_cache.clear()
+
+    mock_response_data = {"product": sample_product_data}
+    mock_response = AsyncMock()
+    mock_response.json = MagicMock(return_value=mock_response_data)
+    mock_response.raise_for_status = Mock(return_value=None)
+
+    with patch(
+        "app.business.open_food_facts.knowledge_panel_service.get_with_retry", new_callable=AsyncMock
+    ) as mock_get:
+        mock_get.return_value = mock_response
+        response = await async_client.get("/off/v1/knowledge-panel/?code=111111111,, ,222222222,")
+
+    assert response.status_code == 200
+    body = response.json()
+    assert set(body["panels"].keys()) == {"111111111", "222222222"}
+
+
+@pytest.mark.asyncio
+async def test_knowledge_panel_falls_back_to_default_locale_when_unsupported(
+    async_client: AsyncClient, sample_product_data: ProductData
+):
+    """Test that an unsupported Accept-Language header falls back to the default locale rather than erroring"""
+    knowledge_panel_cache.clear()
+
+    mock_response_data = {"product": sample_product_data}
+    mock_response = AsyncMock()
+    mock_response.json = MagicMock(return_value=mock_response_data)
+    mock_response.raise_for_status = Mock(return_value=None)
+
+    with patch(
+        "app.business.open_food_facts.knowledge_panel_service.get_with_retry", new_callable=AsyncMock
+    ) as mock_get:
+        mock_get.return_value = mock_response
+        response = await async_client.get("/off/v1/knowledge-panel/123456789", headers={"Accept-Language": "de-DE"})
+
+    assert response.status_code == 200

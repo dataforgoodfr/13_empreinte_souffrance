@@ -28,6 +28,7 @@ dependencies = [
 [dependency-groups]
 dev = [
     "pytest>=8.3.4,<9",
+    "pytest-cov>=6.0.0,<7",
     "tox>=4.24.1,<5",
     "pre-commit>=4.1.0,<5",
     "httpx>=0.28.1,<0.29",
@@ -105,3 +106,15 @@ exclude = [
 
 [tool.ruff.lint.mccabe]
 max-complexity = 10
+
+[tool.pytest.ini_options]
+addopts = "--cov=app --cov-report=term-missing --cov-fail-under=80"
+
+[tool.coverage.run]
+source = ["app"]
+
+[tool.coverage.report]
+exclude_lines = [
+    "pragma: no cover",
+    "if __name__ == .__main__.:",
+]
