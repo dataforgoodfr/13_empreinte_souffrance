@@ -230,7 +230,11 @@ class EggKnowledgePanelGenerator:
                 elements += self._create_element_from_html("no_breeding_type.html")
                 return elements
 
-            mock = apr.copy()
+            # NOTE: model_copy(deep=True) is required here, not the shallow default.
+            # A shallow copy would leave `breeding_type_and_quantity` pointing at the
+            # same nested object as `apr`, so mutating the mock's quantity below would
+            # silently corrupt the original AnimalPainReport too.
+            mock = apr.model_copy(deep=True)
             mock.breeding_type_and_quantity.quantity = EggQuantity.from_count(1)
             elements += self._create_egg_footprint_element(mock)
             return elements
