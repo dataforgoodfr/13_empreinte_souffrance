@@ -1,18 +1,10 @@
 {
-  "lastUpdated": "2026-10-07T23:55:53Z",
+  "lastUpdated": "2026-10-08T00:27:03Z",
   "sites": [
     {
       "name": "L'heure des comptes",
       "currentStatus": "down",
       "days": [
-        {
-          "date": "2026-07-10",
-          "total": 31,
-          "ok": 31,
-          "responseTimeSum": 5125,
-          "uptime": 100,
-          "responseTime": 165.32258064516128
-        },
         {
           "date": "2026-07-11",
           "total": 48,
@@ -724,6 +716,14 @@
           "responseTimeSum": 0,
           "uptime": 0,
           "responseTime": 0
+        },
+        {
+          "date": "2026-10-08",
+          "total": 1,
+          "ok": 0,
+          "responseTimeSum": 0,
+          "uptime": 0,
+          "responseTime": 0
         }
       ]
     },
@@ -731,14 +731,6 @@
       "name": "API",
       "currentStatus": "down",
       "days": [
-        {
-          "date": "2026-07-10",
-          "total": 31,
-          "ok": 31,
-          "responseTimeSum": 4140,
-          "uptime": 100,
-          "responseTime": 133.5483870967742
-        },
         {
           "date": "2026-07-11",
           "total": 48,
@@ -1450,6 +1442,14 @@
           "responseTimeSum": 0,
           "uptime": 0,
           "responseTime": 0
+        },
+        {
+          "date": "2026-10-08",
+          "total": 1,
+          "ok": 0,
+          "responseTimeSum": 0,
+          "uptime": 0,
+          "responseTime": 0
         }
       ]
     },
@@ -1457,14 +1457,6 @@
       "name": "Carte interactive (embed)",
       "currentStatus": "down",
       "days": [
-        {
-          "date": "2026-07-10",
-          "total": 31,
-          "ok": 31,
-          "responseTimeSum": 4149,
-          "uptime": 100,
-          "responseTime": 133.83870967741936
-        },
         {
           "date": "2026-07-11",
           "total": 48,
@@ -2172,6 +2164,14 @@
         {
           "date": "2026-10-07",
           "total": 89,
+          "ok": 0,
+          "responseTimeSum": 0,
+          "uptime": 0,
+          "responseTime": 0
+        },
+        {
+          "date": "2026-10-08",
+          "total": 1,
           "ok": 0,
           "responseTimeSum": 0,
           "uptime": 0,
