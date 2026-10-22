@@ -1,8 +1,6 @@
-version: "3.8"
-
 services:
   traefik:
-    image: traefik:v3.4.0
+    image: traefik:v3.7.16
     deploy:
       mode: global
       placement:
@@ -12,7 +10,11 @@ services:
         - "traefik.enable=true"
         - "traefik.http.routers.dashboard.rule=Host(${HOST_URL})"
         - "traefik.http.routers.dashboard.service=api@internal"
-        - "traefik.http.routers.dashboard.tls.certresolver=wildcardresolver"
+        - "traefik.http.routers.dashboard.entrypoints=websecure"
+        - "traefik.http.routers.dashboard.tls.certresolver=httpresolver"
+        - "traefik.http.routers.dashboard.tls.domains[0].main=${HOST_URL}"
+        - "traefik.http.routers.dashboard.middlewares=dashboard-auth"
+        - "traefik.http.middlewares.dashboard-auth.basicauth.users=${TRAEFIK_DASHBOARD_CREDENTIALS}"
         - "traefik.http.services.traefik.loadbalancer.server.port=8080"
         - "traefik.http.routers.http-catchall.rule=HostRegexp(`.+`)"
         - "traefik.http.routers.http-catchall.entrypoints=web"
@@ -22,12 +24,11 @@ services:
         - "traefik.http.routers.www-redirect.rule=Host(`www.${DOMAIN}`)"
         - "traefik.http.routers.www-redirect.entrypoints=websecure"
         - "traefik.http.routers.www-redirect.tls=true"
+        - "traefik.http.routers.www-redirect.tls.certresolver=httpresolver"
         - "traefik.http.routers.www-redirect.middlewares=redirect-www-to-naked"
         - "traefik.http.middlewares.redirect-www-to-naked.redirectregex.regex=^https://www\\.(.+)"
         - "traefik.http.middlewares.redirect-www-to-naked.redirectregex.replacement=https://$${1}"
         - "traefik.http.middlewares.redirect-www-to-naked.redirectregex.permanent=true"
-    environment:
-      - INFOMANIAK_ACCESS_TOKEN=${INFOMANIAK_ACCESS_TOKEN}
     command:
       - "--providers.docker=true"
       - "--providers.docker.exposedbydefault=false"
@@ -35,16 +36,9 @@ services:
       - "--providers.swarm.exposedbydefault=false"
       - "--entrypoints.web.address=:80"
       - "--entrypoints.websecure.address=:443"
-      - "--certificatesresolvers.wildcardresolver.acme.email=${LETSENCRYPT_EMAIL}"
-      - "--certificatesresolvers.wildcardresolver.acme.storage=/certificates/acme.json"
-      - "--certificatesresolvers.wildcardresolver.acme.dnschallenge.provider=infomaniak"
-      - "--certificatesresolvers.wildcardresolver.acme.dnschallenge.delaybeforecheck=60"
-      - "--certificatesresolvers.wildcardresolver.acme.certificatesduration=720"
-      - "--entrypoints.websecure.http.tls.certresolver=wildcardresolver"
-      - "--entrypoints.websecure.http.tls.domains[0].main=lheuredescomptes.org"
-      - "--entrypoints.websecure.http.tls.domains[0].sans=*.lheuredescomptes.org"
-      - "--entrypoints.websecure.http.tls.domains[1].main=staging.lheuredescomptes.org"
-      - "--entrypoints.websecure.http.tls.domains[1].sans=*.staging.lheuredescomptes.org"
+      - "--certificatesresolvers.httpresolver.acme.email=${LETSENCRYPT_EMAIL}"
+      - "--certificatesresolvers.httpresolver.acme.storage=/certificates/acme-http.json"
+      - "--certificatesresolvers.httpresolver.acme.httpchallenge.entrypoint=web"
       - "--api.dashboard=true"
     volumes:
       - traefik-certificates:/certificates
