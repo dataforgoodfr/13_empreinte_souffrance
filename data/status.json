@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-11-04T14:23:20Z",
+  "lastUpdated": "2026-11-04T14:29:35Z",
   "sites": [
     {
       "name": "L'heure des comptes",
@@ -719,11 +719,11 @@
         },
         {
           "date": "2026-11-04",
-          "total": 100,
-          "ok": 100,
-          "responseTimeSum": 16382,
+          "total": 101,
+          "ok": 101,
+          "responseTimeSum": 16560,
           "uptime": 100,
-          "responseTime": 163.82
+          "responseTime": 163.96039603960395
         }
       ]
     },
@@ -1445,11 +1445,11 @@
         },
         {
           "date": "2026-11-04",
-          "total": 100,
-          "ok": 100,
-          "responseTimeSum": 13203,
+          "total": 101,
+          "ok": 101,
+          "responseTimeSum": 13369,
           "uptime": 100,
-          "responseTime": 132.03
+          "responseTime": 132.36633663366337
         }
       ]
     },
@@ -2171,11 +2171,11 @@
         },
         {
           "date": "2026-11-04",
-          "total": 100,
-          "ok": 100,
-          "responseTimeSum": 13628,
+          "total": 101,
+          "ok": 101,
+          "responseTimeSum": 13796,
           "uptime": 100,
-          "responseTime": 136.28
+          "responseTime": 136.59405940594058
         }
       ]
     }
